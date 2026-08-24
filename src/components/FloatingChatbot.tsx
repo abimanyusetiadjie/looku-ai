@@ -1,0 +1,537 @@
+"use client";
+
+import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
+import { Sparkles, X, Send, Camera, ArrowUpRight, ShoppingBag, ImagePlus, Video } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import LiveCameraModal from "./LiveCameraModal";
+
+interface VisualCard {
+  title: string;
+  topName: string;
+  topImg: string;
+  topPrice: string;
+  bottomName: string;
+  bottomImg: string;
+  bottomPrice: string;
+  shopeeUrl: string;
+  tokpedUrl: string;
+}
+
+interface Message {
+  id: string;
+  sender: "user" | "stylist";
+  text: string;
+  userImage?: string;
+  visualCard?: VisualCard;
+  timestamp: string;
+}
+
+export default function FloatingChatbot() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [inputMessage, setInputMessage] = useState("");
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [showPhotoOptions, setShowPhotoOptions] = useState(false);
+  const [isLiveCameraOpen, setIsLiveCameraOpen] = useState(false);
+
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      id: "msg_welcome",
+      sender: "stylist",
+      text: "Halo kak! Aku Stylist Pribadi look.u ✨\n\nKamu bisa tanya seputar mix & match, atau coba klik icon kamera 📷 di bawah untuk foto selfie langsung / upload baju agar aku analisa warnanya!\n\n🔒 Foto diproses privat oleh AI dan langsung dihapus. Tidak disimpan di server publik.",
+      timestamp: "Baru saja",
+    },
+  ]);
+
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const quickQuestions = [
+    "📸 Foto selfie & analisa warna kulit",
+    "Warna baju glowing buat Sawo Matang?",
+    "Outfit kondangan outdoor yang adem?",
+    "Mix & match kemeja linen oversized",
+  ];
+
+  useEffect(() => {
+    if (isOpen) {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages, isOpen]);
+
+  // Client-side image compression to <300KB
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const img = document.createElement("img");
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        const MAX_WIDTH = 900;
+        const scaleSize = MAX_WIDTH / Math.max(img.width, img.height);
+        const targetWidth = img.width > MAX_WIDTH ? img.width * scaleSize : img.width;
+        const targetHeight = img.width > MAX_WIDTH ? img.height * scaleSize : img.height;
+
+        canvas.width = targetWidth;
+        canvas.height = targetHeight;
+        const ctx = canvas.getContext("2d");
+        ctx?.drawImage(img, 0, 0, targetWidth, targetHeight);
+
+        const compressedBase64 = canvas.toDataURL("image/jpeg", 0.82);
+        setSelectedImage(compressedBase64);
+      };
+      img.src = event.target?.result as string;
+    };
+    reader.readAsDataURL(file);
+    setShowPhotoOptions(false);
+  };
+
+  const handleCaptureFromLiveCamera = (base64Image: string) => {
+    setSelectedImage(base64Image);
+    setShowPhotoOptions(false);
+  };
+
+  const handleSendMessage = async (textToSend?: string) => {
+    const message = textToSend || inputMessage;
+    const hasImage = !!selectedImage;
+
+    if (!message.trim() && !hasImage) return;
+    if (loading) return;
+
+    const currentImage = selectedImage;
+    const userMsg: Message = {
+      id: `usr_${Date.now()}`,
+      sender: "user",
+      text: message.trim() || (hasImage ? "Tolong analisis fotoku dan rekomendasikan baju + celana yang cocok ya!" : ""),
+      userImage: currentImage || undefined,
+      timestamp: "Baru saja",
+    };
+
+    setMessages((prev) => [...prev, userMsg]);
+    if (!textToSend) setInputMessage("");
+    setSelectedImage(null);
+    setShowPhotoOptions(false);
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message: userMsg.text,
+          imageBase64: currentImage,
+          imageMimeType: "image/jpeg",
+          history: messages.map((m) => ({
+            role: m.sender === "stylist" ? "assistant" : "user",
+            text: m.text,
+          })),
+        }),
+      });
+
+      const data = await res.json();
+      const stylistMsg: Message = {
+        id: `sty_${Date.now()}`,
+        sender: "stylist",
+        text: data.reply || "Ada yang bisa aku bantu lagi seputar outfitmu kak?",
+        visualCard: data.visualCard,
+        timestamp: "Baru saja",
+      };
+
+      setMessages((prev) => [...prev, stylistMsg]);
+    } catch (err) {
+      console.error("Chat error:", err);
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: `sty_${Date.now()}`,
+          sender: "stylist",
+          text: "Koneksi agak lambat atau server sibuk. AI tetap merekomendasikan formula dasar: Katun Rayon Sage + Linen Pants. Klik 'Coba Ulang' di bawah!",
+          timestamp: "Baru saja",
+        },
+      ]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <>
+      {/* Floating Trigger Button */}
+      <div className="fixed bottom-20 md:bottom-8 right-4 md:right-8 z-50 pointer-events-auto">
+        <AnimatePresence>
+          {!isOpen && (
+            <motion.button
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setIsOpen(true)}
+              aria-label="Tanya Stylist"
+              className="py-3 px-4 sm:px-5 rounded-full bg-[#181A18] hover:bg-terracotta-500 text-white shadow-2xl border border-white/15 flex items-center gap-2.5 transition-all group"
+            >
+              <div className="relative">
+                <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-terracotta-400 group-hover:text-white transition-colors">
+                  <Sparkles className="w-4 h-4" />
+                </div>
+                <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 animate-pulse border border-[#181A18]" />
+              </div>
+              <div className="text-left">
+                <div className="text-xs font-bold tracking-tight text-[#FAF8F5] flex items-baseline">
+                  Tanya Stylist <span className="font-serif italic ml-1">look<span className="text-terracotta-500 not-italic">.</span>u</span>
+                </div>
+                <div className="text-[9px] font-mono text-[#A89582] group-hover:text-white/80 uppercase">
+                  Kamera & Scan Foto AI
+                </div>
+              </div>
+            </motion.button>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* Floating Chat Drawer Window */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 30 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            className="fixed bottom-20 md:bottom-8 right-3 md:right-8 z-50 w-[94vw] sm:w-[410px] h-[560px] max-h-[85vh] bg-[#FAF8F5] rounded-3xl shadow-2xl border border-[#D7CABC] flex flex-col overflow-hidden"
+          >
+            {/* Chat Header */}
+            <div className="p-4 bg-[#181A18] text-[#FAF8F5] flex items-center justify-between border-b border-white/10 shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="relative w-8 h-8 rounded-full bg-terracotta-500 text-white flex items-center justify-center shadow-sm">
+                  <Sparkles className="w-4 h-4" />
+                  <span className="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-500 border border-[#181A18]" />
+                </div>
+                <div>
+                  <div className="font-serif font-bold text-sm text-white flex items-baseline">
+                    Stylist Pribadi <span className="italic ml-1">look<span className="text-terracotta-400 not-italic">.</span>u</span>
+                  </div>
+                  <div className="text-[9px] font-mono text-[#D7CABC] uppercase tracking-wider">
+                    Online • Kamera & Vision AI
+                  </div>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setIsOpen(false)}
+                className="p-1.5 rounded-full text-[#A89582] hover:text-white hover:bg-white/10 transition-colors"
+                title="Tutup Obrolan"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Chat Messages List */}
+            <div className="flex-1 p-4 overflow-y-auto space-y-4 text-xs">
+              {messages.map((m) => {
+                const isUser = m.sender === "user";
+                return (
+                  <div
+                    key={m.id}
+                    className={`flex flex-col ${isUser ? "items-end" : "items-start"}`}
+                  >
+                    {/* User Uploaded Image Preview in bubble */}
+                    {m.userImage && (
+                      <div className="relative w-36 h-48 rounded-2xl overflow-hidden mb-1.5 border-2 border-[#181A18] shadow-md">
+                        <Image
+                          src={m.userImage}
+                          alt="Uploaded by user"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
+
+                    {/* Message Bubble Text */}
+                    {m.text && (
+                      <div
+                        className={`max-w-[88%] p-3.5 rounded-2xl leading-relaxed whitespace-pre-line ${
+                          isUser
+                            ? "bg-[#181A18] text-[#FAF8F5] rounded-br-none shadow-sm"
+                            : "bg-white text-[#181A18] border border-[#E8DFD1] rounded-bl-none shadow-sm"
+                        }`}
+                      >
+                        {m.text}
+                      </div>
+                    )}
+
+                    {/* Rich Visual Recommendation Card from Stylist (Top + Bottom) */}
+                    {m.visualCard && (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        className="mt-2 w-full max-w-[92%] bg-white rounded-2xl p-3.5 border border-[#D7CABC] shadow-md space-y-3"
+                      >
+                        <div className="flex items-center justify-between border-b border-[#E8DFD1] pb-2">
+                          <div className="flex items-center gap-1 text-[10px] font-mono font-bold uppercase text-terracotta-600">
+                            <ShoppingBag className="w-3 h-3" />
+                            <span>{m.visualCard.title}</span>
+                          </div>
+                          <span className="text-[9px] font-mono text-[#A89582] uppercase">
+                            MATCHED
+                          </span>
+                        </div>
+
+                        {/* Top & Bottom Side-by-Side Visuals */}
+                        <div className="grid grid-cols-2 gap-2">
+                          {/* Top Item */}
+                          <div className="bg-[#FAF8F5] rounded-xl p-2 border border-[#E8DFD1] space-y-1.5">
+                            <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-[#E8DFD1]">
+                              <Image
+                                src={m.visualCard.topImg}
+                                alt={m.visualCard.topName}
+                                fill
+                                className="object-cover"
+                              />
+                            </div>
+                            <div>
+                              <div className="text-[8px] font-mono text-[#A89582] uppercase">ATASAN</div>
+                              <div className="font-bold text-[10px] text-[#181A18] line-clamp-1">
+                                {m.visualCard.topName}
+                              </div>
+                              <div className="text-[9px] font-mono text-terracotta-600 font-bold">
+                                {m.visualCard.topPrice}
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Bottom Item */}
+                          <div className="bg-[#FAF8F5] rounded-xl p-2 border border-[#E8DFD1] space-y-1.5">
+                            <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-[#E8DFD1]">
+                              <Image
+                                src={m.visualCard.bottomImg}
+                                alt={m.visualCard.bottomName}
+                                fill
+                                className="object-cover"
+                              />
+                            </div>
+                            <div>
+                              <div className="text-[8px] font-mono text-[#A89582] uppercase">BAWAHAN</div>
+                              <div className="font-bold text-[10px] text-[#181A18] line-clamp-1">
+                                {m.visualCard.bottomName}
+                              </div>
+                              <div className="text-[9px] font-mono text-terracotta-600 font-bold">
+                                {m.visualCard.bottomPrice}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Shop Actions */}
+                        <div className="flex items-center gap-2 pt-1">
+                          <a
+                            href={m.visualCard.shopeeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 py-2 rounded-xl bg-white hover:bg-orange-500 hover:text-white border border-[#D7CABC] hover:border-orange-500 text-center font-bold text-[10px] uppercase transition-all flex items-center justify-center gap-1 shadow-2xs"
+                          >
+                            <span>Shopee</span>
+                            <ArrowUpRight className="w-3 h-3" />
+                          </a>
+                          <a
+                            href={m.visualCard.tokpedUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 py-2 rounded-xl bg-white hover:bg-emerald-600 hover:text-white border border-[#D7CABC] hover:border-emerald-600 text-center font-bold text-[10px] uppercase transition-all flex items-center justify-center gap-1 shadow-2xs"
+                          >
+                            <span>Tokopedia</span>
+                            <ArrowUpRight className="w-3 h-3" />
+                          </a>
+                        </div>
+                      </motion.div>
+                    )}
+
+                    <span className="text-[9px] font-mono text-[#A89582] mt-1 px-1">
+                      {m.timestamp}
+                    </span>
+                  </div>
+                );
+              })}
+
+              {loading && (
+                <div className="flex items-center gap-2 p-3 bg-white rounded-2xl border border-[#E8DFD1] max-w-[80%] text-[#181A18]/70 shadow-xs">
+                  <div className="w-2 h-2 rounded-full bg-terracotta-500 animate-bounce" />
+                  <div className="w-2 h-2 rounded-full bg-terracotta-500 animate-bounce [animation-delay:0.2s]" />
+                  <div className="w-2 h-2 rounded-full bg-terracotta-500 animate-bounce [animation-delay:0.4s]" />
+                  <span className="text-[10px] font-mono ml-1">
+                    {selectedImage ? "Menganalisis foto & warna kulit..." : "Stylist sedang mengetik..."}
+                  </span>
+                </div>
+              )}
+
+              <div ref={messagesEndRef} />
+            </div>
+
+            {/* Quick Suggestion Chips */}
+            <div className="px-3 py-2 bg-[#F4EFE6] border-t border-[#E8DFD1] flex items-center gap-1.5 overflow-x-auto no-scrollbar shrink-0">
+              {quickQuestions.map((q, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => {
+                    if (q.includes("Foto selfie")) {
+                      setIsLiveCameraOpen(true);
+                    } else {
+                      handleSendMessage(q);
+                    }
+                  }}
+                  className="px-2.5 py-1 rounded-full bg-white border border-[#D7CABC] hover:border-[#181A18] text-[10px] text-[#181A18] font-medium whitespace-nowrap shrink-0 transition-all shadow-2xs"
+                >
+                  {q}
+                </button>
+              ))}
+            </div>
+
+            {/* Attached Image Preview Chip before sending */}
+            {selectedImage && (
+              <div className="px-3 py-1.5 bg-[#FAF8F5] border-t border-[#E8DFD1] flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-[#181A18]">
+                    <Image src={selectedImage} alt="Preview" fill className="object-cover" />
+                  </div>
+                  <span className="text-[10px] font-mono text-[#181A18] font-bold">
+                    Foto Siap Dipindai ✨
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setSelectedImage(null)}
+                  className="p-1 rounded-full hover:bg-rose-100 text-rose-600"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            )}
+
+            {/* Photo Selection Mini Popover Menu */}
+            <AnimatePresence>
+              {showPhotoOptions && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                  className="p-2.5 bg-white border-t border-[#E8DFD1] shadow-md flex flex-col gap-2"
+                >
+                  <div className="grid grid-cols-2 gap-2">
+                    {/* Option 1: Live Camera Modal */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setShowPhotoOptions(false);
+                        setIsLiveCameraOpen(true);
+                      }}
+                      className="p-2.5 rounded-xl bg-[#FAF8F5] hover:bg-[#F4EFE6] border border-[#E8DFD1] text-[#181A18] flex items-center gap-2 transition-colors text-left"
+                    >
+                      <div className="w-7 h-7 rounded-lg bg-terracotta-500 text-white flex items-center justify-center shrink-0">
+                        <Camera className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <div className="font-bold text-[11px]">Kamera Langsung</div>
+                        <div className="text-[9px] text-[#A89582]">Jepret selfie / baju</div>
+                      </div>
+                    </button>
+
+                    {/* Option 2: Gallery Picker */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setShowPhotoOptions(false);
+                        fileInputRef.current?.click();
+                      }}
+                      className="p-2.5 rounded-xl bg-[#FAF8F5] hover:bg-[#F4EFE6] border border-[#E8DFD1] text-[#181A18] flex items-center gap-2 transition-colors text-left"
+                    >
+                      <div className="w-7 h-7 rounded-lg bg-[#181A18] text-white flex items-center justify-center shrink-0">
+                        <ImagePlus className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <div className="font-bold text-[11px]">Pilih dari Galeri</div>
+                        <div className="text-[9px] text-[#A89582]">Upload foto tersimpan</div>
+                      </div>
+                    </button>
+                  </div>
+                  
+                  <div className="mt-1 flex flex-col gap-1.5 p-2 bg-[#F4EFE6] rounded-lg border border-[#E8DFD1]">
+                    <div className="text-[10px] text-[#181A18] flex items-start gap-1.5">
+                      <span className="text-[12px]">👔</span>
+                      <span>Foto Baju Saja (Flatlay / Gantungan) — tidak wajib foto badan.</span>
+                    </div>
+                    <div className="text-[10px] text-[#181A18]/80 flex items-start gap-1.5 border-t border-[#D7CABC] pt-1.5">
+                      <span className="text-[12px]">🔒</span>
+                      <span>Foto diproses privat oleh AI dan langsung dihapus. Tidak disimpan di server publik.</span>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Input Form */}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSendMessage();
+              }}
+              className="p-3 bg-white border-t border-[#E8DFD1] flex items-center gap-2 shrink-0"
+            >
+              {/* Hidden File Input */}
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                onChange={handleFileChange}
+                className="hidden"
+              />
+
+              {/* Photo Options Trigger Button */}
+              <button
+                type="button"
+                onClick={() => setShowPhotoOptions(!showPhotoOptions)}
+                disabled={loading}
+                className={`p-2.5 rounded-xl border transition-all shrink-0 ${
+                  showPhotoOptions
+                    ? "bg-[#181A18] text-white border-[#181A18]"
+                    : "bg-[#F4EFE6] hover:bg-[#E8DFD1] text-[#181A18] border-[#D7CABC]"
+                }`}
+                title="Ambil Foto Kamera / Upload Galeri"
+              >
+                <Camera className="w-4 h-4 text-terracotta-600" />
+              </button>
+
+              {/* Text Input */}
+              <input
+                type="text"
+                placeholder={selectedImage ? "Tambahkan pesan (misal: untuk kondangan)..." : "Tanyakan outfit / jepret foto selfie..."}
+                value={inputMessage}
+                onChange={(e) => setInputMessage(e.target.value)}
+                disabled={loading}
+                className="flex-1 px-3.5 py-2.5 rounded-xl bg-[#FAF8F5] border border-[#D7CABC] focus:outline-none focus:border-[#181A18] text-xs text-[#181A18] placeholder-[#A89582]"
+              />
+
+              {/* Send Button */}
+              <button
+                type="submit"
+                disabled={(!inputMessage.trim() && !selectedImage) || loading}
+                className="p-2.5 rounded-xl bg-[#181A18] hover:bg-terracotta-500 text-white transition-all disabled:opacity-40 shrink-0 shadow-sm"
+              >
+                <Send className="w-4 h-4" />
+              </button>
+            </form>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Live Camera Viewfinder Modal */}
+      <LiveCameraModal
+        isOpen={isLiveCameraOpen}
+        onClose={() => setIsLiveCameraOpen(false)}
+        onCapture={handleCaptureFromLiveCamera}
+      />
+    </>
+  );
+}

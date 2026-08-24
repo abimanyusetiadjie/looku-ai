@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-sand: #FAF8F5;
+  --text-charcoal: #181A18;
+}
+
+body {
+  color: #181A18;
+  background-color: #FAF8F5;
+  min-height: 100vh;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  letter-spacing: -0.01em;
+}
+
+/* Tactile Paper / Boutique Swatch Panels */
+.tactile-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E8DFD1;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 20px -2px rgba(24, 26, 24, 0.04);
+}
+
+.tactile-card-dark {
+  background-color: #181A18;
+  color: #FAF8F5;
+  border: 1px solid #2B352A;
+  border-radius: 1.25rem;
+}
+
+.hangtag-border {
+  border-left: 2px dashed #D7CABC;
+}
+
+/* Micro-caps lookbook ticker */
+.lookbook-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8A7A68;
+}
+
+/* Marquee Running Ticker Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #D7CABC;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8A7A68;
+}
+
+/* Multi-layer Tactile Shadows */
+.shadow-tactile {
+  box-shadow: 0 4px 20px -2px rgba(24, 26, 24, 0.04), 0 2px 6px -1px rgba(24, 26, 24, 0.02);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 30px -5px rgba(186, 93, 56, 0.18);
+}
+
+/* Shimmer Loading Wave */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #F4EFE6 25%, #FAF8F5 50%, #F4EFE6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+}
+
+/* Headings text balance */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+/* Accessibility: prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
