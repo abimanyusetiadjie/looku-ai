@@ -109,7 +109,7 @@ Balas HANYA dalam JSON format persis seperti ini:
 
   try {
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${effectiveApiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${effectiveApiKey}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

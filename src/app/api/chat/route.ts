@@ -56,13 +56,13 @@ export async function POST(req: NextRequest) {
       ];
 
       const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             contents,
-            generationConfig: { maxOutputTokens: 600, temperature: 0.7 },
+            generationConfig: { maxOutputTokens: 800, temperature: 0.7 },
           }),
         }
       );
@@ -91,7 +91,9 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // Heuristic Fallback Response if Gemini is offline / no key
+    // Heuristic Smart Fashion Engine (Fallback if API is unreachable / no key)
+    const lower = message.toLowerCase();
+
     if (imageBase64) {
       const reply = "Foto kamu sudah berhasil dipindai kak! ✨ Berdasarkan foto ini, warna kulitmu memiliki warm undertone alami khas Indonesia yang sangat bersinar dengan warna Earthy Neutral (Sage Green, Cream Oat, & Mocca). Berikut kurasi setelan atasan + bawahan adem anti-gerah yang paling cocok:";
       const visualCard = {
@@ -109,13 +111,34 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ reply, visualCard });
     }
 
-    const reply = "Halo kak! Ada yang bisa aku bantu seputar mix & match pakaian, pemilihan warna kulit, atau paduan outfit untuk acara tertentu? Kamu juga bisa kirim foto selfie/baju dengan klik icon kamera 📷 di bawah ya ✨";
+    // Intelligent responses based on user query
+    if (lower.includes("sawo matang") || lower.includes("kulit")) {
+      const reply = "Untuk kulit **Sawo Matang**, warna-warna yang paling bikin wajah tampak cerah dan *glowing* seketika adalah:\n\n1. **Sage Green & Olive**: Kontras lembut yang menonjolkan kehangatan kulit.\n2. **Terracotta, Rust & Warm Gold**: Harmonis sempurna dengan *golden undertone* alami.\n3. **Broken White / Oat**: Jauh lebih flattering dibanding putih terang (stark white).\n4. **Navy Blue & Cobalt**: Memberikan efek bersih dan rapi.\n\n💡 *Hindari*: Warna abu-abu pucat atau neon karena bisa bikin kulit terlihat *washed out*. Mau rekomendasi atasan atau celana kulot yang cocok kak?";
+      return NextResponse.json({ reply });
+    }
+
+    if (lower.includes("kondangan") || lower.includes("pesta") || lower.includes("formal")) {
+      const reply = "Untuk **Kondangan / Acara Formal** di cuaca tropis Indonesia:\n\n✨ **Pilihan Terbaik**:\n- **Wanita**: Tunic Silk Rayon / Loose Outer Organza dipadu Silk Satin Pleated Skirt atau Kulot Highwaist Broken White.\n- **Pria**: Kemeja Linen Mandarin Collar warna Mocca / Navy dipadu Chino Slim-Straight.\n\nBahan katun rayon & linen dijamin adem seharian di gedung maupun outdoor kak!";
+      return NextResponse.json({ reply });
+    }
+
+    if (lower.includes("kuliah") || lower.includes("kampus") || lower.includes("santai") || lower.includes("kafe")) {
+      const reply = "Untuk **Kuliah & Nongkrong Kafe**, gaya paling *effortless* & fotogenik:\n\n☕ **Rekomendasi Setelan**:\n- Kemeja Linen Oversized Drop-Shoulder (warna Oat / Sage)\n- Celana Loose Kulot Highwaist (Broken White)\n- Sepatu Canvas Sneakers / Loafers\n\nAdem dipakai seharian di ruangan kelas maupun outdoor kafe!";
+      return NextResponse.json({ reply });
+    }
+
+    if (lower.includes("hijab") || lower.includes("jilbab") || lower.includes("pashmina")) {
+      const reply = "Untuk paduan **Hijab & Modest**:\n\n🧕 **Tips Warna & Bahan**:\n1. **Pashmina Silk / Ceruty**: Pilih warna senada dengan salah satu warna aksen baju (misal atasan sage, hijab broken white/oat).\n2. **Voal Laser Cut**: Paling adem dan tidak bikin gerah di kepala untuk aktivitas harian.\n3. **Siluet**: Padukan atasan tunic atau blouse flowy yang tidak terawang.";
+      return NextResponse.json({ reply });
+    }
+
+    const reply = "Halo kak! Aku Stylist Pribadi look.u ✨\n\nAda yang bisa kubantu seputar mix & match pakaian, pemilihan warna kulit, atau paduan outfit untuk acara tertentu? Kamu juga bisa kirim foto selfie/baju dengan klik icon kamera 📷 di bawah ya!";
     return NextResponse.json({ reply });
   } catch (error) {
     console.error("Chat API error:", error);
     return NextResponse.json(
       {
-        reply: "Halo kak! Foto berhasil diterima. Paduan warna Earthy Pastel dan bahan katun linen adalah pilihan paling aman dan glowing untuk harianmu ✨",
+        reply: "Halo kak! Paduan warna Earthy Pastel (Sage Green, Cream Oat, Terracotta) dan bahan katun linen adalah pilihan paling aman, adem, dan glowing untuk harianmu ✨",
       },
       { status: 200 }
     );
