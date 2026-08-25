@@ -2,12 +2,18 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { ArrowDownRight, Sun, Check, ArrowRight } from "lucide-react";
+import { ArrowDownRight, Sun, Check, ArrowRight, Palette } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import WaitlistModal from "./WaitlistModal";
+import PersonalColorQuizModal from "./PersonalColorQuizModal";
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  onOpenQuiz?: () => void;
+}
+
+export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -89,6 +95,16 @@ export default function HeroSection() {
                 Tanpa ribet <i>&ldquo;bingung mau pakai baju apa&rdquo;</i> tiap pagi. Dari hangout santai, ngantor, sampai acara formal, <span className="font-serif italic font-bold">look<span className="text-terracotta-500 not-italic">.</span>u</span> bantu mix & match padu-padan warna yang pas untuk kulitmu, nyaman seharian, dan bikin kamu tampil percaya diri.
               </motion.p>
 
+              <motion.div variants={itemVariants} className="flex justify-center lg:justify-start">
+                <button
+                  onClick={() => setIsQuizOpen(true)}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#D7CABC] text-[#181A18] text-xs font-bold tracking-wider uppercase shadow-sm hover:shadow-md hover:border-terracotta-300 transition-all group"
+                >
+                  <Palette className="w-4 h-4 text-terracotta-500 group-hover:scale-110 transition-transform" />
+                  <span>Cek Personal Color Kamu (60s) ↗</span>
+                </button>
+              </motion.div>
+
               {/* Primary Action Button */}
               <motion.div
                 variants={itemVariants}
@@ -103,6 +119,15 @@ export default function HeroSection() {
                   <span>Mix & Match Outfit Kamu</span>
                   <ArrowDownRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" />
                 </motion.a>
+
+                {onOpenQuiz && (
+                  <button 
+                    onClick={onOpenQuiz}
+                    className="w-full sm:w-auto py-3 px-6 rounded-2xl border border-charcoal-900/20 hover:border-terracotta-500 hover:text-terracotta-600 text-charcoal-900 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-sm"
+                  >
+                    ✨ Cari Tahu Personal Color-mu (60s)
+                  </button>
+                )}
 
                 <button 
                   onClick={() => setIsWaitlistOpen(true)} 
@@ -265,6 +290,16 @@ export default function HeroSection() {
       {isWaitlistOpen && (
         <WaitlistModal onClose={() => setIsWaitlistOpen(false)} />
       )}
+      <PersonalColorQuizModal 
+        isOpen={isQuizOpen} 
+        onClose={() => setIsQuizOpen(false)} 
+        onApplyResult={(skinToneId) => {
+          console.log("Applied skin tone:", skinToneId);
+          setIsQuizOpen(false);
+          const studioEl = document.getElementById("studio");
+          if (studioEl) studioEl.scrollIntoView({ behavior: "smooth" });
+        }} 
+      />
     </>
   );
 }

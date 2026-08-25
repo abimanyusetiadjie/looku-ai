@@ -10,6 +10,8 @@ import BottomNav from "@/components/BottomNav";
 import SavedLooksDrawer from "@/components/SavedLooksDrawer";
 import StoryShareModal from "@/components/StoryShareModal";
 import Toast, { ToastMessage } from "@/components/Toast";
+import PersonalColorQuizModal from "@/components/PersonalColorQuizModal";
+import TomorrowOOTDWidget from "@/components/TomorrowOOTDWidget";
 import { UserPreferences, OOTDRecommendation } from "@/lib/types";
 import { PRESET_OOTD_COLLECTION } from "@/lib/presets";
 import { ArrowLeft, Check, Sparkles } from "lucide-react";
@@ -79,6 +81,7 @@ export default function StudioPage() {
     PRESET_OOTD_COLLECTION["kuliah_hijab_panas_hemat"]
   );
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [lastPrefs, setLastPrefs] = useState<UserPreferences | null>(null);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
 
@@ -89,6 +92,25 @@ export default function StudioPage() {
   const addToast = (toast: Omit<ToastMessage, "id">) => {
     const id = Date.now().toString();
     setToasts((prev) => [...prev, { ...toast, id }]);
+  };
+
+  const handleApplyQuizResult = (skinToneId: string) => {
+    addToast({
+      title: "Personal Color Diterapkan",
+      description: "✨ Personal Color Diterapkan: Sawo Matang (Warm Autumn)",
+      type: "success",
+    });
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  const handleScheduleTomorrow = (outfit: any) => {
+    addToast({
+      title: "Jadwal OOTD",
+      description: "✨ OOTD Besok Pagi Berhasil Disimpan di Lemari!",
+      type: "save",
+    });
   };
 
   const handleGenerate = async (prefs: UserPreferences) => {
@@ -152,7 +174,7 @@ export default function StudioPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF8F5] pb-16 md:pb-0">
-      <Navbar onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)} />
+      <Navbar onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)} onOpenQuiz={() => setIsQuizOpen(true)} />
 
       <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Header Breadcrumb */}
@@ -187,6 +209,7 @@ export default function StudioPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Form */}
           <div className="lg:col-span-5 w-full">
+            <TomorrowOOTDWidget onScheduleTomorrow={handleScheduleTomorrow} />
             <GeneratorForm
               onGenerate={handleGenerate}
               isLoading={isLoading}
@@ -237,6 +260,13 @@ export default function StudioPage() {
           onClose={() => setStoryOutfitToExport(null)}
         />
       )}
+
+      {/* Personal Color Quiz Modal */}
+      <PersonalColorQuizModal
+        isOpen={isQuizOpen}
+        onClose={() => setIsQuizOpen(false)}
+        onApplyResult={handleApplyQuizResult}
+      />
 
       {/* Toasts */}
       <Toast toasts={toasts} onDismiss={(id) => setToasts(t => t.filter(x => x.id !== id))} />

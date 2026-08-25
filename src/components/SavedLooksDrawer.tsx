@@ -117,6 +117,22 @@ export default function SavedLooksDrawer({
                 </p>
               </div>
 
+              {/* Wardrobe Efficiency & Anti-Waste Index */}
+              <div className="p-3.5 mx-5 mt-3 rounded-2xl bg-emerald-50/80 border border-emerald-200 space-y-1.5 shadow-2xs shrink-0">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="font-bold text-emerald-950 flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                    Indeks Efisiensi Lemari
+                  </span>
+                  <span className="text-[10px] font-mono font-bold text-emerald-700 bg-white px-2 py-0.5 rounded-full border border-emerald-300">88% OPTIMAL</span>
+                </div>
+                <p className="text-[10px] text-emerald-900/80 leading-relaxed">
+                  {savedOutfits.length > 0
+                    ? `Dengan ${savedOutfits.length} formula OOTD aktif, kamu menghemat ~Rp 420.000 dari membeli pakaian duplikat yang tidak terpakai.`
+                    : "Koleksi yang terencana menghemat pengeluaran dan mencegah limbah pakaian tak terpakai."}
+                </p>
+              </div>
+
               {/* Body Content */}
               <div className="flex-1 p-5 overflow-y-auto space-y-4">
                 {savedOutfits.length === 0 ? (

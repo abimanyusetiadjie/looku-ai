@@ -2,15 +2,18 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Menu, X, Bookmark } from "lucide-react";
+import { ArrowUpRight, Menu, X, Bookmark, Palette } from "lucide-react";
 import WaitlistModal from "./WaitlistModal";
+import PersonalColorQuizModal from "./PersonalColorQuizModal";
 
 interface NavbarProps {
   onOpenSavedDrawer?: () => void;
+  onOpenQuiz?: () => void;
 }
 
-export default function Navbar({ onOpenSavedDrawer }: NavbarProps) {
+export default function Navbar({ onOpenSavedDrawer, onOpenQuiz }: NavbarProps) {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [savedCount, setSavedCount] = useState<number>(0);
 
@@ -82,6 +85,15 @@ export default function Navbar({ onOpenSavedDrawer }: NavbarProps) {
 
             {/* Action Buttons: Saved Looks Counter & VIP */}
             <div className="hidden md:flex items-center gap-3">
+              {onOpenQuiz && (
+                <button
+                  onClick={onOpenQuiz}
+                  className="px-3.5 py-2 text-xs font-bold tracking-wider uppercase rounded-full bg-[#FAF8F5] hover:bg-terracotta-50 text-terracotta-600 border border-terracotta-200 transition-all shadow-sm"
+                  title="Cek Personal Color Kamu"
+                >
+                  ✨ Personal Color
+                </button>
+              )}
               {onOpenSavedDrawer && (
                 <button
                   onClick={onOpenSavedDrawer}
@@ -160,6 +172,17 @@ export default function Navbar({ onOpenSavedDrawer }: NavbarProps) {
               FAQ
             </a>
             <div className="pt-2 space-y-2">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setIsQuizOpen(true);
+                }}
+                className="w-full py-2.5 text-xs font-bold tracking-wider uppercase rounded-xl bg-[#E8DFD1]/30 border-2 border-transparent text-[#181A18] flex items-center justify-center gap-1.5"
+              >
+                <Palette className="w-4 h-4 text-terracotta-500" />
+                <span>Tes Personal Color</span>
+              </button>
+
               {onOpenSavedDrawer && (
                 <button
                   onClick={() => {
@@ -190,6 +213,17 @@ export default function Navbar({ onOpenSavedDrawer }: NavbarProps) {
       {isWaitlistOpen && (
         <WaitlistModal onClose={() => setIsWaitlistOpen(false)} />
       )}
+      <PersonalColorQuizModal 
+        isOpen={isQuizOpen} 
+        onClose={() => setIsQuizOpen(false)} 
+        onApplyResult={(skinToneId) => {
+          console.log("Applied skin tone:", skinToneId);
+          setIsQuizOpen(false);
+          // Scroll to studio
+          const studioEl = document.getElementById("studio");
+          if (studioEl) studioEl.scrollIntoView({ behavior: "smooth" });
+        }} 
+      />
     </>
   );
 }

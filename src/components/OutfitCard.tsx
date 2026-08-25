@@ -27,6 +27,42 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer }: 
   const [showStoryModal, setShowStoryModal] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [items, setItems] = useState<OutfitItem[]>(outfit.items);
+  const [toastMsg, setToastMsg] = useState("");
+
+  useEffect(() => {
+    setItems(outfit.items);
+  }, [outfit.items]);
+
+  const handleSwapItem = (index: number) => {
+    const item = items[index];
+    const cat = item.category;
+    
+    const alt = { ...item };
+    if (cat === "atasan") {
+      alt.name = "Blouse Katun Rayon";
+      alt.color = "Broken White";
+    } else if (cat === "bawahan") {
+      alt.name = "Celana Kulot Highwaist";
+      alt.color = "Mocca";
+    } else if (cat === "outer_hijab") {
+      alt.name = "Pashmina Ceruty Babydoll";
+      alt.color = "Cream";
+    } else if (cat === "sepatu") {
+      alt.name = "Platform Sandals";
+      alt.color = "Nude";
+    } else {
+      alt.name = "Aksesoris Tambahan";
+    }
+    
+    const newItems = [...items];
+    newItems[index] = alt;
+    setItems(newItems);
+    
+    const catLabel = cat === "outer_hijab" ? "Hijab/Outer" : cat.charAt(0).toUpperCase() + cat.slice(1);
+    setToastMsg(`✦ ${catLabel} diganti ke ${alt.name} ${alt.color}`);
+    setTimeout(() => setToastMsg(""), 3000);
+  };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -300,8 +336,9 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer }: 
             </div>
 
             <div className="space-y-3">
-              {outfit.items.map((item, index) => {
+              {items.map((item, index) => {
                 const links = getMarketplaceLinks(item.shopeeQuery);
+                const catLabel = item.category === "outer_hijab" ? "Hijab/Outer" : item.category.charAt(0).toUpperCase() + item.category.slice(1);
                 return (
                   <motion.div
                     key={index}
@@ -335,6 +372,13 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer }: 
                           {item.estimatedPrice}
                         </span>
                       </div>
+                      
+                      <button
+                        onClick={() => handleSwapItem(index)}
+                        className="mt-2 text-[10px] font-bold text-terracotta-600 hover:text-terracotta-700 flex items-center gap-1 bg-terracotta-50 px-2 py-1 rounded w-fit"
+                      >
+                        [ ↻ Ganti {catLabel} ]
+                      </button>
                     </div>
 
                     {/* Boutique Shop Actions */}
@@ -426,6 +470,20 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer }: 
           onClose={() => setShowStoryModal(false)}
         />
       )}
+
+      {/* Mini Toast */}
+      <AnimatePresence>
+        {toastMsg && (
+          <motion.div
+            initial={{ opacity: 0, y: 20, x: "-50%" }}
+            animate={{ opacity: 1, y: 0, x: "-50%" }}
+            exit={{ opacity: 0, y: 20, x: "-50%" }}
+            className="fixed bottom-10 left-1/2 z-50 bg-[#181A18] text-white px-4 py-2.5 rounded-full text-xs font-medium shadow-xl whitespace-nowrap"
+          >
+            {toastMsg}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

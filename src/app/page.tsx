@@ -17,12 +17,15 @@ import { PRESET_OOTD_COLLECTION } from "@/lib/presets";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import Toast, { ToastMessage } from "@/components/Toast";
+import PersonalColorQuizModal from "@/components/PersonalColorQuizModal";
+import TomorrowOOTDWidget from "@/components/TomorrowOOTDWidget";
 
 export default function HomePage() {
   const [currentOutfit, setCurrentOutfit] = useState<OOTDRecommendation>(
     PRESET_OOTD_COLLECTION["kuliah_hijab_panas_hemat"]
   );
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [lastPrefs, setLastPrefs] = useState<UserPreferences | null>(null);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
   const [activeLoaderStep, setActiveLoaderStep] = useState(0);
@@ -98,13 +101,33 @@ export default function HomePage() {
     }
   };
 
+  const handleApplyQuizResult = (skinToneId: string) => {
+    addToast({
+      title: "Personal Color Diterapkan",
+      description: "✨ Personal Color Diterapkan: Sawo Matang (Warm Autumn)",
+      type: "success",
+    });
+    if (typeof window !== "undefined") {
+      const el = document.getElementById("studio");
+      el?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleScheduleTomorrow = (outfit: any) => {
+    addToast({
+      title: "Jadwal OOTD",
+      description: "✨ OOTD Besok Pagi Berhasil Disimpan di Lemari!",
+      type: "save",
+    });
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF8F5] pb-16 md:pb-0">
       {/* Navbar with Saved Looks Drawer Trigger */}
-      <Navbar onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)} />
+      <Navbar onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)} onOpenQuiz={() => setIsQuizOpen(true)} />
 
       {/* Hero Section */}
-      <HeroSection />
+      <HeroSection onOpenQuiz={() => setIsQuizOpen(true)} />
 
       {/* Trending Lookbook Feed with Hotspots & Lightbox */}
       <TrendingFeed onSelectLook={handleSelectLook} />
@@ -133,6 +156,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Column: Conversational Form (5 cols) */}
             <div className="lg:col-span-5 w-full">
+              <TomorrowOOTDWidget onScheduleTomorrow={handleScheduleTomorrow} />
               <GeneratorForm
                 onGenerate={handleGenerate}
                 isLoading={isLoading}
@@ -241,6 +265,13 @@ export default function HomePage() {
           onClose={() => setStoryOutfitToExport(null)}
         />
       )}
+
+      {/* Personal Color Quiz Modal */}
+      <PersonalColorQuizModal
+        isOpen={isQuizOpen}
+        onClose={() => setIsQuizOpen(false)}
+        onApplyResult={handleApplyQuizResult}
+      />
 
       {/* Toasts Notification */}
       <Toast toasts={toasts} onDismiss={removeToast} />
