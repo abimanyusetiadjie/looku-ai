@@ -361,12 +361,429 @@ export const PRESET_OOTD_COLLECTION: Record<string, OOTDRecommendation> = {
       }
     ],
     createdAt: new Date().toISOString(),
+  },
+
+  "scbd_corporate_blazer": {
+    id: "rec_scbd_corporate_1",
+    title: "SCBD BUMN Smart Corporate",
+    tagline: "Wibawa eksekutif muda di jantung kota Jakarta.",
+    overallVibe: "Professional & Sharp",
+    comfortRating: 4.5,
+    affordabilityRating: 4.3,
+    modestFriendly: true,
+    skinToneMatch: "Tone hitam dan emerald memancarkan aura tegas dan elegan untuk kulit Medium dan Deep.",
+    whyItWorks: "Blazer berstruktur dengan kulot panjang menciptakan siluet profesional yang tetap bebas bergerak.",
+    stylingTip: "Padukan dengan inner manset/kaos turtleneck tipis. Bawa structured tote bag untuk laptop.",
+    colorPalette: [
+      { name: "Jet Black", hex: "#111111" },
+      { name: "Emerald Green", hex: "#50C878" },
+      { name: "Crisp White", hex: "#FFFFFF" },
+      { name: "Silver", hex: "#C0C0C0" }
+    ],
+    items: [
+      {
+        category: "atasan",
+        name: "Structured Oversized Blazer + Inner",
+        material: "Semi-wool Blend",
+        color: "Jet Black / Emerald",
+        colorHex: "#111111",
+        estimatedPrice: "Rp 150.000 - 250.000",
+        shopeeQuery: "blazer wanita formal korea",
+        tokopediaQuery: "blazer wanita oversized hitam",
+      },
+      {
+        category: "bawahan",
+        name: "Highwaist Tailored Culottes",
+        material: "Scuba / Premium Crepe",
+        color: "Jet Black",
+        colorHex: "#111111",
+        estimatedPrice: "Rp 90.000 - 150.000",
+        shopeeQuery: "celana kulot kerja wanita bahan scuba",
+        tokopediaQuery: "kulot highwaist formal wanita",
+      }
+    ],
+    createdAt: new Date().toISOString(),
+  },
+
+  "blok_m_indie_streetwear": {
+    id: "rec_blok_m_indie_1",
+    title: "Blok M Oversized Cargo & Baby Tee",
+    tagline: "Vibe retro streetwear ala anak skena Blok M.",
+    overallVibe: "Retro Streetwear & Edgy",
+    comfortRating: 4.8,
+    affordabilityRating: 4.7,
+    modestFriendly: false,
+    skinToneMatch: "Warna washed-out denim dan ashy gray cocok memberikan kesan cool pada kulit Fair dan Tan.",
+    whyItWorks: "Baby tee yang pas badan diseimbangkan dengan bawahan kargo oversized memberi proporsi Y2K yang trendy.",
+    stylingTip: "Pakai retro sneakers dan headphone besar sebagai aksesori statement.",
+    colorPalette: [
+      { name: "Washed Black", hex: "#333333" },
+      { name: "Ashy Gray", hex: "#B2BEB5" },
+      { name: "Cherry Red", hex: "#D2042D" },
+      { name: "Denim Blue", hex: "#1560BD" }
+    ],
+    items: [
+      {
+        category: "atasan",
+        name: "Graphic Baby Tee / Boxy Tee",
+        material: "Cotton Combed 24s / 30s",
+        color: "Washed Black / Ashy Gray",
+        colorHex: "#333333",
+        estimatedPrice: "Rp 50.000 - 90.000",
+        shopeeQuery: "baby tee wanita y2k graphic",
+        tokopediaQuery: "kaos boxy tee wanita vintage",
+      },
+      {
+        category: "bawahan",
+        name: "Oversized Parachute Cargo Pants",
+        material: "Nylon Parachute",
+        color: "Ashy Gray / Washed Black",
+        colorHex: "#B2BEB5",
+        estimatedPrice: "Rp 120.000 - 180.000",
+        shopeeQuery: "celana kargo parasut wanita oversized",
+        tokopediaQuery: "cargo pants y2k parachute",
+      }
+    ],
+    createdAt: new Date().toISOString(),
+  },
+
+  "senopati_brunch_knit": {
+    id: "rec_senopati_brunch_1",
+    title: "Senopati Weekend Brunch & Pleated Skirt",
+    tagline: "Classy & cozy look buat brunch cantik di Senopati.",
+    overallVibe: "Classy Feminine",
+    comfortRating: 4.7,
+    affordabilityRating: 4.4,
+    modestFriendly: true,
+    skinToneMatch: "Warna nude & camel selalu memberikan efek hangat pada kulit Kuning Langsat dan Sawo Matang.",
+    whyItWorks: "Knitwear premium dengan tekstur halus memberikan kesan mahal, dipadu rok plisket untuk siluet elegan.",
+    stylingTip: "Lengkapi dengan kacamata hitam cat-eye dan handbag minimalis.",
+    colorPalette: [
+      { name: "Camel", hex: "#C19A6B" },
+      { name: "Nude Beige", hex: "#E6D6C6" },
+      { name: "Chocolate", hex: "#7B3F00" },
+      { name: "Cream", hex: "#FFFDD0" }
+    ],
+    items: [
+      {
+        category: "atasan",
+        name: "Sleeveless / Long-Sleeve Ribbed Knit Top",
+        material: "Premium Rib Knit",
+        color: "Camel / Chocolate",
+        colorHex: "#C19A6B",
+        estimatedPrice: "Rp 80.000 - 140.000",
+        shopeeQuery: "atasan knit wanita premium lengan panjang",
+        tokopediaQuery: "knit top wanita kerah square",
+      },
+      {
+        category: "bawahan",
+        name: "Maxi Pleated Skirt / Satin Skirt",
+        material: "Silk Satin / Premium Chiffon",
+        color: "Nude Beige",
+        colorHex: "#E6D6C6",
+        estimatedPrice: "Rp 90.000 - 160.000",
+        shopeeQuery: "rok satin silk wanita panjang",
+        tokopediaQuery: "rok plisket premium wanita panjang",
+      }
+    ],
+    createdAt: new Date().toISOString(),
+  },
+
+  "kondangan_batik_modern_pria": {
+    id: "rec_kondangan_batik_1",
+    title: "Kemeja Batik Modern Tulis & Slim Chino",
+    tagline: "Gagah maksimal dengan sentuhan warisan budaya.",
+    overallVibe: "Formal Heritage",
+    comfortRating: 4.6,
+    affordabilityRating: 4.5,
+    modestFriendly: true,
+    skinToneMatch: "Warna sogan / cokelat gelap sangat masuk di semua skin tone pria.",
+    whyItWorks: "Potongan slim-fit kemeja batik membuat tampilan tidak kaku, cocok dipadu chino gelap.",
+    stylingTip: "Pakai sepatu loafers kulit dan jam tangan klasik untuk tampilan dapper.",
+    colorPalette: [
+      { name: "Sogan Brown", hex: "#5C4033" },
+      { name: "Deep Black", hex: "#000000" },
+      { name: "Gold Accent", hex: "#FFD700" },
+      { name: "Navy Blue", hex: "#000080" }
+    ],
+    items: [
+      {
+        category: "atasan",
+        name: "Kemeja Batik Modern Slim Fit",
+        material: "Katun Primisima / Dobby",
+        color: "Sogan / Navy",
+        colorHex: "#5C4033",
+        estimatedPrice: "Rp 150.000 - 300.000",
+        shopeeQuery: "kemeja batik pria lengan panjang slim fit",
+        tokopediaQuery: "batik pria modern katun",
+      },
+      {
+        category: "bawahan",
+        name: "Slim Fit Chino Pants / Trouser Hitam",
+        material: "Cotton Twill / Semi-Wool",
+        color: "Deep Black / Navy",
+        colorHex: "#000000",
+        estimatedPrice: "Rp 100.000 - 180.000",
+        shopeeQuery: "celana chino pria hitam panjang",
+        tokopediaQuery: "celana bahan pria slim fit hitam",
+      }
+    ],
+    createdAt: new Date().toISOString(),
+  },
+
+  "bali_jogja_resort_linen": {
+    id: "rec_resort_linen_1",
+    title: "Bali Resort Camp Collar & Linen Culottes",
+    tagline: "Outfit santai dengan vibes liburan tropis tanpa gerah.",
+    overallVibe: "Tropical Resort Casual",
+    comfortRating: 5.0,
+    affordabilityRating: 4.8,
+    modestFriendly: false,
+    skinToneMatch: "Warna terang linen seperti putih dan mint mencerahkan kulit Eksotis dan Tan.",
+    whyItWorks: "Bahan linen dan rayon sangat breathable, cocok untuk cuaca pantai yang lembab.",
+    stylingTip: "Biarkan 1-2 kancing atas terbuka, pakai sandal jepit kulit / slide sandals.",
+    colorPalette: [
+      { name: "White Linen", hex: "#F3F4F6" },
+      { name: "Terracotta", hex: "#E2725B" },
+      { name: "Mint Green", hex: "#98FF98" },
+      { name: "Sand", hex: "#C2B280" }
+    ],
+    items: [
+      {
+        category: "atasan",
+        name: "Camp Collar Linen / Rayon Shirt",
+        material: "Rayon Crinkle / Linen",
+        color: "White / Mint",
+        colorHex: "#F3F4F6",
+        estimatedPrice: "Rp 70.000 - 120.000",
+        shopeeQuery: "kemeja rayon pria polos santai",
+        tokopediaQuery: "kemeja linen kerah cuban pria liburan",
+      },
+      {
+        category: "bawahan",
+        name: "Linen Drawstring Shorts / Culottes",
+        material: "Linen Blend",
+        color: "Sand / Terracotta",
+        colorHex: "#C2B280",
+        estimatedPrice: "Rp 60.000 - 100.000",
+        shopeeQuery: "celana pendek pria katun linen",
+        tokopediaQuery: "celana pendek pantai pria",
+      }
+    ],
+    createdAt: new Date().toISOString(),
+  },
+
+  "athleisure_cafe_run": {
+    id: "rec_athleisure_1",
+    title: "Athleisure Morning Run to Cafe",
+    tagline: "Dari jogging pagi langsung ngopi cantik tanpa ganti baju.",
+    overallVibe: "Sporty & Active",
+    comfortRating: 5.0,
+    affordabilityRating: 4.8,
+    modestFriendly: false,
+    skinToneMatch: "Kontras warna hitam dan neon minimalis cocok untuk segala tone.",
+    whyItWorks: "Bahan dry-fit spandex memeluk tubuh tanpa membatasi gerak, nyaman dipakai seharian.",
+    stylingTip: "Ikat jaket windbreaker di pinggang dan pakai running shoes yang stylish.",
+    colorPalette: [
+      { name: "Matte Black", hex: "#1A1A1A" },
+      { name: "Neon Lime Accent", hex: "#32CD32" },
+      { name: "Cool Grey", hex: "#8C92AC" },
+      { name: "White", hex: "#FFFFFF" }
+    ],
+    items: [
+      {
+        category: "atasan",
+        name: "Seamless Sports Bra / Dri-fit Top + Windbreaker",
+        material: "Spandex Blend / Nylon",
+        color: "Matte Black / Cool Grey",
+        colorHex: "#1A1A1A",
+        estimatedPrice: "Rp 80.000 - 150.000",
+        shopeeQuery: "jaket windbreaker wanita olahraga",
+        tokopediaQuery: "atasan olahraga wanita dry fit",
+      },
+      {
+        category: "bawahan",
+        name: "Highwaist Leggings / Biker Shorts",
+        material: "Nylon Spandex",
+        color: "Matte Black",
+        colorHex: "#1A1A1A",
+        estimatedPrice: "Rp 90.000 - 140.000",
+        shopeeQuery: "legging olahraga wanita highwaist tebal",
+        tokopediaQuery: "biker shorts wanita olahraga",
+      }
+    ],
+    createdAt: new Date().toISOString(),
+  },
+
+  "rainy_cardigan_cozy": {
+    id: "rec_rainy_cardigan_1",
+    title: "Rainy Day Soft Layering Knit & Pashmina",
+    tagline: "Nyaman dan hangat di cuaca hujan, tetap stylish.",
+    overallVibe: "Cozy & Warm",
+    comfortRating: 4.9,
+    affordabilityRating: 4.6,
+    modestFriendly: true,
+    skinToneMatch: "Warna plum dan navy memberi kedalaman pada kulit Kuning Langsat dan Fair.",
+    whyItWorks: "Layering dengan cardigan tebal menjaga suhu tubuh saat hujan, dipadu dengan bawahan denim yang awet.",
+    stylingTip: "Padukan dengan pashmina kasmir/voal dan sepatu bot tahan air atau sneakers kulit.",
+    colorPalette: [
+      { name: "Plum", hex: "#8E4585" },
+      { name: "Navy", hex: "#000080" },
+      { name: "Grey Marl", hex: "#BFC1C2" },
+      { name: "Ivory", hex: "#FFFFF0" }
+    ],
+    items: [
+      {
+        category: "atasan",
+        name: "Chunky Knit Cardigan",
+        material: "Thick Cotton Acrylic Knit",
+        color: "Plum / Grey Marl",
+        colorHex: "#8E4585",
+        estimatedPrice: "Rp 110.000 - 180.000",
+        shopeeQuery: "cardigan rajut tebal wanita korea",
+        tokopediaQuery: "chunky knit cardigan wanita tebal",
+      },
+      {
+        category: "bawahan",
+        name: "Straight Leg Denim / Corduroy Pants",
+        material: "Denim / Corduroy",
+        color: "Navy / Black",
+        colorHex: "#000080",
+        estimatedPrice: "Rp 130.000 - 200.000",
+        shopeeQuery: "celana jeans wanita straight leg",
+        tokopediaQuery: "celana corduroy wanita pinggang karet",
+      }
+    ],
+    createdAt: new Date().toISOString(),
+  },
+
+  "modest_pastel_date": {
+    id: "rec_modest_pastel_1",
+    title: "Sweetheart Pastel Date & Voal Miracle",
+    tagline: "Manis dan anggun untuk first date atau ngemal santai.",
+    overallVibe: "Feminine & Soft",
+    comfortRating: 4.8,
+    affordabilityRating: 4.7,
+    modestFriendly: true,
+    skinToneMatch: "Warna pastel lilac dan baby blue memancarkan cahaya pada kulit Putih Gading dan Kuning Langsat.",
+    whyItWorks: "Paduan tunik ruffles atau dress dengan detail feminin menonjolkan keanggunan modis tanpa berlebihan.",
+    stylingTip: "Pilih hijab segiempat voal miracle polos warna senada, ikat rapi di leher.",
+    colorPalette: [
+      { name: "Soft Lilac", hex: "#C8A2C8" },
+      { name: "Baby Blue", hex: "#89CFF0" },
+      { name: "Blush Pink", hex: "#FFB6C1" },
+      { name: "White", hex: "#FFFFFF" }
+    ],
+    items: [
+      {
+        category: "atasan",
+        name: "Tunik Ruffle / Midi Dress Floral Tipis",
+        material: "Crinkle Airflow / Katun Rayon",
+        color: "Soft Lilac / Blush Pink",
+        colorHex: "#C8A2C8",
+        estimatedPrice: "Rp 85.000 - 140.000",
+        shopeeQuery: "tunik ruffle wanita crinkle airflow",
+        tokopediaQuery: "midi dress korean style wanita floral",
+      },
+      {
+        category: "outer_hijab",
+        name: "Hijab Segiempat Voal Miracle",
+        material: "Voal Miracle Premium",
+        color: "Senada",
+        colorHex: "#FFB6C1",
+        estimatedPrice: "Rp 35.000 - 55.000",
+        shopeeQuery: "jilbab segiempat voal miracle polos",
+        tokopediaQuery: "hijab voal miracle",
+      }
+    ],
+    createdAt: new Date().toISOString(),
+  },
+
+  "monochrome_boxy_pria": {
+    id: "rec_monochrome_boxy_pria_1",
+    title: "Monochrome Boxy Streetwear",
+    tagline: "Gaya streetwear bersih, anti-gerah untuk urban explorers.",
+    overallVibe: "Clean Monochrome Streetwear",
+    comfortRating: 4.9,
+    affordabilityRating: 4.8,
+    modestFriendly: false,
+    skinToneMatch: "Dominasi hitam/putih netral di kulit Eksotis, Medium, dan Fair.",
+    whyItWorks: "Kaos potongan boxy memberi ilusi bahu lebar, disandingkan celana wide leg yang sejuk.",
+    stylingTip: "Gunakan chain necklace perak dan chunky sneakers untuk melengkapi siluet oversized.",
+    colorPalette: [
+      { name: "Black", hex: "#000000" },
+      { name: "White", hex: "#FFFFFF" },
+      { name: "Charcoal", hex: "#36454F" },
+      { name: "Silver", hex: "#C0C0C0" }
+    ],
+    items: [
+      {
+        category: "atasan",
+        name: "Heavyweight Boxy Fit T-Shirt",
+        material: "Cotton Combed 20s / 24s",
+        color: "Black / White",
+        colorHex: "#000000",
+        estimatedPrice: "Rp 70.000 - 130.000",
+        shopeeQuery: "kaos boxy fit pria oversized polos tebal",
+        tokopediaQuery: "boxy t-shirt pria katun 20s",
+      },
+      {
+        category: "bawahan",
+        name: "Wide Leg Trousers / Parachute Pants",
+        material: "Nylon / Drill",
+        color: "Black / Charcoal",
+        colorHex: "#36454F",
+        estimatedPrice: "Rp 110.000 - 170.000",
+        shopeeQuery: "celana wide leg pria panjang parasut",
+        tokopediaQuery: "celana kargo pria wide fit",
+      }
+    ],
+    createdAt: new Date().toISOString(),
+  },
+
+  "minimalist_slip_dress": {
+    id: "rec_minimalist_slip_1",
+    title: "Quiet Luxury Slip Dress & Linen Blazer",
+    tagline: "Tampilan effortless mewah dengan silk dress dan blazer linen.",
+    overallVibe: "Effortless Luxury",
+    comfortRating: 4.7,
+    affordabilityRating: 4.3,
+    modestFriendly: false,
+    skinToneMatch: "Kilau champagne dan hitam tegas memancarkan aura elegan di kulit Sawo Matang dan Kuning Langsat.",
+    whyItWorks: "Slip dress yang feminin diseimbangkan dengan luaran blazer maskulin untuk chic look instan.",
+    stylingTip: "Tarik lengan blazer hingga siku, gunakan strappy heels atau mules.",
+    colorPalette: [
+      { name: "Champagne", hex: "#F7E7CE" },
+      { name: "Midnight Black", hex: "#000000" },
+      { name: "Taupe", hex: "#483C32" },
+      { name: "Ivory", hex: "#FFFFF0" }
+    ],
+    items: [
+      {
+        category: "atasan",
+        name: "Silk Slip Dress Midi / Maxi",
+        material: "Premium Silk Satin",
+        color: "Champagne / Black",
+        colorHex: "#F7E7CE",
+        estimatedPrice: "Rp 120.000 - 200.000",
+        shopeeQuery: "slip dress satin silk wanita midi",
+        tokopediaQuery: "dress satin wanita elegan",
+      },
+      {
+        category: "outer_hijab",
+        name: "Linen Oversized Blazer (Optional)",
+        material: "Linen Blend",
+        color: "Ivory / Taupe",
+        colorHex: "#FFFFF0",
+        estimatedPrice: "Rp 150.000 - 250.000",
+        shopeeQuery: "blazer linen wanita oversized",
+        tokopediaQuery: "blazer wanita bahan linen korea",
+      }
+    ],
+    createdAt: new Date().toISOString(),
   }
 };
 
-/**
- * Trending Curated Lookbook Feed (8 Lookbook Pilihan Kaya Kategori)
- */
 export const TRENDING_LOOKS_FEED: TrendingLook[] = [
   {
     id: "trend_01",
@@ -430,7 +847,7 @@ export const TRENDING_LOOKS_FEED: TrendingLook[] = [
   },
   {
     id: "trend_06",
-    title: "Chic Tailored Vest & Slacks",
+    title: "Chic Tailored Vest & Flowy Slacks",
     vibe: "Smart Minimalist",
     tag: "SEOUL VIBE",
     category: "Campus & Hijab",
@@ -442,50 +859,173 @@ export const TRENDING_LOOKS_FEED: TrendingLook[] = [
   },
   {
     id: "trend_07",
-    title: "Monochrome Boxy Streetwear",
-    vibe: "Clean Monochrome",
+    title: "SCBD BUMN Smart Corporate",
+    vibe: "Professional & Sharp",
+    tag: "OFFICE ESSENTIAL",
+    category: "Work & Meeting",
+    skinToneRecommendation: "Medium & Deep",
+    priceRange: "Rp 250rb - 400rb / Set",
+    image: "https://images.unsplash.com/photo-1574655563118-3e3eab32015d?w=600&auto=format&fit=crop&q=80",
+    likes: 673,
+    outfit: PRESET_OOTD_COLLECTION["scbd_corporate_blazer"]
+  },
+  {
+    id: "trend_08",
+    title: "Blok M Oversized Cargo",
+    vibe: "Retro Streetwear & Edgy",
+    tag: "STREETWEAR",
+    category: "Weekend & Cafe",
+    skinToneRecommendation: "Fair & Tan",
+    priceRange: "Rp 170rb - 270rb / Set",
+    image: "https://images.unsplash.com/photo-1517423568366-8b83523034fd?w=600&auto=format&fit=crop&q=80",
+    likes: 1302,
+    outfit: PRESET_OOTD_COLLECTION["blok_m_indie_streetwear"]
+  },
+  {
+    id: "trend_09",
+    title: "Bali Resort Camp Collar",
+    vibe: "Tropical Resort Casual",
+    tag: "VACATION",
+    category: "Travel",
+    skinToneRecommendation: "Eksotis & Tan",
+    priceRange: "Rp 150rb - 250rb / Set",
+    image: "https://images.unsplash.com/photo-1516826957135-700ede19c6ce?w=600&auto=format&fit=crop&q=80",
+    likes: 890,
+    outfit: PRESET_OOTD_COLLECTION["bali_jogja_resort_linen"]
+  },
+  {
+    id: "trend_10",
+    title: "Batik Modern Tulis",
+    vibe: "Formal Heritage",
+    tag: "CULTURE",
+    category: "Reception & Pesta",
+    skinToneRecommendation: "Sogan / Cokelat Gelap",
+    priceRange: "Rp 300rb - 500rb / Set",
+    image: "https://images.unsplash.com/photo-1550684376-efcbd6e3f031?w=600&auto=format&fit=crop&q=80",
+    likes: 540,
+    outfit: PRESET_OOTD_COLLECTION["kondangan_batik_modern_pria"]
+  },
+  {
+    id: "trend_11",
+    title: "Senopati Weekend Brunch",
+    vibe: "Classy Feminine",
+    tag: "LUXURY",
+    category: "Weekend & Cafe",
+    skinToneRecommendation: "Kuning Langsat & Sawo Matang",
+    priceRange: "Rp 250rb - 350rb / Set",
+    image: "https://images.unsplash.com/photo-1600881333168-2ef49b341f30?w=600&auto=format&fit=crop&q=80",
+    likes: 1105,
+    outfit: PRESET_OOTD_COLLECTION["senopati_brunch_knit"]
+  },
+  {
+    id: "trend_12",
+    title: "Monochrome Boxy Pria",
+    vibe: "Clean Monochrome Streetwear",
     tag: "NEW DROP",
     category: "Streetwear",
     skinToneRecommendation: "Deep Bronze & Sawo Matang",
     priceRange: "Rp 260rb - 380rb / Set",
     image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&auto=format&fit=crop&q=80",
     likes: 834,
-    outfit: PRESET_OOTD_COLLECTION["kuliah_hijab_panas_hemat"]
+    outfit: PRESET_OOTD_COLLECTION["monochrome_boxy_pria"]
   },
   {
-    id: "trend_08",
-    title: "Sunset Terracotta Voal",
-    vibe: "Warm Terracotta",
-    tag: "VIRAL LOOK",
+    id: "trend_13",
+    title: "Athleisure Morning Run to Cafe",
+    vibe: "Sporty & Active",
+    tag: "ACTIVEWEAR",
+    category: "Weekend & Cafe",
+    skinToneRecommendation: "Semua Tone Kulit",
+    priceRange: "Rp 170rb - 290rb / Set",
+    image: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=600&auto=format&fit=crop&q=80",
+    likes: 720,
+    outfit: PRESET_OOTD_COLLECTION["athleisure_cafe_run"]
+  },
+  {
+    id: "trend_14",
+    title: "Rainy Day Soft Layering Knit",
+    vibe: "Cozy & Warm",
+    tag: "ESSENTIAL",
+    category: "Campus & Hijab",
+    skinToneRecommendation: "Fair & Kuning Langsat",
+    priceRange: "Rp 240rb - 380rb / Set",
+    image: "https://images.unsplash.com/photo-1516089309489-0824b22db7dc?w=600&auto=format&fit=crop&q=80",
+    likes: 1045,
+    outfit: PRESET_OOTD_COLLECTION["rainy_cardigan_cozy"]
+  },
+  {
+    id: "trend_15",
+    title: "Sweetheart Pastel Date",
+    vibe: "Feminine & Soft",
+    tag: "DATE NIGHT",
+    category: "Weekend & Cafe",
+    skinToneRecommendation: "Putih Gading & Kuning Langsat",
+    priceRange: "Rp 120rb - 195rb / Set",
+    image: "https://images.unsplash.com/photo-1518151978160-c322b74070a7?w=600&auto=format&fit=crop&q=80",
+    likes: 955,
+    outfit: PRESET_OOTD_COLLECTION["modest_pastel_date"]
+  },
+  {
+    id: "trend_16",
+    title: "Quiet Luxury Slip Dress",
+    vibe: "Effortless Luxury",
+    tag: "EDITOR'S PICK",
     category: "Reception & Pesta",
-    skinToneRecommendation: "Kuning Langsat & Sawo Matang",
-    priceRange: "Rp 310rb - 450rb / Set",
-    image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&auto=format&fit=crop&q=80",
-    likes: 1105,
-    outfit: PRESET_OOTD_COLLECTION["kondangan_hijab_formal_menengah"]
+    skinToneRecommendation: "Sawo Matang & Kuning Langsat",
+    priceRange: "Rp 270rb - 450rb / Set",
+    image: "https://images.unsplash.com/photo-1495385794356-15371f348c31?w=600&auto=format&fit=crop&q=80",
+    likes: 812,
+    outfit: PRESET_OOTD_COLLECTION["minimalist_slip_dress"]
   }
 ];
 
 export function generateHeuristicOOTD(pref: UserPreferences): OOTDRecommendation {
   const isFemale = pref.gender !== "male";
+
+  // Multi-factor matching score logic
+  let selectedId = "hangout_nonhijab_panas_menengah";
+
+  if (isFemale) {
+    if (pref.isModestHijab) {
+      if (pref.occasion === "kondangan") selectedId = "kondangan_hijab_formal_menengah";
+      else if (pref.occasion === "kantor") selectedId = "scbd_corporate_blazer";
+      else if (pref.occasion === "kuliah") selectedId = "kuliah_hijab_panas_hemat";
+      else if (pref.weather === "hujan_dingin") selectedId = "rainy_cardigan_cozy";
+      else if (pref.vibe === "smart_formal") selectedId = "tailored_vest_chic";
+      else selectedId = "modest_pastel_date";
+    } else {
+      if (pref.occasion === "santai_rumah" && pref.vibe === "earthy_minimalist") selectedId = "old_money_coastal";
+      else if (pref.occasion === "kantor") selectedId = "scbd_corporate_blazer";
+      else if (pref.vibe === "vintage_retro" || pref.vibe === "streetwear") selectedId = "blok_m_indie_streetwear";
+      else if (pref.occasion === "dating") selectedId = "senopati_brunch_knit";
+      else if (pref.occasion === "olahraga") selectedId = "athleisure_cafe_run";
+      else if (pref.vibe === "korean_soft") selectedId = "hangout_nonhijab_panas_menengah";
+      else if (pref.vibe === "smart_formal") selectedId = "minimalist_slip_dress";
+      else selectedId = "bali_jogja_resort_linen";
+    }
+  } else {
+    // Male
+    if (pref.occasion === "kantor" || pref.vibe === "smart_formal") selectedId = "kantor_pria_ac_menengah";
+    else if (pref.occasion === "kondangan") selectedId = "kondangan_batik_modern_pria";
+    else if (pref.occasion === "hangout" || pref.weather === "panas_terik") selectedId = "bali_jogja_resort_linen";
+    else if (pref.vibe === "streetwear") selectedId = "monochrome_boxy_pria";
+    else selectedId = "old_money_coastal";
+  }
+
+  // Fallback if not found
+  const baseResult = PRESET_OOTD_COLLECTION[selectedId] || PRESET_OOTD_COLLECTION["hangout_nonhijab_panas_menengah"];
+  const result: OOTDRecommendation = JSON.parse(JSON.stringify(baseResult));
   
-  if (pref.isModestHijab) {
-    if (pref.occasion === "kondangan") {
-      return PRESET_OOTD_COLLECTION["kondangan_hijab_formal_menengah"];
-    }
-    if (pref.vibe === "smart_formal") {
-      return PRESET_OOTD_COLLECTION["tailored_vest_chic"];
-    }
-    return PRESET_OOTD_COLLECTION["kuliah_hijab_panas_hemat"];
+  // Dynamically customize the skinToneMatch text
+  if (pref.skinTone === "medium") {
+    result.skinToneMatch = "Harmonisasi warna earthy & warm gold menonjolkan kecantikan eksotis kulit Sawo Matang tanpa kesan kusam.";
+  } else if (pref.skinTone === "light") {
+    result.skinToneMatch = "Palet lembut ini memberikan efek radiant glowing pada kulit Kuning Langsat.";
+  } else if (pref.skinTone === "fair") {
+    result.skinToneMatch = "Kontras seimbang yang memberi rona segar alami pada kulit Putih Gading.";
+  } else if (pref.skinTone === "tan" || pref.skinTone === "deep") {
+    result.skinToneMatch = "Warna jewel tone & kontras tegas memancarkan kilau mewah kulit eksotis.";
   }
 
-  if (!isFemale) {
-    return PRESET_OOTD_COLLECTION["kantor_pria_ac_menengah"];
-  }
-
-  if (pref.vibe === "earthy_minimalist") {
-    return PRESET_OOTD_COLLECTION["old_money_coastal"];
-  }
-
-  return PRESET_OOTD_COLLECTION["hangout_nonhijab_panas_menengah"];
+  return result;
 }

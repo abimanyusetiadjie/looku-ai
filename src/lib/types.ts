@@ -43,6 +43,7 @@ export type VibeStyle =
   | "vintage_retro";
 
 export interface UserPreferences {
+  stylingMode?: "solo" | "couple" | "bestie";
   gender: GenderPreference;
   skinTone: SkinToneType;
   ageRange: AgeRangeType;

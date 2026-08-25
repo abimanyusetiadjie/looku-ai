@@ -18,7 +18,7 @@ import StoryShareModal from "./StoryShareModal";
 
 interface OutfitCardProps {
   outfit: OOTDRecommendation;
-  onRegenerate?: () => void;
+  onRegenerate?: (feedbackHint?: string) => void;
   onOpenSavedDrawer?: () => void;
 }
 
@@ -426,15 +426,15 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer }: 
             </div>
             <div className="flex flex-wrap gap-2">
               {[
-                { label: "☕ Lebih Santai / Kasual", hint: "Santai" },
-                { label: "🏢 Lebih Rapi & Formal", hint: "Formal" },
-                { label: "🌸 Warna Lebih Cerah", hint: "Cerah" },
-                { label: "🧕 Versi Hijab Longgar", hint: "Modest" },
+                { label: "☕ Lebih Santai / Kasual", hint: "Lebih santai, kasual, nyaman untuk nongkrong kafe" },
+                { label: "🏢 Lebih Rapi & Formal", hint: "Lebih formal, rapi, profesional untuk kantor atau meeting" },
+                { label: "🌸 Warna Lebih Cerah", hint: "Warna lebih cerah, fresh, dan playful" },
+                { label: "🧕 Versi Hijab Longgar", hint: "Versi hijab modest, potongan longgar, dan menutup aurat" },
               ].map((chip, idx) => (
                 <button
                   key={idx}
                   onClick={() => {
-                    if (onRegenerate) onRegenerate();
+                    if (onRegenerate) onRegenerate(chip.hint);
                   }}
                   className="px-3 py-1.5 rounded-xl bg-white hover:bg-charcoal-900 hover:text-white border border-sand-300 text-xs text-charcoal-900 font-medium transition-all shadow-2xs"
                 >
@@ -454,7 +454,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer }: 
               <motion.button
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
-                onClick={onRegenerate}
+                onClick={() => onRegenerate()}
                 className="font-bold text-[#181A18] hover:text-terracotta-500 uppercase tracking-wider text-[11px] underline underline-offset-4"
               >
                 Mix & Match Variasi Lain ↻

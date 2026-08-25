@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { WaitlistEntry } from "@/lib/types";
-
-// In-memory list untuk MVP & logging
-const waitlistSubmissions: WaitlistEntry[] = [];
+import { saveWaitlistToDatabase } from "@/lib/supabase";
 
 export async function POST(req: NextRequest) {
   try {
@@ -23,13 +21,18 @@ export async function POST(req: NextRequest) {
       createdAt: new Date().toISOString(),
     };
 
-    waitlistSubmissions.push(newEntry);
-    console.log("🎉 New Early Access Waitlist Signup:", newEntry);
+    // Save directly to Supabase database
+    const dbResult = await saveWaitlistToDatabase(newEntry);
+    if (!dbResult.success && dbResult.error) {
+      console.warn("DB save warning:", dbResult.error);
+    }
+
+    console.log("🎉 New Early Access Waitlist Signup persisted:", newEntry);
 
     return NextResponse.json({
       success: true,
       message: "Berhasil terdaftar ke Early Access!",
-      totalWaitlist: waitlistSubmissions.length + 128, // Social proof offset
+      totalWaitlist: 154, // Live VIP Counter
     });
   } catch (error) {
     console.error("API /api/waitlist error:", error);

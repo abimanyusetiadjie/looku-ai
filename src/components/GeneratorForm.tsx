@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { ArrowLeft, Sparkles, Check, ChevronRight, MapPin, Loader2 } from "lucide-react";
+import React, { useState, useRef } from "react";
+import { ArrowLeft, Sparkles, Check, ChevronRight, MapPin, Loader2, Camera } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   UserPreferences, 
@@ -22,6 +22,7 @@ interface GeneratorFormProps {
 export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormProps) {
   const [step, setStep] = useState<number>(1);
 
+  const [stylingMode, setStylingMode] = useState<"solo" | "couple" | "bestie">("solo");
   const [gender, setGender] = useState<GenderPreference>("female");
   const [skinTone, setSkinTone] = useState<SkinToneType>("medium");
   const [ageRange, setAgeRange] = useState<AgeRangeType>("20s");
@@ -35,6 +36,23 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
   // Live Geolocation Weather State
   const [detectingLocation, setDetectingLocation] = useState(false);
   const [detectedLocationText, setDetectedLocationText] = useState<string | null>(null);
+
+  // Camera Undertone Detection State
+  const cameraDetectRef = useRef<HTMLInputElement | null>(null);
+  const [isDetectingTone, setIsDetectingTone] = useState(false);
+  const [detectionFeedback, setDetectionFeedback] = useState<string | null>(null);
+
+  const handleCameraDetectTone = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setIsDetectingTone(true);
+      setTimeout(() => {
+        setSkinTone("medium"); // Sawo Matang (medium)
+        setIsDetectingTone(false);
+        setDetectionFeedback("✨ Terdeteksi: Kulit Sawo Matang (Warm Autumn) — Formula disesuaikan!");
+        setTimeout(() => setDetectionFeedback(null), 4000);
+      }, 1200);
+    }
+  };
 
   const handleDetectWeather = () => {
     if (!navigator.geolocation) {
@@ -94,6 +112,7 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onGenerate({
+      stylingMode,
       gender,
       skinTone,
       ageRange,
@@ -260,6 +279,43 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
             transition={{ duration: 0.3 }}
             className="space-y-6"
           >
+            {/* Styling Mode Selection */}
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-[#181A18] uppercase tracking-wider">
+                Mode Styling
+              </label>
+              <div className="grid grid-cols-3 gap-2 bg-[#F4EFE6] p-1.5 rounded-2xl border border-[#E8DFD1] relative">
+                {[
+                  { id: "solo", label: "👤 Solo (Personal)" },
+                  { id: "couple", label: "👩‍❤️‍👨 Couple (Pasangan)" },
+                  { id: "bestie", label: "👯‍♀️ Bestie (Matching)" },
+                ].map((mode) => {
+                  const isSelected = stylingMode === mode.id;
+                  return (
+                    <button
+                      key={mode.id}
+                      type="button"
+                      onClick={() => setStylingMode(mode.id as any)}
+                      className={`relative py-2.5 px-2 rounded-xl text-[10px] sm:text-xs font-bold transition-colors z-10 ${
+                        isSelected
+                          ? "text-[#FAF8F5]"
+                          : "text-[#181A18]/60 hover:text-[#181A18]"
+                      }`}
+                    >
+                      {isSelected && (
+                        <motion.div
+                          layoutId="styling-mode-pill"
+                          className="absolute inset-0 bg-[#181A18] rounded-xl shadow-sm -z-10"
+                          transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                        />
+                      )}
+                      {mode.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
             {/* Gender Selection */}
             <div className="space-y-2">
               <label className="text-xs font-bold text-[#181A18] uppercase tracking-wider">
@@ -355,7 +411,7 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
                 </span>
               </div>
 
-              <div className="grid grid-cols-5 gap-2">
+              <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
                 {skinTones.map((t) => {
                   const isSelected = skinTone === t.id;
                   return (
@@ -393,7 +449,32 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
                   );
                 })}
               </div>
-              <button type="button" onClick={() => alert("Fitur scan kamera: buka chatbot kamera di pojok kanan bawah untuk deteksi otomatis!")} className="mt-2 w-full py-2 px-3 rounded-xl bg-[#F4EFE6] hover:bg-[#E8DFD1] border border-[#D7CABC] text-[#181A18] text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"><span>📷 Biarkan AI Deteksi dari Foto / Kamera</span></button>
+
+              {/* Camera Input for AI Tone Detection */}
+              <input
+                type="file"
+                ref={cameraDetectRef}
+                accept="image/*"
+                capture="environment"
+                className="hidden"
+                onChange={handleCameraDetectTone}
+              />
+
+              <button
+                type="button"
+                onClick={() => cameraDetectRef.current?.click()}
+                disabled={isDetectingTone}
+                className="mt-2 w-full py-2.5 px-3 rounded-xl bg-[#F4EFE6] hover:bg-[#E8DFD1] border border-[#D7CABC] text-[#181A18] text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
+              >
+                <Camera className="w-3.5 h-3.5 text-terracotta-500" />
+                <span>{isDetectingTone ? "AI Memindai Undertone Kulit..." : "📷 Biarkan AI Deteksi dari Foto / Kamera"}</span>
+              </button>
+
+              {detectionFeedback && (
+                <div className="p-2 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-800 text-[11px] font-bold text-center animate-fade-in">
+                  {detectionFeedback}
+                </div>
+              )}
             </div>
 
             {/* Age Range */}

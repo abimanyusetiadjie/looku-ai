@@ -1,5 +1,87 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
+import { Check, Loader2 } from "lucide-react";
+
+function NewsletterForm() {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !email.includes("@")) {
+      setErrorMsg("Masukkan format email yang valid.");
+      return;
+    }
+
+    setLoading(true);
+    setErrorMsg(null);
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setSuccess(true);
+        setEmail("");
+      } else {
+        setErrorMsg(data.error || "Gagal berlangganan.");
+      }
+    } catch {
+      setErrorMsg("Koneksi gagal. Coba lagi.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="max-w-sm w-full">
+      <h4 className="text-sm font-bold text-white tracking-wide uppercase mb-2">
+        Dapatkan Inspirasi Mingguan
+      </h4>
+      <p className="text-xs text-sand-500 leading-relaxed mb-3">
+        Tips OOTD tropis, tren warna musiman, dan kurasi outfit langsung ke inbox kamu.
+      </p>
+
+      {success ? (
+        <div className="p-3 bg-emerald-950/80 border border-emerald-500/40 rounded-xl text-emerald-300 text-xs flex items-center gap-2">
+          <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+          <span>Terima kasih! Kamu telah terdaftar di newsletter look.u ✨</span>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-2">
+          <div className="flex gap-2">
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="email@kamu.com"
+              className="flex-1 px-4 py-2.5 rounded-xl bg-white/10 border border-white/15 text-xs text-white placeholder-white/40 focus:outline-none focus:border-terracotta-500 transition-colors"
+            />
+            <button
+              type="submit"
+              disabled={loading}
+              className="px-4 py-2.5 rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-white text-xs font-bold tracking-wider uppercase transition-colors shadow-sm flex items-center justify-center min-w-[90px]"
+            >
+              {loading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <span>Langganan</span>}
+            </button>
+          </div>
+          {errorMsg && (
+            <p className="text-[11px] text-rose-400 font-mono">{errorMsg}</p>
+          )}
+        </form>
+      )}
+    </div>
+  );
+}
 
 export default function Footer() {
   return (
@@ -38,24 +120,7 @@ export default function Footer() {
         {/* Middle: Newsletter + Social */}
         <div className="py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border-b border-white/10">
           {/* Mini Newsletter */}
-          <div className="max-w-sm">
-            <h4 className="text-sm font-bold text-white tracking-wide uppercase mb-2">
-              Dapatkan Inspirasi Mingguan
-            </h4>
-            <p className="text-xs text-sand-500 leading-relaxed mb-3">
-              Tips OOTD tropis, tren warna musiman, dan kurasi outfit langsung ke inbox kamu.
-            </p>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="email@kamu.com"
-                className="flex-1 px-4 py-2.5 rounded-xl bg-white/10 border border-white/15 text-xs text-white placeholder-white/40 focus:outline-none focus:border-terracotta-500 transition-colors"
-              />
-              <button className="px-4 py-2.5 rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-white text-xs font-bold tracking-wider uppercase transition-colors shadow-sm">
-                Langganan
-              </button>
-            </div>
-          </div>
+          <NewsletterForm />
 
           {/* Social Links */}
           <div className="flex items-center gap-5">

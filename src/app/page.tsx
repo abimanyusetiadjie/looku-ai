@@ -19,6 +19,14 @@ import { Sparkles } from "lucide-react";
 import Toast, { ToastMessage } from "@/components/Toast";
 import PersonalColorQuizModal from "@/components/PersonalColorQuizModal";
 import TomorrowOOTDWidget from "@/components/TomorrowOOTDWidget";
+import InfluencerCloneModal from "@/components/InfluencerCloneModal";
+import WeeklyOutfitCalendar from "@/components/WeeklyOutfitCalendar";
+import CoupleOutfitCard from "@/components/CoupleOutfitCard";
+import OOTDChallengeSection from "@/components/OOTDChallengeSection";
+import FashionCatalogModal from "@/components/FashionCatalogModal";
+
+import GenerationHistoryModal from "@/components/GenerationHistoryModal";
+import { History } from "lucide-react";
 
 export default function HomePage() {
   const [currentOutfit, setCurrentOutfit] = useState<OOTDRecommendation>(
@@ -26,6 +34,9 @@ export default function HomePage() {
   );
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isQuizOpen, setIsQuizOpen] = useState(false);
+  const [isCloneModalOpen, setIsCloneModalOpen] = useState(false);
+  const [isCatalogOpen, setIsCatalogOpen] = useState(false);
+  const [isHistoryOpen, setIsHistoryOpen] = useState(false);
   const [lastPrefs, setLastPrefs] = useState<UserPreferences | null>(null);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
   const [activeLoaderStep, setActiveLoaderStep] = useState(0);
@@ -70,6 +81,24 @@ export default function HomePage() {
       const json = await res.json();
       if (res.ok && json.data) {
         setCurrentOutfit(json.data);
+
+        // Auto save to Generation History in LocalStorage
+        if (typeof window !== "undefined") {
+          try {
+            const history = JSON.parse(localStorage.getItem("looku_generation_history") || "[]");
+            const newHistory = [
+              {
+                id: `gen-${Date.now()}`,
+                timestamp: new Date().toISOString(),
+                outfit: json.data,
+              },
+              ...history.slice(0, 29), // Retain top 30
+            ];
+            localStorage.setItem("looku_generation_history", JSON.stringify(newHistory));
+          } catch (e) {
+            console.error("Error saving generation history:", e);
+          }
+        }
       }
     } catch (err) {
       console.error("Generate error:", err);
@@ -82,9 +111,26 @@ export default function HomePage() {
     }
   };
 
-  const handleRegenerate = () => {
+  const handleRegenerate = (feedbackHint?: string) => {
     if (lastPrefs) {
-      handleGenerate(lastPrefs);
+      const updated = { ...lastPrefs };
+      if (feedbackHint) {
+        updated.customNotes = `${updated.customNotes || ""} (Arahan User: ${feedbackHint})`.trim();
+      }
+      handleGenerate(updated);
+    } else {
+      handleGenerate({
+        stylingMode: "solo",
+        gender: "female",
+        skinTone: "medium",
+        ageRange: "20s",
+        occasion: "hangout",
+        isModestHijab: true,
+        weather: "panas_terik",
+        budget: "hemat",
+        vibe: "earthy_minimalist",
+        customNotes: feedbackHint ? `Arahan User: ${feedbackHint}` : undefined,
+      });
     }
   };
 
@@ -102,9 +148,21 @@ export default function HomePage() {
   };
 
   const handleApplyQuizResult = (skinToneId: string) => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("looku_personal_color", skinToneId);
+    }
+    const toneNames: Record<string, string> = {
+      fair_porcelain: "Putih Gading (Light Spring)",
+      light_medium: "Kuning Langsat (Warm Spring)",
+      sawo_matang: "Sawo Matang (Warm Autumn)",
+      tan_exotic: "Tan Eksotis (Deep Autumn)",
+      dark_ebony: "Gelap Manis (Deep Winter)",
+    };
+    const label = toneNames[skinToneId] || skinToneId;
+
     addToast({
       title: "Personal Color Diterapkan",
-      description: "✨ Personal Color Diterapkan: Sawo Matang (Warm Autumn)",
+      description: `✨ Disesuaikan dengan undertone ${label}`,
       type: "success",
     });
     if (typeof window !== "undefined") {
@@ -114,43 +172,86 @@ export default function HomePage() {
   };
 
   const handleScheduleTomorrow = (outfit: any) => {
+    const outfitToSave = outfit && outfit.title ? outfit : {
+      ...currentOutfit,
+      id: `tomorrow-${Date.now()}`,
+      title: `✦ OOTD Besok Pagi: ${currentOutfit.title}`,
+      overallVibe: "Ready for Tomorrow",
+    };
+
+    if (typeof window !== "undefined") {
+      try {
+        // Save to Wardrobe
+        const saved = JSON.parse(localStorage.getItem("looku_saved_outfits") || "[]");
+        if (!saved.some((item: any) => item.id === outfitToSave.id)) {
+          localStorage.setItem("looku_saved_outfits", JSON.stringify([outfitToSave, ...saved]));
+          window.dispatchEvent(new Event("looku_saved_updated"));
+        }
+
+        // Schedule in 7-Day Calendar
+        const days = ["minggu", "senin", "selasa", "rabu", "kamis", "jumat", "sabtu"];
+        const tomorrowIdx = (new Date().getDay() + 1) % 7;
+        const tomorrowDayId = days[tomorrowIdx];
+        const cal = JSON.parse(localStorage.getItem("looku_weekly_calendar") || "{}");
+        cal[tomorrowDayId] = outfitToSave;
+        localStorage.setItem("looku_weekly_calendar", JSON.stringify(cal));
+      } catch (e) {
+        console.error("Error scheduling tomorrow outfit:", e);
+      }
+    }
+
     addToast({
-      title: "Jadwal OOTD",
-      description: "✨ OOTD Besok Pagi Berhasil Disimpan di Lemari!",
+      title: "OOTD Besok Pagi Terkunci!",
+      description: "✨ Disimpan ke Lemari & Dijadwalkan di Kalender Mingguan",
       type: "save",
     });
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F5] pb-16 md:pb-0">
+    <div className="min-h-screen flex flex-col bg-[#FAF8F5] pb-28 md:pb-0">
       {/* Navbar with Saved Looks Drawer Trigger */}
-      <Navbar onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)} onOpenQuiz={() => setIsQuizOpen(true)} />
+      <Navbar
+        onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)}
+        onOpenQuiz={() => setIsQuizOpen(true)}
+        onOpenClone={() => setIsCloneModalOpen(true)}
+        onOpenCatalog={() => setIsCatalogOpen(true)}
+      />
 
       {/* Hero Section */}
       <HeroSection onOpenQuiz={() => setIsQuizOpen(true)} />
 
-      {/* Trending Lookbook Feed with Hotspots & Lightbox */}
+      {/* Trending Community Lookbook */}
       <TrendingFeed onSelectLook={handleSelectLook} />
 
-      {/* Interactive Studio Generator Section */}
-      <section id="studio" className="py-14 sm:py-24 border-b border-[#E8DFD1]">
+      {/* Conversational & Rule-Based Styling Studio */}
+      <section id="studio" className="py-16 sm:py-24 bg-[#FAF8F5] relative border-t border-[#E8DFD1]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="border-b border-[#D7CABC] pb-6 mb-10 text-center sm:text-left"
+            className="border-b border-[#D7CABC] pb-6 mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4 text-center sm:text-left"
           >
-            <div className="flex items-center justify-center sm:justify-start gap-2 mb-1">
-              <span className="w-2 h-2 rounded-full bg-terracotta-500" />
-              <span className="lookbook-label">KONSULTASI STYLIST PRIBADI</span>
+            <div>
+              <div className="flex items-center justify-center sm:justify-start gap-2 mb-1">
+                <span className="w-2 h-2 rounded-full bg-terracotta-500" />
+                <span className="lookbook-label">KONSULTASI STYLIST PRIBADI</span>
+              </div>
+              <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#181A18] tracking-tight">
+                Mix & Match Outfit Personal Kamu
+              </h2>
+              <p className="text-sm text-[#181A18]/70 mt-2 max-w-xl">
+                Pilih mode Solo, Couple, atau Bestie. Stylist kami akan memilihkan formula warna dan potongan baju yang pas untukmu hari ini.
+              </p>
             </div>
-            <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#181A18] tracking-tight">
-              Mix & Match Outfit Personal Kamu
-            </h2>
-            <p className="text-sm text-[#181A18]/70 mt-2 max-w-xl">
-              Ikuti 3 langkah singkat di bawah. Stylist kami akan memilihkan formula warna dan potongan baju yang pas untukmu hari ini.
-            </p>
+
+            <button
+              onClick={() => setIsHistoryOpen(true)}
+              className="py-2.5 px-4 rounded-xl bg-white hover:bg-sand-100 border border-sand-300 text-charcoal-900 font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-2xs self-center sm:self-auto"
+            >
+              <History className="w-3.5 h-3.5 text-terracotta-500" />
+              <span>Riwayat Kurasi</span>
+            </button>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -224,6 +325,12 @@ export default function HomePage() {
                       <span className="text-terracotta-500 font-bold">100% REALISTIC PRICING</span>
                     </div>
                   </motion.div>
+                ) : lastPrefs?.stylingMode === "couple" || lastPrefs?.stylingMode === "bestie" ? (
+                  <CoupleOutfitCard
+                    outfit={currentOutfit}
+                    onRegenerate={handleRegenerate}
+                    onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)}
+                  />
                 ) : (
                   <OutfitCard
                     key={currentOutfit.id}
@@ -235,7 +342,20 @@ export default function HomePage() {
               </AnimatePresence>
             </div>
           </div>
+
+          {/* Weekly Outfit Calendar (7-Day Planner) */}
+          <div className="mt-16 pt-12 border-t border-sand-200">
+            <WeeklyOutfitCalendar
+              currentOutfit={currentOutfit}
+              onSelectDayOutfit={(outfit) => handleSelectLook(outfit)}
+            />
+          </div>
         </div>
+      </section>
+
+      {/* Weekly OOTD Challenge Community Leaderboard */}
+      <section id="challenge">
+        <OOTDChallengeSection />
       </section>
 
       {/* Features & Curation Principles */}
@@ -271,6 +391,29 @@ export default function HomePage() {
         isOpen={isQuizOpen}
         onClose={() => setIsQuizOpen(false)}
         onApplyResult={handleApplyQuizResult}
+      />
+
+      {/* Influencer Clone Modal */}
+      <InfluencerCloneModal
+        isOpen={isCloneModalOpen}
+        onClose={() => setIsCloneModalOpen(false)}
+        onSelectDupeLook={(outfit) => {
+          handleSelectLook(outfit);
+          setIsCloneModalOpen(false);
+        }}
+      />
+
+      {/* Fashion Catalog Warehouse Modal */}
+      <FashionCatalogModal
+        isOpen={isCatalogOpen}
+        onClose={() => setIsCatalogOpen(false)}
+      />
+
+      {/* Generation History Modal */}
+      <GenerationHistoryModal
+        isOpen={isHistoryOpen}
+        onClose={() => setIsHistoryOpen(false)}
+        onSelectOutfit={handleSelectLook}
       />
 
       {/* Toasts Notification */}

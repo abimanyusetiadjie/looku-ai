@@ -116,7 +116,7 @@ export default function PersonalColorQuizModal({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
+      <div className="fixed inset-0 z-50 overflow-hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -126,13 +126,18 @@ export default function PersonalColorQuizModal({
         />
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          transition={{ type: "spring", damping: 25, stiffness: 300 }}
-          className="relative w-full max-w-md bg-[#FAF8F5] rounded-3xl shadow-2xl border border-[#E8DFD1] overflow-hidden flex flex-col max-h-[90vh]"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 50 }}
+          transition={{ type: "spring", damping: 25, stiffness: 280 }}
+          className="relative w-full max-w-md bg-[#FAF8F5] rounded-t-3xl sm:rounded-3xl shadow-2xl border border-[#E8DFD1] overflow-hidden flex flex-col h-[85dvh] sm:h-auto sm:max-h-[90vh] pb-[max(1rem,env(safe-area-inset-bottom,0px))]"
         >
-          <div className="flex items-center justify-between px-6 py-4 border-b border-[#E8DFD1]">
+          {/* Mobile Pull Handle Indicator */}
+          <div className="sm:hidden w-full flex justify-center pt-2.5 pb-1">
+            <div className="w-10 h-1 rounded-full bg-sand-300" />
+          </div>
+
+          <div className="flex items-center justify-between px-6 py-3.5 border-b border-[#E8DFD1]">
             <h2 className="font-serif font-bold text-lg text-[#181A18] flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-terracotta-500" />
               Personal Color (60s)

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Sparkles, X, Send, Camera, ArrowUpRight, ShoppingBag, ImagePlus, Video } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import LiveCameraModal from "./LiveCameraModal";
+import { OOTDRecommendation } from "@/lib/types";
 
 interface VisualCard {
   title: string;
@@ -27,6 +28,13 @@ interface Message {
   timestamp: string;
 }
 
+const DEFAULT_WELCOME_MSG: Message = {
+  id: "msg_welcome",
+  sender: "stylist",
+  text: "Halo kak! Aku Stylist Pribadi look.u ✨\n\nKamu bisa tanya seputar mix & match, atau coba klik icon kamera 📷 di bawah untuk foto selfie langsung / upload baju agar aku analisa warnanya!\n\n🔒 Foto diproses privat oleh AI dan langsung dihapus. Tidak disimpan di server publik.",
+  timestamp: "Baru saja",
+};
+
 export default function FloatingChatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [inputMessage, setInputMessage] = useState("");
@@ -34,18 +42,99 @@ export default function FloatingChatbot() {
   const [loading, setLoading] = useState(false);
   const [showPhotoOptions, setShowPhotoOptions] = useState(false);
   const [isLiveCameraOpen, setIsLiveCameraOpen] = useState(false);
+  const [cardSavedToast, setCardSavedToast] = useState<string | null>(null);
 
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: "msg_welcome",
-      sender: "stylist",
-      text: "Halo kak! Aku Stylist Pribadi look.u ✨\n\nKamu bisa tanya seputar mix & match, atau coba klik icon kamera 📷 di bawah untuk foto selfie langsung / upload baju agar aku analisa warnanya!\n\n🔒 Foto diproses privat oleh AI dan langsung dihapus. Tidak disimpan di server publik.",
-      timestamp: "Baru saja",
-    },
-  ]);
+  const [messages, setMessages] = useState<Message[]>([DEFAULT_WELCOME_MSG]);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Load chat messages from localStorage on mount
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const stored = localStorage.getItem("looku_chat_messages");
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setMessages(parsed);
+          }
+        }
+      } catch (e) {
+        console.error("Error reading chat storage:", e);
+      }
+    }
+  }, []);
+
+  // Save chat messages to localStorage
+  const saveMessagesToLocal = (newMsgs: Message[]) => {
+    setMessages(newMsgs);
+    if (typeof window !== "undefined") {
+      try {
+        localStorage.setItem("looku_chat_messages", JSON.stringify(newMsgs));
+      } catch (e) {
+        console.error("Error saving chat storage:", e);
+      }
+    }
+  };
+
+  const handleClearChat = () => {
+    if (confirm("Hapus seluruh percakapan chat?")) {
+      saveMessagesToLocal([DEFAULT_WELCOME_MSG]);
+    }
+  };
+
+  const handleSaveCardToWardrobe = (card: VisualCard) => {
+    if (typeof window === "undefined") return;
+    try {
+      const saved = JSON.parse(localStorage.getItem("looku_saved_outfits") || "[]");
+      const newOutfit: OOTDRecommendation = {
+        id: `chat-outfit-${Date.now()}`,
+        title: `✦ Stylist Pick: ${card.title}`,
+        tagline: `${card.topName} + ${card.bottomName}`,
+        overallVibe: "Stylist Chat Curated",
+        comfortRating: 5,
+        affordabilityRating: 5,
+        modestFriendly: true,
+        skinToneMatch: "Rekomendasi instan langsung dari AI Stylist look.u",
+        whyItWorks: "Kombinasi atasan dan bawahan seimbang untuk mobilitas aktif tropis.",
+        stylingTip: "Gunakan alas kaki minimalis warna netral.",
+        colorPalette: [
+          { name: "Charcoal", hex: "#181A18" },
+          { name: "Sage", hex: "#9CA986" },
+          { name: "Sand", hex: "#FAF8F5" },
+        ],
+        createdAt: new Date().toISOString(),
+        items: [
+          {
+            name: card.topName,
+            category: "atasan",
+            color: "Stylist Pick",
+            material: "Katun Adem",
+            estimatedPrice: card.topPrice,
+            shopeeQuery: card.shopeeUrl,
+            tokopediaQuery: card.tokpedUrl,
+          },
+          {
+            name: card.bottomName,
+            category: "bawahan",
+            color: "Stylist Pick",
+            material: "Linen / Twill",
+            estimatedPrice: card.bottomPrice,
+            shopeeQuery: card.shopeeUrl,
+            tokopediaQuery: card.tokpedUrl,
+          },
+        ],
+      };
+
+      localStorage.setItem("looku_saved_outfits", JSON.stringify([newOutfit, ...saved]));
+      window.dispatchEvent(new Event("looku_saved_updated"));
+      setCardSavedToast("Setelan Disimpan ke Lemari!");
+      setTimeout(() => setCardSavedToast(null), 3000);
+    } catch (e) {
+      console.error("Error saving card to wardrobe:", e);
+    }
+  };
 
   const quickQuestions = [
     "📸 Foto selfie & analisa warna kulit",
@@ -160,48 +249,70 @@ export default function FloatingChatbot() {
   return (
     <>
       {/* Floating Trigger Button */}
-      <div className="fixed bottom-20 md:bottom-8 right-4 md:right-8 z-50 pointer-events-auto">
+      <div className="fixed bottom-20 md:bottom-8 right-3 sm:right-6 md:right-8 z-40 pointer-events-auto">
         <AnimatePresence>
           {!isOpen && (
-            <motion.button
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0, opacity: 0 }}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setIsOpen(true)}
-              aria-label="Tanya Stylist"
-              className="py-3 px-4 sm:px-5 rounded-full bg-[#181A18] hover:bg-terracotta-500 text-white shadow-2xl border border-white/15 flex items-center gap-2.5 transition-all group"
-            >
-              <div className="relative">
-                <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-terracotta-400 group-hover:text-white transition-colors">
-                  <Sparkles className="w-4 h-4" />
+            <>
+              {/* Mobile Circular FAB (<640px) */}
+              <motion.button
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0, opacity: 0 }}
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.92 }}
+                onClick={() => setIsOpen(true)}
+                aria-label="Tanya AI Stylist"
+                className="sm:hidden w-12 h-12 rounded-full bg-[#181A18] text-white shadow-2xl border-2 border-white/20 flex items-center justify-center relative shadow-glow"
+              >
+                <Sparkles className="w-5 h-5 text-terracotta-400" />
+                <span className="absolute top-0.5 right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-[#181A18] animate-pulse" />
+              </motion.button>
+
+              {/* Desktop Expanded Pill (>=640px) */}
+              <motion.button
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0, opacity: 0 }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setIsOpen(true)}
+                aria-label="Tanya Stylist"
+                className="hidden sm:flex py-3 px-5 rounded-full bg-[#181A18] hover:bg-terracotta-500 text-white shadow-2xl border border-white/15 items-center gap-2.5 transition-all group"
+              >
+                <div className="relative">
+                  <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-terracotta-400 group-hover:text-white transition-colors">
+                    <Sparkles className="w-4 h-4" />
+                  </div>
+                  <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 animate-pulse border border-[#181A18]" />
                 </div>
-                <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 animate-pulse border border-[#181A18]" />
-              </div>
-              <div className="text-left">
-                <div className="text-xs font-bold tracking-tight text-[#FAF8F5] flex items-baseline">
-                  Tanya Stylist <span className="font-serif italic ml-1">look<span className="text-terracotta-500 not-italic">.</span>u</span>
+                <div className="text-left">
+                  <div className="text-xs font-bold tracking-tight text-[#FAF8F5] flex items-baseline">
+                    Tanya Stylist <span className="font-serif italic ml-1">look<span className="text-terracotta-500 not-italic">.</span>u</span>
+                  </div>
+                  <div className="text-[9px] font-mono text-[#A89582] group-hover:text-white/80 uppercase">
+                    Kamera & Scan Foto AI
+                  </div>
                 </div>
-                <div className="text-[9px] font-mono text-[#A89582] group-hover:text-white/80 uppercase">
-                  Kamera & Scan Foto AI
-                </div>
-              </div>
-            </motion.button>
+              </motion.button>
+            </>
           )}
         </AnimatePresence>
       </div>
 
-      {/* Floating Chat Drawer Window */}
+      {/* Floating Chat Drawer Window (Mobile Bottom-Sheet / Desktop Popup) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 30 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 30 }}
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-20 md:bottom-8 right-3 md:right-8 z-50 w-[94vw] sm:w-[410px] h-[560px] max-h-[85vh] bg-[#FAF8F5] rounded-3xl shadow-2xl border border-[#D7CABC] flex flex-col overflow-hidden"
+            initial={{ opacity: 0, y: 50, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 50, scale: 0.96 }}
+            transition={{ type: "spring", damping: 26, stiffness: 280 }}
+            className="fixed inset-x-0 bottom-0 sm:bottom-8 sm:right-8 sm:left-auto z-50 w-full sm:w-[420px] h-[88dvh] sm:h-[580px] bg-[#FAF8F5] rounded-t-3xl sm:rounded-3xl shadow-2xl border border-[#D7CABC] flex flex-col overflow-hidden pb-[env(safe-area-inset-bottom,0px)]"
           >
+            {/* Mobile Pull Handle Indicator */}
+            <div className="sm:hidden w-full flex justify-center pt-2.5 pb-1 bg-[#181A18]">
+              <div className="w-10 h-1 rounded-full bg-white/30" />
+            </div>
             {/* Chat Header */}
             <div className="p-4 bg-[#181A18] text-[#FAF8F5] flex items-center justify-between border-b border-white/10 shrink-0">
               <div className="flex items-center gap-3">
@@ -219,14 +330,32 @@ export default function FloatingChatbot() {
                 </div>
               </div>
 
-              <button
-                onClick={() => setIsOpen(false)}
-                className="p-1.5 rounded-full text-[#A89582] hover:text-white hover:bg-white/10 transition-colors"
-                title="Tutup Obrolan"
-              >
-                <X className="w-5 h-5" />
-              </button>
+              <div className="flex items-center gap-1.5">
+                {messages.length > 1 && (
+                  <button
+                    onClick={handleClearChat}
+                    className="text-[10px] font-mono text-white/60 hover:text-rose-400 px-2 py-1 rounded transition-colors uppercase font-bold"
+                    title="Hapus riwayat obrolan"
+                  >
+                    Hapus Chat
+                  </button>
+                )}
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="p-1.5 rounded-full text-[#A89582] hover:text-white hover:bg-white/10 transition-colors"
+                  title="Tutup Obrolan"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
             </div>
+
+            {/* Toast feedback */}
+            {cardSavedToast && (
+              <div className="bg-emerald-600 text-white text-[11px] font-bold py-1.5 px-4 text-center">
+                {cardSavedToast}
+              </div>
+            )}
 
             {/* Chat Messages List */}
             <div className="flex-1 p-4 overflow-y-auto space-y-4 text-xs">
@@ -323,6 +452,14 @@ export default function FloatingChatbot() {
                             </div>
                           </div>
                         </div>
+
+                        {/* Save to Wardrobe Action */}
+                        <button
+                          onClick={() => handleSaveCardToWardrobe(m.visualCard!)}
+                          className="w-full py-2 px-3 rounded-xl bg-sand-100 hover:bg-charcoal-900 hover:text-white text-charcoal-900 font-bold text-[10px] uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 border border-sand-300 shadow-2xs"
+                        >
+                          <span>📌 Simpan Setelan ke Lemari</span>
+                        </button>
 
                         {/* Shop Actions */}
                         <div className="flex items-center gap-2 pt-1">

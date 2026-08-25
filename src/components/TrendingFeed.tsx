@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Heart, ArrowUpRight, Maximize2, LayoutGrid, Rows } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -84,13 +84,30 @@ export default function TrendingFeed({ onSelectLook }: TrendingFeedProps) {
     });
   });
 
+  // Load liked looks from localStorage
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const stored = localStorage.getItem("looku_liked_looks");
+        if (stored) setLikedIds(JSON.parse(stored));
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  }, []);
+
   const toggleLike = (id: string) => {
+    let updated: string[];
     if (likedIds.includes(id)) {
-      setLikedIds(likedIds.filter((item) => item !== id));
+      updated = likedIds.filter((item) => item !== id);
       setLikes((prev) => ({ ...prev, [id]: prev[id] - 1 }));
     } else {
-      setLikedIds([...likedIds, id]);
+      updated = [...likedIds, id];
       setLikes((prev) => ({ ...prev, [id]: prev[id] + 1 }));
+    }
+    setLikedIds(updated);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("looku_liked_looks", JSON.stringify(updated));
     }
   };
 
@@ -549,9 +566,17 @@ export default function TrendingFeed({ onSelectLook }: TrendingFeedProps) {
                       <span className="text-[9px] font-mono font-bold tracking-widest uppercase bg-[#FAF8F5]/95 text-[#181A18] px-2.5 py-1 rounded-md backdrop-blur-md shadow-sm border border-black/5">
                         {item.category}
                       </span>
-                      <span className="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-md bg-[#181A18]/80 text-white backdrop-blur-sm">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedLightboxLook(item);
+                        }}
+                        className="pointer-events-auto opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-md bg-[#181A18]/80 hover:bg-terracotta-500 text-white backdrop-blur-sm shadow-md"
+                        title="Perbesar Tampilan Foto"
+                      >
                         <Maximize2 className="w-3.5 h-3.5" />
-                      </span>
+                      </button>
                     </div>
                   </motion.div>
 

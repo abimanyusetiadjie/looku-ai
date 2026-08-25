@@ -108,7 +108,7 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
               {/* Primary Action Button */}
               <motion.div
                 variants={itemVariants}
-                className="flex flex-col items-center lg:items-start gap-3 pt-2"
+                className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2"
               >
                 <motion.a 
                   href="#studio" 
@@ -119,15 +119,6 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
                   <span>Mix & Match Outfit Kamu</span>
                   <ArrowDownRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" />
                 </motion.a>
-
-                {onOpenQuiz && (
-                  <button 
-                    onClick={onOpenQuiz}
-                    className="w-full sm:w-auto py-3 px-6 rounded-2xl border border-charcoal-900/20 hover:border-terracotta-500 hover:text-terracotta-600 text-charcoal-900 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-sm"
-                  >
-                    ✨ Cari Tahu Personal Color-mu (60s)
-                  </button>
-                )}
 
                 <button 
                   onClick={() => setIsWaitlistOpen(true)} 

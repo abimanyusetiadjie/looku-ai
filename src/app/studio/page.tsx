@@ -2,71 +2,61 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
+import { ArrowLeft, Sparkles, History } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import GeneratorForm from "@/components/GeneratorForm";
 import OutfitCard from "@/components/OutfitCard";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
 import SavedLooksDrawer from "@/components/SavedLooksDrawer";
 import StoryShareModal from "@/components/StoryShareModal";
-import Toast, { ToastMessage } from "@/components/Toast";
 import PersonalColorQuizModal from "@/components/PersonalColorQuizModal";
 import TomorrowOOTDWidget from "@/components/TomorrowOOTDWidget";
+import GenerationHistoryModal from "@/components/GenerationHistoryModal";
+import Toast, { ToastMessage } from "@/components/Toast";
 import { UserPreferences, OOTDRecommendation } from "@/lib/types";
 import { PRESET_OOTD_COLLECTION } from "@/lib/presets";
-import { ArrowLeft, Check, Sparkles } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
 function MultiStageLoader() {
-  const [activeLoaderStep, setActiveLoaderStep] = useState(0);
-  const stages = [
-    "🟢 1. Menganalisis undertone warna kulit & profil...",
-    "🟢 2. Menyeleksi sirkulasi bahan katun rayon & linen adem...",
-    "🟢 3. Mengkurasi toko bintang 4.8+ di Shopee & Tokopedia..."
-  ];
-  
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveLoaderStep((prev) => (prev < 2 ? prev + 1 : prev));
-    }, 650);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <motion.div
-      key="loading-studio"
       initial={{ opacity: 0, scale: 0.98 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.98 }}
-      className="w-full tactile-card p-8 sm:p-14 flex flex-col items-center justify-center text-center min-h-[500px]"
+      className="tactile-card p-8 sm:p-12 text-center min-h-[500px] flex flex-col items-center justify-center space-y-6 bg-white rounded-3xl border border-[#E8DFD1]"
     >
-      <div className="w-full max-w-md">
-        <div className="flex justify-center mb-8">
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
-            className="w-12 h-12 rounded-full border-2 border-[#D7CABC] border-t-terracotta-500"
-          />
-        </div>
-        
-        <div className="space-y-4 mb-8 text-left">
-          {stages.map((text, idx) => {
-            const isActive = idx === activeLoaderStep;
-            const isPast = idx < activeLoaderStep;
-            return (
-              <div key={idx} className={`flex items-center gap-3 transition-all duration-500 ${idx <= activeLoaderStep ? 'opacity-100' : 'opacity-30'} ${isActive ? 'border border-terracotta-500 bg-[#F4EFE6] p-3 rounded-xl' : 'p-3'}`}>
-                <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${isPast ? 'bg-emerald-500 text-white' : isActive ? 'bg-terracotta-500 text-white animate-pulse shadow-[0_0_8px_rgba(235,97,52,0.6)]' : 'bg-[#E8DFD1] text-transparent'}`}>
-                  {isPast ? <Check className="w-3 h-3" /> : idx + 1}
-                </div>
-                <span className={`text-xs font-bold font-mono tracking-wide ${idx <= activeLoaderStep ? 'text-[#181A18]' : 'text-[#A89582]'}`}>
-                  {text}
-                </span>
-              </div>
-            );
-          })}
-        </div>
+      <div className="relative">
+        <div className="w-16 h-16 rounded-full border-2 border-[#D7CABC] border-t-terracotta-500 animate-spin" />
+        <Sparkles className="w-6 h-6 text-terracotta-500 absolute inset-0 m-auto animate-pulse" />
+      </div>
 
-        <div className="space-y-3 opacity-50">
+      <div className="space-y-2">
+        <div className="lookbook-label">AI CURATION IN PROGRESS</div>
+        <h3 className="font-serif text-2xl font-bold text-[#181A18]">
+          Mengkurasi Formula OOTD Terbaik...
+        </h3>
+        <p className="text-xs text-[#181A18]/60 font-mono">
+          Menganalisis personal color, sirkulasi bahan tropis, dan budget lokal
+        </p>
+      </div>
+
+      <div className="w-full max-w-sm space-y-3 pt-4">
+        <div className="flex items-center gap-3 text-xs font-semibold text-[#181A18] bg-[#FAF8F5] p-3 rounded-xl border border-[#E8DFD1]">
+          <span className="w-5 h-5 rounded-full bg-terracotta-500 text-white flex items-center justify-center text-[10px] font-mono">1</span>
+          <span>Analisis personal color & undertone kulit</span>
+        </div>
+        <div className="flex items-center gap-3 text-xs font-semibold text-[#181A18] bg-[#FAF8F5] p-3 rounded-xl border border-[#E8DFD1] animate-pulse">
+          <span className="w-5 h-5 rounded-full bg-[#D7CABC] text-[#181A18] flex items-center justify-center text-[10px] font-mono">2</span>
+          <span>Pencocokan bahan adem & sirkulasi udara</span>
+        </div>
+        <div className="flex items-center gap-3 text-xs font-semibold text-[#181A18]/60 bg-[#FAF8F5]/50 p-3 rounded-xl border border-[#E8DFD1]">
+          <span className="w-5 h-5 rounded-full bg-[#E8DFD1] text-[#A89582] flex items-center justify-center text-[10px] font-mono">3</span>
+          <span>Kurasi toko terpercaya di marketplace</span>
+        </div>
+      </div>
+
+      <div className="w-full max-w-sm pt-2">
+        <div className="space-y-2">
           <div className="h-4 bg-[#E8DFD1] rounded animate-pulse w-3/4 mx-auto" />
           <div className="h-4 bg-[#E8DFD1] rounded animate-pulse w-1/2 mx-auto" />
           <div className="h-32 bg-[#E8DFD1] rounded-xl animate-pulse w-full mt-4" />
@@ -82,6 +72,7 @@ export default function StudioPage() {
   );
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isQuizOpen, setIsQuizOpen] = useState(false);
+  const [isHistoryOpen, setIsHistoryOpen] = useState(false);
   const [lastPrefs, setLastPrefs] = useState<UserPreferences | null>(null);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
 
@@ -95,9 +86,21 @@ export default function StudioPage() {
   };
 
   const handleApplyQuizResult = (skinToneId: string) => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("looku_personal_color", skinToneId);
+    }
+    const toneNames: Record<string, string> = {
+      fair_porcelain: "Putih Gading (Light Spring)",
+      light_medium: "Kuning Langsat (Warm Spring)",
+      sawo_matang: "Sawo Matang (Warm Autumn)",
+      tan_exotic: "Tan Eksotis (Deep Autumn)",
+      dark_ebony: "Gelap Manis (Deep Winter)",
+    };
+    const label = toneNames[skinToneId] || skinToneId;
+
     addToast({
       title: "Personal Color Diterapkan",
-      description: "✨ Personal Color Diterapkan: Sawo Matang (Warm Autumn)",
+      description: `✨ Disesuaikan dengan undertone ${label}`,
       type: "success",
     });
     if (typeof window !== "undefined") {
@@ -106,9 +109,35 @@ export default function StudioPage() {
   };
 
   const handleScheduleTomorrow = (outfit: any) => {
+    const outfitToSave = outfit && outfit.title ? outfit : {
+      ...currentOutfit,
+      id: `tomorrow-${Date.now()}`,
+      title: `✦ OOTD Besok Pagi: ${currentOutfit.title}`,
+      overallVibe: "Ready for Tomorrow",
+    };
+
+    if (typeof window !== "undefined") {
+      try {
+        const saved = JSON.parse(localStorage.getItem("looku_saved_outfits") || "[]");
+        if (!saved.some((item: any) => item.id === outfitToSave.id)) {
+          localStorage.setItem("looku_saved_outfits", JSON.stringify([outfitToSave, ...saved]));
+          window.dispatchEvent(new Event("looku_saved_updated"));
+        }
+
+        const days = ["minggu", "senin", "selasa", "rabu", "kamis", "jumat", "sabtu"];
+        const tomorrowIdx = (new Date().getDay() + 1) % 7;
+        const tomorrowDayId = days[tomorrowIdx];
+        const cal = JSON.parse(localStorage.getItem("looku_weekly_calendar") || "{}");
+        cal[tomorrowDayId] = outfitToSave;
+        localStorage.setItem("looku_weekly_calendar", JSON.stringify(cal));
+      } catch (e) {
+        console.error("Error scheduling tomorrow outfit:", e);
+      }
+    }
+
     addToast({
-      title: "Jadwal OOTD",
-      description: "✨ OOTD Besok Pagi Berhasil Disimpan di Lemari!",
+      title: "OOTD Besok Pagi Terkunci!",
+      description: "✨ Disimpan ke Lemari & Dijadwalkan di Kalender Mingguan",
       type: "save",
     });
   };
@@ -128,6 +157,25 @@ export default function StudioPage() {
       const json = await res.json();
       if (res.ok && json.data) {
         setCurrentOutfit(json.data);
+
+        // Auto save to Generation History
+        if (typeof window !== "undefined") {
+          try {
+            const history = JSON.parse(localStorage.getItem("looku_generation_history") || "[]");
+            const newHistory = [
+              {
+                id: `gen-${Date.now()}`,
+                timestamp: new Date().toISOString(),
+                outfit: json.data,
+              },
+              ...history.slice(0, 29),
+            ];
+            localStorage.setItem("looku_generation_history", JSON.stringify(newHistory));
+          } catch (e) {
+            console.error("Error saving history:", e);
+          }
+        }
+
         addToast({ title: "Kurasi Berhasil", description: "Outfit siap untuk kamu!", type: "success" });
       }
     } catch (err) {
@@ -137,46 +185,59 @@ export default function StudioPage() {
     }
   };
 
-  const handleRegenerate = () => {
+  const handleRegenerate = (feedbackHint?: string) => {
     if (lastPrefs) {
-      handleGenerate(lastPrefs);
+      const updated = { ...lastPrefs };
+      if (feedbackHint) {
+        updated.customNotes = `${updated.customNotes || ""} (Arahan: ${feedbackHint})`.trim();
+      }
+      handleGenerate(updated);
+    } else {
+      handleGenerate({
+        stylingMode: "solo",
+        gender: "female",
+        skinTone: "medium",
+        ageRange: "20s",
+        occasion: "hangout",
+        isModestHijab: true,
+        weather: "panas_terik",
+        budget: "hemat",
+        vibe: "earthy_minimalist",
+        customNotes: feedbackHint ? `Arahan: ${feedbackHint}` : undefined,
+      });
     }
   };
 
-  // Setup listener for storage events to detect saving
-  useEffect(() => {
-    let lastSavedItems = 0;
-    try {
-      lastSavedItems = JSON.parse(localStorage.getItem("looku_saved_outfits") || "[]").length;
-    } catch (e) {}
-
-    const handleStorageCheck = () => {
-      try {
-        const currentItems = JSON.parse(localStorage.getItem("looku_saved_outfits") || "[]").length;
-        if (currentItems > lastSavedItems) {
-          addToast({ title: "Tersimpan di Lemari", description: "Outfit berhasil disimpan", type: "save" });
-        }
-        lastSavedItems = currentItems;
-      } catch (e) {}
-    };
-
-    // Poll localstorage or listen to custom events if needed, but simplest is listening to click intercept or click bubbling
-    const handleGlobalClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.closest('button[title="Simpan ke Lemari"]')) {
-         setTimeout(handleStorageCheck, 50);
-      }
-    };
-    
-    document.addEventListener("click", handleGlobalClick);
-    return () => document.removeEventListener("click", handleGlobalClick);
-  }, []);
-
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F5] pb-16 md:pb-0">
-      <Navbar onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)} onOpenQuiz={() => setIsQuizOpen(true)} />
+    <div className="min-h-screen flex flex-col bg-[#FAF8F5] pb-28 md:pb-0">
+      {/* Studio Header Bar */}
+      <header className="sticky top-0 z-40 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#E8DFD1]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <Link href="/" className="font-serif italic font-bold text-2xl text-[#181A18] flex items-baseline">
+            look<span className="text-terracotta-500 not-italic">.</span>u
+          </Link>
 
-      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setIsHistoryOpen(true)}
+              className="py-2 px-3 rounded-xl bg-white hover:bg-sand-100 border border-sand-300 text-charcoal-900 font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-2xs"
+            >
+              <History className="w-3.5 h-3.5 text-terracotta-500" />
+              <span>Riwayat</span>
+            </button>
+
+            <button
+              onClick={() => setIsSavedDrawerOpen(true)}
+              className="py-2 px-3.5 rounded-xl bg-charcoal-900 text-white font-bold text-xs uppercase tracking-wider shadow-sm"
+            >
+              Lemari Koleksi
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Studio Container */}
+      <main className="flex-1 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full">
         {/* Header Breadcrumb */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
@@ -221,7 +282,7 @@ export default function StudioPage() {
             <div className="mb-6 p-4 rounded-xl bg-gradient-to-r from-terracotta-50 to-[#FAF8F5] border border-terracotta-200 shadow-sm flex items-start gap-3">
               <Sparkles className="w-5 h-5 text-terracotta-500 shrink-0 mt-0.5" />
               <p className="text-sm text-[#181A18] font-medium leading-relaxed">
-                ✨ Formula OOTD Kamu Hari Ini Telah Disesuaikan Berdasarkan Cuaca & Smart Defaults <span className="font-bold">(GPS Synced Climate 33°C, Earthy Minimalist, Sawo Matang Tone)</span>. Klik 'Sesuaikan' di form jika ingin mengubah acara/budget.
+                ✨ Formula OOTD Kamu Hari Ini Telah Disesuaikan Berdasarkan Cuaca & Smart Defaults <span className="font-bold">(GPS Synced Climate 33°C, Earthy Minimalist, Sawo Matang Tone)</span>. Klik &apos;Sesuaikan&apos; di form jika ingin mengubah acara/budget.
               </p>
             </div>
             <AnimatePresence mode="wait">
@@ -266,6 +327,13 @@ export default function StudioPage() {
         isOpen={isQuizOpen}
         onClose={() => setIsQuizOpen(false)}
         onApplyResult={handleApplyQuizResult}
+      />
+
+      {/* Generation History Modal */}
+      <GenerationHistoryModal
+        isOpen={isHistoryOpen}
+        onClose={() => setIsHistoryOpen(false)}
+        onSelectOutfit={(outfit) => setCurrentOutfit(outfit)}
       />
 
       {/* Toasts */}
