@@ -49,10 +49,13 @@ export interface UserPreferences {
   ageRange: AgeRangeType;
   occasion: OccasionType;
   isModestHijab: boolean;
+  hijabMaterial?: "voal" | "pashmina" | "paris" | "jersey" | "bebas";
+  fittingPreference?: "oversized" | "regular" | "smart_tucked";
   weather: WeatherType;
   budget: BudgetRange;
   vibe: VibeStyle;
   customNotes?: string;
+  ownedItem?: string; // Item pakaian yang sudah dimiliki pengguna untuk di-mix & match
 }
 
 export interface OutfitItem {
@@ -65,6 +68,7 @@ export interface OutfitItem {
   shopeeQuery: string;
   tokopediaQuery: string;
   imageUrl?: string;
+  isOwnedItem?: boolean; // True jika item ini adalah baju milik pengguna sendiri
 }
 
 export interface OOTDRecommendation {
@@ -75,12 +79,13 @@ export interface OOTDRecommendation {
   comfortRating: number;
   affordabilityRating: number;
   modestFriendly: boolean;
-  skinToneMatch: string; // Deskripsi kecocokan dengan warna kulit (e.g. "Memberi efek cerah & glowing pada kulit Sawo Matang")
+  skinToneMatch: string; // Deskripsi kecocokan dengan warna kulit
   whyItWorks: string;
   stylingTip: string;
   colorPalette: { name: string; hex: string }[];
   items: OutfitItem[];
   createdAt: string;
+  flatlayImages?: string[];
 }
 
 export interface TrendingLook {

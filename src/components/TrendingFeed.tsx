@@ -2,11 +2,12 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { Heart, ArrowUpRight, Maximize2, LayoutGrid, Rows } from "lucide-react";
+import { Heart, ArrowUpRight, Maximize2, LayoutGrid, Rows, Share2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TRENDING_LOOKS_FEED } from "@/lib/presets";
 import { TrendingLook, OOTDRecommendation } from "@/lib/types";
 import ImageLightboxModal from "./ImageLightboxModal";
+import StoryShareModal from "./StoryShareModal";
 
 interface TrendingFeedProps {
   onSelectLook: (outfit: OOTDRecommendation) => void;
@@ -26,6 +27,7 @@ export default function TrendingFeed({ onSelectLook }: TrendingFeedProps) {
   const [likedIds, setLikedIds] = useState<string[]>([]);
   const [activeHotspot, setActiveHotspot] = useState<string | null>(null);
   const [selectedLightboxLook, setSelectedLightboxLook] = useState<TrendingLook | null>(null);
+  const [storyOutfit, setStoryOutfit] = useState<OOTDRecommendation | null>(null);
 
   // Concept C: Category Filter & Mobile View Mode State
   const [selectedTags, setSelectedTags] = useState<string[]>(["all"]);
@@ -232,6 +234,28 @@ export default function TrendingFeed({ onSelectLook }: TrendingFeedProps) {
             )}
           </div>
 
+          {/* Empty Search Result State */}
+          {filteredLooks.length === 0 && (
+            <div className="text-center py-16 px-4 bg-white rounded-3xl border border-sand-300 space-y-3 my-6 shadow-sm">
+              <div className="w-14 h-14 rounded-2xl bg-sand-100 flex items-center justify-center mx-auto text-2xl shadow-2xs">
+                🔍
+              </div>
+              <h3 className="font-serif font-bold text-lg text-charcoal-900">Tidak ada formula yang cocok</h3>
+              <p className="text-xs text-sand-500 max-w-md mx-auto">
+                Coba kata kunci lain (misal: &apos;linen&apos;, &apos;kafe&apos;, &apos;kondangan&apos;, &apos;formal&apos;, &apos;hijab&apos;) atau reset filter pencarian kamu.
+              </p>
+              <button
+                onClick={() => {
+                  setSearchQuery("");
+                  setSelectedTags(["all"]);
+                }}
+                className="mt-2 px-5 py-2.5 bg-charcoal-900 hover:bg-terracotta-500 text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors shadow-xs"
+              >
+                Reset Semua Filter
+              </button>
+            </div>
+          )}
+
           {/* MOBILE VIEW MODE 1: Horizontal Snap Reel (Swipe 👉 with Peek & Dots) */}
           <div className="block md:hidden">
             {mobileViewMode === "reel" ? (
@@ -363,17 +387,27 @@ export default function TrendingFeed({ onSelectLook }: TrendingFeedProps) {
                             </div>
                           </div>
 
-                          <motion.button
-                            whileTap={{ scale: 0.96 }}
-                            onClick={() => {
-                              onSelectLook(item.outfit);
-                              document.getElementById("studio")?.scrollIntoView({ behavior: "smooth" });
-                            }}
-                            className="w-full py-3 px-4 rounded-xl bg-[#181A18] text-white font-bold text-xs tracking-widest uppercase flex items-center justify-center gap-2 shadow-xs"
-                          >
-                            <span>TRY THIS LOOK</span>
-                            <ArrowUpRight className="w-3.5 h-3.5" />
-                          </motion.button>
+                          <div className="flex items-center gap-2">
+                            <motion.button
+                              whileTap={{ scale: 0.96 }}
+                              onClick={() => {
+                                onSelectLook(item.outfit);
+                                document.getElementById("studio")?.scrollIntoView({ behavior: "smooth" });
+                              }}
+                              className="flex-1 py-3 px-4 rounded-xl bg-[#181A18] text-white font-bold text-xs tracking-widest uppercase flex items-center justify-center gap-2 shadow-xs"
+                            >
+                              <span>TRY THIS LOOK</span>
+                              <ArrowUpRight className="w-3.5 h-3.5" />
+                            </motion.button>
+
+                            <button
+                              onClick={() => setStoryOutfit(item.outfit)}
+                              className="p-3 rounded-xl bg-[#FAF8F5] border border-sand-300 text-charcoal-900 hover:bg-sand-100 transition-colors shadow-xs"
+                              title="Ekspor Story (9:16)"
+                            >
+                              <Share2 className="w-4 h-4 text-terracotta-600" />
+                            </button>
+                          </div>
                         </div>
                       </div>
                     );
@@ -627,22 +661,32 @@ export default function TrendingFeed({ onSelectLook }: TrendingFeedProps) {
                       </div>
                     </div>
 
-                    {/* Action Button: TRY THIS LOOK */}
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.96 }}
-                      onClick={() => {
-                        onSelectLook(item.outfit);
-                        if (typeof window !== "undefined") {
-                          const el = document.getElementById("studio");
-                          el?.scrollIntoView({ behavior: "smooth" });
-                        }
-                      }}
-                      className="w-full py-3 px-4 rounded-xl bg-[#181A18] hover:bg-terracotta-500 text-white font-bold text-xs tracking-widest uppercase transition-all flex items-center justify-center gap-2 shadow-sm group/btn"
-                    >
-                      <span>TRY THIS LOOK</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                    </motion.button>
+                    {/* Action Buttons: TRY THIS LOOK & EXPORT STORY */}
+                    <div className="flex items-center gap-2">
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.96 }}
+                        onClick={() => {
+                          onSelectLook(item.outfit);
+                          if (typeof window !== "undefined") {
+                            const el = document.getElementById("studio");
+                            el?.scrollIntoView({ behavior: "smooth" });
+                          }
+                        }}
+                        className="flex-1 py-3 px-4 rounded-xl bg-[#181A18] hover:bg-terracotta-500 text-white font-bold text-xs tracking-widest uppercase transition-all flex items-center justify-center gap-2 shadow-sm group/btn"
+                      >
+                        <span>TRY THIS LOOK</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                      </motion.button>
+
+                      <button
+                        onClick={() => setStoryOutfit(item.outfit)}
+                        className="p-3 rounded-xl bg-sand-100 hover:bg-sand-200 border border-sand-300 text-charcoal-900 transition-colors shadow-2xs"
+                        title="Ekspor Lookbook Story (9:16)"
+                      >
+                        <Share2 className="w-4 h-4 text-terracotta-600" />
+                      </button>
+                    </div>
                   </div>
                 </motion.div>
               );
@@ -657,6 +701,14 @@ export default function TrendingFeed({ onSelectLook }: TrendingFeedProps) {
           look={selectedLightboxLook}
           onClose={() => setSelectedLightboxLook(null)}
           onTryLook={onSelectLook}
+        />
+      )}
+
+      {/* Story Share Modal */}
+      {storyOutfit && (
+        <StoryShareModal
+          outfit={storyOutfit}
+          onClose={() => setStoryOutfit(null)}
         />
       )}
     </>

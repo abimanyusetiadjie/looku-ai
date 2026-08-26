@@ -12,10 +12,12 @@ import {
   Edit3,
   Check,
   Cloud,
-  RefreshCw
+  RefreshCw,
+  Scale
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { OOTDRecommendation } from "@/lib/types";
+import OutfitCompareModal from "./OutfitCompareModal";
 import {
   signInWithGoogle,
   syncLocalWardrobeToCloud,
@@ -44,6 +46,7 @@ export default function SavedLooksDrawer({
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editTitle, setEditTitle] = useState("");
   const [editNotes, setEditNotes] = useState("");
+  const [isCompareOpen, setIsCompareOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -271,6 +274,19 @@ export default function SavedLooksDrawer({
                 </button>
               </div>
 
+              {/* Quick Compare Button */}
+              {savedOutfits.length >= 2 && (
+                <div className="px-5 mt-2 shrink-0">
+                  <button
+                    onClick={() => setIsCompareOpen(true)}
+                    className="w-full py-2.5 rounded-xl bg-sand-100 hover:bg-sand-200 border border-sand-300 text-charcoal-900 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-2xs"
+                  >
+                    <Scale className="w-3.5 h-3.5 text-terracotta-600" />
+                    <span>⚖️ Bandingkan 2 Outfit Lemari</span>
+                  </button>
+                </div>
+              )}
+
               {/* Body Content */}
               <div className="flex-1 p-5 overflow-y-auto space-y-4">
                 {savedOutfits.length === 0 ? (
@@ -443,6 +459,17 @@ export default function SavedLooksDrawer({
           </div>
         </div>
       )}
+
+      {/* Outfit Compare Modal */}
+      <OutfitCompareModal
+        isOpen={isCompareOpen}
+        onClose={() => setIsCompareOpen(false)}
+        savedOutfits={savedOutfits}
+        onSelectOutfitToStudio={(outfit) => {
+          onSelectOutfit(outfit);
+          onClose();
+        }}
+      />
     </AnimatePresence>
   );
 }

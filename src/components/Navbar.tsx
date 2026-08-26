@@ -1,24 +1,51 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Menu, X, Bookmark, Palette, ChevronDown, Sparkles, Store, Camera, HelpCircle, BookOpen } from "lucide-react";
+import { ArrowUpRight, Menu, X, Bookmark, Palette, ChevronDown, ChevronRight, Sparkles, Store, Camera, HelpCircle, BookOpen, User, Smartphone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import WaitlistModal from "./WaitlistModal";
 import PersonalColorQuizModal from "./PersonalColorQuizModal";
 
 interface NavbarProps {
-  onOpenSavedDrawer?: () => void;
+  onOpenSavedDrawer: () => void;
   onOpenQuiz?: () => void;
   onOpenClone?: () => void;
   onOpenCatalog?: () => void;
+  onOpenHistory?: () => void;
 }
 
-export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onOpenCatalog }: NavbarProps) {
+export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onOpenCatalog, onOpenHistory }: NavbarProps) {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false);
   const [savedCount, setSavedCount] = useState<number>(0);
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleBeforeInstall = (e: Event) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+    window.addEventListener("beforeinstallprompt", handleBeforeInstall);
+    return () => window.removeEventListener("beforeinstallprompt", handleBeforeInstall);
+  }, []);
+
+  const handleInstallPWA = async () => {
+    setToolsDropdownOpen(false);
+    setMobileMenuOpen(false);
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      setDeferredPrompt(null);
+    } else {
+      alert(
+        "📲 Cara Pasang Aplikasi look.u di Layar Utama HP:\n\n" +
+        "• Di iPhone (Safari): Tekan tombol Bagikan (Share ⎋) di bawah layar ➔ pilih 'Tambahkan ke Layar Utama' (Add to Home Screen).\n\n" +
+        "• Di Android (Chrome): Tekan menu titik tiga (⋮) di pojok kanan atas ➔ pilih 'Pasang Aplikasi' (Install App)."
+      );
+    }
+  };
 
   useEffect(() => {
     const updateCount = () => {
@@ -79,7 +106,7 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
               </span>
             </Link>
 
-            {/* Clean Core Nav Links (Hanya 3 Menu Utama) */}
+            {/* Clean Core Nav Links */}
             <nav className="hidden lg:flex items-center gap-8 text-[13px] tracking-wider uppercase font-semibold text-[#181A18]/75">
               <a
                 href="#trending"
@@ -91,7 +118,7 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
                 href="#studio"
                 className="hover:text-[#181A18] transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[1.5px] after:bg-[#181A18] after:transition-all"
               >
-                AI Stylist
+                Studio OOTD
               </a>
               <a
                 href="#challenge"
@@ -191,6 +218,21 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
                             <div className="text-[10px] text-sand-500">Analisis undertone kulit 60 detik</div>
                           </div>
                         </button>
+
+                        <button
+                          onClick={handleInstallPWA}
+                          className="w-full px-3 py-2.5 rounded-xl bg-emerald-50/80 hover:bg-emerald-100 border border-emerald-200 flex items-center gap-3 text-left transition-colors group"
+                        >
+                          <div className="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-2xs">
+                            <Smartphone className="w-4 h-4" />
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-emerald-950 group-hover:text-emerald-800 transition-colors">
+                              📲 Install Aplikasi look.u
+                            </div>
+                            <div className="text-[10px] text-emerald-700">Pasang di Layar Utama HP</div>
+                          </div>
+                        </button>
                       </div>
 
                       {/* Secondary Links Footer */}
@@ -233,6 +275,15 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
                   )}
                 </button>
               )}
+
+              {/* Profile Link */}
+              <Link
+                href="/profile"
+                className="p-2 rounded-full bg-sand-100 hover:bg-sand-200 border border-sand-300 text-charcoal-900 transition-colors flex items-center justify-center shadow-2xs"
+                title="Profil Pengguna & Style DNA"
+              >
+                <User className="w-4 h-4 text-charcoal-900" />
+              </Link>
 
               {/* Primary VIP CTA */}
               <button
@@ -294,7 +345,7 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
                     onClick={() => setMobileMenuOpen(false)}
                     className="p-2.5 rounded-xl bg-white border border-sand-200 text-center text-xs font-bold text-charcoal-900 uppercase"
                   >
-                    AI Stylist
+                    Studio OOTD
                   </a>
                   <a
                     href="#challenge"
@@ -309,22 +360,28 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
                 {/* Feature Tiles */}
                 <div className="space-y-2">
                   <div className="text-[10px] font-mono uppercase text-sand-500 font-bold">Fitur & Eksplorasi</div>
+
                   {onOpenCatalog && (
                     <button
                       onClick={() => {
                         setMobileMenuOpen(false);
                         onOpenCatalog();
                       }}
-                      className="w-full p-3 rounded-xl bg-white border border-sand-200 flex items-center justify-between text-left"
+                      className="w-full p-3 rounded-2xl bg-white hover:bg-sand-50 border border-sand-200 flex items-center justify-between text-left transition-colors group shadow-2xs"
                     >
                       <div className="flex items-center gap-3">
-                        <Store className="w-4 h-4 text-emerald-600" />
+                        <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                          <Store className="w-4 h-4" />
+                        </div>
                         <div>
-                          <div className="text-xs font-bold text-charcoal-900">Gudang 300+ Busana</div>
+                          <div className="text-xs font-bold text-charcoal-900 group-hover:text-terracotta-600 transition-colors">Gudang 300+ Busana</div>
                           <div className="text-[10px] text-sand-500">Katalog pakaian & brand lokal</div>
                         </div>
                       </div>
-                      <span className="text-xs text-sand-500">→</span>
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[9px] font-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">300+ LOOK</span>
+                        <ChevronRight className="w-4 h-4 text-sand-400 group-hover:text-charcoal-900 group-hover:translate-x-0.5 transition-all" />
+                      </div>
                     </button>
                   )}
 
@@ -334,31 +391,80 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
                         setMobileMenuOpen(false);
                         onOpenClone();
                       }}
-                      className="w-full p-3 rounded-xl bg-white border border-sand-200 flex items-center justify-between text-left"
+                      className="w-full p-3 rounded-2xl bg-white hover:bg-sand-50 border border-sand-200 flex items-center justify-between text-left transition-colors group shadow-2xs"
                     >
                       <div className="flex items-center gap-3">
-                        <Camera className="w-4 h-4 text-purple-600" />
+                        <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+                          <Camera className="w-4 h-4" />
+                        </div>
                         <div>
-                          <div className="text-xs font-bold text-charcoal-900">Clone Style Selebgram</div>
+                          <div className="text-xs font-bold text-charcoal-900 group-hover:text-terracotta-600 transition-colors">Clone Style Selebgram</div>
                           <div className="text-[10px] text-sand-500">Dupe outfit under 200k</div>
                         </div>
                       </div>
-                      <span className="text-xs text-sand-500">→</span>
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[9px] font-mono font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-full border border-purple-200">AI DUPE</span>
+                        <ChevronRight className="w-4 h-4 text-sand-400 group-hover:text-charcoal-900 group-hover:translate-x-0.5 transition-all" />
+                      </div>
                     </button>
                   )}
 
                   <button
                     onClick={handleOpenQuizModal}
-                    className="w-full p-3 rounded-xl bg-white border border-sand-200 flex items-center justify-between text-left"
+                    className="w-full p-3 rounded-2xl bg-white hover:bg-sand-50 border border-sand-200 flex items-center justify-between text-left transition-colors group shadow-2xs"
                   >
                     <div className="flex items-center gap-3">
-                      <Palette className="w-4 h-4 text-amber-600" />
+                      <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                        <Palette className="w-4 h-4" />
+                      </div>
                       <div>
-                        <div className="text-xs font-bold text-charcoal-900">Tes Personal Color</div>
+                        <div className="text-xs font-bold text-charcoal-900 group-hover:text-terracotta-600 transition-colors">Tes Personal Color</div>
                         <div className="text-[10px] text-sand-500">Cek undertone warna kulit</div>
                       </div>
                     </div>
-                    <span className="text-xs text-sand-500">→</span>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[9px] font-mono font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">60 DETIK</span>
+                      <ChevronRight className="w-4 h-4 text-sand-400 group-hover:text-charcoal-900 group-hover:translate-x-0.5 transition-all" />
+                    </div>
+                  </button>
+
+                  <Link
+                    href="/profile"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full p-3 rounded-2xl bg-sand-100 hover:bg-sand-200 border border-sand-300 flex items-center justify-between text-left transition-colors group shadow-2xs"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-white text-charcoal-900 flex items-center justify-center shrink-0 border border-sand-200">
+                        <User className="w-4 h-4 text-charcoal-900" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-charcoal-900 group-hover:text-terracotta-600 transition-colors">Profil & Style DNA</div>
+                        <div className="text-[10px] text-sand-500">Statistik gaya & analitik kamu</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[9px] font-mono font-bold text-charcoal-900 bg-white px-2 py-0.5 rounded-full border border-sand-300">XP STATS</span>
+                      <ChevronRight className="w-4 h-4 text-sand-400 group-hover:text-charcoal-900 group-hover:translate-x-0.5 transition-all" />
+                    </div>
+                  </Link>
+
+                  <button
+                    onClick={handleInstallPWA}
+                    className="w-full p-3 rounded-2xl bg-emerald-50/80 hover:bg-emerald-100 border border-emerald-200 flex items-center justify-between text-left transition-colors group shadow-2xs"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-2xs">
+                        <Smartphone className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-emerald-950 group-hover:text-emerald-800 transition-colors">📲 Install look.u App</div>
+                        <div className="text-[10px] text-emerald-700">Pasang di Home Screen HP</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[9px] font-mono font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full border border-emerald-300">APP FREE</span>
+                      <ChevronRight className="w-4 h-4 text-emerald-600 group-hover:translate-x-0.5 transition-all" />
+                    </div>
                   </button>
                 </div>
 

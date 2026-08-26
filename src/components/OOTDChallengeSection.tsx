@@ -22,8 +22,11 @@ import {
   Trash2,
   Image as ImageIcon,
   UserCheck,
-  Palette
+  Palette,
+  Share2
 } from 'lucide-react';
+import StoryShareModal from './StoryShareModal';
+import { OOTDRecommendation } from '@/lib/types';
 
 type ChallengeEntry = {
   id: string;
@@ -74,6 +77,39 @@ export default function OOTDChallengeSection() {
 
   // Delete Modal State
   const [deletingEntry, setDeletingEntry] = useState<ChallengeEntry | null>(null);
+  const [storyOutfit, setStoryOutfit] = useState<OOTDRecommendation | null>(null);
+
+  const handleShareChallengeStory = (entry: ChallengeEntry) => {
+    const outfit: OOTDRecommendation = {
+      id: entry.id,
+      title: `OOTD Arena: ${entry.user_name}`,
+      tagline: `Weekly Style Challenge Entry • ${entry.location}`,
+      overallVibe: "Challenge Trendsetter",
+      comfortRating: 9.5,
+      affordabilityRating: 9.0,
+      modestFriendly: true,
+      skinToneMatch: "Cocok untuk ragam tone iklim tropis",
+      whyItWorks: "Perpaduan warna palet harmonis dengan proporsi siluet modern.",
+      stylingTip: `Total ${entry.votes} vote masuk di Weekly Arena. Dukung look ini di looku.ai!`,
+      colorPalette: (entry.color_palette || ['#BA5D38', '#9CA986', '#FAF9F6']).map((hex, i) => ({
+        name: `Tone ${i + 1}`,
+        hex,
+      })),
+      items: [
+        {
+          category: "atasan",
+          name: "Curated Challenge Look",
+          color: entry.color_palette?.[0] || "#BA5D38",
+          material: "Katun Rayon Adem",
+          estimatedPrice: "Rp 149.000",
+          shopeeQuery: "outfit kemeja rayon",
+          tokopediaQuery: "outfit kemeja rayon",
+        },
+      ],
+      createdAt: new Date().toISOString(),
+    };
+    setStoryOutfit(outfit);
+  };
 
   // Form State
   const [userName, setUserName] = useState('');
@@ -127,6 +163,7 @@ export default function OOTDChallengeSection() {
       setVotedIds(updatedVotes);
       if (typeof window !== 'undefined') {
         localStorage.setItem('looku_voted_challenges', JSON.stringify(Array.from(updatedVotes)));
+        window.dispatchEvent(new Event('looku_profile_updated'));
       }
       await unvoteChallengeEntry(id);
     } else {
@@ -140,6 +177,7 @@ export default function OOTDChallengeSection() {
       setVotedIds(updatedVotes);
       if (typeof window !== 'undefined') {
         localStorage.setItem('looku_voted_challenges', JSON.stringify(Array.from(updatedVotes)));
+        window.dispatchEvent(new Event('looku_profile_updated'));
       }
       await upvoteChallengeEntry(id);
     }
@@ -194,6 +232,7 @@ export default function OOTDChallengeSection() {
     setMySubmissionIds(updatedMyIds);
     if (typeof window !== 'undefined') {
       localStorage.setItem('looku_my_challenge_ids', JSON.stringify(Array.from(updatedMyIds)));
+      window.dispatchEvent(new Event('looku_profile_updated'));
     }
 
     setEntries((prev) => [newEntry, ...prev]);
@@ -252,23 +291,36 @@ export default function OOTDChallengeSection() {
   const getRankBadge = (rank: number) => {
     if (rank === 1)
       return (
-        <span className="bg-amber-400 text-amber-950 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full absolute top-2.5 left-2.5 z-10 shadow-md border border-amber-200 flex items-center gap-1">
-          <span>👑</span> #1 TRENDSETTER
-        </span>
+        <div className="absolute top-2.5 left-2.5 z-20 flex flex-col gap-1">
+          <span className="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 text-amber-950 text-[10px] font-mono font-extrabold px-3 py-1 rounded-full shadow-lg border border-amber-200 flex items-center gap-1.5 aura-glow-gold animate-pulse">
+            <span>👑</span>
+            <span>JUARA 1 ARENA</span>
+          </span>
+        </div>
       );
     if (rank === 2)
       return (
-        <span className="bg-sand-100 text-charcoal-900 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full absolute top-2.5 left-2.5 z-10 shadow-md border border-sand-300 flex items-center gap-1">
-          <span>✦</span> #2 CHIC MASTER
-        </span>
+        <div className="absolute top-2.5 left-2.5 z-20">
+          <span className="bg-gradient-to-r from-slate-100 to-slate-200 text-slate-800 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full shadow-md border border-slate-300 flex items-center gap-1.5">
+            <span>🥈</span>
+            <span>JUARA 2</span>
+          </span>
+        </div>
       );
     if (rank === 3)
       return (
-        <span className="bg-terracotta-100 text-terracotta-900 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full absolute top-2.5 left-2.5 z-10 shadow-md border border-terracotta-200 flex items-center gap-1">
-          <span>✦</span> #3 RUNNER UP
-        </span>
+        <div className="absolute top-2.5 left-2.5 z-20">
+          <span className="bg-gradient-to-r from-amber-800 to-amber-900 text-amber-100 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full shadow-md border border-amber-700 flex items-center gap-1.5">
+            <span>🥉</span>
+            <span>JUARA 3</span>
+          </span>
+        </div>
       );
-    return null;
+    return (
+      <span className="bg-charcoal-900/80 text-sand-50 text-[9px] font-mono font-semibold px-2 py-0.5 rounded-full absolute top-2.5 left-2.5 z-10 backdrop-blur-md">
+        #{rank}
+      </span>
+    );
   };
 
   return (
@@ -276,8 +328,8 @@ export default function OOTDChallengeSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header section */}
         <div className="text-center mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-terracotta-50 border border-terracotta-200 text-terracotta-700 text-xs font-mono font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-terracotta-200 text-terracotta-700 text-xs font-mono font-bold uppercase tracking-wider shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5 text-terracotta-500" />
             <span>WEEKLY STYLE ARENA</span>
           </div>
 
@@ -316,8 +368,16 @@ export default function OOTDChallengeSection() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ delay: index * 0.05 }}
-                    className={`bg-white rounded-xl sm:rounded-2xl shadow-2xs overflow-hidden relative group border transition-all flex flex-col justify-between ${
-                      isMyLook ? 'border-terracotta-500 ring-2 ring-terracotta-500/20' : 'border-[#E8DFD1] hover:shadow-md'
+                    className={`bg-white rounded-xl sm:rounded-2xl overflow-hidden relative group border transition-all flex flex-col justify-between ${
+                      entry.rank === 1
+                        ? 'border-amber-400 ring-2 ring-amber-400/40 shadow-xl aura-glow-gold'
+                        : entry.rank === 2
+                        ? 'border-slate-300 ring-1 ring-slate-200 shadow-md'
+                        : entry.rank === 3
+                        ? 'border-amber-700/40 shadow-md'
+                        : isMyLook
+                        ? 'border-terracotta-500 ring-2 ring-terracotta-500/20'
+                        : 'border-[#E8DFD1] hover:shadow-md'
                     }`}
                   >
                     {getRankBadge(entry.rank)}
@@ -370,18 +430,28 @@ export default function OOTDChallengeSection() {
                         </div>
                       </div>
 
-                      {/* Action Buttons: Vote / Unvote */}
-                      <button
-                        onClick={() => handleVoteToggle(entry.id)}
-                        className={`w-full flex items-center justify-center gap-1 sm:gap-1.5 py-1.5 sm:py-2 px-2 sm:px-3 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold transition-all ${
-                          isVoted
-                            ? 'bg-rose-500 text-white shadow-xs'
-                            : 'bg-sand-100 text-charcoal-900 hover:bg-rose-50 hover:text-rose-600 border border-sand-200'
-                        }`}
-                      >
-                        <Heart className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${isVoted ? 'fill-current' : ''}`} />
-                        <span>{entry.votes.toLocaleString()} {isVoted ? 'Disukai' : 'Vote'}</span>
-                      </button>
+                      {/* Action Buttons: Vote / Unvote & Share */}
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          onClick={() => handleVoteToggle(entry.id)}
+                          className={`flex-1 flex items-center justify-center gap-1 sm:gap-1.5 py-1.5 sm:py-2 px-2 sm:px-3 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold transition-all ${
+                            isVoted
+                              ? 'bg-rose-500 text-white shadow-xs'
+                              : 'bg-sand-100 text-charcoal-900 hover:bg-rose-50 hover:text-rose-600 border border-sand-200'
+                          }`}
+                        >
+                          <Heart className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${isVoted ? 'fill-current' : ''}`} />
+                          <span>{entry.votes.toLocaleString()} {isVoted ? 'Disukai' : 'Vote'}</span>
+                        </button>
+
+                        <button
+                          onClick={() => handleShareChallengeStory(entry)}
+                          className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-sand-100 hover:bg-sand-200 border border-sand-200 text-charcoal-900 transition-colors shadow-2xs"
+                          title="Bagikan ke Instagram Story (9:16)"
+                        >
+                          <Share2 className="w-3.5 h-3.5 text-terracotta-600" />
+                        </button>
+                      </div>
 
                       {/* Owner CRUD Actions: Edit & Delete */}
                       {isMyLook && (
@@ -795,6 +865,14 @@ export default function OOTDChallengeSection() {
           </div>
         )}
       </AnimatePresence>
+
+      {/* Story Share Modal */}
+      {storyOutfit && (
+        <StoryShareModal
+          outfit={storyOutfit}
+          onClose={() => setStoryOutfit(null)}
+        />
+      )}
     </section>
   );
 }

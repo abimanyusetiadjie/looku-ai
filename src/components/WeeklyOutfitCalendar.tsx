@@ -11,13 +11,13 @@ interface WeeklyOutfitCalendarProps {
 }
 
 const DAYS = [
-  { id: 0, day: 'Senin', weather: '☀️ 33°C', mood: 'Smart SCBD / Kantor' },
-  { id: 1, day: 'Selasa', weather: '☀️ 34°C', mood: 'Earthy Linen / Kuliah' },
-  { id: 2, day: 'Rabu', weather: '☁️ 30°C', mood: 'Cafe Hopping / Meeting' },
-  { id: 3, day: 'Kamis', weather: '☀️ 32°C', mood: 'Minimalist Slacks' },
-  { id: 4, day: 'Jumat', weather: '🌧️ 27°C', mood: 'Batik Modern / Layering' },
-  { id: 5, day: 'Sabtu', weather: '☀️ 33°C', mood: 'Kondangan Silk / Date' },
-  { id: 6, day: 'Minggu', weather: '☀️ 34°C', mood: 'Relaxed Casual / Santai' },
+  { id: 0, day: 'Senin', weather: '☀️ 33°C', weatherDesc: 'Cerah Tropis', mood: 'Smart SCBD / Kantor', icon: '☀️' },
+  { id: 1, day: 'Selasa', weather: '☀️ 34°C', weatherDesc: 'Panas Terik', mood: 'Earthy Linen / Kuliah', icon: '☀️' },
+  { id: 2, day: 'Rabu', weather: '☁️ 30°C', weatherDesc: 'Mendung Sejuk', mood: 'Cafe Hopping / Meeting', icon: '☁️' },
+  { id: 3, day: 'Kamis', weather: '☀️ 32°C', weatherDesc: 'Cerah Berangin', mood: 'Minimalist Slacks', icon: '☀️' },
+  { id: 4, day: 'Jumat', weather: '🌧️ 27°C', weatherDesc: 'Hujan Sore', mood: 'Batik Modern / Layering', icon: '🌧️' },
+  { id: 5, day: 'Sabtu', weather: '🌸 33°C', weatherDesc: 'Hangout Weekend', mood: 'Kondangan Silk / Date', icon: '🌸' },
+  { id: 6, day: 'Minggu', weather: '☕ 34°C', weatherDesc: 'Family & Chill', mood: 'Relaxed Casual / Santai', icon: '☕' },
 ];
 
 export default function WeeklyOutfitCalendar({
@@ -165,12 +165,14 @@ export default function WeeklyOutfitCalendar({
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
+                  <div className="flex flex-wrap items-center gap-2 mb-1.5">
                     <h3 className="font-bold text-charcoal-900 w-16">{day.day}</h3>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-sand-100 text-charcoal-800 border border-sand-200">
-                      {day.weather}
+                    <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-white text-charcoal-900 border border-sand-200 shadow-2xs flex items-center gap-1">
+                      <span>{day.weather}</span>
+                      <span className="text-sand-400">•</span>
+                      <span className="text-sand-600">{day.weatherDesc}</span>
                     </span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-terracotta-50 text-terracotta-700 border border-terracotta-200 truncate">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-terracotta-50 text-terracotta-700 border border-terracotta-200 truncate">
                       {day.mood}
                     </span>
                   </div>

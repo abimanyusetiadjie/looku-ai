@@ -80,6 +80,26 @@ export default function StudioPage() {
   const [isSavedDrawerOpen, setIsSavedDrawerOpen] = useState(false);
   const [storyOutfitToExport, setStoryOutfitToExport] = useState<OOTDRecommendation | null>(null);
 
+  // Listen for Chatbot / Widget load to studio events
+  React.useEffect(() => {
+    const handleLoadToStudio = (e: Event) => {
+      const customEvent = e as CustomEvent<OOTDRecommendation>;
+      if (customEvent.detail) {
+        setCurrentOutfit(customEvent.detail);
+        addToast({
+          title: "Outfit Dimuat ke Studio OOTD!",
+          description: customEvent.detail.title,
+          type: "curate",
+        });
+      }
+    };
+
+    window.addEventListener("looku_load_outfit_to_studio", handleLoadToStudio);
+    return () => {
+      window.removeEventListener("looku_load_outfit_to_studio", handleLoadToStudio);
+    };
+  }, []);
+
   const addToast = (toast: Omit<ToastMessage, "id">) => {
     const id = Date.now().toString();
     setToasts((prev) => [...prev, { ...toast, id }]);
@@ -90,11 +110,11 @@ export default function StudioPage() {
       localStorage.setItem("looku_personal_color", skinToneId);
     }
     const toneNames: Record<string, string> = {
-      fair_porcelain: "Putih Gading (Light Spring)",
-      light_medium: "Kuning Langsat (Warm Spring)",
-      sawo_matang: "Sawo Matang (Warm Autumn)",
-      tan_exotic: "Tan Eksotis (Deep Autumn)",
-      dark_ebony: "Gelap Manis (Deep Winter)",
+      fair: "Putih Gading (Light Spring)",
+      light: "Kuning Langsat (Warm Spring)",
+      medium: "Sawo Matang (Warm Autumn)",
+      tan: "Tan Eksotis (Deep Autumn)",
+      deep: "Deep Bronze (Deep Winter)",
     };
     const label = toneNames[skinToneId] || skinToneId;
 
@@ -266,6 +286,43 @@ export default function StudioPage() {
           </span>
         </motion.div>
 
+        {/* 3 Langkah Mudah Micro Onboarding Banner untuk Pengguna Awam */}
+        <div className="mb-8 p-4 rounded-2xl bg-white border border-sand-300 shadow-2xs flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3 w-full md:w-auto">
+            <div className="w-8 h-8 rounded-xl bg-terracotta-50 text-terracotta-600 font-bold text-xs flex items-center justify-center shrink-0 border border-terracotta-200">
+              1
+            </div>
+            <div className="text-left">
+              <div className="text-xs font-bold text-charcoal-900">Pilih Acaramu</div>
+              <div className="text-[10px] text-sand-500">Klik salah satu kartu kilat di bawah</div>
+            </div>
+          </div>
+
+          <span className="hidden md:inline text-sand-300 font-mono text-xs">➔</span>
+
+          <div className="flex items-center gap-3 w-full md:w-auto">
+            <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 font-bold text-xs flex items-center justify-center shrink-0 border border-amber-200">
+              2
+            </div>
+            <div className="text-left">
+              <div className="text-xs font-bold text-charcoal-900">AI Padukan Warna & Bahan</div>
+              <div className="text-[10px] text-sand-500">Sesuai cuaca 33°C & undertone kulit</div>
+            </div>
+          </div>
+
+          <span className="hidden md:inline text-sand-300 font-mono text-xs">➔</span>
+
+          <div className="flex items-center gap-3 w-full md:w-auto">
+            <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 font-bold text-xs flex items-center justify-center shrink-0 border border-emerald-200">
+              3
+            </div>
+            <div className="text-left">
+              <div className="text-xs font-bold text-charcoal-900">Beli di Shopee / Tokped</div>
+              <div className="text-[10px] text-sand-500">Toko bintang 4.8+ terkurasi</div>
+            </div>
+          </div>
+        </div>
+
         {/* Studio Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Form */}
@@ -294,6 +351,14 @@ export default function StudioPage() {
                   outfit={currentOutfit}
                   onRegenerate={handleRegenerate}
                   onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)}
+                  onOutfitChange={(updated) => {
+                    setCurrentOutfit(updated);
+                    addToast({
+                      title: "Outfit Diperbarui",
+                      description: "Item alternatif telah disinkronkan ke Studio OOTD.",
+                      type: "curate",
+                    });
+                  }}
                 />
               )}
             </AnimatePresence>

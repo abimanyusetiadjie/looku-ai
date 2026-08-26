@@ -13,6 +13,14 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "down-id.img.susercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "down-bs-id.img.susercontent.com",
+      },
+      {
+        protocol: "https",
         hostname: "images.tokopedia.net",
       },
     ],

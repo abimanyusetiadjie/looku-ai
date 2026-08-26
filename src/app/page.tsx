@@ -26,6 +26,7 @@ import OOTDChallengeSection from "@/components/OOTDChallengeSection";
 import FashionCatalogModal from "@/components/FashionCatalogModal";
 
 import GenerationHistoryModal from "@/components/GenerationHistoryModal";
+import DailyReminderBanner from "@/components/DailyReminderBanner";
 import { History } from "lucide-react";
 
 export default function HomePage() {
@@ -57,6 +58,26 @@ export default function HomePage() {
       if (timer) clearInterval(timer);
     };
   }, [isLoading]);
+
+  // Listen for Chatbot / Widget load to studio events
+  React.useEffect(() => {
+    const handleLoadToStudio = (e: Event) => {
+      const customEvent = e as CustomEvent<OOTDRecommendation>;
+      if (customEvent.detail) {
+        setCurrentOutfit(customEvent.detail);
+        addToast({
+          title: "Outfit Dimuat ke Studio OOTD!",
+          description: customEvent.detail.title,
+          type: "curate",
+        });
+      }
+    };
+
+    window.addEventListener("looku_load_outfit_to_studio", handleLoadToStudio);
+    return () => {
+      window.removeEventListener("looku_load_outfit_to_studio", handleLoadToStudio);
+    };
+  }, []);
 
   const addToast = (toast: Omit<ToastMessage, "id">) => {
     const id = Math.random().toString(36).substring(2, 9);
@@ -207,6 +228,8 @@ export default function HomePage() {
     });
   };
 
+
+
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF8F5] pb-28 md:pb-0">
       {/* Navbar with Saved Looks Drawer Trigger */}
@@ -215,7 +238,11 @@ export default function HomePage() {
         onOpenQuiz={() => setIsQuizOpen(true)}
         onOpenClone={() => setIsCloneModalOpen(true)}
         onOpenCatalog={() => setIsCatalogOpen(true)}
+        onOpenHistory={() => setIsHistoryOpen(true)}
       />
+
+      {/* Daily Weather & Styling Morning Reminder Banner */}
+      <DailyReminderBanner />
 
       {/* Hero Section */}
       <HeroSection onOpenQuiz={() => setIsQuizOpen(true)} />
@@ -253,6 +280,43 @@ export default function HomePage() {
               <span>Riwayat Kurasi</span>
             </button>
           </motion.div>
+
+          {/* 3 Langkah Mudah Micro Onboarding Banner untuk Pengguna Awam */}
+          <div className="mb-8 p-4 rounded-2xl bg-white border border-sand-300 shadow-2xs flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3 w-full md:w-auto">
+              <div className="w-8 h-8 rounded-xl bg-terracotta-50 text-terracotta-600 font-bold text-xs flex items-center justify-center shrink-0 border border-terracotta-200">
+                1
+              </div>
+              <div className="text-left">
+                <div className="text-xs font-bold text-charcoal-900">Pilih Acaramu</div>
+                <div className="text-[10px] text-sand-500">Klik salah satu kartu kilat di bawah</div>
+              </div>
+            </div>
+
+            <span className="hidden md:inline text-sand-300 font-mono text-xs">➔</span>
+
+            <div className="flex items-center gap-3 w-full md:w-auto">
+              <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 font-bold text-xs flex items-center justify-center shrink-0 border border-amber-200">
+                2
+              </div>
+              <div className="text-left">
+                <div className="text-xs font-bold text-charcoal-900">AI Padukan Warna & Bahan</div>
+                <div className="text-[10px] text-sand-500">Sesuai cuaca 33°C & undertone kulit</div>
+              </div>
+            </div>
+
+            <span className="hidden md:inline text-sand-300 font-mono text-xs">➔</span>
+
+            <div className="flex items-center gap-3 w-full md:w-auto">
+              <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 font-bold text-xs flex items-center justify-center shrink-0 border border-emerald-200">
+                3
+              </div>
+              <div className="text-left">
+                <div className="text-xs font-bold text-charcoal-900">Beli di Shopee / Tokped</div>
+                <div className="text-[10px] text-sand-500">Toko bintang 4.8+ terkurasi</div>
+              </div>
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Column: Conversational Form (5 cols) */}
@@ -337,6 +401,14 @@ export default function HomePage() {
                     outfit={currentOutfit}
                     onRegenerate={handleRegenerate}
                     onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)}
+                    onOutfitChange={(updated) => {
+                      setCurrentOutfit(updated);
+                      addToast({
+                        title: "Outfit Diperbarui",
+                        description: "Item alternatif telah disinkronkan ke Studio OOTD.",
+                        type: "curate",
+                      });
+                    }}
                   />
                 )}
               </AnimatePresence>

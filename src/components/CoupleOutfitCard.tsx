@@ -2,8 +2,10 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Star, Bookmark, Camera, MessageCircle, Heart, Share2 } from "lucide-react";
+import { Star, Bookmark, Camera, MessageCircle, Heart, Share2, ArrowUpRight } from "lucide-react";
 import { OOTDRecommendation } from "@/lib/types";
+import { getMarketplaceLinks, trackAffiliateClick } from "@/lib/affiliate";
+import { ShopeeIcon, TokopediaIcon } from "@/components/MarketplaceIcons";
 
 export interface CoupleOutfitCardProps {
   outfit?: OOTDRecommendation;
@@ -123,6 +125,7 @@ export default function CoupleOutfitCard({
         setToastMsg("Disimpan ke Lemari Koleksi!");
       }
       window.dispatchEvent(new Event("looku_saved_updated"));
+      window.dispatchEvent(new Event("looku_profile_updated"));
       setTimeout(() => setToastMsg(""), 3000);
     } catch (e) {
       console.error("Error saving couple look:", e);
@@ -189,34 +192,90 @@ export default function CoupleOutfitCard({
       </div>
 
       {/* Body: 2 Columns for Outfits */}
-      <div className="grid grid-cols-2 divide-x divide-[#E8DFD1]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-[#E8DFD1]">
         {/* Person One */}
         <div className="p-5 space-y-4">
-          <h4 className="text-sm font-bold text-[#181A18] uppercase tracking-wide border-b border-[#E8DFD1] pb-2">
-            {personOne.title}
+          <h4 className="text-sm font-bold text-[#181A18] uppercase tracking-wide border-b border-[#E8DFD1] pb-2 flex items-center justify-between">
+            <span>{personOne.title}</span>
+            <span className="text-[10px] font-mono text-sand-500 lowercase">outfit 1</span>
           </h4>
           <ul className="space-y-3">
-            {personOne.items.map((item, idx) => (
-              <li key={idx} className="flex flex-col gap-0.5">
-                <span className="text-[10px] font-mono text-[#A89582] uppercase">{item.category}</span>
-                <span className="text-xs font-semibold text-[#181A18]">{item.name}</span>
-              </li>
-            ))}
+            {personOne.items.map((item, idx) => {
+              const links = getMarketplaceLinks(item.name);
+              return (
+                <li key={idx} className="flex flex-col gap-1 pb-2 border-b border-sand-100 last:border-0">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono text-[#A89582] uppercase font-bold">{item.category}</span>
+                    <div className="flex items-center gap-1.5">
+                      <a
+                        href={links.shopee}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackAffiliateClick("shopee", item.name, "couple_card")}
+                        className="px-2 py-0.5 rounded bg-[#EE4D2D] hover:bg-[#d63b1d] text-white text-[9px] font-bold transition-colors flex items-center gap-1 shadow-2xs"
+                      >
+                        <ShopeeIcon className="w-2.5 h-2.5" />
+                        <span>Shopee</span>
+                      </a>
+                      <a
+                        href={links.tokopedia}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackAffiliateClick("tokopedia", item.name, "couple_card")}
+                        className="px-2 py-0.5 rounded bg-[#00AA5B] hover:bg-[#008f4c] text-white text-[9px] font-bold transition-colors flex items-center gap-1 shadow-2xs"
+                      >
+                        <TokopediaIcon className="w-2.5 h-2.5" />
+                        <span>Tokped</span>
+                      </a>
+                    </div>
+                  </div>
+                  <span className="text-xs font-semibold text-[#181A18]">{item.name}</span>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
         {/* Person Two */}
         <div className="p-5 space-y-4 bg-[#F4EFE6]/30">
-          <h4 className="text-sm font-bold text-[#181A18] uppercase tracking-wide border-b border-[#E8DFD1] pb-2">
-            {personTwo.title}
+          <h4 className="text-sm font-bold text-[#181A18] uppercase tracking-wide border-b border-[#E8DFD1] pb-2 flex items-center justify-between">
+            <span>{personTwo.title}</span>
+            <span className="text-[10px] font-mono text-sand-500 lowercase">outfit 2</span>
           </h4>
           <ul className="space-y-3">
-            {personTwo.items.map((item, idx) => (
-              <li key={idx} className="flex flex-col gap-0.5">
-                <span className="text-[10px] font-mono text-[#A89582] uppercase">{item.category}</span>
-                <span className="text-xs font-semibold text-[#181A18]">{item.name}</span>
-              </li>
-            ))}
+            {personTwo.items.map((item, idx) => {
+              const links = getMarketplaceLinks(item.name);
+              return (
+                <li key={idx} className="flex flex-col gap-1 pb-2 border-b border-sand-100 last:border-0">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono text-[#A89582] uppercase font-bold">{item.category}</span>
+                    <div className="flex items-center gap-1.5">
+                      <a
+                        href={links.shopee}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackAffiliateClick("shopee", item.name, "couple_card")}
+                        className="px-2 py-0.5 rounded bg-[#EE4D2D] hover:bg-[#d63b1d] text-white text-[9px] font-bold transition-colors flex items-center gap-1 shadow-2xs"
+                      >
+                        <ShopeeIcon className="w-2.5 h-2.5" />
+                        <span>Shopee</span>
+                      </a>
+                      <a
+                        href={links.tokopedia}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackAffiliateClick("tokopedia", item.name, "couple_card")}
+                        className="px-2 py-0.5 rounded bg-[#00AA5B] hover:bg-[#008f4c] text-white text-[9px] font-bold transition-colors flex items-center gap-1 shadow-2xs"
+                      >
+                        <TokopediaIcon className="w-2.5 h-2.5" />
+                        <span>Tokped</span>
+                      </a>
+                    </div>
+                  </div>
+                  <span className="text-xs font-semibold text-[#181A18]">{item.name}</span>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

@@ -2,10 +2,11 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { Sparkles, X, Send, Camera, ArrowUpRight, ShoppingBag, ImagePlus, Video } from "lucide-react";
+import { Sparkles, X, Send, Camera, ArrowUpRight, ShoppingBag, ImagePlus, Video, Mic, MicOff } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import LiveCameraModal from "./LiveCameraModal";
 import { OOTDRecommendation } from "@/lib/types";
+import { trackAffiliateClick } from "@/lib/affiliate";
 
 interface VisualCard {
   title: string;
@@ -42,12 +43,63 @@ export default function FloatingChatbot() {
   const [loading, setLoading] = useState(false);
   const [showPhotoOptions, setShowPhotoOptions] = useState(false);
   const [isLiveCameraOpen, setIsLiveCameraOpen] = useState(false);
+  const [isListening, setIsListening] = useState(false);
   const [cardSavedToast, setCardSavedToast] = useState<string | null>(null);
-
-  const [messages, setMessages] = useState<Message[]>([DEFAULT_WELCOME_MSG]);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const recognitionRef = useRef<any>(null);
+
+  const handleToggleVoice = () => {
+    if (typeof window === "undefined") return;
+
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert("Browser Anda belum mendukung input suara. Gunakan browser Google Chrome / Edge untuk fitur ini.");
+      return;
+    }
+
+    if (isListening) {
+      recognitionRef.current?.stop();
+      setIsListening(false);
+      return;
+    }
+
+    try {
+      const recognition = new SpeechRecognition();
+      recognition.lang = "id-ID";
+      recognition.continuous = false;
+      recognition.interimResults = true;
+
+      recognition.onstart = () => {
+        setIsListening(true);
+      };
+
+      recognition.onresult = (event: any) => {
+        const transcript = Array.from(event.results)
+          .map((result: any) => result[0].transcript)
+          .join("");
+        setInputMessage(transcript);
+      };
+
+      recognition.onerror = (event: any) => {
+        console.error("Speech recognition error:", event.error);
+        setIsListening(false);
+      };
+
+      recognition.onend = () => {
+        setIsListening(false);
+      };
+
+      recognitionRef.current = recognition;
+      recognition.start();
+    } catch (err) {
+      console.error("Failed to start speech recognition:", err);
+      setIsListening(false);
+    }
+  };
+
+  const [messages, setMessages] = useState<Message[]>([DEFAULT_WELCOME_MSG]);
 
   // Load chat messages from localStorage on mount
   useEffect(() => {
@@ -134,6 +186,55 @@ export default function FloatingChatbot() {
     } catch (e) {
       console.error("Error saving card to wardrobe:", e);
     }
+  };
+
+  const handleLoadCardToStudio = (card: VisualCard) => {
+    if (typeof window === "undefined") return;
+    const newOutfit: OOTDRecommendation = {
+      id: `chat-studio-${Date.now()}`,
+      title: `✦ Stylist Pick: ${card.title}`,
+      tagline: `${card.topName} + ${card.bottomName}`,
+      overallVibe: "Stylist Chat Curated",
+      comfortRating: 5,
+      affordabilityRating: 5,
+      modestFriendly: true,
+      skinToneMatch: "Rekomendasi personal langsung dari AI Stylist look.u",
+      whyItWorks: "Kombinasi atasan dan bawahan seimbang untuk mobilitas aktif tropis.",
+      stylingTip: "Gunakan alas kaki minimalis warna netral.",
+      colorPalette: [
+        { name: "Charcoal", hex: "#181A18" },
+        { name: "Sage", hex: "#9CA986" },
+        { name: "Sand", hex: "#FAF8F5" },
+      ],
+      createdAt: new Date().toISOString(),
+      items: [
+        {
+          name: card.topName,
+          category: "atasan",
+          color: "Stylist Pick",
+          material: "Katun Adem",
+          estimatedPrice: card.topPrice,
+          shopeeQuery: card.shopeeUrl,
+          tokopediaQuery: card.tokpedUrl,
+        },
+        {
+          name: card.bottomName,
+          category: "bawahan",
+          color: "Stylist Pick",
+          material: "Linen / Twill",
+          estimatedPrice: card.bottomPrice,
+          shopeeQuery: card.shopeeUrl,
+          tokopediaQuery: card.tokpedUrl,
+        },
+      ],
+    };
+
+    window.dispatchEvent(new CustomEvent("looku_load_outfit_to_studio", { detail: newOutfit }));
+    if (window.innerWidth < 768) {
+      setIsOpen(false);
+    }
+    const studioEl = document.getElementById("hasil-ootd") || document.getElementById("studio");
+    studioEl?.scrollIntoView({ behavior: "smooth" });
   };
 
   const quickQuestions = [
@@ -453,13 +554,23 @@ export default function FloatingChatbot() {
                           </div>
                         </div>
 
-                        {/* Save to Wardrobe Action */}
-                        <button
-                          onClick={() => handleSaveCardToWardrobe(m.visualCard!)}
-                          className="w-full py-2 px-3 rounded-xl bg-sand-100 hover:bg-charcoal-900 hover:text-white text-charcoal-900 font-bold text-[10px] uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 border border-sand-300 shadow-2xs"
-                        >
-                          <span>📌 Simpan Setelan ke Lemari</span>
-                        </button>
+                        {/* Load to Studio & Save to Wardrobe Actions */}
+                        <div className="space-y-1.5 pt-1">
+                          <button
+                            onClick={() => handleLoadCardToStudio(m.visualCard!)}
+                            className="w-full py-2 px-3 rounded-xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-[10px] uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 shadow-xs"
+                          >
+                            <Sparkles className="w-3 h-3 text-amber-400" />
+                            <span>📱 Tampilkan di Studio OOTD</span>
+                          </button>
+
+                          <button
+                            onClick={() => handleSaveCardToWardrobe(m.visualCard!)}
+                            className="w-full py-1.5 px-3 rounded-xl bg-sand-100 hover:bg-sand-200 text-charcoal-900 font-bold text-[10px] uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 border border-sand-300 shadow-2xs"
+                          >
+                            <span>📌 Simpan Setelan ke Lemari</span>
+                          </button>
+                        </div>
 
                         {/* Shop Actions */}
                         <div className="flex items-center gap-2 pt-1">
@@ -467,6 +578,7 @@ export default function FloatingChatbot() {
                             href={m.visualCard.shopeeUrl}
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={() => trackAffiliateClick("shopee", m.visualCard?.topName || "Chatbot Recommendation", "chatbot")}
                             className="flex-1 py-2 rounded-xl bg-white hover:bg-orange-500 hover:text-white border border-[#D7CABC] hover:border-orange-500 text-center font-bold text-[10px] uppercase transition-all flex items-center justify-center gap-1 shadow-2xs"
                           >
                             <span>Shopee</span>
@@ -476,6 +588,7 @@ export default function FloatingChatbot() {
                             href={m.visualCard.tokpedUrl}
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={() => trackAffiliateClick("tokopedia", m.visualCard?.topName || "Chatbot Recommendation", "chatbot")}
                             className="flex-1 py-2 rounded-xl bg-white hover:bg-emerald-600 hover:text-white border border-[#D7CABC] hover:border-emerald-600 text-center font-bold text-[10px] uppercase transition-all flex items-center justify-center gap-1 shadow-2xs"
                           >
                             <span>Tokopedia</span>
@@ -649,6 +762,25 @@ export default function FloatingChatbot() {
                 disabled={loading}
                 className="flex-1 px-3.5 py-2.5 rounded-xl bg-[#FAF8F5] border border-[#D7CABC] focus:outline-none focus:border-[#181A18] text-xs text-[#181A18] placeholder-[#A89582]"
               />
+
+              {/* Voice Input Microphone Button */}
+              <button
+                type="button"
+                onClick={handleToggleVoice}
+                disabled={loading}
+                className={`p-2.5 rounded-xl border transition-all shrink-0 ${
+                  isListening
+                    ? "bg-rose-600 text-white border-rose-600 animate-pulse shadow-md"
+                    : "bg-[#F4EFE6] hover:bg-[#E8DFD1] text-charcoal-900 border-[#D7CABC]"
+                }`}
+                title={isListening ? "Sedang mendengarkan... Klik untuk berhenti" : "Tanya AI Stylist pakai suara"}
+              >
+                {isListening ? (
+                  <MicOff className="w-4 h-4 text-white" />
+                ) : (
+                  <Mic className="w-4 h-4 text-terracotta-600" />
+                )}
+              </button>
 
               {/* Send Button */}
               <button

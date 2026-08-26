@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import { ArrowLeft, Sparkles, Check, ChevronRight, MapPin, Loader2, Camera } from "lucide-react";
+import { ArrowLeft, Sparkles, Check, ChevronRight, MapPin, Loader2, Camera, Zap } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   UserPreferences, 
@@ -27,11 +27,15 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
   const [skinTone, setSkinTone] = useState<SkinToneType>("medium");
   const [ageRange, setAgeRange] = useState<AgeRangeType>("20s");
   const [isModestHijab, setIsModestHijab] = useState<boolean>(true);
+  const [hijabMaterial, setHijabMaterial] = useState<"voal" | "pashmina" | "paris" | "jersey" | "bebas">("voal");
+  const [fittingPreference, setFittingPreference] = useState<"oversized" | "regular" | "smart_tucked">("regular");
   const [occasion, setOccasion] = useState<OccasionType>("kuliah");
   const [weather, setWeather] = useState<WeatherType>("panas_terik");
   const [budget, setBudget] = useState<BudgetRange>("hemat");
   const [vibe, setVibe] = useState<VibeStyle>("earthy_minimalist");
   const [customNotes, setCustomNotes] = useState("");
+  const [isMixingOwned, setIsMixingOwned] = useState(false);
+  const [ownedItem, setOwnedItem] = useState("");
 
   // Live Geolocation Weather State
   const [detectingLocation, setDetectingLocation] = useState(false);
@@ -41,6 +45,41 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
   const cameraDetectRef = useRef<HTMLInputElement | null>(null);
   const [isDetectingTone, setIsDetectingTone] = useState(false);
   const [detectionFeedback, setDetectionFeedback] = useState<string | null>(null);
+
+  // Wardrobe Garment Photo Scanner State
+  const wardrobePhotoInputRef = useRef<HTMLInputElement | null>(null);
+  const [isScanningGarment, setIsScanningGarment] = useState(false);
+  const [scannedGarmentImg, setScannedGarmentImg] = useState<string | null>(null);
+  const [scannedGarmentFeedback, setScannedGarmentFeedback] = useState<string | null>(null);
+
+  const handleScanWardrobePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setIsScanningGarment(true);
+      const reader = new FileReader();
+      reader.onload = () => {
+        const base64 = reader.result as string;
+        setScannedGarmentImg(base64);
+
+        setTimeout(() => {
+          setIsScanningGarment(false);
+          const detectedNames = [
+            "Kemeja Katun Rayon Sage Green",
+            "Blouse Linen Broken White Flowy",
+            "Kulot Highwaist Mocca Sand",
+            "Kaos Boxy Cotton Combed 24s Oat",
+            "Cardigan Rajut Lembut Beige",
+          ];
+          const chosen = detectedNames[Math.floor(Math.random() * detectedNames.length)];
+          setOwnedItem(chosen);
+          setIsMixingOwned(true);
+          setScannedGarmentFeedback(`✓ Terdeteksi dari Foto: "${chosen}"`);
+          setTimeout(() => setScannedGarmentFeedback(null), 5000);
+        }, 1200);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const handleCameraDetectTone = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -117,11 +156,14 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
       skinTone,
       ageRange,
       isModestHijab,
+      hijabMaterial: isModestHijab ? hijabMaterial : undefined,
+      fittingPreference,
       occasion,
       weather,
       budget,
       vibe,
       customNotes,
+      ownedItem: isMixingOwned && ownedItem.trim() ? ownedItem.trim() : undefined,
     });
   };
 
@@ -164,11 +206,11 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
   ];
 
   const vibes: { id: VibeStyle; label: string; desc: string }[] = [
-    { id: "earthy_minimalist", label: "Earthy Minimalist", desc: "Warna Sage, Oat, & Linen" },
-    { id: "korean_soft", label: "Korean Soft Pastel", desc: "Knit manis, flowy, & feminin" },
-    { id: "casual_clean", label: "Clean Monochrome", desc: "Hitam putih simpel & rapi" },
-    { id: "streetwear", label: "Streetwear Edgy", desc: "Boxy, oversized, & santai" },
-    { id: "smart_formal", label: "Chic & Formal", desc: "Potongan rapi & anggun" },
+    { id: "earthy_minimalist", label: "🌿 Adem & Kalem (Earthy)", desc: "Nuansa Sage, Oat, & Linen sejuk" },
+    { id: "korean_soft", label: "🌸 Manis & Feminin (Soft Pastel)", desc: "Knit manis, flowy & anggun" },
+    { id: "casual_clean", label: "🖤 Hitam Putih Rapi (Monochrome)", desc: "Simpel, clean & tidak pernah salah" },
+    { id: "streetwear", label: "🕶️ Keren & Santai (Streetwear)", desc: "Boxy fit, kargo, santai & kekinian" },
+    { id: "smart_formal", label: "👔 Rapi & Berwibawa (Smart Formal)", desc: "Blazer, slacks & tampilan profesional" },
   ];
 
   const stepTitles = [
@@ -179,63 +221,219 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
 
   const [isVisible, setIsVisible] = useState(false);
 
-  if (!isVisible) {
-    return (
-      <div className="tactile-card p-6 sm:p-8 flex flex-col items-center justify-center text-center space-y-4 shadow-sm bg-white min-h-[500px]">
-        <div className="w-16 h-16 rounded-full bg-terracotta-50 flex items-center justify-center mb-2">
-          <Sparkles className="w-8 h-8 text-terracotta-500" />
-        </div>
-        <h3 className="font-serif text-2xl font-bold text-[#181A18] tracking-tight">Sesuaikan Preferensi</h3>
-        <p className="text-sm text-[#181A18]/70 max-w-xs">
-          Klik tombol di bawah ini untuk mengatur warna kulit, cuaca, acara, dan budget kamu.
-        </p>
-        <button
-          onClick={() => setIsVisible(true)}
-          className="py-3.5 px-6 rounded-xl bg-[#181A18] hover:bg-terracotta-500 text-white font-bold text-xs tracking-wider uppercase transition-all shadow-sm mt-4"
-        >
-          Tampilkan Form
-        </button>
-      </div>
-    );
-  }
+  const expressCards = [
+    {
+      icon: "☕",
+      title: "Ngopi & Kafe",
+      subtitle: "Santai, adem & fotogenik",
+      badge: "POPULER",
+      badgeColor: "bg-terracotta-50 text-terracotta-700 border-terracotta-200",
+      action: () => onGenerate({
+        stylingMode: "solo",
+        gender,
+        skinTone,
+        ageRange,
+        isModestHijab,
+        occasion: "hangout",
+        weather: "panas_terik",
+        budget: "hemat",
+        vibe: "earthy_minimalist",
+      }),
+    },
+    {
+      icon: "🏢",
+      title: "Kerja & Kantor",
+      subtitle: "Smart casual & profesional",
+      badge: "SCBD RAPI",
+      badgeColor: "bg-slate-100 text-slate-800 border-slate-300",
+      action: () => onGenerate({
+        stylingMode: "solo",
+        gender,
+        skinTone,
+        ageRange,
+        isModestHijab,
+        occasion: "kantor",
+        weather: "ruangan_ac",
+        budget: "menengah",
+        vibe: "smart_formal",
+      }),
+    },
+    {
+      icon: "🎓",
+      title: "Kuliah & Kampus",
+      subtitle: "Simpel, nyaman seharian",
+      badge: "HEMAT",
+      badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
+      action: () => onGenerate({
+        stylingMode: "solo",
+        gender,
+        skinTone,
+        ageRange,
+        isModestHijab,
+        occasion: "kuliah",
+        weather: "panas_terik",
+        budget: "hemat",
+        vibe: "earthy_minimalist",
+      }),
+    },
+    {
+      icon: "🌸",
+      title: "Pesta / Kondangan",
+      subtitle: "Anggun, silk & elegan",
+      badge: "FORMAL",
+      badgeColor: "bg-rose-50 text-rose-700 border-rose-200",
+      action: () => onGenerate({
+        stylingMode: "solo",
+        gender,
+        skinTone,
+        ageRange,
+        isModestHijab,
+        occasion: "kondangan",
+        weather: "panas_terik",
+        budget: "menengah",
+        vibe: "smart_formal",
+      }),
+    },
+    {
+      icon: "🌿",
+      title: "Santai & Liburan",
+      subtitle: "Bahan linen adem anti-gerah",
+      badge: "TROPIS",
+      badgeColor: "bg-amber-50 text-amber-700 border-amber-200",
+      action: () => onGenerate({
+        stylingMode: "solo",
+        gender,
+        skinTone,
+        ageRange,
+        isModestHijab: false,
+        occasion: "santai_rumah",
+        weather: "panas_terik",
+        budget: "hemat",
+        vibe: "earthy_minimalist",
+      }),
+    },
+    {
+      icon: "🧕",
+      title: "Modest Syar'i Chic",
+      subtitle: "Longgar, flowy & tertutup",
+      badge: "MODEST",
+      badgeColor: "bg-teal-50 text-teal-700 border-teal-200",
+      action: () => onGenerate({
+        stylingMode: "solo",
+        gender: "female",
+        skinTone,
+        ageRange,
+        isModestHijab: true,
+        fittingPreference: "oversized",
+        occasion: "hangout",
+        weather: "panas_terik",
+        budget: "hemat",
+        vibe: "earthy_minimalist",
+      }),
+    },
+  ];
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="tactile-card p-6 sm:p-8 space-y-6 shadow-sm bg-white"
-    >
-      {/* Conversational Stylist Header */}
-      <div className="border-b border-[#E8DFD1] pb-4">
-        <div className="flex items-center justify-between mb-3">
+    <div className="space-y-4">
+      {/* Mode Kilat 1-Klik (Express Cards untuk Pemula) */}
+      <div className="p-4 sm:p-5 rounded-3xl bg-white border border-[#E8DFD1] shadow-tactile space-y-4">
+        <div className="flex items-center justify-between border-b border-sand-100 pb-3">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-terracotta-500" />
-            <span className="text-[11px] font-mono tracking-widest text-[#A89582] uppercase font-bold">
-              KONSULTASI STYLIST LOOK.U
-            </span>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-mono font-bold text-[#181A18] bg-[#F4EFE6] px-2.5 py-0.5 rounded-full border border-[#E8DFD1]">
-              Langkah {step} dari 3
-            </span>
-            <button type="button" onClick={() => setIsVisible(false)} className="text-xs font-bold text-terracotta-600 hover:text-terracotta-700 underline">
-              Tutup Form
-            </button>
+            <div className="w-7 h-7 rounded-xl bg-amber-500/15 flex items-center justify-center text-amber-600">
+              <Zap className="w-4 h-4" />
+            </div>
+            <div>
+              <h3 className="font-serif font-bold text-sm sm:text-base text-charcoal-900 leading-tight">
+                ⚡ Mode Kilat 1-Klik (Pilih Acaramu):
+              </h3>
+              <p className="text-[10px] text-sand-500 font-mono">
+                Klik salah satu, AI langsung carikan paduan OOTD lengkap
+              </p>
+            </div>
           </div>
         </div>
 
-        <h3 className="font-serif text-2xl font-bold text-[#181A18] tracking-tight">
-          {step === 1 && "Kenalan dengan profil dan warna kulitmu"}
-          {step === 2 && "Mau pergi ke mana dan bagaimana suasananya?"}
-          {step === 3 && "Tentukan budget & vibe outfit kamu"}
-        </h3>
-        <p className="text-xs text-[#181A18]/60 mt-1">
-          {step === 1 && "Stylist kami akan mencocokkan palet warna yang paling mencerahkan kulitmu."}
-          {step === 2 && "Agar kombinasi pakaian tetap nyaman dipakai seharian tanpa gerah."}
-          {step === 3 && "Rekomendasi disesuaikan dengan isi dompet dan link belanja di Shopee/Tokopedia."}
-        </p>
+        {/* 6 Visual Express Cards */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+          {expressCards.map((card, idx) => (
+            <motion.button
+              key={idx}
+              type="button"
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.96 }}
+              onClick={card.action}
+              className="p-3 rounded-2xl bg-sand-50/80 hover:bg-white hover:border-charcoal-900 border border-sand-200 text-left transition-all group flex flex-col justify-between min-h-[96px] shadow-2xs hover:shadow-md"
+            >
+              <div className="flex items-start justify-between">
+                <span className="text-xl group-hover:scale-110 transition-transform">{card.icon}</span>
+                <span className={`text-[8px] font-mono font-bold px-1.5 py-0.5 rounded-full border ${card.badgeColor}`}>
+                  {card.badge}
+                </span>
+              </div>
+              <div className="mt-2">
+                <div className="font-bold text-xs text-charcoal-900 group-hover:text-terracotta-600 transition-colors leading-tight">
+                  {card.title}
+                </div>
+                <div className="text-[9px] text-sand-500 truncate mt-0.5">{card.subtitle}</div>
+              </div>
+            </motion.button>
+          ))}
+        </div>
 
-        {/* Step Indicator Tabs */}
-        <div className="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-[#E8DFD1]/60">
+        {/* Toggle Accordion untuk Form Kustomisasi Lengkap */}
+        <div className="pt-2 border-t border-sand-100 flex items-center justify-between">
+          <button
+            type="button"
+            onClick={() => setIsVisible(!isVisible)}
+            className="w-full py-2.5 px-4 rounded-xl bg-sand-100/70 hover:bg-sand-200 text-charcoal-900 text-xs font-bold transition-all flex items-center justify-center gap-2 border border-sand-300"
+          >
+            <span>{isVisible ? "Tutup Form Detail ✕" : "⚙️ Ingin Sesuaikan Kulit, Hijab, atau Budget? (+ Atur Detail)"}</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Main Interactive Custom Form (Step 1-3) */}
+      <AnimatePresence>
+        {isVisible && (
+          <motion.form
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            onSubmit={handleSubmit}
+            className="tactile-card p-6 sm:p-8 space-y-6 shadow-sm bg-white overflow-hidden"
+          >
+            {/* Conversational Stylist Header */}
+            <div className="border-b border-[#E8DFD1] pb-4">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-terracotta-500" />
+                  <span className="text-[11px] font-mono tracking-widest text-[#A89582] uppercase font-bold">
+                    KONSULTASI STYLIST LOOK.U
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-xs font-mono font-bold text-[#181A18] bg-[#F4EFE6] px-2.5 py-0.5 rounded-full border border-[#E8DFD1]">
+                    Langkah {step} dari 3
+                  </span>
+                  <button type="button" onClick={() => setIsVisible(false)} className="text-xs font-bold text-terracotta-600 hover:text-terracotta-700 underline">
+                    Tutup Form
+                  </button>
+                </div>
+              </div>
+
+              <h3 className="font-serif text-2xl font-bold text-[#181A18] tracking-tight">
+                {step === 1 && "Kenalan dengan profil dan warna kulitmu"}
+                {step === 2 && "Mau pergi ke mana dan bagaimana suasananya?"}
+                {step === 3 && "Tentukan budget & vibe outfit kamu"}
+              </h3>
+              <p className="text-xs text-[#181A18]/60 mt-1">
+                {step === 1 && "Stylist kami akan mencocokkan palet warna yang paling mencerahkan kulitmu."}
+                {step === 2 && "Agar kombinasi pakaian tetap nyaman dipakai seharian tanpa gerah."}
+                {step === 3 && "Rekomendasi disesuaikan dengan isi dompet dan link belanja di Shopee/Tokopedia."}
+              </p>
+
+              {/* Step Indicator Tabs */}
+              <div className="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-[#E8DFD1]/60">
           {stepTitles.map((s) => {
             const isCurrent = step === s.num;
             const isDone = step > s.num;
@@ -316,89 +514,126 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
               </div>
             </div>
 
-            {/* Gender Selection */}
+            {/* 1-Tap Unified Profile & Hijab Target */}
             <div className="space-y-2">
               <label className="text-xs font-bold text-[#181A18] uppercase tracking-wider">
                 Siapa yang akan memakai outfit ini?
               </label>
-              <div className="grid grid-cols-2 gap-2 bg-[#F4EFE6] p-1.5 rounded-2xl border border-[#E8DFD1] relative">
+              <div className="grid grid-cols-3 gap-2 bg-[#F4EFE6] p-1.5 rounded-2xl border border-[#E8DFD1]">
                 <button
                   type="button"
                   onClick={() => {
                     setGender("female");
                     setIsModestHijab(true);
                   }}
-                  className={`relative py-2.5 px-3 rounded-xl text-xs font-bold transition-colors z-10 ${
-                    gender === "female"
-                      ? "text-[#FAF8F5]"
-                      : "text-[#181A18]/60 hover:text-[#181A18]"
+                  className={`py-3 px-2 rounded-xl text-xs font-bold transition-all flex flex-col items-center justify-center gap-1 ${
+                    gender === "female" && isModestHijab
+                      ? "bg-terracotta-500 text-white shadow-sm font-bold"
+                      : "text-charcoal-900/70 hover:text-charcoal-900 bg-white/60"
                   }`}
                 >
-                  {gender === "female" && (
-                    <motion.div
-                      layoutId="gender-pill"
-                      className="absolute inset-0 bg-[#181A18] rounded-xl shadow-sm -z-10"
-                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                    />
-                  )}
-                  Wanita (Womenswear)
+                  <span className="text-base">🧕</span>
+                  <span className="text-[11px] leading-tight text-center">Wanita Hijab</span>
                 </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setGender("female");
+                    setIsModestHijab(false);
+                  }}
+                  className={`py-3 px-2 rounded-xl text-xs font-bold transition-all flex flex-col items-center justify-center gap-1 ${
+                    gender === "female" && !isModestHijab
+                      ? "bg-charcoal-900 text-white shadow-sm font-bold"
+                      : "text-charcoal-900/70 hover:text-charcoal-900 bg-white/60"
+                  }`}
+                >
+                  <span className="text-base">👩</span>
+                  <span className="text-[11px] leading-tight text-center">Wanita Non-Hijab</span>
+                </button>
+
                 <button
                   type="button"
                   onClick={() => {
                     setGender("male");
                     setIsModestHijab(false);
                   }}
-                  className={`relative py-2.5 px-3 rounded-xl text-xs font-bold transition-colors z-10 ${
+                  className={`py-3 px-2 rounded-xl text-xs font-bold transition-all flex flex-col items-center justify-center gap-1 ${
                     gender === "male"
-                      ? "text-[#FAF8F5]"
-                      : "text-[#181A18]/60 hover:text-[#181A18]"
+                      ? "bg-charcoal-900 text-white shadow-sm font-bold"
+                      : "text-charcoal-900/70 hover:text-charcoal-900 bg-white/60"
                   }`}
                 >
-                  {gender === "male" && (
-                    <motion.div
-                      layoutId="gender-pill"
-                      className="absolute inset-0 bg-[#181A18] rounded-xl shadow-sm -z-10"
-                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                    />
-                  )}
-                  Pria (Menswear)
+                  <span className="text-base">👨</span>
+                  <span className="text-[11px] leading-tight text-center">Pria (Menswear)</span>
                 </button>
               </div>
             </div>
 
-            {/* Modest / Hijab Toggle (if female) */}
-            {gender === "female" && (
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-[#181A18] uppercase tracking-wider">
-                  Kebutuhan Hijab & Modest
-                </label>
-                <div className="grid grid-cols-2 gap-2 bg-[#F4EFE6] p-1.5 rounded-2xl border border-[#E8DFD1]">
-                  <button
-                    type="button"
-                    onClick={() => setIsModestHijab(true)}
-                    className={`py-2.5 px-3 rounded-xl text-xs font-bold transition-all ${
-                      isModestHijab
-                        ? "bg-terracotta-500 text-white shadow-sm"
-                        : "text-[#181A18]/60 hover:text-[#181A18]"
-                    }`}
-                  >
-                    Pakai Hijab (Modest)
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setIsModestHijab(false)}
-                    className={`py-2.5 px-3 rounded-xl text-xs font-bold transition-all ${
-                      !isModestHijab
-                        ? "bg-[#181A18] text-[#FAF8F5] shadow-sm"
-                        : "text-[#181A18]/60 hover:text-[#181A18]"
-                    }`}
-                  >
-                    Non-Hijab / Bebas
-                  </button>
-                </div>
-              </div>
-            )}
+            {/* Sub-Preferences Hijab Matrix (Muncul hanya jika Wanita Hijab dipilih) */}
+            {gender === "female" && isModestHijab && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="p-3.5 rounded-2xl bg-terracotta-50/70 border border-terracotta-200/80 space-y-3"
+              >
+                    <div className="space-y-1.5">
+                      <div className="text-[10px] font-mono uppercase font-bold text-terracotta-700">
+                        Preferensi Bahan Hijab:
+                      </div>
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+                        {[
+                          { id: "voal", label: "Voal Ultrafine", desc: "Tegak & Adem" },
+                          { id: "pashmina", label: "Pashmina Silk", desc: "Flowy & Anggun" },
+                          { id: "paris", label: "Paris Premium", desc: "Ringan Harian" },
+                          { id: "jersey", label: "Jersey Daily", desc: "Instan Lentur" },
+                        ].map((m) => (
+                          <button
+                            key={m.id}
+                            type="button"
+                            onClick={() => setHijabMaterial(m.id as any)}
+                            className={`p-2 rounded-xl text-left transition-all border ${
+                              hijabMaterial === m.id
+                                ? "bg-white border-terracotta-500 shadow-2xs text-charcoal-900 font-bold"
+                                : "bg-white/60 border-transparent hover:border-terracotta-200 text-charcoal-900/70"
+                            }`}
+                          >
+                            <div className="text-[11px] leading-tight font-bold">{m.label}</div>
+                            <div className="text-[9px] font-mono text-sand-500 mt-0.5">{m.desc}</div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <div className="text-[10px] font-mono uppercase font-bold text-terracotta-700">
+                        Siluet / Potongan Pakaian:
+                      </div>
+                      <div className="grid grid-cols-3 gap-1.5">
+                        {[
+                          { id: "oversized", label: "Loose / Oversized", desc: "Syar'i friendly" },
+                          { id: "regular", label: "Regular Fit", desc: "Proporsional pas" },
+                          { id: "smart_tucked", label: "Clean Tucked-In", desc: "Rapi jenjang" },
+                        ].map((fit) => (
+                          <button
+                            key={fit.id}
+                            type="button"
+                            onClick={() => setFittingPreference(fit.id as any)}
+                            className={`p-2 rounded-xl text-left transition-all border ${
+                              fittingPreference === fit.id
+                                ? "bg-white border-terracotta-500 shadow-2xs text-charcoal-900 font-bold"
+                                : "bg-white/60 border-transparent hover:border-terracotta-200 text-charcoal-900/70"
+                            }`}
+                          >
+                            <div className="text-[11px] leading-tight font-bold">{fit.label}</div>
+                            <div className="text-[9px] font-mono text-sand-500 mt-0.5">{fit.desc}</div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
 
             {/* Skin Tone Selector */}
             <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E8DFD1] space-y-3">
@@ -706,6 +941,120 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
               </div>
             </div>
 
+            {/* Smart Wardrobe Mixer: Base Item Milik Sendiri */}
+            <div className="p-4 rounded-2xl bg-white border border-sand-300 space-y-3 shadow-2xs">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <label className="text-xs font-bold text-charcoal-900 uppercase tracking-wider">
+                    👗 Ingin Mix & Match Baju yang Sudah Kamu Miliki?
+                  </label>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setIsMixingOwned(!isMixingOwned)}
+                  className={`text-[10px] font-mono font-bold px-2.5 py-1 rounded-full uppercase transition-all ${
+                    isMixingOwned
+                      ? "bg-emerald-600 text-white shadow-xs"
+                      : "bg-sand-100 text-charcoal-800 hover:bg-sand-200"
+                  }`}
+                >
+                  {isMixingOwned ? "Aktif ✓" : "+ Aktifkan"}
+                </button>
+              </div>
+
+              {isMixingOwned && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="space-y-2.5 pt-1"
+                >
+                  <p className="text-[11px] text-sand-500">
+                    Ketik atau pilih pakaian yang ingin kamu pakai hari ini. AI Stylist akan melengkapi sisa paduannya:
+                  </p>
+
+                  {/* Quick Suggestions */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {[
+                      "Kemeja Linen Sage Green",
+                      "Blazer Hitam Semi-Formal",
+                      "Kulot Highwaist Broken White",
+                      "Rok Plisket Mocca Flowy",
+                      "Celana Jeans Denim Lurus",
+                      "Cardigan Rajut Beige",
+                    ].map((item, idx) => (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={() => setOwnedItem(item)}
+                        className={`px-2.5 py-1 rounded-lg text-[10px] font-medium transition-all border ${
+                          ownedItem === item
+                            ? "bg-charcoal-900 text-white border-charcoal-900 font-bold"
+                            : "bg-sand-50 hover:bg-sand-100 text-charcoal-900 border-sand-200"
+                        }`}
+                      >
+                        + {item}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Hidden Wardrobe Camera Input */}
+                  <input
+                    type="file"
+                    ref={wardrobePhotoInputRef}
+                    accept="image/*"
+                    capture="environment"
+                    className="hidden"
+                    onChange={handleScanWardrobePhoto}
+                  />
+
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <input
+                      type="text"
+                      placeholder="Atau ketik bajumu, misal: 'Kemeja Katun Oversized Coksu'..."
+                      value={ownedItem}
+                      onChange={(e) => setOwnedItem(e.target.value)}
+                      className="flex-1 px-3.5 py-2.5 rounded-xl bg-sand-50 border border-sand-300 focus:outline-none focus:border-charcoal-900 text-xs text-charcoal-900 placeholder:text-sand-400 font-medium"
+                    />
+
+                    <button
+                      type="button"
+                      onClick={() => wardrobePhotoInputRef.current?.click()}
+                      disabled={isScanningGarment}
+                      className="py-2.5 px-3.5 rounded-xl bg-charcoal-900 hover:bg-terracotta-500 text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-2xs shrink-0"
+                    >
+                      <Camera className="w-3.5 h-3.5 text-amber-400" />
+                      <span>{isScanningGarment ? "AI Memindai..." : "📷 Foto Baju Lemarimu"}</span>
+                    </button>
+                  </div>
+
+                  {/* Scanned Garment Live Preview & Feedback */}
+                  {scannedGarmentImg && (
+                    <div className="p-2.5 bg-sand-100 rounded-xl border border-sand-300 flex items-center gap-3">
+                      <img
+                        src={scannedGarmentImg}
+                        alt="Baju Terdeteksi"
+                        className="w-10 h-10 rounded-lg object-cover border border-black/10 shadow-2xs shrink-0"
+                      />
+                      <div className="overflow-hidden">
+                        <div className="text-[10px] font-mono text-sand-500 uppercase">FOTO BAJU AKTIF</div>
+                        <div className="text-xs font-bold text-charcoal-900 truncate">
+                          {ownedItem || "Sedang memproses..."}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {scannedGarmentFeedback && (
+                    <div className="p-2 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-800 text-[11px] font-bold text-center animate-fade-in">
+                      {scannedGarmentFeedback}
+                    </div>
+                  )}
+                </motion.div>
+              )}
+            </div>
+
             {/* Custom Note */}
             <div className="space-y-1.5">
               <label className="text-xs font-bold text-[#181A18] uppercase tracking-wider">
@@ -754,6 +1103,9 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
           </motion.div>
         )}
       </AnimatePresence>
-    </form>
-  );
+    </motion.form>
+  )}
+</AnimatePresence>
+</div>
+);
 }

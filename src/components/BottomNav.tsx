@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import { Compass, Bookmark, Crown, Home } from "lucide-react";
+import { Compass, Bookmark, Crown, Home, User } from "lucide-react";
 import { motion } from "framer-motion";
 import WaitlistModal from "./WaitlistModal";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface BottomNavProps {
   onOpenSavedDrawer?: () => void;
@@ -11,6 +13,7 @@ interface BottomNavProps {
 }
 
 export default function BottomNav({ onOpenSavedDrawer }: BottomNavProps) {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState<string>("home");
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
 
@@ -20,8 +23,8 @@ export default function BottomNav({ onOpenSavedDrawer }: BottomNavProps) {
       onOpenSavedDrawer();
       return;
     }
-    if (tabId === "vip") {
-      setIsWaitlistOpen(true);
+    if (tabId === "profile") {
+      router.push("/profile");
       return;
     }
     if (href) {
@@ -35,7 +38,7 @@ export default function BottomNav({ onOpenSavedDrawer }: BottomNavProps) {
     { id: "trending", label: "Lookbook", icon: Compass, href: "#trending" },
     { id: "studio", label: "Studio", href: "#studio" }, // Middle custom logo badge
     { id: "saved", label: "Lemari", icon: Bookmark, href: "#" },
-    { id: "vip", label: "VIP", icon: Crown, href: "#" },
+    { id: "profile", label: "Profil", icon: User, href: "/profile" },
   ];
 
   return (

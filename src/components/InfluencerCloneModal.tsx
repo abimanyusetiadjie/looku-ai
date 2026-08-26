@@ -4,7 +4,7 @@ import {
   X, Upload, Camera, Link as LinkIcon, Sparkles
 } from 'lucide-react';
 import { OutfitItem, OOTDRecommendation } from '@/lib/types';
-import { getMarketplaceLinks } from '@/lib/affiliate';
+import { getMarketplaceLinks, trackAffiliateClick } from '@/lib/affiliate';
 
 interface InfluencerCloneModalProps {
   isOpen?: boolean;
@@ -344,10 +344,22 @@ export default function InfluencerCloneModal({ isOpen = true, onClose, onOpenStu
                             </div>
                             
                             <div className="flex items-center gap-2 shrink-0">
-                              <a href={links.shopee} target="_blank" rel="noreferrer" className="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg bg-orange-50 text-orange-600 hover:bg-orange-500 hover:text-white border border-orange-200 text-xs font-bold transition-colors flex items-center justify-center gap-1">
+                              <a
+                                href={links.shopee}
+                                target="_blank"
+                                rel="noreferrer"
+                                onClick={() => trackAffiliateClick("shopee", item.shopeeQuery || item.name, "influencer_dupe")}
+                                className="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg bg-orange-50 text-orange-600 hover:bg-orange-500 hover:text-white border border-orange-200 text-xs font-bold transition-colors flex items-center justify-center gap-1 shadow-xs"
+                              >
                                 Shopee
                               </a>
-                              <a href={links.tokopedia} target="_blank" rel="noreferrer" className="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white border border-emerald-200 text-xs font-bold transition-colors flex items-center justify-center gap-1">
+                              <a
+                                href={links.tokopedia}
+                                target="_blank"
+                                rel="noreferrer"
+                                onClick={() => trackAffiliateClick("tokopedia", item.shopeeQuery || item.name, "influencer_dupe")}
+                                className="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white border border-emerald-200 text-xs font-bold transition-colors flex items-center justify-center gap-1 shadow-xs"
+                              >
                                 Tokped
                               </a>
                             </div>

@@ -13,22 +13,39 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { OOTDRecommendation, OutfitItem } from "@/lib/types";
-import { getMarketplaceLinks } from "@/lib/affiliate";
+import { getMarketplaceLinks, trackAffiliateClick } from "@/lib/affiliate";
+import { ShopeeIcon, TokopediaIcon } from "@/components/MarketplaceIcons";
 import StoryShareModal from "./StoryShareModal";
 
 interface OutfitCardProps {
   outfit: OOTDRecommendation;
   onRegenerate?: (feedbackHint?: string) => void;
   onOpenSavedDrawer?: () => void;
+  onOutfitChange?: (updatedOutfit: OOTDRecommendation) => void;
 }
 
-export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer }: OutfitCardProps) {
+export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, onOutfitChange }: OutfitCardProps) {
   const [isSaved, setIsSaved] = useState(false);
   const [showStoryModal, setShowStoryModal] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [activeBudgetTier, setActiveBudgetTier] = useState<"budget" | "mall">("budget");
+  const [galleryViewMode, setGalleryViewMode] = useState<"grid" | "rack">("grid");
   const [items, setItems] = useState<OutfitItem[]>(outfit.items);
   const [toastMsg, setToastMsg] = useState("");
+  const [copiedHex, setCopiedHex] = useState<string | null>(null);
+
+  const handleCopyHex = (hex: string, name: string) => {
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(hex);
+      setCopiedHex(hex);
+      setToastMsg(`✓ Kode HEX ${hex} (${name}) berhasil disalin!`);
+      setTimeout(() => {
+        setCopiedHex(null);
+        setToastMsg("");
+      }, 2500);
+    }
+  };
 
   useEffect(() => {
     setItems(outfit.items);
@@ -40,17 +57,17 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer }: 
     
     const alt = { ...item };
     if (cat === "atasan") {
-      alt.name = "Blouse Katun Rayon";
-      alt.color = "Broken White";
+      alt.name = alt.name.includes("Blouse") ? "Kemeja Linen Sage" : "Blouse Katun Rayon";
+      alt.color = alt.color.includes("Broken White") ? "Sage Green" : "Broken White";
     } else if (cat === "bawahan") {
-      alt.name = "Celana Kulot Highwaist";
-      alt.color = "Mocca";
+      alt.name = alt.name.includes("Kulot") ? "Linen Straight Pants" : "Celana Kulot Highwaist";
+      alt.color = alt.color.includes("Mocca") ? "Warm Sand" : "Mocca";
     } else if (cat === "outer_hijab") {
-      alt.name = "Pashmina Ceruty Babydoll";
-      alt.color = "Cream";
+      alt.name = alt.name.includes("Pashmina") ? "Hijab Voal Premium" : "Pashmina Ceruty Babydoll";
+      alt.color = alt.color.includes("Cream") ? "Soft Oat" : "Cream";
     } else if (cat === "sepatu") {
-      alt.name = "Platform Sandals";
-      alt.color = "Nude";
+      alt.name = alt.name.includes("Sandals") ? "Mules Loafers" : "Platform Sandals";
+      alt.color = alt.color.includes("Nude") ? "Warm Ivory" : "Nude";
     } else {
       alt.name = "Aksesoris Tambahan";
     }
@@ -59,8 +76,13 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer }: 
     newItems[index] = alt;
     setItems(newItems);
     
+    const updated = { ...outfit, items: newItems };
+    if (onOutfitChange) {
+      onOutfitChange(updated);
+    }
+    
     const catLabel = cat === "outer_hijab" ? "Hijab/Outer" : cat.charAt(0).toUpperCase() + cat.slice(1);
-    setToastMsg(`✦ ${catLabel} diganti ke ${alt.name} ${alt.color}`);
+    setToastMsg(`✦ ${catLabel} diganti ke ${alt.name} (${alt.color})`);
     setTimeout(() => setToastMsg(""), 3000);
   };
 
@@ -210,6 +232,135 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer }: 
             </p>
           </div>
 
+          {/* Visual Flatlay & Composition Gallery + Mannequin Rack Toggle */}
+          <div className="p-3.5 rounded-2xl bg-sand-100/70 border border-sand-200 space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-sand-500">
+                🖼️ VISUAL SUSUNAN OOTD (HEAD-TO-TOE)
+              </span>
+              
+              <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-sand-200">
+                <button
+                  type="button"
+                  onClick={() => setGalleryViewMode("grid")}
+                  className={`px-2 py-1 rounded-lg text-[10px] font-bold transition-all ${
+                    galleryViewMode === "grid"
+                      ? "bg-charcoal-900 text-white shadow-2xs"
+                      : "text-sand-500 hover:text-charcoal-900"
+                  }`}
+                >
+                  4-Grid Flatlay
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setGalleryViewMode("rack")}
+                  className={`px-2 py-1 rounded-lg text-[10px] font-bold transition-all ${
+                    galleryViewMode === "rack"
+                      ? "bg-charcoal-900 text-white shadow-2xs"
+                      : "text-sand-500 hover:text-charcoal-900"
+                  }`}
+                >
+                  👗 Mannequin Rack
+                </button>
+              </div>
+            </div>
+
+            {galleryViewMode === "grid" ? (
+              <div className="grid grid-cols-4 gap-2">
+                {(outfit.flatlayImages && outfit.flatlayImages.length === 4
+                  ? outfit.flatlayImages
+                  : [
+                      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=300&auto=format&fit=crop&q=80",
+                      "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=300&auto=format&fit=crop&q=80",
+                      "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=300&auto=format&fit=crop&q=80",
+                      "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=300&auto=format&fit=crop&q=80",
+                    ]
+                ).map((imgUrl, i) => {
+                  const labels = ["Atasan", "Bawahan", "Outer/Hijab", "Alas Kaki"];
+                  return (
+                    <div
+                      key={i}
+                      className="relative aspect-square rounded-xl overflow-hidden bg-sand-200 border border-black/10 group/img shadow-2xs"
+                    >
+                      <img
+                        src={imgUrl}
+                        alt={labels[i] || "Piece"}
+                        className="w-full h-full object-cover group-hover/img:scale-108 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal-900/80 to-transparent p-1.5 text-center">
+                        <span className="text-[8px] font-mono text-white font-bold uppercase tracking-wider block truncate">
+                          {labels[i]}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              /* Mannequin Vertical Head-to-Toe Rack */
+              <div className="p-3 bg-white rounded-xl border border-sand-200 space-y-2">
+                <div className="relative pl-6 space-y-2.5 before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-dashed before:border-l-2 before:border-sand-300">
+                  {items.map((item, idx) => (
+                    <div key={idx} className="relative flex items-center justify-between gap-3 text-xs">
+                      <div
+                        className="absolute -left-6 w-3 h-3 rounded-full border-2 border-white shadow-xs"
+                        style={{ backgroundColor: item.colorHex || "#C69365" }}
+                      />
+                      <div className="flex-1 truncate">
+                        <span className="text-[10px] font-mono font-bold text-terracotta-600 uppercase">
+                          {item.category === "outer_hijab" ? "01. KEPALA / HIJAB" : idx === 0 ? "02. ATASAN (TORSO)" : idx === 1 ? "03. BAWAHAN (LEGS)" : "04. ALAS KAKI"}
+                        </span>
+                        <div className="font-bold text-charcoal-900 truncate">{item.name}</div>
+                      </div>
+                      <span className="text-[10px] font-mono text-sand-500 shrink-0">{item.material}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Instant Budget Tier Switcher */}
+          <div className="p-3 rounded-2xl bg-[#F4EFE6] border border-[#E8DFD1] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-mono font-bold uppercase text-charcoal-900">
+                PILIH TIER BELANJA:
+              </span>
+            </div>
+            <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-sand-300">
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveBudgetTier("budget");
+                  setToastMsg("🟢 Beralih ke Mode Hemat Mahasiswa (< Rp 100rb)");
+                  setTimeout(() => setToastMsg(""), 3000);
+                }}
+                className={`py-1.5 px-3 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all ${
+                  activeBudgetTier === "budget"
+                    ? "bg-emerald-600 text-white shadow-xs"
+                    : "text-charcoal-900/70 hover:text-charcoal-900"
+                }`}
+              >
+                🟢 Hemat Mahasiswa
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveBudgetTier("mall");
+                  setToastMsg("💎 Beralih ke Official Brand Lokal & Mall (200-500rb)");
+                  setTimeout(() => setToastMsg(""), 3000);
+                }}
+                className={`py-1.5 px-3 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all ${
+                  activeBudgetTier === "mall"
+                    ? "bg-charcoal-900 text-white shadow-xs"
+                    : "text-charcoal-900/70 hover:text-charcoal-900"
+                }`}
+              >
+                💎 Official Brand Lokal
+              </button>
+            </div>
+          </div>
+
           {/* Personal Color & Skin Tone Harmony Callout */}
           {outfit.skinToneMatch && (
             <motion.div
@@ -302,117 +453,168 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer }: 
 
           {/* Tactile Color Swatch Discs */}
           <div>
-            <div className="text-[10px] font-mono tracking-wider uppercase text-[#A89582] font-bold mb-3">
-              PALET WARNA HARMONIS
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-[10px] font-mono tracking-wider uppercase text-[#A89582] font-bold">
+                PALET WARNA HARMONIS (KLIK UNTUK SALIN HEX)
+              </span>
+              <span className="text-[9px] font-mono text-terracotta-600 font-bold">1-TAP COPY</span>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
               {outfit.colorPalette.map((col, idx) => (
-                <motion.div
+                <motion.button
                   key={idx}
+                  type="button"
+                  onClick={() => handleCopyHex(col.hex, col.name)}
                   whileHover={{ scale: 1.05, y: -2 }}
-                  className="p-2.5 rounded-xl bg-white border border-[#E8DFD1] flex items-center gap-2.5 shadow-sm"
+                  whileTap={{ scale: 0.95 }}
+                  className="p-2.5 rounded-xl bg-white hover:bg-sand-50 border border-[#E8DFD1] hover:border-terracotta-400 flex items-center gap-2.5 shadow-2xs transition-all text-left group"
+                  title={`Klik untuk salin kode ${col.hex}`}
                 >
                   <div
-                    className="w-6 h-6 rounded-full border border-black/10 shadow-sm shrink-0"
+                    className="w-7 h-7 rounded-full border border-black/15 shadow-xs shrink-0 relative"
                     style={{ backgroundColor: col.hex }}
-                  />
+                  >
+                    {copiedHex === col.hex && (
+                      <span className="absolute inset-0 m-auto flex items-center justify-center text-white text-[10px] font-bold">
+                        ✓
+                      </span>
+                    )}
+                  </div>
                   <div className="truncate">
-                    <div className="text-xs font-bold text-[#181A18] truncate">
+                    <div className="text-xs font-bold text-[#181A18] truncate group-hover:text-terracotta-600 transition-colors">
                       {col.name}
                     </div>
-                    <div className="text-[9px] font-mono text-[#A89582] uppercase">
-                      {col.hex}
+                    <div className="text-[9px] font-mono text-[#A89582] uppercase flex items-center gap-1">
+                      <span>{copiedHex === col.hex ? "Tersalin!" : col.hex}</span>
                     </div>
                   </div>
-                </motion.div>
+                </motion.button>
               ))}
             </div>
           </div>
 
-          {/* Garment Breakdown Specification & Shopping Hangtags */}
-          <div className="space-y-3.5">
-            <div className="text-[10px] font-mono tracking-wider uppercase text-[#A89582] font-bold">
-              ITEM PILIHAN & TEMPAT BELANJA
-            </div>
+            {/* Total Outfit Price Estimate & Shopping Hangtags */}
+            <div className="space-y-3.5">
+              <div className="flex items-center justify-between">
+                <div className="text-[10px] font-mono tracking-wider uppercase text-[#A89582] font-bold">
+                  ITEM PILIHAN & TEMPAT BELANJA
+                </div>
+                <div className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                  {activeBudgetTier === "mall" ? "TOTAL EST: ~Rp 650rb (Mall)" : "TOTAL EST: ~Rp 185rb (Hemat)"}
+                </div>
+              </div>
 
-            <div className="space-y-3">
-              {items.map((item, index) => {
-                const links = getMarketplaceLinks(item.shopeeQuery);
-                const catLabel = item.category === "outer_hijab" ? "Hijab/Outer" : item.category.charAt(0).toUpperCase() + item.category.slice(1);
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.15 + index * 0.08 }}
-                    whileHover={{ y: -2 }}
-                    className="p-4 sm:p-5 rounded-2xl bg-[#FAF8F5] border border-[#E8DFD1] hover:border-[#181A18] transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4 group"
-                  >
-                    <div className="space-y-1.5">
-                      <div className="flex items-center gap-2">
-                        <span className="text-[9px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 rounded bg-[#E8DFD1] text-[#181A18]">
-                          {getCategoryTag(item.category)}
-                        </span>
-                        <span className="text-xs text-[#A89582]">•</span>
-                        <span className="text-xs font-semibold text-terracotta-500">
-                          {item.color}
-                        </span>
+              <div className="space-y-3">
+                {items.map((item, index) => {
+                  const links = getMarketplaceLinks(item.shopeeQuery);
+                  const catLabel = item.category === "outer_hijab" ? "Hijab/Outer" : item.category.charAt(0).toUpperCase() + item.category.slice(1);
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.15 + index * 0.08 }}
+                      whileHover={{ y: -2 }}
+                      className="p-4 sm:p-5 rounded-2xl bg-[#FAF8F5] border border-[#E8DFD1] hover:border-[#181A18] transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4 group shadow-2xs"
+                    >
+                      <div className="space-y-1.5">
+                        <div className="flex items-center gap-2">
+                          {item.isOwnedItem ? (
+                            <span className="text-[9px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-200">
+                              👑 BAJU MILIKMU SENDIRI
+                            </span>
+                          ) : (
+                            <>
+                              <span className="text-[9px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 rounded bg-[#E8DFD1] text-[#181A18]">
+                                {getCategoryTag(item.category)}
+                              </span>
+                              <span className="text-[8px] font-mono font-bold px-1.5 py-0.5 rounded bg-[#EE4D2D] text-white shadow-2xs">
+                                {activeBudgetTier === "mall" ? "🛍️ Shopee Mall" : "⭐ Star+ Seller"}
+                              </span>
+                            </>
+                          )}
+                          <span className="text-xs text-[#A89582]">•</span>
+                          <span className="text-xs font-semibold text-terracotta-500">
+                            {item.color}
+                          </span>
+                        </div>
+
+                        <h4 className="font-bold text-sm sm:text-base text-[#181A18] group-hover:text-terracotta-500 transition-colors">
+                          {item.name}
+                        </h4>
+
+                        <div className="flex flex-wrap items-center gap-2 text-xs text-[#181A18]/70">
+                          <span className="text-[11px] font-mono text-[#A89582] uppercase">BAHAN:</span>
+                          <span className="font-medium text-[#181A18]">{item.material}</span>
+                          <span>•</span>
+                          <span className="text-[11px] font-mono text-[#A89582] uppercase">EST:</span>
+                          <span className="font-mono text-[#181A18] font-bold bg-white px-2 py-0.5 rounded border border-[#E8DFD1]">
+                            {item.isOwnedItem
+                              ? "Milik Pribadi (Rp 0)"
+                              : activeBudgetTier === "mall"
+                              ? "Rp 249.000 - 450.000 (Mall/Official)"
+                              : item.estimatedPrice}
+                          </span>
+                          {!item.isOwnedItem && (
+                            <>
+                              <span>•</span>
+                              <span className="text-[10px] font-mono text-amber-600 font-bold">★ 4.9 Terkurasi</span>
+                            </>
+                          )}
+                        </div>
+                        
+                        {!item.isOwnedItem && (
+                          <button
+                            onClick={() => handleSwapItem(index)}
+                            className="mt-2 text-[10px] font-bold text-terracotta-600 hover:text-terracotta-700 flex items-center gap-1 bg-terracotta-50 px-2 py-1 rounded w-fit transition-colors"
+                          >
+                            <span>[ ↻ Ganti {catLabel} ]</span>
+                          </button>
+                        )}
                       </div>
 
-                      <h4 className="font-bold text-sm sm:text-base text-[#181A18] group-hover:text-terracotta-500 transition-colors">
-                        {item.name}
-                      </h4>
+                      {/* Boutique Shop Actions: Branded Shopee & Tokopedia Gradients */}
+                      <div className="flex items-center gap-2 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-[#E8DFD1]">
+                        {item.isOwnedItem ? (
+                          <div className="px-3 py-1.5 bg-emerald-50 text-emerald-700 font-mono text-[10px] font-bold rounded-xl border border-emerald-200">
+                            ✓ Sudah Tersedia di Lemarimu
+                          </div>
+                        ) : (
+                          <div className="flex items-center gap-2 w-full sm:w-auto">
+                            <motion.a
+                              href={links.shopee + (activeBudgetTier === "mall" ? "%20official%20store" : "")}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => trackAffiliateClick("shopee", item.shopeeQuery || item.name, "outfit_card")}
+                              whileHover={{ scale: 1.04 }}
+                              whileTap={{ scale: 0.96 }}
+                              className="flex-1 sm:flex-initial px-3.5 py-2 rounded-xl bg-[#EE4D2D] hover:bg-[#d63b1d] text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-xs"
+                              title="Buka Toko di Shopee"
+                            >
+                              <ShopeeIcon className="w-3.5 h-3.5" />
+                              <span>Shopee</span>
+                            </motion.a>
 
-                      <div className="flex flex-wrap items-center gap-2 text-xs text-[#181A18]/70">
-                        <span className="text-[11px] font-mono text-[#A89582] uppercase">BAHAN:</span>
-                        <span className="font-medium text-[#181A18]">{item.material}</span>
-                        <span>•</span>
-                        <span className="text-[11px] font-mono text-[#A89582] uppercase">EST:</span>
-                        <span className="font-mono text-[#181A18] font-bold bg-white px-2 py-0.5 rounded border border-[#E8DFD1]">
-                          {item.estimatedPrice}
-                        </span>
+                            <motion.a
+                              href={links.tokopedia + (activeBudgetTier === "mall" ? "%20official%20store" : "")}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => trackAffiliateClick("tokopedia", item.shopeeQuery || item.name, "outfit_card")}
+                              whileHover={{ scale: 1.04 }}
+                              whileTap={{ scale: 0.96 }}
+                              className="flex-1 sm:flex-initial px-3.5 py-2 rounded-xl bg-[#00AA5B] hover:bg-[#008f4c] text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-xs"
+                              title="Buka Toko di Tokopedia"
+                            >
+                              <TokopediaIcon className="w-3.5 h-3.5" />
+                              <span>Tokped</span>
+                            </motion.a>
+                          </div>
+                        )}
                       </div>
-                      
-                      <button
-                        onClick={() => handleSwapItem(index)}
-                        className="mt-2 text-[10px] font-bold text-terracotta-600 hover:text-terracotta-700 flex items-center gap-1 bg-terracotta-50 px-2 py-1 rounded w-fit"
-                      >
-                        [ ↻ Ganti {catLabel} ]
-                      </button>
-                    </div>
-
-                    {/* Boutique Shop Actions */}
-                    <div className="flex items-center gap-2 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-[#E8DFD1]">
-                      <motion.a
-                        href={links.shopee}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex-1 sm:flex-initial px-3.5 py-2 rounded-xl bg-white hover:bg-orange-500 hover:text-white border border-[#D7CABC] hover:border-orange-500 text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm"
-                        title="Cari di Shopee"
-                      >
-                        <span>Cari Shopee</span>
-                        <ArrowUpRight className="w-3 h-3" />
-                      </motion.a>
-
-                      <motion.a
-                        href={links.tokopedia}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex-1 sm:flex-initial px-3.5 py-2 rounded-xl bg-white hover:bg-emerald-600 hover:text-white border border-[#D7CABC] hover:border-emerald-600 text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm"
-                        title="Cari di Tokopedia"
-                      >
-                        <span>Tokopedia</span>
-                        <ArrowUpRight className="w-3 h-3" />
-                      </motion.a>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
           </div>
               </motion.div>
             )}

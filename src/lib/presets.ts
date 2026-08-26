@@ -793,7 +793,7 @@ export const TRENDING_LOOKS_FEED: TrendingLook[] = [
     category: "Campus & Hijab",
     skinToneRecommendation: "Sawo Matang & Kuning Langsat",
     priceRange: "Rp 180rb - 260rb / Set",
-    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?w=600&auto=format&fit=crop&q=80",
     likes: 1248,
     outfit: PRESET_OOTD_COLLECTION["kuliah_hijab_panas_hemat"]
   },
@@ -817,7 +817,7 @@ export const TRENDING_LOOKS_FEED: TrendingLook[] = [
     category: "Reception & Pesta",
     skinToneRecommendation: "Sawo Matang & Eksotis",
     priceRange: "Rp 320rb - 480rb / Set",
-    image: "https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?w=600&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&auto=format&fit=crop&q=80",
     likes: 856,
     outfit: PRESET_OOTD_COLLECTION["kondangan_hijab_formal_menengah"]
   },
@@ -853,7 +853,7 @@ export const TRENDING_LOOKS_FEED: TrendingLook[] = [
     category: "Campus & Hijab",
     skinToneRecommendation: "Sawo Matang & Eksotis",
     priceRange: "Rp 210rb - 290rb / Set",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&auto=format&fit=crop&q=80",
     likes: 912,
     outfit: PRESET_OOTD_COLLECTION["tailored_vest_chic"]
   },
@@ -865,7 +865,7 @@ export const TRENDING_LOOKS_FEED: TrendingLook[] = [
     category: "Work & Meeting",
     skinToneRecommendation: "Medium & Deep",
     priceRange: "Rp 250rb - 400rb / Set",
-    image: "https://images.unsplash.com/photo-1574655563118-3e3eab32015d?w=600&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=600&auto=format&fit=crop&q=80",
     likes: 673,
     outfit: PRESET_OOTD_COLLECTION["scbd_corporate_blazer"]
   },
@@ -877,7 +877,7 @@ export const TRENDING_LOOKS_FEED: TrendingLook[] = [
     category: "Weekend & Cafe",
     skinToneRecommendation: "Fair & Tan",
     priceRange: "Rp 170rb - 270rb / Set",
-    image: "https://images.unsplash.com/photo-1517423568366-8b83523034fd?w=600&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&auto=format&fit=crop&q=80",
     likes: 1302,
     outfit: PRESET_OOTD_COLLECTION["blok_m_indie_streetwear"]
   },
@@ -901,7 +901,7 @@ export const TRENDING_LOOKS_FEED: TrendingLook[] = [
     category: "Reception & Pesta",
     skinToneRecommendation: "Sogan / Cokelat Gelap",
     priceRange: "Rp 300rb - 500rb / Set",
-    image: "https://images.unsplash.com/photo-1550684376-efcbd6e3f031?w=600&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80",
     likes: 540,
     outfit: PRESET_OOTD_COLLECTION["kondangan_batik_modern_pria"]
   },
@@ -925,7 +925,7 @@ export const TRENDING_LOOKS_FEED: TrendingLook[] = [
     category: "Streetwear",
     skinToneRecommendation: "Deep Bronze & Sawo Matang",
     priceRange: "Rp 260rb - 380rb / Set",
-    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&auto=format&fit=crop&q=80",
     likes: 834,
     outfit: PRESET_OOTD_COLLECTION["monochrome_boxy_pria"]
   },
@@ -949,7 +949,7 @@ export const TRENDING_LOOKS_FEED: TrendingLook[] = [
     category: "Campus & Hijab",
     skinToneRecommendation: "Fair & Kuning Langsat",
     priceRange: "Rp 240rb - 380rb / Set",
-    image: "https://images.unsplash.com/photo-1516089309489-0824b22db7dc?w=600&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600&auto=format&fit=crop&q=80",
     likes: 1045,
     outfit: PRESET_OOTD_COLLECTION["rainy_cardigan_cozy"]
   },
@@ -961,7 +961,7 @@ export const TRENDING_LOOKS_FEED: TrendingLook[] = [
     category: "Weekend & Cafe",
     skinToneRecommendation: "Putih Gading & Kuning Langsat",
     priceRange: "Rp 120rb - 195rb / Set",
-    image: "https://images.unsplash.com/photo-1518151978160-c322b74070a7?w=600&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1551803091-e20673f15770?w=600&auto=format&fit=crop&q=80",
     likes: 955,
     outfit: PRESET_OOTD_COLLECTION["modest_pastel_date"]
   },
@@ -973,7 +973,7 @@ export const TRENDING_LOOKS_FEED: TrendingLook[] = [
     category: "Reception & Pesta",
     skinToneRecommendation: "Sawo Matang & Kuning Langsat",
     priceRange: "Rp 270rb - 450rb / Set",
-    image: "https://images.unsplash.com/photo-1495385794356-15371f348c31?w=600&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80",
     likes: 812,
     outfit: PRESET_OOTD_COLLECTION["minimalist_slip_dress"]
   }
@@ -1015,6 +1015,91 @@ export function generateHeuristicOOTD(pref: UserPreferences): OOTDRecommendation
   // Fallback if not found
   const baseResult = PRESET_OOTD_COLLECTION[selectedId] || PRESET_OOTD_COLLECTION["hangout_nonhijab_panas_menengah"];
   const result: OOTDRecommendation = JSON.parse(JSON.stringify(baseResult));
+  
+  // 1. Injeksi Base Piece jika pengguna memilih "Mix Baju Milikmu"
+  if (pref.ownedItem && pref.ownedItem.trim()) {
+    const ownedName = pref.ownedItem.trim();
+    result.title = `Mix & Match: ${ownedName}`;
+    result.tagline = `Padu-padan cerdas berbasis pakaian favorit di lemari pribadimu.`;
+    if (result.items && result.items.length > 0) {
+      result.items[0] = {
+        category: "atasan",
+        name: ownedName,
+        material: "Koleksi Pribadi di Lemari",
+        color: "Pilihan Kamu",
+        colorHex: result.colorPalette[0]?.hex || "#84A98C",
+        estimatedPrice: "Milik Pribadi (Rp 0)",
+        shopeeQuery: ownedName,
+        tokopediaQuery: ownedName,
+        isOwnedItem: true,
+      };
+    }
+  }
+
+  // 2. Injeksi Sub-Preferensi Hijab jika aktif (Pastikan item Hijab selalu hadir untuk mode Modest)
+  if (pref.isModestHijab) {
+    const hijabIdx = result.items.findIndex((it) => it.category === "outer_hijab");
+    let hijabName = "Hijab Segiempat Voal Miracle";
+    let hijabMaterial = "Voal Premium Laser Cut (Tegak Paripurna & Adem)";
+    let hijabQuery = "hijab voal miracle segi empat";
+
+    if (pref.hijabMaterial === "pashmina") {
+      hijabName = "Pashmina Silk / Crinkle Flowy";
+      hijabMaterial = "Silk Premium / Crinkle Airflow";
+      hijabQuery = "pashmina crinkle airflow silk";
+    } else if (pref.hijabMaterial === "voal") {
+      hijabName = "Hijab Segiempat Voal Ultrafine";
+      hijabMaterial = "Voal Ultrafine Laser Cut (Tegak Paripurna)";
+      hijabQuery = "hijab voal ultrafine laser cut";
+    } else if (pref.hijabMaterial === "paris") {
+      hijabName = "Hijab Paris Premium Square";
+      hijabMaterial = "Paris Premium Breathable";
+      hijabQuery = "jilbab segi empat paris premium";
+    } else if (pref.hijabMaterial === "jersey") {
+      hijabName = "Hijab Instan Jersey Daily";
+      hijabMaterial = "Jersey Soft Stretch Adem";
+      hijabQuery = "hijab instan jersey adem";
+    }
+
+    if (hijabIdx >= 0) {
+      result.items[hijabIdx].name = hijabName;
+      result.items[hijabIdx].material = hijabMaterial;
+      result.items[hijabIdx].shopeeQuery = hijabQuery;
+      result.items[hijabIdx].tokopediaQuery = hijabQuery;
+    } else {
+      result.items.push({
+        category: "outer_hijab",
+        name: hijabName,
+        material: hijabMaterial,
+        color: result.colorPalette[1]?.name || "Harmoni Senada",
+        colorHex: result.colorPalette[1]?.hex || "#C69365",
+        estimatedPrice: pref.budget === "premium" ? "Rp 65.000 - 110.000" : "Rp 35.000 - 55.000",
+        shopeeQuery: hijabQuery,
+        tokopediaQuery: hijabQuery,
+      });
+    }
+  }
+
+  // 3. Penyesuaian Budget Tier pada Harga Item & Pencarian
+  if (pref.budget === "premium") {
+    result.items.forEach((item) => {
+      if (!item.isOwnedItem) {
+        item.estimatedPrice = item.estimatedPrice.replace(/Rp\s*([0-9.]+)/g, "Rp 250.000 - 450.000 (Official)");
+        if (!item.shopeeQuery.includes("official")) {
+          item.shopeeQuery += " official store";
+          item.tokopediaQuery += " official store";
+        }
+      }
+    });
+  }
+
+  // 4. Default Flatlay Images
+  result.flatlayImages = [
+    "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=300&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=300&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=300&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=300&auto=format&fit=crop&q=80",
+  ];
   
   // Dynamically customize the skinToneMatch text
   if (pref.skinTone === "medium") {

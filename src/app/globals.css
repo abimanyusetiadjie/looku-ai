@@ -118,3 +118,38 @@ h1, h2, h3, h4 {
     scroll-behavior: auto !important;
   }
 }
+
+/* Luxury Editorial & Atelier UI Utilities */
+.aura-glow-terracotta {
+  box-shadow: 0 0 25px -4px rgba(186, 93, 56, 0.25), 0 0 10px -2px rgba(186, 93, 56, 0.15);
+}
+
+.aura-glow-gold {
+  box-shadow: 0 0 28px -4px rgba(217, 119, 6, 0.3), 0 0 12px -2px rgba(245, 158, 11, 0.2);
+}
+
+.aura-glow-emerald {
+  box-shadow: 0 0 25px -4px rgba(16, 185, 129, 0.25);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(232, 223, 209, 0.8);
+}
+
+.glass-pill-dark {
+  background: rgba(24, 26, 24, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.editorial-img-zoom {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .editorial-img-zoom {
+  transform: scale(1.05);
+}
