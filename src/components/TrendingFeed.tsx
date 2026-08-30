@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { Heart, ArrowUpRight, Maximize2, LayoutGrid, Rows, Share2 } from "lucide-react";
+import { Heart, ArrowUpRight, Maximize2, LayoutGrid, Rows, Share2, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TRENDING_LOOKS_FEED } from "@/lib/presets";
 import { TrendingLook, OOTDRecommendation } from "@/lib/types";
@@ -11,9 +11,10 @@ import StoryShareModal from "./StoryShareModal";
 
 interface TrendingFeedProps {
   onSelectLook: (outfit: OOTDRecommendation) => void;
+  userSkinTone?: string;
 }
 
-export default function TrendingFeed({ onSelectLook }: TrendingFeedProps) {
+export default function TrendingFeed({ onSelectLook, userSkinTone }: TrendingFeedProps) {
   const [likes, setLikes] = useState<Record<string, number>>({
     trend_01: 1248,
     trend_02: 982,
@@ -61,6 +62,24 @@ export default function TrendingFeed({ onSelectLook }: TrendingFeedProps) {
     { id: "formal", label: "Pesta / Kondangan" },
   ];
 
+  const [selectedSkinTone, setSelectedSkinTone] = useState<string>(userSkinTone || "all");
+
+  // Auto-sync when user passes personal color quiz
+  useEffect(() => {
+    if (userSkinTone && userSkinTone !== "all") {
+      setSelectedSkinTone(userSkinTone);
+    }
+  }, [userSkinTone]);
+
+  const skinToneFilters = [
+    { id: "all", label: "Semua Tone", hex: null },
+    { id: "medium", label: "Sawo Matang", hex: "#C69365", matchText: "Sawo Matang" },
+    { id: "light", label: "Kuning Langsat", hex: "#E8C4A2", matchText: "Kuning Langsat" },
+    { id: "fair", label: "Putih Gading", hex: "#F7E2D3", matchText: "Putih Gading" },
+    { id: "tan", label: "Eksotis / Tan", hex: "#9E6C45", matchText: "Eksotis" },
+    { id: "deep", label: "Deep Bronze", hex: "#633E2B", matchText: "Deep Bronze" },
+  ];
+
   const filteredLooks = TRENDING_LOOKS_FEED.filter((item) => {
     // Search query filter
     if (searchQuery.trim()) {
@@ -72,6 +91,18 @@ export default function TrendingFeed({ onSelectLook }: TrendingFeedProps) {
         item.tag.toLowerCase().includes(q) ||
         item.skinToneRecommendation.toLowerCase().includes(q);
       if (!matchesSearch) return false;
+    }
+
+    // Personal Color Skin Tone Filter
+    if (selectedSkinTone !== "all") {
+      const toneObj = skinToneFilters.find((t) => t.id === selectedSkinTone);
+      if (toneObj?.matchText) {
+        const matchesTone =
+          item.skinToneRecommendation.toLowerCase().includes(toneObj.matchText.toLowerCase()) ||
+          item.vibe.toLowerCase().includes(toneObj.matchText.toLowerCase()) ||
+          item.outfit.skinToneMatch.toLowerCase().includes(toneObj.matchText.toLowerCase());
+        if (!matchesTone) return false;
+      }
     }
 
     // Multi-tag filter
@@ -127,6 +158,18 @@ export default function TrendingFeed({ onSelectLook }: TrendingFeedProps) {
     setActiveReelIndex(index);
   };
 
+  const handleScrollLeft = () => {
+    if (reelScrollRef.current) {
+      reelScrollRef.current.scrollBy({ left: -320, behavior: "smooth" });
+    }
+  };
+
+  const handleScrollRight = () => {
+    if (reelScrollRef.current) {
+      reelScrollRef.current.scrollBy({ left: 320, behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <section id="trending" className="py-14 sm:py-20 border-b border-[#E8DFD1] bg-[#FAF8F5]">
@@ -135,7 +178,7 @@ export default function TrendingFeed({ onSelectLook }: TrendingFeedProps) {
           <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#D7CABC] pb-6 mb-6 gap-4">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="w-2 h-2 rounded-full bg-terracotta-500 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-terracotta-500" />
                 <span className="lookbook-label">CURATED STREETWEAR & MODEST FEED</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#181A18] tracking-tight">
@@ -143,8 +186,30 @@ export default function TrendingFeed({ onSelectLook }: TrendingFeedProps) {
               </h2>
             </div>
 
-            {/* Mobile View Switcher & Edition Tag */}
-            <div className="flex items-center justify-between md:justify-end gap-3">
+            {/* Carousel Navigators, Mobile View Switcher & Edition Tag */}
+            <div className="flex items-center justify-between md:justify-end gap-3 flex-wrap">
+              {/* Carousel Slide Navigator (Visible Affordance Indicator) */}
+              <div className="flex items-center gap-1.5 bg-white p-1 rounded-xl border border-sand-300 shadow-2xs">
+                <button
+                  type="button"
+                  onClick={handleScrollLeft}
+                  className="w-7 h-7 rounded-lg bg-sand-100 hover:bg-charcoal-900 hover:text-white text-charcoal-900 flex items-center justify-center transition-colors"
+                  title="Geser Lookbook ke Kiri"
+                  aria-label="Geser Kiri"
+                >
+                  <ChevronLeft className="w-4 h-4 stroke-[2.5]" />
+                </button>
+                <button
+                  type="button"
+                  onClick={handleScrollRight}
+                  className="w-7 h-7 rounded-lg bg-sand-100 hover:bg-charcoal-900 hover:text-white text-charcoal-900 flex items-center justify-center transition-colors"
+                  title="Geser Lookbook ke Kanan"
+                  aria-label="Geser Kanan"
+                >
+                  <ChevronRight className="w-4 h-4 stroke-[2.5]" />
+                </button>
+              </div>
+
               {/* Mobile View Toggle (Reel vs 2-Col Grid) */}
               <div className="flex md:hidden items-center bg-[#F4EFE6] p-1 rounded-xl border border-[#E8DFD1]">
                 <button
@@ -175,32 +240,66 @@ export default function TrendingFeed({ onSelectLook }: TrendingFeedProps) {
                 </button>
               </div>
 
-              <div className="text-[11px] font-mono text-[#A89582] uppercase tracking-widest flex items-center gap-2">
+              <div className="text-[11px] font-mono text-[#181A18] font-semibold uppercase tracking-widest flex items-center gap-2 bg-sand-100 px-3 py-1.5 rounded-xl border border-sand-300">
                 <span>EDISI MINGGU INI</span>
                 <span className="text-[#181A18]">•</span>
-                <span>8 LOOKS</span>
+                <span className="font-bold text-terracotta-600">16 LOOKS</span>
               </div>
             </div>
           </div>
 
-          {/* Search & Category Filter Pills Bar */}
+          {/* Search Bar with Ergonomic Touch Target & Crisp Typography */}
           <div className="relative mb-4">
+            <div className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none flex items-center text-charcoal-900">
+              <Search className="w-4 h-4 text-charcoal-900" />
+            </div>
             <input
               type="text"
-              placeholder="🔍 Cari gaya: kafe, kondangan, linen, blazer, santai, formal..."
+              placeholder="Cari inspirasi: linen, kafe, kondangan, blazer, santai, formal, hijab..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-4 py-2.5 pl-10 rounded-2xl bg-white border border-sand-200 text-xs text-charcoal-900 placeholder:text-sand-500 focus:outline-none focus:border-charcoal-900 transition-colors shadow-2xs"
+              className="w-full min-h-[46px] px-4 py-3 pl-10 rounded-2xl bg-white border border-sand-300 text-xs sm:text-sm text-charcoal-900 font-medium placeholder:text-charcoal-900/60 focus:outline-none focus:border-charcoal-900 focus:ring-1 focus:ring-charcoal-900 transition-all shadow-2xs"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery("")}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-sand-500 hover:text-charcoal-900 text-xs"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-sand-200 hover:bg-charcoal-900 hover:text-white text-charcoal-900 text-xs flex items-center justify-center transition-colors"
+                aria-label="Hapus Pencarian"
               >
                 ✕
               </button>
             )}
           </div>
+
+          {/* Personal Color Skin Tone Filter Bar */}
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 mb-2">
+            <span className="text-[10px] font-mono font-bold uppercase text-sand-500 tracking-wider shrink-0 mr-1">
+              WARNA KULIT:
+            </span>
+            {skinToneFilters.map((tone) => {
+              const isToneActive = selectedSkinTone === tone.id;
+              return (
+                <button
+                  key={tone.id}
+                  onClick={() => setSelectedSkinTone(tone.id)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all shrink-0 flex items-center gap-1.5 border ${
+                    isToneActive
+                      ? "bg-charcoal-900 text-white border-charcoal-900 shadow-xs scale-102"
+                      : "bg-white hover:bg-sand-100 text-charcoal-900 border-sand-300 shadow-2xs"
+                  }`}
+                >
+                  {tone.hex && (
+                    <span
+                      className="w-3.5 h-3.5 rounded-full border border-black/15 shrink-0 shadow-2xs"
+                      style={{ backgroundColor: tone.hex }}
+                    />
+                  )}
+                  <span>{tone.label}</span>
+                </button>
+              );
+            })}
+          </div>
+
           <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-6 mb-2">
             {categories.map((cat) => {
               const isSelected = selectedTags.includes(cat.id);

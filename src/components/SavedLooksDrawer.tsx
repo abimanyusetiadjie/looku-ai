@@ -233,44 +233,44 @@ export default function SavedLooksDrawer({
                 </button>
               </div>
 
-              {/* Style Evolution Metric Card */}
-              <div className="p-3.5 mx-5 mt-4 rounded-2xl bg-sand-100 border border-sand-300 space-y-1.5 shadow-2xs shrink-0">
+              {/* Capsule Wardrobe Summary */}
+              <div className="p-3.5 mx-5 mt-4 rounded-2xl bg-sand-100 border border-sand-200 space-y-1.5 shadow-2xs shrink-0">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="font-bold text-charcoal-900 font-serif">📈 Gaya Makin Konsisten</span>
-                  <span className="text-[10px] font-mono font-bold text-terracotta-600 bg-terracotta-50 px-2 py-0.5 rounded-full border border-terracotta-100">
-                    +40% BULAN INI
+                  <span className="font-bold text-charcoal-900 font-serif">Karakter Lemari Kapsul</span>
+                  <span className="text-[10px] font-mono font-bold text-terracotta-600 bg-terracotta-50 px-2 py-0.5 rounded-full border border-terracotta-100 uppercase tracking-wider">
+                    {savedOutfits.length} OUTFIT
                   </span>
                 </div>
-                <p className="text-[11px] text-charcoal-900/70 leading-tight">
+                <p className="text-[11px] text-charcoal-900/75 leading-relaxed">
                   {savedOutfits.length > 0
-                    ? `Koleksi kamu didominasi nuansa ${dominantVibe}. Sangat proporsional untuk iklim tropis sehari-hari.`
-                    : "Simpan formula OOTD pertamamu untuk mulai membangun indeks konsistensi gaya personal."}
+                    ? `Koleksi lemarimu berfokus pada nuansa ${dominantVibe}. Paduan busana praktis yang siap pakai untuk berbagai aktivitas.`
+                    : "Simpan formula OOTD pertamamu dari Lookbook atau Studio untuk menyusun lemari pakaian kapsulmu."}
                 </p>
               </div>
 
               {/* Cloud Sync Card */}
-              <div className="p-4 mx-5 mt-3 rounded-2xl bg-[#E8F0FE] border border-[#D2E3FC] space-y-2 shadow-2xs shrink-0">
+              <div className="p-4 mx-5 mt-3 rounded-2xl bg-white border border-sand-300 space-y-2 shadow-2xs shrink-0">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <Cloud className="w-4 h-4 text-blue-700" />
-                    <span className="font-bold text-blue-900 font-serif text-xs">Lemari Cloud Sync</span>
+                    <Cloud className="w-4 h-4 text-charcoal-900" />
+                    <span className="font-bold text-charcoal-900 font-serif text-xs">Lemari Cloud Sync</span>
                   </div>
                   {syncStatus && (
-                    <span className="text-[10px] font-mono font-bold text-blue-700 bg-white px-2 py-0.5 rounded-full border border-blue-200">
+                    <span className="text-[10px] font-mono font-bold text-charcoal-900 bg-sand-100 px-2 py-0.5 rounded-full border border-sand-200">
                       {syncStatus}
                     </span>
                   )}
                 </div>
-                <p className="text-[11px] text-blue-800/80 leading-relaxed">
+                <p className="text-[11px] text-charcoal-700 leading-relaxed">
                   Sinkronkan dengan akun Google agar lemarimu aman dan bisa dibuka di semua HP/laptop.
                 </p>
                 <button
                   onClick={handleCloudSync}
                   disabled={isSyncing}
-                  className="w-full py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+                  className="w-full py-2 rounded-xl bg-charcoal-900 hover:bg-charcoal-800 text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 shadow-sm"
                 >
                   <RefreshCw className={`w-3.5 h-3.5 ${isSyncing ? "animate-spin" : ""}`} />
-                  <span>{isSyncing ? "Menyinkronkan..." : "🔐 Sinkronkan ke Cloud"}</span>
+                  <span>{isSyncing ? "Menyinkronkan..." : "Sinkronkan ke Cloud"}</span>
                 </button>
               </div>
 
@@ -282,7 +282,7 @@ export default function SavedLooksDrawer({
                     className="w-full py-2.5 rounded-xl bg-sand-100 hover:bg-sand-200 border border-sand-300 text-charcoal-900 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-2xs"
                   >
                     <Scale className="w-3.5 h-3.5 text-terracotta-600" />
-                    <span>⚖️ Bandingkan 2 Outfit Lemari</span>
+                    <span>Bandingkan 2 Outfit Lemari</span>
                   </button>
                 </div>
               )}

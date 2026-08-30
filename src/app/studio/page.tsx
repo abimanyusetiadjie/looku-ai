@@ -19,6 +19,7 @@ const StoryShareModal = dynamic(() => import("@/components/StoryShareModal"), { 
 const PersonalColorQuizModal = dynamic(() => import("@/components/PersonalColorQuizModal"), { ssr: false });
 const TomorrowOOTDWidget = dynamic(() => import("@/components/TomorrowOOTDWidget"), { ssr: false });
 const GenerationHistoryModal = dynamic(() => import("@/components/GenerationHistoryModal"), { ssr: false });
+const PWAInstallBanner = dynamic(() => import("@/components/PWAInstallBanner"), { ssr: false });
 
 function MultiStageLoader() {
   return (
@@ -50,7 +51,7 @@ function MultiStageLoader() {
         </div>
         <div className="flex items-center gap-3 text-xs font-semibold text-[#181A18] bg-[#FAF8F5] p-3 rounded-xl border border-[#E8DFD1] animate-pulse">
           <span className="w-5 h-5 rounded-full bg-[#D7CABC] text-[#181A18] flex items-center justify-center text-[10px] font-mono">2</span>
-          <span>Pencocokan bahan adem & sirkulasi udara</span>
+          <span>Memilih bahan katun &amp; linen anti-gerah</span>
         </div>
         <div className="flex items-center gap-3 text-xs font-semibold text-[#181A18]/60 bg-[#FAF8F5]/50 p-3 rounded-xl border border-[#E8DFD1]">
           <span className="w-5 h-5 rounded-full bg-[#E8DFD1] text-[#A89582] flex items-center justify-center text-[10px] font-mono">3</span>
@@ -78,6 +79,18 @@ export default function StudioPage() {
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
   const [lastPrefs, setLastPrefs] = useState<UserPreferences | null>(null);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
+  const [externalPrefs, setExternalPrefs] = useState<Partial<UserPreferences>>({});
+
+  // Deep-Link URL query handler on initial mount
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const lookId = params.get("look");
+      if (lookId && PRESET_OOTD_COLLECTION[lookId]) {
+        setCurrentOutfit(PRESET_OOTD_COLLECTION[lookId]);
+      }
+    }
+  }, []);
 
   // Saved Looks Drawer & Story Modal State
   const [isSavedDrawerOpen, setIsSavedDrawerOpen] = useState(false);
@@ -112,6 +125,9 @@ export default function StudioPage() {
     if (typeof window !== "undefined") {
       localStorage.setItem("looku_personal_color", skinToneId);
     }
+    const toneType: any = skinToneId === "fair" ? "fair" : skinToneId === "light" ? "light" : skinToneId === "tan" ? "tan" : skinToneId === "deep" ? "deep" : "medium";
+    setExternalPrefs(prev => ({ ...prev, skinTone: toneType }));
+
     const toneNames: Record<string, string> = {
       fair: "Putih Gading (Light Spring)",
       light: "Kuning Langsat (Warm Spring)",
@@ -123,7 +139,7 @@ export default function StudioPage() {
 
     addToast({
       title: "Personal Color Diterapkan",
-      description: `✨ Disesuaikan dengan undertone ${label}`,
+      description: `Disesuaikan dengan undertone ${label}`,
       type: "success",
     });
     if (typeof window !== "undefined") {
@@ -334,15 +350,16 @@ export default function StudioPage() {
             <GeneratorForm
               onGenerate={handleGenerate}
               isLoading={isLoading}
+              externalPrefs={externalPrefs}
             />
           </div>
 
           {/* Right Outfit Card */}
           <div className="lg:col-span-7 w-full">
-            <div className="mb-6 p-4 rounded-xl bg-gradient-to-r from-terracotta-50 to-[#FAF8F5] border border-terracotta-200 shadow-sm flex items-start gap-3">
-              <Sparkles className="w-5 h-5 text-terracotta-500 shrink-0 mt-0.5" />
-              <p className="text-sm text-[#181A18] font-medium leading-relaxed">
-                ✨ Formula OOTD Kamu Hari Ini Telah Disesuaikan Berdasarkan Cuaca & Smart Defaults <span className="font-bold">(GPS Synced Climate 33°C, Earthy Minimalist, Sawo Matang Tone)</span>. Klik &apos;Sesuaikan&apos; di form jika ingin mengubah acara/budget.
+            <div className="mb-5 p-3.5 rounded-2xl bg-white border border-sand-300 shadow-2xs flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-terracotta-500 shrink-0" />
+              <p className="text-xs text-charcoal-900 font-medium leading-relaxed">
+                Formula OOTD telah disesuaikan dengan cuaca tropis harian &amp; profil warna kulit. Sesuaikan preferensi di form jika ingin mengubah acara atau budget.
               </p>
             </div>
             <AnimatePresence mode="wait">
@@ -409,6 +426,9 @@ export default function StudioPage() {
           onSelectOutfit={(outfit) => setCurrentOutfit(outfit)}
         />
       )}
+
+      {/* Smart Mobile PWA Install Banner */}
+      <PWAInstallBanner />
 
       {/* Toasts */}
       <Toast toasts={toasts} onDismiss={(id) => setToasts(t => t.filter(x => x.id !== id))} />

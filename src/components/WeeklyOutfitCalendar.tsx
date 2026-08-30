@@ -4,6 +4,8 @@ import { Share2, Pin, X, Bookmark, ArrowUpRight, Cloud, Check } from 'lucide-rea
 import { OOTDRecommendation } from '@/lib/types';
 import { syncLocalCalendarToCloud } from '@/lib/supabase';
 
+import { PRESET_OOTD_COLLECTION } from '@/lib/presets';
+
 interface WeeklyOutfitCalendarProps {
   currentOutfit?: OOTDRecommendation;
   onClose?: () => void;
@@ -11,13 +13,13 @@ interface WeeklyOutfitCalendarProps {
 }
 
 const DAYS = [
-  { id: 0, day: 'Senin', weather: '☀️ 33°C', weatherDesc: 'Cerah Tropis', mood: 'Smart SCBD / Kantor', icon: '☀️' },
-  { id: 1, day: 'Selasa', weather: '☀️ 34°C', weatherDesc: 'Panas Terik', mood: 'Earthy Linen / Kuliah', icon: '☀️' },
-  { id: 2, day: 'Rabu', weather: '☁️ 30°C', weatherDesc: 'Mendung Sejuk', mood: 'Cafe Hopping / Meeting', icon: '☁️' },
-  { id: 3, day: 'Kamis', weather: '☀️ 32°C', weatherDesc: 'Cerah Berangin', mood: 'Minimalist Slacks', icon: '☀️' },
-  { id: 4, day: 'Jumat', weather: '🌧️ 27°C', weatherDesc: 'Hujan Sore', mood: 'Batik Modern / Layering', icon: '🌧️' },
-  { id: 5, day: 'Sabtu', weather: '🌸 33°C', weatherDesc: 'Hangout Weekend', mood: 'Kondangan Silk / Date', icon: '🌸' },
-  { id: 6, day: 'Minggu', weather: '☕ 34°C', weatherDesc: 'Family & Chill', mood: 'Relaxed Casual / Santai', icon: '☕' },
+  { id: 0, day: 'Senin', weather: '33°C', weatherDesc: 'Cerah Tropis', mood: 'Smart SCBD / Kantor', presetKey: 'rec_kantor_hijab_1' },
+  { id: 1, day: 'Selasa', weather: '34°C', weatherDesc: 'Panas Terik', mood: 'Earthy Linen / Kuliah', presetKey: 'kuliah_hijab_panas_hemat' },
+  { id: 2, day: 'Rabu', weather: '30°C', weatherDesc: 'Mendung Sejuk', mood: 'Cafe Hopping / Meeting', presetKey: 'rec_hangout_casual_1' },
+  { id: 3, day: 'Kamis', weather: '32°C', weatherDesc: 'Cerah Berangin', mood: 'Minimalist Slacks', presetKey: 'rec_kantor_smart_1' },
+  { id: 4, day: 'Jumat', weather: '27°C', weatherDesc: 'Hujan Sejuk', mood: 'Batik Modern / Layering', presetKey: 'rec_kondangan_hijab_1' },
+  { id: 5, day: 'Sabtu', weather: '33°C', weatherDesc: 'Hangout Weekend', mood: 'Kondangan Silk / Date', presetKey: 'rec_date_aesthetic_1' },
+  { id: 6, day: 'Minggu', weather: '34°C', weatherDesc: 'Santai Sore', mood: 'Relaxed Casual / Kafe', presetKey: 'rec_santai_coastal_1' },
 ];
 
 export default function WeeklyOutfitCalendar({
@@ -55,6 +57,28 @@ export default function WeeklyOutfitCalendar({
       console.error(e);
     }
     await syncLocalCalendarToCloud(updated);
+  };
+
+  const handleAutoGenerateWeek = () => {
+    const newPlan: Record<number, OOTDRecommendation> = {};
+    const presetKeys = Object.keys(PRESET_OOTD_COLLECTION);
+    
+    DAYS.forEach((d, idx) => {
+      const targetKey = d.presetKey && PRESET_OOTD_COLLECTION[d.presetKey] 
+        ? d.presetKey 
+        : presetKeys[idx % presetKeys.length];
+      newPlan[d.id] = {
+        ...PRESET_OOTD_COLLECTION[targetKey],
+        id: `week-${d.id}-${Date.now()}`,
+        title: `${d.day}: ${PRESET_OOTD_COLLECTION[targetKey].title}`,
+      };
+    });
+
+    setWeeklyPlan(newPlan);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('looku_weekly_calendar', JSON.stringify(newPlan));
+    }
+    syncLocalCalendarToCloud(newPlan);
   };
 
   const assignCurrentOutfit = (dayId: number) => {
@@ -115,13 +139,22 @@ export default function WeeklyOutfitCalendar({
           <p className="text-xs text-sand-500">Rencanakan outfit mingguanmu agar bebas pusing setiap pagi.</p>
         </div>
 
-        <button
-          onClick={handleCloudSyncClick}
-          className="px-3 py-1.5 rounded-xl bg-sand-100 hover:bg-charcoal-900 hover:text-white text-charcoal-900 text-xs font-bold transition-all flex items-center gap-1.5 self-start sm:self-auto shadow-2xs"
-        >
-          {cloudSynced ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Cloud className="w-3.5 h-3.5" />}
-          <span>{isCloudSyncing ? "Menyinkronkan..." : cloudSynced ? "Tersinkron Cloud" : "Sync Cloud"}</span>
-        </button>
+        <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
+          <button
+            onClick={handleAutoGenerateWeek}
+            className="px-3.5 py-1.5 rounded-xl bg-charcoal-900 hover:bg-terracotta-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 shadow-2xs"
+          >
+            <span>Auto-Racik 7 Hari ↗</span>
+          </button>
+
+          <button
+            onClick={handleCloudSyncClick}
+            className="px-3 py-1.5 rounded-xl bg-sand-100 hover:bg-sand-200 text-charcoal-900 text-xs font-bold transition-all flex items-center gap-1.5 shadow-2xs"
+          >
+            {cloudSynced ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Cloud className="w-3.5 h-3.5" />}
+            <span>{isCloudSyncing ? "Menyinkronkan..." : cloudSynced ? "Tersinkron Cloud" : "Sync Cloud"}</span>
+          </button>
+        </div>
       </div>
 
       <div className="mb-6 bg-sand-50 p-4 rounded-2xl border border-sand-200 flex items-center justify-between">

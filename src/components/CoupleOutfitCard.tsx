@@ -133,12 +133,12 @@ export default function CoupleOutfitCard({
   };
 
   const handleShareWA = () => {
-    const text = `✦ *LOOK.U DUO OOTD FORMULA*\n` +
+    const text = `*LOOK.U DUO OOTD FORMULA*\n` +
       `*Occasion:* ${occasionBadge} (Sinergi: ${synergyScore}%)\n` +
       `*Palet:* ${palette.map(p => p.name).join(" + ")}\n\n` +
-      `👗 *${personOne.title}:*\n` +
+      `*${personOne.title}:*\n` +
       personOne.items.map(i => `• ${i.category}: ${i.name}`).join("\n") +
-      `\n\n👔 *${personTwo.title}:*\n` +
+      `\n\n*${personTwo.title}:*\n` +
       personTwo.items.map(i => `• ${i.category}: ${i.name}`).join("\n") +
       `\n\n_Dicurasi dengan AI di looku.ai_`;
     
@@ -161,12 +161,7 @@ export default function CoupleOutfitCard({
       {/* Header: Synergy Score & Occasion Badge */}
       <div className="bg-[#FAF8F5] p-5 border-b border-[#E8DFD1] flex flex-col gap-3">
         <div className="flex items-center justify-between">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-terracotta-100 text-terracotta-700 rounded-full text-xs font-bold uppercase tracking-wider">
-            {mode === "couple" ? (
-              <Heart className="w-3.5 h-3.5 fill-terracotta-700" />
-            ) : (
-              <Star className="w-3.5 h-3.5 fill-terracotta-700" />
-            )}
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-sand-100 text-charcoal-900 border border-sand-300 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider">
             {occasionBadge}
           </span>
           <div className="flex gap-1.5">
@@ -182,11 +177,16 @@ export default function CoupleOutfitCard({
         </div>
         
         <div>
-          <h3 className="text-xl font-serif font-bold text-[#181A18] flex items-center gap-2">
-            🌟 {synergyScore}% {synergyDesc}
-          </h3>
-          <p className="text-xs text-[#181A18]/60 mt-1">
-            Paduan warna {palette.map(p => p.name).join(" + ")} yang menciptakan look {mode === "couple" ? "romantis" : "kompak"} & fotogenik.
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-terracotta-50 text-terracotta-700 border border-terracotta-200">
+              SINERGI {synergyScore}%
+            </span>
+            <h3 className="text-xl font-serif font-bold text-[#181A18]">
+              {synergyDesc}
+            </h3>
+          </div>
+          <p className="text-xs text-[#181A18]/70 mt-1">
+            Paduan warna {palette.map(p => p.name).join(" + ")} yang menciptakan look {mode === "couple" ? "romantis" : "kompak"} &amp; fotogenik.
           </p>
         </div>
       </div>
@@ -195,7 +195,7 @@ export default function CoupleOutfitCard({
       <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-[#E8DFD1]">
         {/* Person One */}
         <div className="p-5 space-y-4">
-          <h4 className="text-sm font-bold text-[#181A18] uppercase tracking-wide border-b border-[#E8DFD1] pb-2 flex items-center justify-between">
+          <h4 className="text-xs font-mono font-bold text-[#181A18] uppercase tracking-wider border-b border-[#E8DFD1] pb-2 flex items-center justify-between">
             <span>{personOne.title}</span>
             <span className="text-[10px] font-mono text-sand-500 lowercase">outfit 1</span>
           </h4>

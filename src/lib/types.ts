@@ -86,6 +86,9 @@ export interface OOTDRecommendation {
   items: OutfitItem[];
   createdAt: string;
   flatlayImages?: string[];
+  sweatStainResistance?: string; // Sweat-Stain Resistance Scoring (SSRS)
+  hijabHarmonyTip?: string; // Panduan kombinasi warna hijab/pashmina
+  costPerWearSavings?: string; // Estimasi penghematan Capsule Re-mix
 }
 
 export interface TrendingLook {

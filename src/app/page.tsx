@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
@@ -10,7 +10,7 @@ import OutfitCard from "@/components/OutfitCard";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
 import { UserPreferences, OOTDRecommendation } from "@/lib/types";
-import { PRESET_OOTD_COLLECTION } from "@/lib/presets";
+import { PRESET_OOTD_COLLECTION, TRENDING_LOOKS_FEED } from "@/lib/presets";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, History } from "lucide-react";
 import Toast, { ToastMessage } from "@/components/Toast";
@@ -29,6 +29,7 @@ const OOTDChallengeSection = dynamic(() => import("@/components/OOTDChallengeSec
 const DailyReminderBanner = dynamic(() => import("@/components/DailyReminderBanner"), { ssr: false });
 const FeaturesSection = dynamic(() => import("@/components/FeaturesSection"), { ssr: false });
 const FAQSection = dynamic(() => import("@/components/FAQSection"), { ssr: false });
+const PWAInstallBanner = dynamic(() => import("@/components/PWAInstallBanner"), { ssr: false });
 
 export default function HomePage() {
   const [currentOutfit, setCurrentOutfit] = useState<OOTDRecommendation>(
@@ -156,11 +157,84 @@ export default function HomePage() {
     }
   };
 
+  const [externalPrefs, setExternalPrefs] = useState<Partial<UserPreferences>>({});
+  const [activePersonalColor, setActivePersonalColor] = useState<string>("medium");
+  const [dominantWardrobeVibe, setDominantWardrobeVibe] = useState<string | null>(null);
+
+  // Deep-Link URL State Handler & Smart Wardrobe Vibe Auto-Tuning on Initial Mount
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const lookId = params.get("look");
+      if (lookId) {
+        // Look up in presets
+        const matched = PRESET_OOTD_COLLECTION[lookId] || 
+          TRENDING_LOOKS_FEED.find(t => t.id === lookId || t.outfit.id === lookId)?.outfit;
+        if (matched) {
+          setCurrentOutfit(matched);
+        }
+      } else {
+        // Auto-Tuning: Read saved wardrobe for dominant user vibe
+        try {
+          const saved = JSON.parse(localStorage.getItem("looku_saved_outfits") || "[]");
+          if (saved.length >= 2) {
+            const counts: Record<string, number> = {};
+            saved.forEach((item: any) => {
+              const v = item.overallVibe || "Earthy Minimalist";
+              counts[v] = (counts[v] || 0) + 1;
+            });
+            const topVibe = Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0];
+            if (topVibe) {
+              setDominantWardrobeVibe(topVibe);
+            }
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      // Check stored personal color
+      const storedTone = localStorage.getItem("looku_personal_color");
+      if (storedTone) {
+        const toneMap: Record<string, string> = {
+          fair_porcelain: "fair",
+          light_medium: "light",
+          sawo_matang: "medium",
+          tan_exotic: "tan",
+          dark_ebony: "deep",
+        };
+        setActivePersonalColor(toneMap[storedTone] || storedTone);
+      }
+    }
+  }, []);
+
   const handleSelectLook = (outfit: OOTDRecommendation) => {
     setCurrentOutfit(outfit);
+
+    // Two-Way Sync: Update form inputs to match the selected look
+    const isModest = outfit.modestFriendly;
+    const isMale = outfit.title.toLowerCase().includes("pria") || outfit.overallVibe.toLowerCase().includes("pria");
+    let occ: any = "hangout";
+    if (outfit.title.toLowerCase().includes("campus") || outfit.title.toLowerCase().includes("kuliah")) occ = "kuliah";
+    else if (outfit.title.toLowerCase().includes("blazer") || outfit.title.toLowerCase().includes("corporate") || outfit.title.toLowerCase().includes("kantor")) occ = "kantor";
+    else if (outfit.title.toLowerCase().includes("kondangan") || outfit.title.toLowerCase().includes("batik")) occ = "kondangan";
+
+    setExternalPrefs({
+      gender: isMale ? "male" : "female",
+      isModestHijab: isModest,
+      occasion: occ,
+    });
+
+    // Update browser URL query param for easy sharing
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      url.searchParams.set("look", outfit.id);
+      window.history.replaceState(null, "", url.toString());
+    }
+
     addToast({
-      title: "Menyesuaikan Formula Lookbook untukmu...",
-      description: "Disesuaikan dengan warna kulit & sirkulasi adem",
+      title: "Formula Lookbook Dimuat ke Studio",
+      description: outfit.title,
       type: "curate",
     });
     if (typeof window !== "undefined") {
@@ -173,6 +247,16 @@ export default function HomePage() {
     if (typeof window !== "undefined") {
       localStorage.setItem("looku_personal_color", skinToneId);
     }
+    
+    let toneType: any = "medium";
+    if (skinToneId === "fair_porcelain") toneType = "fair";
+    else if (skinToneId === "light_medium") toneType = "light";
+    else if (skinToneId === "sawo_matang") toneType = "medium";
+    else if (skinToneId === "tan_exotic") toneType = "tan";
+    else if (skinToneId === "dark_ebony") toneType = "deep";
+
+    setExternalPrefs(prev => ({ ...prev, skinTone: toneType }));
+
     const toneNames: Record<string, string> = {
       fair_porcelain: "Putih Gading (Light Spring)",
       light_medium: "Kuning Langsat (Warm Spring)",
@@ -184,7 +268,7 @@ export default function HomePage() {
 
     addToast({
       title: "Personal Color Diterapkan",
-      description: `✨ Disesuaikan dengan undertone ${label}`,
+      description: `Disesuaikan dengan undertone ${label}`,
       type: "success",
     });
     if (typeof window !== "undefined") {
@@ -249,7 +333,10 @@ export default function HomePage() {
       <HeroSection onOpenQuiz={() => setIsQuizOpen(true)} />
 
       {/* Trending Community Lookbook */}
-      <TrendingFeed onSelectLook={handleSelectLook} />
+      <TrendingFeed 
+        onSelectLook={handleSelectLook} 
+        userSkinTone={activePersonalColor}
+      />
 
       {/* Conversational & Rule-Based Styling Studio */}
       <section id="studio" className="py-16 sm:py-24 bg-[#FAF8F5] relative border-t border-[#E8DFD1]">
@@ -266,7 +353,7 @@ export default function HomePage() {
                 <span className="lookbook-label">KONSULTASI STYLIST PRIBADI</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#181A18] tracking-tight">
-                Mix & Match Outfit Personal Kamu
+                Mix &amp; Match Outfit Personal Kamu
               </h2>
               <p className="text-sm text-[#181A18]/70 mt-2 max-w-xl">
                 Pilih mode Solo, Couple, atau Bestie. Stylist kami akan memilihkan formula warna dan potongan baju yang pas untukmu hari ini.
@@ -282,43 +369,6 @@ export default function HomePage() {
             </button>
           </motion.div>
 
-          {/* 3 Langkah Mudah Micro Onboarding Banner untuk Pengguna Awam */}
-          <div className="mb-8 p-4 rounded-2xl bg-white border border-sand-300 shadow-2xs flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3 w-full md:w-auto">
-              <div className="w-8 h-8 rounded-xl bg-terracotta-50 text-terracotta-600 font-bold text-xs flex items-center justify-center shrink-0 border border-terracotta-200">
-                1
-              </div>
-              <div className="text-left">
-                <div className="text-xs font-bold text-charcoal-900">Pilih Acaramu</div>
-                <div className="text-[10px] text-sand-500">Klik salah satu kartu kilat di bawah</div>
-              </div>
-            </div>
-
-            <span className="hidden md:inline text-sand-300 font-mono text-xs">➔</span>
-
-            <div className="flex items-center gap-3 w-full md:w-auto">
-              <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 font-bold text-xs flex items-center justify-center shrink-0 border border-amber-200">
-                2
-              </div>
-              <div className="text-left">
-                <div className="text-xs font-bold text-charcoal-900">AI Padukan Warna & Bahan</div>
-                <div className="text-[10px] text-sand-500">Sesuai cuaca 33°C & undertone kulit</div>
-              </div>
-            </div>
-
-            <span className="hidden md:inline text-sand-300 font-mono text-xs">➔</span>
-
-            <div className="flex items-center gap-3 w-full md:w-auto">
-              <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 font-bold text-xs flex items-center justify-center shrink-0 border border-emerald-200">
-                3
-              </div>
-              <div className="text-left">
-                <div className="text-xs font-bold text-charcoal-900">Beli di Shopee / Tokped</div>
-                <div className="text-[10px] text-sand-500">Toko bintang 4.8+ terkurasi</div>
-              </div>
-            </div>
-          </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Column: Conversational Form (5 cols) */}
             <div className="lg:col-span-5 w-full">
@@ -326,15 +376,18 @@ export default function HomePage() {
               <GeneratorForm
                 onGenerate={handleGenerate}
                 isLoading={isLoading}
+                externalPrefs={externalPrefs}
               />
             </div>
 
             {/* Right Column: Dynamic Outfit Card Result (7 cols) */}
             <div id="hasil-ootd" className="lg:col-span-7 w-full scroll-mt-24">
-              <div className="mb-6 p-4 rounded-xl bg-gradient-to-r from-terracotta-50 to-[#FAF8F5] border border-terracotta-200 shadow-sm flex items-start gap-3">
-                <Sparkles className="w-5 h-5 text-terracotta-500 shrink-0 mt-0.5" />
-                <p className="text-sm text-[#181A18] font-medium leading-relaxed">
-                  ✨ Formula OOTD Kamu Hari Ini Telah Disesuaikan Berdasarkan Cuaca & Smart Defaults <span className="font-bold">(GPS Synced Climate 33°C, Earthy Minimalist, Sawo Matang Tone)</span>. Klik 'Sesuaikan' di form jika ingin mengubah acara/budget.
+              <div className="mb-5 p-3.5 rounded-2xl bg-white border border-sand-300 shadow-2xs flex items-center gap-3">
+                <div className="w-2 h-2 rounded-full bg-terracotta-500 shrink-0" />
+                <p className="text-xs text-charcoal-900 font-medium leading-relaxed">
+                  {dominantWardrobeVibe
+                    ? `Formula OOTD telah diselaraskan dengan gaya favorit lemarimu (${dominantWardrobeVibe}) & cuaca tropis harian.`
+                    : "Formula OOTD telah disesuaikan dengan cuaca tropis harian & profil warna kulit. Sesuaikan preferensi di form jika ingin mengubah acara atau budget."}
                 </p>
               </div>
               <AnimatePresence mode="wait">
@@ -360,9 +413,9 @@ export default function HomePage() {
                       {/* Stage Progress Pills */}
                       <div className="space-y-3">
                         {[
-                          "🟢 1. Menganalisis undertone warna kulit & profil...",
-                          "🟢 2. Menyeleksi sirkulasi bahan katun rayon & linen adem...",
-                          "🟢 3. Mengkurasi toko bintang 4.8+ di Shopee & Tokopedia..."
+                          "1. Menganalisis undertone warna kulit & profil...",
+                          "2. Memilih bahan katun & linen anti-gerah...",
+                          "3. Mengkurasi toko bintang 4.8+ di marketplace lokal..."
                         ].map((text, idx) => {
                           const isActive = idx === activeLoaderStep;
                           const isPast = idx < activeLoaderStep;
@@ -385,9 +438,9 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                    <div className="pt-4 border-t border-sand-200 flex items-center justify-between text-[10px] font-mono text-sand-500">
-                      <span>ESTIMASI PROSES: ~1.2 DETIK</span>
-                      <span className="text-terracotta-500 font-bold">100% REALISTIC PRICING</span>
+                    <div className="pt-4 border-t border-sand-200 flex items-center justify-between text-[10px] font-mono text-sand-500 uppercase">
+                      <span>KURASI PERSONAL COLOR & CUACA</span>
+                      <span className="text-terracotta-500 font-bold">KATUN RAYON & LINEN ADEM</span>
                     </div>
                   </motion.div>
                 ) : lastPrefs?.stylingMode === "couple" || lastPrefs?.stylingMode === "bestie" ? (
@@ -426,20 +479,49 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Features & Curation Principles (Reassurance right after Studio) */}
+      <div className="cv-auto">
+        <FeaturesSection />
+      </div>
+
+      {/* FAQ Section (Objection Handling) */}
+      <div className="cv-auto">
+        <FAQSection />
+      </div>
+
       {/* Weekly OOTD Challenge Community Leaderboard */}
       <section id="challenge" className="cv-auto">
         <OOTDChallengeSection />
       </section>
 
-      {/* Features & Curation Principles */}
-      <div className="cv-auto">
-        <FeaturesSection />
-      </div>
-
-      {/* FAQ Section */}
-      <div className="cv-auto">
-        <FAQSection />
-      </div>
+      {/* Final Conversion Re-engagement Card */}
+      <section className="py-16 sm:py-20 bg-charcoal-900 text-sand-50 relative overflow-hidden border-t border-white/10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[10px] font-mono tracking-widest uppercase text-terracotta-400">
+            <span>✦ SIAP TAMPIL PERCAYA DIRI SETIAP HARI</span>
+          </div>
+          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
+            Temukan Formula OOTD Terbaikmu Sekarang
+          </h2>
+          <p className="text-sm sm:text-base text-sand-300 max-w-xl mx-auto leading-relaxed">
+            Tanpa perlu bingung di depan lemari. Dapatkan rekomendasi pakaian adem tropis, ramah hijab, dan sesuai warna kulit dalam 1 klik.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+            <a
+              href="#studio"
+              className="w-full sm:w-auto py-4 px-8 rounded-2xl bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-lg"
+            >
+              <span>Mulai Racik Outfit Kamu ➔</span>
+            </a>
+            <button
+              onClick={() => setIsQuizOpen(true)}
+              className="w-full sm:w-auto py-4 px-6 rounded-2xl bg-white/10 hover:bg-white/15 text-white border border-white/20 font-bold text-xs tracking-wider uppercase transition-all"
+            >
+              <span>Tes Personal Color (60s)</span>
+            </button>
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
       <div className="cv-auto">
@@ -504,6 +586,9 @@ export default function HomePage() {
           onSelectOutfit={handleSelectLook}
         />
       )}
+
+      {/* Smart Mobile PWA Install Banner */}
+      <PWAInstallBanner />
 
       {/* Toasts Notification */}
       <Toast toasts={toasts} onDismiss={removeToast} />

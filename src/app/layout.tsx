@@ -24,30 +24,47 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "look.u — Curated Daily OOTD & Personal Color Studio",
+  metadataBase: new URL("https://looku.ai"),
+  title: "look.u — Personal Stylist AI & Kurasi OOTD Tropis 33°C",
   description:
-    "Personal wardrobe curation for Indonesian climate. Tailored to tropical heat, modest silhouttes, personal color analysis, and local market budget.",
+    "Kurasi paduan outfit adem di cuaca tropis 33°C, ramah hijab, dan langsung terhubung ke official store Shopee & Tokopedia.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
-    statusBarStyle: "default",
+    statusBarStyle: "black-translucent",
     title: "look.u",
   },
   keywords: [
     "look.u",
-    "Looku",
     "Looku AI",
     "OOTD AI Indonesia",
-    "Curated Wardrobe",
-    "Modest Fashion Styling",
-    "Shopee Fashion Affiliate",
-    "Daily Outfit Lookbook",
+    "Personal Color Quiz Indonesia",
+    "Outfit Kuliah Hijab",
+    "Baju Adem 33 Derajat",
+    "Shopee Mall Fashion",
+    "Tokopedia Official Fashion",
   ],
   openGraph: {
-    title: "look.u — Curated Daily OOTD & Wardrobe Studio",
-    description: "Curated OOTD formulas for Indonesian tropical lifestyle.",
+    title: "look.u AI — Kurasi OOTD Harian Tropis 33°C & Ramah Hijab",
+    description: "Bebas bingung pilih baju tiap pagi. Racik formula pakaian adem & personal color dalam 10 detik.",
+    url: "https://looku.ai",
+    siteName: "look.u AI",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200&auto=format&fit=crop&q=80",
+        width: 1200,
+        height: 630,
+        alt: "look.u AI Editorial Lookbook",
+      },
+    ],
     type: "website",
     locale: "id_ID",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "look.u AI — Kurasi OOTD Harian Tropis 33°C",
+    description: "Bebas bingung pilih baju tiap pagi. Racik formula pakaian adem dalam 10 detik.",
+    images: ["https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200&auto=format&fit=crop&q=80"],
   },
 };
 

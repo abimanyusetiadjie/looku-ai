@@ -36,12 +36,12 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
   };
 
   const tickerItems = [
-    "✦ SIRKULASI UDARA KATUN RAYON & LINEN 98.4% (UJI IKLIM 33°C)",
-    "✦ 100% UNISEX & MODEST COMPLIANT ARCHITECTURE",
-    "✦ PERSONAL COLOR MATCH UNTUK 5 WARNA KULIT INDONESIA",
-    "✦ TAUTAN BELANJA RESMI SHOPEE & TOKOPEDIA REALISTIS",
-    "✦ EKSPOR INSTAGRAM STORY 9:16 HIGH-DPI",
-    "✦ 14.800+ OUTFIT DICURASI MINGGU INI",
+    "✦ 100% KATUN RAYON & LINEN ASLI",
+    "✦ KURASI RESMI SHOPEE MALL & TOKOPEDIA OFFICIAL STORE",
+    "✦ PERSONAL COLOR MATCH 5 WARNA KULIT NUSANTARA",
+    "✦ MODEST, HIJAB & UNISEX COMPLIANT",
+    "✦ EKSPOR INSTAGRAM STORY 9:16 EDITORIAL",
+    "✦ PILIHAN TOKO DENGAN RATING 4.8★ TERVERIFIKASI",
   ];
 
   return (
@@ -76,12 +76,12 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
                 & nyaman.
               </motion.h1>
 
-              {/* Conversational Subtitle */}
+              {/* Conversational Subtitle with High-Contrast WCAG AAA Typography */}
               <motion.p
                 variants={itemVariants}
-                className="text-sm sm:text-base text-[#181A18]/80 font-normal leading-relaxed max-w-xl mx-auto lg:mx-0"
+                className="text-sm sm:text-base text-[#181A18] font-normal leading-relaxed max-w-xl mx-auto lg:mx-0"
               >
-                Tanpa ribet <i>&ldquo;bingung mau pakai baju apa&rdquo;</i> tiap pagi. Dari hangout santai, ngantor, sampai acara formal, <span className="font-serif italic font-bold">look<span className="text-terracotta-500 not-italic">.</span>u</span> bantu mix & match padu-padan warna yang pas untuk kulitmu, nyaman seharian, dan bikin kamu tampil percaya diri.
+                Kurasi paduan outfit adem di cuaca tropis 33°C, ramah hijab, dan langsung terhubung ke official store Shopee &amp; Tokopedia.
               </motion.p>
 
               <motion.div variants={itemVariants} className="flex justify-center lg:justify-start">
@@ -94,7 +94,7 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
                 </button>
               </motion.div>
 
-              {/* Primary Action Button */}
+              {/* Distinct CTA Hierarchy: Dominant Primary + Elegant Outline Secondary */}
               <motion.div
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2"
@@ -103,18 +103,21 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
                   href="#studio" 
                   whileHover={{ scale: 1.02, y: -2 }} 
                   whileTap={{ scale: 0.98 }} 
-                  className="w-full sm:w-auto py-4 px-8 rounded-2xl bg-charcoal-900 hover:bg-terracotta-500 text-sand-50 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2.5 shadow-md group"
+                  className="w-full sm:w-auto py-4 px-8 rounded-2xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2.5 shadow-md group"
                 >
                   <span>Mix & Match Outfit Kamu</span>
                   <ArrowDownRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" />
                 </motion.a>
 
-                <button 
+                <motion.button 
                   onClick={() => setIsWaitlistOpen(true)} 
-                  className="text-xs text-sand-500 hover:text-charcoal-900 font-semibold tracking-wider uppercase transition-colors py-2 px-3"
+                  whileHover={{ scale: 1.02, y: -2 }} 
+                  whileTap={{ scale: 0.98 }} 
+                  className="w-full sm:w-auto py-3.5 px-6 rounded-2xl bg-white hover:bg-sand-100 border border-sand-300 hover:border-charcoal-900 text-charcoal-900 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-2xs"
                 >
-                  Join VIP Early Access →
-                </button>
+                  <span>👑 Join VIP Early Access</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-sand-500" />
+                </motion.button>
               </motion.div>
             </div>
 
@@ -222,33 +225,39 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
           </motion.div>
         </div>
 
-        {/* Social Proof & Credibility Trust Strip */}
+        {/* High-Trust Editorial Curator Strip */}
         <div className="mt-10 pt-6 border-t border-sand-200/80 flex flex-wrap items-center justify-between gap-6 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Left: User Avatar Stack + Counter */}
-          <div className="flex items-center gap-3">
-            <div className="flex -space-x-2">
-              <img className="w-7 h-7 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="User" />
-              <img className="w-7 h-7 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="User" />
-              <img className="w-7 h-7 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&auto=format&fit=crop&q=80" alt="User" />
-              <img className="w-7 h-7 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&auto=format&fit=crop&q=80" alt="User" />
+          {/* Left: Official Marketplace Curator */}
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-xl bg-[#EE4D2D]/10 text-[#EE4D2D] flex items-center justify-center font-bold text-xs border border-[#EE4D2D]/20">
+              🛍️
             </div>
             <div>
-              <div className="text-xs font-bold text-charcoal-900">14.800+ Outfit Dicurasi</div>
-              <div className="text-[10px] font-mono text-sand-500">Jakarta • Bandung • Surabaya</div>
+              <div className="text-xs font-bold text-charcoal-900 font-serif">Kurator Belanja Terpercaya</div>
+              <div className="text-[10px] font-mono text-sand-500">Shopee Mall & Tokopedia Official Store</div>
             </div>
           </div>
 
-          {/* Center: Rating & Comfort */}
-          <div className="flex items-center gap-2 text-xs text-charcoal-900 font-medium">
-            <span className="text-amber-500">★★★★★</span>
-            <span className="font-bold">4.9/5</span>
-            <span className="text-sand-500">• 100% Katun Rayon & Linen Adem</span>
+          {/* Center: Material Quality */}
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-700 flex items-center justify-center font-bold text-xs border border-emerald-500/20">
+              🌿
+            </div>
+            <div>
+              <div className="text-xs font-bold text-charcoal-900 font-serif">100% Material Adem Tropis</div>
+              <div className="text-[10px] font-mono text-sand-500">Katun Rayon, Linen Euro & Crinkle Airflow</div>
+            </div>
           </div>
 
-          {/* Right: Privacy Guarantee */}
-          <div className="flex items-center gap-1.5 text-xs text-sand-500 font-mono">
-            <span className="w-2 h-2 rounded-full bg-emerald-500" />
-            <span>100% BEBAS BIAYA • PRIVASI TERJAMIN</span>
+          {/* Right: Privacy & Free */}
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-xl bg-charcoal-900/5 text-charcoal-900 flex items-center justify-center font-bold text-xs border border-charcoal-900/10">
+              🔒
+            </div>
+            <div>
+              <div className="text-xs font-bold text-charcoal-900 font-serif">Konsultasi Bebas Biaya</div>
+              <div className="text-[10px] font-mono text-sand-500">Privasi Foto & Rekomendasi Terjamin</div>
+            </div>
           </div>
         </div>
 

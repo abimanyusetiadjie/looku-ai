@@ -135,14 +135,16 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
               <div className="relative" ref={dropdownRef}>
                 <button
                   onClick={() => setToolsDropdownOpen(!toolsDropdownOpen)}
-                  className={`px-3.5 py-2 text-xs font-bold tracking-wider uppercase rounded-full transition-all flex items-center gap-2 border ${
+                  className={`px-3.5 py-2 text-xs font-bold tracking-wider uppercase rounded-xl transition-all flex items-center gap-2 border ${
                     toolsDropdownOpen
                       ? "bg-charcoal-900 text-sand-50 border-charcoal-900 shadow-sm"
-                      : "bg-[#FAF8F5] hover:bg-sand-100 text-charcoal-900 border-sand-300 shadow-2xs"
+                      : "bg-white hover:bg-sand-100 text-charcoal-900 border-sand-300 shadow-2xs"
                   }`}
                   aria-expanded={toolsDropdownOpen}
                 >
-                  <Sparkles className="w-3.5 h-3.5 text-terracotta-500" />
+                  <div className="w-5 h-5 rounded-lg bg-terracotta-50 flex items-center justify-center border border-terracotta-200">
+                    <Sparkles className="w-3 h-3 text-terracotta-600" />
+                  </div>
                   <span>Fitur AI</span>
                   <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${toolsDropdownOpen ? "rotate-180" : ""}`} />
                 </button>
@@ -199,7 +201,27 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
                               <div className="text-xs font-bold text-charcoal-900 group-hover:text-terracotta-600 transition-colors">
                                 Clone Style Influencer
                               </div>
-                              <div className="text-[10px] text-sand-500">Dupe outfit selebgram under 200k</div>
+                              <div className="text-[10px] text-sand-500">Duplikasi formula gaya selebgram</div>
+                            </div>
+                          </button>
+                        )}
+
+                        {onOpenHistory && (
+                          <button
+                            onClick={() => {
+                              setToolsDropdownOpen(false);
+                              onOpenHistory();
+                            }}
+                            className="w-full px-3 py-2.5 rounded-xl hover:bg-sand-100 flex items-center gap-3 text-left transition-colors group"
+                          >
+                            <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center shrink-0">
+                              <Sparkles className="w-4 h-4" />
+                            </div>
+                            <div>
+                              <div className="text-xs font-bold text-charcoal-900 group-hover:text-terracotta-600 transition-colors">
+                                Riwayat Kurasi OOTD
+                              </div>
+                              <div className="text-[10px] text-sand-500">Lihat kembali formula tersimpan</div>
                             </div>
                           </button>
                         )}
@@ -208,35 +230,34 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
                           onClick={handleOpenQuizModal}
                           className="w-full px-3 py-2.5 rounded-xl hover:bg-sand-100 flex items-center gap-3 text-left transition-colors group"
                         >
-                          <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center shrink-0">
+                          <div className="w-8 h-8 rounded-lg bg-rose-50 text-rose-700 flex items-center justify-center shrink-0">
                             <Palette className="w-4 h-4" />
                           </div>
                           <div>
                             <div className="text-xs font-bold text-charcoal-900 group-hover:text-terracotta-600 transition-colors">
-                              Tes Personal Color
+                              Diagnostik Personal Color
                             </div>
-                            <div className="text-[10px] text-sand-500">Analisis undertone kulit 60 detik</div>
+                            <div className="text-[10px] text-sand-500">Tes warna urat nadi 60 detik</div>
                           </div>
                         </button>
 
                         <button
                           onClick={handleInstallPWA}
-                          className="w-full px-3 py-2.5 rounded-xl bg-emerald-50/80 hover:bg-emerald-100 border border-emerald-200 flex items-center gap-3 text-left transition-colors group"
+                          className="w-full px-3 py-2.5 rounded-xl hover:bg-sand-100 flex items-center gap-3 text-left transition-colors group"
                         >
-                          <div className="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-2xs">
+                          <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center shrink-0">
                             <Smartphone className="w-4 h-4" />
                           </div>
                           <div>
-                            <div className="text-xs font-bold text-emerald-950 group-hover:text-emerald-800 transition-colors">
-                              📲 Install Aplikasi look.u
+                            <div className="text-xs font-bold text-charcoal-900 group-hover:text-terracotta-600 transition-colors">
+                              Pasang Aplikasi di HP
                             </div>
-                            <div className="text-[10px] text-emerald-700">Pasang di Layar Utama HP</div>
+                            <div className="text-[10px] text-sand-500">Akses cepat tanpa perlu browser</div>
                           </div>
                         </button>
                       </div>
 
-                      {/* Secondary Links Footer */}
-                      <div className="mt-2 pt-2 border-t border-sand-100 flex items-center justify-between px-2 text-[11px] text-sand-500 font-medium">
+                      <div className="pt-2 mt-2 border-t border-sand-100 px-3 flex items-center justify-between text-[10px] font-mono text-sand-500">
                         <a
                           href="#manifesto"
                           onClick={() => setToolsDropdownOpen(false)}
@@ -263,13 +284,15 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
               {onOpenSavedDrawer && (
                 <button
                   onClick={onOpenSavedDrawer}
-                  className="px-3.5 py-2 text-xs font-bold tracking-wider uppercase rounded-full bg-white hover:bg-sand-100 text-charcoal-900 border border-sand-300 transition-all flex items-center gap-1.5 shadow-2xs"
+                  className="px-3.5 py-2 text-xs font-bold tracking-wider uppercase rounded-xl bg-white hover:bg-sand-100 text-charcoal-900 border border-sand-300 transition-all flex items-center gap-2 shadow-2xs"
                   title="Buka Lemari Koleksi"
                 >
-                  <Bookmark className="w-3.5 h-3.5 text-terracotta-600" />
+                  <div className="w-5 h-5 rounded-lg bg-sand-100 flex items-center justify-center border border-sand-200">
+                    <Bookmark className="w-3 h-3 text-terracotta-600" />
+                  </div>
                   <span>Lemari</span>
                   {savedCount > 0 && (
-                    <span className="bg-terracotta-500 text-white px-1.5 py-0.2 rounded-full text-[10px] font-mono">
+                    <span className="bg-charcoal-900 text-white px-2 py-0.5 rounded-full text-[10px] font-mono font-bold">
                       {savedCount}
                     </span>
                   )}
@@ -279,19 +302,19 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
               {/* Profile Link */}
               <Link
                 href="/profile"
-                className="p-2 rounded-full bg-sand-100 hover:bg-sand-200 border border-sand-300 text-charcoal-900 transition-colors flex items-center justify-center shadow-2xs"
+                className="p-2 rounded-xl bg-white hover:bg-sand-100 border border-sand-300 text-charcoal-900 transition-colors flex items-center justify-center shadow-2xs"
                 title="Profil Pengguna & Style DNA"
               >
                 <User className="w-4 h-4 text-charcoal-900" />
               </Link>
 
-              {/* Primary VIP CTA */}
+              {/* High-Contrast Gold VIP CTA */}
               <button
                 onClick={() => setIsWaitlistOpen(true)}
-                className="px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-full bg-charcoal-900 hover:bg-terracotta-500 text-white transition-all flex items-center gap-1.5 shadow-sm"
+                className="px-4 py-2 text-xs font-extrabold tracking-wider uppercase rounded-xl bg-gradient-to-r from-amber-300 via-amber-400 to-amber-300 hover:from-amber-400 hover:to-amber-500 text-amber-950 border border-amber-500/40 transition-all flex items-center gap-1.5 shadow-xs"
               >
                 <span>Akses VIP</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-amber-950 stroke-[2.5]" />
               </button>
             </div>
 

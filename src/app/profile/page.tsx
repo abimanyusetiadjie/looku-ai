@@ -279,8 +279,8 @@ export default function ProfilePage() {
                 <div className="w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-gradient-to-tr from-[#181A18] to-terracotta-600 text-white font-serif font-bold text-2xl sm:text-3xl flex items-center justify-center shadow-lg border-4 border-white">
                   {profile.name.charAt(0).toUpperCase()}
                 </div>
-                <div className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-charcoal-900 text-white border-2 border-white flex items-center justify-center text-xs shadow-md">
-                  {profile.role === "vip" ? "👑" : profile.role === "creator" ? "✦" : profile.role === "admin" ? "🛠️" : "🌿"}
+                <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-charcoal-900 text-white border-2 border-white flex items-center justify-center text-[9px] font-mono font-bold shadow-md">
+                  {profile.role === "vip" ? "VIP" : profile.role === "creator" ? "CR" : profile.role === "admin" ? "ADM" : "MBR"}
                 </div>
               </div>
 

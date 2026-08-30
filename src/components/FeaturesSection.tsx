@@ -90,8 +90,8 @@ export default function FeaturesSection() {
             <div className="mt-6 pt-6 border-t border-sand-200/80 space-y-3">
               <div className="flex items-center justify-between text-xs font-mono">
                 <div className="flex items-center gap-2 text-charcoal-900 font-bold">
-                  <Wind className="w-3.5 h-3.5 text-terracotta-500 animate-pulse" />
-                  <span>Sirkulasi Udara: 98.4% Optimal</span>
+                  <Wind className="w-3.5 h-3.5 text-terracotta-500" />
+                  <span>Seleksi Material Alami Teruji Adem</span>
                 </div>
                 <span className="text-sand-500 text-[11px]">MATRIKS BAHAN</span>
               </div>

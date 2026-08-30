@@ -32,7 +32,7 @@ interface Message {
 const DEFAULT_WELCOME_MSG: Message = {
   id: "msg_welcome",
   sender: "stylist",
-  text: "Halo kak! Aku Stylist Pribadi look.u ✨\n\nKamu bisa tanya seputar mix & match, atau coba klik icon kamera 📷 di bawah untuk foto selfie langsung / upload baju agar aku analisa warnanya!\n\n🔒 Foto diproses privat oleh AI dan langsung dihapus. Tidak disimpan di server publik.",
+  text: "Halo kak! Aku Stylist Pribadi look.u.\n\nTanyakan apa pun seputar padu-padan OOTD, atau klik ikon kamera untuk deteksi undertone warna kulit langsung dari foto!\n\n🔒 Privasi Terjamin: Foto dianalisis langsung di RAM browser dan otomatis dihapus seketika.",
   timestamp: "Baru saja",
 };
 
@@ -238,10 +238,12 @@ export default function FloatingChatbot() {
   };
 
   const quickQuestions = [
-    "📸 Foto selfie & analisa warna kulit",
-    "Warna baju glowing buat Sawo Matang?",
-    "Outfit kondangan outdoor yang adem?",
-    "Mix & match kemeja linen oversized",
+    "Foto kamera & analisa undertone",
+    "Baju wisuda outdoor 34°C yang adem",
+    "Warna glowing untuk Sawo Matang",
+    "Outfit kondangan hijab modern",
+    "Mix & match kemeja linen sage",
+    "Rekomendasi blazer kulot flowy",
   ];
 
   useEffect(() => {
@@ -561,14 +563,14 @@ export default function FloatingChatbot() {
                             className="w-full py-2 px-3 rounded-xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-[10px] uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 shadow-xs"
                           >
                             <Sparkles className="w-3 h-3 text-amber-400" />
-                            <span>📱 Tampilkan di Studio OOTD</span>
+                            <span>Tampilkan di Studio OOTD</span>
                           </button>
 
                           <button
                             onClick={() => handleSaveCardToWardrobe(m.visualCard!)}
                             className="w-full py-1.5 px-3 rounded-xl bg-sand-100 hover:bg-sand-200 text-charcoal-900 font-bold text-[10px] uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 border border-sand-300 shadow-2xs"
                           >
-                            <span>📌 Simpan Setelan ke Lemari</span>
+                            <span>Simpan Setelan ke Lemari</span>
                           </button>
                         </div>
 

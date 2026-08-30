@@ -204,9 +204,10 @@ export default function LiveCameraModal({
                   <span>[ FACE & BODY GUIDE ]</span>
                   <span className="text-emerald-400">● LIVE</span>
                 </div>
-                <div className="bg-black/60 backdrop-blur-md rounded-lg p-2 text-center border border-white/10">
-                  <p className="text-[10px] text-white/90 font-medium">
-                    🔒 Privasi Terjamin: Foto hanya dianalisis untuk mencocokkan warna pakaian dan langsung terhapus.
+                <div className="bg-black/75 backdrop-blur-md rounded-xl p-2.5 text-center border border-emerald-500/30 shadow-lg">
+                  <p className="text-[10px] text-white font-medium flex items-center justify-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span><b>Zero-Storage Guarantee:</b> Foto hanya dianalisis di RAM browser &amp; otomatis terhapus seketika.</span>
                   </p>
                 </div>
               </div>

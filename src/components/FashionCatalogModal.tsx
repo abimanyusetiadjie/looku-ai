@@ -33,10 +33,10 @@ const SKIN_TONES = [
 
 const BUDGET_TIERS = [
   { id: "", label: "Semua Budget" },
-  { id: "hemat", label: "💰 Hemat (< 100rb)" },
-  { id: "menengah", label: "✨ Menengah (100-250rb)" },
-  { id: "premium", label: "💎 Premium (250-650rb)" },
-  { id: "luxury", label: "👑 Luxury (> 650rb)" },
+  { id: "hemat", label: "Hemat (< 100rb)" },
+  { id: "menengah", label: "Menengah (100-250rb)" },
+  { id: "premium", label: "Premium (250-650rb)" },
+  { id: "luxury", label: "Luxury (> 650rb)" },
 ];
 
 export default function FashionCatalogModal({ isOpen, onClose }: FashionCatalogModalProps) {
@@ -149,8 +149,8 @@ export default function FashionCatalogModal({ isOpen, onClose }: FashionCatalogM
                   <Store className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <h3 className="font-serif font-bold text-base sm:text-xl">🏛️ Gudang Referensi 300+ Busana</h3>
-                  <p className="text-[11px] text-[#D7CABC] mt-0.5 line-clamp-1">Kurasi brand lokal berdaya tahan & sirkulasi adem tropis</p>
+                  <h3 className="font-serif font-bold text-base sm:text-xl">Gudang Referensi 300+ Busana</h3>
+                  <p className="text-[11px] text-[#D7CABC] mt-0.5 line-clamp-1">Kurasi brand lokal berdaya tahan &amp; sirkulasi adem tropis</p>
                 </div>
               </div>
               <button onClick={onClose} className="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors">
@@ -227,13 +227,13 @@ export default function FashionCatalogModal({ isOpen, onClose }: FashionCatalogM
             </div>
 
             {/* Shopee Intermediary Curator Trust Banner */}
-            <div className="mx-3 sm:mx-6 mt-3 p-3 bg-gradient-to-r from-orange-50 via-amber-50 to-orange-50 border border-orange-200 rounded-2xl flex flex-wrap items-center justify-between gap-2 text-xs shrink-0 shadow-2xs">
+            <div className="mx-3 sm:mx-6 mt-3 p-3 bg-sand-50 border border-sand-300 rounded-2xl flex flex-wrap items-center justify-between gap-2 text-xs shrink-0 shadow-2xs">
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#EE4D2D] animate-ping" />
+                <span className="w-2 h-2 rounded-full bg-[#EE4D2D]" />
                 <span className="font-bold text-charcoal-900">
-                  🛍️ Kurator Belanja Shopee Mall & Star+ Terpercaya
+                  Kurator Belanja Shopee Mall &amp; Tokopedia Official
                 </span>
-                <span className="text-[10px] text-sand-500 hidden sm:inline">• Uji rating bintang 4.8+ & garansi bahan adem</span>
+                <span className="text-[10px] text-sand-500 hidden sm:inline">• Uji rating bintang 4.8+ &amp; garansi bahan adem</span>
               </div>
               <span className="text-[9px] font-mono text-[#EE4D2D] bg-white px-2 py-0.5 rounded-full border border-orange-200 font-bold">
                 100% VERIFIED LOCAL BRANDS
@@ -244,7 +244,7 @@ export default function FashionCatalogModal({ isOpen, onClose }: FashionCatalogM
             <div className="flex-1 overflow-y-auto p-3 sm:p-6 custom-scrollbar">
               {loading ? (
                 <div className="flex justify-center items-center h-40 text-xs text-sand-500 font-mono">
-                  Mengkurasi katalog Shopee Mall & Star+...
+                  Mengkurasi katalog Shopee Mall &amp; Star+...
                 </div>
               ) : items.length === 0 ? (
                 <div className="text-center py-16 text-xs text-sand-500 font-mono">
@@ -263,7 +263,7 @@ export default function FashionCatalogModal({ isOpen, onClose }: FashionCatalogM
                           
                           {/* Shopee Mall / Star+ Badge */}
                           <div className="absolute top-2 left-2 bg-[#EE4D2D] text-white text-[8px] sm:text-[9px] font-bold px-1.5 py-0.5 rounded shadow-xs tracking-wider uppercase flex items-center gap-1">
-                            <span>{idx % 3 === 0 ? "🛍️ Mall" : "⭐ Star+"}</span>
+                            <span>{idx % 3 === 0 ? "Mall" : "Star+"}</span>
                           </div>
 
                           {/* Breathability Pill */}

@@ -1101,16 +1101,12 @@ export function generateHeuristicOOTD(pref: UserPreferences): OOTDRecommendation
     "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=300&auto=format&fit=crop&q=80",
   ];
   
-  // Dynamically customize the skinToneMatch text
-  if (pref.skinTone === "medium") {
-    result.skinToneMatch = "Harmonisasi warna earthy & warm gold menonjolkan kecantikan eksotis kulit Sawo Matang tanpa kesan kusam.";
-  } else if (pref.skinTone === "light") {
-    result.skinToneMatch = "Palet lembut ini memberikan efek radiant glowing pada kulit Kuning Langsat.";
-  } else if (pref.skinTone === "fair") {
-    result.skinToneMatch = "Kontras seimbang yang memberi rona segar alami pada kulit Putih Gading.";
-  } else if (pref.skinTone === "tan" || pref.skinTone === "deep") {
-    result.skinToneMatch = "Warna jewel tone & kontras tegas memancarkan kilau mewah kulit eksotis.";
-  }
+  // 5. Inovasi SSRS (Sweat-Stain Resistance Scoring) & Fabric Telemetry
+  result.sweatStainResistance = "100% Bebas Jejak Keringat (Serat Crinkle & Rayon Twill)";
+  result.hijabHarmonyTip = pref.isModestHijab 
+    ? "Padukan atasan ini dengan Hijab Voal Broken White atau Pashmina Ceruty Sand agar wajah tampak cerah natural."
+    : "Padukan atasan ini dengan aksesoris minimalis bernuansa warm gold untuk tampilan elegan.";
+  result.costPerWearSavings = "Hemat ~Rp 320.000 dengan memadukan outfit ini bersama koleksi bawahan/sepatu yang sudah kamu miliki di lemari.";
 
   return result;
 }

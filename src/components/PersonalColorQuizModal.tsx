@@ -50,6 +50,8 @@ export default function PersonalColorQuizModal({
   const [answers, setAnswers] = useState<Record<number, Answer>>({});
   const [isResultLoading, setIsResultLoading] = useState(false);
 
+  const [selectedDrapeColor, setSelectedDrapeColor] = useState<{ name: string; hex: string } | null>(null);
+
   const handleSelectAnswer = (qId: number, ansId: Answer) => {
     setAnswers((prev) => ({ ...prev, [qId]: ansId }));
     
@@ -60,7 +62,11 @@ export default function PersonalColorQuizModal({
       setTimeout(() => {
         setIsResultLoading(false);
         setCurrentStep(QUESTIONS.length);
-      }, 1500);
+        const res = getResult();
+        if (res.palettes.length > 0) {
+          setSelectedDrapeColor(res.palettes[0]);
+        }
+      }, 1200);
     }
   };
 
@@ -72,37 +78,40 @@ export default function PersonalColorQuizModal({
       return {
         type: "Warm Autumn (Sawo Matang & Golden)",
         skinTone: "tan" as const,
+        undertoneDesc: "Undertone hangat kaya pigmen keemasan, sangat cocok dengan nuansa tanah (earth tones).",
         palettes: [
           { name: "Terracotta", hex: "#E2725B" },
           { name: "Olive Green", hex: "#556B2F" },
-          { name: "Mustard", hex: "#FFDB58" },
+          { name: "Mustard Gold", hex: "#D4AF37" },
           { name: "Warm Brown", hex: "#8B4513" },
         ],
-        avoid: ["Baby Blue", "Neon Pink"],
+        avoid: ["Baby Blue Pucat", "Neon Pink"],
       };
     } else if (q3 === "B") {
       return {
         type: "Cool Summer (Putih Gading)",
         skinTone: "fair" as const,
+        undertoneDesc: "Undertone sejuk elegan, bersinar maksimal dengan palet warna pastel & dusty mutiara.",
         palettes: [
           { name: "Dusty Rose", hex: "#DCAE96" },
           { name: "Soft Lavender", hex: "#B57EDC" },
           { name: "Powder Blue", hex: "#B0E0E6" },
           { name: "Cool Grey", hex: "#8C92AC" },
         ],
-        avoid: ["Orange", "Mustard Yellow"],
+        avoid: ["Mustard Menyala", "Orange Terang"],
       };
     } else {
       return {
-        type: "Neutral Spring (Kuning Langsat)",
+        type: "Warm Spring (Kuning Langsat)",
         skinTone: "medium" as const,
+        undertoneDesc: "Undertone netral-hangat khas Nusantara, sangat cerah dipadukan dengan warna segar floral.",
         palettes: [
-          { name: "Peach", hex: "#FFE5B4" },
-          { name: "Sage Green", hex: "#9DC183" },
-          { name: "Cream", hex: "#FFFDD0" },
-          { name: "Soft Coral", hex: "#F88379" },
+          { name: "Warm Peach", hex: "#FFE5B4" },
+          { name: "Coral Bloom", hex: "#FF7F50" },
+          { name: "Sage Green", hex: "#9CA986" },
+          { name: "Ivory White", hex: "#FFFFF0" },
         ],
-        avoid: ["Harsh Black", "Neon Green"],
+        avoid: ["Hitam Pekat", "Abu-Abu Kusam"],
       };
     }
   };
@@ -205,59 +214,105 @@ export default function PersonalColorQuizModal({
                 animate={{ opacity: 1, y: 0 }}
                 className="space-y-6"
               >
-                <div className="text-center space-y-2">
-                  <div className="inline-block px-3 py-1 bg-terracotta-100 text-terracotta-700 rounded-full text-xs font-bold tracking-wider uppercase mb-2">
-                    Hasil Diagnosa
-                  </div>
-                  <h3 className="text-2xl font-serif font-bold text-[#181A18]">
+                <div className="text-center space-y-1.5 border-b border-[#E8DFD1] pb-4">
+                  <span className="text-[10px] font-mono tracking-widest uppercase px-3 py-1 bg-sand-100 text-charcoal-900 rounded-full font-bold border border-sand-300">
+                    HASIL DIAGNOSA ATELIER
+                  </span>
+                  <h3 className="text-2xl font-serif font-bold text-[#181A18] pt-1">
                     {getResult().type}
                   </h3>
+                  <p className="text-xs text-[#181A18]/70 max-w-sm mx-auto">
+                    {getResult().undertoneDesc}
+                  </p>
                 </div>
 
-                <div className="space-y-3">
-                  <h4 className="text-xs font-bold text-[#181A18]/60 uppercase tracking-wider">
-                    Palet Warna Rekomendasi
-                  </h4>
-                  <div className="grid grid-cols-2 gap-3">
-                    {getResult().palettes.map((p, i) => (
-                      <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-white border border-[#E8DFD1]">
-                        <div
-                          className="w-8 h-8 rounded-full border border-black/10 shadow-sm"
-                          style={{ backgroundColor: p.hex }}
-                        />
-                        <span className="text-xs font-medium text-[#181A18]">{p.name}</span>
+                {/* Virtual Fabric Drape Interactive Simulator */}
+                {selectedDrapeColor && (
+                  <div className="p-4 rounded-2xl border border-sand-300 bg-white space-y-2.5 shadow-xs">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-mono font-bold uppercase text-sand-500">
+                        SIMULASI DRAPING KAIN
+                      </span>
+                      <span className="text-[10px] font-mono font-bold text-terracotta-600 bg-terracotta-50 px-2 py-0.5 rounded-full">
+                        +98.4% NATURAL GLOW
+                      </span>
+                    </div>
+
+                    <div 
+                      className="h-20 rounded-xl border border-black/10 flex items-center justify-center p-3 relative overflow-hidden transition-all duration-300"
+                      style={{ backgroundColor: selectedDrapeColor.hex }}
+                    >
+                      <div className="bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/40 shadow-xs flex items-center gap-2">
+                        <span className="text-xs font-bold font-serif text-charcoal-900">
+                          {selectedDrapeColor.name} ({selectedDrapeColor.hex})
+                        </span>
                       </div>
-                    ))}
+                    </div>
+                    <p className="text-[11px] text-sand-600 italic text-center">
+                      Tap salah satu warna di bawah untuk melihat efek kecerahan kain pada kulitmu:
+                    </p>
+                  </div>
+                )}
+
+                <div className="space-y-2.5">
+                  <h4 className="text-[11px] font-mono font-bold text-charcoal-900 uppercase tracking-wider">
+                    Palet Warna Kekuatan (Power Colors)
+                  </h4>
+                  <div className="grid grid-cols-2 gap-2.5">
+                    {getResult().palettes.map((p, i) => {
+                      const isActive = selectedDrapeColor?.hex === p.hex;
+                      return (
+                        <button
+                          key={i}
+                          type="button"
+                          onClick={() => setSelectedDrapeColor(p)}
+                          className={`flex items-center gap-3 p-2.5 rounded-xl border text-left transition-all ${
+                            isActive
+                              ? "bg-sand-100 border-charcoal-900 shadow-2xs font-bold"
+                              : "bg-white border-sand-200 hover:border-sand-300"
+                          }`}
+                        >
+                          <div
+                            className="w-7 h-7 rounded-full border border-black/10 shadow-xs shrink-0"
+                            style={{ backgroundColor: p.hex }}
+                          />
+                          <div className="truncate">
+                            <div className="text-xs text-charcoal-900 truncate">{p.name}</div>
+                            <div className="text-[9px] font-mono text-sand-500">{p.hex}</div>
+                          </div>
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 
-                <div className="space-y-3">
-                  <h4 className="text-xs font-bold text-[#181A18]/60 uppercase tracking-wider">
-                    Warna Yang Harus Dihindari
+                <div className="space-y-2">
+                  <h4 className="text-[11px] font-mono font-bold text-charcoal-900 uppercase tracking-wider">
+                    Warna yang Perlu Dihindari (Washed Out)
                   </h4>
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap gap-2">
                     {getResult().avoid.map((color, i) => (
-                      <span key={i} className="px-3 py-1.5 bg-red-50 text-red-700 text-xs font-medium rounded-lg border border-red-100">
+                      <span key={i} className="px-2.5 py-1 bg-sand-100 text-charcoal-700 text-[11px] font-medium rounded-lg border border-sand-200">
                         {color}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-4">
+                <div className="pt-3 border-t border-sand-200">
                   <button
                     onClick={() => {
                       onApplyResult(getResult().skinTone);
                       onClose();
                     }}
-                    className="w-full py-4 px-6 rounded-xl bg-[#181A18] hover:bg-terracotta-600 text-white font-bold text-sm tracking-wide transition-all shadow-md flex items-center justify-center gap-2 group"
+                    className="w-full py-3.5 px-6 rounded-2xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs tracking-wider uppercase transition-all shadow-md flex items-center justify-center gap-2 group"
                   >
-                    🚀 Terapkan ke Studio & Generate OOTD
+                    <span>Terapkan ke Studio &amp; Generate OOTD</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                   <button
                     onClick={resetQuiz}
-                    className="w-full mt-3 py-2 text-xs font-medium text-[#181A18]/60 hover:text-[#181A18] transition-colors"
+                    className="w-full mt-2 py-1.5 text-xs font-semibold text-sand-500 hover:text-charcoal-900 transition-colors"
                   >
                     Ulangi Tes
                   </button>

@@ -17,9 +17,10 @@ import {
 interface GeneratorFormProps {
   onGenerate: (prefs: UserPreferences) => void;
   isLoading: boolean;
+  externalPrefs?: Partial<UserPreferences>;
 }
 
-export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormProps) {
+export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: GeneratorFormProps) {
   const [step, setStep] = useState<number>(1);
 
   const [stylingMode, setStylingMode] = useState<"solo" | "couple" | "bestie">("solo");
@@ -36,6 +37,22 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
   const [customNotes, setCustomNotes] = useState("");
   const [isMixingOwned, setIsMixingOwned] = useState(false);
   const [ownedItem, setOwnedItem] = useState("");
+
+  // Two-way synchronization with external state (e.g. from Lookbook item click or Quiz result)
+  React.useEffect(() => {
+    if (externalPrefs) {
+      if (externalPrefs.gender) setGender(externalPrefs.gender);
+      if (externalPrefs.skinTone) setSkinTone(externalPrefs.skinTone);
+      if (externalPrefs.occasion) setOccasion(externalPrefs.occasion);
+      if (externalPrefs.isModestHijab !== undefined) setIsModestHijab(externalPrefs.isModestHijab);
+      if (externalPrefs.budget) setBudget(externalPrefs.budget);
+      if (externalPrefs.vibe) setVibe(externalPrefs.vibe);
+      if (externalPrefs.ownedItem) {
+        setOwnedItem(externalPrefs.ownedItem);
+        setIsMixingOwned(true);
+      }
+    }
+  }, [externalPrefs]);
 
   // Live Geolocation Weather State
   const [detectingLocation, setDetectingLocation] = useState(false);
@@ -741,14 +758,26 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
               </div>
             </div>
 
-            <button
-              type="button"
-              onClick={() => setStep(2)}
-              className="w-full py-3.5 px-4 rounded-xl bg-[#181A18] hover:bg-terracotta-500 text-white font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-sm"
-            >
-              <span>Lanjut: Pilih Acara & Cuaca</span>
-              <ChevronRight className="w-4 h-4" />
-            </button>
+            <div className="flex items-center gap-2 pt-2">
+              <button
+                type="submit"
+                className="py-3.5 px-4 rounded-xl bg-sand-100 hover:bg-sand-200 text-charcoal-900 border border-sand-300 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 shadow-2xs"
+                title="Langsung Racik OOTD dengan preferensi saat ini"
+              >
+                <Zap className="w-3.5 h-3.5 text-terracotta-600" />
+                <span className="hidden sm:inline">Langsung Racik</span>
+                <span className="sm:hidden">Racik</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setStep(2)}
+                className="flex-1 py-3.5 px-4 rounded-xl bg-[#181A18] hover:bg-terracotta-500 text-white font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-sm"
+              >
+                <span>Lanjut: Acara &amp; Cuaca</span>
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
           </motion.div>
         )}
 
@@ -853,14 +882,24 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
               </div>
             </div>
 
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center gap-2 pt-2">
               <button
                 type="button"
                 onClick={() => setStep(1)}
-                className="py-3 px-4 rounded-xl bg-[#F4EFE6] hover:bg-[#E8DFD1] text-[#181A18] font-bold text-xs tracking-wider uppercase transition-all flex items-center gap-1.5"
+                className="py-3.5 px-3.5 rounded-xl bg-sand-100 hover:bg-sand-200 text-charcoal-900 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 border border-sand-300 shadow-2xs"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
-                <span>Kembali</span>
+                <span className="hidden sm:inline">Kembali</span>
+              </button>
+
+              <button
+                type="submit"
+                className="py-3.5 px-3.5 rounded-xl bg-sand-100 hover:bg-sand-200 text-charcoal-900 border border-sand-300 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 shadow-2xs"
+                title="Langsung Racik OOTD dengan preferensi saat ini"
+              >
+                <Zap className="w-3.5 h-3.5 text-terracotta-600" />
+                <span className="hidden sm:inline">Langsung Racik</span>
+                <span className="sm:hidden">Racik</span>
               </button>
 
               <button
@@ -868,7 +907,7 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
                 onClick={() => setStep(3)}
                 className="flex-1 py-3.5 px-4 rounded-xl bg-[#181A18] hover:bg-terracotta-500 text-white font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-sm"
               >
-                <span>Lanjut: Budget & Gaya</span>
+                <span>Lanjut: Budget</span>
                 <ChevronRight className="w-4 h-4" />
               </button>
             </div>
@@ -947,7 +986,7 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-500" />
                   <label className="text-xs font-bold text-charcoal-900 uppercase tracking-wider">
-                    👗 Ingin Mix & Match Baju yang Sudah Kamu Miliki?
+                    Padukan dengan Pakaian Milikmu Sendiri
                   </label>
                 </div>
                 <button
@@ -971,7 +1010,7 @@ export default function GeneratorForm({ onGenerate, isLoading }: GeneratorFormPr
                   className="space-y-2.5 pt-1"
                 >
                   <p className="text-[11px] text-sand-500">
-                    Ketik atau pilih pakaian yang ingin kamu pakai hari ini. AI Stylist akan melengkapi sisa paduannya:
+                    Punya baju favorit? Pilih di bawah, AI akan meracik paduan pelengkapnya:
                   </p>
 
                   {/* Quick Suggestions */}

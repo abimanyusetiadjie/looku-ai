@@ -56,29 +56,27 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
       const dataUrl = await generateDataUrl();
       if (!dataUrl) return;
 
-      // Konversi dataUrl ke Blob
       const res = await fetch(dataUrl);
       const blob = await res.blob();
       const file = new File([blob], `looku-ootd-${outfit.id.slice(-4)}.png`, { type: "image/png" });
+      const shareUrl = typeof window !== "undefined" ? `${window.location.origin}/?look=${outfit.id}` : `https://looku.ai/?look=${outfit.id}`;
 
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           files: [file],
-          title: `OOTD Formula: ${outfit.title}`,
-          text: `Cek formula OOTD tropis "${outfit.title}" yang dikurasi oleh look.u AI! ✨\nKunjungi: https://looku.ai`,
+          title: `Formula OOTD: ${outfit.title}`,
+          text: `Cek formula OOTD tropis "${outfit.title}" yang dikurasi oleh look.u AI!\nBuka langsung di: ${shareUrl}`,
         });
       } else if (navigator.share) {
         await navigator.share({
           title: `OOTD: ${outfit.title}`,
-          text: `Formula gaya "${outfit.title}" - ${outfit.tagline}\nKurasi AI OOTD kamu di https://looku.ai`,
-          url: "https://looku.ai",
+          text: `Formula gaya "${outfit.title}" - ${outfit.tagline}\nBuka di: ${shareUrl}`,
+          url: shareUrl,
         });
       } else {
-        // Fallback: download
         handleDownloadImage();
       }
     } catch (err) {
-      // User aborted share or unsupported
       console.log("Share cancelled or unsupported:", err);
     } finally {
       setSharing(false);
@@ -87,7 +85,8 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
 
   const handleCopyLink = async () => {
     try {
-      const shareText = `✨ Formula OOTD: ${outfit.title}\n"${outfit.tagline}"\n\n👔 Atasan: ${outfit.items[0]?.name || "-"}\n👖 Bawahan: ${outfit.items[1]?.name || "-"}\n💡 Tips: ${outfit.stylingTip}\n\nKurasi gayamu di https://looku.ai`;
+      const shareUrl = typeof window !== "undefined" ? `${window.location.origin}/?look=${outfit.id}` : `https://looku.ai/?look=${outfit.id}`;
+      const shareText = `Formula OOTD: ${outfit.title}\n"${outfit.tagline}"\n\n• Atasan: ${outfit.items[0]?.name || "-"}\n• Bawahan: ${outfit.items[1]?.name || "-"}\n• Tips: ${outfit.stylingTip}\n\nLihat kurasi lengkap di: ${shareUrl}`;
       await navigator.clipboard.writeText(shareText);
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
@@ -310,7 +309,7 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
                   : "bg-white/5 border-white/10 text-white/80"
               }`}
             >
-              💡 <b>Styling Note:</b> {outfit.stylingTip}
+              <b>Catatan Stylist:</b> {outfit.stylingTip}
             </div>
           </div>
 
@@ -333,7 +332,7 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
                   isEarthy ? "text-charcoal-900" : "text-white"
                 }`}
               >
-                looku.ai <span className="font-normal opacity-60">| Iklim 33°C Tropis</span>
+                looku.ai/?look={outfit.id.slice(-6)} <span className="font-normal opacity-60">| Iklim 33°C</span>
               </div>
             </div>
             <div
@@ -342,7 +341,7 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
               }`}
             >
               ||| | |||| | ||| ||
-              <div>#ID-{outfit.id.slice(-4)}</div>
+              <div>#LOOK-{outfit.id.slice(-4).toUpperCase()}</div>
             </div>
           </div>
         </div>
