@@ -2,20 +2,23 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { ArrowLeft, Sparkles, History } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import GeneratorForm from "@/components/GeneratorForm";
 import OutfitCard from "@/components/OutfitCard";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
-import SavedLooksDrawer from "@/components/SavedLooksDrawer";
-import StoryShareModal from "@/components/StoryShareModal";
-import PersonalColorQuizModal from "@/components/PersonalColorQuizModal";
-import TomorrowOOTDWidget from "@/components/TomorrowOOTDWidget";
-import GenerationHistoryModal from "@/components/GenerationHistoryModal";
 import Toast, { ToastMessage } from "@/components/Toast";
 import { UserPreferences, OOTDRecommendation } from "@/lib/types";
 import { PRESET_OOTD_COLLECTION } from "@/lib/presets";
+
+// Dynamic Code-Splitting for Heavy Modals & Offscreen Widgets
+const SavedLooksDrawer = dynamic(() => import("@/components/SavedLooksDrawer"), { ssr: false });
+const StoryShareModal = dynamic(() => import("@/components/StoryShareModal"), { ssr: false });
+const PersonalColorQuizModal = dynamic(() => import("@/components/PersonalColorQuizModal"), { ssr: false });
+const TomorrowOOTDWidget = dynamic(() => import("@/components/TomorrowOOTDWidget"), { ssr: false });
+const GenerationHistoryModal = dynamic(() => import("@/components/GenerationHistoryModal"), { ssr: false });
 
 function MultiStageLoader() {
   return (
@@ -371,13 +374,15 @@ export default function StudioPage() {
       {/* Floating Mobile App-Shell Navigation */}
       <BottomNav onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)} />
 
-      {/* Saved Looks Drawer */}
-      <SavedLooksDrawer
-        isOpen={isSavedDrawerOpen}
-        onClose={() => setIsSavedDrawerOpen(false)}
-        onSelectOutfit={(outfit) => setCurrentOutfit(outfit)}
-        onExportStory={(outfit) => setStoryOutfitToExport(outfit)}
-      />
+      {/* Saved Looks Drawer (Loaded on Demand) */}
+      {isSavedDrawerOpen && (
+        <SavedLooksDrawer
+          isOpen={isSavedDrawerOpen}
+          onClose={() => setIsSavedDrawerOpen(false)}
+          onSelectOutfit={(outfit) => setCurrentOutfit(outfit)}
+          onExportStory={(outfit) => setStoryOutfitToExport(outfit)}
+        />
+      )}
 
       {/* Story Share Modal for Drawer */}
       {storyOutfitToExport && (
@@ -387,19 +392,23 @@ export default function StudioPage() {
         />
       )}
 
-      {/* Personal Color Quiz Modal */}
-      <PersonalColorQuizModal
-        isOpen={isQuizOpen}
-        onClose={() => setIsQuizOpen(false)}
-        onApplyResult={handleApplyQuizResult}
-      />
+      {/* Personal Color Quiz Modal (Loaded on Demand) */}
+      {isQuizOpen && (
+        <PersonalColorQuizModal
+          isOpen={isQuizOpen}
+          onClose={() => setIsQuizOpen(false)}
+          onApplyResult={handleApplyQuizResult}
+        />
+      )}
 
-      {/* Generation History Modal */}
-      <GenerationHistoryModal
-        isOpen={isHistoryOpen}
-        onClose={() => setIsHistoryOpen(false)}
-        onSelectOutfit={(outfit) => setCurrentOutfit(outfit)}
-      />
+      {/* Generation History Modal (Loaded on Demand) */}
+      {isHistoryOpen && (
+        <GenerationHistoryModal
+          isOpen={isHistoryOpen}
+          onClose={() => setIsHistoryOpen(false)}
+          onSelectOutfit={(outfit) => setCurrentOutfit(outfit)}
+        />
+      )}
 
       {/* Toasts */}
       <Toast toasts={toasts} onDismiss={(id) => setToasts(t => t.filter(x => x.id !== id))} />

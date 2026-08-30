@@ -281,7 +281,7 @@ export default function TrendingFeed({ onSelectLook }: TrendingFeedProps) {
                             onSelectLook(item.outfit);
                             document.getElementById("studio")?.scrollIntoView({ behavior: "smooth" });
                           }}
-                          className="relative w-full aspect-[4/5] bg-sand-200 animate-pulse overflow-hidden cursor-pointer"
+                          className="relative w-full aspect-[4/5] bg-sand-200 overflow-hidden cursor-pointer"
                         >
                           <Image
                             src={item.image}
@@ -326,7 +326,6 @@ export default function TrendingFeed({ onSelectLook }: TrendingFeedProps) {
                             }}
                           >
                             <div className="relative w-6 h-6 flex items-center justify-center">
-                              <span className="absolute w-full h-full rounded-full bg-white/40 animate-ping" />
                               <span className="w-3 h-3 rounded-full bg-white border-2 border-[#181A18] shadow-md z-10" />
                             </div>
 
@@ -444,7 +443,7 @@ export default function TrendingFeed({ onSelectLook }: TrendingFeedProps) {
                           onSelectLook(item.outfit);
                           document.getElementById("studio")?.scrollIntoView({ behavior: "smooth" });
                         }}
-                        className="relative w-full aspect-[3/4] bg-sand-200 animate-pulse overflow-hidden cursor-pointer"
+                        className="relative w-full aspect-[3/4] bg-sand-200 overflow-hidden cursor-pointer"
                       >
                         <Image
                           src={item.image}
@@ -521,7 +520,7 @@ export default function TrendingFeed({ onSelectLook }: TrendingFeedProps) {
                       onSelectLook(item.outfit);
                       document.getElementById("studio")?.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className="relative w-full aspect-[4/5] bg-sand-200 animate-pulse overflow-hidden cursor-pointer"
+                    className="relative w-full aspect-[4/5] bg-sand-200 overflow-hidden cursor-pointer"
                   >
                     <Image
                       src={item.image}

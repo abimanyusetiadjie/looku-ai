@@ -1,33 +1,34 @@
 "use client";
 
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TrendingFeed from "@/components/TrendingFeed";
 import GeneratorForm from "@/components/GeneratorForm";
 import OutfitCard from "@/components/OutfitCard";
-import FeaturesSection from "@/components/FeaturesSection";
-import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
-import SavedLooksDrawer from "@/components/SavedLooksDrawer";
-import StoryShareModal from "@/components/StoryShareModal";
 import { UserPreferences, OOTDRecommendation } from "@/lib/types";
 import { PRESET_OOTD_COLLECTION } from "@/lib/presets";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { Sparkles, History } from "lucide-react";
 import Toast, { ToastMessage } from "@/components/Toast";
-import PersonalColorQuizModal from "@/components/PersonalColorQuizModal";
-import TomorrowOOTDWidget from "@/components/TomorrowOOTDWidget";
-import InfluencerCloneModal from "@/components/InfluencerCloneModal";
-import WeeklyOutfitCalendar from "@/components/WeeklyOutfitCalendar";
-import CoupleOutfitCard from "@/components/CoupleOutfitCard";
-import OOTDChallengeSection from "@/components/OOTDChallengeSection";
-import FashionCatalogModal from "@/components/FashionCatalogModal";
 
-import GenerationHistoryModal from "@/components/GenerationHistoryModal";
-import DailyReminderBanner from "@/components/DailyReminderBanner";
-import { History } from "lucide-react";
+// Dynamic Code-Splitting for Heavy Modals & Offscreen Widgets
+const SavedLooksDrawer = dynamic(() => import("@/components/SavedLooksDrawer"), { ssr: false });
+const StoryShareModal = dynamic(() => import("@/components/StoryShareModal"), { ssr: false });
+const PersonalColorQuizModal = dynamic(() => import("@/components/PersonalColorQuizModal"), { ssr: false });
+const InfluencerCloneModal = dynamic(() => import("@/components/InfluencerCloneModal"), { ssr: false });
+const GenerationHistoryModal = dynamic(() => import("@/components/GenerationHistoryModal"), { ssr: false });
+const FashionCatalogModal = dynamic(() => import("@/components/FashionCatalogModal"), { ssr: false });
+const TomorrowOOTDWidget = dynamic(() => import("@/components/TomorrowOOTDWidget"), { ssr: false });
+const WeeklyOutfitCalendar = dynamic(() => import("@/components/WeeklyOutfitCalendar"), { ssr: false });
+const CoupleOutfitCard = dynamic(() => import("@/components/CoupleOutfitCard"), { ssr: false });
+const OOTDChallengeSection = dynamic(() => import("@/components/OOTDChallengeSection"), { ssr: false });
+const DailyReminderBanner = dynamic(() => import("@/components/DailyReminderBanner"), { ssr: false });
+const FeaturesSection = dynamic(() => import("@/components/FeaturesSection"), { ssr: false });
+const FAQSection = dynamic(() => import("@/components/FAQSection"), { ssr: false });
 
 export default function HomePage() {
   const [currentOutfit, setCurrentOutfit] = useState<OOTDRecommendation>(
@@ -416,7 +417,7 @@ export default function HomePage() {
           </div>
 
           {/* Weekly Outfit Calendar (7-Day Planner) */}
-          <div className="mt-16 pt-12 border-t border-sand-200">
+          <div className="mt-16 pt-12 border-t border-sand-200 cv-auto">
             <WeeklyOutfitCalendar
               currentOutfit={currentOutfit}
               onSelectDayOutfit={(outfit) => handleSelectLook(outfit)}
@@ -426,29 +427,37 @@ export default function HomePage() {
       </section>
 
       {/* Weekly OOTD Challenge Community Leaderboard */}
-      <section id="challenge">
+      <section id="challenge" className="cv-auto">
         <OOTDChallengeSection />
       </section>
 
       {/* Features & Curation Principles */}
-      <FeaturesSection />
+      <div className="cv-auto">
+        <FeaturesSection />
+      </div>
 
       {/* FAQ Section */}
-      <FAQSection />
+      <div className="cv-auto">
+        <FAQSection />
+      </div>
 
       {/* Footer */}
-      <Footer />
+      <div className="cv-auto">
+        <Footer />
+      </div>
 
       {/* Floating Mobile App-Shell Navigation */}
       <BottomNav onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)} />
 
-      {/* Saved Looks Drawer */}
-      <SavedLooksDrawer
-        isOpen={isSavedDrawerOpen}
-        onClose={() => setIsSavedDrawerOpen(false)}
-        onSelectOutfit={handleSelectLook}
-        onExportStory={(outfit) => setStoryOutfitToExport(outfit)}
-      />
+      {/* Saved Looks Drawer (Loaded on Demand) */}
+      {isSavedDrawerOpen && (
+        <SavedLooksDrawer
+          isOpen={isSavedDrawerOpen}
+          onClose={() => setIsSavedDrawerOpen(false)}
+          onSelectOutfit={handleSelectLook}
+          onExportStory={(outfit) => setStoryOutfitToExport(outfit)}
+        />
+      )}
 
       {/* Story Share Modal for Drawer */}
       {storyOutfitToExport && (
@@ -458,35 +467,43 @@ export default function HomePage() {
         />
       )}
 
-      {/* Personal Color Quiz Modal */}
-      <PersonalColorQuizModal
-        isOpen={isQuizOpen}
-        onClose={() => setIsQuizOpen(false)}
-        onApplyResult={handleApplyQuizResult}
-      />
+      {/* Personal Color Quiz Modal (Loaded on Demand) */}
+      {isQuizOpen && (
+        <PersonalColorQuizModal
+          isOpen={isQuizOpen}
+          onClose={() => setIsQuizOpen(false)}
+          onApplyResult={handleApplyQuizResult}
+        />
+      )}
 
-      {/* Influencer Clone Modal */}
-      <InfluencerCloneModal
-        isOpen={isCloneModalOpen}
-        onClose={() => setIsCloneModalOpen(false)}
-        onSelectDupeLook={(outfit) => {
-          handleSelectLook(outfit);
-          setIsCloneModalOpen(false);
-        }}
-      />
+      {/* Influencer Clone Modal (Loaded on Demand) */}
+      {isCloneModalOpen && (
+        <InfluencerCloneModal
+          isOpen={isCloneModalOpen}
+          onClose={() => setIsCloneModalOpen(false)}
+          onSelectDupeLook={(outfit) => {
+            handleSelectLook(outfit);
+            setIsCloneModalOpen(false);
+          }}
+        />
+      )}
 
-      {/* Fashion Catalog Warehouse Modal */}
-      <FashionCatalogModal
-        isOpen={isCatalogOpen}
-        onClose={() => setIsCatalogOpen(false)}
-      />
+      {/* Fashion Catalog Warehouse Modal (Loaded on Demand) */}
+      {isCatalogOpen && (
+        <FashionCatalogModal
+          isOpen={isCatalogOpen}
+          onClose={() => setIsCatalogOpen(false)}
+        />
+      )}
 
-      {/* Generation History Modal */}
-      <GenerationHistoryModal
-        isOpen={isHistoryOpen}
-        onClose={() => setIsHistoryOpen(false)}
-        onSelectOutfit={handleSelectLook}
-      />
+      {/* Generation History Modal (Loaded on Demand) */}
+      {isHistoryOpen && (
+        <GenerationHistoryModal
+          isOpen={isHistoryOpen}
+          onClose={() => setIsHistoryOpen(false)}
+          onSelectOutfit={handleSelectLook}
+        />
+      )}
 
       {/* Toasts Notification */}
       <Toast toasts={toasts} onDismiss={removeToast} />

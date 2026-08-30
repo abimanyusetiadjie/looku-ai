@@ -50,20 +50,9 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
         {/* Background Architectural Dot Grid Pattern */}
         <div className="absolute inset-0 bg-[radial-gradient(#D7CABC_1px,transparent_1px)] [background-size:24px_24px] opacity-35 pointer-events-none" />
 
-        {/* Ambient Warm Atmosphere Glows */}
-        <motion.div
-          animate={{
-            scale: [1, 1.15, 1],
-            opacity: [0.35, 0.55, 0.35],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-10 right-10 w-[550px] h-[550px] bg-terracotta-500/10 rounded-full blur-3xl pointer-events-none -z-10"
-        />
-        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-[#E8DFD1]/60 rounded-full blur-3xl pointer-events-none -z-10" />
+        {/* Ambient Warm Atmosphere Glows (GPU-Optimized Static Ambient) */}
+        <div className="absolute top-10 right-10 w-[450px] h-[450px] bg-terracotta-500/10 rounded-full blur-2xl pointer-events-none -z-10" />
+        <div className="absolute -bottom-20 -left-20 w-[350px] h-[350px] bg-[#E8DFD1]/60 rounded-full blur-2xl pointer-events-none -z-10" />
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Main Hero Grid: Left Typography + Right Floating Unisex Duo Visual Showcase */}

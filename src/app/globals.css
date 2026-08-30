@@ -153,3 +153,21 @@ h1, h2, h3, h4 {
 .group:hover .editorial-img-zoom {
   transform: scale(1.05);
 }
+
+/* Mobile Performance & Smooth Scrolling Optimizations */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
+}
+
+.tactile-card, .glass-pill, .glass-pill-dark {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+@media (max-width: 640px) {
+  .glass-pill, .glass-pill-dark {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
