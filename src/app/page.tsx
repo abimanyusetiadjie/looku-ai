@@ -125,6 +125,11 @@ export default function HomePage() {
       }
     } catch (err) {
       console.error("Generate error:", err);
+      addToast({
+        title: "Koneksi Agak Lambat",
+        description: "Memuat formula outfit cadangan terkurasi...",
+        type: "error",
+      });
     } finally {
       setIsLoading(false);
       if (typeof window !== "undefined" && window.innerWidth < 768) {
@@ -158,7 +163,7 @@ export default function HomePage() {
   };
 
   const [externalPrefs, setExternalPrefs] = useState<Partial<UserPreferences>>({});
-  const [activePersonalColor, setActivePersonalColor] = useState<string>("medium");
+  const [activePersonalColor, setActivePersonalColor] = useState<string>("all");
   const [dominantWardrobeVibe, setDominantWardrobeVibe] = useState<string | null>(null);
 
   // Deep-Link URL State Handler & Smart Wardrobe Vibe Auto-Tuning on Initial Mount
@@ -339,7 +344,7 @@ export default function HomePage() {
       />
 
       {/* Conversational & Rule-Based Styling Studio */}
-      <section id="studio" className="py-16 sm:py-24 bg-[#FAF8F5] relative border-t border-[#E8DFD1]">
+      <section id="studio" className="py-16 sm:py-24 bg-[#FAF8F5] relative border-t border-[#E8DFD1] scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

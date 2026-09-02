@@ -628,13 +628,13 @@ export default function FloatingChatbot() {
                   key={i}
                   type="button"
                   onClick={() => {
-                    if (q.includes("Foto selfie")) {
+                    if (q.toLowerCase().includes("foto kamera") || q.toLowerCase().includes("foto selfie")) {
                       setIsLiveCameraOpen(true);
                     } else {
                       handleSendMessage(q);
                     }
                   }}
-                  className="px-2.5 py-1 rounded-full bg-white border border-[#D7CABC] hover:border-[#181A18] text-[10px] text-[#181A18] font-medium whitespace-nowrap shrink-0 transition-all shadow-2xs"
+                  className="px-3 py-1.5 rounded-full bg-white border border-[#D7CABC] hover:border-[#181A18] text-[11px] text-[#181A18] font-medium whitespace-nowrap shrink-0 transition-all shadow-2xs"
                 >
                   {q}
                 </button>

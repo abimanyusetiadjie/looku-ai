@@ -98,15 +98,15 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-8 text-xs font-semibold tracking-wider uppercase text-sand-300">
+          <div className="flex flex-wrap items-center gap-6 sm:gap-8 text-xs font-semibold tracking-wider uppercase text-sand-300">
+            <Link href="/about" className="hover:text-white transition-colors">
+              About Look.u
+            </Link>
             <a href="#trending" className="hover:text-white transition-colors">
               Lookbook
             </a>
             <a href="#studio" className="hover:text-white transition-colors">
               AI Stylist
-            </a>
-            <a href="#manifesto" className="hover:text-white transition-colors">
-              How It Works
             </a>
             <a href="#faq" className="hover:text-white transition-colors">
               FAQ
@@ -157,13 +157,21 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Colophon */}
+        {/* Bottom Colophon & Legal Links */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-sand-500">
           <div>
             © {new Date().getFullYear()} LOOK.U (LOOKU.AI). ALL RIGHTS RESERVED.
           </div>
-          <div>
-            DESIGNED FOR TROPICAL CONFIDENCE.
+          <div className="flex items-center gap-5">
+            <Link href="/privacy" className="hover:text-sand-300 transition-colors">
+              Kebijakan Privasi
+            </Link>
+            <span>•</span>
+            <Link href="/terms" className="hover:text-sand-300 transition-colors">
+              Syarat & Ketentuan
+            </Link>
+            <span>•</span>
+            <span className="text-terracotta-400">IKLIM TROPIS 33°C</span>
           </div>
         </div>
       </div>

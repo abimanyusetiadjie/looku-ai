@@ -332,7 +332,7 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
                   isEarthy ? "text-charcoal-900" : "text-white"
                 }`}
               >
-                looku.ai/?look={outfit.id.slice(-6)} <span className="font-normal opacity-60">| Iklim 33°C</span>
+                looku.ai/?look={outfit.id} <span className="font-normal opacity-60">| Iklim 33°C</span>
               </div>
             </div>
             <div
