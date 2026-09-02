@@ -105,7 +105,7 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
                   whileTap={{ scale: 0.98 }} 
                   className="w-full sm:w-auto py-4 px-8 rounded-2xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2.5 shadow-md group"
                 >
-                  <span>Mix & Match Outfit Kamu</span>
+                  <span>Mulai Racik Outfit (Gratis)</span>
                   <ArrowDownRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" />
                 </motion.a>
 
@@ -115,10 +115,16 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
                   whileTap={{ scale: 0.98 }} 
                   className="w-full sm:w-auto py-3.5 px-6 rounded-2xl bg-white hover:bg-sand-100 border border-sand-300 hover:border-charcoal-900 text-charcoal-900 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-2xs"
                 >
-                  <span>👑 Join VIP Early Access</span>
+                  <span>👑 Komunitas VIP Atelier</span>
                   <ArrowRight className="w-3.5 h-3.5 text-sand-500" />
                 </motion.button>
               </motion.div>
+
+              {/* Instant Access Reassurance */}
+              <div className="flex items-center justify-center lg:justify-start gap-2 pt-1 text-[10px] font-mono text-sand-500 uppercase tracking-wider">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span>100% GRATIS • TANPA PERLU LOGIN • LANGSUNG RACIK OOTD</span>
+              </div>
             </div>
 
             {/* Right Column: Floating Unisex Duo Standing Side-by-Side (5 cols) */}

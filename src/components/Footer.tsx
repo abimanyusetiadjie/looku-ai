@@ -108,6 +108,9 @@ export default function Footer() {
             <a href="#studio" className="hover:text-white transition-colors">
               AI Stylist
             </a>
+            <Link href="/lemari" className="hover:text-white transition-colors">
+              Lemari Koleksi
+            </Link>
             <a href="#faq" className="hover:text-white transition-colors">
               FAQ
             </a>
@@ -123,7 +126,7 @@ export default function Footer() {
           <NewsletterForm />
 
           {/* Social Links */}
-          <div className="flex items-center gap-5">
+          <div className="flex flex-wrap items-center gap-5">
             <a
               href="https://instagram.com/looku.ai"
               target="_blank"
@@ -145,6 +148,16 @@ export default function Footer() {
               <span>TikTok</span>
             </a>
             <a
+              href="https://youtube.com/@looku_ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-xs text-sand-300 hover:text-white transition-colors font-semibold uppercase tracking-wider"
+              aria-label="Subscribe YouTube look.u"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              <span>YouTube</span>
+            </a>
+            <a
               href="https://twitter.com/looku_ai"
               target="_blank"
               rel="noopener noreferrer"
@@ -162,7 +175,7 @@ export default function Footer() {
           <div>
             © {new Date().getFullYear()} LOOK.U (LOOKU.AI). ALL RIGHTS RESERVED.
           </div>
-          <div className="flex items-center gap-5">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-5">
             <Link href="/privacy" className="hover:text-sand-300 transition-colors">
               Kebijakan Privasi
             </Link>
@@ -171,7 +184,11 @@ export default function Footer() {
               Syarat & Ketentuan
             </Link>
             <span>•</span>
-            <span className="text-terracotta-400">IKLIM TROPIS 33°C</span>
+            <Link href="/about" className="hover:text-sand-300 transition-colors">
+              Tentang Kami
+            </Link>
+            <span>•</span>
+            <span className="text-terracotta-400 font-bold">IKLIM TROPIS 33°C</span>
           </div>
         </div>
       </div>
