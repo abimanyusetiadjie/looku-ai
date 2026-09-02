@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Menu, X, Bookmark, Palette, ChevronDown, ChevronRight, Sparkles, Store, Camera, HelpCircle, BookOpen, User, Smartphone } from "lucide-react";
+import { ArrowUpRight, Menu, X, Bookmark, Palette, ChevronDown, ChevronRight, Sparkles, Store, Camera, HelpCircle, BookOpen, User, Smartphone, Cloud } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import WaitlistModal from "./WaitlistModal";
 import PersonalColorQuizModal from "./PersonalColorQuizModal";
+import CloudSyncModal from "./CloudSyncModal";
 
 interface NavbarProps {
   onOpenSavedDrawer: () => void;
@@ -16,6 +17,7 @@ interface NavbarProps {
 export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onOpenCatalog, onOpenHistory }: NavbarProps) {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
   const [isQuizOpen, setIsQuizOpen] = useState(false);
+  const [isCloudSyncOpen, setIsCloudSyncOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false);
   const [savedCount, setSavedCount] = useState<number>(0);
@@ -238,6 +240,24 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
                               Diagnostik Personal Color
                             </div>
                             <div className="text-[10px] text-sand-500">Tes warna urat nadi 60 detik</div>
+                          </div>
+                        </button>
+
+                        <button
+                          onClick={() => {
+                            setToolsDropdownOpen(false);
+                            setIsCloudSyncOpen(true);
+                          }}
+                          className="w-full px-3 py-2.5 rounded-xl hover:bg-sand-100 flex items-center gap-3 text-left transition-colors group"
+                        >
+                          <div className="w-8 h-8 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center shrink-0">
+                            <Cloud className="w-4 h-4" />
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-charcoal-900 group-hover:text-terracotta-600 transition-colors">
+                              Sinkronisasi Lemari Cloud
+                            </div>
+                            <div className="text-[10px] text-sand-500">Backup & sync multi-perangkat</div>
                           </div>
                         </button>
 
@@ -472,6 +492,28 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
                   </Link>
 
                   <button
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      setIsCloudSyncOpen(true);
+                    }}
+                    className="w-full p-3 rounded-2xl bg-teal-50/80 hover:bg-teal-100 border border-teal-200 flex items-center justify-between text-left transition-colors group shadow-2xs"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-2xs">
+                        <Cloud className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-teal-950 group-hover:text-teal-800 transition-colors">☁️ Sinkronisasi Lemari Cloud</div>
+                        <div className="text-[10px] text-teal-700">Backup & sync multi-perangkat</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[9px] font-mono font-bold text-teal-800 bg-teal-100 px-2 py-0.5 rounded-full border border-teal-300">SYNC</span>
+                      <ChevronRight className="w-4 h-4 text-teal-600 group-hover:translate-x-0.5 transition-all" />
+                    </div>
+                  </button>
+
+                  <button
                     onClick={handleInstallPWA}
                     className="w-full p-3 rounded-2xl bg-emerald-50/80 hover:bg-emerald-100 border border-emerald-200 flex items-center justify-between text-left transition-colors group shadow-2xs"
                   >
@@ -513,6 +555,10 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
       {isWaitlistOpen && (
         <WaitlistModal onClose={() => setIsWaitlistOpen(false)} />
       )}
+      <CloudSyncModal 
+        isOpen={isCloudSyncOpen} 
+        onClose={() => setIsCloudSyncOpen(false)} 
+      />
       <PersonalColorQuizModal 
         isOpen={isQuizOpen} 
         onClose={() => setIsQuizOpen(false)} 

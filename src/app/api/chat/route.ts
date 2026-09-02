@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getShopeeSearchUrl, getTokopediaSearchUrl } from "@/lib/affiliate";
+import { rateLimit, getClientIp } from "@/lib/rate-limit";
 
 const SYSTEM_STYLIST_CHAT_PROMPT = `
 Kamu adalah "Stylist Pribadi look.u AI", konsultan fashion dan personal color specialist nomor 1 di Indonesia yang sangat ramah, hangat, dan ahli dalam busana iklim tropis Indonesia (33°C), personal color 5 warna kulit nusantara, serta busana hijab maupun modern casual.
@@ -32,6 +33,21 @@ Gaya bahasa:
 
 export async function POST(req: NextRequest) {
   try {
+    const ip = getClientIp(req);
+    const limitResult = rateLimit(`chat:${ip}`, { limit: 35, windowMs: 60 * 1000 });
+
+    if (!limitResult.success) {
+      return NextResponse.json(
+        { reply: "Kamu mengirim pesan terlalu cepat kak. Mohon tunggu 1 menit sebelum berkonsultasi lagi ya ✨" },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": String(limitResult.reset - Math.ceil(Date.now() / 1000)),
+          },
+        }
+      );
+    }
+
     const body = await req.json();
     const message: string = body.message || "";
     const imageBase64: string | undefined = body.imageBase64;
