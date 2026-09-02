@@ -475,6 +475,16 @@ export default function ProfilePage() {
                 👑 Upgrade ke VIP Atelier ↗
               </button>
             )}
+
+            {profile.role === "admin" && (
+              <Link
+                href="/admin"
+                className="py-2 px-4 rounded-xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-colors flex items-center gap-1.5 shrink-0"
+              >
+                <span>🛠️ Buka Fashion CMS (/admin)</span>
+                <span>➔</span>
+              </Link>
+            )}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
