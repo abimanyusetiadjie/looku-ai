@@ -110,25 +110,25 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
 
             {/* Clean Core Nav Links */}
             <nav className="hidden lg:flex items-center gap-8 text-[13px] tracking-wider uppercase font-semibold text-[#181A18]/75">
-              <a
-                href="#trending"
+              <Link
+                href="/lookbook"
                 className="hover:text-[#181A18] transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[1.5px] after:bg-[#181A18] after:transition-all"
               >
                 Lookbook
-              </a>
-              <a
-                href="#studio"
+              </Link>
+              <Link
+                href="/studio"
                 className="hover:text-[#181A18] transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[1.5px] after:bg-[#181A18] after:transition-all"
               >
                 Studio OOTD
-              </a>
-              <a
-                href="#challenge"
+              </Link>
+              <Link
+                href="/lemari"
                 className="hover:text-terracotta-600 font-bold transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[1.5px] after:bg-terracotta-500 after:transition-all flex items-center gap-1.5"
               >
                 <span className="text-terracotta-500 text-xs">✦</span>
-                <span>Challenge</span>
-              </a>
+                <span>Lemari</span>
+              </Link>
             </nav>
 
             {/* Right Action Area: Dropdown Fitur + Lemari + VIP */}
@@ -376,28 +376,28 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
               <div className="px-5 py-6 space-y-4">
                 {/* Core Navigation Links */}
                 <div className="grid grid-cols-3 gap-2 pb-3 border-b border-sand-200">
-                  <a
-                    href="#trending"
+                  <Link
+                    href="/lookbook"
                     onClick={() => setMobileMenuOpen(false)}
                     className="p-2.5 rounded-xl bg-white border border-sand-200 text-center text-xs font-bold text-charcoal-900 uppercase"
                   >
                     Lookbook
-                  </a>
-                  <a
-                    href="#studio"
+                  </Link>
+                  <Link
+                    href="/studio"
                     onClick={() => setMobileMenuOpen(false)}
                     className="p-2.5 rounded-xl bg-white border border-sand-200 text-center text-xs font-bold text-charcoal-900 uppercase"
                   >
                     Studio OOTD
-                  </a>
-                  <a
-                    href="#challenge"
+                  </Link>
+                  <Link
+                    href="/lemari"
                     onClick={() => setMobileMenuOpen(false)}
                     className="p-2.5 rounded-xl bg-white border border-sand-200 text-center text-xs font-bold text-terracotta-600 uppercase flex items-center justify-center gap-1"
                   >
                     <span>✦</span>
-                    <span>Event</span>
-                  </a>
+                    <span>Lemari</span>
+                  </Link>
                 </div>
 
                 {/* Feature Tiles */}

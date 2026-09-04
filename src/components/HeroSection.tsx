@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { ArrowDownRight, Sun, Check, ArrowRight, Palette } from "lucide-react";
+import Link from "next/link";
+import { ArrowDownRight, Sun, Check, ArrowRight, Palette, Sparkles } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import WaitlistModal from "./WaitlistModal";
 import PersonalColorQuizModal from "./PersonalColorQuizModal";
@@ -99,15 +100,13 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2.5 sm:gap-3 pt-1 sm:pt-2"
               >
-                <motion.a 
-                  href="#studio" 
-                  whileHover={{ scale: 1.02, y: -2 }} 
-                  whileTap={{ scale: 0.98 }} 
+                <Link 
+                  href="/studio" 
                   className="w-full sm:w-auto py-3.5 sm:py-4 px-6 sm:px-8 rounded-2xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-md group"
                 >
                   <span>Mulai Racik Outfit (Gratis)</span>
-                  <ArrowDownRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" />
-                </motion.a>
+                  <Sparkles className="w-4 h-4 text-terracotta-400 group-hover:rotate-12 transition-transform" />
+                </Link>
 
                 <motion.button 
                   onClick={() => setIsWaitlistOpen(true)} 

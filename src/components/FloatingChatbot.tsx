@@ -352,7 +352,7 @@ export default function FloatingChatbot() {
   return (
     <>
       {/* Floating Trigger Button */}
-      <div className="fixed bottom-20 md:bottom-8 right-3 sm:right-6 md:right-8 z-40 pointer-events-auto">
+      <div className="fixed bottom-[calc(66px+env(safe-area-inset-bottom,0px))] md:bottom-8 right-3 sm:right-6 md:right-8 z-30 pointer-events-auto">
         <AnimatePresence>
           {!isOpen && (
             <>

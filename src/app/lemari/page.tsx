@@ -24,6 +24,7 @@ import { getShopeeSearchUrl, getTokopediaSearchUrl, trackAffiliateClick } from "
 import Toast, { ToastMessage } from "@/components/Toast";
 import CloudSyncModal from "@/components/CloudSyncModal";
 import StoryShareModal from "@/components/StoryShareModal";
+import BottomNav from "@/components/BottomNav";
 
 export default function LemariPage() {
   const [savedOutfits, setSavedOutfits] = useState<OOTDRecommendation[]>([]);
@@ -132,7 +133,7 @@ export default function LemariPage() {
             </button>
 
             <Link
-              href="/#studio"
+              href="/studio"
               className="py-2 px-3.5 rounded-xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-1.5 shadow-sm"
             >
               <Sparkles className="w-3.5 h-3.5" />
@@ -352,7 +353,7 @@ export default function LemariPage() {
                 <div className="pt-2 flex items-center justify-between text-[11px] font-mono text-sand-500 border-t border-sand-200">
                   <span>ID: #{outfit.id.slice(-4).toUpperCase()}</span>
                   <Link
-                    href={`/?look=${outfit.id}`}
+                    href={`/studio?look=${outfit.id}`}
                     className="text-terracotta-600 hover:text-charcoal-900 font-bold transition-colors flex items-center gap-1"
                   >
                     <span>Buka di Studio</span>
@@ -364,6 +365,9 @@ export default function LemariPage() {
           </div>
         )}
       </main>
+
+      {/* Docked Native Bottom Navigation Bar */}
+      <BottomNav />
 
       {/* Story Share Modal */}
       {activeStoryOutfit && (

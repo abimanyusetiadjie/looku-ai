@@ -36,6 +36,7 @@ import {
   ROLE_PRIVILEGES
 } from "@/lib/profile-stats";
 import Toast, { ToastMessage } from "@/components/Toast";
+import BottomNav from "@/components/BottomNav";
 
 export default function ProfilePage() {
   const [summary, setSummary] = useState<ProfileSummary>(() => {
@@ -780,6 +781,9 @@ export default function ProfilePage() {
           </div>
         </div>
       </main>
+
+      {/* Docked Native Bottom Navigation Bar */}
+      <BottomNav />
 
       <Toast toasts={toasts} onDismiss={removeToast} />
     </div>

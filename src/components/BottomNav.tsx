@@ -1,11 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import { Compass, Bookmark, Crown, Home, User } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Compass, Bookmark, Home, User, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import WaitlistModal from "./WaitlistModal";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 interface BottomNavProps {
   onOpenSavedDrawer?: () => void;
@@ -14,143 +12,134 @@ interface BottomNavProps {
 
 export default function BottomNav({ onOpenSavedDrawer }: BottomNavProps) {
   const router = useRouter();
+  const pathname = usePathname();
   const [activeTab, setActiveTab] = useState<string>("home");
-  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+  const [savedCount, setSavedCount] = useState<number>(0);
 
-  const handleNavClick = (tabId: string, href?: string) => {
+  // Sync active tab with route
+  useEffect(() => {
+    if (pathname === "/profile") {
+      setActiveTab("profile");
+    } else if (pathname === "/lemari") {
+      setActiveTab("saved");
+    } else if (pathname === "/studio") {
+      setActiveTab("studio");
+    } else if (pathname === "/lookbook") {
+      setActiveTab("trending");
+    } else if (pathname === "/") {
+      setActiveTab("home");
+    }
+  }, [pathname]);
+
+  // Sync saved count from localStorage
+  useEffect(() => {
+    const updateCount = () => {
+      try {
+        const stored = localStorage.getItem("looku_saved_outfits");
+        if (stored) {
+          setSavedCount(JSON.parse(stored).length);
+        } else {
+          setSavedCount(0);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    updateCount();
+    window.addEventListener("storage", updateCount);
+    const interval = setInterval(updateCount, 2000);
+    return () => {
+      window.removeEventListener("storage", updateCount);
+      clearInterval(interval);
+    };
+  }, []);
+
+  const handleNavClick = (tabId: string, href: string) => {
     setActiveTab(tabId);
-    if (tabId === "saved" && onOpenSavedDrawer) {
-      onOpenSavedDrawer();
+    if (tabId === "saved") {
+      if (onOpenSavedDrawer && pathname !== "/lemari") {
+        router.push("/lemari");
+      } else {
+        router.push("/lemari");
+      }
       return;
     }
-    if (tabId === "profile") {
-      router.push("/profile");
+    if (tabId === "home" && pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
-    if (href) {
-      const el = document.querySelector(href);
-      el?.scrollIntoView({ behavior: "smooth" });
-    }
+    router.push(href);
   };
 
   const navItems = [
-    { id: "home", label: "Home", icon: Home, href: "#" },
-    { id: "trending", label: "Lookbook", icon: Compass, href: "#trending" },
-    { id: "studio", label: "Studio", href: "#studio" }, // Middle custom logo badge
-    { id: "saved", label: "Lemari", icon: Bookmark, href: "#" },
+    { id: "home", label: "Beranda", icon: Home, href: "/" },
+    { id: "trending", label: "Lookbook", icon: Compass, href: "/lookbook" },
+    { id: "studio", label: "Studio", icon: Sparkles, href: "/studio" },
+    { id: "saved", label: "Lemari", icon: Bookmark, href: "/lemari" },
     { id: "profile", label: "Profil", icon: User, href: "/profile" },
   ];
 
   return (
-    <>
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 px-3 pb-[max(0.5rem,env(safe-area-inset-bottom,0px))] pt-3 pointer-events-none">
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.4 }}
-          className="bg-[#181A18]/95 backdrop-blur-xl border border-white/15 rounded-2xl px-2 py-1.5 shadow-2xl flex items-center justify-around pointer-events-auto relative"
-        >
-          {navItems.map((item) => {
-            const isActive = activeTab === item.id;
+    <nav
+      aria-label="Navigasi Bawah Ponsel"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-40 w-full bg-[#121212] backdrop-blur-xl border-t border-white/10 pb-[env(safe-area-inset-bottom,0px)] shadow-[0_-8px_24px_rgba(0,0,0,0.5)] select-none pointer-events-auto"
+    >
+      <div className="grid grid-cols-5 h-[56px] sm:h-[60px] items-stretch">
+        {navItems.map((item) => {
+          const isActive = activeTab === item.id;
+          const Icon = item.icon;
 
-            // Custom Middle Brand Badge for STUDIO
-            if (item.id === "studio") {
-              return (
-                <div key={item.id} className="relative flex flex-col items-center -mt-6">
-                  <motion.button
-                    whileHover={{ scale: 1.08 }}
-                    whileTap={{ scale: 0.92 }}
-                    onClick={() => handleNavClick(item.id, item.href)}
-                    aria-label="Studio AI Stylist"
-                    className={`relative w-14 h-14 rounded-full bg-[#181A18] flex flex-col items-center justify-center transition-all shadow-xl ${
-                      isActive
-                        ? "border-2 border-terracotta-500 ring-4 ring-terracotta-500/20 shadow-glow"
-                        : "border-2 border-[#D7CABC]/80 hover:border-white"
-                    }`}
-                  >
-                    {/* Inner Brand Logo */}
-                    <div className="font-serif italic font-bold text-sm tracking-tight text-white flex items-baseline leading-none pt-0.5">
-                      look<span className="text-terracotta-500 not-italic">.</span>u
-                    </div>
+          return (
+            <button
+              key={item.id}
+              onClick={() => handleNavClick(item.id, item.href)}
+              aria-label={item.label}
+              className={`relative flex flex-col items-center justify-center pt-1.5 pb-1 transition-all ${
+                isActive
+                  ? "text-white"
+                  : "text-[#8E8E8E] hover:text-[#C5C5C5] active:opacity-70"
+              }`}
+            >
+              {/* Native App Top Highlight Line Indicator (Matching TikTok / Instagram) */}
+              {isActive && (
+                <motion.div
+                  layoutId="native-top-active-indicator"
+                  className="absolute top-0 inset-x-3 h-[2px] bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.7)]"
+                  transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                />
+              )}
 
-                    {/* Curved Arc Text for STUDIO */}
-                    <svg
-                      viewBox="0 0 54 22"
-                      className="w-12 h-5 overflow-visible -mt-0.5 pointer-events-none"
-                    >
-                      <defs>
-                        <path
-                          id="studio-curve-arc"
-                          d="M 6,3 A 21,21 0 0,0 48,3"
-                          fill="none"
-                        />
-                      </defs>
-                      <text
-                        fontSize="6"
-                        fontFamily="monospace"
-                        fontWeight="bold"
-                        letterSpacing="0.22em"
-                        fill={isActive ? "#BA5D38" : "#D7CABC"}
-                      >
-                        <textPath
-                          href="#studio-curve-arc"
-                          startOffset="50%"
-                          textAnchor="middle"
-                        >
-                          • STUDIO •
-                        </textPath>
-                      </text>
-                    </svg>
+              {/* Icon Container with Badge */}
+              <div className="relative flex items-center justify-center">
+                <Icon
+                  className={`w-5 h-5 transition-transform ${
+                    isActive
+                      ? "scale-105 text-white stroke-[2.2]"
+                      : "stroke-[1.75]"
+                  }`}
+                />
 
-                    {/* Active Glow Dot */}
-                    {isActive && (
-                      <motion.div
-                        layoutId="active-dot-studio"
-                        className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-terracotta-500 ring-2 ring-white shadow-xs"
-                      />
-                    )}
-                  </motion.button>
-                </div>
-              );
-            }
+                {/* Lemari Count Badge Dot */}
+                {item.id === "saved" && savedCount > 0 && (
+                  <span className="absolute -top-1 -right-2 min-w-[14px] h-[14px] px-1 rounded-full bg-terracotta-500 text-white text-[8px] font-mono font-bold flex items-center justify-center border border-[#121212] shadow-xs">
+                    {savedCount > 9 ? "9+" : savedCount}
+                  </span>
+                )}
+              </div>
 
-            // Standard Navigation Tabs (Home, Lookbook, Lemari, VIP)
-            const Icon = item.icon!;
-            return (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item.id, item.href)}
-                aria-label={item.label}
-                className={`relative min-h-[44px] min-w-[44px] flex flex-col items-center justify-center py-1.5 px-3 rounded-xl transition-all ${
-                  isActive ? "text-white font-bold" : "text-[#A89582] hover:text-white/80"
+              {/* Native Text Label */}
+              <span
+                className={`text-[10px] tracking-tight mt-1 transition-colors ${
+                  isActive ? "font-bold text-white" : "font-medium text-[#8E8E8E]"
                 }`}
               >
-                <div className="relative">
-                  <Icon
-                    className={`w-5 h-5 transition-transform ${
-                      isActive ? "scale-110 text-terracotta-400" : ""
-                    }`}
-                  />
-                  {isActive && (
-                    <motion.div
-                      layoutId="active-dot"
-                      className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-terracotta-500 ring-2 ring-white"
-                    />
-                  )}
-                </div>
-                <span className="text-[9px] font-mono tracking-wider mt-1 uppercase">
-                  {item.label}
-                </span>
-              </button>
-            );
-          })}
-        </motion.div>
+                {item.label}
+              </span>
+            </button>
+          );
+        })}
       </div>
-
-      {isWaitlistOpen && (
-        <WaitlistModal onClose={() => setIsWaitlistOpen(false)} />
-      )}
-    </>
+    </nav>
   );
 }
 

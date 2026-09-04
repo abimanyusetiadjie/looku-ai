@@ -21,6 +21,7 @@ const TomorrowOOTDWidget = dynamic(() => import("@/components/TomorrowOOTDWidget
 const GenerationHistoryModal = dynamic(() => import("@/components/GenerationHistoryModal"), { ssr: false });
 const PWAInstallBanner = dynamic(() => import("@/components/PWAInstallBanner"), { ssr: false });
 const MobilePreferenceDrawer = dynamic(() => import("@/components/MobilePreferenceDrawer"), { ssr: false });
+const WeeklyOutfitCalendar = dynamic(() => import("@/components/WeeklyOutfitCalendar"), { ssr: false });
 
 function MultiStageLoader() {
   return (
@@ -425,6 +426,14 @@ export default function StudioPage() {
               <TomorrowOOTDWidget onScheduleTomorrow={handleScheduleTomorrow} />
             </div>
           </div>
+        </div>
+
+        {/* Weekly Outfit Calendar (7-Day Planner) */}
+        <div className="mt-12 pt-8 border-t border-sand-200 cv-auto">
+          <WeeklyOutfitCalendar
+            currentOutfit={currentOutfit}
+            onSelectDayOutfit={(outfit) => setCurrentOutfit(outfit)}
+          />
         </div>
       </main>
 
