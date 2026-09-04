@@ -168,54 +168,44 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -16 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-white rounded-3xl border border-[#E8DFD1] p-6 sm:p-8 space-y-8 shadow-sm"
+          className="bg-white rounded-3xl border border-[#E8DFD1] p-4 sm:p-8 space-y-5 sm:space-y-8 shadow-tactile"
         >
-          {/* Header Bar: Spec Number & Action Controls */}
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#E8DFD1] pb-5">
-            <div className="flex items-center gap-2">
-              <span className="text-[10px] font-mono font-bold tracking-widest uppercase bg-[#181A18] text-[#FAF8F5] px-3 py-1 rounded-full">
+          {/* Header Bar: Spec Number & Action Controls (Mobile Clean & Thumb-Friendly) */}
+          <div className="flex items-center justify-between gap-2 border-b border-[#E8DFD1] pb-3.5 sm:pb-5">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="text-[9px] sm:text-[10px] font-mono font-bold tracking-widest uppercase bg-[#181A18] text-[#FAF8F5] px-2.5 py-1 rounded-full">
                 LOOK OF THE DAY
               </span>
               {outfit.modestFriendly && (
-                <span className="text-[10px] font-mono tracking-wider uppercase text-charcoal-900 border border-sand-300 px-2.5 py-1 rounded-full font-semibold">
-                  MODEST &amp; HIJAB
+                <span className="text-[9px] sm:text-[10px] font-mono tracking-wider uppercase text-charcoal-900 border border-sand-300 px-2 py-0.5 sm:py-1 rounded-full font-semibold">
+                  MODEST
                 </span>
               )}
             </div>
 
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              {/* Copy Deep Link Button */}
-              <button
-                onClick={handleCopyShareLink}
-                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl text-charcoal-900/60 hover:text-charcoal-900 hover:bg-sand-100 transition-colors flex items-center justify-center"
-                title="Salin Tautan Outfit"
-                aria-label="Salin Tautan Outfit"
-              >
-                <LinkIcon className="w-4 h-4" />
-              </button>
-
+            <div className="flex items-center gap-1 sm:gap-2">
               <button
                 onClick={handleShareWhatsApp}
-                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl text-charcoal-900/60 hover:text-charcoal-900 hover:bg-sand-100 transition-colors flex items-center justify-center"
+                className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl text-charcoal-900/70 hover:text-charcoal-900 hover:bg-sand-100 transition-colors flex items-center justify-center"
                 title="Kirim ke WhatsApp"
                 aria-label="Kirim ke WhatsApp"
               >
-                <MessageCircle className="w-4 h-4" />
+                <MessageCircle className="w-4 h-4 text-emerald-600" />
               </button>
 
               <button
                 onClick={() => setShowStoryModal(true)}
-                className="min-h-[44px] bg-white hover:bg-sand-100 text-charcoal-900 border border-sand-300 font-semibold text-xs py-2 px-3.5 rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-2xs"
+                className="min-h-[36px] sm:min-h-[44px] bg-sand-100 hover:bg-sand-200 text-charcoal-900 border border-sand-300 font-semibold text-xs py-1.5 px-3 sm:py-2 sm:px-3.5 rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-2xs"
               >
                 <Share2 className="w-3.5 h-3.5 text-charcoal-700" />
-                <span>Export Story</span>
+                <span className="hidden xs:inline">Story</span>
               </button>
 
               <button
                 onClick={handleToggleSave}
-                className={`min-h-[44px] text-xs font-bold py-2 px-4 rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-xs ${
+                className={`min-h-[36px] sm:min-h-[44px] text-xs font-bold py-1.5 px-3 sm:py-2 sm:px-4 rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-xs ${
                   isSaved
-                    ? "bg-charcoal-900 text-sand-50"
+                    ? "bg-emerald-700 text-white"
                     : "bg-charcoal-900 hover:bg-charcoal-800 text-white"
                 }`}
                 title="Simpan ke Lemari"
@@ -226,19 +216,19 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
             </div>
           </div>
 
-          {/* Title & Editorial Tagline */}
+          {/* Title & Editorial Tagline (Mobile Scaled) */}
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-mono text-terracotta-600 font-bold tracking-widest uppercase">
+              <span className="text-[9px] sm:text-[10px] font-mono text-terracotta-600 font-bold tracking-widest uppercase">
                 {outfit.overallVibe}
               </span>
               <span className="text-[10px] font-mono text-sand-500">•</span>
-              <span className="text-[10px] font-mono text-charcoal-700 font-semibold">Personal Color Match</span>
+              <span className="text-[9px] sm:text-[10px] font-mono text-charcoal-700 font-semibold">Personal Color Match</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#181A18] tracking-tight">
+            <h2 className="font-serif text-2xl sm:text-4xl font-bold text-[#181A18] tracking-tight leading-tight">
               {outfit.title}
             </h2>
-            <p className="font-serif italic text-base sm:text-lg text-[#181A18]/70 pt-0.5">
+            <p className="font-serif italic text-sm sm:text-lg text-[#181A18]/70 pt-0.5 leading-snug">
               &ldquo;{outfit.tagline}&rdquo;
             </p>
           </div>

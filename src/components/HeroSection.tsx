@@ -46,7 +46,7 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
 
   return (
     <>
-      <section className="relative pt-10 pb-12 sm:pt-16 sm:pb-20 border-b border-[#E8DFD1] overflow-hidden bg-[#FAF8F5]">
+      <section className="relative pt-6 pb-10 sm:pt-16 sm:pb-20 border-b border-[#E8DFD1] overflow-hidden bg-[#FAF8F5]">
         {/* Background Architectural Dot Grid Pattern */}
         <div className="absolute inset-0 bg-[radial-gradient(#D7CABC_1px,transparent_1px)] [background-size:24px_24px] opacity-35 pointer-events-none" />
 
@@ -60,14 +60,14 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center"
           >
             {/* Left Column: Headlines & Actions (7 cols) - Pure, Clean & Direct */}
-            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div className="lg:col-span-7 space-y-4 sm:space-y-6 text-center lg:text-left">
               {/* Catchy & Elegant Bold Headline */}
               <motion.h1
                 variants={itemVariants}
-                className="font-serif text-4xl sm:text-6xl lg:text-[62px] font-medium tracking-tight text-[#181A18] leading-[1.06]"
+                className="font-serif text-[28px] xs:text-3xl sm:text-5xl lg:text-[62px] font-medium tracking-tight text-[#181A18] leading-[1.14] sm:leading-[1.06]"
               >
                 Your personal AI stylist untuk daily OOTD yang{" "}
                 <span className="italic font-normal text-terracotta-500 underline decoration-[#D7CABC] underline-offset-8">
@@ -79,7 +79,7 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
               {/* Conversational Subtitle with High-Contrast WCAG AAA Typography */}
               <motion.p
                 variants={itemVariants}
-                className="text-sm sm:text-base text-[#181A18] font-normal leading-relaxed max-w-xl mx-auto lg:mx-0"
+                className="text-xs sm:text-base text-[#181A18]/80 font-normal leading-relaxed max-w-xl mx-auto lg:mx-0"
               >
                 Kurasi paduan outfit adem di cuaca tropis 33°C, ramah hijab, dan langsung terhubung ke official store Shopee &amp; Tokopedia.
               </motion.p>
@@ -87,9 +87,9 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
               <motion.div variants={itemVariants} className="flex justify-center lg:justify-start">
                 <button
                   onClick={() => setIsQuizOpen(true)}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#D7CABC] text-[#181A18] text-xs font-bold tracking-wider uppercase shadow-sm hover:shadow-md hover:border-terracotta-300 transition-all group"
+                  className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white border border-[#D7CABC] text-[#181A18] text-[11px] sm:text-xs font-bold tracking-wider uppercase shadow-sm hover:shadow-md hover:border-terracotta-300 transition-all group"
                 >
-                  <Palette className="w-4 h-4 text-terracotta-500 group-hover:scale-110 transition-transform" />
+                  <Palette className="w-3.5 h-3.5 text-terracotta-500 group-hover:scale-110 transition-transform" />
                   <span>Cek Personal Color Kamu (60s) ↗</span>
                 </button>
               </motion.div>
@@ -97,13 +97,13 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
               {/* Distinct CTA Hierarchy: Dominant Primary + Elegant Outline Secondary */}
               <motion.div
                 variants={itemVariants}
-                className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2"
+                className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2.5 sm:gap-3 pt-1 sm:pt-2"
               >
                 <motion.a 
                   href="#studio" 
                   whileHover={{ scale: 1.02, y: -2 }} 
                   whileTap={{ scale: 0.98 }} 
-                  className="w-full sm:w-auto py-4 px-8 rounded-2xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2.5 shadow-md group"
+                  className="w-full sm:w-auto py-3.5 sm:py-4 px-6 sm:px-8 rounded-2xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-md group"
                 >
                   <span>Mulai Racik Outfit (Gratis)</span>
                   <ArrowDownRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" />
@@ -113,24 +113,24 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
                   onClick={() => setIsWaitlistOpen(true)} 
                   whileHover={{ scale: 1.02, y: -2 }} 
                   whileTap={{ scale: 0.98 }} 
-                  className="w-full sm:w-auto py-3.5 px-6 rounded-2xl bg-white hover:bg-sand-100 border border-sand-300 hover:border-charcoal-900 text-charcoal-900 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-2xs"
+                  className="w-full sm:w-auto py-3 sm:py-3.5 px-5 sm:px-6 rounded-2xl bg-white hover:bg-sand-100 border border-sand-300 hover:border-charcoal-900 text-charcoal-900 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 shadow-2xs"
                 >
-                  <span>👑 Komunitas VIP Atelier</span>
+                  <span>👑 VIP Atelier</span>
                   <ArrowRight className="w-3.5 h-3.5 text-sand-500" />
                 </motion.button>
               </motion.div>
 
               {/* Instant Access Reassurance */}
-              <div className="flex items-center justify-center lg:justify-start gap-2 pt-1 text-[10px] font-mono text-sand-500 uppercase tracking-wider">
+              <div className="flex items-center justify-center lg:justify-start gap-2 pt-1 text-[9px] sm:text-[10px] font-mono text-sand-500 uppercase tracking-wider">
                 <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span>100% GRATIS • TANPA PERLU LOGIN • LANGSUNG RACIK OOTD</span>
+                <span>100% GRATIS • TANPA PERLU LOGIN • LANGSUNG RACIK</span>
               </div>
             </div>
 
             {/* Right Column: Floating Unisex Duo Standing Side-by-Side (5 cols) */}
             <motion.div
               variants={itemVariants}
-              className="lg:col-span-5 relative w-full flex justify-center mt-4 lg:mt-0"
+              className="lg:col-span-5 relative w-full flex justify-center mt-2 lg:mt-0"
             >
               {/* Layered Floating Unisex Duo Specimen Card */}
               <motion.div

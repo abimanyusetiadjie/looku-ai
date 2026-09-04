@@ -12,7 +12,7 @@ import BottomNav from "@/components/BottomNav";
 import { UserPreferences, OOTDRecommendation } from "@/lib/types";
 import { PRESET_OOTD_COLLECTION, TRENDING_LOOKS_FEED } from "@/lib/presets";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, History } from "lucide-react";
+import { Sparkles, History, SlidersHorizontal } from "lucide-react";
 import Toast, { ToastMessage } from "@/components/Toast";
 
 // Dynamic Code-Splitting for Heavy Modals & Offscreen Widgets
@@ -30,6 +30,7 @@ const DailyReminderBanner = dynamic(() => import("@/components/DailyReminderBann
 const FeaturesSection = dynamic(() => import("@/components/FeaturesSection"), { ssr: false });
 const FAQSection = dynamic(() => import("@/components/FAQSection"), { ssr: false });
 const PWAInstallBanner = dynamic(() => import("@/components/PWAInstallBanner"), { ssr: false });
+const MobilePreferenceDrawer = dynamic(() => import("@/components/MobilePreferenceDrawer"), { ssr: false });
 
 export default function HomePage() {
   const [currentOutfit, setCurrentOutfit] = useState<OOTDRecommendation>(
@@ -40,6 +41,7 @@ export default function HomePage() {
   const [isCloneModalOpen, setIsCloneModalOpen] = useState(false);
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
+  const [isMobilePrefDrawerOpen, setIsMobilePrefDrawerOpen] = useState(false);
   const [lastPrefs, setLastPrefs] = useState<UserPreferences | null>(null);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
   const [activeLoaderStep, setActiveLoaderStep] = useState(0);
@@ -343,40 +345,64 @@ export default function HomePage() {
         userSkinTone={activePersonalColor}
       />
 
-      {/* Conversational & Rule-Based Styling Studio */}
-      <section id="studio" className="py-16 sm:py-24 bg-[#FAF8F5] relative border-t border-[#E8DFD1] scroll-mt-24">
+      {/* Conversational & Rule-Based Styling Studio (Mobile-First Result-First) */}
+      <section id="studio" className="py-8 sm:py-20 bg-[#FAF8F5] relative border-t border-[#E8DFD1] scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="border-b border-[#D7CABC] pb-6 mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4 text-center sm:text-left"
+            className="border-b border-[#D7CABC] pb-4 sm:pb-6 mb-6 sm:mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4 text-center sm:text-left"
           >
             <div>
               <div className="flex items-center justify-center sm:justify-start gap-2 mb-1">
                 <span className="w-2 h-2 rounded-full bg-terracotta-500" />
                 <span className="lookbook-label">KONSULTASI STYLIST PRIBADI</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#181A18] tracking-tight">
+              <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold text-[#181A18] tracking-tight">
                 Mix &amp; Match Outfit Personal Kamu
               </h2>
-              <p className="text-sm text-[#181A18]/70 mt-2 max-w-xl">
-                Pilih mode Solo, Couple, atau Bestie. Stylist kami akan memilihkan formula warna dan potongan baju yang pas untukmu hari ini.
+              <p className="text-xs sm:text-sm text-[#181A18]/70 mt-1.5 max-w-xl">
+                Formula warna dan potongan baju yang pas untukmu hari ini berbasis iklim tropis 33°C &amp; warna kulit Nusantara.
               </p>
             </div>
 
             <button
               onClick={() => setIsHistoryOpen(true)}
-              className="py-2.5 px-4 rounded-xl bg-white hover:bg-sand-100 border border-sand-300 text-charcoal-900 font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-2xs self-center sm:self-auto"
+              className="py-2 px-3.5 rounded-xl bg-white hover:bg-sand-100 border border-sand-300 text-charcoal-900 font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-2xs self-center sm:self-auto"
             >
               <History className="w-3.5 h-3.5 text-terracotta-500" />
               <span>Riwayat Kurasi</span>
             </button>
           </motion.div>
 
+          {/* Mobile-First Quick Preference Bar */}
+          <div className="block lg:hidden mb-4">
+            <div className="p-3 bg-white rounded-2xl border border-sand-300 shadow-2xs flex items-center justify-between gap-2">
+              <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 text-xs">
+                <span className="px-2.5 py-1 rounded-full bg-sand-100 text-charcoal-900 font-bold whitespace-nowrap text-[10px]">
+                  {lastPrefs?.occasion ? `☕ ${lastPrefs.occasion.toUpperCase()}` : "☕ HANGOUT"}
+                </span>
+                <span className="px-2.5 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200 font-bold whitespace-nowrap text-[10px]">
+                  ☀️ 33°C ADEM
+                </span>
+                <span className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold whitespace-nowrap text-[10px]">
+                  {lastPrefs?.isModestHijab !== false ? "🧕 MODEST" : "✨ UNISEX"}
+                </span>
+              </div>
+              <button
+                onClick={() => setIsMobilePrefDrawerOpen(true)}
+                className="shrink-0 py-1.5 px-3 rounded-xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors shadow-xs"
+              >
+                <SlidersHorizontal className="w-3.5 h-3.5 text-terracotta-400" />
+                <span>Ubah</span>
+              </button>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left Column: Conversational Form (5 cols) */}
-            <div className="lg:col-span-5 w-full">
+            {/* Desktop Left Column: Form & Tomorrow Widget (Hidden on Mobile) */}
+            <div className="hidden lg:block lg:col-span-5 w-full space-y-6">
               <TomorrowOOTDWidget onScheduleTomorrow={handleScheduleTomorrow} />
               <GeneratorForm
                 onGenerate={handleGenerate}
@@ -385,14 +411,14 @@ export default function HomePage() {
               />
             </div>
 
-            {/* Right Column: Dynamic Outfit Card Result (7 cols) */}
+            {/* Right Column (Mobile: Full Width on Top): Dynamic Outfit Card Result */}
             <div id="hasil-ootd" className="lg:col-span-7 w-full scroll-mt-24">
-              <div className="mb-5 p-3.5 rounded-2xl bg-white border border-sand-300 shadow-2xs flex items-center gap-3">
+              <div className="mb-4 p-3 rounded-2xl bg-white border border-sand-300 shadow-2xs flex items-center gap-2.5">
                 <div className="w-2 h-2 rounded-full bg-terracotta-500 shrink-0" />
                 <p className="text-xs text-charcoal-900 font-medium leading-relaxed">
                   {dominantWardrobeVibe
-                    ? `Formula OOTD telah diselaraskan dengan gaya favorit lemarimu (${dominantWardrobeVibe}) & cuaca tropis harian.`
-                    : "Formula OOTD telah disesuaikan dengan cuaca tropis harian & profil warna kulit. Sesuaikan preferensi di form jika ingin mengubah acara atau budget."}
+                    ? `Formula OOTD telah diselaraskan dengan gaya favorit lemarimu (${dominantWardrobeVibe}) & cuaca tropis.`
+                    : "Formula OOTD diselaraskan dengan cuaca harian & profil warna kulitmu."}
                 </p>
               </div>
               <AnimatePresence mode="wait">
@@ -402,30 +428,30 @@ export default function HomePage() {
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.98 }}
-                    className="w-full tactile-card p-8 sm:p-10 flex flex-col justify-between min-h-[520px] bg-white relative overflow-hidden"
+                    className="w-full tactile-card p-6 sm:p-10 flex flex-col justify-between min-h-[460px] sm:min-h-[520px] bg-white relative overflow-hidden rounded-3xl"
                   >
-                    <div className="space-y-6">
-                      <div className="flex items-center justify-between border-b border-sand-200 pb-4">
+                    <div className="space-y-5">
+                      <div className="flex items-center justify-between border-b border-sand-200 pb-3">
                         <div className="flex items-center gap-2">
                           <span className="w-2.5 h-2.5 rounded-full bg-terracotta-500 animate-ping" />
                           <span className="lookbook-label">AI STYLIST SEDANG BEKERJA</span>
                         </div>
                         <span className="text-[10px] font-mono text-sand-500 uppercase tracking-widest animate-pulse">
-                          GENERATING FORMULA...
+                          GENERATING...
                         </span>
                       </div>
 
                       {/* Stage Progress Pills */}
-                      <div className="space-y-3">
+                      <div className="space-y-2.5">
                         {[
                           "1. Menganalisis undertone warna kulit & profil...",
                           "2. Memilih bahan katun & linen anti-gerah...",
-                          "3. Mengkurasi toko bintang 4.8+ di marketplace lokal..."
+                          "3. Mengkurasi toko bintang 4.8+ di marketplace..."
                         ].map((text, idx) => {
                           const isActive = idx === activeLoaderStep;
                           const isPast = idx < activeLoaderStep;
                           return (
-                            <div key={idx} className={`flex items-center gap-3 text-xs font-semibold p-3 rounded-xl border transition-all ${isActive ? "border-terracotta-500 bg-sand-50" : "border-sand-200 bg-sand-50/50"} ${idx <= activeLoaderStep ? "text-charcoal-900" : "text-sand-500 opacity-50"}`}>
+                            <div key={idx} className={`flex items-center gap-3 text-xs font-semibold p-2.5 sm:p-3 rounded-xl border transition-all ${isActive ? "border-terracotta-500 bg-sand-50" : "border-sand-200 bg-sand-50/50"} ${idx <= activeLoaderStep ? "text-charcoal-900" : "text-sand-500 opacity-50"}`}>
                               <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono ${isPast ? "bg-emerald-500 text-white" : isActive ? "bg-terracotta-500 text-white animate-pulse shadow-[0_0_8px_rgba(235,97,52,0.6)]" : "bg-sand-200 text-sand-500"}`}>
                                 {isPast ? "✓" : idx + 1}
                               </span>
@@ -437,15 +463,15 @@ export default function HomePage() {
 
                       {/* Shimmer Placeholder Skeletons */}
                       <div className="space-y-3 pt-2">
-                        <div className="h-6 w-3/4 rounded-lg animate-shimmer" />
+                        <div className="h-5 w-3/4 rounded-lg animate-shimmer" />
                         <div className="h-4 w-1/2 rounded-lg animate-shimmer" />
-                        <div className="h-20 w-full rounded-xl animate-shimmer" />
+                        <div className="h-16 w-full rounded-xl animate-shimmer" />
                       </div>
                     </div>
 
-                    <div className="pt-4 border-t border-sand-200 flex items-center justify-between text-[10px] font-mono text-sand-500 uppercase">
-                      <span>KURASI PERSONAL COLOR & CUACA</span>
-                      <span className="text-terracotta-500 font-bold">KATUN RAYON & LINEN ADEM</span>
+                    <div className="pt-3 border-t border-sand-200 flex items-center justify-between text-[10px] font-mono text-sand-500 uppercase">
+                      <span>PERSONAL COLOR & CUACA</span>
+                      <span className="text-terracotta-500 font-bold">KATUN & LINEN ADEM</span>
                     </div>
                   </motion.div>
                 ) : lastPrefs?.stylingMode === "couple" || lastPrefs?.stylingMode === "bestie" ? (
@@ -471,6 +497,22 @@ export default function HomePage() {
                   />
                 )}
               </AnimatePresence>
+
+              {/* Mobile Trigger Button to Open Drawer Form */}
+              <div className="block lg:hidden mt-4">
+                <button
+                  onClick={() => setIsMobilePrefDrawerOpen(true)}
+                  className="w-full py-3.5 px-4 rounded-2xl bg-white hover:bg-sand-100 border border-sand-300 text-charcoal-900 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-2xs transition-all"
+                >
+                  <SlidersHorizontal className="w-4 h-4 text-terracotta-500" />
+                  <span>Kustomisasi Detail Acara, Cuaca & Budget ➔</span>
+                </button>
+              </div>
+
+              {/* Mobile Tomorrow OOTD Widget Placed Below Result */}
+              <div className="block lg:hidden mt-6">
+                <TomorrowOOTDWidget onScheduleTomorrow={handleScheduleTomorrow} />
+              </div>
             </div>
           </div>
 
@@ -591,6 +633,15 @@ export default function HomePage() {
           onSelectOutfit={handleSelectLook}
         />
       )}
+
+      {/* Mobile-First Slide-Up Preference Drawer */}
+      <MobilePreferenceDrawer
+        isOpen={isMobilePrefDrawerOpen}
+        onClose={() => setIsMobilePrefDrawerOpen(false)}
+        onGenerate={handleGenerate}
+        isLoading={isLoading}
+        externalPrefs={externalPrefs}
+      />
 
       {/* Smart Mobile PWA Install Banner */}
       <PWAInstallBanner />

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { ArrowLeft, Sparkles, History } from "lucide-react";
+import { ArrowLeft, Sparkles, History, SlidersHorizontal } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import GeneratorForm from "@/components/GeneratorForm";
 import OutfitCard from "@/components/OutfitCard";
@@ -20,6 +20,7 @@ const PersonalColorQuizModal = dynamic(() => import("@/components/PersonalColorQ
 const TomorrowOOTDWidget = dynamic(() => import("@/components/TomorrowOOTDWidget"), { ssr: false });
 const GenerationHistoryModal = dynamic(() => import("@/components/GenerationHistoryModal"), { ssr: false });
 const PWAInstallBanner = dynamic(() => import("@/components/PWAInstallBanner"), { ssr: false });
+const MobilePreferenceDrawer = dynamic(() => import("@/components/MobilePreferenceDrawer"), { ssr: false });
 
 function MultiStageLoader() {
   return (
@@ -77,6 +78,7 @@ export default function StudioPage() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
+  const [isMobilePrefDrawerOpen, setIsMobilePrefDrawerOpen] = useState(false);
   const [lastPrefs, setLastPrefs] = useState<UserPreferences | null>(null);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
   const [externalPrefs, setExternalPrefs] = useState<Partial<UserPreferences>>({});
@@ -342,10 +344,34 @@ export default function StudioPage() {
           </div>
         </div>
 
+        {/* Mobile-First Quick Preference Bar */}
+        <div className="block lg:hidden mb-4">
+          <div className="p-3 bg-white rounded-2xl border border-sand-300 shadow-2xs flex items-center justify-between gap-2">
+            <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 text-xs">
+              <span className="px-2.5 py-1 rounded-full bg-sand-100 text-charcoal-900 font-bold whitespace-nowrap text-[10px]">
+                {lastPrefs?.occasion ? `☕ ${lastPrefs.occasion.toUpperCase()}` : "☕ HANGOUT"}
+              </span>
+              <span className="px-2.5 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200 font-bold whitespace-nowrap text-[10px]">
+                ☀️ 33°C ADEM
+              </span>
+              <span className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold whitespace-nowrap text-[10px]">
+                {lastPrefs?.isModestHijab !== false ? "🧕 MODEST" : "✨ UNISEX"}
+              </span>
+            </div>
+            <button
+              onClick={() => setIsMobilePrefDrawerOpen(true)}
+              className="shrink-0 py-1.5 px-3 rounded-xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors shadow-xs"
+            >
+              <SlidersHorizontal className="w-3.5 h-3.5 text-terracotta-400" />
+              <span>Ubah</span>
+            </button>
+          </div>
+        </div>
+
         {/* Studio Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Form */}
-          <div className="lg:col-span-5 w-full">
+          {/* Left Form (Desktop only, opened via bottom sheet on mobile) */}
+          <div className="hidden lg:block lg:col-span-5 w-full space-y-6">
             <TomorrowOOTDWidget onScheduleTomorrow={handleScheduleTomorrow} />
             <GeneratorForm
               onGenerate={handleGenerate}
@@ -354,12 +380,12 @@ export default function StudioPage() {
             />
           </div>
 
-          {/* Right Outfit Card */}
+          {/* Right Outfit Card (Full width on mobile) */}
           <div className="lg:col-span-7 w-full">
-            <div className="mb-5 p-3.5 rounded-2xl bg-white border border-sand-300 shadow-2xs flex items-center gap-3">
+            <div className="mb-4 p-3 rounded-2xl bg-white border border-sand-300 shadow-2xs flex items-center gap-2.5">
               <div className="w-2 h-2 rounded-full bg-terracotta-500 shrink-0" />
               <p className="text-xs text-charcoal-900 font-medium leading-relaxed">
-                Formula OOTD telah disesuaikan dengan cuaca tropis harian &amp; profil warna kulit. Sesuaikan preferensi di form jika ingin mengubah acara atau budget.
+                Formula OOTD telah diselaraskan dengan cuaca tropis harian &amp; profil warna kulit.
               </p>
             </div>
             <AnimatePresence mode="wait">
@@ -382,6 +408,22 @@ export default function StudioPage() {
                 />
               )}
             </AnimatePresence>
+
+            {/* Mobile Trigger Button to Open Drawer Form */}
+            <div className="block lg:hidden mt-4">
+              <button
+                onClick={() => setIsMobilePrefDrawerOpen(true)}
+                className="w-full py-3.5 px-4 rounded-2xl bg-white hover:bg-sand-100 border border-sand-300 text-charcoal-900 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-2xs transition-all"
+              >
+                <SlidersHorizontal className="w-4 h-4 text-terracotta-500" />
+                <span>Kustomisasi Detail Acara, Cuaca & Budget ➔</span>
+              </button>
+            </div>
+
+            {/* Mobile Tomorrow OOTD Widget Placed Below Result */}
+            <div className="block lg:hidden mt-6">
+              <TomorrowOOTDWidget onScheduleTomorrow={handleScheduleTomorrow} />
+            </div>
           </div>
         </div>
       </main>
@@ -426,6 +468,15 @@ export default function StudioPage() {
           onSelectOutfit={(outfit) => setCurrentOutfit(outfit)}
         />
       )}
+
+      {/* Mobile-First Slide-Up Preference Drawer */}
+      <MobilePreferenceDrawer
+        isOpen={isMobilePrefDrawerOpen}
+        onClose={() => setIsMobilePrefDrawerOpen(false)}
+        onGenerate={handleGenerate}
+        isLoading={isLoading}
+        externalPrefs={externalPrefs}
+      />
 
       {/* Smart Mobile PWA Install Banner */}
       <PWAInstallBanner />
