@@ -7,7 +7,6 @@ import { ArrowLeft, Sparkles, History, SlidersHorizontal } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import GeneratorForm from "@/components/GeneratorForm";
 import OutfitCard from "@/components/OutfitCard";
-import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
 import Toast, { ToastMessage } from "@/components/Toast";
 import { UserPreferences, OOTDRecommendation } from "@/lib/types";
@@ -80,6 +79,7 @@ export default function StudioPage() {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
   const [isMobilePrefDrawerOpen, setIsMobilePrefDrawerOpen] = useState(false);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [lastPrefs, setLastPrefs] = useState<UserPreferences | null>(null);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
   const [externalPrefs, setExternalPrefs] = useState<Partial<UserPreferences>>({});
@@ -279,75 +279,34 @@ export default function StudioPage() {
       </header>
 
       {/* Main Studio Container */}
-      <main className="flex-1 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full">
-        {/* Header Breadcrumb */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex flex-wrap items-center justify-between gap-4 border-b border-[#E8DFD1] pb-6 mb-8"
-        >
+      <main className="flex-1 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8 w-full">
+        {/* Sleek Minimal Desktop Header (Hidden on Mobile) */}
+        <div className="hidden sm:flex items-center justify-between gap-4 pb-4 mb-6 border-b border-sand-200">
           <div className="flex items-center gap-3">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link
-                href="/"
-                className="p-2.5 rounded-xl bg-white border border-[#D7CABC] text-[#181A18] hover:bg-[#F4EFE6] transition-colors flex items-center justify-center shadow-sm"
-              >
-                <ArrowLeft className="w-4 h-4" />
-              </Link>
-            </motion.div>
+            <Link
+              href="/"
+              className="p-2 rounded-xl bg-white border border-sand-300 text-charcoal-900 hover:bg-sand-100 transition-colors flex items-center justify-center shadow-2xs"
+              title="Kembali ke Beranda"
+            >
+              <ArrowLeft className="w-4 h-4" />
+            </Link>
             <div>
-              <span className="lookbook-label">STUDIO LOOK.U</span>
-              <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#181A18] tracking-tight">
-                Konsultasi Stylist Pribadi
+              <span className="text-[10px] font-mono font-bold tracking-wider uppercase text-sand-500">
+                AI STYLIST ATELIER
+              </span>
+              <h1 className="font-serif text-2xl font-bold text-charcoal-900 tracking-tight">
+                Studio Padu Padan
               </h1>
             </div>
           </div>
-
-          <span className="text-[10px] font-mono font-bold tracking-widest text-[#A89582] uppercase bg-[#F4EFE6] px-3 py-1.5 rounded-full border border-[#E8DFD1]">
-            EDISI 2026 • PERSONAL COLOR & TROPICAL SPEC
+          <span className="text-[10px] font-mono font-bold tracking-wider text-sand-500 uppercase bg-sand-100 px-3 py-1 rounded-full border border-sand-200">
+            PERSONAL COLOR &amp; TROPICAL FIT
           </span>
-        </motion.div>
-
-        {/* 3 Langkah Mudah Micro Onboarding Banner untuk Pengguna Awam */}
-        <div className="mb-8 p-4 rounded-2xl bg-white border border-sand-300 shadow-2xs flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3 w-full md:w-auto">
-            <div className="w-8 h-8 rounded-xl bg-terracotta-50 text-terracotta-600 font-bold text-xs flex items-center justify-center shrink-0 border border-terracotta-200">
-              1
-            </div>
-            <div className="text-left">
-              <div className="text-xs font-bold text-charcoal-900">Pilih Acaramu</div>
-              <div className="text-[10px] text-sand-500">Klik salah satu kartu kilat di bawah</div>
-            </div>
-          </div>
-
-          <span className="hidden md:inline text-sand-300 font-mono text-xs">➔</span>
-
-          <div className="flex items-center gap-3 w-full md:w-auto">
-            <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 font-bold text-xs flex items-center justify-center shrink-0 border border-amber-200">
-              2
-            </div>
-            <div className="text-left">
-              <div className="text-xs font-bold text-charcoal-900">AI Padukan Warna & Bahan</div>
-              <div className="text-[10px] text-sand-500">Sesuai cuaca 33°C & undertone kulit</div>
-            </div>
-          </div>
-
-          <span className="hidden md:inline text-sand-300 font-mono text-xs">➔</span>
-
-          <div className="flex items-center gap-3 w-full md:w-auto">
-            <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 font-bold text-xs flex items-center justify-center shrink-0 border border-emerald-200">
-              3
-            </div>
-            <div className="text-left">
-              <div className="text-xs font-bold text-charcoal-900">Beli di Shopee / Tokped</div>
-              <div className="text-[10px] text-sand-500">Toko bintang 4.8+ terkurasi</div>
-            </div>
-          </div>
         </div>
 
-        {/* Mobile-First Quick Preference Bar */}
-        <div className="block lg:hidden mb-4">
-          <div className="p-3 bg-white rounded-2xl border border-sand-300 shadow-2xs flex items-center justify-between gap-2">
+        {/* Mobile Quick Preference Bar (Prominent & Clean Directly Above Result) */}
+        <div className="block lg:hidden mb-3">
+          <div className="p-2.5 bg-white rounded-2xl border border-sand-300 shadow-2xs flex items-center justify-between gap-2">
             <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 text-xs">
               <span className="px-2.5 py-1 rounded-full bg-sand-100 text-charcoal-900 font-bold whitespace-nowrap text-[10px]">
                 {lastPrefs?.occasion ? `☕ ${lastPrefs.occasion.toUpperCase()}` : "☕ HANGOUT"}
@@ -364,7 +323,7 @@ export default function StudioPage() {
               className="shrink-0 py-1.5 px-3 rounded-xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors shadow-xs"
             >
               <SlidersHorizontal className="w-3.5 h-3.5 text-terracotta-400" />
-              <span>Ubah</span>
+              <span>Sesuaikan</span>
             </button>
           </div>
         </div>
@@ -383,12 +342,6 @@ export default function StudioPage() {
 
           {/* Right Outfit Card (Full width on mobile) */}
           <div className="lg:col-span-7 w-full">
-            <div className="mb-4 p-3 rounded-2xl bg-white border border-sand-300 shadow-2xs flex items-center gap-2.5">
-              <div className="w-2 h-2 rounded-full bg-terracotta-500 shrink-0" />
-              <p className="text-xs text-charcoal-900 font-medium leading-relaxed">
-                Formula OOTD telah diselaraskan dengan cuaca tropis harian &amp; profil warna kulit.
-              </p>
-            </div>
             <AnimatePresence mode="wait">
               {isLoading ? (
                 <MultiStageLoader key="loader" />
@@ -428,16 +381,32 @@ export default function StudioPage() {
           </div>
         </div>
 
-        {/* Weekly Outfit Calendar (7-Day Planner) */}
-        <div className="mt-12 pt-8 border-t border-sand-200 cv-auto">
-          <WeeklyOutfitCalendar
-            currentOutfit={currentOutfit}
-            onSelectDayOutfit={(outfit) => setCurrentOutfit(outfit)}
-          />
+        {/* Weekly Outfit Calendar (7-Day Planner Accordion) */}
+        <div className="mt-8 pt-6 border-t border-sand-200">
+          <button
+            type="button"
+            onClick={() => setIsCalendarOpen(!isCalendarOpen)}
+            className="w-full py-3.5 px-4 rounded-2xl bg-white hover:bg-sand-50 border border-sand-300 text-charcoal-900 font-bold text-xs uppercase tracking-wider flex items-center justify-between shadow-2xs transition-all"
+          >
+            <div className="flex items-center gap-2">
+              <span className="text-base">📅</span>
+              <span>Jadwal OOTD 7 Hari (Weekly Planner)</span>
+            </div>
+            <span className="text-[11px] text-terracotta-600 font-bold">
+              {isCalendarOpen ? "Sembunyikan ▲" : "Buka Jadwal ▼"}
+            </span>
+          </button>
+
+          {isCalendarOpen && (
+            <div className="mt-4">
+              <WeeklyOutfitCalendar
+                currentOutfit={currentOutfit}
+                onSelectDayOutfit={(outfit) => setCurrentOutfit(outfit)}
+              />
+            </div>
+          )}
         </div>
       </main>
-
-      <Footer />
 
       {/* Floating Mobile App-Shell Navigation */}
       <BottomNav onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)} />

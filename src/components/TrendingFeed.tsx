@@ -2,7 +2,23 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { Heart, ArrowUpRight, Maximize2, LayoutGrid, Rows, Share2, Search, ChevronLeft, ChevronRight } from "lucide-react";
+import { 
+  Heart, 
+  ArrowUpRight, 
+  LayoutGrid, 
+  Rows, 
+  Share2, 
+  Search, 
+  ChevronLeft, 
+  ChevronRight, 
+  Check, 
+  Palette, 
+  Sparkles,
+  ShoppingBag,
+  Layers,
+  Shirt,
+  Filter
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TRENDING_LOOKS_FEED } from "@/lib/presets";
 import { TrendingLook, OOTDRecommendation } from "@/lib/types";
@@ -12,9 +28,10 @@ import StoryShareModal from "./StoryShareModal";
 interface TrendingFeedProps {
   onSelectLook: (outfit: OOTDRecommendation) => void;
   userSkinTone?: string;
+  isStandalone?: boolean;
 }
 
-export default function TrendingFeed({ onSelectLook, userSkinTone }: TrendingFeedProps) {
+export default function TrendingFeed({ onSelectLook, userSkinTone, isStandalone = false }: TrendingFeedProps) {
   const [likes, setLikes] = useState<Record<string, number>>({
     trend_01: 1248,
     trend_02: 982,
@@ -24,14 +41,64 @@ export default function TrendingFeed({ onSelectLook, userSkinTone }: TrendingFee
     trend_06: 912,
     trend_07: 834,
     trend_08: 1105,
+    trend_09: 720,
+    trend_10: 890,
+    trend_11: 654,
+    trend_12: 830,
+    trend_13: 745,
+    trend_14: 960,
+    trend_15: 810,
+    trend_16: 875,
   });
   const [likedIds, setLikedIds] = useState<string[]>([]);
   const [activeHotspot, setActiveHotspot] = useState<string | null>(null);
   const [selectedLightboxLook, setSelectedLightboxLook] = useState<TrendingLook | null>(null);
   const [storyOutfit, setStoryOutfit] = useState<OOTDRecommendation | null>(null);
 
-  // Concept C: Category Filter & Mobile View Mode State
+  // Default Mobile View Mode: 2-Column Pinterest Grid (Fashion Industry Standard)
+  const [mobileViewMode, setMobileViewMode] = useState<"grid" | "reel">("grid");
+  const [activeReelIndex, setActiveReelIndex] = useState<number>(0);
+  const [searchQuery, setSearchQuery] = useState("");
   const [selectedTags, setSelectedTags] = useState<string[]>(["all"]);
+  const [selectedSkinTone, setSelectedSkinTone] = useState<string>(userSkinTone || "all");
+
+  const reelScrollRef = useRef<HTMLDivElement>(null);
+
+  const categories = [
+    { id: "all", label: "Semua (16)" },
+    { id: "hijab", label: "🧕 Modest Hijab" },
+    { id: "campus", label: "🏢 SCBD & Kerja" },
+    { id: "weekend", label: "☕ Santai Kafe" },
+    { id: "streetwear", label: "🔥 Streetwear" },
+    { id: "formal", label: "🌸 Pesta Kondangan" },
+  ];
+
+  const skinToneFilters = [
+    { id: "all", label: "Semua Tone", hex: null },
+    { id: "medium", label: "Sawo Matang", hex: "#C69365", matchText: "Sawo Matang" },
+    { id: "light", label: "Kuning Langsat", hex: "#E8C4A2", matchText: "Kuning Langsat" },
+    { id: "fair", label: "Putih Gading", hex: "#F7E2D3", matchText: "Putih Gading" },
+    { id: "tan", label: "Eksotis", hex: "#9E6C45", matchText: "Eksotis" },
+  ];
+
+  // Auto-sync when user passes personal color quiz
+  useEffect(() => {
+    if (userSkinTone && userSkinTone !== "all") {
+      setSelectedSkinTone(userSkinTone);
+    }
+  }, [userSkinTone]);
+
+  // Load liked looks from localStorage
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const stored = localStorage.getItem("looku_liked_looks");
+        if (stored) setLikedIds(JSON.parse(stored));
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  }, []);
 
   const toggleTag = (id: string) => {
     if (id === "all") {
@@ -47,38 +114,21 @@ export default function TrendingFeed({ onSelectLook, userSkinTone }: TrendingFee
     }
     setSelectedTags(updated);
   };
-  const [mobileViewMode, setMobileViewMode] = useState<"reel" | "grid">("reel");
-  const [activeReelIndex, setActiveReelIndex] = useState<number>(0);
-  const [searchQuery, setSearchQuery] = useState("");
 
-  const reelScrollRef = useRef<HTMLDivElement>(null);
-
-  const categories = [
-    { id: "all", label: "Semua Look" },
-    { id: "hijab", label: "Hijab Friendly" },
-    { id: "campus", label: "Campus & Work" },
-    { id: "weekend", label: "Weekend & Cafe" },
-    { id: "streetwear", label: "Streetwear" },
-    { id: "formal", label: "Pesta / Kondangan" },
-  ];
-
-  const [selectedSkinTone, setSelectedSkinTone] = useState<string>(userSkinTone || "all");
-
-  // Auto-sync when user passes personal color quiz
-  useEffect(() => {
-    if (userSkinTone && userSkinTone !== "all") {
-      setSelectedSkinTone(userSkinTone);
+  const toggleLike = (id: string) => {
+    let updated: string[];
+    if (likedIds.includes(id)) {
+      updated = likedIds.filter((item) => item !== id);
+      setLikes((prev) => ({ ...prev, [id]: (prev[id] || 0) - 1 }));
+    } else {
+      updated = [...likedIds, id];
+      setLikes((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
     }
-  }, [userSkinTone]);
-
-  const skinToneFilters = [
-    { id: "all", label: "Semua Tone", hex: null },
-    { id: "medium", label: "Sawo Matang", hex: "#C69365", matchText: "Sawo Matang" },
-    { id: "light", label: "Kuning Langsat", hex: "#E8C4A2", matchText: "Kuning Langsat" },
-    { id: "fair", label: "Putih Gading", hex: "#F7E2D3", matchText: "Putih Gading" },
-    { id: "tan", label: "Eksotis / Tan", hex: "#9E6C45", matchText: "Eksotis" },
-    { id: "deep", label: "Deep Bronze", hex: "#633E2B", matchText: "Deep Bronze" },
-  ];
+    setLikedIds(updated);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("looku_liked_looks", JSON.stringify(updated));
+    }
+  };
 
   const filteredLooks = TRENDING_LOOKS_FEED.filter((item) => {
     // Search query filter
@@ -105,7 +155,7 @@ export default function TrendingFeed({ onSelectLook, userSkinTone }: TrendingFee
       }
     }
 
-    // Multi-tag filter
+    // Multi-tag category filter
     if (selectedTags.includes("all")) return true;
     return selectedTags.some((tag) => {
       if (tag === "hijab") return item.category.includes("Hijab") || item.outfit.modestFriendly;
@@ -117,40 +167,6 @@ export default function TrendingFeed({ onSelectLook, userSkinTone }: TrendingFee
     });
   });
 
-  // Load liked looks from localStorage
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      try {
-        const stored = localStorage.getItem("looku_liked_looks");
-        if (stored) setLikedIds(JSON.parse(stored));
-      } catch (e) {
-        console.error(e);
-      }
-    }
-  }, []);
-
-  const toggleLike = (id: string) => {
-    let updated: string[];
-    if (likedIds.includes(id)) {
-      updated = likedIds.filter((item) => item !== id);
-      setLikes((prev) => ({ ...prev, [id]: prev[id] - 1 }));
-    } else {
-      updated = [...likedIds, id];
-      setLikes((prev) => ({ ...prev, [id]: prev[id] + 1 }));
-    }
-    setLikedIds(updated);
-    if (typeof window !== "undefined") {
-      localStorage.setItem("looku_liked_looks", JSON.stringify(updated));
-    }
-  };
-
-  const getSkinToneColors = (recommendation: string) => {
-    if (recommendation.includes("Sawo Matang")) return ["#C69365", "#E8C4A2"];
-    if (recommendation.includes("Putih Gading")) return ["#F7E2D3", "#E8C4A2"];
-    if (recommendation.includes("Eksotis")) return ["#C69365", "#9E6C45"];
-    return ["#C69365", "#633E2B"];
-  };
-
   const handleReelScroll = () => {
     if (!reelScrollRef.current) return;
     const { scrollLeft, offsetWidth } = reelScrollRef.current;
@@ -158,179 +174,142 @@ export default function TrendingFeed({ onSelectLook, userSkinTone }: TrendingFee
     setActiveReelIndex(index);
   };
 
-  const handleScrollLeft = () => {
-    if (reelScrollRef.current) {
-      reelScrollRef.current.scrollBy({ left: -320, behavior: "smooth" });
-    }
-  };
-
-  const handleScrollRight = () => {
-    if (reelScrollRef.current) {
-      reelScrollRef.current.scrollBy({ left: 320, behavior: "smooth" });
-    }
-  };
-
   return (
     <>
-      <section id="trending" className="py-14 sm:py-20 border-b border-[#E8DFD1] bg-[#FAF8F5]">
+      <section id="trending" className={isStandalone ? "py-2 sm:py-6 bg-[#FAF8F5]" : "py-10 sm:py-16 border-b border-[#E8DFD1] bg-[#FAF8F5]"}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header Title with Lookbook Index */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#D7CABC] pb-6 mb-6 gap-4">
-            <div>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="w-2 h-2 rounded-full bg-terracotta-500" />
-                <span className="lookbook-label">CURATED STREETWEAR & MODEST FEED</span>
+          {/* Header Title (Only shown when not standalone lookbook page) */}
+          {!isStandalone && (
+            <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#D7CABC] pb-4 mb-6 gap-3">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-2 h-2 rounded-full bg-terracotta-500" />
+                  <span className="lookbook-label">FEED INSPIRASI PILIHAN</span>
+                </div>
+                <h2 className="font-serif text-2xl sm:text-4xl font-bold text-[#181A18] tracking-tight">
+                  Trending Lookbook Indonesia
+                </h2>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#181A18] tracking-tight">
-                Trending Lookbook Indonesia
-              </h2>
+              <div className="text-xs font-mono text-sand-500">
+                16 Formula OOTD Terkurasi Edisi 2026
+              </div>
             </div>
+          )}
 
-            {/* Carousel Navigators, Mobile View Switcher & Edition Tag */}
-            <div className="flex items-center justify-between md:justify-end gap-3 flex-wrap">
-              {/* Carousel Slide Navigator (Visible Affordance Indicator) */}
-              <div className="flex items-center gap-1.5 bg-white p-1 rounded-xl border border-sand-300 shadow-2xs">
-                <button
-                  type="button"
-                  onClick={handleScrollLeft}
-                  className="w-7 h-7 rounded-lg bg-sand-100 hover:bg-charcoal-900 hover:text-white text-charcoal-900 flex items-center justify-center transition-colors"
-                  title="Geser Lookbook ke Kiri"
-                  aria-label="Geser Kiri"
-                >
-                  <ChevronLeft className="w-4 h-4 stroke-[2.5]" />
-                </button>
-                <button
-                  type="button"
-                  onClick={handleScrollRight}
-                  className="w-7 h-7 rounded-lg bg-sand-100 hover:bg-charcoal-900 hover:text-white text-charcoal-900 flex items-center justify-center transition-colors"
-                  title="Geser Lookbook ke Kanan"
-                  aria-label="Geser Kanan"
-                >
-                  <ChevronRight className="w-4 h-4 stroke-[2.5]" />
-                </button>
+          {/* FASHION APP DISCOVERY BAR (Unified, Compact & Professional) */}
+          <div className="space-y-2.5 mb-6">
+            {/* Row 1: Search Input + View Mode Switcher */}
+            <div className="flex items-center gap-2">
+              <div className="relative flex-1">
+                <Search className="w-4 h-4 text-charcoal-900/60 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <input
+                  type="text"
+                  placeholder="Cari gaya: linen, kafe, scbd, hijab, blazer, batik..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full h-11 pl-10 pr-9 rounded-2xl bg-white border border-sand-300 text-xs sm:text-sm text-charcoal-900 font-medium placeholder:text-sand-400 focus:outline-none focus:border-charcoal-900 shadow-2xs transition-all"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-sand-200 text-charcoal-900 hover:bg-charcoal-900 hover:text-white text-xs flex items-center justify-center transition-colors"
+                    aria-label="Reset pencarian"
+                  >
+                    ✕
+                  </button>
+                )}
               </div>
 
-              {/* Mobile View Toggle (Reel vs 2-Col Grid) */}
-              <div className="flex md:hidden items-center bg-[#F4EFE6] p-1 rounded-xl border border-[#E8DFD1]">
-                <button
-                  onClick={() => setMobileViewMode("reel")}
-                  aria-label="Slide Reel Mode"
-                  className={`p-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1 ${
-                    mobileViewMode === "reel"
-                      ? "bg-[#181A18] text-white shadow-xs"
-                      : "text-[#A89582] hover:text-[#181A18]"
-                  }`}
-                  title="Slide Reel Mode"
-                >
-                  <Rows className="w-3.5 h-3.5" />
-                  <span className="text-[10px]">Reel</span>
-                </button>
+              {/* Mobile View Toggle: 2-Col Grid vs Editorial Feed */}
+              <div className="flex md:hidden items-center bg-white p-1 rounded-2xl border border-sand-300 shadow-2xs shrink-0">
                 <button
                   onClick={() => setMobileViewMode("grid")}
-                  aria-label="2-Column Grid Mode"
-                  className={`p-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1 ${
+                  aria-label="Tampilan Grid 2 Kolom"
+                  className={`p-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1 ${
                     mobileViewMode === "grid"
-                      ? "bg-[#181A18] text-white shadow-xs"
-                      : "text-[#A89582] hover:text-[#181A18]"
+                      ? "bg-charcoal-900 text-white shadow-xs"
+                      : "text-sand-500 hover:text-charcoal-900"
                   }`}
-                  title="2-Column Grid Mode"
+                  title="Grid 2 Kolom (Pinterest Style)"
                 >
-                  <LayoutGrid className="w-3.5 h-3.5" />
-                  <span className="text-[10px]">Grid</span>
+                  <LayoutGrid className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => setMobileViewMode("reel")}
+                  aria-label="Tampilan Feed Penuh"
+                  className={`p-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1 ${
+                    mobileViewMode === "reel"
+                      ? "bg-charcoal-900 text-white shadow-xs"
+                      : "text-sand-500 hover:text-charcoal-900"
+                  }`}
+                  title="Feed Penuh (Vogue Style)"
+                >
+                  <Rows className="w-4 h-4" />
                 </button>
               </div>
-
-              <div className="text-[11px] font-mono text-[#181A18] font-semibold uppercase tracking-widest flex items-center gap-2 bg-sand-100 px-3 py-1.5 rounded-xl border border-sand-300">
-                <span>EDISI MINGGU INI</span>
-                <span className="text-[#181A18]">•</span>
-                <span className="font-bold text-terracotta-600">16 LOOKS</span>
-              </div>
             </div>
-          </div>
 
-          {/* Search Bar with Ergonomic Touch Target & Crisp Typography */}
-          <div className="relative mb-4">
-            <div className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none flex items-center text-charcoal-900">
-              <Search className="w-4 h-4 text-charcoal-900" />
+            {/* Row 2: Horizontal Category Pill Rail */}
+            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+              {categories.map((cat) => {
+                const isSelected = selectedTags.includes(cat.id);
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => toggleTag(cat.id)}
+                    className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all shrink-0 flex items-center gap-1.5 border ${
+                      isSelected
+                        ? "bg-charcoal-900 text-white border-charcoal-900 shadow-xs"
+                        : "bg-white hover:bg-sand-100 text-charcoal-900/80 border-sand-300 shadow-2xs"
+                    }`}
+                  >
+                    {isSelected && cat.id !== "all" && (
+                      <Check className="w-3 h-3 text-terracotta-400" />
+                    )}
+                    <span>{cat.label}</span>
+                  </button>
+                );
+              })}
+
+              {!selectedTags.includes("all") && (
+                <button
+                  onClick={() => setSelectedTags(["all"])}
+                  className="px-3 py-1.5 rounded-full text-[10px] font-bold text-terracotta-600 bg-terracotta-50 border border-terracotta-200 hover:bg-terracotta-100 whitespace-nowrap shrink-0 uppercase tracking-widest"
+                >
+                  Reset
+                </button>
+              )}
             </div>
-            <input
-              type="text"
-              placeholder="Cari inspirasi: linen, kafe, kondangan, blazer, santai, formal, hijab..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full min-h-[46px] px-4 py-3 pl-10 rounded-2xl bg-white border border-sand-300 text-xs sm:text-sm text-charcoal-900 font-medium placeholder:text-charcoal-900/60 focus:outline-none focus:border-charcoal-900 focus:ring-1 focus:ring-charcoal-900 transition-all shadow-2xs"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery("")}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-sand-200 hover:bg-charcoal-900 hover:text-white text-charcoal-900 text-xs flex items-center justify-center transition-colors"
-                aria-label="Hapus Pencarian"
-              >
-                ✕
-              </button>
-            )}
-          </div>
 
-          {/* Personal Color Skin Tone Filter Bar */}
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 mb-2">
-            <span className="text-[10px] font-mono font-bold uppercase text-sand-500 tracking-wider shrink-0 mr-1">
-              WARNA KULIT:
-            </span>
-            {skinToneFilters.map((tone) => {
-              const isToneActive = selectedSkinTone === tone.id;
-              return (
-                <button
-                  key={tone.id}
-                  onClick={() => setSelectedSkinTone(tone.id)}
-                  className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all shrink-0 flex items-center gap-1.5 border ${
-                    isToneActive
-                      ? "bg-charcoal-900 text-white border-charcoal-900 shadow-xs scale-102"
-                      : "bg-white hover:bg-sand-100 text-charcoal-900 border-sand-300 shadow-2xs"
-                  }`}
-                >
-                  {tone.hex && (
-                    <span
-                      className="w-3.5 h-3.5 rounded-full border border-black/15 shrink-0 shadow-2xs"
-                      style={{ backgroundColor: tone.hex }}
-                    />
-                  )}
-                  <span>{tone.label}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-6 mb-2">
-            {categories.map((cat) => {
-              const isSelected = selectedTags.includes(cat.id);
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => toggleTag(cat.id)}
-                  aria-label={`Filter by ${cat.label}`}
-                  className={`relative px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-colors tracking-wider uppercase shrink-0 z-10 flex items-center gap-1.5 ${
-                    isSelected ? "text-[#FAF8F5] bg-[#181A18]" : "text-[#181A18]/70 hover:text-[#181A18] border border-[#E8DFD1] bg-white hover:bg-[#F4EFE6]"
-                  }`}
-                >
-                  {isSelected && cat.id !== "all" && (
-                    <span className="w-3 h-3 rounded-full bg-terracotta-500 flex items-center justify-center shrink-0">
-                      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                    </span>
-                  )}
-                  <span>{cat.label}</span>
-                </button>
-              );
-            })}
-            {!selectedTags.includes("all") && (
-              <button
-                onClick={() => setSelectedTags(["all"])}
-                className="ml-2 px-3 py-2 rounded-full text-[10px] font-bold text-terracotta-600 bg-terracotta-50 border border-terracotta-200 hover:bg-terracotta-100 whitespace-nowrap shrink-0 uppercase tracking-widest"
-              >
-                Reset Filter
-              </button>
-            )}
+            {/* Row 3: Undertone Skin Tone Filter Chips (Slim & Minimalist) */}
+            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-xs">
+              <span className="text-[10px] font-mono font-bold uppercase text-sand-500 tracking-wider shrink-0 flex items-center gap-1 mr-0.5">
+                <Palette className="w-3 h-3 text-terracotta-500" />
+                <span>UNDERTONE:</span>
+              </span>
+              {skinToneFilters.map((tone) => {
+                const isToneActive = selectedSkinTone === tone.id;
+                return (
+                  <button
+                    key={tone.id}
+                    onClick={() => setSelectedSkinTone(tone.id)}
+                    className={`px-2.5 py-1 rounded-full text-[11px] font-semibold whitespace-nowrap transition-all shrink-0 flex items-center gap-1.5 border ${
+                      isToneActive
+                        ? "bg-sand-200 text-charcoal-900 border-charcoal-900 font-bold shadow-2xs"
+                        : "bg-white/80 hover:bg-white text-charcoal-900/70 border-sand-200"
+                    }`}
+                  >
+                    {tone.hex && (
+                      <span
+                        className="w-2.5 h-2.5 rounded-full border border-black/10 shrink-0"
+                        style={{ backgroundColor: tone.hex }}
+                      />
+                    )}
+                    <span>{tone.label}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* Empty Search Result State */}
@@ -347,6 +326,7 @@ export default function TrendingFeed({ onSelectLook, userSkinTone }: TrendingFee
                 onClick={() => {
                   setSearchQuery("");
                   setSelectedTags(["all"]);
+                  setSelectedSkinTone("all");
                 }}
                 className="mt-2 px-5 py-2.5 bg-charcoal-900 hover:bg-terracotta-500 text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors shadow-xs"
               >
@@ -355,239 +335,172 @@ export default function TrendingFeed({ onSelectLook, userSkinTone }: TrendingFee
             </div>
           )}
 
-          {/* MOBILE VIEW MODE 1: Horizontal Snap Reel (Swipe 👉 with Peek & Dots) */}
+          {/* MOBILE VIEW MODE 1: 2-Column Pinterest / Lemon8 Grid (DEFAULT MOBILE) */}
           <div className="block md:hidden">
-            {mobileViewMode === "reel" ? (
-              <div className="space-y-4">
-                <div
-                  ref={reelScrollRef}
-                  onScroll={handleReelScroll}
-                  className="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar -mx-4 px-4 pb-2"
-                >
-                  {filteredLooks.map((item, idx) => {
-                    const isLiked = likedIds.includes(item.id);
-                    const toneColors = getSkinToneColors(item.skinToneRecommendation);
-
-                    return (
-                      <div
-                        key={item.id}
-                        className="w-[82vw] shrink-0 snap-center tactile-card overflow-hidden flex flex-col justify-between shadow-md bg-white border border-[#D7CABC]"
-                      >
-                        {/* Visual Image Banner with Hotspot & Lightbox Trigger */}
-                        <motion.div
-                          whileTap={{ scale: 0.98 }}
-                          onClick={() => {
-                            onSelectLook(item.outfit);
-                            document.getElementById("studio")?.scrollIntoView({ behavior: "smooth" });
-                          }}
-                          className="relative w-full aspect-[4/5] bg-sand-200 overflow-hidden cursor-pointer"
-                        >
-                          <Image
-                            src={item.image}
-                            alt={item.title}
-                            fill
-                            sizes="85vw"
-                            className="object-cover"
-                          />
-
-                          {/* Top Badges */}
-                          <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-                            <span className="px-3 py-1 rounded-full bg-[#181A18]/85 text-[#FAF8F5] text-[9px] font-mono font-bold tracking-widest uppercase backdrop-blur-md">
-                              {item.tag}
-                            </span>
-
-                            <motion.button
-                              type="button"
-                              whileTap={{ scale: 0.85 }}
-                              aria-label={isLiked ? "Unlike" : "Like"}
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                toggleLike(item.id);
-                              }}
-                              className={`pointer-events-auto p-2.5 rounded-full backdrop-blur-md shadow-md ${
-                                isLiked
-                                  ? "bg-terracotta-500 text-white"
-                                  : "bg-white/90 text-[#181A18]"
-                              }`}
-                            >
-                              <Heart
-                                className={`w-3.5 h-3.5 ${isLiked ? "fill-white" : ""}`}
-                              />
-                            </motion.button>
-                          </div>
-
-                          {/* Hotspot Dot */}
-                          <div
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setActiveHotspot(activeHotspot === item.id ? null : item.id);
-                            }}
-                          >
-                            <div className="relative w-6 h-6 flex items-center justify-center">
-                              <span className="w-3 h-3 rounded-full bg-white border-2 border-[#181A18] shadow-md z-10" />
-                            </div>
-
-                            <AnimatePresence>
-                              {activeHotspot === item.id && (
-                                <motion.div
-                                  initial={{ opacity: 0, y: 5, scale: 0.9 }}
-                                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                                  exit={{ opacity: 0, y: 5, scale: 0.9 }}
-                                  className="absolute bottom-7 left-1/2 -translate-x-1/2 bg-[#181A18] text-white p-2 rounded-xl shadow-xl border border-white/20 whitespace-nowrap text-[10px] z-30"
-                                >
-                                  <div className="font-bold">{item.outfit.items[0]?.name}</div>
-                                  <div className="text-terracotta-400 font-mono text-[9px]">
-                                    {item.outfit.items[0]?.estimatedPrice}
-                                  </div>
-                                </motion.div>
-                              )}
-                            </AnimatePresence>
-                          </div>
-
-                          {/* Bottom Category */}
-                          <div className="absolute bottom-3 left-3">
-                            <span className="text-[9px] font-mono font-bold tracking-widest uppercase bg-[#FAF8F5]/95 text-[#181A18] px-2.5 py-1 rounded-md shadow-xs">
-                              {item.category}
-                            </span>
-                          </div>
-                        </motion.div>
-
-                        {/* Card Content & Action */}
-                        <div className="p-4 flex flex-col justify-between flex-1 space-y-3.5">
-                          <div className="space-y-2">
-                            <div className="text-[10px] font-mono text-terracotta-600 font-bold tracking-widest uppercase">
-                              {item.vibe}
-                            </div>
-                            <h3 className="font-serif font-bold text-lg text-[#181A18] leading-tight">
-                              {item.title}
-                            </h3>
-
-                            {/* Tone Harmony */}
-                            <div className="p-2 rounded-xl bg-[#FAF8F5] border border-[#E8DFD1] flex items-center justify-between text-xs">
-                              <div className="flex items-center gap-1.5">
-                                <div className="flex -space-x-1">
-                                  {toneColors.map((hex, i) => (
-                                    <div
-                                      key={i}
-                                      className="w-3.5 h-3.5 rounded-full border border-white shrink-0"
-                                      style={{ backgroundColor: hex }}
-                                    />
-                                  ))}
-                                </div>
-                                <span className="font-semibold text-[#181A18] text-[11px] truncate max-w-[130px]">
-                                  {item.skinToneRecommendation}
-                                </span>
-                              </div>
-                              <span className="font-mono font-bold text-[11px] text-[#181A18] bg-[#F4EFE6] px-1.5 py-0.5 rounded">
-                                {item.priceRange.replace(" / Set", "")}
-                              </span>
-                            </div>
-                          </div>
-
-                          <div className="flex items-center gap-2">
-                            <motion.button
-                              whileTap={{ scale: 0.96 }}
-                              onClick={() => {
-                                onSelectLook(item.outfit);
-                                document.getElementById("studio")?.scrollIntoView({ behavior: "smooth" });
-                              }}
-                              className="flex-1 py-3 px-4 rounded-xl bg-[#181A18] text-white font-bold text-xs tracking-widest uppercase flex items-center justify-center gap-2 shadow-xs"
-                            >
-                              <span>TRY THIS LOOK</span>
-                              <ArrowUpRight className="w-3.5 h-3.5" />
-                            </motion.button>
-
-                            <button
-                              onClick={() => setStoryOutfit(item.outfit)}
-                              className="p-3 rounded-xl bg-[#FAF8F5] border border-sand-300 text-charcoal-900 hover:bg-sand-100 transition-colors shadow-xs"
-                              title="Ekspor Story (9:16)"
-                            >
-                              <Share2 className="w-4 h-4 text-terracotta-600" />
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* Progress Dots Indicator for Reel */}
-                <div className="flex items-center justify-center gap-1.5 pt-1">
-                  {filteredLooks.map((_, i) => (
-                    <div
-                      key={i}
-                      className={`h-1.5 rounded-full transition-all duration-300 ${
-                        activeReelIndex === i
-                          ? "w-6 bg-[#181A18]"
-                          : "w-1.5 bg-[#D7CABC]"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
-            ) : (
-              /* MOBILE VIEW MODE 2: Compact 2-Column Pinterest Grid */
-              <div className="grid grid-cols-2 gap-3.5">
+            {mobileViewMode === "grid" ? (
+              <div className="grid grid-cols-2 gap-3">
                 {filteredLooks.map((item) => {
                   const isLiked = likedIds.includes(item.id);
                   return (
                     <div
                       key={item.id}
-                      className="tactile-card overflow-hidden flex flex-col justify-between bg-white border border-[#E8DFD1] shadow-2xs"
+                      className="group rounded-2xl bg-white border border-[#E8DFD1] hover:border-charcoal-900 hover:shadow-tactile transition-all overflow-hidden flex flex-col justify-between"
                     >
-                      <motion.div
-                        whileTap={{ scale: 0.98 }}
-                        onClick={() => {
-                          onSelectLook(item.outfit);
-                          document.getElementById("studio")?.scrollIntoView({ behavior: "smooth" });
-                        }}
+                      {/* Visual Photo Card */}
+                      <div
+                        onClick={() => onSelectLook(item.outfit)}
                         className="relative w-full aspect-[3/4] bg-sand-200 overflow-hidden cursor-pointer"
                       >
                         <Image
                           src={item.image}
                           alt={item.title}
                           fill
-                          sizes="45vw"
-                          className="object-cover"
+                          sizes="48vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
-                        <button
-                          type="button"
-                          aria-label={isLiked ? "Unlike" : "Like"}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            toggleLike(item.id);
-                          }}
-                          className="absolute top-2 right-2 p-1.5 rounded-full bg-white/90 shadow-sm"
-                        >
-                          <Heart className={`w-3 h-3 ${isLiked ? "fill-terracotta-500 text-terracotta-500" : "text-[#181A18]"}`} />
-                        </button>
-                      </motion.div>
 
-                      <div className="p-2.5 flex flex-col justify-between flex-1 space-y-2">
+                        {/* Top Floating Badges */}
+                        <div className="absolute top-2 left-2 right-2 flex items-center justify-between pointer-events-none">
+                          <span className="px-2 py-0.5 rounded-md bg-black/65 backdrop-blur-xs text-white text-[8px] font-mono font-bold tracking-wider uppercase">
+                            {item.tag}
+                          </span>
+
+                          <button
+                            type="button"
+                            aria-label={isLiked ? "Unlike" : "Like"}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleLike(item.id);
+                            }}
+                            className="pointer-events-auto p-1.5 rounded-full bg-white/90 backdrop-blur-xs shadow-sm"
+                          >
+                            <Heart className={`w-3 h-3 ${isLiked ? "fill-rose-500 text-rose-500" : "text-charcoal-900"}`} />
+                          </button>
+                        </div>
+
+                        {/* Bottom Floating Price Tag */}
+                        <div className="absolute bottom-2 left-2 pointer-events-none">
+                          <span className="px-2 py-0.5 rounded-md bg-white/95 backdrop-blur-xs text-charcoal-900 text-[9px] font-mono font-bold shadow-xs">
+                            {item.priceRange.replace(" / Set", "")}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Card Content & Action */}
+                      <div className="p-3 space-y-2 flex flex-col justify-between flex-1">
                         <div>
                           <div className="text-[8px] font-mono text-terracotta-600 font-bold uppercase truncate">
                             {item.vibe}
                           </div>
-                          <h4 className="font-serif font-bold text-xs text-[#181A18] line-clamp-1">
+                          <h4 className="font-serif font-bold text-xs text-[#181A18] line-clamp-1 mt-0.5">
                             {item.title}
                           </h4>
-                          <div className="text-[9px] font-mono font-bold text-[#181A18] mt-0.5">
-                            {item.priceRange.replace(" / Set", "")}
-                          </div>
+                          <p className="text-[10px] text-sand-500 line-clamp-1 mt-0.5">
+                            {item.skinToneRecommendation}
+                          </p>
                         </div>
 
-                        <motion.button
-                          whileTap={{ scale: 0.96 }}
-                          onClick={() => {
-                            onSelectLook(item.outfit);
-                            document.getElementById("studio")?.scrollIntoView({ behavior: "smooth" });
-                          }}
-                          className="w-full py-1.5 rounded-lg bg-[#181A18] text-white font-bold text-[9px] uppercase tracking-wider flex items-center justify-center gap-1"
+                        <button
+                          onClick={() => onSelectLook(item.outfit)}
+                          className="w-full py-2 rounded-xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-[10px] uppercase tracking-wider transition-all flex items-center justify-center gap-1 shadow-2xs"
                         >
-                          <span>TRY</span>
-                          <ArrowUpRight className="w-2.5 h-2.5" />
-                        </motion.button>
+                          <span>Racik Look</span>
+                          <ArrowUpRight className="w-3 h-3 text-terracotta-400" />
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              /* MOBILE VIEW MODE 2: Full-Width Editorial Feed (Swipe / Scroll) */
+              <div className="space-y-6">
+                {filteredLooks.map((item) => {
+                  const isLiked = likedIds.includes(item.id);
+                  return (
+                    <div
+                      key={item.id}
+                      className="rounded-3xl bg-white border border-[#E8DFD1] shadow-tactile overflow-hidden space-y-3"
+                    >
+                      {/* Photo Frame */}
+                      <div
+                        onClick={() => onSelectLook(item.outfit)}
+                        className="relative w-full aspect-[4/5] bg-sand-200 overflow-hidden cursor-pointer"
+                      >
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          sizes="95vw"
+                          className="object-cover"
+                        />
+                        <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+                          <span className="px-3 py-1 rounded-full bg-black/70 backdrop-blur-xs text-white text-[9px] font-mono font-bold uppercase">
+                            {item.tag}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleLike(item.id);
+                            }}
+                            className="p-2 rounded-full bg-white/90 backdrop-blur-xs shadow-md"
+                          >
+                            <Heart className={`w-4 h-4 ${isLiked ? "fill-rose-500 text-rose-500" : "text-charcoal-900"}`} />
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Card Details */}
+                      <div className="p-4 pt-1 space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-mono text-terracotta-600 font-bold uppercase">
+                            {item.category}
+                          </span>
+                          <span className="text-xs font-mono font-bold text-charcoal-900">
+                            {item.priceRange}
+                          </span>
+                        </div>
+                        <div>
+                          <h4 className="font-serif font-bold text-base text-[#181A18]">
+                            {item.title}
+                          </h4>
+                          <p className="text-xs text-sand-500 mt-0.5">
+                            {item.outfit.tagline}
+                          </p>
+                        </div>
+
+                        {/* Garment Breakdown List */}
+                        <div className="space-y-1.5 pt-1">
+                          {item.outfit.items.slice(0, 3).map((piece, pIdx) => (
+                            <div key={pIdx} className="flex items-center justify-between text-xs py-1 border-b border-sand-100">
+                              <span className="text-charcoal-900/80 font-medium truncate max-w-[200px]">
+                                • {piece.name}
+                              </span>
+                              <span className="text-[11px] font-mono text-sand-500 shrink-0">
+                                {piece.estimatedPrice}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="flex items-center gap-2 pt-2">
+                          <button
+                            onClick={() => onSelectLook(item.outfit)}
+                            className="flex-1 py-3 px-4 rounded-xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                          >
+                            <span>Racik di Studio OOTD</span>
+                            <ArrowUpRight className="w-3.5 h-3.5" />
+                          </button>
+                          <button
+                            onClick={() => setStoryOutfit(item.outfit)}
+                            className="p-3 rounded-xl bg-sand-100 hover:bg-sand-200 border border-sand-300 text-charcoal-900"
+                            title="Bagikan Story"
+                          >
+                            <Share2 className="w-4 h-4 text-terracotta-600" />
+                          </button>
+                        </div>
                       </div>
                     </div>
                   );
@@ -600,191 +513,87 @@ export default function TrendingFeed({ onSelectLook, userSkinTone }: TrendingFee
           <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredLooks.map((item, idx) => {
               const isLiked = likedIds.includes(item.id);
-              const toneColors = getSkinToneColors(item.skinToneRecommendation);
-
               return (
                 <motion.div
                   key={item.id}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.05 }}
-                  whileHover={{ y: -6 }}
-                  className="tactile-card overflow-hidden flex flex-col justify-between group shadow-sm hover:shadow-xl hover:border-[#181A18] transition-all duration-300 bg-white"
+                  transition={{ duration: 0.4, delay: idx * 0.04 }}
+                  whileHover={{ y: -4 }}
+                  className="rounded-3xl bg-white border border-[#E8DFD1] hover:border-charcoal-900 hover:shadow-tactile transition-all overflow-hidden flex flex-col justify-between group"
                 >
-                  {/* Visual Image Banner with Hotspots & Lightbox Trigger */}
-                  <motion.div
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => {
-                      onSelectLook(item.outfit);
-                      document.getElementById("studio")?.scrollIntoView({ behavior: "smooth" });
-                    }}
-                    className="relative w-full aspect-[4/5] bg-sand-200 overflow-hidden cursor-pointer"
-                  >
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      sizes="(max-width: 1200px) 50vw, 25vw"
-                      className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
-                    />
-
-                    {/* Gradient Overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#181A18]/60 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-
-                    {/* Top Tag Badges */}
-                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-                      <span className="px-3 py-1 rounded-full bg-[#181A18]/85 text-[#FAF8F5] text-[9px] font-mono font-bold tracking-widest uppercase backdrop-blur-md border border-white/10 shadow-sm">
-                        {item.tag}
-                      </span>
-
-                      <motion.button
-                        type="button"
-                        whileHover={{ scale: 1.15 }}
-                        whileTap={{ scale: 0.85 }}
-                        aria-label={isLiked ? "Unlike" : "Like"}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          toggleLike(item.id);
-                        }}
-                        className={`pointer-events-auto p-2.5 rounded-full backdrop-blur-md transition-all shadow-md ${
-                          isLiked
-                            ? "bg-terracotta-500 text-white"
-                            : "bg-white/90 hover:bg-white text-[#181A18]"
-                        }`}
-                      >
-                        <Heart
-                          className={`w-3.5 h-3.5 ${isLiked ? "fill-white" : ""}`}
-                        />
-                      </motion.button>
-                    </div>
-
-                    {/* Interactive Hotspot Pin (Top Item) */}
+                  <div>
+                    {/* Visual Photo Card */}
                     <div
-                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setActiveHotspot(activeHotspot === item.id ? null : item.id);
-                      }}
+                      onClick={() => onSelectLook(item.outfit)}
+                      className="relative w-full aspect-[4/5] bg-sand-200 overflow-hidden cursor-pointer"
                     >
-                      <motion.div
-                        whileHover={{ scale: 1.2 }}
-                        className="relative w-6 h-6 flex items-center justify-center cursor-pointer"
-                      >
-                        <span className="absolute w-full h-full rounded-full bg-white/40 animate-ping" />
-                        <span className="w-3 h-3 rounded-full bg-white border-2 border-[#181A18] shadow-md z-10" />
-                      </motion.div>
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 1200px) 50vw, 25vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
 
-                      {/* Tooltip Tag */}
-                      <AnimatePresence>
-                        {activeHotspot === item.id && (
-                          <motion.div
-                            initial={{ opacity: 0, y: 5, scale: 0.9 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: 5, scale: 0.9 }}
-                            className="absolute bottom-7 left-1/2 -translate-x-1/2 bg-[#181A18] text-white p-2 rounded-xl shadow-xl border border-white/20 whitespace-nowrap text-[10px] z-30"
-                          >
-                            <div className="font-bold">{item.outfit.items[0]?.name}</div>
-                            <div className="text-terracotta-400 font-mono text-[9px]">
-                              {item.outfit.items[0]?.estimatedPrice}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-
-                    {/* Bottom Category Overlay & Zoom Hint */}
-                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-                      <span className="text-[9px] font-mono font-bold tracking-widest uppercase bg-[#FAF8F5]/95 text-[#181A18] px-2.5 py-1 rounded-md backdrop-blur-md shadow-sm border border-black/5">
-                        {item.category}
-                      </span>
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setSelectedLightboxLook(item);
-                        }}
-                        className="pointer-events-auto opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-md bg-[#181A18]/80 hover:bg-terracotta-500 text-white backdrop-blur-sm shadow-md"
-                        title="Perbesar Tampilan Foto"
-                      >
-                        <Maximize2 className="w-3.5 h-3.5" />
-                      </button>
-                    </div>
-                  </motion.div>
-
-                  {/* Card Content & Action */}
-                  <div className="p-5 flex flex-col justify-between flex-1 space-y-4">
-                    <div className="space-y-3">
-                      {/* Vibe Micro-Tag */}
-                      <div className="text-[10px] font-mono text-terracotta-600 font-bold tracking-widest uppercase flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-terracotta-500" />
-                        <span>{item.vibe}</span>
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="font-serif font-bold text-xl text-[#181A18] leading-snug group-hover:text-terracotta-500 transition-colors">
-                        {item.title}
-                      </h3>
-
-                      {/* Tone Harmony Pill */}
-                      <div className="p-2.5 rounded-xl bg-[#FAF8F5] border border-[#E8DFD1] space-y-1.5">
-                        <div className="flex items-center justify-between text-[9px] font-mono text-[#A89582] tracking-wider uppercase">
-                          <span>TONE HARMONY</span>
-                          <span className="font-bold text-terracotta-600">IDEAL MATCH</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <div className="flex -space-x-1.5">
-                            {toneColors.map((hex, i) => (
-                              <div
-                                key={i}
-                                className="w-4 h-4 rounded-full border-2 border-white shadow-sm shrink-0"
-                                style={{ backgroundColor: hex }}
-                              />
-                            ))}
-                          </div>
-                          <span className="text-xs font-semibold text-[#181A18] truncate">
-                            {item.skinToneRecommendation}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Budget Hangtag Badge */}
-                      <div className="flex items-center justify-between pt-0.5">
-                        <span className="text-[10px] font-mono tracking-wider uppercase text-[#A89582]">
-                          EST. BUDGET
+                      {/* Top Badges */}
+                      <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+                        <span className="px-2.5 py-0.5 rounded-full bg-white/95 backdrop-blur-xs text-charcoal-900 text-[9px] font-mono font-bold tracking-wider uppercase shadow-xs">
+                          {item.tag}
                         </span>
-                        <span className="text-xs font-mono font-bold text-[#181A18] bg-[#F4EFE6] px-2 py-0.5 rounded-md border border-[#E8DFD1]">
+
+                        <button
+                          type="button"
+                          aria-label={isLiked ? "Unlike" : "Like"}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleLike(item.id);
+                          }}
+                          className="p-2 rounded-full bg-white/90 backdrop-blur-xs shadow-sm hover:scale-110 transition-transform"
+                        >
+                          <Heart className={`w-3.5 h-3.5 ${isLiked ? "fill-rose-500 text-rose-500" : "text-charcoal-900"}`} />
+                        </button>
+                      </div>
+
+                      {/* Bottom Price Tag */}
+                      <div className="absolute bottom-3 left-3">
+                        <span className="px-2.5 py-1 rounded-lg bg-black/70 backdrop-blur-xs text-white text-[10px] font-mono font-bold">
                           {item.priceRange.replace(" / Set", "")}
                         </span>
                       </div>
                     </div>
 
-                    {/* Action Buttons: TRY THIS LOOK & EXPORT STORY */}
-                    <div className="flex items-center gap-2">
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.96 }}
-                        onClick={() => {
-                          onSelectLook(item.outfit);
-                          if (typeof window !== "undefined") {
-                            const el = document.getElementById("studio");
-                            el?.scrollIntoView({ behavior: "smooth" });
-                          }
-                        }}
-                        className="flex-1 py-3 px-4 rounded-xl bg-[#181A18] hover:bg-terracotta-500 text-white font-bold text-xs tracking-widest uppercase transition-all flex items-center justify-center gap-2 shadow-sm group/btn"
-                      >
-                        <span>TRY THIS LOOK</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                      </motion.button>
-
-                      <button
-                        onClick={() => setStoryOutfit(item.outfit)}
-                        className="p-3 rounded-xl bg-sand-100 hover:bg-sand-200 border border-sand-300 text-charcoal-900 transition-colors shadow-2xs"
-                        title="Ekspor Lookbook Story (9:16)"
-                      >
-                        <Share2 className="w-4 h-4 text-terracotta-600" />
-                      </button>
+                    {/* Card Content */}
+                    <div className="p-4 space-y-1.5">
+                      <div className="text-[10px] font-mono text-sand-500 uppercase tracking-wider">
+                        {item.category}
+                      </div>
+                      <h4 className="font-serif font-bold text-base text-[#181A18] line-clamp-1 group-hover:text-terracotta-600 transition-colors">
+                        {item.title}
+                      </h4>
+                      <p className="text-[11px] text-sand-500 line-clamp-1">
+                        {item.skinToneRecommendation}
+                      </p>
                     </div>
+                  </div>
+
+                  {/* Card Actions */}
+                  <div className="p-4 pt-0 flex items-center gap-2">
+                    <button
+                      onClick={() => onSelectLook(item.outfit)}
+                      className="flex-1 py-2.5 px-3 rounded-xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-2xs"
+                    >
+                      <span>Racik Look</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </button>
+                    <button
+                      onClick={() => setStoryOutfit(item.outfit)}
+                      className="p-2.5 rounded-xl bg-sand-100 hover:bg-sand-200 border border-sand-300 text-charcoal-900 transition-colors"
+                      title="Ekspor Story (9:16)"
+                    >
+                      <Share2 className="w-3.5 h-3.5 text-terracotta-600" />
+                    </button>
                   </div>
                 </motion.div>
               );

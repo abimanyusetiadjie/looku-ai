@@ -1,10 +1,12 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sun, CloudSun, Sparkles, X, ArrowRight } from "lucide-react";
 
 export default function DailyReminderBanner() {
+  const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
   const [weatherData, setWeatherData] = useState<{ temp: number; desc: string }>({
     temp: 33,
@@ -65,8 +67,7 @@ export default function DailyReminderBanner() {
 
   const handleScrollToStudio = () => {
     handleDismiss();
-    const el = document.getElementById("studio");
-    el?.scrollIntoView({ behavior: "smooth" });
+    router.push("/studio");
   };
 
   return (

@@ -233,232 +233,153 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
             </p>
           </div>
 
-          {/* Editorial Flatlay & Composition Gallery */}
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-sand-500">
-                SUSUNAN HEAD-TO-TOE
+          {/* Tier Selector & Total Estimate Bar */}
+          <div className="flex flex-wrap items-center justify-between gap-3 border-t border-b border-[#E8DFD1] py-3">
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-mono font-bold uppercase text-sand-500 tracking-wider">
+                TIER BELANJA:
               </span>
-              
               <div className="flex items-center gap-1 bg-sand-100 p-1 rounded-xl border border-sand-200">
                 <button
                   type="button"
-                  onClick={() => setGalleryViewMode("grid")}
-                  className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all ${
-                    galleryViewMode === "grid"
-                      ? "bg-charcoal-900 text-white shadow-2xs"
-                      : "text-sand-500 hover:text-charcoal-900"
+                  onClick={() => {
+                    setActiveBudgetTier("budget");
+                    setToastMsg("Mode Hemat Terjangkau aktif (< Rp 120rb)");
+                    setTimeout(() => setToastMsg(""), 2500);
+                  }}
+                  className={`py-1 px-2.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all ${
+                    activeBudgetTier === "budget"
+                      ? "bg-charcoal-900 text-white shadow-xs"
+                      : "text-charcoal-700 hover:text-charcoal-900"
                   }`}
                 >
-                  4-Grid
+                  Hemat
                 </button>
                 <button
                   type="button"
-                  onClick={() => setGalleryViewMode("rack")}
-                  className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all ${
-                    galleryViewMode === "rack"
-                      ? "bg-charcoal-900 text-white shadow-2xs"
-                      : "text-sand-500 hover:text-charcoal-900"
+                  onClick={() => {
+                    setActiveBudgetTier("mall");
+                    setToastMsg("Mode Official Store & Mall aktif");
+                    setTimeout(() => setToastMsg(""), 2500);
+                  }}
+                  className={`py-1 px-2.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all ${
+                    activeBudgetTier === "mall"
+                      ? "bg-charcoal-900 text-white shadow-xs"
+                      : "text-charcoal-700 hover:text-charcoal-900"
                   }`}
                 >
-                  Rack
+                  Mall
                 </button>
               </div>
             </div>
 
-            {galleryViewMode === "grid" ? (
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                {(outfit.flatlayImages && outfit.flatlayImages.length === 4
-                  ? outfit.flatlayImages
-                  : [
-                      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=300&auto=format&fit=crop&q=80",
-                      "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=300&auto=format&fit=crop&q=80",
-                      "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=300&auto=format&fit=crop&q=80",
-                      "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=300&auto=format&fit=crop&q=80",
-                    ]
-                ).map((imgUrl, i) => {
-                  const labels = ["Atasan", "Bawahan", "Outer/Hijab", "Alas Kaki"];
-                  const pieceNums = ["01", "02", "03", "04"];
-                  return (
-                    <div
-                      key={i}
-                      className="relative aspect-square rounded-2xl overflow-hidden bg-sand-100 border border-sand-200 group/img"
-                    >
-                      <img
-                        src={imgUrl}
-                        alt={labels[i] || "Piece"}
-                        className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700 ease-out"
-                      />
-                      <div className="absolute top-2 left-2">
-                        <span className="px-2 py-0.5 rounded bg-charcoal-900/80 text-white text-[8px] font-mono font-bold tracking-widest backdrop-blur-xs">
-                          P.{pieceNums[i]}
-                        </span>
-                      </div>
-                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal-900/90 via-charcoal-900/40 to-transparent p-2 text-center">
-                        <span className="text-[9px] font-mono text-white font-bold uppercase tracking-wider block truncate">
-                          {labels[i]}
-                        </span>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            ) : (
-              <div className="p-4 bg-sand-50 rounded-2xl border border-sand-200 space-y-3">
-                <div className="relative pl-6 space-y-3.5 before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-sand-300">
-                  {items.map((item, idx) => (
-                    <div key={idx} className="relative flex items-center justify-between gap-3 text-xs">
-                      <div
-                        className="absolute -left-6 w-3 h-3 rounded-full border-2 border-white shadow-xs"
-                        style={{ backgroundColor: item.colorHex || "#C69365" }}
-                      />
-                      <div className="flex-1 truncate">
-                        <div className="flex items-center gap-1.5">
-                          <span className="text-[9px] font-mono font-bold text-terracotta-600 uppercase tracking-wider">
-                            {item.category === "outer_hijab" ? "P.01 • KEPALA/HIJAB" : idx === 0 ? "P.02 • ATASAN" : idx === 1 ? "P.03 • BAWAHAN" : "P.04 • ALAS KAKI"}
-                          </span>
-                          <span className="text-[9px] font-mono text-sand-500">• {item.color}</span>
-                        </div>
-                        <div className="font-bold text-charcoal-900 truncate text-xs sm:text-sm">{item.name}</div>
-                      </div>
-                      <span className="text-[10px] font-mono font-semibold text-charcoal-800 bg-white px-2 py-0.5 rounded border border-sand-200 shrink-0">
-                        {item.material}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Tier Selector: Clean Minimalist Pill Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-3 border-t border-b border-[#E8DFD1] py-3">
-            <span className="text-[10px] font-mono font-bold uppercase text-sand-500 tracking-wider">
-              TIER BELANJA:
-            </span>
-            <div className="flex items-center gap-1 bg-sand-100 p-1 rounded-xl border border-sand-200">
-              <button
-                type="button"
-                onClick={() => {
-                  setActiveBudgetTier("budget");
-                  setToastMsg("Mode Hemat Terjangkau aktif (< Rp 120rb)");
-                  setTimeout(() => setToastMsg(""), 2500);
-                }}
-                className={`py-1.5 px-3 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all ${
-                  activeBudgetTier === "budget"
-                    ? "bg-charcoal-900 text-white shadow-xs"
-                    : "text-charcoal-700 hover:text-charcoal-900"
-                }`}
-              >
-                Hemat Mahasiswa
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setActiveBudgetTier("mall");
-                  setToastMsg("Mode Official Store & Mall aktif");
-                  setTimeout(() => setToastMsg(""), 2500);
-                }}
-                className={`py-1.5 px-3 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all ${
-                  activeBudgetTier === "mall"
-                    ? "bg-charcoal-900 text-white shadow-xs"
-                    : "text-charcoal-700 hover:text-charcoal-900"
-                }`}
-              >
-                Official Mall
-              </button>
+            <div className="text-[10px] font-mono font-bold text-charcoal-900 bg-sand-100 px-2.5 py-1 rounded-full border border-sand-200">
+              {activeBudgetTier === "mall" ? "TOTAL EST: ~Rp 650rb (Mall)" : "TOTAL EST: ~Rp 185rb (Hemat)"}
             </div>
           </div>
 
-          {/* Curated Garment Breakdown List */}
-          <div className="space-y-4">
+          {/* 2-Column Shoppable Pieces Grid (Fashion Commerce Standard) */}
+          <div className="space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-mono tracking-wider uppercase text-sand-500 font-bold">
-                RINCIAN ITEM &amp; LINK TOKO RESMI
+                BEDAH 4 ITEM BUSANA (BELI DI MARKETPLACE)
               </span>
-              <span className="text-[10px] font-mono font-bold text-charcoal-900 bg-sand-100 px-2.5 py-0.5 rounded-full border border-sand-200">
-                {activeBudgetTier === "mall" ? "TOTAL EST: ~Rp 650rb (Mall)" : "TOTAL EST: ~Rp 185rb (Hemat)"}
+              <span className="text-[9px] font-mono text-terracotta-600 font-bold">
+                TAP SHOPEE / TOKPED
               </span>
             </div>
 
-            <div className="space-y-3">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {items.map((item, index) => {
                 const links = getMarketplaceLinks(item.shopeeQuery);
                 const catLabel = item.category === "outer_hijab" ? "Hijab/Outer" : item.category.charAt(0).toUpperCase() + item.category.slice(1);
+                const fallbackImages = [
+                  "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=400&auto=format&fit=crop&q=80",
+                  "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&auto=format&fit=crop&q=80",
+                  "https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?w=400&auto=format&fit=crop&q=80",
+                  "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&auto=format&fit=crop&q=80",
+                ];
+                const itemImage = item.imageUrl || outfit.flatlayImages?.[index] || fallbackImages[index % fallbackImages.length];
+
                 return (
                   <div
                     key={index}
-                    className="p-4 sm:p-5 rounded-2xl bg-white border border-sand-200 hover:border-charcoal-900 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+                    className="rounded-2xl sm:rounded-3xl bg-white border border-sand-200 hover:border-charcoal-900 transition-all overflow-hidden flex flex-col justify-between shadow-2xs group/card"
                   >
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-2">
-                        {item.isOwnedItem ? (
-                          <span className="text-[9px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
-                            KOLEKSI SENDIRI
-                          </span>
-                        ) : (
-                          <>
-                            <span className="text-[9px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 rounded bg-sand-100 text-charcoal-900 border border-sand-200">
-                              {getCategoryTag(item.category)}
-                            </span>
-                            <span className="text-[8px] font-mono font-bold px-1.5 py-0.5 rounded bg-charcoal-900 text-white">
-                              {activeBudgetTier === "mall" ? "Shopee Mall" : "Star+ Seller"}
-                            </span>
-                          </>
-                        )}
-                        <span className="text-xs text-sand-400">•</span>
-                        <span className="text-xs font-semibold text-terracotta-600">
-                          {item.color}
+                    {/* Garment Image + Category Badge + Swap Button */}
+                    <div className="relative aspect-square sm:aspect-[4/3] bg-sand-100 overflow-hidden">
+                      <img
+                        src={itemImage}
+                        alt={item.name}
+                        className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
+                      />
+
+                      {/* Top Category Badge */}
+                      <div className="absolute top-2 left-2">
+                        <span className="px-2 py-0.5 rounded-md bg-charcoal-900/85 text-white text-[8px] font-mono font-bold uppercase tracking-wider backdrop-blur-xs">
+                          {getCategoryTag(item.category)}
                         </span>
                       </div>
 
-                      <h4 className="font-bold text-sm sm:text-base text-charcoal-900">
-                        {item.name}
-                      </h4>
-
-                      <div className="flex flex-wrap items-center gap-2 text-xs text-charcoal-700">
-                        <span className="text-[11px] font-mono text-sand-500 uppercase">BAHAN:</span>
-                        <span className="font-medium text-charcoal-900">{item.material}</span>
-                        <span>•</span>
-                        <span className="text-[11px] font-mono text-sand-500 uppercase">EST:</span>
-                        <span className="font-mono text-charcoal-900 font-bold bg-sand-50 px-2 py-0.5 rounded border border-sand-200">
-                          {item.isOwnedItem
-                            ? "Milik Pribadi (Rp 0)"
-                            : activeBudgetTier === "mall"
-                            ? "Rp 249.000 - 450.000"
-                            : item.estimatedPrice}
-                        </span>
-                      </div>
-                      
+                      {/* Top Swap Button */}
                       {!item.isOwnedItem && (
                         <button
+                          type="button"
                           onClick={() => handleSwapItem(index)}
-                          className="mt-1 text-[10px] font-mono font-bold text-terracotta-600 hover:text-terracotta-700 flex items-center gap-1 transition-colors"
+                          className="absolute top-2 right-2 px-2 py-0.5 rounded-lg bg-white/95 hover:bg-white text-charcoal-900 text-[8px] font-mono font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm transition-all"
+                          title={`Ganti varian ${catLabel}`}
                         >
-                          <span>↻ Ganti Pilihan {catLabel}</span>
+                          <span>↻ Ganti</span>
                         </button>
                       )}
+
+                      {/* Bottom Color Chip */}
+                      <div className="absolute bottom-2 left-2 flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-white/95 backdrop-blur-xs text-[9px] font-mono font-semibold text-charcoal-900 shadow-2xs">
+                        <span
+                          className="w-2.5 h-2.5 rounded-full border border-black/10 shrink-0"
+                          style={{ backgroundColor: item.colorHex || "#C69365" }}
+                        />
+                        <span className="truncate max-w-[85px]">{item.color}</span>
+                      </div>
                     </div>
 
-                    {/* Dual Marketplace Direct Actions */}
-                    <div className="flex items-center gap-2 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-sand-200">
+                    {/* Garment Details & Actions */}
+                    <div className="p-3 space-y-2 flex flex-col justify-between flex-1">
+                      <div className="space-y-0.5">
+                        <h4 className="font-bold text-xs sm:text-sm text-charcoal-900 line-clamp-1 leading-snug">
+                          {item.name}
+                        </h4>
+                        <p className="text-[10px] text-sand-500 line-clamp-1">
+                          {item.material}
+                        </p>
+                        <div className="pt-0.5">
+                          <span className="text-[11px] sm:text-xs font-mono font-bold text-charcoal-900">
+                            {item.isOwnedItem
+                              ? "Koleksi Sendiri (Rp 0)"
+                              : activeBudgetTier === "mall"
+                              ? "Rp 249rb - 450rb"
+                              : item.estimatedPrice}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Dual Marketplace Direct Buttons (Side-by-Side) */}
                       {item.isOwnedItem ? (
-                        <div className="px-3 py-1.5 bg-sand-100 text-charcoal-900 font-mono text-[10px] font-bold rounded-xl border border-sand-200">
-                          Tersedia di Lemarimu
+                        <div className="py-2 bg-emerald-50 text-emerald-800 font-mono text-[10px] font-bold rounded-xl border border-emerald-200 text-center">
+                          ✓ Ada di Lemarimu
                         </div>
                       ) : (
-                        <div className="flex items-center gap-2 w-full sm:w-auto">
+                        <div className="grid grid-cols-2 gap-1.5 pt-1">
                           <motion.a
                             href={links.shopee + (activeBudgetTier === "mall" ? "%20official%20store" : "")}
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => trackAffiliateClick("shopee", item.shopeeQuery || item.name, "outfit_card")}
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="flex-1 sm:flex-initial px-3.5 py-2 rounded-xl bg-[#EE4D2D] hover:bg-[#d63b1d] text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-xs"
-                            title="Buka di Shopee"
+                            whileTap={{ scale: 0.96 }}
+                            className="py-2 px-1 rounded-xl bg-[#EE4D2D] hover:bg-[#d63b1d] text-white text-[10px] sm:text-[11px] font-bold transition-all flex items-center justify-center gap-1 shadow-2xs"
+                            title="Beli di Shopee"
                           >
-                            <ShopeeIcon className="w-3.5 h-3.5" />
+                            <ShopeeIcon className="w-3 h-3 shrink-0" />
                             <span>Shopee</span>
                           </motion.a>
 
@@ -467,12 +388,11 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => trackAffiliateClick("tokopedia", item.shopeeQuery || item.name, "outfit_card")}
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="flex-1 sm:flex-initial px-3.5 py-2 rounded-xl bg-[#00AA5B] hover:bg-[#008f4c] text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-xs"
-                            title="Buka di Tokopedia"
+                            whileTap={{ scale: 0.96 }}
+                            className="py-2 px-1 rounded-xl bg-[#00AA5B] hover:bg-[#008f4c] text-white text-[10px] sm:text-[11px] font-bold transition-all flex items-center justify-center gap-1 shadow-2xs"
+                            title="Beli di Tokopedia"
                           >
-                            <TokopediaIcon className="w-3.5 h-3.5" />
+                            <TokopediaIcon className="w-3 h-3 shrink-0" />
                             <span>Tokped</span>
                           </motion.a>
                         </div>
