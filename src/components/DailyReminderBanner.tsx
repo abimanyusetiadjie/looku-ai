@@ -52,9 +52,8 @@ export default function DailyReminderBanner() {
       );
     }
 
-    // Tampilkan banner dengan delay halus 800ms
-    const timer = setTimeout(() => setIsVisible(true), 800);
-    return () => clearTimeout(timer);
+    // Tampilkan banner langsung tanpa delay layout shift
+    setIsVisible(true);
   }, []);
 
   const handleDismiss = () => {
@@ -74,10 +73,10 @@ export default function DailyReminderBanner() {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: "auto", opacity: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
-          transition={{ duration: 0.35, ease: "easeInOut" }}
+          transition={{ duration: 0.15 }}
           className="bg-gradient-to-r from-[#181A18] via-[#2B2620] to-[#181A18] text-sand-50 border-b border-white/10 overflow-hidden relative z-30"
         >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between gap-3 text-xs">
