@@ -24,7 +24,7 @@ export default function LookbookPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F5] pb-36 md:pb-0">
+    <div className="min-h-screen flex flex-col bg-[#FAF8F5] pb-20 md:pb-0">
       {/* Lookbook App Header Bar */}
       <header className="sticky top-0 z-40 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#E8DFD1] pt-[max(0px,env(safe-area-inset-top))]">
         <div className="max-w-md md:max-w-6xl mx-auto px-4 md:px-6 lg:px-8 h-12 md:h-14 flex items-center justify-between">
@@ -72,19 +72,6 @@ export default function LookbookPage() {
           <OOTDChallengeSection />
         </div>
       </main>
-
-      {/* Floating CTA Mobile */}
-      <div className="md:hidden fixed bottom-[76px] inset-x-0 z-40 pointer-events-none flex justify-center pb-2">
-        <div className="w-full max-w-md px-4 flex justify-center">
-          <Link
-            href="/studio"
-            className="pointer-events-auto w-full flex items-center justify-center gap-2 py-3.5 rounded-full bg-sage-600 hover:bg-sage-700 text-white font-bold text-sm shadow-lg shadow-sage-600/20 active:scale-[0.98] transition-all"
-          >
-            <Sparkles className="w-4 h-4 text-sage-200" />
-            <span>Racik OOTD di Studio ➔</span>
-          </Link>
-        </div>
-      </div>
 
       {/* Docked Native Bottom Navigation Bar */}
       <BottomNav />

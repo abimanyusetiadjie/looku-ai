@@ -241,14 +241,15 @@ export default function ProfilePage() {
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF8F5] pb-28 md:pb-16 text-charcoal-900">
       {/* Top Header Bar */}
-      <header className="sticky top-0 z-40 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#E8DFD1]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <header className="sticky top-0 z-40 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#E8DFD1] pt-[max(0px,env(safe-area-inset-top))]">
+        <div className="max-w-md md:max-w-5xl mx-auto px-4 sm:px-6 h-14 md:h-16 flex items-center justify-between">
           <Link
             href="/"
-            className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-charcoal-900/70 hover:text-charcoal-900 transition-colors"
+            className="flex items-center gap-1.5 p-2 md:p-0 rounded-xl bg-white md:bg-transparent border md:border-0 border-sand-300 text-xs font-bold uppercase tracking-wider text-charcoal-900/70 hover:text-charcoal-900 transition-colors shadow-2xs md:shadow-none"
+            aria-label="Kembali ke Beranda"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Kembali ke Beranda</span>
+            <span className="hidden md:inline">Kembali ke Beranda</span>
           </Link>
 
           <div className="font-serif italic font-bold text-xl text-[#181A18] flex items-baseline">
@@ -259,16 +260,17 @@ export default function ProfilePage() {
           </div>
 
           <Link
-            href="/#studio"
-            className="py-2 px-3.5 rounded-xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-1.5 shadow-sm"
+            href="/studio"
+            className="py-1.5 px-3 md:py-2 md:px-3.5 rounded-xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-1.5 shadow-sm"
           >
-            <Sparkles className="w-3.5 h-3.5" />
+            <Sparkles className="w-3.5 h-3.5 text-terracotta-400" />
             <span className="hidden sm:inline">Buka Studio</span>
+            <span className="inline sm:hidden">Studio</span>
           </Link>
         </div>
       </header>
 
-      <main className="flex-1 max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-10 w-full space-y-6 sm:space-y-8">
+      <main className="flex-1 max-w-md md:max-w-5xl mx-auto px-4 sm:px-6 py-4 sm:py-10 w-full space-y-6 sm:space-y-8">
         {/* 0. Quick Role Switcher Simulator (Demo & Mode Penyesuaian) */}
         <div className="p-3 rounded-2xl bg-sand-100 border border-sand-300 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
           <div className="flex items-center gap-2 text-xs font-bold text-charcoal-900">

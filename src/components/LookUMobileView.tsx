@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { 
   Sun, 
@@ -18,7 +19,8 @@ import {
   Heart, 
   ThermometerSun, 
   Layers, 
-  Bookmark
+  Bookmark,
+  User
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -65,7 +67,7 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
     suhu: "33°C Tropis Siang Hari",
     sirkulasiUdara: "98.4% Sirkulasi Udara Optimal",
     alasanCocok: "Kombinasi serat linen alami dan voal paris berpori mikro melepas panas tubuh seketika tanpa menerawang, sangat santun untuk hijab santai maupun semi-formal.",
-    gambar: "https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?w=900&auto=format&fit=crop&q=85",
+    gambar: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=900&auto=format&fit=crop&q=85",
     paletWarna: [
       { nama: "Krem Oat", hex: "#FAF6EE" },
       { nama: "Sage Green", hex: "#6B8E68" },
@@ -416,39 +418,67 @@ export default function LookUMobileView({
   return (
     <div className="relative w-full min-h-screen bg-[#FAF8F5] text-[#181A18] font-sans antialiased selection:bg-sage-200 flex flex-col items-center justify-start">
       {/* Kontainer Layar Ponsel (max-w-md mx-auto) */}
-      <div className="w-full max-w-md min-h-screen bg-[#FAF8F5] border-x border-[#E8DFD1]/50 shadow-2xl relative flex flex-col pb-36">
+      <div className="w-full max-w-md min-h-screen bg-[#FAF8F5] border-x border-[#E8DFD1]/50 shadow-2xl relative flex flex-col pb-24">
         
         {/* ============================================================ */}
-        {/* 1. HEADER ATAS (Sticky / Safe Area)                          */}
+        {/* 1. HEADER ATAS (Sticky / Safe Area dengan Brand look.u)       */}
         {/* ============================================================ */}
         <header className="sticky top-0 z-30 w-full bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#E8DFD1]/80 px-4 pt-[max(12px,env(safe-area-inset-top))] pb-3 transition-all">
           <div className="flex items-center justify-between gap-2">
-            {/* Kiri: Sapaan Pengguna */}
-            <div className="flex flex-col">
-              <div className="flex items-center gap-1.5">
-                <span className="inline-block w-2 h-2 rounded-full bg-sage-500 animate-pulse" />
-                <h1 className="text-lg font-bold tracking-tight text-[#181A18] leading-tight">
-                  Halo, Cantik! ✨
-                </h1>
-              </div>
-              <p className="text-xs text-sand-500 font-medium leading-none mt-0.5">
-                Siap tampil memikat tanpa gerah
-              </p>
-            </div>
-
-            {/* Kanan: Badge Cuaca Interaktif */}
-            <div 
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-50/90 border border-amber-200/90 text-amber-900 shadow-2xs cursor-pointer hover:bg-amber-100 transition-colors min-h-[44px]"
-              title="Kondisi cuaca harian di wilayah Jakarta"
-              onClick={() => triggerNotification("Cuaca Jakarta 33°C: Kelembapan 74%. Formula pakaian anti-gerah aktif.")}
-            >
-              <div className="w-5 h-5 rounded-full bg-amber-400/20 flex items-center justify-center shrink-0">
-                <Sun className="w-3.5 h-3.5 text-amber-600 animate-[spin_12s_linear_infinite]" />
-              </div>
-              <span className="text-[11px] font-semibold tracking-tight whitespace-nowrap">
-                Jakarta • 33°C Cerah Berawan
+            {/* Kiri: Brand look.u Fashion Logo */}
+            <div className="flex items-center gap-2">
+              <Link 
+                href="/" 
+                className="font-serif italic font-extrabold text-2xl tracking-tight text-[#181A18] flex items-baseline select-none"
+              >
+                look<span className="text-terracotta-500 not-italic">.</span>u
+              </Link>
+              <span className="text-[9px] font-mono font-bold uppercase tracking-wider bg-sage-100 text-sage-800 px-2 py-0.5 rounded-full border border-sage-200/70">
+                AI STYLIST
               </span>
             </div>
+
+            {/* Kanan: Badge Cuaca + Profile Avatar Button */}
+            <div className="flex items-center gap-2">
+              <button 
+                type="button"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-amber-50/90 border border-amber-200/90 text-amber-900 shadow-2xs hover:bg-amber-100 transition-colors min-h-[38px] text-[11px] font-semibold"
+                title="Kondisi cuaca harian di wilayah Jakarta"
+                onClick={() => triggerNotification("Cuaca Jakarta 33°C: Kelembapan 74%. Formula katun rayon & linen adem aktif.")}
+              >
+                <div className="w-4 h-4 rounded-full bg-amber-400/20 flex items-center justify-center shrink-0">
+                  <Sun className="w-3 h-3 text-amber-600 animate-[spin_12s_linear_infinite]" />
+                </div>
+                <span>Jakarta • 33°C</span>
+              </button>
+
+              {/* Tombol Profil & Pengaturan (Akses Langsung Akun) */}
+              <Link
+                href="/profile"
+                className="relative w-9 h-9 rounded-full bg-white border border-sand-300 shadow-2xs hover:border-charcoal-900 active:scale-95 transition-all flex items-center justify-center text-charcoal-900 group shrink-0"
+                aria-label="Profil & Pengaturan Gaya"
+                title="Profil, Riwayat & Preferensi Gaya"
+              >
+                <User className="w-4 h-4 text-stone-700 group-hover:text-terracotta-600 transition-colors" />
+                <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-white" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Sub-bar: Sapaan Personal & Tagline Tropis */}
+          <div className="mt-2.5 pt-2 border-t border-sand-200/60 flex items-center justify-between">
+            <div className="flex items-center gap-1.5">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-sage-500 animate-pulse" />
+              <h1 className="text-xs font-bold text-[#181A18] leading-none">
+                Halo, Cantik! ✨
+              </h1>
+              <span className="text-[11px] text-sand-500 font-medium">
+                • Siap tampil stylish tanpa gerah
+              </span>
+            </div>
+            <span className="text-[9px] font-mono uppercase tracking-widest text-terracotta-600 font-bold bg-terracotta-50 px-1.5 py-0.5 rounded border border-terracotta-100">
+              IKLIM 33°C
+            </span>
           </div>
         </header>
 
@@ -757,23 +787,6 @@ export default function LookUMobileView({
             </div>
           </section>
         </main>
-
-        {/* ============================================================ */}
-        {/* 5. STICKY PRIMARY CTA (Melayang di Atas Bottom Nav)          */}
-        {/* ============================================================ */}
-        <div className="fixed bottom-[74px] left-0 right-0 z-35 pointer-events-none">
-          <div className="max-w-md mx-auto px-4 pointer-events-auto">
-            <button
-              type="button"
-              onClick={() => handleLaunchStudio(heroOutfit)}
-              className="w-full h-14 rounded-full bg-sage-600 hover:bg-sage-700 active:scale-[0.98] text-white font-bold text-base shadow-[0_8px_24px_rgba(85,115,82,0.38)] flex items-center justify-center gap-2 transition-all border border-sage-500/40"
-              aria-label="Racik OOTD Anti-Gerahku"
-            >
-              <Sparkles className="w-5 h-5 text-cream-200" />
-              <span>Racik OOTD Anti-Gerahku ➔</span>
-            </button>
-          </div>
-        </div>
 
         {/* ============================================================ */}
         {/* 6. BOTTOM NAVIGATION BAR (Fixed di Bawah dengan Safe Area)    */}
