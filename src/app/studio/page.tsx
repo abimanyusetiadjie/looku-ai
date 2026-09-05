@@ -251,10 +251,10 @@ export default function StudioPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F5] pb-28 md:pb-0">
+    <div className="min-h-screen flex flex-col bg-[#FAF8F5] pb-32 md:pb-0">
       {/* Studio Header Bar */}
-      <header className="sticky top-0 z-40 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#E8DFD1]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <header className="sticky top-0 z-40 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#E8DFD1] pt-[max(0px,env(safe-area-inset-top))]">
+        <div className="max-w-md md:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link href="/" className="font-serif italic font-bold text-2xl text-[#181A18] flex items-baseline">
             look<span className="text-terracotta-500 not-italic">.</span>u
           </Link>
@@ -279,7 +279,7 @@ export default function StudioPage() {
       </header>
 
       {/* Main Studio Container */}
-      <main className="flex-1 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8 w-full">
+      <main className="flex-1 max-w-md md:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8 w-full">
         {/* Sleek Minimal Desktop Header (Hidden on Mobile) */}
         <div className="hidden sm:flex items-center justify-between gap-4 pb-4 mb-6 border-b border-sand-200">
           <div className="flex items-center gap-3">
@@ -382,7 +382,7 @@ export default function StudioPage() {
         </div>
 
         {/* Weekly Outfit Calendar (7-Day Planner Accordion) */}
-        <div className="mt-8 pt-6 border-t border-sand-200">
+        <div className="hidden md:block mt-8 pt-6 border-t border-sand-200">
           <button
             type="button"
             onClick={() => setIsCalendarOpen(!isCalendarOpen)}

@@ -104,16 +104,16 @@ export default function LemariPage() {
   const uniqueVibes = Array.from(new Set(savedOutfits.map((o) => o.overallVibe).filter(Boolean)));
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F5] text-charcoal-900 pb-28 md:pb-16">
+    <div className="min-h-screen flex flex-col bg-[#FAF8F5] text-charcoal-900 pb-32 md:pb-16">
       {/* Header */}
-      <header className="sticky top-0 z-40 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#E8DFD1]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+      <header className="sticky top-0 z-40 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#E8DFD1] pt-[max(0px,env(safe-area-inset-top))]">
+        <div className="max-w-md md:max-w-6xl mx-auto px-4 sm:px-6 h-14 md:h-20 flex items-center justify-between">
           <Link
             href="/"
             className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-charcoal-900/70 hover:text-charcoal-900 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Kembali ke Beranda</span>
+            <span className="hidden md:inline">Kembali ke Beranda</span>
           </Link>
 
           <div className="font-serif italic font-bold text-2xl text-[#181A18] flex items-baseline">
@@ -144,17 +144,17 @@ export default function LemariPage() {
       </header>
 
       {/* Main Container */}
-      <main className="flex-1 max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10 w-full space-y-8">
+      <main className="flex-1 max-w-md md:max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10 w-full space-y-8">
         {/* Top Hero Banner */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-white border border-[#E8DFD1] shadow-tactile relative overflow-hidden flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+        <div className="p-4 md:p-6 sm:p-8 rounded-3xl bg-white border border-[#E8DFD1] shadow-tactile relative overflow-hidden flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div className="space-y-2">
-            <div className="flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-terracotta-500" />
               <span className="text-[10px] font-mono uppercase font-bold tracking-widest text-terracotta-600">
                 PERSONAL DIGITAL CLOSET
               </span>
             </div>
-            <h1 className="font-serif text-2xl sm:text-4xl font-bold text-[#181A18] tracking-tight">
+            <h1 className="font-serif text-xl md:text-2xl sm:text-4xl font-bold text-[#181A18] tracking-tight">
               Lemari Busana Terkurasi Kamu
             </h1>
             <p className="text-xs sm:text-sm text-sand-500">
@@ -246,7 +246,7 @@ export default function LemariPage() {
                 layout
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="p-6 sm:p-7 rounded-3xl bg-white border border-[#E8DFD1] shadow-tactile flex flex-col justify-between space-y-6"
+                className="p-4 md:p-6 sm:p-7 rounded-3xl bg-white border border-[#E8DFD1] shadow-tactile flex flex-col justify-between space-y-6"
               >
                 {/* Card Header */}
                 <div className="space-y-3">
