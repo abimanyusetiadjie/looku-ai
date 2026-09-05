@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { 
@@ -17,10 +17,10 @@ import {
   Eye, 
   Heart, 
   Layers, 
-  Shirt,
-  ChevronRight,
-  ExternalLink,
-  Store
+  Shirt, 
+  ChevronRight, 
+  ExternalLink, 
+  Store 
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -28,7 +28,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
-import BottomNav from "@/components/BottomNav";
+import LookUMobileView from "@/components/LookUMobileView";
 import Toast, { ToastMessage } from "@/components/Toast";
 import { OOTDRecommendation } from "@/lib/types";
 import { PRESET_OOTD_COLLECTION, TRENDING_LOOKS_FEED } from "@/lib/presets";
@@ -51,6 +51,30 @@ export default function HomePage() {
   const [isSavedDrawerOpen, setIsSavedDrawerOpen] = useState(false);
   const [storyOutfitToExport, setStoryOutfitToExport] = useState<OOTDRecommendation | null>(null);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
+  const [savedCount, setSavedCount] = useState<number>(0);
+
+  // Sinkronisasi jumlah outfit tersimpan untuk badge Lemari
+  useEffect(() => {
+    const updateCount = () => {
+      try {
+        const stored = localStorage.getItem("looku_saved_outfits");
+        if (stored) {
+          setSavedCount(JSON.parse(stored).length);
+        } else {
+          setSavedCount(0);
+        }
+      } catch {
+        setSavedCount(0);
+      }
+    };
+    updateCount();
+    window.addEventListener("storage", updateCount);
+    const interval = setInterval(updateCount, 2000);
+    return () => {
+      window.removeEventListener("storage", updateCount);
+      clearInterval(interval);
+    };
+  }, []);
 
   // Spotlight Look of the Day
   const spotlightOutfit = PRESET_OOTD_COLLECTION["kuliah_hijab_panas_hemat"];
@@ -94,10 +118,26 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F5] pb-24 md:pb-0">
-      {/* 1. Header & Top Navigation Bar */}
-      <Navbar
-        onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)}
+    <div className="min-h-screen flex flex-col bg-[#FAF8F5]">
+      {/* ============================================================ */}
+      {/* TAMPILAN MOBILE-FIRST KHUSUS PONSEL (< 768px / md:hidden)     */}
+      {/* ============================================================ */}
+      <div className="block md:hidden w-full">
+        <LookUMobileView
+          onOpenQuiz={() => setIsQuizOpen(true)}
+          onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)}
+          savedCount={savedCount}
+        />
+      </div>
+
+      {/* ============================================================ */}
+      {/* TAMPILAN DESKTOP LENGKAP (>= 768px / hidden md:flex)         */}
+      {/* 100% DIPERTAHANKAN UTUH TANPA MERUSAK TAMPILAN DESKTOP       */}
+      {/* ============================================================ */}
+      <div className="hidden md:flex flex-col min-h-screen">
+        {/* 1. Header & Top Navigation Bar */}
+        <Navbar
+          onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)}
         onOpenQuiz={() => setIsQuizOpen(true)}
         onOpenClone={() => setIsCloneModalOpen(true)}
         onOpenCatalog={() => setIsCatalogOpen(true)}
@@ -538,15 +578,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 10. Footer */}
-      <div className="cv-auto">
-        <Footer />
+        {/* 10. Footer */}
+        <div className="cv-auto">
+          <Footer />
+        </div>
       </div>
 
-      {/* 11. Docked Native Mobile Bottom Navigation Bar */}
-      <BottomNav onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)} />
-
-      {/* Modals Loaded On-Demand */}
+      {/* Modals Loaded On-Demand - Terhubung Bersama untuk Mobile & Desktop */}
       {isSavedDrawerOpen && (
         <SavedLooksDrawer
           isOpen={isSavedDrawerOpen}
