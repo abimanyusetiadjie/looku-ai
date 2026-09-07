@@ -103,10 +103,10 @@ export default function BottomNav({ onOpenSavedDrawer, onOpenQuiz }: BottomNavPr
               >
                 <div className="relative flex items-center justify-center">
                   <Icon
-                    className={`w-[22px] h-[22px] transition-all ${
+                    className={`w-[22px] h-[22px] stroke-[2] transition-colors ${
                       isActive
-                        ? "text-sage-700 stroke-[2.2]"
-                        : "text-stone-400 stroke-[1.75]"
+                        ? "text-sage-700"
+                        : "text-stone-400"
                     }`}
                   />
                 </div>
@@ -158,10 +158,10 @@ export default function BottomNav({ onOpenSavedDrawer, onOpenQuiz }: BottomNavPr
               >
                 <div className="relative flex items-center justify-center">
                   <Icon
-                    className={`w-[22px] h-[22px] transition-all ${
+                    className={`w-[22px] h-[22px] stroke-[2] transition-colors ${
                       isActive
-                        ? "text-sage-700 stroke-[2.2]"
-                        : "text-stone-400 stroke-[1.75]"
+                        ? "text-sage-700"
+                        : "text-stone-400"
                     }`}
                   />
 
