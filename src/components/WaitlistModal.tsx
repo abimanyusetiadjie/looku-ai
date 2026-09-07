@@ -66,12 +66,13 @@ export default function WaitlistModal({ onClose }: WaitlistModalProps) {
         animate={{ scale: 1, opacity: 1, y: 0 }}
         exit={{ scale: 0.94, opacity: 0, y: 20 }}
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-        className="relative w-full max-w-md bg-[#FAF8F5] rounded-3xl p-6 sm:p-8 shadow-2xl border border-[#D7CABC] overflow-hidden"
+        className="relative w-full max-w-md bg-[#FAF8F5] rounded-3xl p-6 sm:p-8 shadow-2xl border border-[#D7CABC] max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain"
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 text-[#A89582] hover:text-[#181A18] transition-colors"
+          className="absolute top-4 right-4 p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-[#A89582] hover:text-[#181A18] transition-colors z-10"
+          aria-label="Tutup Modal"
         >
           <X className="w-5 h-5" />
         </button>

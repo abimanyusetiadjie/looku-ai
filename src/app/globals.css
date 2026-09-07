@@ -171,3 +171,16 @@ h1, h2, h3, h4 {
     -webkit-backdrop-filter: blur(6px);
   }
 }
+
+/* Accessibility & iOS Safari auto-zoom prevention: inputs must be >= 16px on mobile */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="password"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}

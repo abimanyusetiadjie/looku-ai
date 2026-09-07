@@ -93,6 +93,17 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
     }
   };
 
+  // Body scroll-lock when mobile drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [mobileMenuOpen]);
+
   return (
     <>
       <header className="sticky top-0 z-40 w-full bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#E8DFD1]">
@@ -132,7 +143,7 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
             </nav>
 
             {/* Right Action Area: Dropdown Fitur + Lemari + VIP */}
-            <div className="hidden md:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-3">
               {/* Studio Tools Popover Menu */}
               <div className="relative" ref={dropdownRef}>
                 <button
@@ -338,25 +349,27 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
               </button>
             </div>
 
-            {/* Mobile Menu Trigger */}
-            <div className="md:hidden flex items-center gap-2">
+            {/* Mobile / Tablet Menu Trigger (Visible on < lg screens) */}
+            <div className="lg:hidden flex items-center gap-2">
               {onOpenSavedDrawer && (
                 <button
                   onClick={onOpenSavedDrawer}
-                  className="p-2 text-[#181A18] hover:bg-[#E8DFD1]/50 rounded-xl transition-colors relative"
+                  className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-[#181A18] hover:bg-[#E8DFD1]/50 rounded-xl transition-colors relative"
                   title="Lemari Koleksi"
+                  aria-label="Lemari Koleksi"
                 >
                   <Bookmark className="w-5 h-5 text-terracotta-600" />
                   {savedCount > 0 && (
-                    <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-terracotta-500" />
+                    <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-terracotta-500 ring-2 ring-white" />
                   )}
                 </button>
               )}
 
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-[#181A18] hover:bg-[#E8DFD1]/50 rounded-xl transition-colors"
+                className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-[#181A18] hover:bg-[#E8DFD1]/50 rounded-xl transition-colors"
                 aria-label="Toggle Menu"
+                aria-expanded={mobileMenuOpen}
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
@@ -364,15 +377,28 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
           </div>
         </div>
 
-        {/* Mobile Slide Menu */}
+        {/* Mobile & Tablet Slide Menu with Backdrop Dimmer */}
         <AnimatePresence>
           {mobileMenuOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              className="md:hidden overflow-hidden bg-[#FAF8F5] border-b border-[#E8DFD1]"
-            >
+            <>
+              {/* Backdrop Dimmer Overlay */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                onClick={() => setMobileMenuOpen(false)}
+                className="fixed inset-0 top-16 sm:top-20 bg-black/40 backdrop-blur-xs z-30 lg:hidden"
+                aria-hidden="true"
+              />
+
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.25, ease: "easeInOut" }}
+                className="relative z-40 lg:hidden overflow-hidden bg-[#FAF8F5] border-b border-[#E8DFD1] shadow-2xl max-h-[calc(100dvh-5rem)] overflow-y-auto"
+              >
               <div className="px-5 py-6 space-y-4">
                 {/* Core Navigation Links */}
                 <div className="grid grid-cols-3 gap-2 pb-3 border-b border-sand-200">
@@ -548,6 +574,7 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
                 </div>
               </div>
             </motion.div>
+            </>
           )}
         </AnimatePresence>
       </header>

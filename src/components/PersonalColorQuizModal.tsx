@@ -153,7 +153,8 @@ export default function PersonalColorQuizModal({
             </h2>
             <button
               onClick={onClose}
-              className="p-2 -mr-2 text-[#181A18]/60 hover:text-[#181A18] hover:bg-[#E8DFD1]/50 rounded-full transition-colors"
+              className="p-2.5 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-[#181A18]/60 hover:text-[#181A18] hover:bg-[#E8DFD1]/50 rounded-full transition-colors"
+              aria-label="Tutup Kuis"
             >
               <X className="w-5 h-5" />
             </button>

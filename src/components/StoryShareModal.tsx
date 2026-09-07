@@ -122,8 +122,8 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-full bg-white/10 text-[#FAF8F5]/80 hover:text-white transition-all"
-            aria-label="Tutup"
+            className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-white/10 text-[#FAF8F5]/80 hover:text-white transition-all"
+            aria-label="Tutup Story"
           >
             <X className="w-4 h-4" />
           </button>
