@@ -420,12 +420,12 @@ export default function AdminCMSPage() {
                     setPinInput(e.target.value);
                     setPinError(false);
                   }}
-                  placeholder="Masukkan PIN (default: looku2026)"
+                  placeholder="Masukkan PIN Akses Admin"
                   className="w-full px-4 py-3 rounded-xl bg-sand-50 border border-sand-300 text-sm text-charcoal-900 font-mono focus:outline-none focus:border-terracotta-500 transition-colors"
                 />
                 {pinError && (
                   <p className="text-[11px] text-rose-500 font-mono">
-                    PIN salah. Gunakan PIN default: <b>looku2026</b>
+                    PIN akses salah. Hubungi administrator internal.
                   </p>
                 )}
               </div>
@@ -440,7 +440,7 @@ export default function AdminCMSPage() {
             </form>
 
             <div className="p-3 bg-sand-50 rounded-xl border border-sand-200 text-left text-[11px] text-sand-500">
-              💡 <b>Info Akses:</b> PIN default pengembang adalah <code>looku2026</code>.
+              🔒 <b>Keamanan CMS:</b> Akses khusus kurator dan pengembang look.u Atelier.
             </div>
           </div>
         </main>
@@ -479,6 +479,7 @@ export default function AdminCMSPage() {
             <Link
               href="/"
               target="_blank"
+              rel="noopener noreferrer"
               className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-colors flex items-center gap-1.5"
             >
               <Eye className="w-3.5 h-3.5" />

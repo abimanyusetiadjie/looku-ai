@@ -82,7 +82,7 @@ export default function LemariPage() {
   const handleShareWhatsAppAll = () => {
     if (savedOutfits.length === 0) return;
     const text = `👗 Koleksi Lemari look.u AI (${savedOutfits.length} OOTD Terkurasi):\n\n` +
-      savedOutfits.slice(0, 3).map((o, i) => `${i + 1}. *${o.title}* (${o.overallVibe}) - Bahan Katun Rayon/Linen Adem 33°C\n🔗 looku.ai/?look=${o.id}`).join("\n\n") +
+      savedOutfits.slice(0, 3).map((o, i) => `${i + 1}. *${o.title}* (${o.overallVibe}) - Bahan Katun Rayon/Linen Adem 33°C\n🔗 https://looku.ai/?look=${o.id}`).join("\n\n") +
       `\n\n✨ Kurasi formula OOTD tropis pribadimu di: https://looku.ai`;
     window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, "_blank");
   };

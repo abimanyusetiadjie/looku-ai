@@ -697,7 +697,7 @@ export default function LookUMobileView({
                 }}
                 className="w-full py-2.5 px-4 rounded-2xl bg-amber-50 hover:bg-amber-100/90 border border-amber-200/90 text-amber-900 font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-2xs active:scale-[0.99] min-h-[44px]"
               >
-                <span>Klik warna kulitmu (Tes 60 Detik) ✨</span>
+                <span>Mulai Tes Personal Color Lengkap (60 Detik) ✨</span>
                 <ArrowRight className="w-3.5 h-3.5 text-amber-700" />
               </button>
             </div>

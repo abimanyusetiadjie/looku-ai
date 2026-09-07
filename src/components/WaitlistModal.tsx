@@ -97,7 +97,7 @@ export default function WaitlistModal({ onClose }: WaitlistModalProps) {
                 <input
                   type="email"
                   required
-                  placeholder="email@domain.com"
+                  placeholder="kamu@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#D7CABC] focus:outline-none focus:border-[#181A18] text-xs sm:text-sm text-[#181A18]"
@@ -110,7 +110,7 @@ export default function WaitlistModal({ onClose }: WaitlistModalProps) {
                 </label>
                 <input
                   type="tel"
-                  placeholder="0812xxxxxxxx"
+                  placeholder="Contoh: 081234567890"
                   value={whatsapp}
                   onChange={(e) => setWhatsapp(e.target.value)}
                   className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#D7CABC] focus:outline-none focus:border-[#181A18] text-xs sm:text-sm text-[#181A18]"

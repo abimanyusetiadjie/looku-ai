@@ -41,7 +41,7 @@ export default function FeaturesSection() {
               <span className="lookbook-label">CURATION PRINCIPLES</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-5xl font-bold text-charcoal-900 tracking-tight">
-              Standar Kurasi Looku
+              Standar Kurasi look.u
             </h2>
           </div>
           <p className="text-sm text-charcoal-900/70 max-w-md font-normal leading-relaxed">

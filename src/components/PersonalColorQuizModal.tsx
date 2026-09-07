@@ -98,7 +98,7 @@ export default function PersonalColorQuizModal({
           { name: "Powder Blue", hex: "#B0E0E6" },
           { name: "Cool Grey", hex: "#8C92AC" },
         ],
-        avoid: ["Mustard Menyala", "Orange Terang"],
+        avoid: ["Mustard Menyala", "Oranye Terang"],
       };
     } else {
       return {
@@ -205,7 +205,7 @@ export default function PersonalColorQuizModal({
                   <Sparkles className="w-8 h-8 text-terracotta-500" />
                 </motion.div>
                 <p className="text-sm font-medium text-[#181A18]/60 animate-pulse">
-                  Menganalisa profil warna kamu...
+                  Menganalisis profil warna kamu...
                 </p>
               </div>
             ) : (

@@ -1105,7 +1105,7 @@ export function generateHeuristicOOTD(pref: UserPreferences): OOTDRecommendation
   result.sweatStainResistance = "100% Bebas Jejak Keringat (Serat Crinkle & Rayon Twill)";
   result.hijabHarmonyTip = pref.isModestHijab 
     ? "Padukan atasan ini dengan Hijab Voal Broken White atau Pashmina Ceruty Sand agar wajah tampak cerah natural."
-    : "Padukan atasan ini dengan aksesoris minimalis bernuansa warm gold untuk tampilan elegan.";
+    : "Padukan atasan ini dengan aksesori minimalis bernuansa warm gold untuk tampilan elegan.";
   result.costPerWearSavings = "Hemat ~Rp 320.000 dengan memadukan outfit ini bersama koleksi bawahan/sepatu yang sudah kamu miliki di lemari.";
 
   return result;

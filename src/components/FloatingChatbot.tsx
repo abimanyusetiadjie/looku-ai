@@ -32,7 +32,7 @@ interface Message {
 const DEFAULT_WELCOME_MSG: Message = {
   id: "msg_welcome",
   sender: "stylist",
-  text: "Halo kak! Aku Stylist Pribadi look.u.\n\nTanyakan apa pun seputar padu-padan OOTD, atau klik ikon kamera untuk deteksi undertone warna kulit langsung dari foto!\n\n🔒 Privasi Terjamin: Foto dianalisis langsung di RAM browser dan otomatis dihapus seketika.",
+  text: "Halo, Kak! Aku Stylist Pribadi look.u.\n\nTanyakan apa pun seputar padu-padan OOTD, atau klik ikon kamera untuk deteksi undertone warna kulit langsung dari foto!\n\n🔒 Privasi Terjamin: Foto dianalisis langsung di RAM browser dan otomatis dihapus seketika.",
   timestamp: "Baru saja",
 };
 
@@ -238,7 +238,7 @@ export default function FloatingChatbot() {
   };
 
   const quickQuestions = [
-    "Foto kamera & analisa undertone",
+    "Foto kamera & analisis undertone",
     "Baju wisuda outdoor 34°C yang adem",
     "Warna glowing untuk Sawo Matang",
     "Outfit kondangan hijab modern",

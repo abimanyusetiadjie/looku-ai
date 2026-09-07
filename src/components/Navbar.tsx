@@ -278,22 +278,22 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
                       </div>
 
                       <div className="pt-2 mt-2 border-t border-sand-100 px-3 flex items-center justify-between text-[10px] font-mono text-sand-500">
-                        <a
-                          href="#manifesto"
+                        <Link
+                          href="/#manifesto"
                           onClick={() => setToolsDropdownOpen(false)}
                           className="hover:text-charcoal-900 flex items-center gap-1 py-1"
                         >
                           <BookOpen className="w-3 h-3" />
                           <span>Cara Kerja</span>
-                        </a>
-                        <a
-                          href="#faq"
+                        </Link>
+                        <Link
+                          href="/#faq"
                           onClick={() => setToolsDropdownOpen(false)}
                           className="hover:text-charcoal-900 flex items-center gap-1 py-1"
                         >
                           <HelpCircle className="w-3 h-3" />
                           <span>FAQ</span>
-                        </a>
+                        </Link>
                       </div>
                     </motion.div>
                   )}

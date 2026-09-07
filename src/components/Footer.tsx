@@ -100,20 +100,20 @@ export default function Footer() {
 
           <div className="flex flex-wrap items-center gap-6 sm:gap-8 text-xs font-semibold tracking-wider uppercase text-sand-300">
             <Link href="/about" className="hover:text-white transition-colors">
-              About Look.u
+              Tentang look.u
             </Link>
-            <a href="#trending" className="hover:text-white transition-colors">
+            <Link href="/lookbook" className="hover:text-white transition-colors">
               Lookbook
-            </a>
-            <a href="#studio" className="hover:text-white transition-colors">
+            </Link>
+            <Link href="/studio" className="hover:text-white transition-colors">
               AI Stylist
-            </a>
+            </Link>
             <Link href="/lemari" className="hover:text-white transition-colors">
               Lemari Koleksi
             </Link>
-            <a href="#faq" className="hover:text-white transition-colors">
+            <Link href="/#faq" className="hover:text-white transition-colors">
               FAQ
-            </a>
+            </Link>
             <Link href="/studio" className="text-terracotta-500 hover:text-white transition-colors">
               Studio Mode ↗
             </Link>

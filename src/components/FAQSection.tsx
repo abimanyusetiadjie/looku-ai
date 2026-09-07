@@ -9,8 +9,8 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      q: "Bagaimana Looku AI menentukan apakah pakaian cocok untuk cuaca & warna kulit saya?",
-      a: "Engine Looku dilatih dengan matriks Personal Color Undertone dan sirkulasi kain tropis. AI secara otomatis memilih bahan katun linen/rayon/crinkle yang adem serta warna palet yang memberi efek mencerahkan kulit pengguna.",
+      q: "Bagaimana look.u AI menentukan apakah pakaian cocok untuk cuaca & warna kulit saya?",
+      a: "Engine look.u dilatih dengan matriks Personal Color Undertone dan sirkulasi kain tropis. AI secara otomatis memilih bahan katun linen/rayon/crinkle yang adem serta warna palet yang memberi efek mencerahkan kulit pengguna.",
     },
     {
       q: "Apakah seluruh rekomendasi ramah untuk pengguna Hijab & Modest?",
@@ -21,7 +21,7 @@ export default function FAQSection() {
       a: "Setiap kartu OOTD dilengkapi tautan 'Cari Shopee' & 'Cari Tokopedia' yang telah dikurasi kata kuncinya agar Anda langsung menemukan model serupa dengan ulasan terbaik dan harga terjangkau.",
     },
     {
-      q: "Apakah layanan Looku berbayar?",
+      q: "Apakah layanan look.u berbayar?",
       a: "Fitur kurasi OOTD harian, analisis personal color, dan ekspor kartu Instagram Story dapat digunakan 100% gratis.",
     },
   ];

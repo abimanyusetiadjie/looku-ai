@@ -161,7 +161,7 @@ export default function SavedLooksDrawer({
   };
 
   const handleShareWhatsApp = (outfit: OOTDRecommendation) => {
-    const text = `🧥 *${outfit.title}* - Kurasi Looku AI\n"${outfit.tagline}"\n\n✨ *Items:*\n${outfit.items
+    const text = `🧥 *${outfit.title}* - Kurasi look.u AI\n"${outfit.tagline}"\n\n✨ *Items:*\n${outfit.items
       .map((i) => `• ${i.name} (${i.color})`)
       .join("\n")}\n\n💡 *Tips:* ${outfit.stylingTip || "Gunakan bahan katun rayon/linen yang adem."}\n\nCoba outfit kamu di https://looku.ai`;
 
@@ -170,7 +170,7 @@ export default function SavedLooksDrawer({
 
   const handleBatchShare = () => {
     const text =
-      `🧥 *Lemari Koleksiku* - Kurasi Looku AI\n\n` +
+      `🧥 *Lemari Koleksiku* - Kurasi look.u AI\n\n` +
       savedOutfits
         .map(
           (o, idx) =>
