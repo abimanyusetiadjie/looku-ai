@@ -204,6 +204,7 @@ export default function TrendingFeed({ onSelectLook, userSkinTone, isStandalone 
                 <Search className="w-4 h-4 text-charcoal-900/60 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 <input
                   type="text"
+                  inputMode="search"
                   placeholder="Cari gaya: linen, kafe, scbd, hijab, blazer, batik..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -225,7 +226,7 @@ export default function TrendingFeed({ onSelectLook, userSkinTone, isStandalone 
                 <button
                   onClick={() => setMobileViewMode("grid")}
                   aria-label="Tampilan Grid 2 Kolom"
-                  className={`p-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1 ${
+                  className={`p-2 min-h-[38px] min-w-[38px] rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1 ${
                     mobileViewMode === "grid"
                       ? "bg-charcoal-900 text-white shadow-xs"
                       : "text-sand-500 hover:text-charcoal-900"
@@ -237,7 +238,7 @@ export default function TrendingFeed({ onSelectLook, userSkinTone, isStandalone 
                 <button
                   onClick={() => setMobileViewMode("reel")}
                   aria-label="Tampilan Feed Penuh"
-                  className={`p-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1 ${
+                  className={`p-2 min-h-[38px] min-w-[38px] rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1 ${
                     mobileViewMode === "reel"
                       ? "bg-charcoal-900 text-white shadow-xs"
                       : "text-sand-500 hover:text-charcoal-900"
@@ -257,7 +258,7 @@ export default function TrendingFeed({ onSelectLook, userSkinTone, isStandalone 
                   <button
                     key={cat.id}
                     onClick={() => toggleTag(cat.id)}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all shrink-0 flex items-center gap-1.5 border ${
+                    className={`px-3.5 py-2 min-h-[38px] rounded-full text-xs font-semibold whitespace-nowrap transition-all shrink-0 flex items-center gap-1.5 border ${
                       isSelected
                         ? "bg-charcoal-900 text-white border-charcoal-900 shadow-xs"
                         : "bg-white hover:bg-sand-100 text-charcoal-900/80 border-sand-300 shadow-2xs"
@@ -274,7 +275,7 @@ export default function TrendingFeed({ onSelectLook, userSkinTone, isStandalone 
               {!selectedTags.includes("all") && (
                 <button
                   onClick={() => setSelectedTags(["all"])}
-                  className="px-3 py-1.5 rounded-full text-[10px] font-bold text-terracotta-600 bg-terracotta-50 border border-terracotta-200 hover:bg-terracotta-100 whitespace-nowrap shrink-0 uppercase tracking-widest"
+                  className="px-3 py-2 min-h-[38px] rounded-full text-[10px] font-bold text-terracotta-600 bg-terracotta-50 border border-terracotta-200 hover:bg-terracotta-100 whitespace-nowrap shrink-0 uppercase tracking-widest flex items-center justify-center"
                 >
                   Reset
                 </button>
@@ -293,7 +294,7 @@ export default function TrendingFeed({ onSelectLook, userSkinTone, isStandalone 
                   <button
                     key={tone.id}
                     onClick={() => setSelectedSkinTone(tone.id)}
-                    className={`px-2.5 py-1 rounded-full text-[11px] font-semibold whitespace-nowrap transition-all shrink-0 flex items-center gap-1.5 border ${
+                    className={`px-3 py-1.5 min-h-[36px] rounded-full text-[11px] font-semibold whitespace-nowrap transition-all shrink-0 flex items-center gap-1.5 border ${
                       isToneActive
                         ? "bg-sand-200 text-charcoal-900 border-charcoal-900 font-bold shadow-2xs"
                         : "bg-white/80 hover:bg-white text-charcoal-900/70 border-sand-200"

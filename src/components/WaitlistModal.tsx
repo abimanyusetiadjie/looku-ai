@@ -98,10 +98,12 @@ export default function WaitlistModal({ onClose }: WaitlistModalProps) {
                 </label>
                 <input
                   type="text"
+                  inputMode="text"
+                  autoComplete="name"
                   placeholder="Misal: Nadia / Rizky"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#D7CABC] focus:outline-none focus:border-[#181A18] text-xs sm:text-sm text-[#181A18]"
+                  className="w-full px-4 py-2.5 min-h-[44px] rounded-xl bg-white border border-[#D7CABC] focus:outline-none focus:border-[#181A18] text-xs sm:text-sm text-[#181A18]"
                 />
               </div>
 
@@ -111,11 +113,13 @@ export default function WaitlistModal({ onClose }: WaitlistModalProps) {
                 </label>
                 <input
                   type="email"
+                  inputMode="email"
+                  autoComplete="email"
                   required
                   placeholder="kamu@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#D7CABC] focus:outline-none focus:border-[#181A18] text-xs sm:text-sm text-[#181A18]"
+                  className="w-full px-4 py-2.5 min-h-[44px] rounded-xl bg-white border border-[#D7CABC] focus:outline-none focus:border-[#181A18] text-xs sm:text-sm text-[#181A18]"
                 />
               </div>
 
@@ -125,10 +129,12 @@ export default function WaitlistModal({ onClose }: WaitlistModalProps) {
                 </label>
                 <input
                   type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
                   placeholder="Contoh: 081234567890"
                   value={whatsapp}
                   onChange={(e) => setWhatsapp(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#D7CABC] focus:outline-none focus:border-[#181A18] text-xs sm:text-sm text-[#181A18]"
+                  className="w-full px-4 py-2.5 min-h-[44px] rounded-xl bg-white border border-[#D7CABC] focus:outline-none focus:border-[#181A18] text-xs sm:text-sm text-[#181A18]"
                 />
               </div>
 

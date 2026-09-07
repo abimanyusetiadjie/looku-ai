@@ -63,16 +63,18 @@ function NewsletterForm() {
           <div className="flex gap-2">
             <input
               type="email"
+              inputMode="email"
+              autoComplete="email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="email@kamu.com"
-              className="flex-1 px-4 py-2.5 rounded-xl bg-white/10 border border-white/15 text-xs text-white placeholder-white/40 focus:outline-none focus:border-terracotta-500 transition-colors"
+              className="flex-1 px-4 py-2.5 min-h-[44px] rounded-xl bg-white/10 border border-white/15 text-xs text-white placeholder-white/40 focus:outline-none focus:border-terracotta-500 transition-colors"
             />
             <button
               type="submit"
               disabled={loading}
-              className="px-4 py-2.5 rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-white text-xs font-bold tracking-wider uppercase transition-colors shadow-sm flex items-center justify-center min-w-[90px]"
+              className="px-4 py-2.5 min-h-[44px] rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-white text-xs font-bold tracking-wider uppercase transition-colors shadow-sm flex items-center justify-center min-w-[90px]"
             >
               {loading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <span>Langganan</span>}
             </button>

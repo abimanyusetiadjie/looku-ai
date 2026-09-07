@@ -7,6 +7,16 @@
   --text-charcoal: #181A18;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
 body {
   color: #181A18;
   background-color: #FAF8F5;
@@ -183,4 +193,16 @@ h1, h2, h3, h4 {
   textarea {
     font-size: 16px !important;
   }
+}
+
+/* Mobile-First Ergonomics & Safe Word-Breaks */
+.break-words-anywhere {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Ensure no horizontal scroll container leakage */
+.no-x-overflow {
+  max-width: 100%;
+  overflow-x: hidden;
 }
