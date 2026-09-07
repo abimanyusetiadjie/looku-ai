@@ -72,6 +72,17 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
   const handleScanWardrobePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      if (!file.type.startsWith("image/")) {
+        alert("Format berkas tidak valid. Harap pilih gambar (JPG, PNG, atau WebP).");
+        e.target.value = "";
+        return;
+      }
+      if (file.size > 8 * 1024 * 1024) {
+        alert("Ukuran foto maksimal 8MB.");
+        e.target.value = "";
+        return;
+      }
+
       setIsScanningGarment(true);
       const reader = new FileReader();
       reader.onload = () => {
@@ -99,7 +110,19 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
   };
 
   const handleCameraDetectTone = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (!file.type.startsWith("image/")) {
+        alert("Format berkas tidak valid. Harap gunakan foto wajah/tangan (JPG, PNG, WebP).");
+        e.target.value = "";
+        return;
+      }
+      if (file.size > 8 * 1024 * 1024) {
+        alert("Ukuran foto maksimal 8MB.");
+        e.target.value = "";
+        return;
+      }
+
       setIsDetectingTone(true);
       setTimeout(() => {
         setSkinTone("medium"); // Sawo Matang (medium)
@@ -167,6 +190,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (isLoading) return; // Guard double submit
     onGenerate({
       stylingMode,
       gender,
@@ -761,7 +785,8 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
             <div className="flex items-center gap-2 pt-2">
               <button
                 type="submit"
-                className="py-3.5 px-4 rounded-xl bg-sand-100 hover:bg-sand-200 text-charcoal-900 border border-sand-300 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 shadow-2xs"
+                disabled={isLoading}
+                className="py-3.5 px-4 rounded-xl bg-sand-100 hover:bg-sand-200 disabled:opacity-50 text-charcoal-900 border border-sand-300 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 shadow-2xs"
                 title="Langsung Racik OOTD dengan preferensi saat ini"
               >
                 <Zap className="w-3.5 h-3.5 text-terracotta-600" />
@@ -894,7 +919,8 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
 
               <button
                 type="submit"
-                className="py-3.5 px-3.5 rounded-xl bg-sand-100 hover:bg-sand-200 text-charcoal-900 border border-sand-300 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 shadow-2xs"
+                disabled={isLoading}
+                className="py-3.5 px-3.5 rounded-xl bg-sand-100 hover:bg-sand-200 disabled:opacity-50 text-charcoal-900 border border-sand-300 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 shadow-2xs"
                 title="Langsung Racik OOTD dengan preferensi saat ini"
               >
                 <Zap className="w-3.5 h-3.5 text-terracotta-600" />

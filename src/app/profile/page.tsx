@@ -37,6 +37,7 @@ import {
 } from "@/lib/profile-stats";
 import Toast, { ToastMessage } from "@/components/Toast";
 import BottomNav from "@/components/BottomNav";
+import { sanitizePlainText } from "@/lib/security";
 
 export default function ProfilePage() {
   const [summary, setSummary] = useState<ProfileSummary>(() => {
@@ -130,10 +131,10 @@ export default function ProfilePage() {
 
   const handleSaveProfile = () => {
     saveStoredUserProfile({
-      name: editName.trim() || DEFAULT_USER_PROFILE.name,
-      bio: editBio.trim() || DEFAULT_USER_PROFILE.bio,
-      instagram: editInstagram.trim() || DEFAULT_USER_PROFILE.instagram,
-      customAffiliateId: editCustomAffiliateId.trim() || "looku_ootd",
+      name: sanitizePlainText(editName, 40) || DEFAULT_USER_PROFILE.name,
+      bio: sanitizePlainText(editBio, 160) || DEFAULT_USER_PROFILE.bio,
+      instagram: sanitizePlainText(editInstagram, 30) || DEFAULT_USER_PROFILE.instagram,
+      customAffiliateId: sanitizePlainText(editCustomAffiliateId, 30) || "looku_ootd",
     });
     setIsEditing(false);
     addToast({

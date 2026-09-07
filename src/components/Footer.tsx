@@ -12,8 +12,11 @@ function NewsletterForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !email.includes("@")) {
-      setErrorMsg("Masukkan format email yang valid.");
+    if (loading) return; // Anti double-submit
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email.trim())) {
+      setErrorMsg("Masukkan format email yang valid (contoh: kamu@domain.com).");
       return;
     }
 
@@ -24,7 +27,7 @@ function NewsletterForm() {
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email: email.trim(), hp_check: "" }),
       });
 
       const data = await res.json();

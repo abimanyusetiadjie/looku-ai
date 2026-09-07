@@ -16,25 +16,39 @@ export default function WaitlistModal({ onClose }: WaitlistModalProps) {
   const [loading, setLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [totalWaitlist, setTotalWaitlist] = useState(412);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [hpField, setHpField] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    if (loading || !email.trim()) return; // Anti double-submit
+
+    setErrorMsg(null);
+
+    // Client-side regex pre-validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      setErrorMsg("Format email tidak valid. Masukkan email yang benar.");
+      return;
+    }
 
     setLoading(true);
     try {
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, whatsapp, name, favoriteStyle }),
+        body: JSON.stringify({ email: email.trim(), whatsapp: whatsapp.trim(), name: name.trim(), favoriteStyle, hp_field: hpField }),
       });
       const data = await res.json();
       if (res.ok) {
         setIsSuccess(true);
         if (data.totalWaitlist) setTotalWaitlist(data.totalWaitlist);
+      } else {
+        setErrorMsg(data.error || "Gagal mendaftar ke waitlist.");
       }
     } catch (err) {
-      console.error(err);
+      console.error("Waitlist submit error:", err);
+      setErrorMsg("Koneksi gagal atau server sibuk. Silakan coba lagi sebentar.");
     } finally {
       setLoading(false);
     }
@@ -133,6 +147,24 @@ export default function WaitlistModal({ onClose }: WaitlistModalProps) {
                   <option>Menswear Simple Relaxed</option>
                 </select>
               </div>
+
+              {/* Honeypot field for bot protection */}
+              <input
+                type="text"
+                name="hp_field"
+                value={hpField}
+                onChange={(e) => setHpField(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
+
+              {errorMsg && (
+                <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-medium">
+                  {errorMsg}
+                </div>
+              )}
 
               <motion.button
                 type="submit"

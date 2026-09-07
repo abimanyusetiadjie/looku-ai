@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { UserPreferences } from "@/lib/types";
 import { generateOOTDRecommendation } from "@/lib/ai-engine";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
+import { sanitizePlainText } from "@/lib/security";
 
 export async function POST(req: NextRequest) {
   try {
@@ -29,7 +30,14 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const recommendation = await generateOOTDRecommendation(body);
+    // Sanitasi teks bebas dari injeksi prompt & script
+    const sanitizedBody: UserPreferences = {
+      ...body,
+      customNotes: body.customNotes ? sanitizePlainText(body.customNotes, 200) : undefined,
+      ownedItem: body.ownedItem ? sanitizePlainText(body.ownedItem, 100) : undefined,
+    };
+
+    const recommendation = await generateOOTDRecommendation(sanitizedBody);
 
     return NextResponse.json({
       success: true,

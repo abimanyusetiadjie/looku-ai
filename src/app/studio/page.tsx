@@ -10,7 +10,7 @@ import OutfitCard from "@/components/OutfitCard";
 import BottomNav from "@/components/BottomNav";
 import Toast, { ToastMessage } from "@/components/Toast";
 import { UserPreferences, OOTDRecommendation } from "@/lib/types";
-import { PRESET_OOTD_COLLECTION } from "@/lib/presets";
+import { PRESET_OOTD_COLLECTION, generateHeuristicOOTD } from "@/lib/presets";
 
 // Dynamic Code-Splitting for Heavy Modals & Offscreen Widgets
 const SavedLooksDrawer = dynamic(() => import("@/components/SavedLooksDrawer"), { ssr: false });
@@ -219,9 +219,26 @@ export default function StudioPage() {
         }
 
         addToast({ title: "Kurasi Berhasil", description: "Outfit siap untuk kamu!", type: "success" });
+      } else {
+        // Fallback jika API mengembalikan respons non-ok
+        const fallback = generateHeuristicOOTD(prefs);
+        setCurrentOutfit(fallback);
+        addToast({
+          title: "Kurasi Presisi Siap",
+          description: "Menggunakan kurasi formula presisi atelier.",
+          type: "curate",
+        });
       }
     } catch (err) {
       console.error("Studio generate error:", err);
+      // Fallback ramah pengguna saat koneksi lambat/offline
+      const fallback = generateHeuristicOOTD(prefs);
+      setCurrentOutfit(fallback);
+      addToast({
+        title: "Koneksi Offline / Timeout",
+        description: "Beralih ke kurasi formula cerdas atelier.",
+        type: "curate",
+      });
     } finally {
       setIsLoading(false);
     }

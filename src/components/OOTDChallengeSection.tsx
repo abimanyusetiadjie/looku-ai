@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 import StoryShareModal from './StoryShareModal';
 import { OOTDRecommendation } from '@/lib/types';
+import { sanitizePlainText } from '@/lib/security';
 
 type ChallengeEntry = {
   id: string;
@@ -188,9 +189,17 @@ export default function OOTDChallengeSection() {
     const file = e.target.files?.[0];
     if (!file) return;
 
+    // Validate MIME format (JPG, PNG, WebP)
+    if (!file.type.startsWith("image/")) {
+      alert("Format berkas tidak valid. Harap unggah foto berekstensi JPG, PNG, atau WebP.");
+      e.target.value = "";
+      return;
+    }
+
     // Validate size (< 5MB)
     if (file.size > 5 * 1024 * 1024) {
-      alert('Ukuran foto terlalu besar. Maksimum 5MB.');
+      alert("Ukuran foto terlalu besar. Maksimum 5MB.");
+      e.target.value = "";
       return;
     }
 
@@ -210,14 +219,14 @@ export default function OOTDChallengeSection() {
   // Handle Submit New Look
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!userName.trim()) return;
+    if (isSubmitting || !userName.trim()) return; // Anti double-submit
 
     setIsSubmitting(true);
     const entryId = `entry-${Date.now()}`;
     const newEntry: ChallengeEntry = {
       id: entryId,
-      user_name: userName.trim(),
-      location: location.trim() || 'Jakarta',
+      user_name: sanitizePlainText(userName, 40),
+      location: sanitizePlainText(location, 40) || 'Jakarta',
       outfit_photo: selectedPhoto,
       color_palette: selectedColors,
       votes: 1,
