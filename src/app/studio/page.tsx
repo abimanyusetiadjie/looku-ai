@@ -426,7 +426,7 @@ export default function StudioPage() {
       </main>
 
       {/* Floating Mobile App-Shell Navigation */}
-      <BottomNav onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)} />
+      <BottomNav />
 
       {/* Saved Looks Drawer (Loaded on Demand) */}
       {isSavedDrawerOpen && (
@@ -481,3 +481,4 @@ export default function StudioPage() {
     </div>
   );
 }
+
