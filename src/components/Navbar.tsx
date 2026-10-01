@@ -115,9 +115,7 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Signature Boutique Logo: look.u */}
             <Link href="/" className="flex items-center gap-3 group">
-              <span className="font-serif italic font-bold text-2xl sm:text-3xl tracking-tight text-[#181A18] group-hover:opacity-90 transition-opacity">
-                look<span className="text-terracotta-500 not-italic">.</span>u
-              </span>
+              <span className="font-serif font-medium text-2xl sm:text-3xl tracking-[0.05em] text-[#181A18] group-hover:opacity-90 transition-opacity">Look<span className="text-terracotta-500 font-bold">.</span>u</span>
               <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-[#8A7A68] border-l border-[#D7CABC] pl-3 py-0.5">
                 Edition 2026
               </span>
@@ -666,4 +664,5 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
     </>
   );
 }
+
 

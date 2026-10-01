@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import FloatingChatbot from "@/components/FloatingChatbot";
 import ResearchBanner from "@/components/ResearchBanner";
+import SplashScreen from "@/components/SplashScreen";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -80,6 +81,7 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="font-sans antialiased bg-[#FAF8F5] text-[#181A18]">
+        <SplashScreen />
         {children}
         {/* Floating AI Stylist Chatbot */}
         <FloatingChatbot />
@@ -88,4 +90,5 @@ export default function RootLayout({
     </html>
   );
 }
+
 
