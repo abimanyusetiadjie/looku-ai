@@ -363,16 +363,6 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
                 <User className="w-3.5 h-3.5 text-charcoal-900" />
                 <span className="text-xs font-bold hidden xl:inline">Profil</span>
               </Link>
-
-              {/* High-Contrast Actionable Access CTA */}
-              <button
-                onClick={() => setIsWaitlistOpen(true)}
-                className="px-4 py-2 text-xs font-extrabold tracking-wider uppercase rounded-xl bg-gradient-to-r from-amber-300 via-amber-400 to-amber-300 hover:from-amber-400 hover:to-amber-500 text-amber-950 border border-amber-500/40 transition-all flex items-center gap-1.5 shadow-xs"
-                title="Daftar Akses Awal Gratis"
-              >
-                <span>Daftar Akses Awal</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-amber-950 stroke-[2]" />
-              </button>
             </div>
 
             {/* Mobile / Tablet Menu Trigger (Visible on < lg screens) */}
@@ -651,20 +641,6 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
                     <span>Bantuan &amp; FAQ</span>
                   </Link>
                 </div>
-
-                {/* Bottom Actions */}
-                <div className="pt-1">
-                  <button
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      setIsWaitlistOpen(true);
-                    }}
-                    className="w-full py-3.5 text-xs font-bold tracking-wider uppercase rounded-2xl bg-charcoal-900 text-white hover:bg-terracotta-500 transition-all text-center flex items-center justify-center gap-2 shadow-md"
-                  >
-                    <span>Daftar Akses Awal (Gratis)</span>
-                    <ArrowUpRight className="w-4 h-4 text-white" />
-                  </button>
-                </div>
               </div>
             </motion.div>
             </>
@@ -672,9 +648,6 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
         </AnimatePresence>
       </header>
 
-      {isWaitlistOpen && (
-        <WaitlistModal onClose={() => setIsWaitlistOpen(false)} />
-      )}
       <CloudSyncModal 
         isOpen={isCloudSyncOpen} 
         onClose={() => setIsCloudSyncOpen(false)} 
@@ -693,3 +666,4 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenClone, onO
     </>
   );
 }
+

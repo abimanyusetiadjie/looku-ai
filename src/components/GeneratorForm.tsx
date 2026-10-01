@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useRef } from "react";
+
+import CameraColorGuideModal from "./CameraColorGuideModal";
 import { ArrowLeft, Sparkles, Check, ChevronRight, MapPin, Loader2, Camera, Zap } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
@@ -22,6 +24,7 @@ interface GeneratorFormProps {
 
 export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: GeneratorFormProps) {
   const [step, setStep] = useState<number>(1);
+  const [isCameraOpen, setIsCameraOpen] = useState(false);
 
   const [stylingMode, setStylingMode] = useState<"solo" | "couple" | "bestie">("solo");
   const [gender, setGender] = useState<GenderPreference>("female");
@@ -675,17 +678,26 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                     </div>
                   </motion.div>
                 )}
-
             {/* Skin Tone Selector */}
+            {isCameraOpen && <CameraColorGuideModal isOpen={isCameraOpen} onClose={() => setIsCameraOpen(false)} onSelectTone={setSkinTone} />}
             <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E8DFD1] space-y-3">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between mb-2">
                 <label className="text-xs font-bold text-[#181A18] uppercase tracking-wider">
-                  Pilih Warna Kulitmu (Personal Color)
+                  Pilih Warna Kulit (Personal Color)
                 </label>
                 <span className="text-[11px] font-mono text-terracotta-600 font-bold">
                   {skinTones.find((t) => t.id === skinTone)?.label}
                 </span>
               </div>
+              
+              <button 
+                type="button" 
+                onClick={() => setIsCameraOpen(true)}
+                className="w-full mb-3 py-2.5 px-3 rounded-xl bg-charcoal-900 text-white text-xs font-bold flex items-center justify-center gap-2 hover:bg-terracotta-500 transition-colors shadow-md"
+              >
+                <Camera className="w-4 h-4" />
+                <span>Cek Personal Color dengan Kamera / Referensi Visual</span>
+              </button>
 
               <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
                 {skinTones.map((t) => {
@@ -1176,3 +1188,4 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
 </div>
 );
 }
+

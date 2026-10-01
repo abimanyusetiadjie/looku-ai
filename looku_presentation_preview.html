@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>look.u AI — Presentasi Proposal Capstone & Tugas Akhir 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-sand: #FAF8F5;
+      --card-bg: #FFFFFF;
+      --card-border: #E8DFD1;
+      --text-dark: #181A18;
+      --text-muted: #8A7A68;
+      --accent-terra: #BA5D38;
+      --accent-terra-bg: #FBF3EF;
+      --accent-sage: #557352;
+      --accent-sage-bg: #F5F8F5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #242724;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      color: var(--text-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .toolbar {
+      width: 100%;
+      max-width: 1066px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      color: #FAF8F5;
+      font-size: 13px;
+    }
+
+    .toolbar .badge {
+      background: var(--accent-terra);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .toolbar .nav-controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      background: white;
+      color: var(--text-dark);
+      border: 1px solid var(--card-border);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--bg-sand);
+      color: var(--accent-terra);
+    }
+
+    .deck-container {
+      width: 100%;
+      max-width: 1066px;
+      aspect-ratio: 16 / 9;
+      background: var(--bg-sand);
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      padding: 44px 50px;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .slide.active {
+      display: flex;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide-header {
+      margin-bottom: 16px;
+    }
+
+    .category-pill {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--accent-terra-bg);
+      border: 1px solid var(--accent-terra);
+      color: var(--accent-terra);
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+
+    .category-pill.sage {
+      background: var(--accent-sage-bg);
+      border-color: var(--accent-sage);
+      color: var(--accent-sage);
+    }
+
+    .slide-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.2;
+    }
+
+    .slide-subtitle {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      flex: 1;
+      margin-bottom: 12px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      flex: 1;
+      margin-bottom: 12px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      flex: 1;
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 8px rgba(24, 26, 24, 0.02);
+    }
+
+    .card .tag {
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-terra);
+      margin-bottom: 4px;
+    }
+
+    .card .card-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+
+    .card .stat {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--accent-sage);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .card p, .card li {
+      font-size: 11.5px;
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+
+    .card ul {
+      list-style-type: none;
+      margin-top: 6px;
+    }
+
+    .card li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 6px;
+    }
+
+    .card li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-terra);
+      font-weight: bold;
+    }
+
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--card-border);
+      padding-top: 10px;
+      font-size: 10.5px;
+      color: var(--text-muted);
+    }
+
+    /* Cover slide specific */
+    .cover-frame {
+      width: 100%;
+      height: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 44px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cover-badge {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--accent-terra);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .cover-brand {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .cover-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.35;
+      max-width: 850px;
+      margin-bottom: 10px;
+    }
+
+    .cover-sub {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      max-width: 800px;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .cover-meta {
+      border-top: 1px solid var(--card-border);
+      padding-top: 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span class="badge">LOOK.U AI SLIDE DECK</span>
+      <span id="slideIndicator">Slide 1 dari 10</span>
+    </div>
+    <div class="nav-controls">
+      <button class="btn" onclick="prevSlide()">← Sebelumnya</button>
+      <button class="btn" onclick="nextSlide()">Berikutnya →</button>
+      <button class="btn" onclick="toggleFullScreen()">⛶ Layar Penuh</button>
+      <a href="./looku_presentation_ta.pptx" download class="btn" style="text-decoration:none; background:var(--accent-terra); color:white; border-color:var(--accent-terra);">⬇ Unduh .PPTX</a>
+    </div>
+  </div>
+
+  <div class="deck-container" id="deckContainer">
+
+    <!-- SLIDE 1: COVER -->
+    <div class="slide active" id="slide-1">
+      <div class="cover-frame">
+        <div class="cover-badge">PROPOSAL CAPSTONE PROJECT & TUGAS AKHIR 2026</div>
+        <div class="cover-brand">look.u AI</div>
+        <div class="cover-title">Rancang Bangun Sistem Rekomendasi Outfit Harian Berbasis Kecerdasan Buatan (AI) Menggunakan Analisis Personal Color dan Adaptasi Iklim Tropis</div>
+        <div class="cover-sub">Solusi Cerdas Personalisasi Busana Harian Adaptif Iklim Panas Lembap & Ramah Busana Santun (Modest Fashion)</div>
+        <div class="cover-meta">Disusun oleh: Tim Pengembang look.u AI (3 Anggota) • Fakultas / Program Studi Informatika & Sistem Informasi</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: TIM PROYEK -->
+    <div class="slide" id="slide-2">
+      <div class="slide-header">
+        <span class="category-pill">Bagian 1: Identitas & Tim Proyek</span>
+        <div class="slide-title">Struktur Tim Pengembang & Pembagian Tugas (3 Anggota)</div>
+        <div class="slide-subtitle">Kolaborasi lintas pilar untuk menghasilkan sistem teruji: Arsitektur AI, Desain UI/UX Mobile-First, dan Pengujian Data Evaluasi.</div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <span class="tag">CORE AI & ALGORITHM</span>
+          <div class="card-title">Lead & AI Architect</div>
+          <p style="font-weight:700; color:var(--text-muted); font-size:11px; margin-bottom:8px;">Anggota 1 (Project Lead)</p>
+          <ul>
+            <li>Merancang arsitektur kecerdasan buatan & integrasi Generative AI (Gemini 2.5 Flash).</li>
+            <li>Merumuskan Knowledge-Based Matrix untuk 5 undertone kulit Indonesia & sirkulasi kain.</li>
+            <li>Mengembangkan Heuristic Fallback Engine lokal untuk keandalan sistem tanpa downtime.</li>
+            <li>Mengawasi keselarasan metodologi penelitian dan luaran Capstone/TA.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag" style="color:var(--accent-sage);">HCI & MOBILE-FIRST</span>
+          <div class="card-title">Frontend & UI/UX Architect</div>
+          <p style="font-weight:700; color:var(--text-muted); font-size:11px; margin-bottom:8px;">Anggota 2</p>
+          <ul>
+            <li>Merancang antarmuka pengguna berbasis Mobile-First Priority & Responsive Desktop Atelier.</li>
+            <li>Mengimplementasikan komponen interaktif Next.js 14 & animasi ergonomis Framer Motion.</li>
+            <li>Menerapkan standardisasi sentuh Apple HIG (≥44px) & optimasi virtual keyboard.</li>
+            <li>Menyusun prototipe interaktif pengujian pengguna dan alur happy-path evaluasi.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag" style="color:#495848;">DATASET & TESTING QA</span>
+          <div class="card-title">Data Engineer & Evaluation</div>
+          <p style="font-weight:700; color:var(--text-muted); font-size:11px; margin-bottom:8px;">Anggota 3</p>
+          <ul>
+            <li>Mengurasi & membersihkan dataset 300+ entitas busana lokal dan spesifikasi tekstil.</li>
+            <li>Mengintegrasikan penyimpanan database cloud Supabase & sinkronisasi local storage.</li>
+            <li>Menyusun instrumen kuesioner System Usability Scale (SUS) & menyebarkan ke responden.</li>
+            <li>Melakukan analisis statistik data kuesioner dan uji keamanan formulir.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>look.u AI • Proposal Capstone Project & Tugas Akhir 2026</span>
+        <span>Slide 2 / 10</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: URGENSI -->
+    <div class="slide" id="slide-3">
+      <div class="slide-header">
+        <span class="category-pill">Bagian 2: Latar Belakang & Urgensi</span>
+        <div class="slide-title">Urgensi Proyek: Mengapa Penelitian Ini Sangat Diperlukan?</div>
+        <div class="slide-subtitle">Tiga tantangan nyata yang dihadapi masyarakat Indonesia dalam berpakaian sehari-hari.</div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <span class="stat" style="color:var(--accent-terra);">01</span>
+          <div class="card-title">Decision Fatigue Pagi Hari</div>
+          <p style="font-weight:700; font-size:10px; color:var(--accent-sage); margin-bottom:6px;">DILEMA 'LEMARI PENUH TAPI BINGUNG'</p>
+          <p>Rata-rata individu menghabiskan 15–20 menit setiap pagi hanya untuk memilih pakaian harian. Beban kognitif berulang ini memicu kelelahan mental (decision fatigue) sebelum jam kerja atau perkuliahan dimulai.</p>
+        </div>
+        <div class="card">
+          <span class="stat" style="color:var(--accent-terra);">02</span>
+          <div class="card-title">Iklim Panas Lembab Tropis</div>
+          <p style="font-weight:700; font-size:10px; color:var(--accent-sage); margin-bottom:6px;">SUHU 33°C & KELEMBAPAN >80%</p>
+          <p>Indonesia memiliki iklim tropis ekstrem. Kesalahan pemilihan material (misal: poliester sintetis tanpa sirkulasi udara) menyebabkan keringat berlebih, gerah, dan menurunkan kenyamanan beraktivitas.</p>
+        </div>
+        <div class="card">
+          <span class="stat" style="color:var(--accent-terra);">03</span>
+          <div class="card-title">Bias Fashion App Global</div>
+          <p style="font-weight:700; font-size:10px; color:var(--accent-sage); margin-bottom:6px;">KETIADAAN KONTEKS KULIT & HIJAB LOKAL</p>
+          <p>Aplikasi global (Pinterest, Acloset) mengacu standar 4 musim dan warna kulit Barat. Belum ada platform yang mengintegrasikan 5 ragam undertone kulit Indonesia dan busana muslim santun (modest-friendly).</p>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>look.u AI • Proposal Capstone Project & Tugas Akhir 2026</span>
+        <span>Slide 3 / 10</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: KEPENTINGAN RISET -->
+    <div class="slide" id="slide-4">
+      <div class="slide-header">
+        <span class="category-pill">Bagian 2: Latar Belakang & Urgensi</span>
+        <div class="slide-title">Kepentingan Riset: Bukti Data, Tren Pasar & Fenomena</div>
+        <div class="slide-subtitle">Tiga kekuatan pendorong yang memperkuat signifikansi topik penelitian di tingkat nasional.</div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <span class="tag">TREN RISET KONSUMEN</span>
+          <span class="stat">+340%</span>
+          <div class="card-title">Booming Personal Color</div>
+          <p>Pencarian diagnostik warna kulit melonjak drastis di Indonesia. Konsumen Gen Z & Milenial semakin sadar bahwa warna pakaian yang keliru membuat rona wajah tampak kusam dan pucat secara visual.</p>
+        </div>
+        <div class="card">
+          <span class="tag">PASAR DOMESTIK INDONESIA</span>
+          <span class="stat">Rp 280 T</span>
+          <div class="card-title">Pusat Modest Fashion Dunia</div>
+          <p>Indonesia merupakan episentrum busana muslim dunia. Tuntutan akan paduan pakaian santun (tidak terawang, siluet proporsional loose fit, dan jilbab tegak anti-gerah) merupakan kebutuhan primer.</p>
+        </div>
+        <div class="card">
+          <span class="tag">PERILAKU E-COMMERCE</span>
+          <span class="stat">68%</span>
+          <div class="card-title">Masalah Dead Wardrobe</div>
+          <p>Data perilaku belanja menunjukkan 68% konsumen sering membeli pakaian online di marketplace yang akhirnya menumpuk tanpa dipakai karena kesulitan memadukan warna dan jenis tekstil.</p>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>look.u AI • Proposal Capstone Project & Tugas Akhir 2026</span>
+        <span>Slide 4 / 10</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: TUJUAN -->
+    <div class="slide" id="slide-5">
+      <div class="slide-header">
+        <span class="category-pill">Bagian 2: Latar Belakang & Urgensi</span>
+        <div class="slide-title">Tujuan Penelitian & Sasaran Capstone Project</div>
+        <div class="slide-subtitle">Tiga sasaran strategis yang terukur untuk menjawab rumusan masalah secara ilmiah.</div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <span class="tag">TUJUAN UTAMA (ALGORITMA)</span>
+          <div class="card-title">Membangun Recommender Engine Multi-Kriteria</div>
+          <p>Merancang dan mengimplementasikan sistem rekomendasi cerdas yang memadukan input warna kulit (undertone), cuaca tropis panas lembap, tingkat formalitas acara, dan preferensi modest/hijab ke dalam formula paduan outfit yang harmonis.</p>
+        </div>
+        <div class="card">
+          <span class="tag">TUJUAN TERAPAN (SUSTAINABLE FASHION)</span>
+          <div class="card-title">Memfasilitasi Pemanfaatan Lemari Pribadi</div>
+          <p>Mengembangkan fitur Smart Wardrobe Mixer agar pengguna dapat memadukan pakaian yang telah dimiliki di lemari dengan kurasi pakaian pelengkap baru, mengurangi perilaku konsumtif dan memaksimalkan utility pakaian.</p>
+        </div>
+        <div class="card">
+          <span class="tag">TUJUAN EVALUATIF (PENGUJIAN EMPIRIS)</span>
+          <div class="card-title">Menguji Kebergunaan Sistem dengan Standar SUS</div>
+          <p>Mengevaluasi tingkat kebergunaan antarmuka pengguna dan akurasi rekomendasi kepada calon pengguna nyata melalui instrumen System Usability Scale (SUS) dengan target skor kelayakan ≥ 75 (kategori Good/Excellent).</p>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>look.u AI • Proposal Capstone Project & Tugas Akhir 2026</span>
+        <span>Slide 5 / 10</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: HASIL / LUARAN -->
+    <div class="slide" id="slide-6">
+      <div class="slide-header">
+        <span class="category-pill">Bagian 2: Latar Belakang & Urgensi</span>
+        <div class="slide-title">Hasil & Luaran Proyek (Deliverables)</div>
+        <div class="slide-subtitle">Luaran nyata yang dihasilkan dalam aspek perangkat lunak, data terstruktur, dan dokumentasi akademis.</div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <span class="tag">LUARAN PRODUK PERANGKAT LUNAK</span>
+          <div class="card-title">Aplikasi Web Produksi 'look.u AI'</div>
+          <ul>
+            <li>Aplikasi web responsif Next.js 14, Tailwind CSS, dan Framer Motion.</li>
+            <li>Arsitektur Mobile-First & Desktop Atelier.</li>
+            <li>22 rute terkompilasi bebas error (100% production build pass).</li>
+            <li>Fitur Kuis Personal Color, Studio Racik, Garment Switcher, dan Lemari.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag">LUARAN BASIS DATA & ALGORITMA</span>
+          <div class="card-title">Dataset & Matriks Tekstil Tropis</div>
+          <ul>
+            <li>Dataset 300+ entitas katalog busana lokal dengan parameter kain.</li>
+            <li>Matriks Seasonal Color Harmony untuk 5 skin tone Indonesia.</li>
+            <li>Aturan filter sirkulasi kain tropis (katun, linen, rayon, crinkle).</li>
+            <li>Skema database Supabase & fallback offline local storage engine.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag">LUARAN AKADEMIS & EVALUASI</span>
+          <div class="card-title">Laporan Tugas Akhir & Laporan Uji SUS</div>
+          <ul>
+            <li>Buku Laporan Capstone Project / Tugas Akhir lengkap.</li>
+            <li>Kumpulan data mentah kuesioner evaluasi responden pengguna.</li>
+            <li>Laporan analisis statistik skor System Usability Scale (SUS).</li>
+            <li>Draf naskah artikel ilmiah untuk publikasi jurnal/seminar nasional.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>look.u AI • Proposal Capstone Project & Tugas Akhir 2026</span>
+        <span>Slide 6 / 10</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: METODOLOGI -->
+    <div class="slide" id="slide-7">
+      <div class="slide-header">
+        <span class="category-pill">Bagian 3: Metodologi & Rencana Data</span>
+        <div class="slide-title">Metodologi Penelitian & Arsitektur Sistem</div>
+        <div class="slide-subtitle">Kombinasi pendekatan User-Centered Design, Hybrid AI Engine, dan Evaluasi Standar SUS.</div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <span class="tag">PENDEKATAN PENGEMBANGAN</span>
+          <div class="card-title">User-Centered Design (UCD) & Agile</div>
+          <p>Pengembangan perangkat lunak berulang melalui 5 fase: Empathize (analisis kebiasaan berpakaian) → Define (identifikasi masalah iklim & warna) → Ideate (arsitektur hybrid) → Prototype (Next.js 14) → Evaluate (kuesioner pengguna).</p>
+        </div>
+        <div class="card">
+          <span class="tag">ENGINE REKOMENDASI</span>
+          <div class="card-title">Hybrid Knowledge-Based & Generative AI</div>
+          <p>1. Aturan Pengetahuan: Filtering warna kulit & permeabilitas kain katun/linen secara deterministik.<br>2. Generative AI: Gemini 2.5 Flash untuk narasi gaya dan tips hijab.<br>3. Heuristic Engine: Cadangan instan jika API timeout.</p>
+        </div>
+        <div class="card">
+          <span class="tag">METODE PENGUJIAN</span>
+          <div class="card-title">System Usability Scale (SUS) & Likert</div>
+          <p>1. SUS Framework: 10 pertanyaan standar untuk mengukur usability antarmuka secara objektif.<br>2. Kuesioner Kepuasan AI: Skala Likert 1–5 mengukur relevansi warna personal, kesesuaian iklim, dan efisiensi waktu memilih pakaian.</p>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>look.u AI • Proposal Capstone Project & Tugas Akhir 2026</span>
+        <span>Slide 7 / 10</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: DATA & SUMBER DATA -->
+    <div class="slide" id="slide-8">
+      <div class="slide-header">
+        <span class="category-pill">Bagian 3: Metodologi & Rencana Data</span>
+        <div class="slide-title">Data yang Digunakan & Klasifikasi Sumber Data</div>
+        <div class="slide-subtitle">Pemetaan variabel data sistem serta diferensiasi sumber data primer dan sekunder.</div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <span class="tag">STRUKTUR DATA SISTEM</span>
+          <div class="card-title">Entitas Data yang Diolah look.u AI</div>
+          <ul>
+            <li><strong>Data Personal Color</strong>: 5 Skin tone lokal (Putih Gading, Kuning Langsat, Sawo Matang, Eksotis, Deep Bronze) & 3 Undertone.</li>
+            <li><strong>Data Katalog Pakaian (300+ Item)</strong>: Atribut atasan, bawahan, hijab/outer, alas kaki, kode warna HEX, estimasi harga IDR, dan sirkulasi kain.</li>
+            <li><strong>Data Parameter Iklim Tropis</strong>: Tingkat sirkulasi udara serat tekstil (katun rayon, linen euro, crinkle airflow, voal ultrafine).</li>
+            <li><strong>Data Konteks Agenda & Acara</strong>: Klasifikasi 6 agenda: Kuliah, Kantor, Hangout, Kondangan, Liburan, dan Santai.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag" style="color:var(--accent-sage);">KLASIFIKASI SUMBER DATA</span>
+          <div class="card-title">Sumber Data Primer & Sekunder</div>
+          <ul>
+            <li><strong>Data Primer (Masyarakat Pengguna)</strong>: Hasil kuesioner evaluasi dari responden (mahasiswa & pekerja usia 18–35 tahun) setelah mencoba aplikasi secara langsung.</li>
+            <li><strong>Data Sekunder (Industri Tekstil)</strong>: Studi literatur permeabilitas udara serat alami tropis untuk ketahanan iklim panas lembab.</li>
+            <li><strong>Data Sekunder (Teori Warna)</strong>: Teori Seasonal Color Analysis internasional yang dikalibrasi ke spektrum melanin kulit Indonesia.</li>
+            <li><strong>Data Sekunder (Katalog E-Commerce)</strong>: Spesifikasi pakaian dan rentang harga realistik dari marketplace resmi Indonesia (Shopee & Tokopedia).</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>look.u AI • Proposal Capstone Project & Tugas Akhir 2026</span>
+        <span>Slide 8 / 10</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: RENCANA PENYELESAIAN DATA -->
+    <div class="slide" id="slide-9">
+      <div class="slide-header">
+        <span class="category-pill">Bagian 3: Metodologi & Rencana Data</span>
+        <div class="slide-title">Rencana Penyelesaian Data & Roadmap Evaluasi Kuesioner</div>
+        <div class="slide-subtitle">Tahapan pengumpulan masukan responden dan validasi empiris untuk laporan Tugas Akhir.</div>
+      </div>
+      <div class="grid-4">
+        <div class="card">
+          <span class="tag">TAHAP 1</span>
+          <div class="card-title" style="font-size:14px;">Data Curation & Prep</div>
+          <span style="font-size:9px; font-weight:800; color:var(--accent-sage); margin-bottom:6px;">[SELESAI 100%]</span>
+          <p>Kurasi 300+ entitas katalog pakaian tropis, normalisasi kode warna, dan perumusan matriks personal color.</p>
+        </div>
+        <div class="card">
+          <span class="tag">TAHAP 2</span>
+          <div class="card-title" style="font-size:14px;">Deployment Prototipe</div>
+          <span style="font-size:9px; font-weight:800; color:var(--accent-sage); margin-bottom:6px;">[SIAP DILUNCURKAN]</span>
+          <p>Hosting web app produksi (22 rute bebas error) agar responden dapat mengakses langsung dari smartphone.</p>
+        </div>
+        <div class="card">
+          <span class="tag">TAHAP 3</span>
+          <div class="card-title" style="font-size:14px;">Pengujian Kuesioner</div>
+          <span style="font-size:9px; font-weight:800; color:var(--accent-terra); margin-bottom:6px;">[ON PROGRESS]</span>
+          <p>Penyebaran instrumen kuesioner System Usability Scale (SUS) kepada target minimal 30–50 responden.</p>
+        </div>
+        <div class="card">
+          <span class="tag">TAHAP 4</span>
+          <div class="card-title" style="font-size:14px;">Analisis Statistik</div>
+          <span style="font-size:9px; font-weight:800; color:#495848; margin-bottom:6px;">[FINAL STAGE]</span>
+          <p>Perhitungan skor rata-rata SUS (target ≥ 75) dan penarikan kesimpulan ilmiah di laporan akhir.</p>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>look.u AI • Proposal Capstone Project & Tugas Akhir 2026</span>
+        <span>Slide 9 / 10</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 10: PENUTUP -->
+    <div class="slide" id="slide-10">
+      <div class="cover-frame" style="align-items:center; text-align:center;">
+        <div class="category-pill" style="margin-bottom:12px;">KESIMPULAN & PENUTUP</div>
+        <div class="cover-brand" style="font-size:52px; margin-bottom:12px;">Terima Kasih</div>
+        <p style="font-size:14px; color:var(--text-muted); max-width:650px; line-height:1.6; margin-bottom:20px;">
+          look.u AI siap melangkah ke tahap pengujian empiris dan pengumpulan data kuesioner pengguna.<br>
+          Kami sangat mengharapkan masukan, saran, dan arahan dari Bapak/Ibu Dosen Penguji.
+        </p>
+        <div style="font-family:'Playfair Display', Georgia, serif; font-size:18px; font-weight:700; color:var(--accent-sage);">
+          Sesi Tanya Jawab (Q&A) Dibuka
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 10;
+
+    function showSlide(num) {
+      if (num < 1) num = 1;
+      if (num > totalSlides) num = totalSlides;
+      currentSlide = num;
+
+      document.querySelectorAll('.slide').forEach((slide, idx) => {
+        slide.classList.toggle('active', idx + 1 === currentSlide);
+      });
+
+      document.getElementById('slideIndicator').textContent = `Slide ${currentSlide} dari ${totalSlides}`;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        showSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        showSlide(currentSlide - 1);
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Space') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+
+    function toggleFullScreen() {
+      const container = document.getElementById('deckContainer');
+      if (!document.fullscreenElement) {
+        container.requestFullscreen().catch(err => alert(`Gagal masuk layar penuh: ${err.message}`));
+      } else {
+        document.exitFullscreen();
+      }
+    }
+  </script>
+</body>
+</html>

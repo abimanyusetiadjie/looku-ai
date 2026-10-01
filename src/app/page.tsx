@@ -46,7 +46,6 @@ const PWAInstallBanner = dynamic(() => import("@/components/PWAInstallBanner"), 
 
 export default function HomePage() {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
-  const [isCloneModalOpen, setIsCloneModalOpen] = useState(false);
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
   const [isSavedDrawerOpen, setIsSavedDrawerOpen] = useState(false);
   const [storyOutfitToExport, setStoryOutfitToExport] = useState<OOTDRecommendation | null>(null);
@@ -139,7 +138,6 @@ export default function HomePage() {
         <Navbar
           onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)}
         onOpenQuiz={() => setIsQuizOpen(true)}
-        onOpenClone={() => setIsCloneModalOpen(true)}
         onOpenCatalog={() => setIsCatalogOpen(true)}
         onOpenHistory={() => {
           if (typeof window !== "undefined") {
@@ -149,7 +147,6 @@ export default function HomePage() {
       />
 
       {/* 2. Daily Weather & Morning Dressing Briefing Banner */}
-      <DailyReminderBanner />
 
       {/* 3. Hero Section (With 1-Tap Live Climate & Style Switcher) */}
       <HeroSection onOpenQuiz={() => setIsQuizOpen(true)} />
@@ -614,19 +611,6 @@ export default function HomePage() {
         />
       )}
 
-      {isCloneModalOpen && (
-        <InfluencerCloneModal
-          isOpen={isCloneModalOpen}
-          onClose={() => setIsCloneModalOpen(false)}
-          onSelectDupeLook={(outfit) => {
-            setIsCloneModalOpen(false);
-            if (typeof window !== "undefined") {
-              window.location.href = `/studio?look=${outfit.id}`;
-            }
-          }}
-        />
-      )}
-
       {isCatalogOpen && (
         <FashionCatalogModal
           isOpen={isCatalogOpen}
@@ -639,3 +623,7 @@ export default function HomePage() {
     </div>
   );
 }
+
+
+
+
