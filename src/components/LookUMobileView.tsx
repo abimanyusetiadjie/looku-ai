@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 interface LookUMobileViewProps {
   onOpenQuiz?: () => void;
   onOpenSavedDrawer?: () => void;
+  savedCount?: number;
 }
 
 export default function LookUMobileView({ onOpenQuiz, onOpenSavedDrawer }: LookUMobileViewProps) {
@@ -97,3 +98,4 @@ export default function LookUMobileView({ onOpenQuiz, onOpenSavedDrawer }: LookU
     </div>
   );
 }
+
