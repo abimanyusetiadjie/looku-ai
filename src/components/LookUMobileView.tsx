@@ -4,25 +4,24 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { 
-  Sun, 
-  House, 
-  Sparkles, 
-  Palette, 
-  BookOpen, 
-  Shirt, 
-  Wind, 
-  ChevronRight, 
-  ArrowRight, 
-  Check, 
-  X, 
-  Heart, 
-  ThermometerSun, 
-  Layers, 
-  Bookmark,
-  User
-} from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Menu, Search, ShoppingBag, Sun, House, Sparkles, Palette, BookOpen, Shirt, Wind, ChevronRight, ArrowRight, Check, X, Heart, ThermometerSun, Layers, Bookmark, User } from "lucide-react";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Definisi Tipe Data Outfit Mobile
 export interface MobileOutfitItem {
@@ -991,5 +990,6 @@ export default function LookUMobileView({
     </div>
   );
 }
+
 
 
