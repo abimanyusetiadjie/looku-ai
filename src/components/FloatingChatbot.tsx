@@ -364,7 +364,7 @@ export default function FloatingChatbot() {
   return (
     <>
       {/* Floating Trigger Button */}
-      <div className="fixed bottom-[calc(66px+env(safe-area-inset-bottom,0px))] md:bottom-8 right-3 sm:right-6 md:right-8 z-30 pointer-events-auto">
+      <motion.div drag dragConstraints={{ left: -300, right: 0, top: -600, bottom: 0 }} dragElastic={0.1} className="fixed bottom-[calc(90px+env(safe-area-inset-bottom,0px))] md:bottom-12 right-4 sm:right-6 md:right-8 z-30 pointer-events-auto" style={{ touchAction: "none" }}>
         <AnimatePresence>
           {!isOpen && (
             <>
@@ -402,7 +402,7 @@ export default function FloatingChatbot() {
                 </div>
                 <div className="text-left">
                   <div className="text-xs font-bold tracking-tight text-[#FAF8F5] flex items-baseline">
-                    Tanya Stylist <span className="font-serif italic ml-1">look<span className="text-terracotta-500 not-italic">.</span>u</span>
+                    Tanya Stylist <span className="font-serif font-medium ml-1 tracking-[0.05em]">Look<span className="text-terracotta-500 font-bold">.</span>u</span>
                   </div>
                   <div className="text-[9px] font-mono text-[#A89582] group-hover:text-white/80 uppercase">
                     Kamera & Scan Foto AI
@@ -412,7 +412,7 @@ export default function FloatingChatbot() {
             </>
           )}
         </AnimatePresence>
-      </div>
+      </motion.div>
 
       {/* Floating Chat Drawer Window (Mobile Bottom-Sheet / Desktop Popup) */}
       <AnimatePresence>
@@ -437,7 +437,7 @@ export default function FloatingChatbot() {
                 </div>
                 <div>
                   <div className="font-serif font-bold text-sm text-white flex items-baseline">
-                    Stylist Pribadi <span className="italic ml-1">look<span className="text-terracotta-400 not-italic">.</span>u</span>
+                    Stylist Pribadi <span className="font-serif font-medium ml-1 tracking-[0.05em]">Look<span className="text-terracotta-400 font-bold">.</span>u</span>
                   </div>
                   <div className="text-[9px] font-mono text-[#D7CABC] uppercase tracking-wider">
                     Online • Kamera & Vision AI
@@ -818,3 +818,6 @@ export default function FloatingChatbot() {
     </>
   );
 }
+
+
+

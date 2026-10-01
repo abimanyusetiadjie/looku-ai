@@ -429,9 +429,7 @@ export default function LookUMobileView({
             <div className="flex items-center gap-2">
               <Link 
                 href="/" 
-                className="font-serif italic font-extrabold text-2xl tracking-tight text-[#181A18] flex items-baseline select-none"
-              >
-                look<span className="text-terracotta-500 not-italic">.</span>u
+                className="font-serif font-medium text-2xl tracking-[0.05em] text-[#181A18] flex items-baseline select-none">Look<span className="text-terracotta-500 font-bold">.</span>u
               </Link>
               <span className="text-[9px] font-mono font-bold uppercase tracking-wider bg-sage-100 text-sage-800 px-2 py-0.5 rounded-full border border-sage-200/70">
                 AI STYLIST
@@ -1074,3 +1072,4 @@ export default function LookUMobileView({
     </div>
   );
 }
+

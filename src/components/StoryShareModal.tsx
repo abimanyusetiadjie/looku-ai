@@ -188,11 +188,7 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
           >
             <div>
               <div
-                className={`font-serif italic font-bold text-xl tracking-tight flex items-baseline ${
-                  isEarthy ? "text-charcoal-900" : "text-white"
-                }`}
-              >
-                look<span className="text-terracotta-500 not-italic">.</span>u
+                className={`font-serif font-medium text-xl tracking-[0.05em] flex items-baseline ${isEarthy ? "text-charcoal-900" : "text-white"}`}>Look<span className="text-terracotta-500 font-bold">.</span>u
               </div>
               <div
                 className={`text-[8px] font-mono tracking-widest uppercase ${
@@ -400,4 +396,5 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
     </motion.div>
   );
 }
+
 

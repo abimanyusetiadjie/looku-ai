@@ -95,9 +95,7 @@ export default function Footer() {
         {/* Top: Logo + Nav + Social */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-10 border-b border-white/10">
           <div>
-            <div className="font-serif italic font-bold text-3xl tracking-tight text-white flex items-baseline">
-              look<span className="text-terracotta-500 not-italic">.</span>u
-            </div>
+            <div className="font-serif font-medium text-3xl tracking-[0.05em] text-white flex items-baseline">Look<span className="text-terracotta-500 font-bold">.</span>u</div>
             <p className="text-xs text-sand-500 mt-1 font-mono tracking-wider">
               CURATED TROPICAL OOTD & PERSONAL COLOR STUDIO • JAKARTA, INDONESIA
             </p>
@@ -200,3 +198,4 @@ export default function Footer() {
     </footer>
   );
 }
+
