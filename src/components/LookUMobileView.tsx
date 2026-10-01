@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Menu, Search, ShoppingBag, Sun, House, Sparkles, Palette, BookOpen, Shirt, Wind, ChevronRight, ArrowRight, Check, X, Heart, ThermometerSun, Layers, Bookmark, User } from "lucide-react";
-
+import { motion, AnimatePresence } from "framer-motion";
 
 
 
