@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Menu, Search, ShoppingBag, Sun, House, Sparkles, Palette, BookOpen, Shirt, Wind, ChevronRight, ArrowRight, Check, X, Heart, ThermometerSun, Layers, Bookmark, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useWeather } from "@/hooks/useWeather";
 
 
 
@@ -543,10 +544,10 @@ export default function LookUMobileView({
                 </div>
 
                 <p className="font-sans text-[8px] uppercase tracking-widest text-[#181A18]/50 font-semibold mb-3">
-                  {heroOutfit.suhu}
+                  {weather.location} {weather.temperature}°C — {weather.condition.toUpperCase()}
                 </p>
                 <p className="font-sans text-[7px] text-[#181A18]/40 mb-5 -mt-2 tracking-wide">
-                  DATA BMKG - UPDATE HARI INI
+                  {weather.isSimulated ? "DATA SIMULASI (LOKASI NONAKTIF)" : "SATELIT CUACA REALTIME AKTIF"}
                 </p>
 
                 <div className="font-sans text-sm font-bold text-[#181A18] mb-6 tracking-widest">

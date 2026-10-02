@@ -142,6 +142,7 @@ const HERO_SCENARIOS: HeroScenario[] = [
 ];
 
 export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
+  const { weather } = useWeather();
   const [selectedScenario, setSelectedScenario] = useState<HeroScenario>(HERO_SCENARIOS[0]);
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
 
@@ -481,4 +482,5 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
     </>
   );
 }
+
 
