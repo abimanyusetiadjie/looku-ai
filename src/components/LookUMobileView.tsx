@@ -488,20 +488,21 @@ export default function LookUMobileView({
           {/* ============================================================ */}
           {/* 2. HERO SECTION (Look of the Day)                           */}
           {/* ============================================================ */}
-          <section aria-label="Gaya Pilihan Hari Ini" className="bg-white">
+          <section aria-label="Gaya Pilihan Hari Ini" className="bg-white w-full flex flex-col items-center">
             <div
               onClick={() => handleOpenOutfitDetails(heroOutfit)}
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
-              className="w-full relative cursor-pointer active:scale-[0.99] transition-all"
+              className="w-full relative cursor-pointer active:scale-[0.99] transition-all flex flex-col items-center"
             >
-              <div className="w-full aspect-[4/5] relative bg-sand-100">
+              {/* Image Container - Constrained Height for Mobile Responsiveness */}
+              <div className="w-full h-[55vh] min-h-[400px] max-h-[500px] relative bg-sand-50">
                 <Image
                   src={heroOutfit.gambar}
                   alt={heroOutfit.judul}
                   fill
                   priority
-                  className="object-cover object-center"
+                  className="object-cover object-top"
                   sizes="100vw"
                 />
                 
@@ -512,51 +513,59 @@ export default function LookUMobileView({
                     e.stopPropagation();
                     handleToggleSaveOutfit(heroOutfit);
                   }}
-                  className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-[#181A18] shadow-sm"
+                  className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#181A18] shadow-sm border border-black/5"
                 >
-                  <Heart className={`w-5 h-5 ${isSavedLocally ? "fill-terracotta-500 text-terracotta-500" : "text-stone-700"}`} />
+                  <Heart className={`w-4 h-4 ${isSavedLocally ? "fill-[#181A18] text-[#181A18]" : "text-stone-700"}`} />
                 </button>
               </div>
 
-              <div className="w-full px-6 pt-10 pb-6 flex flex-col items-center text-center">
-                <h1 className="font-serif font-medium text-3xl text-[#181A18] leading-tight mb-3">
+              {/* Minimal Text Content */}
+              <div className="w-full max-w-sm px-6 pt-8 pb-4 flex flex-col items-center text-center">
+                <h1 className="font-serif font-medium text-[28px] text-[#181A18] leading-tight mb-2">
                   {heroOutfit.judul}
                 </h1>
                 
-                <p className="font-sans text-[9px] font-semibold uppercase tracking-[0.2em] text-[#181A18]/70 mb-8">
+                <p className="font-sans text-[8px] font-semibold uppercase tracking-[0.15em] text-[#181A18]/60 mb-6 leading-relaxed max-w-[280px]">
                   {heroOutfit.subjudul} — {heroOutfit.tagline}
                 </p>
 
-                <div className="flex items-center gap-6 mb-8">
-                  <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-[#181A18]">
-                    Color
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="font-sans text-[9px] font-bold uppercase tracking-widest text-[#181A18]">
+                    COLOR
                   </span>
-                  <div className="flex gap-4">
+                  <div className="flex gap-2.5">
                     {heroOutfit.paletWarna.slice(0, 3).map((warna, idx) => (
                       <span
                         key={idx}
-                        className={`w-4 h-4 rounded-full border border-black/20 ${idx === 0 ? 'ring-1 ring-offset-2 ring-charcoal-900' : ''}`}
+                        className={`w-4 h-4 rounded-full border border-black/20 ${idx === 0 ? 'ring-1 ring-offset-[2px] ring-charcoal-900' : ''}`}
                         style={{ backgroundColor: warna.hex }}
                       />
                     ))}
                   </div>
                 </div>
 
-                <p className="font-sans text-[9px] uppercase tracking-widest text-charcoal-900/60 font-semibold mb-6">
+                <p className="font-sans text-[8px] uppercase tracking-widest text-[#181A18]/50 font-semibold mb-3">
                   {heroOutfit.suhu}
                 </p>
 
-                <div className="font-sans text-sm font-bold text-[#181A18] mb-4 tracking-widest">
+                <div className="font-sans text-sm font-bold text-[#181A18] mb-6 tracking-widest">
                   {heroOutfit.rentangHarga}
                 </div>
 
-                <div className="flex gap-4 mb-8 w-full px-4"><button onClick={(e) => { e.stopPropagation(); handleLaunchStudio(heroOutfit); }} className="flex-1 py-3.5 border border-[#181A18] text-center font-sans text-[10px] font-bold uppercase tracking-widest text-[#181A18] hover:bg-[#181A18] hover:text-white transition-colors">Add to Wardrobe</button></div>`n                {/* Swipe Indicators */}
-                <div className="flex items-center gap-1.5 mt-2">
+                <button 
+                  onClick={(e) => { e.stopPropagation(); handleLaunchStudio(heroOutfit); }} 
+                  className="w-full max-w-[240px] py-3.5 rounded-full border border-[#181A18] text-center font-sans text-[10px] font-bold uppercase tracking-widest text-[#181A18] hover:bg-[#181A18] hover:text-white transition-colors mb-2"
+                >
+                  Add to Wardrobe
+                </button>
+
+                {/* Swipe Indicators */}
+                <div className="flex items-center justify-center gap-1.5 mt-2 h-4">
                   {OUTFIT_HERO_LIST.map((_, idx) => (
                     <div
                       key={idx}
-                      className={`h-1 rounded-full transition-all ${
-                        idx === currentHeroIndex ? "w-6 bg-[#181A18]" : "w-2 bg-sand-300"
+                      className={`h-[3px] rounded-full transition-all ${
+                        idx === currentHeroIndex ? "w-5 bg-[#181A18]" : "w-1.5 bg-black/10"
                       }`}
                     />
                   ))}
