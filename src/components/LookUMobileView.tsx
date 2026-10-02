@@ -306,6 +306,7 @@ export default function LookUMobileView({
   savedCount = 0,
 }: LookUMobileViewProps) {
   const router = useRouter();
+  const { weather } = useWeather();
 
   // State Interaktif
   const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
