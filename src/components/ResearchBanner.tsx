@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { ClipboardList, X } from "lucide-react";
 
 export default function ResearchBanner() {
@@ -9,7 +10,7 @@ export default function ResearchBanner() {
 
   useEffect(() => {
     // Tampilkan banner setelah pengguna berada di halaman selama 5 detik
-    const timer = setTimeout(() => setIsVisible(true), 5000);
+    const timer = setTimeout(() => setIsVisible(true), 15000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -37,14 +38,14 @@ export default function ResearchBanner() {
           </div>
           
           <div className="flex items-center gap-2">
-            <a 
-              href="https://forms.gle/YOUR_SUS_FORM_LINK_HERE" 
+            <Link 
+              href="/kuesioner" 
               target="_blank" 
               rel="noopener noreferrer"
               className="px-4 py-2 bg-terracotta-500 hover:bg-terracotta-600 text-white text-[11px] font-bold uppercase tracking-wider rounded-xl transition-colors shadow-sm whitespace-nowrap"
-            >
+             onClick={() => setIsVisible(false)}>
               Isi Kuesioner
-            </a>
+            </Link>
             <button 
               onClick={() => setIsVisible(false)}
               className="p-2 text-white/50 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
@@ -57,3 +58,4 @@ export default function ResearchBanner() {
     </AnimatePresence>
   );
 }
+
