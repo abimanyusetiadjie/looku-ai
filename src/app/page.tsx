@@ -88,13 +88,7 @@ export default function HomePage() {
     updateCount();
     window.addEventListener("storage", updateCount);
     const interval = setInterval(updateCount, 2000);
-    if (hasOnboarded === null) return null;
-
-  if (!hasOnboarded) {
-    return <OnboardingFlow onComplete={handleCompleteOnboarding} />;
-  }
-
-  return () => {
+    return () => {
       window.removeEventListener("storage", updateCount);
       clearInterval(interval);
     };
@@ -140,6 +134,12 @@ export default function HomePage() {
       type: "success",
     });
   };
+
+  if (hasOnboarded === null) return null;
+
+  if (!hasOnboarded) {
+    return <OnboardingFlow onComplete={handleCompleteOnboarding} />;
+  }
 
   if (hasOnboarded === null) return null;
 
