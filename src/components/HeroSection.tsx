@@ -481,3 +481,4 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
     </>
   );
 }
+

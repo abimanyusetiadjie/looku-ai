@@ -368,19 +368,19 @@ export default function FloatingChatbot() {
         <AnimatePresence>
           {!isOpen && (
             <>
-              {/* Mobile Circular FAB (<640px) */}
+              {/* Mobile Pill FAB (<640px) */}
               <motion.button
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0, opacity: 0 }}
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.92 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => setIsOpen(true)}
-                aria-label="Tanya AI Stylist"
-                className="sm:hidden w-12 h-12 rounded-full bg-[#181A18] text-white shadow-2xl border-2 border-white/20 flex items-center justify-center relative shadow-glow"
+                aria-label="Coba AI Stylist"
+                className="sm:hidden h-[44px] px-4 rounded-full bg-[#181A18] text-white shadow-2xl border-2 border-white/20 flex items-center justify-center gap-2 relative shadow-glow"
               >
-                <Sparkles className="w-5 h-5 text-terracotta-400" />
-                <span className="absolute top-0.5 right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-[#181A18] animate-pulse" />
+                <Sparkles className="w-4 h-4 text-terracotta-400" />
+                <span className="font-sans font-bold text-[10px] tracking-widest uppercase">Coba AI Stylist</span>
               </motion.button>
 
               {/* Desktop Expanded Pill (>=640px) */}
@@ -818,6 +818,7 @@ export default function FloatingChatbot() {
     </>
   );
 }
+
 
 
 

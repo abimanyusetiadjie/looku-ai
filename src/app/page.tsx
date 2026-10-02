@@ -46,6 +46,25 @@ const PWAInstallBanner = dynamic(() => import("@/components/PWAInstallBanner"), 
 
 export default function HomePage() {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
+  const [hasOnboarded, setHasOnboarded] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const onboarded = localStorage.getItem('looku_has_onboarded');
+    if (window.location.search.includes('quiz=true')) {
+      setIsQuizOpen(true);
+    }
+    if (onboarded) {
+      setHasOnboarded(true);
+    } else {
+      setHasOnboarded(false);
+    }
+  }, []);
+
+  const handleCompleteOnboarding = () => {
+    localStorage.setItem('looku_has_onboarded', 'true');
+    setHasOnboarded(true);
+    setIsQuizOpen(true);
+  };
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
   const [isSavedDrawerOpen, setIsSavedDrawerOpen] = useState(false);
   const [storyOutfitToExport, setStoryOutfitToExport] = useState<OOTDRecommendation | null>(null);
@@ -69,7 +88,13 @@ export default function HomePage() {
     updateCount();
     window.addEventListener("storage", updateCount);
     const interval = setInterval(updateCount, 2000);
-    return () => {
+    if (hasOnboarded === null) return null;
+
+  if (!hasOnboarded) {
+    return <OnboardingFlow onComplete={handleCompleteOnboarding} />;
+  }
+
+  return () => {
       window.removeEventListener("storage", updateCount);
       clearInterval(interval);
     };
@@ -115,6 +140,12 @@ export default function HomePage() {
       type: "success",
     });
   };
+
+  if (hasOnboarded === null) return null;
+
+  if (!hasOnboarded) {
+    return <OnboardingFlow onComplete={handleCompleteOnboarding} />;
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF8F5]">
@@ -623,6 +654,8 @@ export default function HomePage() {
     </div>
   );
 }
+
+
 
 
 

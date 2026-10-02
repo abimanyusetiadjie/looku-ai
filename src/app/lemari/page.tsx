@@ -208,33 +208,33 @@ export default function LemariPage() {
 
         {/* Outfits Grid or Empty State */}
         {filteredOutfits.length === 0 ? (
-          <div className="p-12 sm:p-16 rounded-3xl bg-white border border-[#E8DFD1] text-center space-y-6 shadow-tactile max-w-xl mx-auto">
-            <div className="w-16 h-16 rounded-3xl bg-sand-100 text-charcoal-900 flex items-center justify-center mx-auto border border-sand-200 shadow-2xs">
-              <Bookmark className="w-7 h-7 text-terracotta-600" />
+          <div className="py-20 md:py-28 flex flex-col items-center justify-center text-center space-y-6 max-w-md mx-auto">
+            <div className="w-32 h-32 relative mb-4">
+              <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?w=400&q=80" alt="Empty Wardrobe" className="w-full h-full object-cover rounded-full grayscale opacity-70 border-8 border-white shadow-xl" />
+              <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border border-black/5">
+                <Shirt className="w-5 h-5 text-[#181A18]" />
+              </div>
             </div>
-
             <div className="space-y-2">
-              <h3 className="font-serif font-bold text-2xl text-charcoal-900">
-                Lemari Koleksimu Masih Kosong
-              </h3>
-              <p className="text-xs sm:text-sm text-sand-500 max-w-md mx-auto leading-relaxed">
-                Eksplorasi ribuan kombinasi pakaian adem iklim 33°C di Studio OOTD dan klik tombol <b>"Simpan ke Lemari"</b> untuk memulai.
+              <h2 className="font-serif font-medium text-[28px] text-[#181A18] leading-tight">
+                Lemari Kosong
+              </h2>
+              <p className="text-xs text-[#181A18]/60 leading-relaxed font-sans px-4">
+                Setiap perjalanan gaya dimulai dengan mengetahui warna kulit aslimu. Isi lemarimu dengan pakaian yang membuatmu bersinar.
               </p>
             </div>
-
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div className="pt-6 flex flex-col w-full px-6 gap-3">
               <Link
-                href="/#studio"
-                className="w-full sm:w-auto py-3.5 px-6 rounded-2xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-md"
+                href="/?quiz=true"
+                className="w-full py-4 rounded-full border border-[#181A18] text-[#181A18] font-bold font-sans text-[10px] uppercase tracking-[0.15em] transition-colors hover:bg-[#181A18] hover:text-white"
               >
-                <Sparkles className="w-4 h-4" />
-                <span>Mulai Racik OOTD Sekarang ➔</span>
+                Mulai Tes Warna & Tubuh
               </Link>
               <Link
-                href="/#trending"
-                className="w-full sm:w-auto py-3.5 px-6 rounded-2xl bg-white hover:bg-sand-100 border border-sand-300 text-charcoal-900 font-bold text-xs uppercase tracking-wider transition-colors"
+                href="/lookbook"
+                className="w-full py-4 text-[#181A18] font-semibold font-sans text-[10px] uppercase tracking-[0.15em] transition-colors hover:text-terracotta-500 underline underline-offset-4"
               >
-                Lihat Lookbook Trending
+                Jelajahi Koleksi Lookbook
               </Link>
             </div>
           </div>
@@ -388,4 +388,5 @@ export default function LemariPage() {
     </div>
   );
 }
+
 

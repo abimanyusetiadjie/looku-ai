@@ -428,9 +428,7 @@ export default function LookUMobileView({
             <Menu className="w-5 h-5 stroke-[1.5]" />
           </button>
           
-          <Link href="/" className="font-serif font-medium text-3xl tracking-[0.05em] text-[#181A18] flex items-baseline select-none">
-            Look<span className="text-terracotta-500 font-bold">.</span>u
-          </Link>
+          <div className="font-serif font-medium text-3xl tracking-[0.05em] text-[#181A18] flex items-baseline select-none">Look<span className="text-terracotta-500 font-bold">.</span>u</div>
           
           <div className="flex items-center gap-4">
             <button className="text-charcoal-900" aria-label="Search">
@@ -546,6 +544,9 @@ export default function LookUMobileView({
 
                 <p className="font-sans text-[8px] uppercase tracking-widest text-[#181A18]/50 font-semibold mb-3">
                   {heroOutfit.suhu}
+                </p>
+                <p className="font-sans text-[7px] text-[#181A18]/40 mb-5 -mt-2 tracking-wide">
+                  DATA BMKG - UPDATE HARI INI
                 </p>
 
                 <div className="font-sans text-sm font-bold text-[#181A18] mb-6 tracking-widest">
@@ -1025,6 +1026,8 @@ export default function LookUMobileView({
     </div>
   );
 }
+
+
 
 
 
