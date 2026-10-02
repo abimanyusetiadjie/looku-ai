@@ -740,110 +740,7 @@ export default function LookUMobileView({
           </section>
         </main>
 
-        {/* ============================================================ */}
-        {/* 6. BOTTOM NAVIGATION BAR (Fixed di Bawah dengan Safe Area)    */}
-        {/* ============================================================ */}
-        <nav
-          aria-label="Navigasi Utama Ponsel"
-          className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-lg border-t border-[#E8DFD1] pb-[max(8px,env(safe-area-inset-bottom))] shadow-[0_-4px_16px_rgba(0,0,0,0.04)]"
-        >
-          <div className="max-w-md mx-auto grid grid-cols-5 h-[58px] items-center px-1">
-            
-            {/* 1. Beranda */}
-            <button
-              type="button"
-              onClick={() => {
-                setActiveNavTab("beranda");
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-              className={`flex flex-col items-center justify-center py-1 min-h-[44px] transition-colors ${
-                activeNavTab === "beranda" ? "text-sage-700 font-bold" : "text-stone-500 hover:text-stone-800"
-              }`}
-            >
-              <House className="w-5 h-5 stroke-[1.8]" />
-              <span className="text-[10px] mt-1">Beranda</span>
-            </button>
-
-            {/* 2. Studio AI */}
-            <button
-              type="button"
-              onClick={() => {
-                setActiveNavTab("studio");
-                router.push("/studio");
-              }}
-              className={`flex flex-col items-center justify-center py-1 min-h-[44px] transition-colors ${
-                activeNavTab === "studio" ? "text-sage-700 font-bold" : "text-stone-500 hover:text-stone-800"
-              }`}
-            >
-              <Sparkles className="w-5 h-5 stroke-[1.8]" />
-              <span className="text-[10px] mt-1">Studio AI</span>
-            </button>
-
-            {/* 3. Kuis Warna (DISOROT SPESIAL / AKTIF MELAYANG) */}
-            <div className="relative flex flex-col items-center justify-center">
-              <button
-                type="button"
-                onClick={() => {
-                  setActiveNavTab("kuis-warna");
-                  if (onOpenQuiz) {
-                    onOpenQuiz();
-                  } else {
-                    triggerNotification("Membuka kuis personal color...");
-                  }
-                }}
-                className="relative -top-4 w-12 h-12 rounded-full bg-sage-600 text-white flex items-center justify-center shadow-[0_6px_16px_rgba(85,115,82,0.45)] border-3 border-white active:scale-95 transition-transform"
-                aria-label="Kuis Warna - Fitur Utama"
-              >
-                <Palette className="w-5 h-5" />
-                <span className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-amber-400 rounded-full border-2 border-white animate-pulse" />
-              </button>
-              <span className="text-[10px] font-bold text-sage-800 -mt-2">
-                Kuis Warna
-              </span>
-            </div>
-
-            {/* 4. Lookbook */}
-            <button
-              type="button"
-              onClick={() => {
-                setActiveNavTab("lookbook");
-                router.push("/lookbook");
-              }}
-              className={`flex flex-col items-center justify-center py-1 min-h-[44px] transition-colors ${
-                activeNavTab === "lookbook" ? "text-sage-700 font-bold" : "text-stone-500 hover:text-stone-800"
-              }`}
-            >
-              <BookOpen className="w-5 h-5 stroke-[1.8]" />
-              <span className="text-[10px] mt-1">Lookbook</span>
-            </button>
-
-            {/* 5. Lemari */}
-            <button
-              type="button"
-              onClick={() => {
-                setActiveNavTab("lemari");
-                if (onOpenSavedDrawer) {
-                  onOpenSavedDrawer();
-                } else {
-                  router.push("/lemari");
-                }
-              }}
-              className={`relative flex flex-col items-center justify-center py-1 min-h-[44px] transition-colors ${
-                activeNavTab === "lemari" ? "text-sage-700 font-bold" : "text-stone-500 hover:text-stone-800"
-              }`}
-            >
-              <div className="relative">
-                <Shirt className="w-5 h-5 stroke-[1.8]" />
-                {savedCount > 0 && (
-                  <span className="absolute -top-1.5 -right-2 min-w-[15px] h-[15px] px-1 rounded-full bg-terracotta-500 text-white text-[8px] font-mono font-bold flex items-center justify-center border border-white">
-                    {savedCount > 9 ? "9+" : savedCount}
-                  </span>
-                )}
-              </div>
-              <span className="text-[10px] mt-1">Lemari</span>
-            </button>
-          </div>
-        </nav>
+        
 
         {/* ============================================================ */}
         {/* 7. PROGRESSIVE DISCLOSURE: BOTTOM SHEET INTERAKTIF            */}
@@ -1026,6 +923,7 @@ export default function LookUMobileView({
     </div>
   );
 }
+
 
 
 
