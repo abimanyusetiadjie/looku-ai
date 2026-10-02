@@ -13,7 +13,8 @@ import {
   ExternalLink,
   Tag, 
   Filter, 
-  Check, 
+  Check,
+  Shirt, 
   Cloud,
   ChevronRight,
   TrendingUp,
@@ -388,5 +389,6 @@ export default function LemariPage() {
     </div>
   );
 }
+
 
 
