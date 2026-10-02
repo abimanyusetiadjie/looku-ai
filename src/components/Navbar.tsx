@@ -32,9 +32,14 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenCatalog, o
             
             {/* Desktop Left Navigation */}
             <div className="hidden lg:flex items-center gap-8 flex-1">
-              {['Shop', 'New', 'Collections', 'Editorial'].map((item) => (
-                <Link key={item} href={`/#${item.toLowerCase()}`} className="text-[11px] font-sans font-semibold tracking-widest text-charcoal-900 uppercase hover:text-terracotta-500 transition-colors">
-                  {item}
+              {[
+  { name: 'Home', href: '/' },
+  { name: 'Studio', href: '/studio' },
+  { name: 'Lookbook', href: '/lookbook' },
+  { name: 'Wardrobe', href: '/lemari' }
+].map((item) => (
+                <Link key={item.name} href={item.href} className="text-[11px] font-sans font-semibold tracking-widest text-charcoal-900 uppercase hover:text-terracotta-500 transition-colors">
+                  {item.name}
                 </Link>
               ))}
             </div>
@@ -82,10 +87,15 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenCatalog, o
               className="lg:hidden bg-white border-b border-[#F0EBE1] overflow-hidden"
             >
               <div className="px-4 py-6 flex flex-col gap-6">
-                {['Shop', 'New', 'Collections', 'Editorial'].map((item) => (
-                  <Link key={item} href={`/#${item.toLowerCase()}`} onClick={() => setMobileMenuOpen(false)} className="text-sm font-sans font-semibold tracking-widest text-charcoal-900 uppercase">
-                    {item}
-                  </Link>
+                {[
+  { name: 'Home', href: '/' },
+  { name: 'Studio', href: '/studio' },
+  { name: 'Lookbook', href: '/lookbook' },
+  { name: 'Wardrobe', href: '/lemari' }
+].map((item) => (
+                <Link key={item.name} href={item.href} onClick={() => setMobileMenuOpen(false)} className="text-sm font-sans font-semibold tracking-widest text-charcoal-900 uppercase">
+                    {item.name}
+                </Link>
                 ))}
                 <div className="h-px bg-[#F0EBE1] w-full my-2"></div>
                 <Link href="/profile" className="text-sm font-sans font-semibold tracking-widest text-charcoal-900 uppercase">
