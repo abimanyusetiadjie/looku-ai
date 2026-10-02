@@ -123,7 +123,7 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
     suhu: "33°C Cuaca Terik",
     sirkulasiUdara: "97.8% Aliran Udara Bebas",
     alasanCocok: "Potongan kerah terbuka dan siluet santai menghasilkan tampilan urban kafe yang fotogenik sekaligus anti-keringat berlebih.",
-    gambar: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&auto=format&fit=crop&q=85",
+    gambar: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=900&auto=format&fit=crop&q=85",
     paletWarna: [
       { nama: "Putih Gading", hex: "#FDFBF7" },
       { nama: "Sage Soft", hex: "#91AF90" },
@@ -161,7 +161,7 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
     suhu: "22°C AC & 33°C Terik Jalanan",
     sirkulasiUdara: "96.5% Adaptif Dua Suhu",
     alasanCocok: "Kain Tencel Lyocell memberikan kehangatan lembut di ruang kantor ber-AC namun melepas panas seketika saat melangkah di luar ruangan.",
-    gambar: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&auto=format&fit=crop&q=85",
+    gambar: "https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=900&auto=format&fit=crop&q=85",
     paletWarna: [
       { nama: "Olive Lembut", hex: "#6B705C" },
       { nama: "Oatmeal", hex: "#FAF6EE" },
@@ -199,7 +199,7 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
     suhu: "31°C Lembap Sore Hari",
     sirkulasiUdara: "99.1% Sirkulasi Maksimal",
     alasanCocok: "Katun rami alami tenun terbuka memaksimalkan sirkulasi udara sore hari di kafe semi-outdoor.",
-    gambar: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=900&auto=format&fit=crop&q=85",
+    gambar: "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=900&auto=format&fit=crop&q=85",
     paletWarna: [
       { nama: "Sage Hijau", hex: "#557352" },
       { nama: "Krem Alami", hex: "#FAF6EE" },
@@ -241,7 +241,7 @@ const TRENDING_OOTD_LIST = [
     sirkulasi: "98% Adem",
     tagModest: "Hijab Friendly",
     studioParam: "hangout_nonhijab_panas_menengah",
-    gambar: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80",
+    gambar: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600&auto=format&fit=crop&q=80",
   },
   {
     id: "tren-2",
@@ -251,7 +251,7 @@ const TRENDING_OOTD_LIST = [
     sirkulasi: "96% AC & Terik",
     tagModest: "Formal Santun",
     studioParam: "kantor_scbd_formal",
-    gambar: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&auto=format&fit=crop&q=80",
+    gambar: "https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=600&auto=format&fit=crop&q=80",
   },
   {
     id: "tren-3",
@@ -261,7 +261,7 @@ const TRENDING_OOTD_LIST = [
     sirkulasi: "99% Super Adem",
     tagModest: "Gaya Rileks",
     studioParam: "santai_weekend_kafe",
-    gambar: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=600&auto=format&fit=crop&q=80",
+    gambar: "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=600&auto=format&fit=crop&q=80",
   },
   {
     id: "tren-4",
@@ -271,7 +271,7 @@ const TRENDING_OOTD_LIST = [
     sirkulasi: "95% Sutra Adem",
     tagModest: "100% Modest",
     studioParam: "kondangan_hijab_pastel",
-    gambar: "https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?w=600&auto=format&fit=crop&q=80",
+    gambar: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&auto=format&fit=crop&q=80",
   },
 ];
 
