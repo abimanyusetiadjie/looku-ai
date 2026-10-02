@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useWeather } from "@/hooks/useWeather";
 import Image from "next/image";
 import Link from "next/link";
 import { 
@@ -482,5 +483,6 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
     </>
   );
 }
+
 
 
