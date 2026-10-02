@@ -23,7 +23,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 
 
-// Definisi Tipe Data Outfit Mobile
+
 export interface MobileOutfitItem {
   kategori: string;
   nama: string;
@@ -314,6 +314,7 @@ export default function LookUMobileView({
   const [activeNavTab, setActiveNavTab] = useState<string>("beranda");
   const [isSavedLocally, setIsSavedLocally] = useState(false);
   const [notifFeedback, setNotifFeedback] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const heroOutfit = OUTFIT_HERO_LIST[currentHeroIndex];
 
@@ -423,7 +424,7 @@ export default function LookUMobileView({
         {/* 1. HEADER ATAS (Sticky / Safe Area dengan Brand look.u)       */}
         {/* ============================================================ */}
         <header className="sticky top-0 z-30 w-full bg-white px-4 pt-[max(16px,env(safe-area-inset-top))] pb-4 transition-all flex items-center justify-between border-b border-[#F0EBE1]">
-          <button className="p-2 -ml-2 text-charcoal-900" aria-label="Menu">
+          <button onClick={() => setIsMobileMenuOpen(true)} className="p-2 -ml-2 text-charcoal-900" aria-label="Menu">
             <Menu className="w-5 h-5 stroke-[1.5]" />
           </button>
           
@@ -440,7 +441,32 @@ export default function LookUMobileView({
             </button>
           </div>
         </header>
-
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="absolute top-0 left-0 w-full bg-white z-40 border-b border-[#F0EBE1] shadow-2xl flex flex-col"
+            >
+              <div className="flex items-center justify-between px-4 pt-[max(16px,env(safe-area-inset-top))] pb-4 border-b border-[#F0EBE1]">
+                <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 -ml-2 text-charcoal-900" aria-label="Tutup Menu">
+                  <X className="w-5 h-5 stroke-[1.5]" />
+                </button>
+                <div className="font-serif font-medium text-3xl tracking-[0.05em] text-[#181A18] flex items-baseline select-none">
+                  Look<span className="text-terracotta-500 font-bold">.</span>u
+                </div>
+                <div className="w-9" />
+              </div>
+              <div className="flex flex-col px-6 py-8 gap-6 text-[#181A18]">
+                <button onClick={() => { setIsMobileMenuOpen(false); router.push('/studio') }} className="text-left font-sans font-semibold tracking-widest uppercase text-sm hover:text-terracotta-500 transition-colors">Studio AI</button>
+                <button onClick={() => { setIsMobileMenuOpen(false); router.push('/lookbook') }} className="text-left font-sans font-semibold tracking-widest uppercase text-sm hover:text-terracotta-500 transition-colors">Lookbook</button>
+                <button onClick={() => { setIsMobileMenuOpen(false); router.push('/lemari') }} className="text-left font-sans font-semibold tracking-widest uppercase text-sm hover:text-terracotta-500 transition-colors">Wardrobe / Lemari</button>
+                <button onClick={() => { setIsMobileMenuOpen(false); if(onOpenQuiz) onOpenQuiz(); }} className="text-left font-sans font-semibold tracking-widest uppercase text-sm hover:text-terracotta-500 transition-colors">Personal Color Quiz</button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
         {/* Notifikasi Pop-up Lembut */}
         <AnimatePresence>
           {notifFeedback && (
@@ -524,7 +550,7 @@ export default function LookUMobileView({
                   {heroOutfit.rentangHarga}
                 </div>
 
-                {/* Swipe Indicators */}
+                <div className="flex gap-4 mb-8 w-full px-4"><button onClick={(e) => { e.stopPropagation(); handleLaunchStudio(heroOutfit); }} className="flex-1 py-3.5 border border-[#181A18] text-center font-sans text-[10px] font-bold uppercase tracking-widest text-[#181A18] hover:bg-[#181A18] hover:text-white transition-colors">Add to Wardrobe</button></div>`n                {/* Swipe Indicators */}
                 <div className="flex items-center gap-1.5 mt-2">
                   {OUTFIT_HERO_LIST.map((_, idx) => (
                     <div
@@ -990,6 +1016,9 @@ export default function LookUMobileView({
     </div>
   );
 }
+
+
+
 
 
 

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import FloatingChatbot from "@/components/FloatingChatbot";
+import BottomNav from "@/components/BottomNav";
 import ResearchBanner from "@/components/ResearchBanner";
 import SplashScreen from "@/components/SplashScreen";
 
@@ -84,11 +85,13 @@ export default function RootLayout({
         <SplashScreen />
         {children}
         {/* Floating AI Stylist Chatbot */}
+        <BottomNav />
         <FloatingChatbot />
         <ResearchBanner />
       </body>
     </html>
   );
 }
+
 
 

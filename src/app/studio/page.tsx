@@ -7,7 +7,7 @@ import { ArrowLeft, Sparkles, History, SlidersHorizontal } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import GeneratorForm from "@/components/GeneratorForm";
 import OutfitCard from "@/components/OutfitCard";
-import BottomNav from "@/components/BottomNav";
+
 import Toast, { ToastMessage } from "@/components/Toast";
 import { UserPreferences, OOTDRecommendation } from "@/lib/types";
 import { PRESET_OOTD_COLLECTION, generateHeuristicOOTD } from "@/lib/presets";
@@ -426,7 +426,7 @@ export default function StudioPage() {
       </main>
 
       {/* Floating Mobile App-Shell Navigation */}
-      <BottomNav />
+      
 
       {/* Saved Looks Drawer (Loaded on Demand) */}
       {isSavedDrawerOpen && (
@@ -481,4 +481,5 @@ export default function StudioPage() {
     </div>
   );
 }
+
 

@@ -24,7 +24,7 @@ import { getShopeeSearchUrl, getTokopediaSearchUrl, trackAffiliateClick } from "
 import Toast, { ToastMessage } from "@/components/Toast";
 import CloudSyncModal from "@/components/CloudSyncModal";
 import StoryShareModal from "@/components/StoryShareModal";
-import BottomNav from "@/components/BottomNav";
+
 
 export default function LemariPage() {
   const [savedOutfits, setSavedOutfits] = useState<OOTDRecommendation[]>([]);
@@ -367,7 +367,7 @@ export default function LemariPage() {
       </main>
 
       {/* Docked Native Bottom Navigation Bar */}
-      <BottomNav />
+      
 
       {/* Story Share Modal */}
       {activeStoryOutfit && (
@@ -388,3 +388,4 @@ export default function LemariPage() {
     </div>
   );
 }
+

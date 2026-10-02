@@ -369,7 +369,7 @@ export default function HomePage() {
                 <div className="flex flex-wrap items-center gap-3 pt-2">
                   <Link
                     href={`/studio?look=${spotlightOutfit.id}`}
-                    className="w-full sm:w-auto py-3 px-6 rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-md"
+                    className="w-full sm:w-auto py-3 px-6 rounded-xl bg-[#181A18] hover:bg-white hover:text-[#181A18] text-white border border-[#181A18] font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-md"
                   >
                     <span>Kustomisasi di Studio OOTD ➔</span>
                   </Link>
@@ -547,27 +547,27 @@ export default function HomePage() {
       </div>
 
       {/* 9. Final Conversion Card */}
-      <section className="py-14 sm:py-20 bg-charcoal-900 text-sand-50 relative overflow-hidden border-t border-white/10">
+      <section className="py-20 sm:py-32 bg-white text-[#181A18] border-t border-[#F0EBE1]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6 relative z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[10px] font-mono tracking-widest uppercase text-terracotta-400">
             <span>✦ SIAP TAMPIL PERCAYA DIRI SETIAP HARI</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#181A18] tracking-[0.02em]">
             Temukan Formula OOTD Terbaikmu Sekarang
           </h2>
-          <p className="text-sm sm:text-base text-sand-300 max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-[#181A18]/60 max-w-xl font-sans mx-auto leading-relaxed">
             Tanpa perlu bingung di depan lemari. Dapatkan rekomendasi pakaian adem tropis, ramah hijab, dan sesuai warna kulit dalam 1 klik.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <Link
               href="/studio"
-              className="w-full sm:w-auto py-4 px-8 rounded-2xl bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-lg"
+              className="w-full sm:w-auto py-4 px-8 rounded-2xl bg-[#181A18] hover:bg-white hover:text-[#181A18] text-white border border-[#181A18] font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-lg"
             >
               <span>Mulai Racik Outfit di Studio ➔</span>
             </Link>
             <button
               onClick={() => setIsQuizOpen(true)}
-              className="w-full sm:w-auto py-4 px-6 rounded-2xl bg-white/10 hover:bg-white/15 text-white border border-white/20 font-bold text-xs tracking-wider uppercase transition-all"
+              className="w-full sm:w-auto py-4 px-6 rounded-2xl bg-white text-[#181A18] border border-[#E8DFD1] hover:border-[#181A18] font-bold text-xs tracking-wider uppercase transition-all"
             >
               <span>Tes Personal Color (60s)</span>
             </button>
@@ -623,6 +623,8 @@ export default function HomePage() {
     </div>
   );
 }
+
+
 
 
 

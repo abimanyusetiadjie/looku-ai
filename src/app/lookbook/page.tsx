@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import { ArrowLeft, Search, Filter, Sparkles, Heart, Share2, ArrowUpRight, Compass } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import TrendingFeed from "@/components/TrendingFeed";
-import BottomNav from "@/components/BottomNav";
+
 import { OOTDRecommendation } from "@/lib/types";
 import { useRouter } from "next/navigation";
 
@@ -74,7 +74,7 @@ export default function LookbookPage() {
       </main>
 
       {/* Docked Native Bottom Navigation Bar */}
-      <BottomNav />
+      
 
       {/* Story Share Modal */}
       {storyOutfit && (
@@ -86,4 +86,5 @@ export default function LookbookPage() {
     </div>
   );
 }
+
 
