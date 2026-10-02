@@ -29,6 +29,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
 import LookUMobileView from "@/components/LookUMobileView";
+import OnboardingFlow from "@/components/OnboardingFlow";
 import Toast, { ToastMessage } from "@/components/Toast";
 import { OOTDRecommendation } from "@/lib/types";
 import { PRESET_OOTD_COLLECTION, TRENDING_LOOKS_FEED } from "@/lib/presets";
@@ -654,6 +655,7 @@ export default function HomePage() {
     </div>
   );
 }
+
 
 
 
