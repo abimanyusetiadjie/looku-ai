@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Search, ShoppingBag, User, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import CloudSyncModal from "./CloudSyncModal";
@@ -17,6 +18,7 @@ interface NavbarProps {
 export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenCatalog, onOpenHistory }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -63,10 +65,10 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenCatalog, o
 
             {/* Right Icons (Search, Bag, Profile) */}
             <div className="flex items-center justify-end gap-5 flex-1 text-charcoal-900">
-              <button onClick={onOpenCatalog} className="hover:text-terracotta-500 transition-colors" aria-label="Search">
+              <button onClick={() => onOpenCatalog ? onOpenCatalog() : router.push("/lookbook")} className="hover:text-terracotta-500 transition-colors" aria-label="Search">
                 <Search className="w-5 h-5 stroke-[1.5]" />
               </button>
-              <button onClick={onOpenSavedDrawer} className="hover:text-terracotta-500 transition-colors relative" aria-label="Bag">
+              <button onClick={() => onOpenSavedDrawer ? onOpenSavedDrawer() : router.push("/lemari")} className="hover:text-terracotta-500 transition-colors relative" aria-label="Bag">
                 <ShoppingBag className="w-5 h-5 stroke-[1.5]" />
               </button>
               <Link href="/profile" className="hidden sm:block hover:text-terracotta-500 transition-colors" aria-label="Profile">

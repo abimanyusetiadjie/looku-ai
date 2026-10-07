@@ -1,4 +1,5 @@
 "use client";
+import Navbar from "@/components/Navbar";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowLeft, Share2, Trash2 } from "lucide-react";
@@ -78,6 +79,7 @@ export default function WardrobePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-black pb-20">
+      <Navbar />
       
       {/* Header matching the Mockup */}
       <div className="w-full pt-12 pb-8 px-6 lg:px-12 border-b border-black">
