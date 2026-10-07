@@ -47,6 +47,15 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
     };
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleFilterClick = (f: string) => {
+    if (f === activeFilter) return;
+    setIsLoading(true);
+    setActiveFilter(f);
+    setTimeout(() => setIsLoading(false), 400); // 400ms shimmer
+  };
+
   const filteredLooks = activeFilter === "ALL" 
     ? editorialLooks 
     : editorialLooks.filter(look => 
@@ -58,70 +67,112 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
   const selectedLook = editorialLooks.find(l => l.id === selectedLookId);
 
   return (
-    <section className="w-full">
+    <section className="w-full bg-[#FAF8F5] min-h-screen pb-24">
       {/* Editorial Header */}
-      <div className="text-center mb-8 mt-4">
-        <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-black tracking-tight mb-6">
+      <div className="text-center pt-8 md:pt-12 mb-6 max-w-[1200px] mx-auto px-4 sm:px-8">
+        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#181A18] tracking-tight mb-6">
           LOOKBOOK — EDITORIAL
         </h2>
         
         {/* Horizontal Swipeable Filters */}
-        <div className="flex overflow-x-auto no-scrollbar justify-start md:justify-center gap-3 px-4 pb-2">
+        <div className="flex gap-2 overflow-x-auto no-scrollbar pb-4 justify-start sm:justify-center">
           {FILTERS.map(f => (
-            <button
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
               key={f}
-              onClick={() => setActiveFilter(f)}
-              className={`shrink-0 border border-black rounded-full px-6 py-2 text-[10px] font-mono tracking-[0.1em] uppercase transition-colors ${
+              onClick={() => handleFilterClick(f)}
+              className={`shrink-0 px-4 py-1.5 rounded-full text-[11px] font-sans font-semibold tracking-widest uppercase transition-colors ${
                 activeFilter === f 
-                  ? "bg-black text-white" 
-                  : "bg-transparent text-black hover:bg-black/5"
+                  ? 'bg-[#181A18] text-white' 
+                  : 'bg-transparent border border-[#181A18]/15 text-[#181A18] hover:border-[#181A18]/40'
               }`}
             >
               {f}
-            </button>
+            </motion.button>
           ))}
         </div>
       </div>
 
-      {/* 4:3 Editorial Grid */}
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 px-4 md:px-0 max-w-6xl mx-auto">
-        {filteredLooks.map((look) => (
-          <div 
-            key={look.id}
-            onClick={() => setSelectedLookId(look.id)}
-            className="bg-[#F5F1EB] border border-black rounded-xl aspect-[4/3] p-4 flex flex-col cursor-pointer hover:shadow-lg transition-all group relative"
-          >
-            {/* Standard "Like" feature */}
-            <button
-              onClick={(e) => toggleLike(look.id, e)}
-              className="absolute top-6 right-6 z-10 p-2 rounded-full bg-white/50 backdrop-blur-md hover:bg-white transition-colors"
-            >
-              <Heart className={`w-4 h-4 ${likedIds.includes(look.id) ? 'fill-black text-black' : 'text-black'}`} />
-            </button>
-
-            <div className="w-full flex-1 relative overflow-hidden mb-3">
-              <img 
-                src={look.image} 
-                alt={look.line1}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-            </div>
-            <div className="text-center">
-              <div className="text-[10px] font-mono tracking-[0.1em] uppercase text-black leading-tight">
-                {look.line1}
+      {/* 4:5 Image-First Grid */}
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 md:gap-5">
+          {isLoading ? (
+            /* Skeleton Loading State */
+            Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className={`flex flex-col gap-2 ${i === 0 ? "md:col-span-2" : "col-span-1"}`}>
+                <div className={`w-full bg-[#E8DFD1]/50 animate-pulse rounded-xl md:rounded-2xl ${i === 0 ? "aspect-[4/5] md:aspect-[8/5]" : "aspect-[4/5]"}`} />
+                <div className="h-3 w-2/3 bg-[#E8DFD1]/50 animate-pulse rounded mt-1" />
+                <div className="h-2 w-1/2 bg-[#E8DFD1]/50 animate-pulse rounded" />
               </div>
-              <div className="text-[10px] font-mono tracking-[0.1em] uppercase text-black leading-tight truncate">
-                {look.line2}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+            ))
+          ) : filteredLooks.length > 0 ? (
+            /* Actual Grid */
+            filteredLooks.map((look, index) => (
+              <article 
+                key={look.id}
+                className={`group cursor-pointer ${
+                  index === 0 ? "md:col-span-2" : "col-span-1"
+                }`}
+              >
+                {/* Image Container */}
+                <div 
+                  onClick={() => setSelectedLookId(look.id)}
+                  className={`relative overflow-hidden rounded-xl md:rounded-2xl bg-[#F0EBE1] ${
+                    index === 0 ? "aspect-[4/5] md:aspect-[8/5]" : "aspect-[4/5]"
+                  }`}
+                >
+                  <img 
+                    src={look.image} 
+                    alt={look.line1}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                  {/* Subtle Darkening Overlay on Hover */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
 
-      <div className="text-center mt-10">
-        <button className="border border-black rounded-full px-8 py-3 text-[10px] font-mono tracking-[0.1em] uppercase text-black hover:bg-black hover:text-white transition-colors">
-          VIEW ALL EDITORIAL
-        </button>
+                  {/* Heart Icon */}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleLike(look.id, e);
+                    }}
+                    className="absolute top-2.5 right-2.5 md:top-4 md:right-4 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-[#181A18] opacity-90 hover:opacity-100 transition-opacity z-10 hover:scale-110"
+                    aria-label="Save Look"
+                  >
+                    <Heart className={`w-[14px] h-[14px] ${likedIds.includes(look.id) ? 'fill-rose-600 text-rose-600' : ''}`} />
+                  </button>
+                </div>
+
+                {/* External Caption */}
+                <div className="mt-2.5 px-0.5" onClick={() => setSelectedLookId(look.id)}>
+                  <p className="font-sans text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase text-[#181A18] truncate">
+                    {look.title}
+                  </p>
+                  <p className="font-sans text-[9px] sm:text-[10px] tracking-wide text-[#181A18]/60 mt-0.5 truncate flex items-center gap-1.5">
+                    {look.line1} <span className="w-1 h-1 bg-[#181A18]/30 rounded-full" /> {look.line2}
+                  </p>
+                </div>
+              </article>
+            ))
+          ) : (
+            /* Empty State */
+            <div className="col-span-2 md:col-span-3 flex flex-col items-center justify-center py-20 text-center">
+              <div className="w-16 h-16 mb-4 rounded-full bg-[#F0EBE1] flex items-center justify-center">
+                <Heart className="w-6 h-6 text-[#181A18]/40" />
+              </div>
+              <h3 className="font-serif text-xl text-[#181A18] mb-2">Tidak Ada Gaya Ditemukan</h3>
+              <p className="text-sm text-[#181A18]/60 max-w-sm">
+                Koleksi editorial untuk filter <strong>"{activeFilter}"</strong> belum tersedia saat ini. Coba eksplorasi gaya lainnya.
+              </p>
+              <button 
+                onClick={() => handleFilterClick("ALL")}
+                className="mt-6 border border-[#181A18] rounded-full px-6 py-2.5 text-[10px] font-sans font-bold tracking-widest uppercase text-[#181A18] hover:bg-[#181A18] hover:text-white transition-colors"
+              >
+                KEMBALI KE SEMUA LOOK
+              </button>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Shoppable + Weather-Aware Modal */}
