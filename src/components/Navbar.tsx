@@ -23,6 +23,7 @@ const NAV_LINKS = [
 export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenCatalog, onOpenHistory }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hoveredTab, setHoveredTab] = useState<string | null>(null);
   const router = useRouter();
   const pathname = usePathname();
 
@@ -31,6 +32,10 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenCatalog, o
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Temukan tab yang sedang aktif berdasarkan rute saat ini
+  const activeTabName = NAV_LINKS.find(item => pathname === item.href)?.name;
+  const currentIndicator = hoveredTab || activeTabName;
 
   return (
     <>
@@ -41,21 +46,34 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenCatalog, o
           <div className="flex items-center justify-between h-16 sm:h-20">
             
             {/* Desktop Left Navigation */}
-            <div className="hidden lg:flex items-center gap-4 flex-1">
+            <div 
+              className="hidden lg:flex items-center gap-2 flex-1"
+              onMouseLeave={() => setHoveredTab(null)}
+            >
               {NAV_LINKS.map((item) => {
                 const isActive = pathname === item.href;
+                const isIndicatorActive = currentIndicator === item.name;
+                
                 return (
                   <Link 
                     key={item.name} 
                     href={item.href} 
+                    onMouseEnter={() => setHoveredTab(item.name)}
                     aria-current={isActive ? "page" : undefined}
-                    className={"inline-flex items-center min-h-[44px] px-2 text-[12px] font-sans font-semibold tracking-[0.14em] uppercase transition-colors duration-200 relative " + (isActive ? "text-black" : "text-black/60 hover:text-black")}
+                    className={"inline-flex items-center min-h-[44px] px-3 text-[12px] font-sans font-semibold tracking-[0.14em] uppercase transition-colors duration-200 relative " + (isIndicatorActive ? "text-black" : "text-black/50")}
                   >
-                    {item.name}
-                    {/* Active Indicator (Dot) */}
-                    {isActive && (
-                      <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-black rounded-full" />
-                    )}
+                    <span className="relative py-1">
+                      {item.name}
+                      {/* Magic Hover Elegant Underline */}
+                      {isIndicatorActive && (
+                        <motion.div
+                          layoutId="desktop-nav-underline"
+                          className="absolute -bottom-0.5 left-0 right-0 h-[1.5px] bg-black"
+                          initial={false}
+                          transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                        />
+                      )}
+                    </span>
                   </Link>
                 );
               })}
