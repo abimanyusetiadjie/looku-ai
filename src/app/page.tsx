@@ -184,69 +184,40 @@ export default function HomePage() {
       <HeroSection onOpenQuiz={() => setIsQuizOpen(true)} />
 
       
-        {/* 4. Brand Philosophy (Replacing Massive Images) */}
-        <section className="py-24 sm:py-32 bg-white border-y border-sand-300">
-           <div className="max-w-4xl mx-auto px-8 text-center space-y-8">
-              <span className="font-mono text-[10px] uppercase tracking-widest font-bold text-terracotta-500 border border-terracotta-200 px-3 py-1 rounded-full">
-                The Look.u Philosophy
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl text-charcoal-900 leading-[1.4] tracking-tight">
-                 "Pakaian terbaik bukan hanya yang terlihat indah, tapi yang mengerti <span className="italic text-terracotta-600">iklim tropis</span> dan memancarkan kilau <span className="italic text-terracotta-600">warna kulit alami</span> Anda."
+        {/* 4. Editorial 3-Grid: Curated for Tropics */}
+        <section className="py-24 sm:py-32 bg-white">
+           <div className="max-w-[1200px] mx-auto px-8 text-center">
+              <h2 className="font-serif text-4xl sm:text-5xl text-charcoal-900 tracking-tight">
+                 CURATED FOR TROPICS
               </h2>
-              <div className="pt-10 flex flex-wrap justify-center gap-12 sm:gap-24 border-t border-sand-200 mt-8">
-                 <div>
-                    <div className="font-serif text-3xl text-charcoal-900">33°C</div>
-                    <div className="font-sans text-[10px] uppercase tracking-widest font-bold text-sand-500 mt-2">Tropical Optimized</div>
+              <p className="font-sans text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold text-charcoal-900/60 mt-4">
+                 THREE ESSENTIALS FOR JAKARTA 33°C
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16">
+                 {/* Item 1 */}
+                 <div className="flex flex-col items-center">
+                    <div className="w-full aspect-[4/5] border border-charcoal-900/60 overflow-hidden bg-sand-100">
+                       <img src="https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=800&q=80" alt="Linen Crinkle Silhouette" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" />
+                    </div>
+                    <span className="mt-6 font-sans text-[10px] sm:text-xs uppercase tracking-widest font-bold text-charcoal-900">LINEN CRINKLE</span>
                  </div>
-                 <div>
-                    <div className="font-serif text-3xl text-charcoal-900">100%</div>
-                    <div className="font-sans text-[10px] uppercase tracking-widest font-bold text-sand-500 mt-2">Personalized</div>
+                 {/* Item 2 */}
+                 <div className="flex flex-col items-center">
+                    <div className="w-full aspect-[4/5] border border-charcoal-900/60 overflow-hidden bg-sand-100">
+                       <img src="https://images.unsplash.com/photo-1620799140408-35632e1ea25c?w=800&q=80" alt="Fabric Texture" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" />
+                    </div>
+                    <span className="mt-6 font-sans text-[10px] sm:text-xs uppercase tracking-widest font-bold text-charcoal-900">ADEM & MODEST</span>
                  </div>
-                 <div>
-                    <div className="font-serif text-3xl text-charcoal-900">AI</div>
-                    <div className="font-sans text-[10px] uppercase tracking-widest font-bold text-sand-500 mt-2">Driven Precision</div>
+                 {/* Item 3 */}
+                 <div className="flex flex-col items-center">
+                    <div className="w-full aspect-[4/5] border border-charcoal-900/60 overflow-hidden bg-sand-100">
+                       <img src="https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=800&q=80" alt="Stylish Modest" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" />
+                    </div>
+                    <span className="mt-6 font-sans text-[10px] sm:text-xs uppercase tracking-widest font-bold text-charcoal-900">STYLISH TANPA GERAH</span>
                  </div>
               </div>
            </div>
-        </section>
-
-        {/* 5. The Lookbook (Trending Looks) */}
-        <section className="py-24 bg-[#FAF8F5]">
-          <div className="max-w-[1400px] mx-auto px-8">
-            <div className="flex items-end justify-between mb-12 border-b border-sand-300 pb-6">
-              <div>
-                <h2 className="font-serif text-4xl text-charcoal-900 tracking-tight">The Editorial</h2>
-                <p className="font-sans text-sm text-sand-500 mt-2 uppercase tracking-widest">Curated looks for the tropics</p>
-              </div>
-              <Link href="/lookbook" className="font-sans text-xs font-bold uppercase tracking-widest text-charcoal-900 hover:text-terracotta-600 transition-colors pb-1 border-b border-transparent hover:border-terracotta-600">
-                View Collection
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
-              {featuredTrendingLooks.slice(0, 4).map((look) => (
-                <Link key={look.id} href={`/studio?look=${look.outfit.id}`} className="group flex flex-col">
-                  <div className="relative aspect-[3/4] overflow-hidden bg-sand-200 mb-4">
-                    <img
-                      src={look.image}
-                      alt={look.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-white text-[9px] font-sans font-bold uppercase tracking-widest text-charcoal-900">
-                        {look.tag}
-                      </span>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-lg text-charcoal-900 group-hover:text-terracotta-600 transition-colors">{look.title}</h3>
-                    <p className="text-xs font-sans text-sand-500 mt-1 uppercase tracking-widest">{look.category}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
         </section>
 
         {/* 6. Features & FAQ */}
