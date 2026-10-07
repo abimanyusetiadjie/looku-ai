@@ -1,228 +1,349 @@
 "use client";
 import Navbar from "@/components/Navbar";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
-import { ArrowLeft, Share2, Trash2 } from "lucide-react";
+import { Plus, X, Trash2, ChevronRight, Check } from "lucide-react";
 import { OOTDRecommendation, OutfitItem } from "@/lib/types";
+import { useWeather } from "@/hooks/useWeather";
+import { computeBreathability } from "@/lib/breathability";
+import { getMarketplaceLinks, trackAffiliateClick } from "@/lib/affiliate";
+import Toast, { ToastMessage } from "@/components/Toast";
 
-// Helper SVG for thin hanger
+const STORAGE_KEY = "looku_saved_outfits";
+
+// Starter pieces so a first-time user can try the canvas immediately.
+const STARTER_ITEMS: OutfitItem[] = [
+  { name: "Linen Crinkle Kulot", category: "bawahan", color: "Rose Pink", colorHex: "#D9A5A0", estimatedPrice: "Rp 150.000", material: "Linen Crinkle", imageUrl: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&q=80", shopeeQuery: "kulot linen crinkle wanita", tokopediaQuery: "kulot linen crinkle wanita" },
+  { name: "Linen Shirt", category: "atasan", color: "Off White", colorHex: "#F3EFE6", estimatedPrice: "Rp 120.000", material: "Linen", imageUrl: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&q=80", shopeeQuery: "kemeja linen wanita off white", tokopediaQuery: "kemeja linen wanita off white" },
+  { name: "Cotton Hijab", category: "outer_hijab", color: "Natural", colorHex: "#D8C8AE", estimatedPrice: "Rp 85.000", material: "Katun Voal", imageUrl: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=400&q=80", shopeeQuery: "hijab voal katun natural", tokopediaQuery: "hijab voal katun natural" },
+];
+
 const HangerIcon = () => (
-  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 2C10.8954 2 10 2.89543 10 4C10 5.10457 10.8954 6 12 6C12.5523 6 13 6.44772 13 7V8L4 16C3.44772 16.4969 3.5 17.5 4.5 17.5H19.5C20.5 17.5 20.5523 16.4969 20 16L11 8V7C11 5.34315 12.3431 4 14 4" />
+  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M12 4a2 2 0 1 0-2-2M12 4v3l-8.5 7.2c-.6.5-.3 1.3.5 1.3h16c.8 0 1.1-.8.5-1.3L12 7" />
   </svg>
 );
 
+function readSaved(): OOTDRecommendation[] {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  } catch {
+    return [];
+  }
+}
+
 export default function WardrobePage() {
+  const { weather } = useWeather();
   const [savedOutfits, setSavedOutfits] = useState<OOTDRecommendation[]>([]);
-  const [myItems, setMyItems] = useState<OutfitItem[]>([]);
   const [boardItems, setBoardItems] = useState<OutfitItem[]>([]);
   const [isClient, setIsClient] = useState(false);
+  const [isDragOver, setIsDragOver] = useState(false);
+  const [showShopList, setShowShopList] = useState(false);
+  const [toasts, setToasts] = useState<ToastMessage[]>([]);
+
+  const addToast = (t: Omit<ToastMessage, "id">) =>
+    setToasts((prev) => [...prev, { ...t, id: Math.random().toString(36).slice(2, 9) }]);
 
   useEffect(() => {
     setIsClient(true);
-    const stored = localStorage.getItem("looku_saved_outfits");
-    if (stored) {
-      try {
-        const outfits: OOTDRecommendation[] = JSON.parse(stored);
-        setSavedOutfits(outfits);
-        
-        // Extract unique items from outfits to populate MY ITEMS
-        const items: OutfitItem[] = [];
-        outfits.forEach(o => {
-          o.items.forEach(i => {
-            if (!items.find(existing => existing.name === i.name)) {
-              items.push(i);
-            }
-          });
-        });
-        
-        // For the sake of the pitch innovation, if there are no items, let's provide realistic mock data
-        if (items.length < 3) {
-           setMyItems([
-             { name: "Linen Crinkle Kulot", category: "bawahan", color: "Rose Pink", estimatedPrice: "Rp 150.000", material: "Linen", imageUrl: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&q=80", shopeeQuery: "", tokopediaQuery: "" },
-             { name: "Linen Shirt", category: "atasan", color: "Off White", estimatedPrice: "Rp 120.000", material: "Linen", imageUrl: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&q=80", shopeeQuery: "", tokopediaQuery: "" },
-             { name: "Cotton Hijab", category: "outer_hijab", color: "Natural", estimatedPrice: "Rp 85.000", material: "Cotton", imageUrl: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=400&q=80", shopeeQuery: "", tokopediaQuery: "" },
-           ]);
-        } else {
-           setMyItems(items.slice(0, 3)); // Keep it clean to 3 items for the UX demo
-        }
-      } catch (e) {}
-    }
+    const sync = () => setSavedOutfits(readSaved());
+    sync();
+    window.addEventListener("looku_saved_updated", sync);
+    return () => window.removeEventListener("looku_saved_updated", sync);
   }, []);
 
-  const handleDragStart = (e: React.DragEvent, item: OutfitItem) => {
-    e.dataTransfer.setData("application/json", JSON.stringify(item));
+  // Unique pieces across all saved looks; padded with starter pieces when the closet is small.
+  const { myItems, usingStarter } = useMemo(() => {
+    const items: OutfitItem[] = [];
+    savedOutfits.forEach((o) =>
+      o.items.forEach((i) => {
+        if (!items.some((e) => e.name === i.name)) items.push(i);
+      })
+    );
+    if (items.length >= 3) return { myItems: items, usingStarter: false };
+    const padded = [...items, ...STARTER_ITEMS.filter((s) => !items.some((i) => i.name === s.name))];
+    return { myItems: padded, usingStarter: true };
+  }, [savedOutfits]);
+
+  const temperature = weather.temperature;
+  const city = weather.isSimulated ? "Jakarta" : weather.location.charAt(0) + weather.location.slice(1).toLowerCase();
+  const analysis = useMemo(() => computeBreathability(boardItems, temperature), [boardItems, temperature]);
+
+  const isOnBoard = (item: OutfitItem) => boardItems.some((i) => i.name === item.name);
+
+  const toggleOnBoard = (item: OutfitItem) => {
+    setBoardItems((prev) =>
+      prev.some((i) => i.name === item.name)
+        ? prev.filter((i) => i.name !== item.name)
+        : // one item per category keeps the flatlay realistic
+          [...prev.filter((i) => i.category !== item.category), item]
+    );
   };
 
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
+    setIsDragOver(false);
     try {
-      const data = e.dataTransfer.getData("application/json");
-      const item = JSON.parse(data);
-      if (!boardItems.find(i => i.name === item.name)) {
-        setBoardItems([...boardItems, item]);
+      const item: OutfitItem = JSON.parse(e.dataTransfer.getData("application/json"));
+      if (!isOnBoard(item)) toggleOnBoard(item);
+    } catch {
+      /* ignore foreign drops */
+    }
+  };
+
+  const lookTags = [
+    `${temperature}°C`,
+    analysis.score >= 85 ? "Breathable" : null,
+    analysis.isModest ? "Hijab Friendly" : null,
+  ].filter(Boolean) as string[];
+
+  const handleSaveLook = () => {
+    if (boardItems.length < 2) return;
+    const newLook: OOTDRecommendation = {
+      id: `mix-${Date.now()}`,
+      title: `Mix & Match — ${boardItems.map((i) => i.name.split(" ")[0]).join(" + ")}`,
+      tagline: analysis.verdict,
+      overallVibe: "Personal Mix",
+      comfortRating: Math.max(1, Math.round(analysis.score / 20)),
+      affordabilityRating: 4,
+      modestFriendly: analysis.isModest,
+      skinToneMatch: "Dipadukan sendiri dari lemari",
+      whyItWorks: `Breathable score ${analysis.score}% untuk ${temperature}°C. ${analysis.traits.join(", ")}.`,
+      stylingTip: "Diracik di Mix & Match Canvas.",
+      colorPalette: boardItems.map((i) => ({ name: i.color, hex: i.colorHex || "#C69365" })),
+      items: boardItems,
+      createdAt: new Date().toISOString(),
+    };
+    const updated = [newLook, ...readSaved()];
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+    window.dispatchEvent(new Event("looku_saved_updated"));
+    addToast({ title: "Look tersimpan di Wardrobe", description: newLook.title, type: "save" });
+  };
+
+  const handleShare = async () => {
+    if (boardItems.length === 0) return;
+    const text =
+      `Look.u Mix & Match (${city} ${temperature}°C · Breathable ${analysis.score}%)\n` +
+      boardItems.map((i) => `• ${i.name} — ${i.color}`).join("\n") +
+      `\n\nRacik look-mu sendiri: ${window.location.origin}/lemari`;
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: "Look.u Mix & Match", text });
+      } else {
+        await navigator.clipboard.writeText(text);
+        addToast({ title: "Disalin ke clipboard", description: "Tempel di WhatsApp atau Instagram.", type: "success" });
       }
-    } catch (e) {}
+    } catch {
+      /* user cancelled the share sheet */
+    }
   };
 
-  const handleDragOver = (e: React.DragEvent) => {
-    e.preventDefault();
-  };
-
-  const removeFromBoard = (name: string) => {
-    setBoardItems(boardItems.filter(i => i.name !== name));
+  const handleDelete = (id: string, title: string) => {
+    const updated = readSaved().filter((o) => o.id !== id);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+    window.dispatchEvent(new Event("looku_saved_updated"));
+    addToast({ title: "Look dihapus", description: title, type: "info" });
   };
 
   if (!isClient) return null;
 
-  const isEmpty = savedOutfits.length === 0 && myItems.length === 0;
+  const isEmpty = savedOutfits.length === 0;
+  const canAct = boardItems.length >= 2;
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-black pb-20">
+    <div className="min-h-screen flex flex-col bg-[var(--ds-sand)] text-charcoal-900 pb-28 lg:pb-16">
       <Navbar />
-      
-      {/* Header matching the Mockup */}
-      <div className="w-full pt-12 pb-8 px-6 lg:px-12 border-b border-black">
-        <h1 className="font-serif text-4xl lg:text-5xl text-black uppercase tracking-tight mb-4">
-          WARDROBE — YOUR CURATED CLOSET.
+
+      {/* Header */}
+      <div className="w-full pt-10 md:pt-12 pb-6 md:pb-8 px-5 lg:px-12 border-b border-charcoal-900">
+        <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl uppercase tracking-tight mb-3">
+          Wardrobe — Your Curated Closet.
         </h1>
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-black/70">
-          <div className="font-sans text-[13px] tracking-wide">
-            Curated for Pontianak 33°C • Breathable • Modest • {isEmpty ? 0 : myItems.length} items.
-          </div>
-          <div className="border border-black rounded-full px-4 py-1.5 flex items-center gap-2 text-[11px] font-mono uppercase bg-[#F5F1EB] text-black w-fit">
-            <span>🌤️</span> Pontianak 33°C
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[var(--ds-ink-muted)]">
+          <p className="text-[13px] tracking-wide">
+            Dikurasi untuk {city} {temperature}°C · Breathable · Modest · {savedOutfits.length} look tersimpan
+          </p>
+          <div className="ds-badge !text-[10px] !px-3 !py-1.5 w-fit" title={weather.isSimulated ? "Lokasi tidak diizinkan — memakai data simulasi" : "Cuaca real-time"}>
+            <span aria-hidden="true">🌤️</span> {city} {temperature}°C{weather.isSimulated ? " · SIM" : ""}
           </div>
         </div>
       </div>
 
-      {isEmpty ? (
-        /* BAGIAN 1: EMPTY STATE */
-        <div className="mt-12 mx-6 lg:mx-12 bg-[#F5F1EB] border border-black rounded-[12px] py-24 px-6 flex flex-col items-center justify-center text-center shadow-sm">
-          <div className="text-black mb-6">
-             <HangerIcon />
+      {isEmpty && (
+        <section className="mt-10 mx-5 lg:mx-12 ds-card py-16 md:py-20 px-6 flex flex-col items-center text-center" aria-label="Wardrobe kosong">
+          <div className="mb-5 text-charcoal-900"><HangerIcon /></div>
+          <h2 className="font-serif text-2xl md:text-4xl mb-3">Lemarimu masih kosong, siap dikurasi untuk {temperature}°C.</h2>
+          <p className="text-sm text-[var(--ds-ink-muted)] mb-8 max-w-md">
+            Mulai dengan AI Stylist untuk menyusun look breathable pertamamu — atau coba kanvas di bawah dengan item contoh.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Link href="/studio" className="ds-btn ds-btn-primary">Mulai dengan AI Stylist</Link>
+            <Link href="/lookbook" className="ds-btn ds-btn-secondary">Jelajahi Lookbook</Link>
           </div>
-          <h2 className="font-serif text-3xl md:text-4xl text-black mb-3">Your wardrobe is empty, curated for 33°C.</h2>
-          <p className="font-sans text-sm text-black/60 mb-10">Start with AI Stylist to build your first breathable look.</p>
-          <div className="flex flex-col sm:flex-row gap-4">
-             <Link href="/studio" className="bg-black text-white px-8 py-3.5 rounded-full text-[10px] font-bold tracking-[0.15em] uppercase hover:bg-black/80 transition-colors">
-               START WITH AI STYLIST
-             </Link>
-             <Link href="/lookbook" className="border border-black bg-transparent text-black px-8 py-3.5 rounded-full text-[10px] font-bold tracking-[0.15em] uppercase hover:bg-black/5 transition-colors">
-               BROWSE LOOKBOOK
-             </Link>
-          </div>
-        </div>
-      ) : (
-        /* BAGIAN 2: FILLED STATE (Mix & Match Canvas) */
-        <div className="mt-10 mx-6 lg:mx-12">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            {/* Col 1: MY ITEMS */}
-            <div className="lg:col-span-5 flex gap-4 overflow-x-auto no-scrollbar pb-4">
-              {myItems.map((item, idx) => (
-                <div key={idx} className="flex-1 min-w-[140px] flex flex-col">
-                  <div className="text-center mb-3">
-                    <div className="text-[10px] font-bold uppercase tracking-widest text-black line-clamp-1">{item.name}</div>
-                    <div className="text-[9px] font-mono uppercase tracking-[0.1em] text-black/60">{item.color}</div>
-                  </div>
-                  
-                  <div 
-                    draggable 
-                    onDragStart={(e) => handleDragStart(e, item)}
-                    className="bg-[#F5F1EB] border border-black rounded-[12px] p-3 flex flex-col cursor-grab active:cursor-grabbing hover:shadow-md transition-shadow group h-full"
-                  >
-                    <div className="w-full aspect-square relative bg-black/5 rounded-md mb-4 overflow-hidden">
-                      <img src={item.imageUrl} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
-                    </div>
-                    
-                    <div className="mt-auto border border-black rounded-full py-2 px-2 text-[8px] font-bold uppercase tracking-widest text-center text-black/80 flex items-center justify-center gap-1">
-                      <span>↘ DRAG TO MIX & MATCH </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Col 2: MIX & MATCH BOARD */}
-            <div className="lg:col-span-5">
-              <div className="text-center mb-3">
-                <div className="text-[10px] font-bold uppercase tracking-widest text-black">MIX & MATCH BOARD</div>
-              </div>
-              <div 
-                onDrop={handleDrop}
-                onDragOver={handleDragOver}
-                className="bg-[#F5F1EB] border border-black rounded-[12px] p-6 relative flex flex-col items-center justify-center min-h-[400px] shadow-inner"
-              >
-                <div className="text-[10px] font-mono uppercase tracking-[0.1em] absolute top-6 text-black/60 text-center w-full">Mix & Match Canvas</div>
-                
-                {boardItems.length === 0 ? (
-                  <div className="text-black/30 font-serif italic text-xl border-2 border-dashed border-black/20 w-3/4 h-64 flex items-center justify-center rounded-xl">
-                    Drag items here
-                  </div>
-                ) : (
-                  <div className="relative w-full h-full flex flex-col items-center justify-center min-h-[300px] gap-2 pt-10">
-                     {boardItems.map((item, idx) => (
-                       <div key={idx} onClick={() => removeFromBoard(item.name)} className="relative group cursor-pointer w-48 h-48 bg-white border border-black/10 rounded-lg shadow-sm overflow-hidden z-10 hover:z-20 transform transition-transform hover:scale-105" style={{ marginTop: idx > 0 ? '-60px' : '0' }}>
-                         <img src={item.imageUrl} alt={item.name} className="w-full h-full object-cover" />
-                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-mono font-bold uppercase">Click to remove</div>
-                       </div>
-                     ))}
-                  </div>
-                )}
-
-                <div className="mt-8 border border-black rounded-full px-4 py-1.5 flex items-center justify-between text-[8px] sm:text-[9px] font-mono uppercase bg-[#F5F1EB] text-black w-full max-w-sm">
-                  <span>LOOK 05 — DAILY BREATHE • 33°C • BREATHABLE • HIJAB FRIENDLY</span>
-                  <span className="flex items-center gap-1 border-l border-black/30 pl-2">🌤️ 33°C</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Col 3: ACTIONS & AI LOGIC */}
-            <div className="lg:col-span-2 flex flex-col gap-3">
-               <div className="text-center lg:text-left mb-1">
-                 <div className="text-[10px] font-bold uppercase tracking-widest text-black">ACTIONS</div>
-               </div>
-               
-               <button className="w-full bg-black text-white rounded-full py-3.5 text-[9px] uppercase font-bold tracking-widest hover:bg-black/80 transition-colors">SAVE LOOK</button>
-               <button className="w-full border border-black rounded-full py-3.5 text-[9px] uppercase font-bold tracking-widest hover:bg-black/5 transition-colors">SHOP THE LOOK</button>
-               <button className="w-full border border-black rounded-full py-3.5 text-[9px] uppercase font-bold tracking-widest hover:bg-black/5 transition-colors">SHARE TO LOOKBOOK</button>
-               
-               <div className="mt-4 bg-[#F5F1EB] border border-black rounded-[12px] p-5 shadow-sm">
-                  <div className="flex items-center gap-2 mb-3 border-b border-black/20 pb-3">
-                     <span className="text-sm">🌡️</span>
-                     <span className="text-[9px] font-bold uppercase tracking-widest text-black leading-tight">Temperature<br/>Recommendation</span>
-                  </div>
-                  
-                  <div className="text-xs font-serif italic text-black mb-4">Perfect for 33°C tropical</div>
-                  
-                  <div className="mb-4">
-                     <div className="flex justify-between text-[9px] font-bold font-mono text-black uppercase mb-1">
-                       <span>Breathable Score</span>
-                       <span>98%</span>
-                     </div>
-                     <div className="w-full h-1.5 bg-black/10 rounded-full overflow-hidden">
-                        <div className="w-[98%] h-full bg-black rounded-full"></div>
-                     </div>
-                  </div>
-                  
-                  <ul className="text-[9px] text-black/70 space-y-1.5 mb-4 list-disc pl-3">
-                    <li>Highly breathable</li>
-                    <li>Lightweight</li>
-                    <li>Modest coverage</li>
-                    <li>Sweat-wicking</li>
-                  </ul>
-                  
-                  <div className="text-[10px] text-black leading-relaxed border-t border-black/20 pt-3">
-                    <span className="font-bold">AI recommendation:</span> Ideal for humid 33°C weather. Linen fabrics keep you cool and modest.
-                  </div>
-               </div>
-            </div>
-
-          </div>
-        </div>
+        </section>
       )}
+
+      {/* Mix & Match */}
+      <section className="mt-10 mx-5 lg:mx-12" aria-label="Mix and match">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* My items */}
+          <div className="lg:col-span-5">
+            <div className="flex items-baseline justify-between mb-3">
+              <h2 className="ds-caption font-bold">My Items · {myItems.length}</h2>
+              {usingStarter && <span className="ds-caption text-[var(--ds-ink-subtle)]">+ item contoh</span>}
+            </div>
+            <div className="flex lg:grid lg:grid-cols-3 gap-3 overflow-x-auto no-scrollbar pb-2 -mx-5 px-5 lg:mx-0 lg:px-0 snap-x">
+              {myItems.map((item) => {
+                const active = isOnBoard(item);
+                return (
+                  <button
+                    key={item.name}
+                    type="button"
+                    draggable
+                    onDragStart={(e) => e.dataTransfer.setData("application/json", JSON.stringify(item))}
+                    onClick={() => toggleOnBoard(item)}
+                    aria-pressed={active}
+                    className={`ds-card ds-card-interactive snap-start shrink-0 w-[150px] lg:w-auto p-2.5 text-left flex flex-col cursor-grab active:cursor-grabbing ${active ? "ring-2 ring-charcoal-900 ring-offset-2 ring-offset-[var(--ds-sand)]" : ""}`}
+                  >
+                    <div className="w-full aspect-square rounded-md overflow-hidden bg-black/5 mb-2.5">
+                      <img src={item.imageUrl || "/fallback-garment.svg"} alt={item.name} className="w-full h-full object-cover" />
+                    </div>
+                    <div className="text-[10px] font-bold uppercase tracking-widest line-clamp-1">{item.name}</div>
+                    <div className="ds-caption !text-[9px] text-[var(--ds-ink-muted)] mb-2">{item.color}</div>
+                    <span className={`mt-auto inline-flex items-center justify-center gap-1 rounded-full border border-charcoal-900 py-1.5 text-[9px] font-bold uppercase tracking-widest ${active ? "bg-charcoal-900 text-white" : ""}`}>
+                      {active ? <><Check className="w-3 h-3" /> Di kanvas</> : <><Plus className="w-3 h-3" /> Tap / drag</>}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Canvas */}
+          <div className="lg:col-span-4">
+            <h2 className="ds-caption font-bold mb-3">Mix & Match Canvas</h2>
+            <div
+              onDrop={handleDrop}
+              onDragOver={(e) => { e.preventDefault(); setIsDragOver(true); }}
+              onDragLeave={() => setIsDragOver(false)}
+              className={`ds-card p-4 min-h-[380px] flex flex-col transition-colors ${isDragOver ? "bg-white" : ""}`}
+            >
+              {boardItems.length === 0 ? (
+                <div className="flex-1 flex flex-col items-center justify-center text-center border border-dashed border-charcoal-900/25 rounded-lg p-6">
+                  <p className="font-serif italic text-xl text-[var(--ds-ink-subtle)]">Tap atau seret item ke sini</p>
+                  <p className="ds-caption text-[var(--ds-ink-subtle)] mt-2">Minimal 2 item untuk menyimpan look</p>
+                </div>
+              ) : (
+                <div className={`flex-1 grid gap-3 ${boardItems.length === 1 ? "grid-cols-1" : "grid-cols-2"}`}>
+                  {boardItems.map((item) => (
+                    <div key={item.name} className="relative rounded-lg overflow-hidden bg-white border border-[var(--ds-line)] aspect-square">
+                      <img src={item.imageUrl || "/fallback-garment.svg"} alt={item.name} className="w-full h-full object-cover" />
+                      <button
+                        type="button"
+                        onClick={() => toggleOnBoard(item)}
+                        aria-label={`Hapus ${item.name} dari kanvas`}
+                        className="absolute top-2 right-2 w-8 h-8 rounded-full bg-white/95 border border-[var(--ds-line)] inline-flex items-center justify-center hover:bg-white"
+                      >
+                        <X className="w-3.5 h-3.5" />
+                      </button>
+                      <div className="absolute bottom-0 inset-x-0 bg-white/90 px-2 py-1 ds-caption !text-[9px] truncate">{item.name}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {lookTags.map((t) => <span key={t} className="ds-badge">{t}</span>)}
+              </div>
+            </div>
+          </div>
+
+          {/* Actions + AI logic */}
+          <div className="lg:col-span-3 flex flex-col gap-3">
+            <h2 className="ds-caption font-bold">Actions</h2>
+            <button type="button" onClick={handleSaveLook} disabled={!canAct} className="ds-btn ds-btn-primary w-full">Save Look</button>
+            <button type="button" onClick={() => setShowShopList((v) => !v)} disabled={boardItems.length === 0} aria-expanded={showShopList} className="ds-btn ds-btn-secondary w-full">
+              {showShopList ? "Tutup Daftar Belanja" : "Shop the Look"}
+            </button>
+            <button type="button" onClick={handleShare} disabled={boardItems.length === 0} className="ds-btn ds-btn-secondary w-full">Share Look</button>
+
+            {showShopList && boardItems.length > 0 && (
+              <div className="ds-card bg-white p-3 space-y-3">
+                {boardItems.map((item) => {
+                  const q = item.shopeeQuery || item.name;
+                  const links = getMarketplaceLinks(q);
+                  return (
+                    <div key={item.name} className="space-y-1.5">
+                      <div className="flex justify-between text-[11px] font-bold"><span className="truncate pr-2">{item.name}</span><span className="font-mono text-[var(--ds-ink-muted)] shrink-0">{item.estimatedPrice}</span></div>
+                      <div className="grid grid-cols-2 gap-1.5">
+                        <a href={links.shopee} target="_blank" rel="noopener noreferrer" onClick={() => trackAffiliateClick("shopee", q, "outfit_card")} className="ds-btn-marketplace ds-mp-shopee">Shopee</a>
+                        <a href={links.tokopedia} target="_blank" rel="noopener noreferrer" onClick={() => trackAffiliateClick("tokopedia", q, "outfit_card")} className="ds-btn-marketplace ds-mp-tokopedia">Tokopedia</a>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            <div className="ds-card p-4 mt-1" aria-live="polite">
+              <div className="ds-caption font-bold border-b border-[var(--ds-line)] pb-2 mb-3">🌡️ Rekomendasi Suhu</div>
+              {boardItems.length === 0 ? (
+                <p className="text-[12px] text-[var(--ds-ink-muted)]">Tambahkan item untuk melihat skor breathability terhadap cuaca {city} hari ini.</p>
+              ) : (
+                <>
+                  <div className="flex justify-between ds-caption font-bold mb-1">
+                    <span>Breathable Score</span><span>{analysis.score}%</span>
+                  </div>
+                  <div className="w-full h-1.5 bg-black/10 rounded-full overflow-hidden mb-3" role="progressbar" aria-valuenow={analysis.score} aria-valuemin={0} aria-valuemax={100}>
+                    <div className="h-full bg-charcoal-900 rounded-full transition-all duration-500" style={{ width: `${analysis.score}%` }} />
+                  </div>
+                  {analysis.traits.length > 0 && (
+                    <ul className="text-[11px] text-[var(--ds-ink-muted)] space-y-1 mb-3 list-disc pl-4">
+                      {analysis.traits.map((t) => <li key={t}>{t}</li>)}
+                    </ul>
+                  )}
+                  <p className="text-[12px] leading-relaxed border-t border-[var(--ds-line)] pt-3">
+                    <span className="font-bold">AI:</span> {analysis.verdict}
+                  </p>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Saved looks */}
+      {!isEmpty && (
+        <section className="mt-14 mx-5 lg:mx-12" aria-label="Look tersimpan">
+          <h2 className="font-serif text-2xl md:text-3xl mb-5">Saved Looks</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {savedOutfits.map((o) => (
+              <article key={o.id} className="ds-card bg-white p-4 flex flex-col gap-3">
+                <div className="flex gap-1.5">
+                  {o.items.slice(0, 3).map((i) => (
+                    <div key={i.name} className="flex-1 aspect-square rounded-md overflow-hidden bg-black/5">
+                      <img src={i.imageUrl || "/fallback-garment.svg"} alt={i.name} className="w-full h-full object-cover" />
+                    </div>
+                  ))}
+                </div>
+                <div>
+                  <div className="ds-caption text-[var(--ds-ink-muted)]">{o.overallVibe || "Curated"}</div>
+                  <h3 className="font-serif text-lg leading-snug line-clamp-2">{o.title}</h3>
+                </div>
+                <div className="mt-auto flex items-center justify-between pt-2 border-t border-[var(--ds-line)]">
+                  <Link href={`/studio?look=${o.id}`} className="inline-flex items-center gap-1 min-h-[44px] text-[11px] font-bold uppercase tracking-widest hover:text-terracotta-600">
+                    Buka di Studio <ChevronRight className="w-3.5 h-3.5" />
+                  </Link>
+                  <button type="button" onClick={() => handleDelete(o.id, o.title)} aria-label={`Hapus ${o.title}`} className="w-10 h-10 inline-flex items-center justify-center rounded-full text-[var(--ds-ink-muted)] hover:text-[var(--ds-error)] hover:bg-black/5">
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <Toast toasts={toasts} onDismiss={(id) => setToasts((t) => t.filter((x) => x.id !== id))} />
     </div>
   );
 }

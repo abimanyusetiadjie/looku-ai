@@ -138,7 +138,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.4,
     "isModestFriendly": false,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1583496661160-c5dcb4c6f58f?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Marks%20%26%20Spencer%20Rok%20Polyester%20Sage"
   },
   {
@@ -183,7 +183,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.95,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Klamby%20Pashmina%20100%25%20Onyx"
   },
   {
@@ -273,7 +273,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.95,
     "isModestFriendly": false,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1515347619152-169542a1f49c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Marks%20%26%20Spencer%20Tunik%20100%25%20Oat"
   },
   {
@@ -303,7 +303,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.9,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1583496661160-c5dcb4c6f58f?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Marks%20%26%20Spencer%20Rok%20Katun%20Camel"
   },
   {
@@ -393,7 +393,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.4,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Klamby%20Kemeja%20Polyester%20Onyx"
   },
   {
@@ -438,7 +438,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.9,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Kami%20Idea%20Pashmina%20Katun%20Steel"
   },
   {
@@ -498,7 +498,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.9,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1583496661160-c5dcb4c6f58f?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Klamby%20Rok%20Katun%20Broken"
   },
   {
@@ -573,7 +573,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.95,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1583496661160-c5dcb4c6f58f?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Cottonink%20Rok%20100%25%20Onyx"
   },
   {
@@ -618,7 +618,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.95,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Cottonink%20Pashmina%20100%25%20Camel"
   },
   {
@@ -663,7 +663,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.4,
     "isModestFriendly": false,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Uniqlo%20Kemeja%20Polyester%20Onyx"
   },
   {
@@ -738,7 +738,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.4,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Buttonscarves%20Kemeja%20Polyester%20Camel"
   },
   {
@@ -753,7 +753,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.7,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Massimo%20Dutti%20Pashmina%20Silk%20Steel"
   },
   {
@@ -873,7 +873,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.9,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Muji%20Pashmina%20Katun%20Sage"
   },
   {
@@ -888,7 +888,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.95,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1515347619152-169542a1f49c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Cottonink%20Tunik%20100%25%20Oat"
   },
   {
@@ -903,7 +903,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.75,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1515347619152-169542a1f49c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Kami%20Idea%20Tunik%20Ceruty%20Oat"
   },
   {
@@ -933,7 +933,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.95,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Buttonscarves%20Pashmina%20100%25%20Camel"
   },
   {
@@ -978,7 +978,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.4,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1548624149-f9b1859aa7d0?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Klamby%20Blazer%20Polyester%20Broken"
   },
   {
@@ -1023,7 +1023,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.9,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1548624149-f9b1859aa7d0?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Vanilla%20Hijab%20Blazer%20Katun%20Broken"
   },
   {
@@ -1038,7 +1038,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.75,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Kami%20Idea%20Pashmina%20Ceruty%20Onyx"
   },
   {
@@ -1083,7 +1083,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.4,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1583496661160-c5dcb4c6f58f?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Vanilla%20Hijab%20Rok%20Polyester%20Steel"
   },
   {
@@ -1158,7 +1158,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.75,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Muji%20Pashmina%20Ceruty%20Camel"
   },
   {
@@ -1203,7 +1203,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.4,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1583496661160-c5dcb4c6f58f?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Marks%20%26%20Spencer%20Rok%20Polyester%20Oat"
   },
   {
@@ -1293,7 +1293,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.7,
     "isModestFriendly": false,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1583496661160-c5dcb4c6f58f?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Uniqlo%20Rok%20Silk%20Oat"
   },
   {
@@ -1323,7 +1323,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.75,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1583496661160-c5dcb4c6f58f?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Massimo%20Dutti%20Rok%20Ceruty%20Broken"
   },
   {
@@ -1368,7 +1368,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.7,
     "isModestFriendly": false,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1583496661160-c5dcb4c6f58f?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Marks%20%26%20Spencer%20Rok%20Silk%20Oat"
   },
   {
@@ -1413,7 +1413,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.8,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1583496661160-c5dcb4c6f58f?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Kami%20Idea%20Rok%20Cotton%20Broken"
   },
   {
@@ -1458,7 +1458,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.7,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1548624149-f9b1859aa7d0?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Zara%20Blazer%20Silk%20Camel"
   },
   {
@@ -1518,7 +1518,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.8,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Marks%20%26%20Spencer%20Pashmina%20Cotton%20Broken"
   },
   {
@@ -1608,7 +1608,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.95,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1548624149-f9b1859aa7d0?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Vanilla%20Hijab%20Blazer%20100%25%20Sage"
   },
   {
@@ -1653,7 +1653,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.7,
     "isModestFriendly": false,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1515347619152-169542a1f49c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Massimo%20Dutti%20Tunik%20Silk%20Camel"
   },
   {
@@ -1713,7 +1713,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.95,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Vanilla%20Hijab%20Pashmina%20100%25%20Onyx"
   },
   {
@@ -1728,7 +1728,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.75,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1583496661160-c5dcb4c6f58f?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Klamby%20Rok%20Ceruty%20Steel"
   },
   {
@@ -1743,7 +1743,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.75,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Cottonink%20Kemeja%20Ceruty%20Oat"
   },
   {
@@ -1758,7 +1758,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.4,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Muji%20Pashmina%20Polyester%20Camel"
   },
   {
@@ -1938,7 +1938,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.75,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Marks%20%26%20Spencer%20Kemeja%20Ceruty%20Sage"
   },
   {
@@ -1968,7 +1968,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.9,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Zara%20Pashmina%20Katun%20Sage"
   },
   {
@@ -2088,7 +2088,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.95,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1548624149-f9b1859aa7d0?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Kami%20Idea%20Blazer%20100%25%20Camel"
   },
   {
@@ -2103,7 +2103,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.75,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1548624149-f9b1859aa7d0?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Vanilla%20Hijab%20Blazer%20Ceruty%20Camel"
   },
   {
@@ -2118,7 +2118,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.8,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Kami%20Idea%20Pashmina%20Cotton%20Oat"
   },
   {
@@ -2148,7 +2148,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.9,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1548624149-f9b1859aa7d0?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Kami%20Idea%20Blazer%20Katun%20Onyx"
   },
   {
@@ -2178,7 +2178,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.4,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Uniqlo%20Pashmina%20Polyester%20Steel"
   },
   {
@@ -2253,7 +2253,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.75,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Kami%20Idea%20Pashmina%20Ceruty%20Broken"
   },
   {
@@ -2283,7 +2283,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.7,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Massimo%20Dutti%20Pashmina%20Silk%20Oat"
   },
   {
@@ -2298,7 +2298,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.95,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1515347619152-169542a1f49c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Uniqlo%20Tunik%20100%25%20Steel"
   },
   {
@@ -2313,7 +2313,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.75,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Marks%20%26%20Spencer%20Pashmina%20Ceruty%20Steel"
   },
   {
@@ -2433,7 +2433,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.9,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Massimo%20Dutti%20Pashmina%20Katun%20Onyx"
   },
   {
@@ -2523,7 +2523,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.4,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Muji%20Kemeja%20Polyester%20Broken"
   },
   {
@@ -2553,7 +2553,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.7,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Klamby%20Pashmina%20Silk%20Onyx"
   },
   {
@@ -2628,7 +2628,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.9,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Vanilla%20Hijab%20Kemeja%20Katun%20Onyx"
   },
   {
@@ -2718,7 +2718,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.8,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1583496661160-c5dcb4c6f58f?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Uniqlo%20Rok%20Cotton%20Camel"
   },
   {
@@ -2793,7 +2793,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.9,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1515347619152-169542a1f49c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Klamby%20Tunik%20Katun%20Camel"
   },
   {
@@ -2883,7 +2883,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.95,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1515347619152-169542a1f49c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Muji%20Tunik%20100%25%20Sage"
   },
   {
@@ -2928,7 +2928,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.4,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1548624149-f9b1859aa7d0?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Muji%20Blazer%20Polyester%20Steel"
   },
   {
@@ -2958,7 +2958,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.95,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1515347619152-169542a1f49c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Klamby%20Tunik%20100%25%20Sage"
   },
   {
@@ -2988,7 +2988,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.4,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1515347619152-169542a1f49c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Kami%20Idea%20Tunik%20Polyester%20Steel"
   },
   {
@@ -3063,7 +3063,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.9,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Marks%20%26%20Spencer%20Pashmina%20Katun%20Broken"
   },
   {
@@ -3168,7 +3168,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.7,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1583496661160-c5dcb4c6f58f?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Kami%20Idea%20Rok%20Silk%20Camel"
   },
   {
@@ -3228,7 +3228,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.75,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1583496661160-c5dcb4c6f58f?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Uniqlo%20Rok%20Ceruty%20Onyx"
   },
   {
@@ -3318,7 +3318,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.75,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1548624149-f9b1859aa7d0?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Marks%20%26%20Spencer%20Blazer%20Ceruty%20Onyx"
   },
   {
@@ -3393,7 +3393,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.4,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1583496661160-c5dcb4c6f58f?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Cottonink%20Rok%20Polyester%20Steel"
   },
   {
@@ -3513,7 +3513,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.9,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Uniqlo%20Pashmina%20Katun%20Broken"
   },
   {
@@ -3543,7 +3543,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.75,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1515347619152-169542a1f49c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Klamby%20Tunik%20Ceruty%20Sage"
   },
   {
@@ -3633,7 +3633,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.4,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1548624149-f9b1859aa7d0?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Buttonscarves%20Blazer%20Polyester%20Steel"
   },
   {
@@ -3678,7 +3678,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.9,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Muji%20Pashmina%20Katun%20Sage"
   },
   {
@@ -3693,7 +3693,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.75,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1515347619152-169542a1f49c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Marks%20%26%20Spencer%20Tunik%20Ceruty%20Oat"
   },
   {
@@ -3723,7 +3723,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.9,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1515347619152-169542a1f49c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Mango%20Tunik%20Katun%20Camel"
   },
   {
@@ -3768,7 +3768,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.7,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Cottonink%20Pashmina%20Silk%20Broken"
   },
   {
@@ -3798,7 +3798,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.7,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1583496661160-c5dcb4c6f58f?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Cottonink%20Rok%20Silk%20Broken"
   },
   {
@@ -3933,7 +3933,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.7,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Klamby%20Pashmina%20Silk%20Onyx"
   },
   {
@@ -4008,7 +4008,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.9,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1548624149-f9b1859aa7d0?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Vanilla%20Hijab%20Blazer%20Katun%20Camel"
   },
   {
@@ -4023,7 +4023,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.9,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1548624149-f9b1859aa7d0?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Klamby%20Blazer%20Katun%20Steel"
   },
   {
@@ -4053,7 +4053,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.4,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Uniqlo%20Pashmina%20Polyester%20Onyx"
   },
   {
@@ -4098,7 +4098,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.7,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Muji%20Pashmina%20Silk%20Sage"
   },
   {
@@ -4113,7 +4113,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.4,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1515347619152-169542a1f49c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Kami%20Idea%20Tunik%20Polyester%20Broken"
   },
   {
@@ -4143,7 +4143,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.95,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Buttonscarves%20Kemeja%20100%25%20Broken"
   },
   {
@@ -4173,7 +4173,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.7,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Marks%20%26%20Spencer%20Pashmina%20Silk%20Sage"
   },
   {
@@ -4263,7 +4263,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.7,
     "isModestFriendly": false,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1515347619152-169542a1f49c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Zara%20Tunik%20Silk%20Oat"
   },
   {
@@ -4278,7 +4278,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.8,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1583496661160-c5dcb4c6f58f?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Massimo%20Dutti%20Rok%20Cotton%20Oat"
   },
   {
@@ -4308,7 +4308,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.9,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1515347619152-169542a1f49c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Kami%20Idea%20Tunik%20Katun%20Oat"
   },
   {
@@ -4368,7 +4368,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.9,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1548624149-f9b1859aa7d0?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Buttonscarves%20Blazer%20Katun%20Oat"
   },
   {
@@ -4383,7 +4383,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.95,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1515347619152-169542a1f49c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Cottonink%20Tunik%20100%25%20Broken"
   },
   {
@@ -4398,7 +4398,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.4,
     "isModestFriendly": false,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1515347619152-169542a1f49c?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Uniqlo%20Tunik%20Polyester%20Sage"
   },
   {
@@ -4488,7 +4488,7 @@ export const GOLDEN_DATASET: GoldenGarment[] = [
     "breathabilityScore": 0.7,
     "isModestFriendly": true,
     "gender": "female",
-    "imageUrl": "https://images.unsplash.com/photo-1583496661160-c5dcb4c6f58f?w=600&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
     "affiliateUrl": "https://shopee.co.id/search?keyword=Kami%20Idea%20Rok%20Silk%20Broken"
   },
   {

@@ -211,3 +211,161 @@ h1, h2, h3, h4 {
   0% { transform: scale(1.05); }
   100% { transform: scale(1.15); }
 }
+
+/* ==========================================================================
+   LOOK.U DESIGN SYSTEM v1.0 — "Tropical Quiet Luxury"
+   Single source of truth. Documented in /DESIGN_SYSTEM.md
+   ========================================================================== */
+:root {
+  /* Color — surface */
+  --ds-paper: #F5F1EB;        /* cards, editorial panels */
+  --ds-sand: #FAF8F5;         /* page background */
+  --ds-white: #FFFFFF;
+  /* Color — ink */
+  --ds-ink: #181A18;          /* primary text, primary CTA */
+  --ds-ink-muted: rgba(24, 26, 24, 0.64);  /* secondary text — passes WCAG AA on sand */
+  --ds-ink-subtle: rgba(24, 26, 24, 0.45); /* captions only, never body copy */
+  --ds-line: rgba(24, 26, 24, 0.12);
+  --ds-line-strong: #181A18;
+  /* Color — accent (use sparingly: 1 accent per view) */
+  --ds-accent: #BA5D38;       /* terracotta */
+  /* Color — feedback */
+  --ds-success: #445C42;
+  --ds-error: #9F2D20;
+  --ds-warning: #A16207;
+
+  /* Spacing scale (4pt grid) */
+  --ds-space-1: 4px;  --ds-space-2: 8px;  --ds-space-3: 12px; --ds-space-4: 16px;
+  --ds-space-6: 24px; --ds-space-8: 32px; --ds-space-12: 48px; --ds-space-16: 64px;
+
+  /* Radius */
+  --ds-radius-sm: 6px;   /* inputs, small tags */
+  --ds-radius-md: 12px;  /* cards (lookbook / wardrobe standard) */
+  --ds-radius-full: 999px; /* buttons, chips */
+
+  /* Elevation */
+  --ds-elev-0: none;
+  --ds-elev-1: 0 1px 2px rgba(24, 26, 24, 0.06);
+  --ds-elev-2: 0 4px 20px -4px rgba(24, 26, 24, 0.10);
+  --ds-elev-3: 0 16px 40px -8px rgba(24, 26, 24, 0.18);  /* modals only */
+
+  /* Motion */
+  --ds-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ds-dur-fast: 150ms;
+  --ds-dur-base: 250ms;
+  --ds-dur-slow: 500ms;
+}
+
+@layer components {
+  /* ---- Focus (accessibility: visible keyboard focus everywhere) ---- */
+  :where(a, button, [role="button"], input, select, textarea):focus-visible {
+    outline: 2px solid var(--ds-ink);
+    outline-offset: 2px;
+  }
+
+  /* ---- Buttons ---- */
+  .ds-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 44px; /* touch target */
+    padding: 0 24px;
+    border-radius: var(--ds-radius-full);
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    transition: background-color var(--ds-dur-fast) var(--ds-ease), color var(--ds-dur-fast) var(--ds-ease),
+                border-color var(--ds-dur-fast) var(--ds-ease), transform var(--ds-dur-fast) var(--ds-ease);
+    -webkit-user-select: none; user-select: none;
+  }
+  .ds-btn:active:not(:disabled) { transform: scale(0.97); }
+  .ds-btn:disabled, .ds-btn[aria-disabled="true"] { opacity: 0.4; cursor: not-allowed; }
+
+  .ds-btn-primary { background: var(--ds-ink); color: #fff; border: 1px solid var(--ds-ink); }
+  .ds-btn-primary:hover:not(:disabled) { background: #000; }
+
+  .ds-btn-secondary { background: transparent; color: var(--ds-ink); border: 1px solid var(--ds-ink); }
+  .ds-btn-secondary:hover:not(:disabled) { background: rgba(24, 26, 24, 0.05); }
+
+  .ds-btn-ghost { background: transparent; color: var(--ds-ink-muted); border: 1px solid transparent; }
+  .ds-btn-ghost:hover:not(:disabled) { color: var(--ds-ink); }
+
+  /* Marketplace: neutral by default, brand colour only as a small dot + on hover.
+     Keeps the editorial palette calm while staying recognisable. */
+  .ds-btn-marketplace {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    min-height: 36px; padding: 0 12px;
+    border-radius: var(--ds-radius-full);
+    background: var(--ds-white); color: var(--ds-ink);
+    border: 1px solid var(--ds-line);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    transition: border-color var(--ds-dur-fast) var(--ds-ease), color var(--ds-dur-fast) var(--ds-ease);
+  }
+  .ds-btn-marketplace::before {
+    content: ""; width: 6px; height: 6px; border-radius: 999px; background: var(--mp-color, var(--ds-ink));
+    flex-shrink: 0;
+  }
+  .ds-btn-marketplace:hover { border-color: var(--mp-color, var(--ds-ink)); color: var(--mp-color, var(--ds-ink)); }
+  .ds-btn-marketplace:active { transform: scale(0.97); }
+  .ds-btn-marketplace:has(svg)::before { display: none; }
+  .ds-mp-shopee { --mp-color: #D7431F; }
+  .ds-mp-tokopedia { --mp-color: #00884A; }
+
+  /* ---- Chips / filters ---- */
+  .ds-chip {
+    display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;
+    min-height: 36px; padding: 0 20px;
+    border: 1px solid var(--ds-ink); border-radius: var(--ds-radius-full);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ds-ink);
+    background: transparent;
+    transition: background-color var(--ds-dur-fast) var(--ds-ease), color var(--ds-dur-fast) var(--ds-ease);
+  }
+  .ds-chip:hover { background: rgba(24, 26, 24, 0.05); }
+  .ds-chip[aria-pressed="true"], .ds-chip.is-active { background: var(--ds-ink); color: #fff; }
+
+  /* Neutral badge (replaces multi-colour badges) */
+  .ds-badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 2px 8px; border-radius: var(--ds-radius-full);
+    border: 1px solid var(--ds-line); background: var(--ds-white);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ds-ink);
+  }
+  .ds-badge-ink { background: var(--ds-ink); color: #fff; border-color: var(--ds-ink); }
+
+  /* ---- Cards ---- */
+  .ds-card {
+    background: var(--ds-paper);
+    border: 1px solid var(--ds-line-strong);
+    border-radius: var(--ds-radius-md);
+    transition: box-shadow var(--ds-dur-base) var(--ds-ease);
+  }
+  .ds-card-interactive:hover { box-shadow: var(--ds-elev-2); }
+
+  /* ---- Typography ---- */
+  .ds-caption {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ds-ink);
+  }
+  .ds-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ds-ink-muted);
+  }
+
+  /* ---- Loading / feedback states ---- */
+  .ds-skeleton {
+    background: linear-gradient(90deg, #EFE9DF 0%, #F7F3EC 50%, #EFE9DF 100%);
+    background-size: 200% 100%;
+    animation: ds-shimmer 1.4s ease-in-out infinite;
+    border-radius: var(--ds-radius-sm);
+  }
+  .ds-feedback {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 16px; border-radius: var(--ds-radius-md);
+    border: 1px solid var(--ds-line); background: var(--ds-white);
+    font-size: 12px; color: var(--ds-ink);
+  }
+  .ds-feedback-success { border-color: var(--ds-success); }
+  .ds-feedback-error { border-color: var(--ds-error); color: var(--ds-error); }
+}
+
+@keyframes ds-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

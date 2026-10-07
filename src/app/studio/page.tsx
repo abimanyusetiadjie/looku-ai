@@ -296,7 +296,7 @@ export default function StudioPage() {
                 <div className="grid grid-cols-2 gap-4">
                   {currentOutfit.items.slice(0,2).map((item: any, idx: number) => (
                     <div key={idx} className="bg-white border border-charcoal-900 rounded-xl overflow-hidden p-4 flex flex-col items-center">
-                      <img src={item.imageUrl || "https://images.unsplash.com/photo-1620799140408-35632e1ea25c?w=400&q=80"} alt={item.name} className="w-full aspect-square object-cover rounded-md mb-4" />
+                      <img src={item.imageUrl || "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&q=80"} alt={item.name} className="w-full aspect-square object-cover rounded-md mb-4" />
                       <h3 className="font-serif text-sm font-bold text-charcoal-900 text-center uppercase leading-tight mb-1">{item.name}</h3>
                       <p className="font-sans text-[9px] text-charcoal-900/60 mb-4 text-center">{item.material} • {item.breathability}</p>
                       <button className="w-full py-2 border border-charcoal-900 rounded-full text-[9px] font-bold uppercase tracking-widest text-charcoal-900 hover:bg-charcoal-900 hover:text-white transition-colors">

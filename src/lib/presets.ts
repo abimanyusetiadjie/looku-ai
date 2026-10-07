@@ -889,7 +889,7 @@ export const TRENDING_LOOKS_FEED: TrendingLook[] = [
     category: "Travel",
     skinToneRecommendation: "Eksotis & Tan",
     priceRange: "Rp 150rb - 250rb / Set",
-    image: "https://images.unsplash.com/photo-1516826957135-700ede19c6ce?w=600&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80",
     likes: 890,
     outfit: PRESET_OOTD_COLLECTION["bali_jogja_resort_linen"]
   },

@@ -467,7 +467,7 @@ export default function FloatingChatbot() {
 
             {/* Toast feedback */}
             {cardSavedToast && (
-              <div className="bg-emerald-600 text-white text-[11px] font-bold py-1.5 px-4 text-center">
+              <div className="bg-charcoal-900 text-white text-[11px] font-bold py-1.5 px-4 text-center">
                 {cardSavedToast}
               </div>
             )}
@@ -593,7 +593,7 @@ export default function FloatingChatbot() {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => trackAffiliateClick("shopee", m.visualCard?.topName || "Chatbot Recommendation", "chatbot")}
-                            className="flex-1 py-2 rounded-xl bg-white hover:bg-orange-500 hover:text-white border border-[#D7CABC] hover:border-orange-500 text-center font-bold text-[10px] uppercase transition-all flex items-center justify-center gap-1 shadow-2xs"
+                            className="flex-1 ds-btn-marketplace ds-mp-shopee"
                           >
                             <span>Shopee</span>
                             <ArrowUpRight className="w-3 h-3" />
@@ -603,7 +603,7 @@ export default function FloatingChatbot() {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => trackAffiliateClick("tokopedia", m.visualCard?.topName || "Chatbot Recommendation", "chatbot")}
-                            className="flex-1 py-2 rounded-xl bg-white hover:bg-emerald-600 hover:text-white border border-[#D7CABC] hover:border-emerald-600 text-center font-bold text-[10px] uppercase transition-all flex items-center justify-center gap-1 shadow-2xs"
+                            className="flex-1 ds-btn-marketplace ds-mp-tokopedia"
                           >
                             <span>Tokopedia</span>
                             <ArrowUpRight className="w-3 h-3" />

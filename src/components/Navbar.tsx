@@ -41,14 +41,15 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenCatalog, o
           <div className="flex items-center justify-between h-16 sm:h-20">
             
             {/* Desktop Left Navigation */}
-            <div className="hidden lg:flex items-center gap-8 flex-1">
+            <div className="hidden lg:flex items-center gap-4 flex-1">
               {NAV_LINKS.map((item) => {
                 const isActive = pathname === item.href;
                 return (
                   <Link 
                     key={item.name} 
                     href={item.href} 
-                    className={"text-[11px] font-sans font-semibold tracking-widest uppercase transition-all duration-200 relative " + (isActive ? "text-black" : "text-black/50 hover:text-black")}
+                    aria-current={isActive ? "page" : undefined}
+                    className={"inline-flex items-center min-h-[44px] px-2 text-[12px] font-sans font-semibold tracking-[0.14em] uppercase transition-colors duration-200 relative " + (isActive ? "text-black" : "text-black/60 hover:text-black")}
                   >
                     {item.name}
                     {/* Active Indicator (Dot) */}

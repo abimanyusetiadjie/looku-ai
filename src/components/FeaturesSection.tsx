@@ -7,7 +7,7 @@ export default function FeaturesSection() {
     {
       title: "Climate Intelligence",
       description: "Material linen & airflow yang dipetakan presisi untuk suhu tropis 33°C.",
-      image: "https://images.unsplash.com/photo-1620799140408-35632e1ea25c?w=800&q=80",
+      image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&q=80",
       colors: null
     },
     {

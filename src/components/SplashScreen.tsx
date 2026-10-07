@@ -7,10 +7,15 @@ export default function SplashScreen() {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    // Tahan splash screen selama 2.8 detik (memberi waktu loading bar selesai)
+    // Splash hanya sekali per sesi browser agar navigasi berikutnya terasa instan.
+    if (sessionStorage.getItem("looku_splash_seen")) {
+      setIsVisible(false);
+      return;
+    }
+    sessionStorage.setItem("looku_splash_seen", "true");
     const timer = setTimeout(() => {
       setIsVisible(false);
-    }, 2800);
+    }, 1600);
 
     return () => clearTimeout(timer);
   }, []);

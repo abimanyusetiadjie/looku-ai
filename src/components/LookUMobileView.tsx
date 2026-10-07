@@ -199,7 +199,7 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
     suhu: "31°C Lembap Sore Hari",
     sirkulasiUdara: "99.1% Sirkulasi Maksimal",
     alasanCocok: "Katun rami alami tenun terbuka memaksimalkan sirkulasi udara sore hari di kafe semi-outdoor.",
-    gambar: "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=900&auto=format&fit=crop&q=85",
+    gambar: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=900&auto=format&fit=crop&q=85",
     paletWarna: [
       { nama: "Sage Hijau", hex: "#557352" },
       { nama: "Krem Alami", hex: "#FAF6EE" },
@@ -261,7 +261,7 @@ const TRENDING_OOTD_LIST = [
     sirkulasi: "99% Super Adem",
     tagModest: "Gaya Rileks",
     studioParam: "santai_weekend_kafe",
-    gambar: "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=600&auto=format&fit=crop&q=80",
+    gambar: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
   },
   {
     id: "tren-4",

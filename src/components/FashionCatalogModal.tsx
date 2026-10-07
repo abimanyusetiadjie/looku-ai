@@ -159,7 +159,7 @@ export default function FashionCatalogModal({ isOpen, onClose }: FashionCatalogM
             </div>
 
             {savedMsg && (
-              <div className="bg-emerald-600 text-white text-xs font-bold py-2 px-4 text-center shrink-0">
+              <div className="bg-charcoal-900 text-white text-xs font-bold py-2 px-4 text-center shrink-0">
                 {savedMsg}
               </div>
             )}
@@ -262,7 +262,7 @@ export default function FashionCatalogModal({ isOpen, onClose }: FashionCatalogM
                           <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                           
                           {/* Shopee Mall / Star+ Badge */}
-                          <div className="absolute top-2 left-2 bg-[#EE4D2D] text-white text-[8px] sm:text-[9px] font-bold px-1.5 py-0.5 rounded shadow-xs tracking-wider uppercase flex items-center gap-1">
+                          <div className="absolute top-2 left-2 ds-badge">
                             <span>{idx % 3 === 0 ? "Mall" : "Star+"}</span>
                           </div>
 
@@ -290,7 +290,7 @@ export default function FashionCatalogModal({ isOpen, onClose }: FashionCatalogM
                             <span>{1.2 + (idx % 8) * 0.4}k Terjual</span>
                           </div>
 
-                          <div className="font-mono text-[10px] sm:text-xs font-bold text-[#EE4D2D] bg-orange-50 px-2 py-0.5 rounded inline-block border border-orange-100">
+                          <div className="font-mono text-[10px] sm:text-xs font-bold text-charcoal-900 inline-block">
                             {formatPrice(item.priceMin || item.price_min || item.price)}
                           </div>
                         </div>
@@ -313,7 +313,7 @@ export default function FashionCatalogModal({ isOpen, onClose }: FashionCatalogM
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() => trackAffiliateClick("shopee", item.shopeeQuery || item.name, "catalog")}
-                                className="flex-1 bg-[#EE4D2D] hover:bg-[#d63b1d] text-white text-[10px] sm:text-[11px] font-bold py-2 rounded-xl text-center transition-all flex items-center justify-center gap-1.5 shadow-xs"
+                                className="flex-1 ds-btn-marketplace ds-mp-shopee"
                               >
                                 <ShopeeIcon className="w-3.5 h-3.5" />
                                 <span>Shopee</span>
@@ -323,7 +323,7 @@ export default function FashionCatalogModal({ isOpen, onClose }: FashionCatalogM
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() => trackAffiliateClick("tokopedia", item.tokopediaQuery || item.name, "catalog")}
-                                className="flex-1 bg-[#00AA5B] hover:bg-[#008f4c] text-white text-[10px] sm:text-[11px] font-bold py-2 rounded-xl text-center transition-all flex items-center justify-center gap-1.5 shadow-xs"
+                                className="flex-1 ds-btn-marketplace ds-mp-tokopedia"
                               >
                                 <TokopediaIcon className="w-3.5 h-3.5" />
                                 <span>Tokped</span>

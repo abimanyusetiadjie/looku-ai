@@ -231,7 +231,7 @@ export default function OOTDChallengeSection() {
       color_palette: selectedColors,
       votes: 1,
       rank: entries.length + 1,
-      avatar: `https://images.unsplash.com/photo-${1534528741775 + (entries.length % 500)}?w=100&auto=format&fit=crop&q=80`,
+      avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&auto=format&fit=crop&q=80",
     };
 
     await submitCommunityEntry(newEntry);

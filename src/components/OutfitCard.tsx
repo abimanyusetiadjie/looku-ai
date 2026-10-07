@@ -398,7 +398,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                             rel="noopener noreferrer"
                             onClick={() => trackAffiliateClick("shopee", item.shopeeQuery || item.name, "outfit_card")}
                             whileTap={{ scale: 0.96 }}
-                            className="py-2 px-1 rounded-sm border border-sand-300 bg-white text-charcoal-700 hover:border-[#EE4D2D] hover:text-[#EE4D2D] text-[10px] sm:text-[11px] font-bold transition-all flex items-center justify-center gap-1 shadow-xs"
+                            className="ds-btn-marketplace ds-mp-shopee"
                             title="Beli di Shopee"
                           >
                             <ShopeeIcon className="w-3 h-3 shrink-0" />
@@ -411,7 +411,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                             rel="noopener noreferrer"
                             onClick={() => trackAffiliateClick("tokopedia", item.shopeeQuery || item.name, "outfit_card")}
                             whileTap={{ scale: 0.96 }}
-                            className="py-2 px-1 rounded-sm border border-sand-300 bg-white text-charcoal-700 hover:border-[#00AA5B] hover:text-[#00AA5B] text-[10px] sm:text-[11px] font-bold transition-all flex items-center justify-center gap-1 shadow-xs"
+                            className="ds-btn-marketplace ds-mp-tokopedia"
                             title="Beli di Tokopedia"
                           >
                             <TokopediaIcon className="w-3 h-3 shrink-0" />

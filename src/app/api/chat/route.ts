@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
       // Default heuristic for image
       let topColor = "Sage Green";
       let topItem = "Kemeja Linen Crinkle";
-      let topImg = "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=400&q=80"; // Modest Linen Shirt
+      let topImg = "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&q=80"; // Modest Linen Shirt
       
       let bottomColor = "Broken White";
       let bottomItem = "Highwaist Loose Kulot";
@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
       if (lower.includes("cokelat") || lower.includes("brown") || lower.includes("mocca") || lower.includes("cream")) {
          topColor = "Mocca / Cokelat";
          topItem = "Kemeja (Dari Fotomu)";
-         topImg = "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=400&q=80";
+         topImg = "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&q=80";
          bottomItem = "Celana Kulot Linen";
          bottomColor = "Cream / Oat";
          bottomImg = "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&q=80";

@@ -57,7 +57,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 62000,
     "shopeeQuery": "blouse silk mocca vneck mocca oat",
     "tokopediaQuery": "blouse silk mocca vneck mocca oat",
-    "image": "https://images.unsplash.com/photo-1434389678369-182ce1434c76?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
     "suitableSkinTones": [
       "medium",
       "tan",
@@ -178,7 +178,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 170000,
     "shopeeQuery": "blouse peterpan lilac pastel buttercream soft",
     "tokopediaQuery": "blouse peterpan lilac pastel buttercream soft",
-    "image": "https://images.unsplash.com/photo-1434389678369-182ce1434c76?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
     "suitableSkinTones": [
       "light",
       "medium",
@@ -268,7 +268,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 106000,
     "shopeeQuery": "kemeja cuban collar linen pria khaki beige sand",
     "tokopediaQuery": "kemeja cuban collar linen pria khaki beige sand",
-    "image": "https://images.unsplash.com/photo-1516826957135-700ede19c6ce?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",
     "suitableSkinTones": [
       "light",
       "medium",
@@ -664,7 +664,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 270000,
     "shopeeQuery": "straight fit denim selvedge pria dusty rose pink",
     "tokopediaQuery": "straight fit denim selvedge pria dusty rose pink",
-    "image": "https://images.unsplash.com/photo-1542272604-780c96856592?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light"
@@ -734,7 +734,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 63000,
     "shopeeQuery": "voal miracle square syari sage green",
     "tokopediaQuery": "voal miracle square syari sage green",
-    "image": "https://images.unsplash.com/photo-1539533018447-63fcce667883?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80",
     "suitableSkinTones": [
       "medium",
       "tan",
@@ -757,7 +757,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 68000,
     "shopeeQuery": "blazer lightweight wanita scbd mocca oat",
     "tokopediaQuery": "blazer lightweight wanita scbd mocca oat",
-    "image": "https://images.unsplash.com/photo-1608228079968-c7681eaef828?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600&q=80",
     "suitableSkinTones": [
       "medium",
       "tan",
@@ -968,7 +968,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 111000,
     "shopeeQuery": "tote bag kanvas tebal 14oz khaki beige sand",
     "tokopediaQuery": "tote bag kanvas tebal 14oz khaki beige sand",
-    "image": "https://images.unsplash.com/photo-1597633244018-052445c71120?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&q=80",
     "suitableSkinTones": [
       "light",
       "medium",
@@ -1084,7 +1084,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 179000,
     "shopeeQuery": "blouse silk mocca vneck sage green",
     "tokopediaQuery": "blouse silk mocca vneck sage green",
-    "image": "https://images.unsplash.com/photo-1434389678369-182ce1434c76?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
     "suitableSkinTones": [
       "medium",
       "tan",
@@ -1203,7 +1203,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 90000,
     "shopeeQuery": "blouse peterpan lilac pastel navy deep blue",
     "tokopediaQuery": "blouse peterpan lilac pastel navy deep blue",
-    "image": "https://images.unsplash.com/photo-1434389678369-182ce1434c76?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light",
@@ -1296,7 +1296,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 222000,
     "shopeeQuery": "kemeja cuban collar linen pria powder sky blue",
     "tokopediaQuery": "kemeja cuban collar linen pria powder sky blue",
-    "image": "https://images.unsplash.com/photo-1516826957135-700ede19c6ce?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light"
@@ -1691,7 +1691,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 122000,
     "shopeeQuery": "straight fit denim selvedge pria warm mustard gold",
     "tokopediaQuery": "straight fit denim selvedge pria warm mustard gold",
-    "image": "https://images.unsplash.com/photo-1542272604-780c96856592?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80",
     "suitableSkinTones": [
       "medium",
       "tan",
@@ -1761,7 +1761,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 318000,
     "shopeeQuery": "voal miracle square syari earthy camel brown",
     "tokopediaQuery": "voal miracle square syari earthy camel brown",
-    "image": "https://images.unsplash.com/photo-1539533018447-63fcce667883?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80",
     "suitableSkinTones": [
       "medium",
       "tan",
@@ -1784,7 +1784,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 145000,
     "shopeeQuery": "blazer lightweight wanita scbd sage green",
     "tokopediaQuery": "blazer lightweight wanita scbd sage green",
-    "image": "https://images.unsplash.com/photo-1608228079968-c7681eaef828?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600&q=80",
     "suitableSkinTones": [
       "medium",
       "tan",
@@ -1996,7 +1996,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 188000,
     "shopeeQuery": "tote bag kanvas tebal 14oz powder sky blue",
     "tokopediaQuery": "tote bag kanvas tebal 14oz powder sky blue",
-    "image": "https://images.unsplash.com/photo-1597633244018-052445c71120?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light"
@@ -2111,7 +2111,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 1259000,
     "shopeeQuery": "blouse silk mocca vneck earthy camel brown",
     "tokopediaQuery": "blouse silk mocca vneck earthy camel brown",
-    "image": "https://images.unsplash.com/photo-1434389678369-182ce1434c76?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
     "suitableSkinTones": [
       "medium",
       "tan",
@@ -2228,7 +2228,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 236000,
     "shopeeQuery": "blouse peterpan lilac pastel charcoal dark grey",
     "tokopediaQuery": "blouse peterpan lilac pastel charcoal dark grey",
-    "image": "https://images.unsplash.com/photo-1434389678369-182ce1434c76?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light",
@@ -2324,7 +2324,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 790000,
     "shopeeQuery": "kemeja cuban collar linen pria dusty lilac pastel",
     "tokopediaQuery": "kemeja cuban collar linen pria dusty lilac pastel",
-    "image": "https://images.unsplash.com/photo-1516826957135-700ede19c6ce?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light"
@@ -2718,7 +2718,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 159000,
     "shopeeQuery": "straight fit denim selvedge pria khaki beige sand",
     "tokopediaQuery": "straight fit denim selvedge pria khaki beige sand",
-    "image": "https://images.unsplash.com/photo-1542272604-780c96856592?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80",
     "suitableSkinTones": [
       "light",
       "medium",
@@ -2786,7 +2786,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 376000,
     "shopeeQuery": "voal miracle square syari jet black solid",
     "tokopediaQuery": "voal miracle square syari jet black solid",
-    "image": "https://images.unsplash.com/photo-1539533018447-63fcce667883?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light",
@@ -2811,7 +2811,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 1403000,
     "shopeeQuery": "blazer lightweight wanita scbd earthy camel brown",
     "tokopediaQuery": "blazer lightweight wanita scbd earthy camel brown",
-    "image": "https://images.unsplash.com/photo-1608228079968-c7681eaef828?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600&q=80",
     "suitableSkinTones": [
       "medium",
       "tan",
@@ -3024,7 +3024,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 424000,
     "shopeeQuery": "tote bag kanvas tebal 14oz dusty lilac pastel",
     "tokopediaQuery": "tote bag kanvas tebal 14oz dusty lilac pastel",
-    "image": "https://images.unsplash.com/photo-1597633244018-052445c71120?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light"
@@ -3136,7 +3136,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 74000,
     "shopeeQuery": "blouse silk mocca vneck jet black solid",
     "tokopediaQuery": "blouse silk mocca vneck jet black solid",
-    "image": "https://images.unsplash.com/photo-1434389678369-182ce1434c76?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light",
@@ -3253,7 +3253,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 472000,
     "shopeeQuery": "blouse peterpan lilac pastel broken white ivory",
     "tokopediaQuery": "blouse peterpan lilac pastel broken white ivory",
-    "image": "https://images.unsplash.com/photo-1434389678369-182ce1434c76?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light",
@@ -3351,7 +3351,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 117000,
     "shopeeQuery": "kemeja cuban collar linen pria olive forest green",
     "tokopediaQuery": "kemeja cuban collar linen pria olive forest green",
-    "image": "https://images.unsplash.com/photo-1516826957135-700ede19c6ce?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",
     "suitableSkinTones": [
       "medium",
       "tan",
@@ -3746,7 +3746,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 1595000,
     "shopeeQuery": "straight fit denim selvedge pria powder sky blue",
     "tokopediaQuery": "straight fit denim selvedge pria powder sky blue",
-    "image": "https://images.unsplash.com/photo-1542272604-780c96856592?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light"
@@ -3814,7 +3814,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 75000,
     "shopeeQuery": "voal miracle square syari dusty rose pink",
     "tokopediaQuery": "voal miracle square syari dusty rose pink",
-    "image": "https://images.unsplash.com/photo-1539533018447-63fcce667883?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light"
@@ -3836,7 +3836,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 80000,
     "shopeeQuery": "blazer lightweight wanita scbd jet black solid",
     "tokopediaQuery": "blazer lightweight wanita scbd jet black solid",
-    "image": "https://images.unsplash.com/photo-1608228079968-c7681eaef828?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light",
@@ -4051,7 +4051,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 123000,
     "shopeeQuery": "tote bag kanvas tebal 14oz olive forest green",
     "tokopediaQuery": "tote bag kanvas tebal 14oz olive forest green",
-    "image": "https://images.unsplash.com/photo-1597633244018-052445c71120?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&q=80",
     "suitableSkinTones": [
       "medium",
       "tan",
@@ -4164,7 +4164,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 279000,
     "shopeeQuery": "blouse silk mocca vneck dusty rose pink",
     "tokopediaQuery": "blouse silk mocca vneck dusty rose pink",
-    "image": "https://images.unsplash.com/photo-1434389678369-182ce1434c76?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light"
@@ -4280,7 +4280,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 102000,
     "shopeeQuery": "blouse peterpan lilac pastel terracotta rust",
     "tokopediaQuery": "blouse peterpan lilac pastel terracotta rust",
-    "image": "https://images.unsplash.com/photo-1434389678369-182ce1434c76?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
     "suitableSkinTones": [
       "medium",
       "tan",
@@ -4378,7 +4378,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 144000,
     "shopeeQuery": "kemeja cuban collar linen pria buttercream soft",
     "tokopediaQuery": "kemeja cuban collar linen pria buttercream soft",
-    "image": "https://images.unsplash.com/photo-1516826957135-700ede19c6ce?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",
     "suitableSkinTones": [
       "light",
       "medium",
@@ -4774,7 +4774,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 64000,
     "shopeeQuery": "straight fit denim selvedge pria dusty lilac pastel",
     "tokopediaQuery": "straight fit denim selvedge pria dusty lilac pastel",
-    "image": "https://images.unsplash.com/photo-1542272604-780c96856592?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light"
@@ -4841,7 +4841,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 240000,
     "shopeeQuery": "voal miracle square syari warm mustard gold",
     "tokopediaQuery": "voal miracle square syari warm mustard gold",
-    "image": "https://images.unsplash.com/photo-1539533018447-63fcce667883?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80",
     "suitableSkinTones": [
       "medium",
       "tan",
@@ -4864,7 +4864,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 245000,
     "shopeeQuery": "blazer lightweight wanita scbd dusty rose pink",
     "tokopediaQuery": "blazer lightweight wanita scbd dusty rose pink",
-    "image": "https://images.unsplash.com/photo-1608228079968-c7681eaef828?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light"
@@ -5078,7 +5078,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 288000,
     "shopeeQuery": "tote bag kanvas tebal 14oz buttercream soft",
     "tokopediaQuery": "tote bag kanvas tebal 14oz buttercream soft",
-    "image": "https://images.unsplash.com/photo-1597633244018-052445c71120?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&q=80",
     "suitableSkinTones": [
       "light",
       "medium",
@@ -5191,7 +5191,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 82000,
     "shopeeQuery": "blouse silk mocca vneck warm mustard gold",
     "tokopediaQuery": "blouse silk mocca vneck warm mustard gold",
-    "image": "https://images.unsplash.com/photo-1434389678369-182ce1434c76?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
     "suitableSkinTones": [
       "medium",
       "tan",
@@ -5307,7 +5307,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 158000,
     "shopeeQuery": "blouse peterpan lilac pastel mocca oat",
     "tokopediaQuery": "blouse peterpan lilac pastel mocca oat",
-    "image": "https://images.unsplash.com/photo-1434389678369-182ce1434c76?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
     "suitableSkinTones": [
       "medium",
       "tan",
@@ -5403,7 +5403,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 125000,
     "shopeeQuery": "kemeja cuban collar linen pria navy deep blue",
     "tokopediaQuery": "kemeja cuban collar linen pria navy deep blue",
-    "image": "https://images.unsplash.com/photo-1516826957135-700ede19c6ce?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light",
@@ -5801,7 +5801,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 259000,
     "shopeeQuery": "straight fit denim selvedge pria olive forest green",
     "tokopediaQuery": "straight fit denim selvedge pria olive forest green",
-    "image": "https://images.unsplash.com/photo-1542272604-780c96856592?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80",
     "suitableSkinTones": [
       "medium",
       "tan",
@@ -5868,7 +5868,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 83000,
     "shopeeQuery": "voal miracle square syari khaki beige sand",
     "tokopediaQuery": "voal miracle square syari khaki beige sand",
-    "image": "https://images.unsplash.com/photo-1539533018447-63fcce667883?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80",
     "suitableSkinTones": [
       "light",
       "medium",
@@ -5891,7 +5891,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 87000,
     "shopeeQuery": "blazer lightweight wanita scbd warm mustard gold",
     "tokopediaQuery": "blazer lightweight wanita scbd warm mustard gold",
-    "image": "https://images.unsplash.com/photo-1608228079968-c7681eaef828?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600&q=80",
     "suitableSkinTones": [
       "medium",
       "tan",
@@ -6103,7 +6103,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 61000,
     "shopeeQuery": "tote bag kanvas tebal 14oz navy deep blue",
     "tokopediaQuery": "tote bag kanvas tebal 14oz navy deep blue",
-    "image": "https://images.unsplash.com/photo-1597633244018-052445c71120?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light",
@@ -6218,7 +6218,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 167000,
     "shopeeQuery": "blouse silk mocca vneck khaki beige sand",
     "tokopediaQuery": "blouse silk mocca vneck khaki beige sand",
-    "image": "https://images.unsplash.com/photo-1434389678369-182ce1434c76?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
     "suitableSkinTones": [
       "light",
       "medium",
@@ -6334,7 +6334,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 109000,
     "shopeeQuery": "blouse peterpan lilac pastel sage green",
     "tokopediaQuery": "blouse peterpan lilac pastel sage green",
-    "image": "https://images.unsplash.com/photo-1434389678369-182ce1434c76?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
     "suitableSkinTones": [
       "medium",
       "tan",
@@ -6428,7 +6428,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 211000,
     "shopeeQuery": "kemeja cuban collar linen pria charcoal dark grey",
     "tokopediaQuery": "kemeja cuban collar linen pria charcoal dark grey",
-    "image": "https://images.unsplash.com/photo-1516826957135-700ede19c6ce?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light",
@@ -6828,7 +6828,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 72000,
     "shopeeQuery": "straight fit denim selvedge pria buttercream soft",
     "tokopediaQuery": "straight fit denim selvedge pria buttercream soft",
-    "image": "https://images.unsplash.com/photo-1542272604-780c96856592?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80",
     "suitableSkinTones": [
       "light",
       "medium",
@@ -6896,7 +6896,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 307000,
     "shopeeQuery": "voal miracle square syari powder sky blue",
     "tokopediaQuery": "voal miracle square syari powder sky blue",
-    "image": "https://images.unsplash.com/photo-1539533018447-63fcce667883?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80",
     "suitableSkinTones": [
       "fair",
       "light"
@@ -6918,7 +6918,7 @@ export const FASHION_CATALOG_300: FashionCatalogItem[] = [
     "priceMax": 311000,
     "shopeeQuery": "blazer lightweight wanita scbd khaki beige sand",
     "tokopediaQuery": "blazer lightweight wanita scbd khaki beige sand",
-    "image": "https://images.unsplash.com/photo-1608228079968-c7681eaef828?w=600&q=80",
+    "image": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600&q=80",
     "suitableSkinTones": [
       "light",
       "medium",

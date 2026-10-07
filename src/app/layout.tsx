@@ -5,6 +5,7 @@ import FloatingChatbot from "@/components/FloatingChatbot";
 import BottomNav from "@/components/BottomNav";
 import ResearchBanner from "@/components/ResearchBanner";
 import SplashScreen from "@/components/SplashScreen";
+import ImageFallbackGuard from "@/components/ImageFallbackGuard";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -83,6 +84,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased bg-[#FAF8F5] text-[#181A18]">
         <SplashScreen />
+        <ImageFallbackGuard />
         {children}
         {/* Floating AI Stylist Chatbot */}
         <BottomNav />

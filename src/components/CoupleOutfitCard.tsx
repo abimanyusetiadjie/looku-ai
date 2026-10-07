@@ -212,7 +212,7 @@ export default function CoupleOutfitCard({
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => trackAffiliateClick("shopee", item.name, "couple_card")}
-                        className="px-2 py-0.5 rounded bg-[#EE4D2D] hover:bg-[#d63b1d] text-white text-[9px] font-bold transition-colors flex items-center gap-1 shadow-2xs"
+                        className="ds-btn-marketplace ds-mp-shopee"
                       >
                         <ShopeeIcon className="w-2.5 h-2.5" />
                         <span>Shopee</span>
@@ -222,7 +222,7 @@ export default function CoupleOutfitCard({
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => trackAffiliateClick("tokopedia", item.name, "couple_card")}
-                        className="px-2 py-0.5 rounded bg-[#00AA5B] hover:bg-[#008f4c] text-white text-[9px] font-bold transition-colors flex items-center gap-1 shadow-2xs"
+                        className="ds-btn-marketplace ds-mp-tokopedia"
                       >
                         <TokopediaIcon className="w-2.5 h-2.5" />
                         <span>Tokped</span>
@@ -255,7 +255,7 @@ export default function CoupleOutfitCard({
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => trackAffiliateClick("shopee", item.name, "couple_card")}
-                        className="px-2 py-0.5 rounded bg-[#EE4D2D] hover:bg-[#d63b1d] text-white text-[9px] font-bold transition-colors flex items-center gap-1 shadow-2xs"
+                        className="ds-btn-marketplace ds-mp-shopee"
                       >
                         <ShopeeIcon className="w-2.5 h-2.5" />
                         <span>Shopee</span>
@@ -265,7 +265,7 @@ export default function CoupleOutfitCard({
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => trackAffiliateClick("tokopedia", item.name, "couple_card")}
-                        className="px-2 py-0.5 rounded bg-[#00AA5B] hover:bg-[#008f4c] text-white text-[9px] font-bold transition-colors flex items-center gap-1 shadow-2xs"
+                        className="ds-btn-marketplace ds-mp-tokopedia"
                       >
                         <TokopediaIcon className="w-2.5 h-2.5" />
                         <span>Tokped</span>

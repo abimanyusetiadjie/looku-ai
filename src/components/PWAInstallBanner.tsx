@@ -17,10 +17,10 @@ export default function PWAInstallBanner() {
       const handleBeforeInstallPrompt = (e: Event) => {
         e.preventDefault();
         setDeferredPrompt(e);
-        // Show banner after 3 seconds of browsing
+        // Tawarkan install hanya setelah user benar-benar menjelajah (45 detik)
         setTimeout(() => {
           setShowBanner(true);
-        }, 3000);
+        }, 45000);
       };
 
       window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);

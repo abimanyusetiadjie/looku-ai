@@ -3,59 +3,67 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ClipboardList, X } from "lucide-react";
+import { X } from "lucide-react";
 
+const DISMISS_KEY = "looku_research_banner_dismissed";
+const SHOW_AFTER_MS = 60000; // give users a full minute to actually try the app first
+
+/**
+ * SUS questionnaire invitation for thesis usability testing.
+ * Appears once, late, and stays dismissed — so it never interrupts first impressions.
+ */
 export default function ResearchBanner() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Tampilkan banner setelah pengguna berada di halaman selama 5 detik
-    const timer = setTimeout(() => setIsVisible(true), 15000);
+    if (localStorage.getItem(DISMISS_KEY)) return;
+    const timer = setTimeout(() => setIsVisible(true), SHOW_AFTER_MS);
     return () => clearTimeout(timer);
   }, []);
 
-  if (!isVisible) return null;
+  const dismiss = () => {
+    localStorage.setItem(DISMISS_KEY, "true");
+    setIsVisible(false);
+  };
 
   return (
     <AnimatePresence>
-      <motion.div
-        initial={{ y: 100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: 100, opacity: 0 }}
-        className="fixed bottom-24 lg:bottom-6 left-4 right-4 lg:left-1/2 lg:-translate-x-1/2 lg:w-max z-[90]"
-      >
-        <div className="bg-charcoal-900 text-white rounded-2xl p-4 shadow-2xl border border-charcoal-800 flex items-center justify-between gap-4 max-w-lg mx-auto">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-terracotta-500/20 flex items-center justify-center shrink-0">
-              <ClipboardList className="w-5 h-5 text-terracotta-400" />
-            </div>
-            <div>
-              <h4 className="font-bold text-sm">Bantu Uji Sistem! 🎓</h4>
-              <p className="text-[10px] text-white/70 mt-0.5 max-w-[200px] leading-tight">
-                Setelah mencoba aplikasi, mohon luangkan 2 menit mengisi kuesioner System Usability Scale (SUS).
+      {isVisible && (
+        <motion.div
+          initial={{ y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 40, opacity: 0 }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          role="dialog"
+          aria-label="Undangan kuesioner usability"
+          className="fixed bottom-24 lg:bottom-6 left-4 right-4 lg:left-auto lg:right-6 lg:w-[380px] z-[90]"
+        >
+          <div className="ds-card bg-white p-4 shadow-[var(--ds-elev-3)] flex items-start gap-3">
+            <div className="flex-1">
+              <div className="ds-eyebrow mb-1">Riset Usability · 2 Menit</div>
+              <p className="text-[13px] text-charcoal-900 leading-snug">
+                Sudah mencoba Look.u? Bantu kami dengan mengisi kuesioner singkat (SUS).
               </p>
+              <Link
+                href="/kuesioner"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={dismiss}
+                className="ds-btn ds-btn-primary mt-3 !min-h-[36px] !px-5 !text-[10px]"
+              >
+                Isi Kuesioner
+              </Link>
             </div>
-          </div>
-          
-          <div className="flex items-center gap-2">
-            <Link 
-              href="/kuesioner" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-terracotta-500 hover:bg-terracotta-600 text-white text-[11px] font-bold uppercase tracking-wider rounded-xl transition-colors shadow-sm whitespace-nowrap"
-             onClick={() => setIsVisible(false)}>
-              Isi Kuesioner
-            </Link>
-            <button 
-              onClick={() => setIsVisible(false)}
-              className="p-2 text-white/50 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
+            <button
+              onClick={dismiss}
+              aria-label="Tutup"
+              className="w-9 h-9 -mr-1 -mt-1 inline-flex items-center justify-center rounded-full text-charcoal-900/50 hover:text-charcoal-900 hover:bg-black/5 transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      )}
     </AnimatePresence>
   );
 }
-

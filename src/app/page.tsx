@@ -54,17 +54,15 @@ export default function HomePage() {
     if (window.location.search.includes('quiz=true')) {
       setIsQuizOpen(true);
     }
-    if (onboarded) {
-      setHasOnboarded(true);
-    } else {
-      setHasOnboarded(false);
-    }
+    // Onboarding slide hanya untuk mobile; desktop langsung melihat Hero editorial.
+    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+    setHasOnboarded(Boolean(onboarded) || isDesktop);
   }, []);
 
-  const handleCompleteOnboarding = () => {
+  const handleCompleteOnboarding = (startQuiz: boolean) => {
     localStorage.setItem('looku_has_onboarded', 'true');
     setHasOnboarded(true);
-    setIsQuizOpen(true);
+    if (startQuiz) setIsQuizOpen(true);
   };
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
   const [isSavedDrawerOpen, setIsSavedDrawerOpen] = useState(false);
@@ -142,12 +140,6 @@ export default function HomePage() {
     return <OnboardingFlow onComplete={handleCompleteOnboarding} />;
   }
 
-  if (hasOnboarded === null) return null;
-
-  if (!hasOnboarded) {
-    return <OnboardingFlow onComplete={handleCompleteOnboarding} />;
-  }
-
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF8F5]">
       {/* ============================================================ */}
@@ -205,7 +197,7 @@ export default function HomePage() {
                  {/* Item 2 */}
                  <div className="flex flex-col items-center">
                     <div className="w-full aspect-[4/5] border border-charcoal-900/60 overflow-hidden bg-sand-100">
-                       <img src="https://images.unsplash.com/photo-1620799140408-35632e1ea25c?w=800&q=80" alt="Fabric Texture" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" />
+                       <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&q=80" alt="Fabric Texture" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" />
                     </div>
                     <span className="mt-6 font-sans text-[10px] sm:text-xs uppercase tracking-widest font-bold text-charcoal-900">ADEM & MODEST</span>
                  </div>

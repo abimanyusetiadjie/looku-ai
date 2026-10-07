@@ -6,7 +6,8 @@ import { Sun, Palette, User, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
 interface OnboardingFlowProps {
-  onComplete: () => void;
+  /** startQuiz = true when the user finished the slides, false when they skipped. */
+  onComplete: (startQuiz: boolean) => void;
 }
 
 const ONBOARDING_SLIDES = [
@@ -15,7 +16,7 @@ const ONBOARDING_SLIDES = [
     title: "Cuaca Berubah,\nGaya Tetap Sempurna",
     desc: "Rekomendasi outfit otomatis menyesuaikan iklim tropis dan suhu sekitarmu secara real-time.",
     icon: Sun,
-    image: "https://images.unsplash.com/photo-1596484552835-1d0a514d2a9f?w=800&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&auto=format&fit=crop&q=80",
   },
   {
     id: "color",
@@ -38,7 +39,7 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
 
   const handleNext = () => {
     if (currentSlide === ONBOARDING_SLIDES.length - 1) {
-      onComplete();
+      onComplete(true);
     } else {
       setCurrentSlide((prev) => prev + 1);
     }
@@ -96,7 +97,7 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
             {ONBOARDING_SLIDES.map((_, idx) => (
               <div
                 key={idx}
-                className={`h-1 rounded-full transition-all duration-300 \${
+                className={`h-1 rounded-full transition-all duration-300 ${
                   idx === currentSlide ? "w-6 bg-[#181A18]" : "w-1.5 bg-[#E8DFD1]"
                 }`}
               />
@@ -112,8 +113,8 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
           </button>
           
           <button 
-            onClick={onComplete}
-            className="text-[10px] font-sans font-semibold text-[#181A18]/40 uppercase tracking-widest hover:text-[#181A18] transition-colors"
+            onClick={() => onComplete(false)}
+            className="min-h-[44px] px-4 text-[11px] font-sans font-semibold text-[#181A18]/60 uppercase tracking-widest hover:text-[#181A18] transition-colors"
           >
             Lewati
           </button>
