@@ -184,7 +184,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                     <span className="text-2xl">🌤️</span>
                     <div>
                       <div className="text-[9px] font-mono tracking-widest uppercase text-black/60">Kondisi Saat Difoto</div>
-                      <div className="text-[11px] font-mono tracking-widest uppercase text-black font-bold">{selectedLook.outfit.weatherRecommendation || "Cerah"}</div>
+                      <div className="text-[11px] font-mono tracking-widest uppercase text-black font-bold">{("33°C TROPICAL") || "Cerah"}</div>
                     </div>
                   </div>
                 </div>
