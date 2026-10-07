@@ -149,8 +149,13 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenCatalog, o
                   );
                 })}
                 <div className="h-px bg-black/5 w-full my-2"></div>
-                <Link href="/profile" className="text-sm font-sans font-semibold tracking-widest text-black/60 uppercase hover:text-black transition-colors">
-                  Profile
+                <Link 
+                  href="/profile" 
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={"text-sm font-sans tracking-widest uppercase flex items-center justify-between " + (pathname === '/profile' ? "font-bold text-black" : "font-semibold text-black/60")}
+                >
+                  <span>Profile</span>
+                  {pathname === '/profile' && <div className="w-1.5 h-1.5 bg-black rounded-full" />}
                 </Link>
               </div>
             </motion.div>
