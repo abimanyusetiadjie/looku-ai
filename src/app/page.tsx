@@ -32,7 +32,7 @@ import LookUMobileView from "@/components/LookUMobileView";
 import OnboardingFlow from "@/components/OnboardingFlow";
 import Toast, { ToastMessage } from "@/components/Toast";
 import { OOTDRecommendation } from "@/lib/types";
-import { PRESET_OOTD_COLLECTION, TRENDING_LOOKS_FEED } from "@/lib/presets";
+import { PRESET_OOTD_COLLECTION, TRENDING_LOOKS_FEED, generateHeuristicOOTD } from "@/lib/presets";
 
 // Dynamic Code-Splitting for Heavy Modals & Offscreen Content
 const SavedLooksDrawer = dynamic(() => import("@/components/SavedLooksDrawer"), { ssr: false });
@@ -94,7 +94,16 @@ export default function HomePage() {
   }, []);
 
   // Spotlight Look of the Day
-  const spotlightOutfit = PRESET_OOTD_COLLECTION["kuliah_hijab_panas_hemat"];
+  const spotlightOutfit = React.useMemo(() => generateHeuristicOOTD({
+    gender: "female",
+    skinTone: "medium",
+    ageRange: "20s",
+    occasion: "kuliah",
+    isModestHijab: true,
+    weather: "panas_terik",
+    budget: "hemat",
+    vibe: "earthy_minimalist"
+  }), []);
 
   // Top 6 Curated Looks for Horizontal Carousel Reel
   const featuredTrendingLooks = TRENDING_LOOKS_FEED.slice(0, 6);

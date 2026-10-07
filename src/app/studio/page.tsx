@@ -73,8 +73,17 @@ function MultiStageLoader() {
 }
 
 export default function StudioPage() {
-  const [currentOutfit, setCurrentOutfit] = useState<OOTDRecommendation>(
-    PRESET_OOTD_COLLECTION["kuliah_hijab_panas_hemat"]
+  const [currentOutfit, setCurrentOutfit] = useState<OOTDRecommendation>(() => 
+    generateHeuristicOOTD({
+      gender: "female",
+      skinTone: "medium",
+      ageRange: "20s",
+      occasion: "kuliah",
+      isModestHijab: true,
+      weather: "panas_terik",
+      budget: "hemat",
+      vibe: "earthy_minimalist"
+    })
   );
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isQuizOpen, setIsQuizOpen] = useState(false);
