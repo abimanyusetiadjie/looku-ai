@@ -72,11 +72,11 @@ export default function BottomNav() {
                     transition={{ type: "spring", stiffness: 400, damping: 25 }}
                   >
                     <Icon
-                      className={`w-[26px] h-[26px] transition-all duration-200 \${
+                      className={`w-[26px] h-[26px] transition-all duration-200 ${
                         isActive ? "text-charcoal-900" : "text-charcoal-900/40"
                       }`}
-                      strokeWidth={isActive ? (isSearch ? 2.5 : 2) : 1.5}
-                      fill={isActive && !isSearch ? "currentColor" : "none"}
+                      strokeWidth={isActive ? 2.5 : 1.5}
+                      fill="none"
                     />
                   </motion.div>
                 </div>
