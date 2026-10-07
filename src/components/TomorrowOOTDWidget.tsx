@@ -1,50 +1,40 @@
+"use client";
+
 import React from "react";
-import { CloudRain, Sun, ThermometerSun, Wind } from "lucide-react";
-import { OOTDRecommendation } from "@/lib/types";
+import { ThermometerSun } from "lucide-react";
 
 interface TomorrowOOTDWidgetProps {
-  onScheduleTomorrow: (outfit: any) => void; // Simplified type for outfit
+  onScheduleTomorrow: (outfit: any) => void;
 }
 
 export default function TomorrowOOTDWidget({ onScheduleTomorrow }: TomorrowOOTDWidgetProps) {
-  const weatherText = "BESOK: 34°C PANAS TERIK SIANG";
-
-  const handleSchedule = () => {
-    onScheduleTomorrow({});
-  };
-
   return (
-    <div className="w-full bg-white border border-sand-300 rounded-3xl p-5 shadow-sm relative overflow-hidden mb-6">
-      <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-        <div className="space-y-2 flex-1">
-          <div className="flex items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded-full bg-sand-100 text-charcoal-900 text-[10px] font-mono font-bold tracking-wider uppercase border border-sand-200 flex items-center gap-1.5 w-fit">
-              <Sun className="w-3 h-3 text-amber-600" />
-              {weatherText}
-            </span>
-            <span className="px-2.5 py-0.5 rounded-full bg-sand-100 text-charcoal-900 text-[10px] font-mono font-semibold tracking-wider uppercase border border-sand-200 flex items-center gap-1 w-fit">
-              <Wind className="w-3 h-3 text-emerald-700" />
-              Sirkulasi Katun
-            </span>
+    <div className="w-full bg-white border border-sand-300 p-6 relative overflow-hidden mb-6">
+      <div className="space-y-4">
+        <div>
+          <div className="text-[11px] font-mono text-charcoal-900 font-bold uppercase tracking-widest flex items-center gap-2 mb-1">
+            <ThermometerSun className="w-3.5 h-3.5" />
+            Besok · 34°C · Panas Terik
           </div>
-
-          <div>
-            <h3 className="font-serif font-bold text-base text-charcoal-900 leading-tight">
-              Formula Anti-Gerah Besok Pagi
-            </h3>
-            <p className="text-xs font-medium text-charcoal-700 mt-0.5 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-terracotta-500 shrink-0" />
-              Kemeja Linen Crinkle + Highwaist Loose Kulot Broken White
-            </p>
+          <div className="text-[11px] font-mono text-sand-500 uppercase tracking-widest">
+            Material: Katun Airflow
           </div>
         </div>
 
+        <div>
+          <h3 className="font-serif font-bold text-lg text-charcoal-900 leading-tight mb-1">
+            Formula Anti-Gerah
+          </h3>
+          <p className="text-xs text-charcoal-700 leading-relaxed font-medium">
+            Kemeja Linen Crinkle +<br />Highwaist Loose Kulot
+          </p>
+        </div>
+
         <button
-          onClick={handleSchedule}
-          className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-charcoal-900 hover:bg-charcoal-800 text-sand-50 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 shrink-0"
+          onClick={() => onScheduleTomorrow({})}
+          className="w-full py-3 bg-charcoal-900 hover:bg-charcoal-800 text-white font-sans font-bold text-[10px] tracking-widest uppercase transition-colors"
         >
-          <ThermometerSun className="w-3.5 h-3.5" />
-          <span>Kunci OOTD Besok</span>
+          Kunci OOTD Besok
         </button>
       </div>
     </div>

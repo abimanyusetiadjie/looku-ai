@@ -348,7 +348,7 @@ export default function StudioPage() {
         {/* Studio Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Form (Desktop only, opened via bottom sheet on mobile) */}
-          <div className="hidden lg:block lg:col-span-5 w-full space-y-6">
+          <div className="hidden lg:block lg:col-span-4 w-full space-y-6">
             <TomorrowOOTDWidget onScheduleTomorrow={handleScheduleTomorrow} />
             <GeneratorForm
               onGenerate={handleGenerate}
@@ -358,7 +358,7 @@ export default function StudioPage() {
           </div>
 
           {/* Right Outfit Card (Full width on mobile) */}
-          <div className="lg:col-span-7 w-full">
+          <div className="lg:col-span-8 w-full">
             <AnimatePresence mode="wait">
               {isLoading ? (
                 <MultiStageLoader key="loader" />

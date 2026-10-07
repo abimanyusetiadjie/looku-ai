@@ -231,6 +231,28 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
             <p className="font-serif italic text-sm sm:text-lg text-[#181A18]/70 pt-0.5 leading-snug">
               &ldquo;{outfit.tagline}&rdquo;
             </p>
+
+            {/* FULL LOOK PREVIEW (Hero Image Collage) */}
+            <div className="w-full aspect-[4/5] sm:aspect-[16/9] mt-6 flex gap-1 overflow-hidden rounded-sm bg-sand-100 border border-sand-200">
+              {items.slice(0, 2).map((item, idx) => {
+                const fallbackImages = [
+                  "https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=800&q=80",
+                  "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&q=80"
+                ];
+                const itemImage = item.imageUrl || outfit.flatlayImages?.[idx] || fallbackImages[idx % fallbackImages.length];
+                
+                return (
+                  <div key={idx} className="flex-1 relative group cursor-pointer overflow-hidden">
+                    <img
+                      src={itemImage}
+                      alt={item.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-black/5" />
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           {/* Tier Selector & Total Estimate Bar */}
@@ -282,10 +304,10 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-mono tracking-wider uppercase text-sand-500 font-bold">
-                BEDAH 4 ITEM BUSANA (BELI DI MARKETPLACE)
+                KOMPOSISI LOOK
               </span>
               <span className="text-[9px] font-mono text-terracotta-600 font-bold">
-                TAP SHOPEE / TOKPED
+                MARKETPLACE
               </span>
             </div>
 
@@ -376,7 +398,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                             rel="noopener noreferrer"
                             onClick={() => trackAffiliateClick("shopee", item.shopeeQuery || item.name, "outfit_card")}
                             whileTap={{ scale: 0.96 }}
-                            className="py-2 px-1 rounded-none bg-[#EE4D2D] hover:bg-[#d63b1d] text-white text-[10px] sm:text-[11px] font-bold transition-all flex items-center justify-center gap-1 shadow-2xs"
+                            className="py-2 px-1 rounded-sm border border-sand-300 bg-white text-charcoal-700 hover:border-[#EE4D2D] hover:text-[#EE4D2D] text-[10px] sm:text-[11px] font-bold transition-all flex items-center justify-center gap-1 shadow-xs"
                             title="Beli di Shopee"
                           >
                             <ShopeeIcon className="w-3 h-3 shrink-0" />
@@ -389,7 +411,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                             rel="noopener noreferrer"
                             onClick={() => trackAffiliateClick("tokopedia", item.shopeeQuery || item.name, "outfit_card")}
                             whileTap={{ scale: 0.96 }}
-                            className="py-2 px-1 rounded-none bg-[#00AA5B] hover:bg-[#008f4c] text-white text-[10px] sm:text-[11px] font-bold transition-all flex items-center justify-center gap-1 shadow-2xs"
+                            className="py-2 px-1 rounded-sm border border-sand-300 bg-white text-charcoal-700 hover:border-[#00AA5B] hover:text-[#00AA5B] text-[10px] sm:text-[11px] font-bold transition-all flex items-center justify-center gap-1 shadow-xs"
                             title="Beli di Tokopedia"
                           >
                             <TokopediaIcon className="w-3 h-3 shrink-0" />
