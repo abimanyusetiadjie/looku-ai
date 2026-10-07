@@ -46,15 +46,15 @@ function MultiStageLoader() {
       </div>
 
       <div className="w-full max-w-sm space-y-3 pt-4">
-        <div className="flex items-center gap-3 text-xs font-semibold text-[#181A18] bg-[#FAF8F5] p-3 rounded-xl border border-[#E8DFD1]">
+        <div className="flex items-center gap-3 text-xs font-semibold text-[#181A18] bg-[#FAF8F5] p-3 rounded-sm border border-[#E8DFD1]">
           <span className="w-5 h-5 rounded-full bg-terracotta-500 text-white flex items-center justify-center text-[10px] font-mono">1</span>
           <span>Analisis personal color & undertone kulit</span>
         </div>
-        <div className="flex items-center gap-3 text-xs font-semibold text-[#181A18] bg-[#FAF8F5] p-3 rounded-xl border border-[#E8DFD1] animate-pulse">
+        <div className="flex items-center gap-3 text-xs font-semibold text-[#181A18] bg-[#FAF8F5] p-3 rounded-sm border border-[#E8DFD1] animate-pulse">
           <span className="w-5 h-5 rounded-full bg-[#D7CABC] text-[#181A18] flex items-center justify-center text-[10px] font-mono">2</span>
           <span>Memilih bahan katun &amp; linen anti-gerah</span>
         </div>
-        <div className="flex items-center gap-3 text-xs font-semibold text-[#181A18]/60 bg-[#FAF8F5]/50 p-3 rounded-xl border border-[#E8DFD1]">
+        <div className="flex items-center gap-3 text-xs font-semibold text-[#181A18]/60 bg-[#FAF8F5]/50 p-3 rounded-sm border border-[#E8DFD1]">
           <span className="w-5 h-5 rounded-full bg-[#E8DFD1] text-[#A89582] flex items-center justify-center text-[10px] font-mono">3</span>
           <span>Kurasi toko terpercaya di marketplace</span>
         </div>
@@ -64,7 +64,7 @@ function MultiStageLoader() {
         <div className="space-y-2">
           <div className="h-4 bg-[#E8DFD1] rounded animate-pulse w-3/4 mx-auto" />
           <div className="h-4 bg-[#E8DFD1] rounded animate-pulse w-1/2 mx-auto" />
-          <div className="h-32 bg-[#E8DFD1] rounded-xl animate-pulse w-full mt-4" />
+          <div className="h-32 bg-[#E8DFD1] rounded-sm animate-pulse w-full mt-4" />
         </div>
       </div>
     </motion.div>
@@ -179,7 +179,7 @@ export default function StudioPage() {
 
     addToast({
       title: "OOTD Besok Pagi Terkunci!",
-      description: "✨ Disimpan ke Lemari & Dijadwalkan di Kalender Mingguan",
+      description: " Disimpan ke Lemari & Dijadwalkan di Kalender Mingguan",
       type: "save",
     });
   };
@@ -279,7 +279,7 @@ export default function StudioPage() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => setIsHistoryOpen(true)}
-              className="py-2 px-3 rounded-xl bg-white hover:bg-sand-100 border border-sand-300 text-charcoal-900 font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-2xs"
+              className="py-2 px-3 rounded-sm bg-white hover:bg-sand-100 border border-sand-300 text-charcoal-900 font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-2xs"
             >
               <History className="w-3.5 h-3.5 text-terracotta-500" />
               <span>Riwayat</span>
@@ -287,7 +287,7 @@ export default function StudioPage() {
 
             <button
               onClick={() => setIsSavedDrawerOpen(true)}
-              className="py-2 px-3.5 rounded-xl bg-charcoal-900 text-white font-bold text-xs uppercase tracking-wider shadow-sm"
+              className="py-2 px-3.5 rounded-sm bg-charcoal-900 text-white font-bold text-xs uppercase tracking-wider shadow-sm"
             >
               Lemari Koleksi
             </button>
@@ -302,7 +302,7 @@ export default function StudioPage() {
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="p-2 rounded-xl bg-white border border-sand-300 text-charcoal-900 hover:bg-sand-100 transition-colors flex items-center justify-center shadow-2xs"
+              className="p-2 rounded-sm bg-white border border-sand-300 text-charcoal-900 hover:bg-sand-100 transition-colors flex items-center justify-center shadow-2xs"
               title="Kembali ke Beranda"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -312,7 +312,7 @@ export default function StudioPage() {
                 AI STYLIST ATELIER
               </span>
               <h1 className="font-serif text-2xl font-bold text-charcoal-900 tracking-tight">
-                Studio Padu Padan
+                The Studio
               </h1>
             </div>
           </div>
@@ -323,21 +323,21 @@ export default function StudioPage() {
 
         {/* Mobile Quick Preference Bar (Prominent & Clean Directly Above Result) */}
         <div className="block lg:hidden mb-3">
-          <div className="p-2.5 bg-white rounded-2xl border border-sand-300 shadow-2xs flex items-center justify-between gap-2">
+          <div className="p-2.5 bg-white rounded-sm border border-sand-300 shadow-2xs flex items-center justify-between gap-2">
             <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 text-xs">
               <span className="px-2.5 py-1 rounded-full bg-sand-100 text-charcoal-900 font-bold whitespace-nowrap text-[10px]">
                 {lastPrefs?.occasion ? `☕ ${lastPrefs.occasion.toUpperCase()}` : "☕ HANGOUT"}
               </span>
               <span className="px-2.5 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200 font-bold whitespace-nowrap text-[10px]">
-                ☀️ 33°C ADEM
+                 33°C ADEM
               </span>
               <span className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold whitespace-nowrap text-[10px]">
-                {lastPrefs?.isModestHijab !== false ? "🧕 MODEST" : "✨ UNISEX"}
+                {lastPrefs?.isModestHijab !== false ? "🧕 MODEST" : " UNISEX"}
               </span>
             </div>
             <button
               onClick={() => setIsMobilePrefDrawerOpen(true)}
-              className="shrink-0 py-1.5 px-3 rounded-xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors shadow-xs"
+              className="shrink-0 py-1.5 px-3 rounded-sm bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors shadow-xs"
             >
               <SlidersHorizontal className="w-3.5 h-3.5 text-terracotta-400" />
               <span>Sesuaikan</span>
@@ -384,10 +384,10 @@ export default function StudioPage() {
             <div className="block lg:hidden mt-4">
               <button
                 onClick={() => setIsMobilePrefDrawerOpen(true)}
-                className="w-full py-3.5 px-4 rounded-2xl bg-white hover:bg-sand-100 border border-sand-300 text-charcoal-900 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-2xs transition-all"
+                className="w-full py-3.5 px-4 rounded-sm bg-white hover:bg-sand-100 border border-sand-300 text-charcoal-900 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-2xs transition-all"
               >
                 <SlidersHorizontal className="w-4 h-4 text-terracotta-500" />
-                <span>Kustomisasi Detail Acara, Cuaca & Budget ➔</span>
+                <span>ADJUST PREFERENCES ➔</span>
               </button>
             </div>
 
@@ -403,11 +403,11 @@ export default function StudioPage() {
           <button
             type="button"
             onClick={() => setIsCalendarOpen(!isCalendarOpen)}
-            className="w-full py-3.5 px-4 rounded-2xl bg-white hover:bg-sand-50 border border-sand-300 text-charcoal-900 font-bold text-xs uppercase tracking-wider flex items-center justify-between shadow-2xs transition-all"
+            className="w-full py-3.5 px-4 rounded-sm bg-white hover:bg-sand-50 border border-sand-300 text-charcoal-900 font-bold text-xs uppercase tracking-wider flex items-center justify-between shadow-2xs transition-all"
           >
             <div className="flex items-center gap-2">
-              <span className="text-base">📅</span>
-              <span>Jadwal OOTD 7 Hari (Weekly Planner)</span>
+              <span className="text-base"></span>
+              <span>WEEKLY PLANNER</span>
             </div>
             <span className="text-[11px] text-terracotta-600 font-bold">
               {isCalendarOpen ? "Sembunyikan ▲" : "Buka Jadwal ▼"}

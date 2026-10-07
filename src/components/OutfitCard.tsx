@@ -124,7 +124,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
     }
   };
 
-  const handleShareWhatsApp = () => {
+  const handleShareSHARE = () => {
     const shareUrl = typeof window !== "undefined" ? `${window.location.origin}/?look=${outfit.id}` : `https://looku.ai/?look=${outfit.id}`;
     const text = `*${outfit.title}* - Kurasi look.u AI\n"${outfit.tagline}"\n\n*Items:*\n${outfit.items
       .map((i) => `• ${i.name} (${i.color})`)
@@ -168,7 +168,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -16 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-white rounded-3xl border border-[#E8DFD1] p-4 sm:p-8 space-y-5 sm:space-y-8 shadow-tactile"
+          className="bg-white rounded-sm border border-[#E8DFD1] p-4 sm:p-8 space-y-5 sm:space-y-8 shadow-tactile"
         >
           {/* Header Bar: Spec Number & Action Controls (Mobile Clean & Thumb-Friendly) */}
           <div className="flex items-center justify-between gap-2 border-b border-[#E8DFD1] pb-3.5 sm:pb-5">
@@ -185,17 +185,17 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
 
             <div className="flex items-center gap-1 sm:gap-2">
               <button
-                onClick={handleShareWhatsApp}
-                className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl text-charcoal-900/70 hover:text-charcoal-900 hover:bg-sand-100 transition-colors flex items-center justify-center"
-                title="Kirim ke WhatsApp"
-                aria-label="Kirim ke WhatsApp"
+                onClick={handleShareSHARE}
+                className="w-9 h-9 sm:w-11 sm:h-11 rounded-none text-charcoal-900/70 hover:text-charcoal-900 hover:bg-sand-100 transition-colors flex items-center justify-center"
+                title="Kirim ke SHARE"
+                aria-label="Kirim ke SHARE"
               >
                 <MessageCircle className="w-4 h-4 text-emerald-600" />
               </button>
 
               <button
                 onClick={() => setShowStoryModal(true)}
-                className="min-h-[36px] sm:min-h-[44px] bg-sand-100 hover:bg-sand-200 text-charcoal-900 border border-sand-300 font-semibold text-xs py-1.5 px-3 sm:py-2 sm:px-3.5 rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-2xs"
+                className="min-h-[36px] sm:min-h-[44px] bg-sand-100 hover:bg-sand-200 text-charcoal-900 border border-sand-300 font-semibold text-xs py-1.5 px-3 sm:py-2 sm:px-3.5 rounded-none transition-colors flex items-center justify-center gap-1.5 shadow-2xs"
               >
                 <Share2 className="w-3.5 h-3.5 text-charcoal-700" />
                 <span className="hidden xs:inline">Story</span>
@@ -203,15 +203,15 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
 
               <button
                 onClick={handleToggleSave}
-                className={`min-h-[36px] sm:min-h-[44px] text-xs font-bold py-1.5 px-3 sm:py-2 sm:px-4 rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-xs ${
+                className={`min-h-[36px] sm:min-h-[44px] text-xs font-bold py-1.5 px-3 sm:py-2 sm:px-4 rounded-none transition-all flex items-center justify-center gap-1.5 shadow-xs ${
                   isSaved
                     ? "bg-emerald-700 text-white"
                     : "bg-charcoal-900 hover:bg-charcoal-800 text-white"
                 }`}
-                title="Simpan ke Lemari"
+                title="SAVE TO WARDROBE"
               >
                 <Bookmark className="w-3.5 h-3.5" />
-                <span>{isSaved ? "Tersimpan" : "Simpan"}</span>
+                <span>{isSaved ? "SAVED" : "SAVE TO WARDROBE"}</span>
               </button>
             </div>
           </div>
@@ -239,7 +239,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
               <span className="text-[10px] font-mono font-bold uppercase text-sand-500 tracking-wider">
                 TIER BELANJA:
               </span>
-              <div className="flex items-center gap-1 bg-sand-100 p-1 rounded-xl border border-sand-200">
+              <div className="flex items-center gap-1 bg-sand-100 p-1 rounded-none border border-sand-200">
                 <button
                   type="button"
                   onClick={() => {
@@ -304,7 +304,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                 return (
                   <div
                     key={index}
-                    className="rounded-2xl sm:rounded-3xl bg-white border border-sand-200 hover:border-charcoal-900 transition-all overflow-hidden flex flex-col justify-between shadow-2xs group/card"
+                    className="rounded-none sm:rounded-sm bg-white border border-sand-200 hover:border-charcoal-900 transition-all overflow-hidden flex flex-col justify-between shadow-2xs group/card"
                   >
                     {/* Garment Image + Category Badge + Swap Button */}
                     <div className="relative aspect-square sm:aspect-[4/3] bg-sand-100 overflow-hidden">
@@ -329,7 +329,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                           className="absolute top-2 right-2 px-2 py-0.5 rounded-lg bg-white/95 hover:bg-white text-charcoal-900 text-[8px] font-mono font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm transition-all"
                           title={`Ganti varian ${catLabel}`}
                         >
-                          <span>↻ Ganti</span>
+                          <span> Ganti</span>
                         </button>
                       )}
 
@@ -365,7 +365,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
 
                       {/* Dual Marketplace Direct Buttons (Side-by-Side) */}
                       {item.isOwnedItem ? (
-                        <div className="py-2 bg-emerald-50 text-emerald-800 font-mono text-[10px] font-bold rounded-xl border border-emerald-200 text-center">
+                        <div className="py-2 bg-emerald-50 text-emerald-800 font-mono text-[10px] font-bold rounded-none border border-emerald-200 text-center">
                           ✓ Ada di Lemarimu
                         </div>
                       ) : (
@@ -376,7 +376,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                             rel="noopener noreferrer"
                             onClick={() => trackAffiliateClick("shopee", item.shopeeQuery || item.name, "outfit_card")}
                             whileTap={{ scale: 0.96 }}
-                            className="py-2 px-1 rounded-xl bg-[#EE4D2D] hover:bg-[#d63b1d] text-white text-[10px] sm:text-[11px] font-bold transition-all flex items-center justify-center gap-1 shadow-2xs"
+                            className="py-2 px-1 rounded-none bg-[#EE4D2D] hover:bg-[#d63b1d] text-white text-[10px] sm:text-[11px] font-bold transition-all flex items-center justify-center gap-1 shadow-2xs"
                             title="Beli di Shopee"
                           >
                             <ShopeeIcon className="w-3 h-3 shrink-0" />
@@ -389,7 +389,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                             rel="noopener noreferrer"
                             onClick={() => trackAffiliateClick("tokopedia", item.shopeeQuery || item.name, "outfit_card")}
                             whileTap={{ scale: 0.96 }}
-                            className="py-2 px-1 rounded-xl bg-[#00AA5B] hover:bg-[#008f4c] text-white text-[10px] sm:text-[11px] font-bold transition-all flex items-center justify-center gap-1 shadow-2xs"
+                            className="py-2 px-1 rounded-none bg-[#00AA5B] hover:bg-[#008f4c] text-white text-[10px] sm:text-[11px] font-bold transition-all flex items-center justify-center gap-1 shadow-2xs"
                             title="Beli di Tokopedia"
                           >
                             <TokopediaIcon className="w-3 h-3 shrink-0" />
@@ -407,7 +407,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
           {/* Expand/Collapse Toggle Button for Editorial Notes */}
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="w-full py-3 rounded-2xl bg-sand-100 hover:bg-sand-200 border border-sand-300 text-charcoal-900 text-xs font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-2"
+            className="w-full py-3 rounded-none bg-sand-100 hover:bg-sand-200 border border-sand-300 text-charcoal-900 text-xs font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-2"
           >
             <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
             <span>{isExpanded ? 'Tutup Detail' : 'Lihat Catatan & Perawatan Kain'}</span>
@@ -437,7 +437,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                         key={idx}
                         type="button"
                         onClick={() => handleCopyHex(col.hex, col.name)}
-                        className="p-2.5 rounded-xl bg-white hover:bg-sand-50 border border-sand-200 flex items-center gap-2.5 transition-colors text-left"
+                        className="p-2.5 rounded-none bg-white hover:bg-sand-50 border border-sand-200 flex items-center gap-2.5 transition-colors text-left"
                         title={`Klik untuk salin kode ${col.hex}`}
                       >
                         <div
@@ -472,13 +472,13 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                 {/* Styling Rationale */}
                 <div className="border-t border-sand-200 pt-5 space-y-2">
                   <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-sand-500">
-                    KENAPA KOMBINASI INI COCOK BUAT KAMU
+                    STYLING RATIONALE
                   </div>
                   <p className="text-xs sm:text-sm text-charcoal-800 leading-relaxed">
                     {outfit.whyItWorks}
                   </p>
                   <div className="text-xs text-terracotta-600 font-medium pt-1">
-                    <span className="font-bold font-serif">Tips Stylist:</span> {outfit.stylingTip}
+                    <span className="font-bold font-serif">Stylist Note:</span> {outfit.stylingTip}
                   </div>
                 </div>
 
@@ -492,7 +492,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    <div className="p-3 rounded-xl bg-sand-50 border border-sand-200 space-y-1">
+                    <div className="p-3 rounded-none bg-sand-50 border border-sand-200 space-y-1">
                       <div className="text-[10px] font-mono font-bold text-charcoal-900 uppercase">
                         Pencucian
                       </div>
@@ -501,7 +501,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                       </p>
                     </div>
 
-                    <div className="p-3 rounded-xl bg-sand-50 border border-sand-200 space-y-1">
+                    <div className="p-3 rounded-none bg-sand-50 border border-sand-200 space-y-1">
                       <div className="text-[10px] font-mono font-bold text-charcoal-900 uppercase">
                         Pengeringan
                       </div>
@@ -510,7 +510,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                       </p>
                     </div>
 
-                    <div className="p-3 rounded-xl bg-sand-50 border border-sand-200 space-y-1">
+                    <div className="p-3 rounded-none bg-sand-50 border border-sand-200 space-y-1">
                       <div className="text-[10px] font-mono font-bold text-charcoal-900 uppercase">
                         Penyetrikaan
                       </div>
@@ -527,8 +527,8 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
           {/* Directional Stylist Feedback Bar */}
           <div className="border-t border-[#E8DFD1] pt-5 space-y-3">
             <div className="flex items-center justify-between text-xs">
-              <span className="font-bold text-charcoal-900 font-serif">Kurang pas? Arahkan gaya OOTD kamu:</span>
-              <span className="text-[10px] font-mono text-sand-500 uppercase tracking-wider font-semibold">PILIHAN GAYA</span>
+              <span className="font-bold text-charcoal-900 font-serif">Directional Adjustments:</span>
+              <span className="text-[10px] font-mono text-sand-500 uppercase tracking-wider font-semibold">DIRECTIONAL CUES</span>
             </div>
             <div className="flex flex-wrap gap-2">
               {[
@@ -542,7 +542,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                   onClick={() => {
                     if (onRegenerate) onRegenerate(chip.hint);
                   }}
-                  className="px-3 py-1.5 rounded-xl bg-white hover:bg-charcoal-900 hover:text-white border border-sand-300 text-xs text-charcoal-900 font-medium transition-all"
+                  className="px-3 py-1.5 rounded-none bg-white hover:bg-charcoal-900 hover:text-white border border-sand-300 text-xs text-charcoal-900 font-medium transition-all"
                 >
                   {chip.label}
                 </button>
@@ -558,7 +558,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                 onClick={() => onRegenerate()}
                 className="font-bold text-charcoal-900 hover:text-terracotta-600 uppercase tracking-wider text-[11px] underline underline-offset-4"
               >
-                Variasi Lain ↻
+                Regenerate 
               </button>
             )}
           </div>
@@ -579,7 +579,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
             initial={{ opacity: 0, y: 10, x: "-50%" }}
             animate={{ opacity: 1, y: 0, x: "-50%" }}
             exit={{ opacity: 0, y: 10, x: "-50%" }}
-            className="fixed bottom-6 left-1/2 z-50 px-4 py-2 bg-charcoal-900 text-sand-50 text-xs rounded-xl shadow-lg font-medium"
+            className="fixed bottom-6 left-1/2 z-50 px-4 py-2 bg-charcoal-900 text-sand-50 text-xs rounded-none shadow-lg font-medium"
           >
             {toastMsg}
           </motion.div>

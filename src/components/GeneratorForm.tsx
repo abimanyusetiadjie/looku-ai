@@ -130,7 +130,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
       setTimeout(() => {
         setSkinTone("medium"); // Sawo Matang (medium)
         setIsDetectingTone(false);
-        setDetectionFeedback("✨ Terdeteksi: Kulit Sawo Matang (Warm Autumn) — Formula disesuaikan!");
+        setDetectionFeedback(" Terdeteksi: Kulit Sawo Matang (Warm Autumn) — Formula disesuaikan!");
         setTimeout(() => setDetectionFeedback(null), 4000);
       }, 1200);
     }
@@ -267,7 +267,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
 
   const expressCards = [
     {
-      icon: "☕",
+      icon: "",
       title: "Ngopi & Kafe",
       subtitle: "Santai, adem & fotogenik",
       badge: "POPULER",
@@ -357,7 +357,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
       }),
     },
     {
-      icon: "🧕",
+      icon: "",
       title: "Modest Syar'i Chic",
       subtitle: "Longgar, flowy & tertutup",
       badge: "MODEST",
@@ -380,10 +380,10 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
   return (
     <div className="space-y-4">
       {/* Mode Kilat 1-Klik (Express Cards untuk Pemula) */}
-      <div className="p-4 sm:p-5 rounded-3xl bg-white border border-[#E8DFD1] shadow-tactile space-y-4">
+      <div className="p-4 sm:p-5 rounded-none bg-white border border-[#E8DFD1] shadow-tactile space-y-4">
         <div className="flex items-center justify-between border-b border-sand-100 pb-3">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-xl bg-amber-500/15 flex items-center justify-center text-amber-600">
+            <div className="w-7 h-7 rounded-sm bg-amber-500/15 flex items-center justify-center text-amber-600">
               <Zap className="w-4 h-4" />
             </div>
             <div>
@@ -406,7 +406,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.96 }}
               onClick={card.action}
-              className="p-3 rounded-2xl bg-sand-50/80 hover:bg-white hover:border-charcoal-900 border border-sand-200 text-left transition-all group flex flex-col justify-between min-h-[96px] shadow-2xs hover:shadow-md"
+              className="p-3 rounded-sm bg-sand-50/80 hover:bg-white hover:border-charcoal-900 border border-sand-200 text-left transition-all group flex flex-col justify-between min-h-[96px] shadow-2xs hover:shadow-md"
             >
               <div className="flex items-start justify-between">
                 <span className="text-xl group-hover:scale-110 transition-transform">{card.icon}</span>
@@ -429,7 +429,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
           <button
             type="button"
             onClick={() => setIsVisible(!isVisible)}
-            className="w-full py-2.5 px-4 rounded-xl bg-sand-100/70 hover:bg-sand-200 text-charcoal-900 text-xs font-bold transition-all flex items-center justify-center gap-2 border border-sand-300"
+            className="w-full py-2.5 px-4 rounded-sm bg-sand-100/70 hover:bg-sand-200 text-charcoal-900 text-xs font-bold transition-all flex items-center justify-center gap-2 border border-sand-300"
           >
             <span>{isVisible ? "Tutup Form Detail ✕" : "⚙️ Ingin Sesuaikan Kulit, Hijab, atau Budget? (+ Atur Detail)"}</span>
           </button>
@@ -486,14 +486,14 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                 key={s.num}
                 type="button"
                 onClick={() => setStep(s.num)}
-                className={`relative py-2.5 px-3 rounded-xl text-left transition-colors flex flex-col justify-between z-10 ${
+                className={`relative py-2.5 px-3 rounded-sm text-left transition-colors flex flex-col justify-between z-10 ${
                   isCurrent ? "text-sand-50" : isDone ? "text-charcoal-900 hover:bg-sand-100" : "text-sand-500 hover:bg-sand-100"
                 }`}
               >
                 {isCurrent && (
                   <motion.div
                     layoutId="active-step-tab"
-                    className="absolute inset-0 bg-[#181A18] rounded-xl shadow-md -z-10"
+                    className="absolute inset-0 bg-[#181A18] rounded-sm shadow-md -z-10"
                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
                   />
                 )}
@@ -526,7 +526,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
               <label className="text-xs font-bold text-[#181A18] uppercase tracking-wider">
                 Mode Styling
               </label>
-              <div className="grid grid-cols-3 gap-2 bg-[#F4EFE6] p-1.5 rounded-2xl border border-[#E8DFD1] relative">
+              <div className="grid grid-cols-3 gap-2 bg-[#F4EFE6] p-1.5 rounded-sm border border-[#E8DFD1] relative">
                 {[
                   { id: "solo", label: "👤 Solo (Personal)" },
                   { id: "couple", label: "👩‍❤️‍👨 Couple (Pasangan)" },
@@ -538,7 +538,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                       key={mode.id}
                       type="button"
                       onClick={() => setStylingMode(mode.id as any)}
-                      className={`relative py-2.5 px-2 min-h-[44px] flex items-center justify-center rounded-xl text-[10px] sm:text-xs font-bold transition-colors z-10 ${
+                      className={`relative py-2.5 px-2 min-h-[44px] flex items-center justify-center rounded-sm text-[10px] sm:text-xs font-bold transition-colors z-10 ${
                         isSelected
                           ? "text-[#FAF8F5]"
                           : "text-[#181A18]/60 hover:text-[#181A18]"
@@ -547,7 +547,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                       {isSelected && (
                         <motion.div
                           layoutId="styling-mode-pill"
-                          className="absolute inset-0 bg-[#181A18] rounded-xl shadow-sm -z-10"
+                          className="absolute inset-0 bg-[#181A18] rounded-sm shadow-sm -z-10"
                           transition={{ type: "spring", stiffness: 350, damping: 30 }}
                         />
                       )}
@@ -563,20 +563,20 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
               <label className="text-xs font-bold text-[#181A18] uppercase tracking-wider">
                 Siapa yang akan memakai outfit ini?
               </label>
-              <div className="grid grid-cols-3 gap-2 bg-[#F4EFE6] p-1.5 rounded-2xl border border-[#E8DFD1]">
+              <div className="grid grid-cols-3 gap-2 bg-[#F4EFE6] p-1.5 rounded-sm border border-[#E8DFD1]">
                 <button
                   type="button"
                   onClick={() => {
                     setGender("female");
                     setIsModestHijab(true);
                   }}
-                  className={`py-3 px-2 rounded-xl text-xs font-bold transition-all flex flex-col items-center justify-center gap-1 ${
+                  className={`py-3 px-2 rounded-sm text-xs font-bold transition-all flex flex-col items-center justify-center gap-1 ${
                     gender === "female" && isModestHijab
                       ? "bg-terracotta-500 text-white shadow-sm font-bold"
                       : "text-charcoal-900/70 hover:text-charcoal-900 bg-white/60"
                   }`}
                 >
-                  <span className="text-base">🧕</span>
+                  <span className="text-base"></span>
                   <span className="text-[11px] leading-tight text-center">Wanita Hijab</span>
                 </button>
 
@@ -586,7 +586,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                     setGender("female");
                     setIsModestHijab(false);
                   }}
-                  className={`py-3 px-2 rounded-xl text-xs font-bold transition-all flex flex-col items-center justify-center gap-1 ${
+                  className={`py-3 px-2 rounded-sm text-xs font-bold transition-all flex flex-col items-center justify-center gap-1 ${
                     gender === "female" && !isModestHijab
                       ? "bg-charcoal-900 text-white shadow-sm font-bold"
                       : "text-charcoal-900/70 hover:text-charcoal-900 bg-white/60"
@@ -602,7 +602,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                     setGender("male");
                     setIsModestHijab(false);
                   }}
-                  className={`py-3 px-2 rounded-xl text-xs font-bold transition-all flex flex-col items-center justify-center gap-1 ${
+                  className={`py-3 px-2 rounded-sm text-xs font-bold transition-all flex flex-col items-center justify-center gap-1 ${
                     gender === "male"
                       ? "bg-charcoal-900 text-white shadow-sm font-bold"
                       : "text-charcoal-900/70 hover:text-charcoal-900 bg-white/60"
@@ -620,7 +620,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="p-3.5 rounded-2xl bg-terracotta-50/70 border border-terracotta-200/80 space-y-3"
+                className="p-3.5 rounded-sm bg-terracotta-50/70 border border-terracotta-200/80 space-y-3"
               >
                     <div className="space-y-1.5">
                       <div className="text-[10px] font-mono uppercase font-bold text-terracotta-700">
@@ -637,7 +637,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                             key={m.id}
                             type="button"
                             onClick={() => setHijabMaterial(m.id as any)}
-                            className={`p-2 rounded-xl text-left transition-all border ${
+                            className={`p-2 rounded-sm text-left transition-all border ${
                               hijabMaterial === m.id
                                 ? "bg-white border-terracotta-500 shadow-2xs text-charcoal-900 font-bold"
                                 : "bg-white/60 border-transparent hover:border-terracotta-200 text-charcoal-900/70"
@@ -664,7 +664,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                             key={fit.id}
                             type="button"
                             onClick={() => setFittingPreference(fit.id as any)}
-                            className={`p-2 rounded-xl text-left transition-all border ${
+                            className={`p-2 rounded-sm text-left transition-all border ${
                               fittingPreference === fit.id
                                 ? "bg-white border-terracotta-500 shadow-2xs text-charcoal-900 font-bold"
                                 : "bg-white/60 border-transparent hover:border-terracotta-200 text-charcoal-900/70"
@@ -680,7 +680,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                 )}
             {/* Skin Tone Selector */}
             {isCameraOpen && <CameraColorGuideModal isOpen={isCameraOpen} onClose={() => setIsCameraOpen(false)} onSelectTone={setSkinTone} />}
-            <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E8DFD1] space-y-3">
+            <div className="p-4 rounded-sm bg-[#FAF8F5] border border-[#E8DFD1] space-y-3">
               <div className="flex items-center justify-between mb-2">
                 <label className="text-xs font-bold text-[#181A18] uppercase tracking-wider">
                   Pilih Warna Kulit (Personal Color)
@@ -693,7 +693,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
               <button 
                 type="button" 
                 onClick={() => setIsCameraOpen(true)}
-                className="w-full mb-3 py-2.5 px-3 rounded-xl bg-charcoal-900 text-white text-xs font-bold flex items-center justify-center gap-2 hover:bg-terracotta-500 transition-colors shadow-md"
+                className="w-full mb-3 py-2.5 px-3 rounded-sm bg-charcoal-900 text-white text-xs font-bold flex items-center justify-center gap-2 hover:bg-terracotta-500 transition-colors shadow-md"
               >
                 <Camera className="w-4 h-4" />
                 <span>Cek Personal Color dengan Kamera / Referensi Visual</span>
@@ -709,7 +709,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                       whileHover={{ scale: 1.06, y: -2 }}
                       whileTap={{ scale: 0.94 }}
                       onClick={() => setSkinTone(t.id)}
-                      className={`p-2 rounded-xl border flex flex-col items-center gap-1.5 transition-all min-h-[68px] ${
+                      className={`p-2 rounded-sm border flex flex-col items-center gap-1.5 transition-all min-h-[68px] ${
                         isSelected
                           ? "border-[#181A18] bg-white shadow-glow ring-2 ring-terracotta-500 ring-offset-2 scale-105"
                           : "border-transparent bg-[#F4EFE6]/60 hover:border-[#D7CABC]"
@@ -752,14 +752,14 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                 type="button"
                 onClick={() => cameraDetectRef.current?.click()}
                 disabled={isDetectingTone}
-                className="mt-2 w-full py-2.5 px-3 min-h-[44px] rounded-xl bg-[#F4EFE6] hover:bg-[#E8DFD1] border border-[#D7CABC] text-[#181A18] text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
+                className="mt-2 w-full py-2.5 px-3 min-h-[44px] rounded-sm bg-[#F4EFE6] hover:bg-[#E8DFD1] border border-[#D7CABC] text-[#181A18] text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
               >
                 <Camera className="w-3.5 h-3.5 text-terracotta-500" />
-                <span>{isDetectingTone ? "AI Memindai Undertone Kulit..." : "📷 Biarkan AI Deteksi dari Foto / Kamera"}</span>
+                <span>{isDetectingTone ? "AI Memindai Undertone Kulit..." : " Biarkan AI Deteksi dari Foto / Kamera"}</span>
               </button>
 
               {detectionFeedback && (
-                <div className="p-2 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-800 text-[11px] font-bold text-center animate-fade-in">
+                <div className="p-2 bg-emerald-50 border border-emerald-200 rounded-sm text-emerald-800 text-[11px] font-bold text-center animate-fade-in">
                   {detectionFeedback}
                 </div>
               )}
@@ -778,7 +778,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                       key={a.id}
                       type="button"
                       onClick={() => setAgeRange(a.id)}
-                      className={`py-2.5 px-2 min-h-[48px] rounded-xl border text-center flex flex-col items-center justify-center transition-all ${
+                      className={`py-2.5 px-2 min-h-[48px] rounded-sm border text-center flex flex-col items-center justify-center transition-all ${
                         isSelected
                           ? "border-[#181A18] bg-[#181A18] text-[#FAF8F5] font-bold shadow-sm"
                           : "border-[#E8DFD1] hover:border-[#A89582] bg-white text-[#181A18]"
@@ -798,7 +798,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
               <button
                 type="submit"
                 disabled={isLoading}
-                className="py-3.5 px-4 rounded-xl bg-sand-100 hover:bg-sand-200 disabled:opacity-50 text-charcoal-900 border border-sand-300 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 shadow-2xs"
+                className="py-3.5 px-4 rounded-sm bg-sand-100 hover:bg-sand-200 disabled:opacity-50 text-charcoal-900 border border-sand-300 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 shadow-2xs"
                 title="Langsung Racik OOTD dengan preferensi saat ini"
               >
                 <Zap className="w-3.5 h-3.5 text-terracotta-600" />
@@ -809,7 +809,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
               <button
                 type="button"
                 onClick={() => setStep(2)}
-                className="flex-1 py-3.5 px-4 rounded-xl bg-[#181A18] hover:bg-terracotta-500 text-white font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-sm"
+                className="flex-1 py-3.5 px-4 rounded-sm bg-[#181A18] hover:bg-terracotta-500 text-white font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-sm"
               >
                 <span>Lanjut: Acara &amp; Cuaca</span>
                 <ChevronRight className="w-4 h-4" />
@@ -841,7 +841,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                       key={occ.id}
                       type="button"
                       onClick={() => setOccasion(occ.id)}
-                      className={`p-3.5 rounded-xl border text-left transition-all flex flex-col justify-between ${
+                      className={`p-3.5 rounded-sm border text-left transition-all flex flex-col justify-between ${
                         isSelected
                           ? "border-[#181A18] bg-[#181A18] text-[#FAF8F5] shadow-sm"
                           : "border-[#E8DFD1] hover:border-[#A89582] bg-white text-[#181A18]"
@@ -892,7 +892,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
 
               {/* Geolocation feedback badge if detected */}
               {detectedLocationText && (
-                <div className="text-[11px] font-mono font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-xl animate-fadeIn">
+                <div className="text-[11px] font-mono font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-sm animate-fadeIn">
                   {detectedLocationText}
                 </div>
               )}
@@ -905,7 +905,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                       key={w.id}
                       type="button"
                       onClick={() => setWeather(w.id)}
-                      className={`p-3.5 rounded-xl border text-left transition-all ${
+                      className={`p-3.5 rounded-sm border text-left transition-all ${
                         isSelected
                           ? "border-terracotta-500 bg-terracotta-50 text-[#181A18] font-bold shadow-sm"
                           : "border-[#E8DFD1] hover:border-[#A89582] bg-white text-[#181A18]"
@@ -923,7 +923,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
               <button
                 type="button"
                 onClick={() => setStep(1)}
-                className="py-3.5 px-3.5 rounded-xl bg-sand-100 hover:bg-sand-200 text-charcoal-900 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 border border-sand-300 shadow-2xs"
+                className="py-3.5 px-3.5 rounded-sm bg-sand-100 hover:bg-sand-200 text-charcoal-900 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 border border-sand-300 shadow-2xs"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">Kembali</span>
@@ -932,7 +932,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
               <button
                 type="submit"
                 disabled={isLoading}
-                className="py-3.5 px-3.5 rounded-xl bg-sand-100 hover:bg-sand-200 disabled:opacity-50 text-charcoal-900 border border-sand-300 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 shadow-2xs"
+                className="py-3.5 px-3.5 rounded-sm bg-sand-100 hover:bg-sand-200 disabled:opacity-50 text-charcoal-900 border border-sand-300 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 shadow-2xs"
                 title="Langsung Racik OOTD dengan preferensi saat ini"
               >
                 <Zap className="w-3.5 h-3.5 text-terracotta-600" />
@@ -943,7 +943,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
               <button
                 type="button"
                 onClick={() => setStep(3)}
-                className="flex-1 py-3.5 px-4 rounded-xl bg-[#181A18] hover:bg-terracotta-500 text-white font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-sm"
+                className="flex-1 py-3.5 px-4 rounded-sm bg-[#181A18] hover:bg-terracotta-500 text-white font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-sm"
               >
                 <span>Lanjut: Budget</span>
                 <ChevronRight className="w-4 h-4" />
@@ -975,7 +975,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                       key={b.id}
                       type="button"
                       onClick={() => setBudget(b.id)}
-                      className={`p-3 rounded-xl border text-left transition-all ${
+                      className={`p-3 rounded-sm border text-left transition-all ${
                         isSelected
                           ? "border-[#181A18] bg-[#181A18] text-[#FAF8F5] shadow-sm"
                           : "border-[#E8DFD1] hover:border-[#A89582] bg-white text-[#181A18]"
@@ -1004,7 +1004,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                       key={v.id}
                       type="button"
                       onClick={() => setVibe(v.id)}
-                      className={`p-3 rounded-xl border text-left transition-all ${
+                      className={`p-3 rounded-sm border text-left transition-all ${
                         isSelected
                           ? "border-[#181A18] bg-[#F4EFE6] text-[#181A18] font-bold shadow-sm"
                           : "border-[#E8DFD1] hover:border-[#A89582] bg-white text-[#181A18]"
@@ -1019,12 +1019,12 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
             </div>
 
             {/* Smart Wardrobe Mixer: Base Item Milik Sendiri */}
-            <div className="p-4 rounded-2xl bg-white border border-sand-300 space-y-3 shadow-2xs">
+            <div className="p-4 rounded-sm bg-white border border-sand-300 space-y-3 shadow-2xs">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-500" />
                   <label className="text-xs font-bold text-charcoal-900 uppercase tracking-wider">
-                    Padukan dengan Pakaian Milikmu Sendiri
+                    Incorporate Owned Garment
                   </label>
                 </div>
                 <button
@@ -1093,23 +1093,23 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                       placeholder="Atau ketik bajumu, misal: 'Kemeja Katun Oversized Coksu'..."
                       value={ownedItem}
                       onChange={(e) => setOwnedItem(e.target.value)}
-                      className="flex-1 px-3.5 py-2.5 rounded-xl bg-sand-50 border border-sand-300 focus:outline-none focus:border-charcoal-900 text-xs text-charcoal-900 placeholder:text-sand-400 font-medium"
+                      className="flex-1 px-3.5 py-2.5 rounded-sm bg-sand-50 border border-sand-300 focus:outline-none focus:border-charcoal-900 text-xs text-charcoal-900 placeholder:text-sand-400 font-medium"
                     />
 
                     <button
                       type="button"
                       onClick={() => wardrobePhotoInputRef.current?.click()}
                       disabled={isScanningGarment}
-                      className="py-2.5 px-3.5 rounded-xl bg-charcoal-900 hover:bg-terracotta-500 text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-2xs shrink-0"
+                      className="py-2.5 px-3.5 rounded-sm bg-charcoal-900 hover:bg-terracotta-500 text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-2xs shrink-0"
                     >
                       <Camera className="w-3.5 h-3.5 text-amber-400" />
-                      <span>{isScanningGarment ? "AI Memindai..." : "📷 Foto Baju Lemarimu"}</span>
+                      <span>{isScanningGarment ? "AI Memindai..." : " Scan Garment"}</span>
                     </button>
                   </div>
 
                   {/* Scanned Garment Live Preview & Feedback */}
                   {scannedGarmentImg && (
-                    <div className="p-2.5 bg-sand-100 rounded-xl border border-sand-300 flex items-center gap-3">
+                    <div className="p-2.5 bg-sand-100 rounded-sm border border-sand-300 flex items-center gap-3">
                       <img
                         src={scannedGarmentImg}
                         alt="Baju Terdeteksi"
@@ -1125,7 +1125,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                   )}
 
                   {scannedGarmentFeedback && (
-                    <div className="p-2 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-800 text-[11px] font-bold text-center animate-fade-in">
+                    <div className="p-2 bg-emerald-50 border border-emerald-200 rounded-sm text-emerald-800 text-[11px] font-bold text-center animate-fade-in">
                       {scannedGarmentFeedback}
                     </div>
                   )}
@@ -1144,7 +1144,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                 placeholder="Misal: 'Lagi ingin nuansa earth tone', 'Hindari bahan tebal', dll."
                 value={customNotes}
                 onChange={(e) => setCustomNotes(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl bg-white border border-[#D7CABC] focus:outline-none focus:border-[#181A18] text-xs sm:text-sm text-[#181A18] placeholder-[#A89582]"
+                className="w-full px-4 py-3 rounded-sm bg-white border border-[#D7CABC] focus:outline-none focus:border-[#181A18] text-xs sm:text-sm text-[#181A18] placeholder-[#A89582]"
               />
             </div>
 
@@ -1152,7 +1152,7 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
               <button
                 type="button"
                 onClick={() => setStep(2)}
-                className="py-3.5 px-4 rounded-xl bg-[#F4EFE6] hover:bg-[#E8DFD1] text-[#181A18] font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 min-h-[48px]"
+                className="py-3.5 px-4 rounded-sm bg-[#F4EFE6] hover:bg-[#E8DFD1] text-[#181A18] font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 min-h-[48px]"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
                 <span>Kembali</span>
@@ -1164,17 +1164,17 @@ export default function GeneratorForm({ onGenerate, isLoading, externalPrefs }: 
                 disabled={isLoading}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="flex-1 py-4 px-6 rounded-2xl bg-[#181A18] hover:bg-terracotta-500 text-[#FAF8F5] font-bold text-xs tracking-[0.15em] uppercase transition-all flex items-center justify-center gap-2.5 shadow-md disabled:opacity-50 min-h-[48px]"
+                className="flex-1 py-4 px-6 rounded-sm bg-[#181A18] hover:bg-terracotta-500 text-[#FAF8F5] font-bold text-xs tracking-[0.15em] uppercase transition-all flex items-center justify-center gap-2.5 shadow-md disabled:opacity-50 min-h-[48px]"
               >
                 {isLoading ? (
                   <>
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    <span>MIX & MATCH OUTFIT KAMU...</span>
+                    <span>GENERATING LOOK...</span>
                   </>
                 ) : (
                   <>
                     <Sparkles className="w-4 h-4 text-terracotta-400" />
-                    <span>MIX & MATCH OUTFIT SAYA</span>
+                    <span>GENERATE LOOK</span>
                   </>
                 )}
               </motion.button>
