@@ -1,4 +1,28 @@
-"use client";
+const fs = require('fs');
+const path = require('path');
+
+// 1. UPDATE LOOKBOOK PAGE
+const lookbookPage = path.join(process.cwd(), 'src/app/lookbook/page.tsx');
+let pageContent = fs.readFileSync(lookbookPage, 'utf8');
+
+// Remove the old sticky header completely to match the clean design
+const headerRegex = /\{\/\* Lookbook App Header Bar \*\/\}(.|\n)*?\{\/\* Main Content Area \*\/\}/g;
+if (pageContent.match(headerRegex)) {
+  pageContent = pageContent.replace(headerRegex, '{/* Main Content Area */}');
+}
+
+// Remove the community challenge section since the user's mockup is strictly the Editorial Grid
+const challengeRegex = /\{\/\* Community OOTD Challenge Section \*\/\}(.|\n)*?<\/main>/g;
+if (pageContent.match(challengeRegex)) {
+  pageContent = pageContent.replace(challengeRegex, '</main>');
+}
+
+fs.writeFileSync(lookbookPage, pageContent, 'utf8');
+
+// 2. REWRITE TRENDING FEED
+const feedFile = path.join(process.cwd(), 'src/components/TrendingFeed.tsx');
+
+const newFeedContent = `"use client";
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -111,11 +135,11 @@ export default function TrendingFeed({ isStandalone }: { isStandalone?: boolean 
             <button
               key={f}
               onClick={() => setActiveFilter(f)}
-              className={`shrink-0 border border-black rounded-full px-6 py-2 text-[10px] font-mono tracking-[0.1em] uppercase transition-colors ${
+              className={\`shrink-0 border border-black rounded-full px-6 py-2 text-[10px] font-mono tracking-[0.1em] uppercase transition-colors \${
                 activeFilter === f 
                   ? "bg-black text-white" 
                   : "bg-transparent text-black hover:bg-black/5"
-              }`}
+              }\`}
             >
               {f}
             </button>
@@ -243,3 +267,8 @@ export default function TrendingFeed({ isStandalone }: { isStandalone?: boolean 
     </section>
   );
 }
+`;
+
+fs.writeFileSync(feedFile, newFeedContent, 'utf8');
+
+console.log("Lookbook completely overhauled to Editorial spec.");
