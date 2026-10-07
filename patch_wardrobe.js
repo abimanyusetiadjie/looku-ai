@@ -1,4 +1,9 @@
-"use client";
+const fs = require('fs');
+const path = require('path');
+
+const pageFile = path.join(process.cwd(), 'src/app/lemari/page.tsx');
+
+const newContent = `"use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowLeft, Share2, Trash2 } from "lucide-react";
@@ -224,3 +229,7 @@ export default function WardrobePage() {
     </div>
   );
 }
+`;
+
+fs.writeFileSync(pageFile, newContent, 'utf8');
+console.log("Wardrobe page overhauled with Interactive Drag & Drop Canvas!");
