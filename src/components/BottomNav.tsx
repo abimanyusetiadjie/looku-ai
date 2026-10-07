@@ -50,20 +50,17 @@ export default function BottomNav() {
       className="md:hidden fixed bottom-0 left-0 right-0 z-40 w-full select-none pointer-events-auto bg-white border-t border-[#E8DFD1]"
     >
       <div className="pb-[max(8px,env(safe-area-inset-bottom,0px))]">
-        <div className="flex justify-around items-center h-[52px] px-2">
+        <div className="flex items-center justify-around h-[48px] w-full">
           {navItems.map((item) => {
             const isActive = activeTab === item.id;
             const Icon = item.icon;
-            
-            // Search icon in lucide is just lines, so we thicken it for active state instead of filling
-            const isSearch = item.id === "search";
             
             return (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id, item.href)}
                 aria-label={item.label}
-                className="flex flex-col items-center justify-center min-h-[44px] min-w-[44px] w-14"
+                className="flex items-center justify-center flex-1 h-full"
               >
                 <div className="relative flex items-center justify-center">
                   {/* Animasi scale/bounce kecil saat ditekan, khas Instagram */}
@@ -72,7 +69,7 @@ export default function BottomNav() {
                     transition={{ type: "spring", stiffness: 400, damping: 25 }}
                   >
                     <Icon
-                      className={`w-[26px] h-[26px] transition-all duration-200 ${
+                      className={`w-[24px] h-[24px] transition-all duration-200 ${
                         isActive ? "text-charcoal-900" : "text-charcoal-900/40"
                       }`}
                       strokeWidth={isActive ? 2.5 : 1.5}
