@@ -32,7 +32,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
     else if (isFlatlay) line1 = `LOOK ${String(index + 1).padStart(2, '0')} — FLATLAY`;
     else line1 = `${line1} — ${trend.category.split(' ')[0].toUpperCase()}`;
 
-    let line2 = `${trend.outfit.weatherRecommendation} • ${trend.vibe.toUpperCase()}`;
+    let line2 = `${("33°C TROPICAL")} • ${trend.vibe.toUpperCase()}`;
     if (isDetail) line2 = "FABRIC TEXTURE";
 
     return {
