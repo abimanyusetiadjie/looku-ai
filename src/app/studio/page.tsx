@@ -270,31 +270,10 @@ export default function StudioPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF8F5] pb-32 md:pb-0">
-      {/* Studio Header Bar */}
-      <header className="sticky top-0 z-40 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#E8DFD1] pt-[max(0px,env(safe-area-inset-top))]">
-        <div className="max-w-md md:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <Link href="/" className="font-serif italic font-bold text-2xl text-[#181A18] flex items-baseline">
-            look<span className="text-terracotta-500 not-italic">.</span>u
-          </Link>
-
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => setIsHistoryOpen(true)}
-              className="py-2 px-3 rounded-sm bg-white hover:bg-sand-100 border border-sand-300 text-charcoal-900 font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-2xs"
-            >
-              <History className="w-3.5 h-3.5 text-terracotta-500" />
-              <span>Riwayat</span>
-            </button>
-
-            <button
-              onClick={() => setIsSavedDrawerOpen(true)}
-              className="py-2 px-3.5 rounded-sm bg-charcoal-900 text-white font-bold text-xs uppercase tracking-wider shadow-sm"
-            >
-              Lemari Koleksi
-            </button>
-          </div>
-        </div>
-      </header>
+      <Navbar 
+        onOpenHistory={() => setIsHistoryOpen(true)}
+        onOpenSavedDrawer={() => setIsSavedDrawerOpen(true)}
+      />
 
       {/* Main Studio Container */}
       <main className="flex-1 max-w-md md:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8 w-full">
