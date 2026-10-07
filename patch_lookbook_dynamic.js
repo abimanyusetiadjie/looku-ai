@@ -1,4 +1,9 @@
-"use client";
+const fs = require('fs');
+const path = require('path');
+
+const feedFile = path.join(process.cwd(), 'src/components/TrendingFeed.tsx');
+
+const newFeedContent = `"use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight, Heart } from "lucide-react";
@@ -27,12 +32,12 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
     const isDetail = index === 1; // Arbitrarily make the second item a "DETAIL" shot
     const isFlatlay = index === 3; // Make the fourth a "FLATLAY"
     
-    let line1 = `LOOK ${String(index + 1).padStart(2, '0')}`;
+    let line1 = \`LOOK \${String(index + 1).padStart(2, '0')}\`;
     if (isDetail) line1 = "DETAIL";
-    else if (isFlatlay) line1 = `LOOK ${String(index + 1).padStart(2, '0')} — FLATLAY`;
-    else line1 = `${line1} — ${trend.category.split(' ')[0].toUpperCase()}`;
+    else if (isFlatlay) line1 = \`LOOK \${String(index + 1).padStart(2, '0')} — FLATLAY\`;
+    else line1 = \`\${line1} — \${trend.category.split(' ')[0].toUpperCase()}\`;
 
-    let line2 = `${trend.outfit.weatherRecommendation} • ${trend.vibe.toUpperCase()}`;
+    let line2 = \`\${trend.outfit.weatherRecommendation} • \${trend.vibe.toUpperCase()}\`;
     if (isDetail) line2 = "FABRIC TEXTURE";
 
     return {
@@ -71,11 +76,11 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
             <button
               key={f}
               onClick={() => setActiveFilter(f)}
-              className={`shrink-0 border border-black rounded-full px-6 py-2 text-[10px] font-mono tracking-[0.1em] uppercase transition-colors ${
+              className={\`shrink-0 border border-black rounded-full px-6 py-2 text-[10px] font-mono tracking-[0.1em] uppercase transition-colors \${
                 activeFilter === f 
                   ? "bg-black text-white" 
                   : "bg-transparent text-black hover:bg-black/5"
-              }`}
+              }\`}
             >
               {f}
             </button>
@@ -96,7 +101,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
               onClick={(e) => toggleLike(look.id, e)}
               className="absolute top-6 right-6 z-10 p-2 rounded-full bg-white/50 backdrop-blur-md hover:bg-white transition-colors"
             >
-              <Heart className={`w-4 h-4 ${likedIds.includes(look.id) ? 'fill-black text-black' : 'text-black'}`} />
+              <Heart className={\`w-4 h-4 \${likedIds.includes(look.id) ? 'fill-black text-black' : 'text-black'}\`} />
             </button>
 
             <div className="w-full flex-1 relative overflow-hidden mb-3">
@@ -163,7 +168,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                       {selectedLook.line1}
                     </div>
                     <button onClick={() => toggleLike(selectedLook.id)} className="flex items-center gap-1 text-[10px] font-mono uppercase font-bold">
-                      <Heart className={`w-3 h-3 ${likedIds.includes(selectedLook.id) ? 'fill-rose-500 text-rose-500' : ''}`} />
+                      <Heart className={\`w-3 h-3 \${likedIds.includes(selectedLook.id) ? 'fill-rose-500 text-rose-500' : ''}\`} />
                       {selectedLook.likes + (likedIds.includes(selectedLook.id) ? 1 : 0)} LIKES
                     </button>
                   </div>
@@ -221,3 +226,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
     </section>
   );
 }
+`;
+
+fs.writeFileSync(feedFile, newFeedContent, 'utf8');
+console.log("TrendingFeed updated with dynamic real data and standard features.");
