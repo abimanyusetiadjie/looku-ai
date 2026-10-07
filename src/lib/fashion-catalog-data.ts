@@ -3,16 +3,17 @@ export interface FashionItem {
   name: string;
   category: "atasan" | "bawahan" | "outer_hijab" | "sepatu";
   material: string;
-  breathabilityScore: number; // 0 - 100 (Di atas 85 = Aman untuk 33°C)
+  breathabilityScore?: number; // 0 - 100 (Di atas 85 = Aman untuk 33°C)
   colorName: string;
   colorHex: string;
-  suitableForSkinTones: Array<"Fair" | "Light" | "Medium" | "Tan" | "Deep">;
-  marketValidation: {
+  suitableForSkinTones?: Array<"Fair" | "Light" | "Medium" | "Tan" | "Deep">;
+  marketValidation?: {
     estimatedPrice: number;
     searchVolumeTrend: string; // Bukti data pasar untuk sidang
     source: string;
   };
-  imageUrl: string;
+  imageUrl?: string;
+  [key: string]: any; // Backward compatibility with legacy CMS
 }
 
 /**
@@ -277,3 +278,7 @@ export const GOLDEN_DATASET: FashionItem[] = [
     imageUrl: "https://images.unsplash.com/photo-1525966222134-fc6a9d702dc6?w=600&q=80"
   }
 ];
+
+// Backward compatibility exports to prevent build failures
+export type FashionCatalogItem = FashionItem;
+export const FASHION_CATALOG_300 = GOLDEN_DATASET;

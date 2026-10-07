@@ -1119,7 +1119,7 @@ export function generateHeuristicOOTD(pref: UserPreferences): OOTDRecommendation
     material: gItem.material + (gItem.breathabilityScore >= 90 ? " (Sangat Adem)" : ""),
     color: gItem.colorName,
     colorHex: gItem.colorHex,
-    estimatedPrice: "Rp " + gItem.marketValidation.estimatedPrice.toLocaleString("id-ID"),
+    estimatedPrice: "Rp " + (gItem.marketValidation?.estimatedPrice?.toLocaleString("id-ID") || "0"),
     shopeeQuery: gItem.name,
     tokopediaQuery: gItem.name,
     imageUrl: gItem.imageUrl,
@@ -1132,7 +1132,7 @@ export function generateHeuristicOOTD(pref: UserPreferences): OOTDRecommendation
     if (pref.skinTone === "tan") skinToneTarget = "Tan";
     if (pref.skinTone === "deep") skinToneTarget = "Deep";
     
-    let match = GOLDEN_DATASET.find(i => i.category === cat && i.suitableForSkinTones.includes(skinToneTarget as any));
+    let match = GOLDEN_DATASET.find(i => i.category === cat && i.suitableForSkinTones?.includes(skinToneTarget as any));
     if (!match) match = GOLDEN_DATASET.find(i => i.category === cat);
     return match;
   };
