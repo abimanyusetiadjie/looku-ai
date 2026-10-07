@@ -47,35 +47,41 @@ export default function BottomNav() {
   return (
     <nav
       aria-label="Navigasi Utama"
-      className="md:hidden fixed bottom-0 left-0 right-0 z-40 w-full select-none pointer-events-auto bg-white border-t border-[#F0EBE1]"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-40 w-full select-none pointer-events-auto bg-white border-t border-[#E8DFD1]"
     >
       <div className="pb-[max(8px,env(safe-area-inset-bottom,0px))]">
-        <div className="flex justify-between items-center h-[60px] px-2">
+        <div className="flex justify-around items-center h-[52px] px-2">
           {navItems.map((item) => {
             const isActive = activeTab === item.id;
             const Icon = item.icon;
-
+            
+            // Search icon in lucide is just lines, so we thicken it for active state instead of filling
+            const isSearch = item.id === "search";
+            
             return (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id, item.href)}
                 aria-label={item.label}
-                className="flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px]"
+                className="flex flex-col items-center justify-center min-h-[44px] min-w-[44px] w-14"
               >
                 <div className="relative flex items-center justify-center">
-                  <Icon
-                    className={`w-[22px] h-[22px] stroke-[1.2] transition-colors \${
-                      isActive ? "text-[#181A18]" : "text-[#181A18]/40"
-                    }`}
-                  />
+                  {/* Animasi scale/bounce kecil saat ditekan, khas Instagram */}
+                  <motion.div
+                    whileTap={{ scale: 0.85 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  >
+                    <Icon
+                      className={`w-[26px] h-[26px] transition-all duration-200 \${
+                        isActive ? "text-charcoal-900" : "text-charcoal-900/40"
+                      }`}
+                      strokeWidth={isActive ? (isSearch ? 2.5 : 2) : 1.5}
+                      fill={isActive && !isSearch ? "currentColor" : "none"}
+                    />
+                  </motion.div>
                 </div>
-                <span
-                  className={`text-[8px] font-sans tracking-[0.05em] transition-colors mt-0.5 \${
-                    isActive ? "font-bold text-[#181A18]" : "font-medium text-[#181A18]/40"
-                  }`}
-                >
-                  {item.label}
-                </span>
+                {/* Teks label disembunyikan agar benar-benar bersih seperti Instagram, 
+                    namun tetap terbaca oleh screen reader melalui aria-label */}
               </button>
             );
           })}
