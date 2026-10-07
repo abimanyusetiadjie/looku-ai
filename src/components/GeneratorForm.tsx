@@ -21,7 +21,9 @@ export default function GeneratorForm({ onGenerate, isLoading }: ChatFormProps) 
       occasion: occasion,
       weather: "panas_terik",
       budget: "menengah",
-      vibe: "earthy_minimalist"
+      vibe: "earthy_minimalist",
+      skinTone: "medium",
+      ageRange: "18-24"
     });
   };
 
