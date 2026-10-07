@@ -28,10 +28,7 @@ export default function LookbookPage() {
       {/* Main Content Area */}
       <main className="flex-1 max-w-md md:max-w-6xl mx-auto px-4 md:px-6 lg:px-8 pt-3 pb-8 w-full space-y-8">
         {/* Full Interactive Trending Feed Component */}
-        <TrendingFeed
-          onSelectLook={handleSelectLook}
-          isStandalone={true}
-        />
+        <TrendingFeed isStandalone={true} />
 
         </main>
 
