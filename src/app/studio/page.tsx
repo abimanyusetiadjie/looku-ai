@@ -277,16 +277,6 @@ export default function StudioPage() {
 
       {/* Main Studio Container */}
       <main className="flex-1 max-w-md md:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8 w-full">
-        {/* Top Header Bar Minimalist Beige */}
-        <div className="w-full text-center pb-8 pt-4">
-           <p className="text-[9px] font-mono tracking-[0.25em] font-bold uppercase text-charcoal-900 mb-4">
-             DESIGN • LOOK.U LUXURY AI STYLIST STUDIO
-           </p>
-           <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-charcoal-900 tracking-tight">
-             Look.u
-           </h1>
-        </div>
-
         {/* Studio Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start bg-[#F4EFE6] p-4 sm:p-8 rounded-2xl">
           {/* Left Panel: Chat + Recommendations */}
