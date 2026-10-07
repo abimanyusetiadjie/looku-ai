@@ -9,61 +9,60 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      q: "Bagaimana look.u AI menentukan apakah pakaian cocok untuk cuaca & warna kulit saya?",
-      a: "Engine look.u dilatih dengan matriks Personal Color Undertone dan sirkulasi kain tropis. AI secara otomatis memilih bahan katun linen/rayon/crinkle yang adem serta warna palet yang memberi efek mencerahkan kulit pengguna.",
+      q: "Bagaimana look.u menentukan apakah pakaian cocok untuk cuaca & kulit?",
+      a: "Sistem kami memetakan Personal Color Undertone Anda dengan sirkulasi kain tropis. AI secara ketat menyaring bahan linen, katun rayon, dan crinkle yang optimal untuk cuaca 33°C, lalu mencocokkannya dengan palet warna yang memancarkan kilau alami kulit Anda.",
     },
     {
-      q: "Apakah seluruh rekomendasi ramah untuk pengguna Hijab & Modest?",
-      a: "Ya. Saat mode 'Hijab Spec' aktif, sistem memfilter pakaian yang tidak terawang, berpotongan longgar/flowy, serta memadukan jenis jilbab (pashmina ceruty / voal laser cut) yang senada dengan palet warna utama.",
+      q: "Apakah seluruh koleksi mengakomodasi Modest Fashion & Hijab?",
+      a: "Tentu. Algoritma kami memiliki filter Modest Architecture yang memastikan siluet flowy, bahan tidak terawang, dan paduan jilbab (seperti pashmina atau voal) yang proporsional secara warna dan tekstur.",
     },
     {
-      q: "Bagaimana cara membeli piece yang direkomendasikan?",
-      a: "Setiap kartu OOTD dilengkapi tautan 'Cari Shopee' & 'Cari Tokopedia' yang telah dikurasi kata kuncinya agar Anda langsung menemukan model serupa dengan ulasan terbaik dan harga terjangkau.",
+      q: "Bagaimana cara mendapatkan pakaian yang direkomendasikan?",
+      a: "Kami telah mengintegrasikan kata kunci spesifik untuk setiap setelan. Dengan satu klik, Anda akan diarahkan ke hasil pencarian paling relevan di Official Store Shopee atau Tokopedia.",
     },
     {
-      q: "Apakah layanan look.u berbayar?",
-      a: "Fitur kurasi OOTD harian, analisis personal color, dan ekspor kartu Instagram Story dapat digunakan 100% gratis.",
+      q: "Apakah layanan ini memiliki biaya langganan?",
+      a: "Akses ke Studio OOTD, analisis Personal Color, dan kurasi Lookbook saat ini sepenuhnya gratis untuk publik.",
     },
   ];
 
   return (
-    <section id="faq" className="py-16 sm:py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-32 bg-white max-w-[1000px] mx-auto px-8">
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="border-b border-[#D7CABC] pb-6 mb-10 text-center sm:text-left"
+        className="mb-16 text-center sm:text-left"
       >
-        <span className="lookbook-label">INQUIRIES & CLARIFICATION</span>
-        <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#181A18] tracking-tight mt-1">
-          Pertanyaan Umum
+        <span className="font-sans text-[10px] uppercase tracking-widest font-bold text-sand-500">
+          Inquiries & Clarification
+        </span>
+        <h2 className="font-serif text-4xl lg:text-5xl text-charcoal-900 tracking-tight mt-4">
+          Frequently Asked.
         </h2>
       </motion.div>
 
-      <div className="space-y-3">
+      <div className="border-t border-charcoal-900">
         {faqs.map((faq, idx) => {
           const isOpen = openIndex === idx;
           return (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.06 }}
-              className="bg-white rounded-2xl border border-[#E8DFD1] overflow-hidden transition-colors"
+              className="border-b border-sand-300"
             >
               <button
                 onClick={() => setOpenIndex(isOpen ? null : idx)}
-                className="w-full p-5 text-left font-serif font-bold text-[#181A18] flex items-center justify-between gap-4 hover:bg-[#FAF8F5] transition-colors text-base sm:text-lg"
+                className="w-full py-8 text-left flex items-center justify-between gap-8 group"
               >
-                <span>{faq.q}</span>
-                <motion.span
-                  animate={{ rotate: isOpen ? 180 : 0 }}
-                  transition={{ duration: 0.25 }}
-                  className="p-1 rounded-full bg-[#F4EFE6] text-[#181A18] shrink-0"
-                >
-                  {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
-                </motion.span>
+                <span className="font-serif text-xl sm:text-2xl text-charcoal-900 group-hover:text-terracotta-600 transition-colors">
+                  {faq.q}
+                </span>
+                <span className="text-sand-400 group-hover:text-charcoal-900 transition-colors shrink-0">
+                  {isOpen ? <Minus className="w-5 h-5 stroke-[1.5]" /> : <Plus className="w-5 h-5 stroke-[1.5]" />}
+                </span>
               </button>
               
               <AnimatePresence>
@@ -75,7 +74,7 @@ export default function FAQSection() {
                     transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
                     className="overflow-hidden"
                   >
-                    <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#181A18]/70 leading-relaxed border-t border-[#E8DFD1]">
+                    <div className="pb-8 pt-2 font-sans text-sm text-sand-600 leading-relaxed max-w-2xl">
                       {faq.a}
                     </div>
                   </motion.div>
