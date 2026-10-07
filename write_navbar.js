@@ -1,4 +1,7 @@
-"use client";
+const fs = require('fs');
+const path = require('path');
+
+const content = `"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -141,3 +144,7 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenCatalog, o
     </>
   );
 }
+`;
+
+fs.writeFileSync(path.join(process.cwd(), 'src/components/Navbar.tsx'), content, 'utf8');
+console.log("Navbar correctly formatted and written.");
