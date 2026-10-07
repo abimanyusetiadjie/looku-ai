@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { MapPin, CloudSun, Check, ChevronDown } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
+import Navbar from "@/components/Navbar";
 
 export default function ProfilePage() {
   const [name, setName] = useState("Alya");
@@ -25,10 +26,9 @@ export default function ProfilePage() {
 
   return (
     <div className="min-h-screen bg-[#FAF8F5] pb-24 font-sans text-[#181A18] selection:bg-[#181A18] selection:text-[#FAF8F5]">
-      {/* Header Mobile - Just for visual spacing on mobile */}
-      <div className="md:hidden h-10" />
+      <Navbar />
 
-      <main className="max-w-[1200px] mx-auto px-4 sm:px-8 md:pt-12">
+      <main className="max-w-[1200px] mx-auto px-4 sm:px-8 pt-8 md:pt-12">
         {/* Page Title */}
         <h1 className="font-serif text-4xl sm:text-4xl md:text-5xl text-[#181A18] tracking-tight mb-8">
           PROFILE —<br />YOUR STYLE IDENTITY.
