@@ -23,7 +23,7 @@ export default function GeneratorForm({ onGenerate, isLoading }: ChatFormProps) 
       budget: "menengah",
       vibe: "earthy_minimalist",
       skinTone: "medium",
-      ageRange: "18-24"
+      ageRange: "20s"
     });
   };
 
