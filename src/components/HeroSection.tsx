@@ -85,10 +85,10 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
         
         <div className="grid grid-cols-4 gap-6">
           {[
-            { img: "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=600", title: "Linen Camp Collar Shirt", price: "Rp 189.000", cat: "Tops" },
+            { img: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=600", title: "Linen Camp Collar Shirt", price: "Rp 189.000", cat: "Tops" },
             { img: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600", title: "Wide-Leg Flowy Pants", price: "Rp 215.000", cat: "Bottoms" },
             { img: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600", title: "Voal Square Hijab", price: "Rp 85.000", cat: "Accessories" },
-            { img: "https://images.unsplash.com/photo-1509631179647-0c115738ee05?w=600", title: "Tunik Rayon Panjang", price: "Rp 95.000", cat: "Tops" }
+            { img: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600", title: "Tunik Rayon Panjang", price: "Rp 95.000", cat: "Tops" }
           ].map((item, idx) => (
             <Link href="/studio" key={idx} className="group flex flex-col gap-3">
               <div className="relative aspect-[3/4] overflow-hidden bg-sand-200">
