@@ -297,54 +297,6 @@ export default function StudioPage() {
 
       {/* Main Studio Container */}
       <main className="flex-1 max-w-md md:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8 w-full">
-        {/* Sleek Minimal Desktop Header (Hidden on Mobile) */}
-        <div className="hidden sm:flex items-center justify-between gap-4 pb-4 mb-6 border-b border-sand-200">
-          <div className="flex items-center gap-3">
-            <Link
-              href="/"
-              className="p-2 rounded-sm bg-white border border-sand-300 text-charcoal-900 hover:bg-sand-100 transition-colors flex items-center justify-center shadow-2xs"
-              title="Kembali ke Beranda"
-            >
-              <ArrowLeft className="w-4 h-4" />
-            </Link>
-            <div>
-              <span className="text-[10px] font-mono font-bold tracking-wider uppercase text-sand-500">
-                AI STYLIST ATELIER
-              </span>
-              <h1 className="font-serif text-2xl font-bold text-charcoal-900 tracking-tight">
-                The Studio
-              </h1>
-            </div>
-          </div>
-          <span className="text-[10px] font-mono font-bold tracking-wider text-sand-500 uppercase bg-sand-100 px-3 py-1 rounded-full border border-sand-200">
-            PERSONAL COLOR &amp; TROPICAL FIT
-          </span>
-        </div>
-
-        {/* Mobile Quick Preference Bar (Prominent & Clean Directly Above Result) */}
-        <div className="block lg:hidden mb-3">
-          <div className="p-2.5 bg-white rounded-sm border border-sand-300 shadow-2xs flex items-center justify-between gap-2">
-            <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 text-xs">
-              <span className="px-2.5 py-1 rounded-full bg-sand-100 text-charcoal-900 font-bold whitespace-nowrap text-[10px]">
-                {lastPrefs?.occasion ? `☕ ${lastPrefs.occasion.toUpperCase()}` : "☕ HANGOUT"}
-              </span>
-              <span className="px-2.5 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200 font-bold whitespace-nowrap text-[10px]">
-                 33°C ADEM
-              </span>
-              <span className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold whitespace-nowrap text-[10px]">
-                {lastPrefs?.isModestHijab !== false ? "🧕 MODEST" : " UNISEX"}
-              </span>
-            </div>
-            <button
-              onClick={() => setIsMobilePrefDrawerOpen(true)}
-              className="shrink-0 py-1.5 px-3 rounded-sm bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors shadow-xs"
-            >
-              <SlidersHorizontal className="w-3.5 h-3.5 text-terracotta-400" />
-              <span>Sesuaikan</span>
-            </button>
-          </div>
-        </div>
-
         {/* Top Header Bar Minimalist Beige */}
         <div className="w-full text-center pb-8 pt-4">
            <p className="text-[9px] font-mono tracking-[0.25em] font-bold uppercase text-charcoal-900 mb-4">
