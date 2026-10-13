@@ -111,7 +111,7 @@ export default function Footer() {
             <Link href="/studio" className="hover:text-terracotta-600 transition-colors">
               AI Stylist
             </Link>
-            <Link href="/lemari" className="hover:text-terracotta-600 transition-colors">
+            <Link href="/profile?tab=wardrobe" className="hover:text-terracotta-600 transition-colors">
               Lemari Koleksi
             </Link>
             <Link href="/#faq" className="hover:text-terracotta-600 transition-colors">

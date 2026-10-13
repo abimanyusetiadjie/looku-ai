@@ -461,7 +461,7 @@ export default function LookUMobileView({
               <div className="flex flex-col px-6 py-8 gap-6 text-[#181A18]">
                 <button onClick={() => { setIsMobileMenuOpen(false); router.push('/studio') }} className="text-left font-sans font-semibold tracking-widest uppercase text-sm hover:text-terracotta-500 transition-colors">Studio AI</button>
                 <button onClick={() => { setIsMobileMenuOpen(false); router.push('/lookbook') }} className="text-left font-sans font-semibold tracking-widest uppercase text-sm hover:text-terracotta-500 transition-colors">Lookbook</button>
-                <button onClick={() => { setIsMobileMenuOpen(false); router.push('/lemari') }} className="text-left font-sans font-semibold tracking-widest uppercase text-sm hover:text-terracotta-500 transition-colors">Wardrobe / Lemari</button>
+                <button onClick={() => { setIsMobileMenuOpen(false); router.push('/profile?tab=wardrobe') }} className="text-left font-sans font-semibold tracking-widest uppercase text-sm hover:text-terracotta-500 transition-colors">Wardrobe / Lemari</button>
                 <button onClick={() => { setIsMobileMenuOpen(false); if(onOpenQuiz) onOpenQuiz(); }} className="text-left font-sans font-semibold tracking-widest uppercase text-sm hover:text-terracotta-500 transition-colors">Personal Color Quiz</button>
               </div>
             </motion.div>
@@ -486,26 +486,97 @@ export default function LookUMobileView({
         <main className="flex-1 w-full space-y-6">
           
           {/* ============================================================ */}
-          {/* 2. HERO SECTION (Look of the Day)                           */}
+          {/* 1. EDITORIAL BRAND HERO (Value Proposition Above The Fold)   */}
           {/* ============================================================ */}
-          <section aria-label="Gaya Pilihan Hari Ini" className="bg-white w-full flex flex-col items-center">
+          <section aria-label="Brand Hero" className="px-5 pt-3 pb-2 flex flex-col items-center text-center">
+            {/* Live Climate GPS Sensor Pill */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sand-100 border border-sand-300 text-[10px] font-mono font-bold text-charcoal-900 tracking-wider mb-3.5 shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>🌤️ {weather.location} {weather.temperature}°C</span>
+              <span className="text-charcoal-900/40">•</span>
+              <span className="text-terracotta-600 font-semibold uppercase">{weather.condition}</span>
+            </div>
+
+            {/* Serif Luxury Main Heading */}
+            <h1 className="font-serif text-3xl sm:text-4xl text-charcoal-900 tracking-tight leading-[1.15] mb-2.5">
+              Personal Stylist AI.<br />
+              <span className="italic font-normal">Didesain Khusus Tropis.</span>
+            </h1>
+
+            {/* Clear Value Proposition */}
+            <p className="font-sans text-xs text-charcoal-900/70 max-w-[320px] leading-relaxed mb-4">
+              Racik formula OOTD 100% adem, santun &amp; modest, serta presisi warna kulit nusantara dalam 30 detik.
+            </p>
+
+            {/* Dual High-Intent Call To Action Buttons */}
+            <div className="w-full flex flex-col gap-2 max-w-sm">
+              <button
+                type="button"
+                onClick={() => router.push("/studio")}
+                className="w-full py-3.5 px-5 rounded-2xl bg-[#181A18] text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 shadow-md hover:bg-terracotta-600 active:scale-95 transition-all"
+              >
+                <Sparkles className="w-4 h-4 text-terracotta-400" />
+                <span>Racik OOTD Sekarang ➔</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  if (onOpenQuiz) onOpenQuiz();
+                  else router.push("/?quiz=true");
+                }}
+                className="w-full py-3 px-4 rounded-2xl bg-white border border-[#181A18] text-[#181A18] text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 hover:bg-sand-100 active:scale-95 transition-all shadow-2xs"
+              >
+                <Palette className="w-4 h-4 text-terracotta-600" />
+                <span>Tes Warna Kulit (60s)</span>
+              </button>
+            </div>
+
+            {/* Proof Points Ticker Strip */}
+            <div className="w-full mt-5 py-2 px-1 border-y border-charcoal-900/10 flex items-center justify-between text-[8px] font-mono uppercase font-bold tracking-widest text-charcoal-900/60 overflow-x-auto no-scrollbar whitespace-nowrap gap-3">
+              <span>✦ 98.4% SIRKULASI UDARA</span>
+              <span>✦ 100% MODEST FRIENDLY</span>
+              <span>✦ SHOPEE &amp; TOKOPEDIA READY</span>
+            </div>
+          </section>
+
+          {/* ============================================================ */}
+          {/* 2. SPOTLIGHT LOOK OF THE DAY (Curated Daily Formula Card)    */}
+          {/* ============================================================ */}
+          <section aria-label="Gaya Pilihan Hari Ini" className="px-4 w-full flex flex-col">
+            <div className="flex items-center justify-between px-1 mb-2">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-terracotta-500" />
+                <h2 className="font-serif text-base font-bold text-charcoal-900">Spotlight Hari Ini</h2>
+              </div>
+              <span className="text-[9px] font-mono uppercase font-bold text-terracotta-700 bg-terracotta-50 px-2.5 py-0.5 rounded-full border border-terracotta-200">
+                Swipe 1/{OUTFIT_HERO_LIST.length}
+              </span>
+            </div>
+
             <div
               onClick={() => handleOpenOutfitDetails(heroOutfit)}
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
-              className="w-full relative cursor-pointer active:scale-[0.99] transition-all flex flex-col items-center"
+              className="w-full relative cursor-pointer active:scale-[0.99] transition-all bg-white border border-charcoal-900/20 rounded-3xl overflow-hidden shadow-sm flex flex-col"
             >
-              {/* Image Container - Constrained Height for Mobile Responsiveness */}
-              <div className="w-full h-[55vh] min-h-[400px] max-h-[500px] relative bg-sand-50">
+              {/* Image Container - Balanced 4:5 Proportion with Badges */}
+              <div className="w-full aspect-[4/5] max-h-[380px] relative bg-sand-100">
                 <Image
                   src={heroOutfit.gambar}
                   alt={heroOutfit.judul}
                   fill
                   priority
                   className="object-cover object-top"
-                  sizes="100vw"
+                  sizes="(max-width: 480px) 100vw, 400px"
                 />
-                
+
+                {/* Airflow / Breathability Badge */}
+                <div className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-full bg-charcoal-900/85 backdrop-blur-md text-white text-[9px] font-mono font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm">
+                  <Wind className="w-3 h-3 text-emerald-400" />
+                  <span>{heroOutfit.sirkulasiUdara.split(" ")[0]} Sirkulasi</span>
+                </div>
+
                 {/* Floating Save Button */}
                 <button
                   type="button"
@@ -513,62 +584,83 @@ export default function LookUMobileView({
                     e.stopPropagation();
                     handleToggleSaveOutfit(heroOutfit);
                   }}
-                  className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#181A18] shadow-sm border border-black/5"
+                  className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/95 backdrop-blur-md flex items-center justify-center text-[#181A18] shadow-sm border border-black/10 active:scale-90 transition-transform"
                 >
                   <Heart className={`w-4 h-4 ${isSavedLocally ? "fill-[#181A18] text-[#181A18]" : "text-stone-700"}`} />
                 </button>
+
+                {/* Bottom Gradient overlay with Title */}
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal-900/90 via-charcoal-900/40 to-transparent p-4 text-white">
+                  <span className="text-[9px] font-mono uppercase tracking-widest text-sand-300 font-bold block mb-0.5">
+                    {heroOutfit.subjudul}
+                  </span>
+                  <h3 className="font-serif text-xl font-bold leading-tight drop-shadow-sm">
+                    {heroOutfit.judul}
+                  </h3>
+                </div>
               </div>
 
-              {/* Minimal Text Content */}
-              <div className="w-full max-w-sm px-6 pt-8 pb-4 flex flex-col items-center text-center">
-                <h1 className="font-serif font-medium text-[28px] text-[#181A18] leading-tight mb-2">
-                  {heroOutfit.judul}
-                </h1>
-                
-                <p className="font-sans text-[8px] font-semibold uppercase tracking-[0.15em] text-[#181A18]/60 mb-6 leading-relaxed max-w-[280px]">
-                  {heroOutfit.subjudul} — {heroOutfit.tagline}
+              {/* Compact Card Details */}
+              <div className="p-4 flex flex-col gap-2.5">
+                <p className="text-xs text-charcoal-900/80 leading-snug line-clamp-2">
+                  {heroOutfit.tagline}
                 </p>
 
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="font-sans text-[9px] font-bold uppercase tracking-widest text-[#181A18]">
-                    COLOR
-                  </span>
-                  <div className="flex gap-2.5">
-                    {heroOutfit.paletWarna.slice(0, 3).map((warna, idx) => (
-                      <span
-                        key={idx}
-                        className={`w-4 h-4 rounded-full border border-black/20 ${idx === 0 ? 'ring-1 ring-offset-[2px] ring-charcoal-900' : ''}`}
-                        style={{ backgroundColor: warna.hex }}
-                      />
-                    ))}
+                {/* Color and Meta */}
+                <div className="flex items-center justify-between border-t border-charcoal-900/10 pt-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[9px] font-bold uppercase tracking-wider text-charcoal-900/60">
+                      Palet:
+                    </span>
+                    <div className="flex gap-1.5">
+                      {heroOutfit.paletWarna.slice(0, 3).map((warna, idx) => (
+                        <span
+                          key={idx}
+                          className="w-3.5 h-3.5 rounded-full border border-black/20 shadow-2xs"
+                          style={{ backgroundColor: warna.hex }}
+                          title={warna.nama}
+                        />
+                      ))}
+                    </div>
                   </div>
+
+                  <span className="text-[10px] font-mono font-bold text-charcoal-900 bg-sand-100 px-2.5 py-0.5 rounded-full">
+                    {heroOutfit.rentangHarga}
+                  </span>
                 </div>
 
-                <p className="font-sans text-[8px] uppercase tracking-widest text-[#181A18]/50 font-semibold mb-3">
-                  {weather.location} {weather.temperature}°C — {weather.condition.toUpperCase()}
-                </p>
-                <p className="font-sans text-[7px] text-[#181A18]/40 mb-5 -mt-2 tracking-wide">
-                  {weather.isSimulated ? "DATA SIMULASI (LOKASI NONAKTIF)" : "SATELIT CUACA REALTIME AKTIF"}
-                </p>
-
-                <div className="font-sans text-sm font-bold text-[#181A18] mb-6 tracking-widest">
-                  {heroOutfit.rentangHarga}
+                {/* Action Row */}
+                <div className="grid grid-cols-2 gap-2 pt-1">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleOpenOutfitDetails(heroOutfit);
+                    }}
+                    className="py-2.5 rounded-xl border border-charcoal-900 text-charcoal-900 text-[10px] font-bold uppercase tracking-wider hover:bg-sand-100 transition-colors"
+                  >
+                    Lihat Formula ↗
+                  </button>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleLaunchStudio(heroOutfit);
+                    }}
+                    className="py-2.5 rounded-xl bg-charcoal-900 text-white text-[10px] font-bold uppercase tracking-wider hover:bg-terracotta-600 transition-colors flex items-center justify-center gap-1"
+                  >
+                    <Sparkles className="w-3 h-3 text-terracotta-400" />
+                    Buka di Studio
+                  </button>
                 </div>
-
-                <button 
-                  onClick={(e) => { e.stopPropagation(); handleLaunchStudio(heroOutfit); }} 
-                  className="w-full max-w-[240px] py-3.5 rounded-full border border-[#181A18] text-center font-sans text-[10px] font-bold uppercase tracking-widest text-[#181A18] hover:bg-[#181A18] hover:text-white transition-colors mb-2"
-                >
-                  Add to Wardrobe
-                </button>
 
                 {/* Swipe Indicators */}
-                <div className="flex items-center justify-center gap-1.5 mt-2 h-4">
+                <div className="flex items-center justify-center gap-1.5 pt-1">
                   {OUTFIT_HERO_LIST.map((_, idx) => (
                     <div
                       key={idx}
                       className={`h-[3px] rounded-full transition-all ${
-                        idx === currentHeroIndex ? "w-5 bg-[#181A18]" : "w-1.5 bg-black/10"
+                        idx === currentHeroIndex ? "w-5 bg-charcoal-900" : "w-1.5 bg-black/15"
                       }`}
                     />
                   ))}

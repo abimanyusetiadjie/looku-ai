@@ -364,23 +364,23 @@ export default function FloatingChatbot() {
   return (
     <>
       {/* Floating Trigger Button */}
-      <motion.div drag dragConstraints={{ left: -300, right: 0, top: -600, bottom: 0 }} dragElastic={0.1} className="fixed bottom-[calc(90px+env(safe-area-inset-bottom,0px))] md:bottom-12 right-4 sm:right-6 md:right-8 z-30 pointer-events-auto" style={{ touchAction: "none" }}>
+      <motion.div drag dragConstraints={{ left: -300, right: 0, top: -600, bottom: 0 }} dragElastic={0.1} className="fixed bottom-[calc(62px+env(safe-area-inset-bottom,0px))] md:bottom-12 right-3.5 sm:right-6 md:right-8 z-30 pointer-events-auto" style={{ touchAction: "none" }}>
         <AnimatePresence>
           {!isOpen && (
             <>
-              {/* Mobile Pill FAB (<640px) */}
+              {/* Mobile Minimalist Stylist Orb (<640px) - Anti-Overlap */}
               <motion.button
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0, opacity: 0 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.92 }}
                 onClick={() => setIsOpen(true)}
-                aria-label="Coba AI Stylist"
-                className="sm:hidden h-[44px] px-4 rounded-full bg-[#181A18] text-white shadow-2xl border-2 border-white/20 flex items-center justify-center gap-2 relative shadow-glow"
+                aria-label="Konsultasi AI Stylist"
+                className="sm:hidden w-[48px] h-[48px] rounded-full bg-[#181A18] text-white shadow-2xl border-2 border-white/20 flex items-center justify-center relative active:scale-95 transition-transform"
               >
-                <Sparkles className="w-4 h-4 text-terracotta-400" />
-                <span className="font-sans font-bold text-[10px] tracking-widest uppercase">Coba AI Stylist</span>
+                <Sparkles className="w-5 h-5 text-terracotta-400" />
+                <span className="absolute top-1 right-1 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#181A18] animate-pulse" />
               </motion.button>
 
               {/* Desktop Expanded Pill (>=640px) */}

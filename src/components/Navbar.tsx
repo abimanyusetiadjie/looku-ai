@@ -17,7 +17,7 @@ const NAV_LINKS = [
   { name: 'Home', href: '/' },
   { name: 'Studio', href: '/studio' },
   { name: 'Lookbook', href: '/lookbook' },
-  { name: 'Wardrobe', href: '/lemari' }
+  { name: 'Wardrobe', href: '/profile?tab=wardrobe' }
 ];
 
 export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenCatalog, onOpenHistory }: NavbarProps) {
@@ -106,7 +106,7 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenCatalog, o
                 <Search className="w-5 h-5 stroke-[1.5]" />
               </button>
               <button 
-                onClick={() => onOpenSavedDrawer ? onOpenSavedDrawer() : router.push("/lemari")} 
+                onClick={() => onOpenSavedDrawer ? onOpenSavedDrawer() : router.push("/profile?tab=wardrobe")} 
                 className="hover:text-terracotta-500 hover:scale-110 active:scale-95 transition-all duration-200 relative" 
                 aria-label="Bag"
               >

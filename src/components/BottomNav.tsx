@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Home, Search, Sparkles, Shirt, User } from "lucide-react";
+import { Home, Search, Sparkles, User } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation";
 
@@ -12,14 +12,12 @@ export default function BottomNav() {
 
   // Sync active tab with route
   useEffect(() => {
-    if (pathname === "/lemari") {
-      setActiveTab("wardrobe");
+    if (pathname === "/lemari" || pathname === "/profile") {
+      setActiveTab("profile");
     } else if (pathname === "/studio") {
       setActiveTab("studio");
     } else if (pathname === "/lookbook" || pathname === "/search") {
       setActiveTab("search");
-    } else if (pathname === "/profile") {
-      setActiveTab("profile");
     } else if (pathname === "/") {
       setActiveTab("home");
     } else {
@@ -38,10 +36,9 @@ export default function BottomNav() {
 
   const navItems = [
     { id: "home", label: "HOME", icon: Home, href: "/" },
-    { id: "search", label: "SEARCH", icon: Search, href: "/lookbook" },
+    { id: "search", label: "LOOKBOOK", icon: Search, href: "/lookbook" },
     { id: "studio", label: "STUDIO", icon: Sparkles, href: "/studio" },
-    { id: "wardrobe", label: "WARDROBE", icon: Shirt, href: "/lemari" },
-    { id: "profile", label: "PROFILE", icon: User, href: "/profile" },
+    { id: "profile", label: "PROFIL & LEMARI", icon: User, href: "/profile" },
   ];
 
   return (
@@ -54,16 +51,15 @@ export default function BottomNav() {
           {navItems.map((item) => {
             const isActive = activeTab === item.id;
             const Icon = item.icon;
-            
+
             return (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id, item.href)}
                 aria-label={item.label}
-                className="flex items-center justify-center flex-1 h-full"
+                className="flex items-center justify-center flex-1 h-full relative"
               >
-                <div className="relative flex items-center justify-center">
-                  {/* Animasi scale/bounce kecil saat ditekan, khas Instagram */}
+                <div className="relative flex flex-col items-center justify-center">
                   <motion.div
                     whileTap={{ scale: 0.85 }}
                     transition={{ type: "spring", stiffness: 400, damping: 25 }}
@@ -76,9 +72,13 @@ export default function BottomNav() {
                       fill="none"
                     />
                   </motion.div>
+                  {isActive && (
+                    <motion.div
+                      layoutId="bottom-nav-active-dot"
+                      className="w-1 h-1 bg-terracotta-500 rounded-full mt-0.5"
+                    />
+                  )}
                 </div>
-                {/* Teks label disembunyikan agar benar-benar bersih seperti Instagram, 
-                    namun tetap terbaca oleh screen reader melalui aria-label */}
               </button>
             );
           })}
@@ -87,4 +87,3 @@ export default function BottomNav() {
     </nav>
   );
 }
-
