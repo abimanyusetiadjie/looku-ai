@@ -76,7 +76,7 @@ export const PRESET_OOTD_COLLECTION: Record<string, OOTDRecommendation> = {
 
   "hangout_nonhijab_panas_menengah": {
     id: "rec_hangout_nonhijab_1",
-    title: "Seoul Cafe Hopping Look",
+    title: "Hangout Senopati Look",
     tagline: "Fotogenik buat konten aesthetic Instagram, ringan dipakai seharian.",
     overallVibe: "Korean Soft Pastel & Chic",
     comfortRating: 4.8,
@@ -325,7 +325,7 @@ export const PRESET_OOTD_COLLECTION: Record<string, OOTDRecommendation> = {
   "tailored_vest_chic": {
     id: "rec_tailored_vest_1",
     title: "Chic Tailored Vest & Flowy Slacks",
-    tagline: "Look kekinian ala Seoul Fashion Week yang siap pakai ke kantor atau kafe.",
+    tagline: "Look rapi minimalis urban yang siap pakai ke kantor atau kafe Senopati.",
     overallVibe: "Smart Minimalist & Chic",
     comfortRating: 4.8,
     affordabilityRating: 4.5,
@@ -800,7 +800,7 @@ export const TRENDING_LOOKS_FEED: TrendingLook[] = [
   },
   {
     id: "trend_02",
-    title: "Seoul Cafe Hopping Look",
+    title: "Hangout Senopati Look",
     vibe: "Korean Soft Pastel",
     tag: "TRENDING",
     category: "Weekend & Cafe",
@@ -850,7 +850,7 @@ export const TRENDING_LOOKS_FEED: TrendingLook[] = [
     id: "trend_06",
     title: "Chic Tailored Vest & Flowy Slacks",
     vibe: "Smart Minimalist",
-    tag: "SEOUL VIBE",
+    tag: "URBAN CHIC",
     category: "Campus & Hijab",
     skinToneRecommendation: "Sawo Matang & Eksotis",
     priceRange: "Rp 210rb - 290rb / Set",

@@ -335,8 +335,10 @@ function ProfileContent() {
                 <div className="text-[9px] font-bold uppercase tracking-wider text-charcoal-900/60">Items Unik</div>
               </div>
               <div className="bg-emerald-50 border border-emerald-300 rounded-2xl px-4 py-2.5 text-center min-w-[100px] flex-1 sm:flex-none">
-                <div className="font-serif text-lg font-bold text-emerald-800 leading-tight">88%</div>
-                <div className="text-[9px] font-bold uppercase tracking-wider text-emerald-700">Efisiensi Gaya</div>
+                <div className="font-serif text-lg font-bold text-emerald-800 leading-tight">
+                  {savedOutfits.length >= 3 ? "Optimal" : savedOutfits.length > 0 ? "Aktif" : "Mulai"}
+                </div>
+                <div className="text-[9px] font-bold uppercase tracking-wider text-emerald-700">Rotasi Lemari</div>
               </div>
             </div>
           </div>
@@ -410,13 +412,13 @@ function ProfileContent() {
                     Indeks Efisiensi Lemari Tropis
                   </span>
                   <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full">
-                    88% OPTIMAL
+                    {savedOutfits.length >= 3 ? "TERKURASI BAIK" : "TAHAP AWAL"}
                   </span>
                 </div>
                 <p className="text-xs text-charcoal-900/70 leading-relaxed">
                   {savedOutfits.length > 0
-                    ? `Dengan ${savedOutfits.length} look tersimpan, kamu menghemat ~Rp 420.000 dari membeli pakaian duplikat yang tidak terpakai di cuaca ${temperature}°C.`
-                    : "Simpan formula OOTD pertamamu untuk mulai membangun indeks efisiensi lemari dan gaya konsisten."}
+                    ? `Dengan ${savedOutfits.length} look tersimpan, pakaianmu saling melengkapi untuk cuaca ${temperature}°C, mengurangi risiko membeli pakaian duplikat yang tidak terpakai.`
+                    : "Simpan formula OOTD pertamamu untuk mulai membangun rotasi pakaian harian yang adem dan terencana."}
                 </p>
               </div>
 

@@ -55,7 +55,7 @@ export const GOLDEN_DATASET: FashionItem[] = [
       searchVolumeTrend: "STABLE_HIGH_30K_MONTHLY",
       source: "Top 5 Keyword Tokopedia (Baju Sage Green)"
     },
-    imageUrl: "https://images.unsplash.com/photo-1604056041187-c91350a491ef?w=600&q=80" // Greenish aesthetic top
+    imageUrl: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80" // Greenish aesthetic top
   },
   {
     id: "top_cotton_black",
@@ -87,7 +87,7 @@ export const GOLDEN_DATASET: FashionItem[] = [
       searchVolumeTrend: "RISING_25K_MONTHLY",
       source: "Zalora Modest Wear Trend Q3"
     },
-    imageUrl: "https://images.unsplash.com/photo-1589156206699-bc21e38c8a6d?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80"
   },
   {
     id: "top_silk_champagne",
@@ -171,7 +171,7 @@ export const GOLDEN_DATASET: FashionItem[] = [
       searchVolumeTrend: "TRENDING_PEAK_Q3",
       source: "WGSN Gen-Z Local Trend"
     },
-    imageUrl: "https://images.unsplash.com/photo-1541097834710-85f269a8e0dc?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1551803091-e20673f15770?w=600&q=80"
   },
   {
     id: "btm_cotton_chino",
@@ -223,7 +223,7 @@ export const GOLDEN_DATASET: FashionItem[] = [
       searchVolumeTrend: "RISING_150K_MONTHLY",
       source: "Shopee Keyword 'Pashmina Silk'"
     },
-    imageUrl: "https://images.unsplash.com/photo-1579469795055-14f7b233a758?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80"
   },
   {
     id: "outer_knit_cardigan",
@@ -239,7 +239,7 @@ export const GOLDEN_DATASET: FashionItem[] = [
       searchVolumeTrend: "STABLE_45K_MONTHLY",
       source: "Tokopedia 'Cardigan Tipis'"
     },
-    imageUrl: "https://images.unsplash.com/photo-1434389678213-9114757c21f7?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=80"
   },
 
   // ==========================================
@@ -275,7 +275,7 @@ export const GOLDEN_DATASET: FashionItem[] = [
       searchVolumeTrend: "EVERGREEN_HIGH",
       source: "Shopee 'Sneakers Putih'"
     },
-    imageUrl: "https://images.unsplash.com/photo-1525966222134-fc6a9d702dc6?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600&q=80"
   }
 ];
 

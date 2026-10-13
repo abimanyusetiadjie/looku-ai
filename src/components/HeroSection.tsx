@@ -47,27 +47,27 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
               {weather.location} {weather.temperature}°C — {weather.condition}
             </div>
 
-            <h1 className="font-serif text-6xl xl:text-7xl text-white font-medium tracking-tight leading-[1.1]">
-              The Tropical<br />
-              <span className="italic font-light">Edit.</span>
+            <h1 className="font-serif text-5xl xl:text-6xl text-white font-medium tracking-tight leading-[1.15]">
+              Personal Stylist AI.<br />
+              <span className="italic font-light">Didesain Khusus Tropis.</span>
             </h1>
             
             <p className="font-sans text-sm md:text-base text-white/80 font-light tracking-wide max-w-md leading-relaxed">
-              Curated minimalist collections crafted from breathable linen and rayon, perfectly optimized for hot and humid climates.
+              Formula kurasi pakaian adem, modest, dan selaras dengan warna kulit nusantara untuk cuaca terik dan lembap.
             </p>
 
             <div className="flex items-center gap-4 pt-4">
               <Link
-                href="/lookbook"
-                className="px-8 py-4 bg-white text-charcoal-900 font-sans text-xs font-bold uppercase tracking-[0.15em] hover:bg-sand-100 transition-colors"
+                href="/studio"
+                className="px-8 py-4 bg-white text-charcoal-900 font-sans text-xs font-bold uppercase tracking-[0.15em] hover:bg-sand-100 transition-colors shadow-sm"
               >
-                Discover Collection
+                Racik OOTD Sekarang ➔
               </Link>
               <button
                 onClick={onOpenQuiz}
                 className="px-8 py-4 border border-white text-white font-sans text-xs font-bold uppercase tracking-[0.15em] hover:bg-white hover:text-charcoal-900 transition-colors"
               >
-                Color Diagnostic
+                Tes Personal Color (60s)
               </button>
             </div>
           </motion.div>
@@ -77,7 +77,7 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
       {/* Shopee/Tokopedia Style Grid (Below Hero, Desktop) */}
       <div className="hidden lg:block max-w-[1400px] mx-auto px-8 py-16">
         <div className="flex items-center justify-between mb-8 border-b border-sand-300 pb-4">
-          <h2 className="font-serif text-2xl text-charcoal-900 uppercase tracking-widest">New Arrivals</h2>
+          <h2 className="font-serif text-2xl text-charcoal-900 uppercase tracking-widest">The Tropical Edit — Koleksi Pilihan</h2>
           <Link href="/lookbook" className="text-sm font-sans font-bold text-terracotta-600 hover:text-charcoal-900 uppercase tracking-wider flex items-center gap-1 transition-colors">
             View All <ArrowRight className="w-4 h-4" />
           </Link>

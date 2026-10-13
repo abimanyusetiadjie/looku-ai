@@ -148,7 +148,7 @@ export default function WaitlistModal({ onClose }: WaitlistModalProps) {
                   className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#D7CABC] focus:outline-none focus:border-[#181A18] text-xs sm:text-sm text-[#181A18]"
                 >
                   <option>Modest & Earthy Minimalist</option>
-                  <option>Seoul Soft & Casual Knit</option>
+                  <option>Urban Senopati & Casual Linen</option>
                   <option>Clean Cut Monochrome</option>
                   <option>Smart Office Formal</option>
                   <option>Menswear Simple Relaxed</option>

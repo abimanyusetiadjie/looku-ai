@@ -65,7 +65,7 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
     subjudul: "100% Adem & Modest",
     tagline: "Kombinasi linen crinkle dan kulot jatuh bebas gerah untuk aktivitas seharian.",
     suhu: "33°C Tropis Siang Hari",
-    sirkulasiUdara: "98.4% Sirkulasi Udara Optimal",
+    sirkulasiUdara: "Sirkulasi Udara Maksimal",
     alasanCocok: "Kombinasi serat linen alami dan voal paris berpori mikro melepas panas tubuh seketika tanpa menerawang, sangat santun untuk hijab santai maupun semi-formal.",
     gambar: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=900&auto=format&fit=crop&q=85",
     paletWarna: [
@@ -117,11 +117,11 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
   },
   {
     id: "seoul-cafe-hopping",
-    judul: "Seoul Cafe Hopping",
+    judul: "Hangout Senopati",
     subjudul: "100% Adem & Estetik",
     tagline: "Paduan kemeja camp collar dan linen trousers bergaya minimalis tropis.",
     suhu: "33°C Cuaca Terik",
-    sirkulasiUdara: "97.8% Aliran Udara Bebas",
+    sirkulasiUdara: "Optimal untuk 33°C",
     alasanCocok: "Potongan kerah terbuka dan siluet santai menghasilkan tampilan urban kafe yang fotogenik sekaligus anti-keringat berlebih.",
     gambar: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=900&auto=format&fit=crop&q=85",
     paletWarna: [
@@ -159,7 +159,7 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
     subjudul: "Anti-Gerah & AC Meeting",
     tagline: "Blazer tencel sejuk dan celana palazzo rapi untuk mobilitas kerja ibu kota.",
     suhu: "22°C AC & 33°C Terik Jalanan",
-    sirkulasiUdara: "96.5% Adaptif Dua Suhu",
+    sirkulasiUdara: "Adaptif Suhu Terik & AC",
     alasanCocok: "Kain Tencel Lyocell memberikan kehangatan lembut di ruang kantor ber-AC namun melepas panas seketika saat melangkah di luar ruangan.",
     gambar: "https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=900&auto=format&fit=crop&q=85",
     paletWarna: [
@@ -197,7 +197,7 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
     subjudul: "100% Santai & Rileks",
     tagline: "Kemeja oversized katun rami dan celana pendek bermuda untuk sore santai.",
     suhu: "31°C Lembap Sore Hari",
-    sirkulasiUdara: "99.1% Sirkulasi Maksimal",
+    sirkulasiUdara: "Sirkulasi Udara Maksimal",
     alasanCocok: "Katun rami alami tenun terbuka memaksimalkan sirkulasi udara sore hari di kafe semi-outdoor.",
     gambar: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=900&auto=format&fit=crop&q=85",
     paletWarna: [
@@ -235,10 +235,10 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
 const TRENDING_OOTD_LIST = [
   {
     id: "tren-1",
-    judul: "Seoul Cafe Hopping",
+    judul: "Hangout Senopati",
     kategori: "Kasual Kafe",
     rentangHarga: "Rp 240rb - 350rb",
-    sirkulasi: "98% Adem",
+    sirkulasi: "Katun Dingin",
     tagModest: "Hijab Friendly",
     studioParam: "hangout_nonhijab_panas_menengah",
     gambar: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600&auto=format&fit=crop&q=80",
@@ -248,7 +248,7 @@ const TRENDING_OOTD_LIST = [
     judul: "SCBD Smart Chic",
     kategori: "Kantor & Rapat",
     rentangHarga: "Rp 280rb - 390rb",
-    sirkulasi: "96% AC & Terik",
+    sirkulasi: "AC & Terik",
     tagModest: "Formal Santun",
     studioParam: "kantor_scbd_formal",
     gambar: "https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=600&auto=format&fit=crop&q=80",
@@ -258,7 +258,7 @@ const TRENDING_OOTD_LIST = [
     judul: "Santai Senopati Matcha",
     kategori: "Akhir Pekan",
     rentangHarga: "Rp 210rb - 295rb",
-    sirkulasi: "99% Super Adem",
+    sirkulasi: "Linen Ringan",
     tagModest: "Gaya Rileks",
     studioParam: "santai_weekend_kafe",
     gambar: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
@@ -268,7 +268,7 @@ const TRENDING_OOTD_LIST = [
     judul: "Kondangan Pastel Modest",
     kategori: "Pesta Santun",
     rentangHarga: "Rp 320rb - 450rb",
-    sirkulasi: "95% Sutra Adem",
+    sirkulasi: "Sutra Ceruty",
     tagModest: "100% Modest",
     studioParam: "kondangan_hijab_pastel",
     gambar: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&auto=format&fit=crop&q=80",
@@ -505,7 +505,7 @@ export default function LookUMobileView({
 
             {/* Clear Value Proposition */}
             <p className="font-sans text-xs text-charcoal-900/70 max-w-[320px] leading-relaxed mb-4">
-              Racik formula OOTD 100% adem, santun &amp; modest, serta presisi warna kulit nusantara dalam 30 detik.
+              Racik formula OOTD 100% adem, santun &amp; modest, serta presisi warna kulit nusantara.
             </p>
 
             {/* Dual High-Intent Call To Action Buttons */}
@@ -534,7 +534,7 @@ export default function LookUMobileView({
 
             {/* Proof Points Ticker Strip */}
             <div className="w-full mt-5 py-2 px-1 border-y border-charcoal-900/10 flex items-center justify-between text-[8px] font-mono uppercase font-bold tracking-widest text-charcoal-900/60 overflow-x-auto no-scrollbar whitespace-nowrap gap-3">
-              <span>✦ 98.4% SIRKULASI UDARA</span>
+              <span>✦ SIRKULASI UDARA MAKSIMAL</span>
               <span>✦ 100% MODEST FRIENDLY</span>
               <span>✦ SHOPEE &amp; TOKOPEDIA READY</span>
             </div>
@@ -574,7 +574,7 @@ export default function LookUMobileView({
                 {/* Airflow / Breathability Badge */}
                 <div className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-full bg-charcoal-900/85 backdrop-blur-md text-white text-[9px] font-mono font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm">
                   <Wind className="w-3 h-3 text-emerald-400" />
-                  <span>{heroOutfit.sirkulasiUdara.split(" ")[0]} Sirkulasi</span>
+                  <span>Kategori Adem: Optimal</span>
                 </div>
 
                 {/* Floating Save Button */}

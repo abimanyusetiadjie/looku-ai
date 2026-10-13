@@ -100,6 +100,17 @@ export default function FloatingChatbot() {
   };
 
   const [messages, setMessages] = useState<Message[]>([DEFAULT_WELCOME_MSG]);
+  const [hasScrolledPastHero, setHasScrolledPastHero] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const checkScroll = () => {
+      setHasScrolledPastHero(window.scrollY > 280);
+    };
+    checkScroll();
+    window.addEventListener("scroll", checkScroll, { passive: true });
+    return () => window.removeEventListener("scroll", checkScroll);
+  }, []);
 
   // Load chat messages from localStorage on mount
   useEffect(() => {
@@ -368,20 +379,22 @@ export default function FloatingChatbot() {
         <AnimatePresence>
           {!isOpen && (
             <>
-              {/* Mobile Minimalist Stylist Orb (<640px) - Anti-Overlap */}
-              <motion.button
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0, opacity: 0 }}
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.92 }}
-                onClick={() => setIsOpen(true)}
-                aria-label="Konsultasi AI Stylist"
-                className="sm:hidden w-[48px] h-[48px] rounded-full bg-[#181A18] text-white shadow-2xl border-2 border-white/20 flex items-center justify-center relative active:scale-95 transition-transform"
-              >
-                <Sparkles className="w-5 h-5 text-terracotta-400" />
-                <span className="absolute top-1 right-1 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#181A18] animate-pulse" />
-              </motion.button>
+              {/* Mobile Minimalist Stylist Orb (<640px) - Anti-Overlap, only appears after scroll */}
+              {hasScrolledPastHero && (
+                <motion.button
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0, opacity: 0 }}
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.92 }}
+                  onClick={() => setIsOpen(true)}
+                  aria-label="Konsultasi AI Stylist"
+                  className="sm:hidden w-[48px] h-[48px] rounded-full bg-[#181A18] text-white shadow-2xl border-2 border-white/20 flex items-center justify-center relative active:scale-95 transition-transform"
+                >
+                  <Sparkles className="w-5 h-5 text-terracotta-400" />
+                  <span className="absolute top-1 right-1 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#181A18] animate-pulse" />
+                </motion.button>
+              )}
 
               {/* Desktop Expanded Pill (>=640px) */}
               <motion.button

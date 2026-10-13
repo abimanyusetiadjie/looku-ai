@@ -235,7 +235,7 @@ export default function PersonalColorQuizModal({
                         SIMULASI DRAPING KAIN
                       </span>
                       <span className="text-[10px] font-mono font-bold text-terracotta-600 bg-terracotta-50 px-2 py-0.5 rounded-full">
-                        +98.4% NATURAL GLOW
+                        PALET HARMONIS ALAMI
                       </span>
                     </div>
 

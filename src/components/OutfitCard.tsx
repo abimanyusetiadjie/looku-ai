@@ -113,11 +113,16 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
         if (isSaved) {
           list = list.filter((item) => item.id !== outfit.id);
           setIsSaved(false);
+          setToastMsg("Look dihapus dari Lemari.");
         } else {
           list.unshift(outfit);
           setIsSaved(true);
+          setToastMsg("✨ Look berhasil disimpan ke Lemari!");
         }
         localStorage.setItem("looku_saved_outfits", JSON.stringify(list));
+        window.dispatchEvent(new Event("looku_saved_updated"));
+        window.dispatchEvent(new Event("storage"));
+        setTimeout(() => setToastMsg(""), 3000);
       } catch (e) {
         console.error(e);
       }
