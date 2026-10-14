@@ -506,165 +506,162 @@ export default function LookUMobileView({
         <main className="flex-1 w-full space-y-6">
           
           {/* ============================================================ */}
-          {/* 1. EDITORIAL HERO (Visual-First Card & Thumb-Zone CTAs)      */}
+          {/* 1. UTILITY CLIMATE STRIP (Satu Baris Bersih ala Uniqlo)      */}
           {/* ============================================================ */}
-          <section aria-label="Editorial Brand Hero" className="px-4 pt-1 pb-2 w-full flex flex-col gap-3">
-            {/* Interactive AI Context Strip */}
-            <div 
+          <div className="bg-[#EFECE6] border-b border-[#181A18]/10 px-4 py-2 flex items-center justify-between text-[11px] select-none">
+            <div className="flex items-center gap-2 truncate">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
+              <span className="font-semibold tracking-wider uppercase text-[#181A18]">
+                {weather.location} {weather.temperature}°C · {weather.condition}
+              </span>
+              <span className="text-[#181A18]/30">|</span>
+              <span className="text-[#181A18]/70 truncate">Mode Sirkulasi Adem</span>
+            </div>
+            <button
+              type="button"
               onClick={() => {
                 if (onOpenQuiz) onOpenQuiz();
                 else router.push("/?quiz=true");
               }}
-              className="w-full flex items-center justify-between px-3.5 py-2 rounded-full bg-sand-100/90 border border-sand-300 text-xs shadow-2xs cursor-pointer active:scale-[0.99] transition-transform"
+              className="text-[10px] font-bold uppercase tracking-widest underline underline-offset-2 text-[#181A18] shrink-0 ml-2 hover:text-terracotta-600 transition-colors"
             >
-              <span className="font-medium text-[#181A18] truncate flex items-center gap-1.5">
-                <span>☀️</span>
-                <span>Rekomendasi Hari Ini:</span>
-                <strong className="text-terracotta-600 font-bold">{weather.location} {weather.temperature}°C · Adem</strong>
-              </span>
-              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-terracotta-700 bg-terracotta-50 px-2 py-0.5 rounded-full border border-terracotta-200 shrink-0 ml-2">
-                Ubah Filter
-              </span>
-            </div>
+              Ubah
+            </button>
+          </div>
 
-            {/* Live Climate GPS Sensor Pill + Brand Headline */}
-            <div className="flex flex-col items-center text-center gap-1.5 pt-1">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sand-100 border border-sand-300 text-[10px] font-mono font-bold text-charcoal-900 tracking-wider shadow-2xs">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>🌤️ {weather.location} {weather.temperature}°C</span>
-                <span className="text-charcoal-900/40">•</span>
-                <span className="text-terracotta-600 font-semibold uppercase">{weather.condition}</span>
+          {/* ============================================================ */}
+          {/* 2. EDITORIAL HERO (Uniqlo Clean: Foto Bersih, Sudut Tegas)   */}
+          {/* ============================================================ */}
+          <section aria-label="Editorial Brand Hero" className="px-4 pt-1 pb-4 w-full flex flex-col gap-3">
+            {/* Header Seksi Ringkas Rata Kiri */}
+            <div className="pt-2 pb-1 flex items-baseline justify-between">
+              <div>
+                <p className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-[#8C5A3C]">
+                  AI Daily Curated · 0{currentHeroIndex + 1} / 0{OUTFIT_HERO_LIST.length}
+                </p>
+                <h1 className="font-serif text-2xl font-normal tracking-tight text-[#181A18] mt-0.5">
+                  Personal Stylist <span className="italic">Khusus Tropis.</span>
+                </h1>
               </div>
-
-              <h1 className="font-serif text-2xl sm:text-3xl text-charcoal-900 tracking-tight leading-snug">
-                Personal Stylist AI.<br />
-                <span className="italic font-normal">Didesain Khusus Tropis.</span>
-              </h1>
             </div>
 
-            {/* Visual Editorial Card (Proporsi Potret 4:5 yang pas di HP, max-h 42dvh) */}
-            <div
+            {/* Kanvas Foto Bersih (Rasio 4:5, Sudut Tegas, Zero Clutter di Foto) */}
+            <div 
               onClick={() => handleOpenOutfitDetails(heroOutfit)}
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
-              className="w-full relative cursor-pointer active:scale-[0.99] transition-all bg-white border border-charcoal-900/15 rounded-3xl overflow-hidden shadow-tactile flex flex-col"
+              className="group cursor-pointer active:scale-[0.99] transition-all"
             >
-              <div className="w-full aspect-[4/5] max-h-[42dvh] sm:max-h-[46dvh] relative bg-sand-100">
+              <div className="relative w-full aspect-[4/5] max-h-[44dvh] bg-[#E5E0D8] overflow-hidden">
                 <Image
                   src={heroOutfit.gambar}
                   alt={heroOutfit.judul}
                   fill
                   priority
-                  className="object-cover object-top"
+                  className="w-full h-full object-cover object-top"
                   sizes="(max-width: 480px) 100vw, 420px"
                 />
 
-                {/* Airflow / Breathability Badge */}
-                <div className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-full bg-charcoal-900/85 backdrop-blur-md text-white text-[9px] font-mono font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm">
-                  <Wind className="w-3 h-3 text-emerald-400" />
-                  <span>Kategori Adem: Optimal</span>
+                {/* HANYA 1 Badge Teknologi Bahan di Kiri Atas (Gaya Uniqlo AIRism) */}
+                <div className="absolute top-3 left-3 bg-[#181A18]/85 backdrop-blur-sm text-[#FAF8F5] px-2.5 py-1 text-[10px] font-bold font-mono tracking-widest uppercase shadow-xs">
+                  Adem Optimal · 100% Modest
                 </div>
 
-                {/* Floating Save Button */}
+                {/* Tombol Wishlist Bersih Tanpa Border Tebal */}
                 <button
                   type="button"
+                  aria-label="Simpan Outfit"
                   onClick={(e) => {
                     e.stopPropagation();
                     handleToggleSaveOutfit(heroOutfit);
                   }}
-                  className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/95 backdrop-blur-md flex items-center justify-center text-[#181A18] shadow-sm border border-black/10 active:scale-90 transition-transform"
+                  className="absolute top-3 right-3 w-8 h-8 bg-white/85 backdrop-blur-sm flex items-center justify-center text-[#181A18] shadow-xs active:scale-90 transition-transform"
                 >
                   <Heart className={`w-4 h-4 ${isSavedLocally ? "fill-[#181A18] text-[#181A18]" : "text-stone-700"}`} />
                 </button>
 
-                {/* Bottom Gradient overlay with Title & Swatches */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal-900/95 via-charcoal-900/60 to-transparent p-4 text-white">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-[9px] font-mono uppercase tracking-widest text-sand-300 font-bold">
-                      {heroOutfit.subjudul}
-                    </span>
-                    <span className="text-[9px] font-mono font-bold text-sand-200 bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded-full">
-                      Swipe {currentHeroIndex + 1}/{OUTFIT_HERO_LIST.length}
-                    </span>
-                  </div>
-
-                  <h2 className="font-serif text-xl sm:text-2xl font-bold leading-tight drop-shadow-sm mb-1.5">
-                    {heroOutfit.judul}
-                  </h2>
-
-                  <div className="flex items-center justify-between pt-1.5 border-t border-white/20 text-xs">
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-[9px] font-mono uppercase tracking-wider text-sand-300">Palet:</span>
-                      <div className="flex gap-1">
-                        {heroOutfit.paletWarna.slice(0, 3).map((warna, idx) => (
-                          <span
-                            key={idx}
-                            className="w-3.5 h-3.5 rounded-full border border-white/40 shadow-xs"
-                            style={{ backgroundColor: warna.hex }}
-                            title={warna.nama}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                    <span className="text-[10px] font-mono font-bold text-white bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded-md">
-                      {heroOutfit.rentangHarga}
-                    </span>
-                  </div>
+                {/* Progress Bar Slide Tipis di Bawah Foto (Menggantikan Kapsul Gembung & Titik Tebal) */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/10 flex">
+                  <div
+                    className="h-full bg-[#181A18] transition-all duration-300"
+                    style={{
+                      width: `${100 / OUTFIT_HERO_LIST.length}%`,
+                      marginLeft: `${(currentHeroIndex * 100) / OUTFIT_HERO_LIST.length}%`,
+                    }}
+                  />
                 </div>
               </div>
 
-              {/* Swipe Indicator Dots */}
-              <div className="flex items-center justify-center gap-1.5 py-2 bg-sand-50/70">
-                {OUTFIT_HERO_LIST.map((_, idx) => (
-                  <div
-                    key={idx}
-                    className={`h-1 rounded-full transition-all ${
-                      idx === currentHeroIndex ? "w-6 bg-charcoal-900" : "w-1.5 bg-black/15"
-                    }`}
-                  />
-                ))}
+              {/* METADATA DI LUAR FOTO (Rahasia Uniqlo agar foto tampil bernafas) */}
+              <div className="pt-3 pb-3 border-b border-[#181A18]/10 flex items-start justify-between gap-4 bg-white/40 px-2 rounded-b-xl">
+                <div>
+                  {/* Dot Swatches Warna ala Uniqlo */}
+                  <div className="flex items-center gap-1.5 mb-1.5">
+                    {heroOutfit.paletWarna.slice(0, 3).map((warna, idx) => (
+                      <span
+                        key={idx}
+                        className="w-3.5 h-3.5 rounded-full border border-[#181A18]/25 shadow-2xs"
+                        style={{ backgroundColor: warna.hex }}
+                        title={warna.nama}
+                      />
+                    ))}
+                    <span className="text-[10px] uppercase tracking-wider text-[#181A18]/60 ml-1 font-medium truncate">
+                      {heroOutfit.warnaKulitCocok}
+                    </span>
+                  </div>
+                  <h2 className="font-serif text-xl font-bold text-[#181A18] leading-snug">
+                    {heroOutfit.judul}
+                  </h2>
+                  <p className="text-xs text-[#181A18]/65 mt-0.5 line-clamp-1">
+                    {heroOutfit.tagline}
+                  </p>
+                </div>
+
+                {/* Estimasi Harga Tegas Tanpa Kapsul Abu-Abu */}
+                <div className="text-right shrink-0">
+                  <span className="text-[10px] uppercase tracking-wider text-[#181A18]/50 block font-mono">
+                    Estimasi Set
+                  </span>
+                  <span className="text-sm font-bold font-mono text-[#181A18]">
+                    {heroOutfit.rentangHarga}
+                  </span>
+                </div>
               </div>
             </div>
 
-            {/* Thumb-Zone Call-To-Action Buttons */}
-            <div className="w-full flex flex-col gap-2 pt-1">
+            {/* ACTION AREA: TEGAS, RAPI, TANPA KAPSUL GEMBUNG */}
+            <div className="pt-2 flex flex-col gap-2.5">
+              {/* Primary CTA: Persegi Tegas ala Uniqlo (h-12) */}
               <button
                 type="button"
                 onClick={() => handleLaunchStudio(heroOutfit)}
-                className="w-full h-12 rounded-2xl bg-[#181A18] text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 shadow-md hover:bg-terracotta-600 active:scale-[0.98] transition-all"
+                className="w-full h-12 bg-[#181A18] text-[#FAF8F5] text-xs font-bold uppercase tracking-[0.15em] flex items-center justify-center gap-2 hover:bg-terracotta-600 active:opacity-90 transition-all shadow-sm"
               >
-                <Sparkles className="w-4 h-4 text-terracotta-400" />
-                <span>Racik OOTD Sekarang ➔</span>
+                <span>✦ Racik OOTD Sekarang</span>
+                <span>→</span>
               </button>
 
-              <div className="grid grid-cols-2 gap-2">
+              {/* 2 Aksi Sekunder: Grid Bersih dengan Garis Tipis */}
+              <div className="grid grid-cols-2 gap-2.5">
                 <button
                   type="button"
                   onClick={() => {
                     if (onOpenQuiz) onOpenQuiz();
                     else router.push("/?quiz=true");
                   }}
-                  className="h-11 rounded-2xl bg-white border border-[#181A18]/30 text-[#181A18] text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 hover:bg-sand-100 active:scale-[0.98] transition-all shadow-2xs"
+                  className="h-10 border border-[#181A18]/25 bg-transparent text-[#181A18] text-[11px] font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 hover:bg-[#181A18]/5 transition-colors"
                 >
-                  <Palette className="w-3.5 h-3.5 text-terracotta-600" />
                   <span>Tes Warna (60s)</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => handleOpenOutfitDetails(heroOutfit)}
-                  className="h-11 rounded-2xl bg-white border border-[#181A18]/30 text-[#181A18] text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 hover:bg-sand-100 active:scale-[0.98] transition-all shadow-2xs"
+                  className="h-10 border border-[#181A18]/25 bg-transparent text-[#181A18] text-[11px] font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 hover:bg-[#181A18]/5 transition-colors"
                 >
                   <span>Lihat Formula ↗</span>
                 </button>
               </div>
-            </div>
-
-            {/* Proof Points Ticker Strip */}
-            <div className="w-full mt-1 py-2 px-1 border-y border-charcoal-900/10 flex items-center justify-between text-[8px] font-mono uppercase font-bold tracking-widest text-charcoal-900/60 overflow-x-auto no-scrollbar whitespace-nowrap gap-3">
-              <span>✦ SIRKULASI UDARA MAKSIMAL</span>
-              <span>✦ 100% MODEST FRIENDLY</span>
-              <span>✦ SHOPEE &amp; TOKOPEDIA READY</span>
             </div>
           </section>
 
