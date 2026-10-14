@@ -276,6 +276,154 @@ export const GOLDEN_DATASET: FashionItem[] = [
       source: "Shopee 'Sneakers Putih'"
     },
     imageUrl: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600&q=80"
+  },
+
+  // ==========================================
+  // POLYVORE & MYNTRA EXPANSION CATALOG (WANITA & PRIA)
+  // ==========================================
+  {
+    id: "poly_top_feather_dress",
+    name: "White Summer Graphic Slip Dress",
+    category: "atasan",
+    material: "Katun Rayon Combed 30s",
+    breathabilityScore: 94,
+    colorName: "Broken White",
+    colorHex: "#FDFBF7",
+    suitableForSkinTones: ["Fair", "Light", "Medium", "Tan", "Deep"],
+    marketValidation: {
+      estimatedPrice: 130000,
+      searchVolumeTrend: "POLYVORE_CURATED",
+      source: "Polyvore Outfits Dataset"
+    },
+    imageUrl: "https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?w=600&q=80"
+  },
+  {
+    id: "poly_outer_leather_biker",
+    name: "Ruffle Biker Leather Jacket",
+    category: "outer_hijab",
+    material: "Breathable Vegan Leather",
+    breathabilityScore: 78,
+    colorName: "Midnight Black",
+    colorHex: "#1C1C1E",
+    suitableForSkinTones: ["Medium", "Tan", "Deep"],
+    marketValidation: {
+      estimatedPrice: 265000,
+      searchVolumeTrend: "STREETWEAR_TREND",
+      source: "Polyvore Outfits Dataset"
+    },
+    imageUrl: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80"
+  },
+  {
+    id: "poly_bottom_dark_jeans",
+    name: "Straight-Leg Dark Wash Jeans",
+    category: "bawahan",
+    material: "Katun Denim Stretch 12oz",
+    breathabilityScore: 82,
+    colorName: "Dark Indigo",
+    colorHex: "#2C3E50",
+    suitableForSkinTones: ["Fair", "Light", "Medium", "Tan", "Deep"],
+    marketValidation: {
+      estimatedPrice: 175000,
+      searchVolumeTrend: "EVERGREEN_DENIM",
+      source: "Polyvore Outfits Dataset"
+    },
+    imageUrl: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80"
+  },
+  {
+    id: "poly_top_silk_cocktail",
+    name: "Draped Cowl Neck Silk Cocktail Dress",
+    category: "atasan",
+    material: "Silk Satin Twill Halus",
+    breathabilityScore: 88,
+    colorName: "Ice Blue",
+    colorHex: "#A8C7C7",
+    suitableForSkinTones: ["Fair", "Light", "Medium"],
+    marketValidation: {
+      estimatedPrice: 320000,
+      searchVolumeTrend: "FORMAL_GALA",
+      source: "Polyvore Outfits Dataset"
+    },
+    imageUrl: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=600&q=80"
+  },
+  {
+    id: "poly_shoe_wrap_boots",
+    name: "Slouchy Wrap Chunky Ankle Boots",
+    category: "sepatu",
+    material: "Soft Faux Leather Hak Kayu",
+    breathabilityScore: 75,
+    colorName: "Olive Taupe",
+    colorHex: "#6E6859",
+    suitableForSkinTones: ["Fair", "Light", "Medium", "Tan", "Deep"],
+    marketValidation: {
+      estimatedPrice: 210000,
+      searchVolumeTrend: "AUTUMN_TREND",
+      source: "Polyvore Outfits Dataset"
+    },
+    imageUrl: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80"
+  },
+  {
+    id: "myntra_top_oxford_shirt",
+    name: "Kemeja Katun Oxford Sky Blue",
+    category: "atasan",
+    material: "100% Katun Oxford Pin-Point",
+    breathabilityScore: 92,
+    colorName: "Sky Oxford Blue",
+    colorHex: "#87CEEB",
+    suitableForSkinTones: ["Fair", "Light", "Medium", "Tan"],
+    marketValidation: {
+      estimatedPrice: 155000,
+      searchVolumeTrend: "MYNTRA_OFFICE_BEST",
+      source: "Myntra Catalog Dataset"
+    },
+    imageUrl: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80"
+  },
+  {
+    id: "myntra_top_camp_linen",
+    name: "Camp Collar Organic Linen Shirt (Pria)",
+    category: "atasan",
+    material: "100% Pure Organic Linen",
+    breathabilityScore: 98,
+    colorName: "Sage Soft",
+    colorHex: "#91AF90",
+    suitableForSkinTones: ["Fair", "Light", "Medium", "Tan", "Deep"],
+    marketValidation: {
+      estimatedPrice: 145000,
+      searchVolumeTrend: "RESORT_TREND",
+      source: "Myntra Catalog Dataset"
+    },
+    imageUrl: "https://images.unsplash.com/photo-1488161628813-04466f872be2?w=600&q=80"
+  },
+  {
+    id: "myntra_bottom_chino",
+    name: "Slim Tapered Stretch Chino (Pria)",
+    category: "bawahan",
+    material: "Katun Twill Stretch Breathable",
+    breathabilityScore: 88,
+    colorName: "Khaki Sand",
+    colorHex: "#C2B280",
+    suitableForSkinTones: ["Fair", "Light", "Medium", "Tan", "Deep"],
+    marketValidation: {
+      estimatedPrice: 165000,
+      searchVolumeTrend: "EVERGREEN_MENSWEAR",
+      source: "Myntra Catalog Dataset"
+    },
+    imageUrl: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&q=80"
+  },
+  {
+    id: "myntra_shoe_loafers",
+    name: "Leather Penny Loafers Cushioned",
+    category: "sepatu",
+    material: "Microfiber Leather dengan Sol Empuk",
+    breathabilityScore: 78,
+    colorName: "Espresso Brown",
+    colorHex: "#3E2723",
+    suitableForSkinTones: ["Fair", "Light", "Medium", "Tan", "Deep"],
+    marketValidation: {
+      estimatedPrice: 280000,
+      searchVolumeTrend: "FORMAL_MENSWEAR",
+      source: "Myntra Catalog Dataset"
+    },
+    imageUrl: "https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=600&q=80"
   }
 ];
 

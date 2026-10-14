@@ -782,10 +782,434 @@ export const PRESET_OOTD_COLLECTION: Record<string, OOTDRecommendation> = {
       }
     ],
     createdAt: new Date().toISOString(),
-  }
+  },
+
+  // ==========================================
+  // POLYVORE & MYNTRA EXPANSION (FEMALE & MALE)
+  // ==========================================
+  "polyvore_female_01_edgy_streetwear": {
+    id: "polyvore_female_01",
+    title: "Edgy Biker & Dark Denim Streetwear",
+    tagline: "Jaket kulit aksen ruffle dengan celana denim lurus klasik untuk gaya metropolitan berkarakter.",
+    overallVibe: "Urban Streetwear Chic",
+    comfortRating: 4.8,
+    affordabilityRating: 4.5,
+    modestFriendly: true,
+    skinToneMatch: "Sangat proporsional untuk kulit Sawo Matang dan Deep Bronze, menciptakan kontras tegas yang memancarkan aura percaya diri.",
+    whyItWorks: "Kombinasi tekstur jaket kulit berstruktur dengan celana denim katun menyeimbangkan kesan tangguh dan santai, cocok untuk mobilitas urban sore hingga malam.",
+    stylingTip: "Buka sedikit ritsleting jaket dan kenakan kaus katun putih di dalam untuk menciptakan ilusi siluet jenjang.",
+    colorPalette: [
+      { name: "Midnight Black", hex: "#1C1C1E" },
+      { name: "Indigo Denim", hex: "#2C3E50" },
+      { name: "Olive Taupe", hex: "#6E6859" }
+    ],
+    items: [
+      {
+        category: "atasan",
+        name: "Inner Katun Combed 30s Adem",
+        material: "100% Katun Combed Ultra Soft",
+        color: "Clean Broken White",
+        colorHex: "#FDFBF7",
+        estimatedPrice: "Rp 65.000 - 85.000",
+        shopeeQuery: "kaus polos wanita broken white katun combed",
+        tokopediaQuery: "kaos polos katun wanita putih",
+      },
+      {
+        category: "outer_hijab",
+        name: "Ruffle Biker Leather Jacket",
+        material: "Kulit Sintetis Breathable Lembut",
+        color: "Midnight Black",
+        colorHex: "#1C1C1E",
+        estimatedPrice: "Rp 240.000 - 295.000",
+        shopeeQuery: "jaket kulit wanita cropped biker ruffle",
+        tokopediaQuery: "jaket kulit wanita biker casual hitam",
+        imageUrl: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80",
+      },
+      {
+        category: "bawahan",
+        name: "Straight-Leg Dark Wash Jeans",
+        material: "Katun Denim Stretch 12oz",
+        color: "Dark Indigo Blue",
+        colorHex: "#2C3E50",
+        estimatedPrice: "Rp 155.000 - 195.000",
+        shopeeQuery: "celana jeans wanita straight leg dark blue",
+        tokopediaQuery: "celana jeans lurus wanita navy stretch",
+      },
+      {
+        category: "sepatu",
+        name: "Slouchy Wrap Chunky Ankle Boots",
+        material: "Leather Look dengan Hak Tahu & Aksen Tali",
+        color: "Olive Taupe",
+        colorHex: "#6E6859",
+        estimatedPrice: "Rp 190.000 - 235.000",
+        shopeeQuery: "ankle boots wanita hak tahu tali lilit",
+        tokopediaQuery: "sepatu boots wanita heels chunky vintage",
+      }
+    ],
+    createdAt: new Date().toISOString(),
+  },
+
+  "polyvore_female_02_parisian_summer": {
+    id: "polyvore_female_02",
+    title: "Airy Graphic Slip & Knit Cardigan",
+    tagline: "Paduan gaun santai katun bernapas dengan kardigan rajut tipis hitam untuk kenyamanan kafe dan kampus.",
+    overallVibe: "Effortless Parisian Minimalist",
+    comfortRating: 4.9,
+    affordabilityRating: 4.8,
+    modestFriendly: false,
+    skinToneMatch: "Universal untuk semua undertone kulit Indonesia (Kuning Langsat, Sawo Matang, Fair) berkat palet monokrom minimalis.",
+    whyItWorks: "Gaun katun menyerap keringat di bawah terik matahari 33°C, sementara kardigan rajut melindungi kulit dari hembusan pendingin ruangan (AC).",
+    stylingTip: "Gulung sedikit lengan kardigan hingga sepertiga lengan bawah untuk kesan effortless dan dinamis.",
+    colorPalette: [
+      { name: "Clean Broken White", hex: "#FDFBF7" },
+      { name: "Onyx Black", hex: "#181A18" },
+      { name: "Graphite Charcoal", hex: "#2C2C2C" }
+    ],
+    items: [
+      {
+        category: "atasan",
+        name: "White Summer Feather Graphic Tank Dress",
+        material: "Katun Rayon Combed 30s Sejuk",
+        color: "Broken White",
+        colorHex: "#FDFBF7",
+        estimatedPrice: "Rp 115.000 - 145.000",
+        shopeeQuery: "dress santai wanita katun tanpa lengan putih",
+        tokopediaQuery: "dress tank top wanita kasual broken white",
+      },
+      {
+        category: "outer_hijab",
+        name: "Classic V-Neck Knit Button Cardigan",
+        material: "Rajut Katun Halus 12-Gauge Anti-Gerah",
+        color: "Onyx Black",
+        colorHex: "#181A18",
+        estimatedPrice: "Rp 85.000 - 110.000",
+        shopeeQuery: "kardigan rajut wanita v neck kancing hitam",
+        tokopediaQuery: "cardigan knit hitam casual wanita",
+      },
+      {
+        category: "sepatu",
+        name: "Croc-Embossed Strappy Stiletto Sandals",
+        material: "Patent Faux Croc Leather",
+        color: "Glossy Black",
+        colorHex: "#181A18",
+        estimatedPrice: "Rp 165.000 - 210.000",
+        shopeeQuery: "sandal heels tali wanita hitam glossy pesta",
+        tokopediaQuery: "heels tali wanita strappy hitam 7cm",
+      },
+      {
+        category: "aksesoris",
+        name: "Canvas Mini Baguette Shoulder Bag",
+        material: "Thick Natural Canvas with PU Leather Strap",
+        color: "Graphite Sand",
+        colorHex: "#2C2C2C",
+        estimatedPrice: "Rp 45.000 - 69.000",
+        shopeeQuery: "tas baguette kanvas mini aesthetic",
+        tokopediaQuery: "shoulder bag canvas aesthetic",
+      }
+    ],
+    createdAt: new Date().toISOString(),
+  },
+
+  "polyvore_female_03_cocktail_glamour": {
+    id: "polyvore_female_03",
+    title: "Ice Blue Silk Draping & Bolero Luxe",
+    tagline: "Gaun sutra lipit warna ice blue berpadu bolero bulu abu-abu lembut untuk jamuan pesta malam.",
+    overallVibe: "Formal Gala & Cocktail Luxe",
+    comfortRating: 4.7,
+    affordabilityRating: 4.2,
+    modestFriendly: false,
+    skinToneMatch: "Sangat anggun untuk kulit Cool Summer dan Putih Gading, memberikan efek radiant dan glowing yang memikat di bawah pencahayaan pesta.",
+    whyItWorks: "Draping sutra lembut di pinggang membingkai lekuk tubuh secara proporsional, sementara aksen bolero dan stiletto emas menghadirkan dimensi kemewahan.",
+    stylingTip: "Padukan dengan clutch minimalis bernuansa emas atau perak untuk menyelaraskan detail tali sepatu stiletto.",
+    colorPalette: [
+      { name: "Ice Blue Draped Silk", hex: "#A8C7C7" },
+      { name: "Misty Feather Grey", hex: "#8A929A" },
+      { name: "Metallic Gold Leaf", hex: "#D4AF37" }
+    ],
+    items: [
+      {
+        category: "atasan",
+        name: "Draped Cowl Neck Silk Cocktail Dress",
+        material: "Silk Satin Twill Halus & Dingin",
+        color: "Ice Blue",
+        colorHex: "#A8C7C7",
+        estimatedPrice: "Rp 280.000 - 360.000",
+        shopeeQuery: "dress pesta wanita silk satin cowl neck biru",
+        tokopediaQuery: "dress cocktail sutra satin biru muda pesta",
+      },
+      {
+        category: "outer_hijab",
+        name: "Feather Accent Evening Cropped Bolero",
+        material: "Faux Fur / Feather Blended Knit",
+        color: "Misty Grey",
+        colorHex: "#8A929A",
+        estimatedPrice: "Rp 175.000 - 225.000",
+        shopeeQuery: "bolero pesta wanita bulu abu abu elegan",
+        tokopediaQuery: "outer pesta bolero fur grey wanita",
+      },
+      {
+        category: "sepatu",
+        name: "Metallic Gold & Suede Strappy Platform Pumps",
+        material: "Suede Tekstur Halus & Metallic Gold Leather",
+        color: "Black & Gold",
+        colorHex: "#D4AF37",
+        estimatedPrice: "Rp 295.000 - 390.000",
+        shopeeQuery: "heels platform pesta wanita emas hitam elegan",
+        tokopediaQuery: "sepatu hak tinggi stiletto pesta gold black",
+      }
+    ],
+    createdAt: new Date().toISOString(),
+  },
+
+  "polyvore_male_01_smart_blazer": {
+    id: "polyvore_male_01",
+    title: "Metropolitan Oxford & Tailored Chino",
+    tagline: "Kemeja katun oxford sejuk dengan celana chino slim fit dan sepatu kulit monk strap untuk mobilitas kerja modern.",
+    overallVibe: "Smart Executive Menswear",
+    comfortRating: 4.8,
+    affordabilityRating: 4.6,
+    modestFriendly: true,
+    skinToneMatch: "Sangat serasi untuk kulit Sawo Matang dan Kuning Langsat, rona biru muda memberikan kesan berwibawa dan segar.",
+    whyItWorks: "Tenunan katun oxford pin-point memungkinkan udara bersirkulasi saat melangkah di luar gedung, sementara luaran blazer deconstructed memberikan kesan rapi seketika.",
+    stylingTip: "Kancingkan kancing tengah blazer saja saat berdiri, dan biarkan terbuka saat duduk agar kain tidak kusut.",
+    colorPalette: [
+      { name: "Sky Oxford Blue", hex: "#87CEEB" },
+      { name: "Tailored Navy", hex: "#1B2A4A" },
+      { name: "Sand Chino", hex: "#C2B280" }
+    ],
+    items: [
+      {
+        category: "atasan",
+        name: "Kemeja Katun Oxford Pin-Point Breathable",
+        material: "100% Katun Oxford Dingin",
+        color: "Sky Blue",
+        colorHex: "#87CEEB",
+        estimatedPrice: "Rp 135.000 - 175.000",
+        shopeeQuery: "kemeja oxford pria lengan panjang biru muda",
+        tokopediaQuery: "kemeja oxford pria reguler slim biru",
+      },
+      {
+        category: "outer_hijab",
+        name: "Deconstructed Linen-Blend Summer Blazer",
+        material: "Linen Cotton Unlined Breathable",
+        color: "Navy Deep",
+        colorHex: "#1B2A4A",
+        estimatedPrice: "Rp 235.000 - 310.000",
+        shopeeQuery: "blazer pria kasual katun linen navy",
+        tokopediaQuery: "blazer kasual pria navy breathable",
+      },
+      {
+        category: "bawahan",
+        name: "Slim Tapered Stretch Chino Trousers",
+        material: "Katun Twill Stretch 100% Breathable",
+        color: "Khaki Sand",
+        colorHex: "#C2B280",
+        estimatedPrice: "Rp 145.000 - 185.000",
+        shopeeQuery: "celana chino pria slim fit khaki stretch",
+        tokopediaQuery: "celana chino panjang pria khaki",
+      },
+      {
+        category: "sepatu",
+        name: "Leather Penny Loafers with Cushioned Insole",
+        material: "Supple Microfiber Leather",
+        color: "Espresso Brown",
+        colorHex: "#3E2723",
+        estimatedPrice: "Rp 245.000 - 320.000",
+        shopeeQuery: "sepatu loafers pria kulit coklat tua empuk",
+        tokopediaQuery: "loafers pria formal cokelat tua",
+      }
+    ],
+    createdAt: new Date().toISOString(),
+  },
+
+  "polyvore_male_02_coastal_linen": {
+    id: "polyvore_male_02",
+    title: "Coastal Linen Camp Collar & Relaxed Slacks",
+    tagline: "Kemeja linen kerah camp collar berpori alami dengan celana katun rami longgar untuk udara terik 34°C.",
+    overallVibe: "Quiet Luxury Resort Wear",
+    comfortRating: 5.0,
+    affordabilityRating: 4.9,
+    modestFriendly: true,
+    skinToneMatch: "Sempurna untuk kulit Eksotis Tropis dan Sawo Matang, warna tanah alami (earth tone) menyatu harmonis dengan rona kulit.",
+    whyItWorks: "Serat rami dan linen murni memiliki sirkulasi udara 98.4%, melepaskan panas tubuh secara instan dalam cuaca lembap Indonesia.",
+    stylingTip: "Gulung celana santai 1 lipatan kecil di atas mata kaki dan kenakan kacamata hitam berbingkai tortoise.",
+    colorPalette: [
+      { name: "Sage Natural Linen", hex: "#91AF90" },
+      { name: "Oatmeal Cream", hex: "#FAF6EE" },
+      { name: "Terracotta Sand", hex: "#C86D51" }
+    ],
+    items: [
+      {
+        category: "atasan",
+        name: "Camp Collar Organic Linen Shirt",
+        material: "100% Pure Organic Linen",
+        color: "Sage Soft",
+        colorHex: "#91AF90",
+        estimatedPrice: "Rp 135.000 - 175.000",
+        shopeeQuery: "kemeja linen pria camp collar pendek sage",
+        tokopediaQuery: "kemeja pantai linen camp collar pria",
+      },
+      {
+        category: "bawahan",
+        name: "Drawstring Relaxed Fit Linen Pants",
+        material: "Katun Rami Linen Organik",
+        color: "Oatmeal Sand",
+        colorHex: "#FAF6EE",
+        estimatedPrice: "Rp 115.000 - 149.000",
+        shopeeQuery: "celana panjang linen pria drawstring santai",
+        tokopediaQuery: "celana linen pria relaxed fit",
+      },
+      {
+        category: "sepatu",
+        name: "Woven Leather Mules / Casual Espadrilles",
+        material: "Woven Faux Leather dengan Sol Karet",
+        color: "Tan Leather",
+        colorHex: "#8C5A3C",
+        estimatedPrice: "Rp 165.000 - 215.000",
+        shopeeQuery: "sepatu sandal mules pria anyam kulit coklat",
+        tokopediaQuery: "mules pria anyaman santai",
+      }
+    ],
+    createdAt: new Date().toISOString(),
+  },
+
+  "polyvore_male_03_monochrome_streetwear": {
+    id: "polyvore_male_03",
+    title: "Boxy Heavyweight Tee & Utility Raw Denim",
+    tagline: "Kaus boxy katun 24s sejuk dengan celana denim lurus santai dan sneakers retro untuk eksplorasi kota.",
+    overallVibe: "Monochrome Streetwear",
+    comfortRating: 4.9,
+    affordabilityRating: 4.7,
+    modestFriendly: true,
+    skinToneMatch: "Universal untuk semua warna kulit pria, palet monokrom charcoal memberikan siluet bersih dan modern.",
+    whyItWorks: "Potongan boxy drop-shoulder memberikan ruang bernapas ekstra di dada dan bahu sehingga bebas gerak tanpa rasa gerah.",
+    stylingTip: "Padukan dengan kalung rantai perak minimalis dan waistbag kanvas hitam matte.",
+    colorPalette: [
+      { name: "Washed Charcoal", hex: "#2B2B2B" },
+      { name: "Raw Denim Indigo", hex: "#1A2536" },
+      { name: "Chalk White", hex: "#F5F5F5" }
+    ],
+    items: [
+      {
+        category: "atasan",
+        name: "Heavyweight Boxy Drop-Shoulder Tee 24s",
+        material: "Katun Combed 24s Cooltech Adem",
+        color: "Washed Charcoal",
+        colorHex: "#2B2B2B",
+        estimatedPrice: "Rp 79.000 - 105.000",
+        shopeeQuery: "kaos boxy pria heavyweight 24s charcoal",
+        tokopediaQuery: "tshirt boxy oversized pria charcoal",
+      },
+      {
+        category: "outer_hijab",
+        name: "Lightweight Canvas Utility Overshirt",
+        material: "Katun Canvas Baby Sejuk",
+        color: "Steel Grey",
+        colorHex: "#4A5568",
+        estimatedPrice: "Rp 165.000 - 215.000",
+        shopeeQuery: "overshirt jaket pria kanvas kantong depan",
+        tokopediaQuery: "workshirt pria canvas overshirt",
+      },
+      {
+        category: "bawahan",
+        name: "Relaxed Straight-Cut Raw Indigo Jeans",
+        material: "Katun Denim Kaku Nyaman 13oz",
+        color: "Raw Indigo",
+        colorHex: "#1A2536",
+        estimatedPrice: "Rp 175.000 - 225.000",
+        shopeeQuery: "celana jeans pria straight cut raw denim",
+        tokopediaQuery: "celana jeans lurus pria raw indigo",
+      },
+      {
+        category: "sepatu",
+        name: "Retro Skater Low-Top Canvas Sneakers",
+        material: "Breathable Canvas with Vulcanized Sole",
+        color: "Chalk White",
+        colorHex: "#F5F5F5",
+        estimatedPrice: "Rp 185.000 - 245.000",
+        shopeeQuery: "sepatu sneakers pria kanvas retro putih",
+        tokopediaQuery: "sneakers kanvas putih retro pria",
+      }
+    ],
+    createdAt: new Date().toISOString(),
+  },
+
 };
 
 export const TRENDING_LOOKS_FEED: TrendingLook[] = [
+  {
+    id: "trend_poly_f1",
+    title: "Edgy Biker & Dark Denim",
+    vibe: "Urban Streetwear",
+    tag: "POLYVORE EDIT",
+    category: "Streetwear",
+    skinToneRecommendation: "Sawo Matang & Deep Bronze",
+    priceRange: "Rp 240rb - 320rb / Set",
+    image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&auto=format&fit=crop&q=80",
+    likes: 1140,
+    outfit: PRESET_OOTD_COLLECTION["polyvore_female_01_edgy_streetwear"]
+  },
+  {
+    id: "trend_poly_f2",
+    title: "Airy Graphic Slip & Knit",
+    vibe: "Parisian Minimalist",
+    tag: "SUMMER HIT",
+    category: "Weekend & Cafe",
+    skinToneRecommendation: "Semua Tone Kulit (Universal)",
+    priceRange: "Rp 190rb - 280rb / Set",
+    image: "https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?w=600&auto=format&fit=crop&q=80",
+    likes: 985,
+    outfit: PRESET_OOTD_COLLECTION["polyvore_female_02_parisian_summer"]
+  },
+  {
+    id: "trend_poly_f3",
+    title: "Ice Blue Silk Draping",
+    vibe: "Cocktail Luxe",
+    tag: "GALA EDIT",
+    category: "Reception & Pesta",
+    skinToneRecommendation: "Cool Summer & Putih Gading",
+    priceRange: "Rp 350rb - 520rb / Set",
+    image: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=600&auto=format&fit=crop&q=80",
+    likes: 890,
+    outfit: PRESET_OOTD_COLLECTION["polyvore_female_03_cocktail_glamour"]
+  },
+  {
+    id: "trend_poly_m1",
+    title: "Metropolitan Oxford Chino",
+    vibe: "Smart Menswear",
+    tag: "MYNTRA EDIT",
+    category: "Work & Meeting",
+    skinToneRecommendation: "Sawo Matang & Kuning Langsat",
+    priceRange: "Rp 280rb - 390rb / Set",
+    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&auto=format&fit=crop&q=80",
+    likes: 820,
+    outfit: PRESET_OOTD_COLLECTION["polyvore_male_01_smart_blazer"]
+  },
+  {
+    id: "trend_poly_m2",
+    title: "Coastal Linen Camp Collar",
+    vibe: "Quiet Luxury Pria",
+    tag: "RESORT PICK",
+    category: "Weekend & Cafe",
+    skinToneRecommendation: "Eksotis Tropis & Sawo Matang",
+    priceRange: "Rp 230rb - 320rb / Set",
+    image: "https://images.unsplash.com/photo-1488161628813-04466f872be2?w=600&auto=format&fit=crop&q=80",
+    likes: 940,
+    outfit: PRESET_OOTD_COLLECTION["polyvore_male_02_coastal_linen"]
+  },
+  {
+    id: "trend_poly_m3",
+    title: "Heavyweight Boxy Streetwear",
+    vibe: "Streetwear Pria",
+    tag: "URBAN HIT",
+    category: "Streetwear",
+    skinToneRecommendation: "Semua Tone Kulit Pria",
+    priceRange: "Rp 195rb - 290rb / Set",
+    image: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=600&auto=format&fit=crop&q=80",
+    likes: 1075,
+    outfit: PRESET_OOTD_COLLECTION["polyvore_male_03_monochrome_streetwear"]
+  },
+
   {
     id: "trend_01",
     title: "Casual Campus Chiffon",
@@ -991,13 +1415,17 @@ export function generateHeuristicOOTD(pref: UserPreferences): OOTDRecommendation
       if (pref.occasion === "kondangan") selectedId = "kondangan_hijab_formal_menengah";
       else if (pref.occasion === "kantor") selectedId = "scbd_corporate_blazer";
       else if (pref.occasion === "kuliah") selectedId = "kuliah_hijab_panas_hemat";
+      else if (pref.vibe === "streetwear") selectedId = "polyvore_female_01_edgy_streetwear";
       else if (pref.weather === "hujan_dingin") selectedId = "rainy_cardigan_cozy";
       else if (pref.vibe === "smart_formal") selectedId = "tailored_vest_chic";
       else selectedId = "modest_pastel_date";
     } else {
-      if (pref.occasion === "santai_rumah" && pref.vibe === "earthy_minimalist") selectedId = "old_money_coastal";
+      if (pref.occasion === "kondangan" || (pref.vibe === "smart_formal" && pref.budget === "premium")) selectedId = "polyvore_female_03_cocktail_glamour";
+      else if (pref.vibe === "streetwear") selectedId = "polyvore_female_01_edgy_streetwear";
+      else if (pref.occasion === "kuliah" || pref.vibe === "casual_clean") selectedId = "polyvore_female_02_parisian_summer";
+      else if (pref.occasion === "santai_rumah" && pref.vibe === "earthy_minimalist") selectedId = "old_money_coastal";
       else if (pref.occasion === "kantor") selectedId = "scbd_corporate_blazer";
-      else if (pref.vibe === "vintage_retro" || pref.vibe === "streetwear") selectedId = "blok_m_indie_streetwear";
+      else if (pref.vibe === "vintage_retro") selectedId = "blok_m_indie_streetwear";
       else if (pref.occasion === "dating") selectedId = "senopati_brunch_knit";
       else if (pref.occasion === "olahraga") selectedId = "athleisure_cafe_run";
       else if (pref.vibe === "korean_soft") selectedId = "hangout_nonhijab_panas_menengah";
@@ -1006,10 +1434,11 @@ export function generateHeuristicOOTD(pref: UserPreferences): OOTDRecommendation
     }
   } else {
     // Male
-    if (pref.occasion === "kantor" || pref.vibe === "smart_formal") selectedId = "kantor_pria_ac_menengah";
+    if (pref.occasion === "kantor" || pref.vibe === "smart_formal") selectedId = "polyvore_male_01_smart_blazer";
     else if (pref.occasion === "kondangan") selectedId = "kondangan_batik_modern_pria";
-    else if (pref.occasion === "hangout" || pref.weather === "panas_terik") selectedId = "bali_jogja_resort_linen";
-    else if (pref.vibe === "streetwear") selectedId = "monochrome_boxy_pria";
+    else if (pref.vibe === "earthy_minimalist" || pref.weather === "panas_terik") selectedId = "polyvore_male_02_coastal_linen";
+    else if (pref.vibe === "streetwear") selectedId = "polyvore_male_03_monochrome_streetwear";
+    else if (pref.occasion === "hangout") selectedId = "bali_jogja_resort_linen";
     else selectedId = "old_money_coastal";
   }
 

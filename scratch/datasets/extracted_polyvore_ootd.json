@@ -1,0 +1,209 @@
+{
+  "source": "Google Drive Folder: ootd (16uK0GdFAOF7BkVRV3MHcuHNMWvsYfvn7)",
+  "benchmarkDataset": "Polyvore Outfits Dataset (Vasileva et al., ECCV 2018)",
+  "genderTarget": "female",
+  "extractedTotalItems": 204,
+  "categories": [
+    "dress",
+    "outwear",
+    "pants",
+    "shoes"
+  ],
+  "curatedOutfits": [
+    {
+      "id": "polyvore_female_01_edgy_streetwear",
+      "title": "Edgy Biker & Dark Denim Streetwear",
+      "tagline": "Jaket kulit aksen ruffle dengan celana denim lurus klasik untuk gaya metropolitan berkarakter.",
+      "overallVibe": "streetwear",
+      "styleCategory": "Urban Metropolitan",
+      "comfortRating": 4.8,
+      "affordabilityRating": 4.5,
+      "modestFriendly": true,
+      "skinToneMatch": "Sangat proporsional untuk kulit Sawo Matang dan Deep Bronze, menciptakan kontras tegas yang memancarkan aura percaya diri.",
+      "whyItWorks": "Kombinasi tekstur jaket kulit berstruktur dengan celana denim katun menyeimbangkan kesan tangguh dan santai, cocok untuk mobilitas urban sore hingga malam.",
+      "stylingTip": "Buka sedikit ritsleting jaket dan kenakan kaus katun putih di dalam untuk menciptakan ilusi siluet jenjang.",
+      "colorPalette": [
+        {
+          "name": "Midnight Black",
+          "hex": "#1C1C1E"
+        },
+        {
+          "name": "Indigo Denim",
+          "hex": "#2C3E50"
+        },
+        {
+          "name": "Olive Taupe",
+          "hex": "#6E6859"
+        }
+      ],
+      "items": [
+        {
+          "category": "outer_hijab",
+          "name": "Miu Miu Ruffle Biker Leather Jacket",
+          "material": "Kulit Sintetis Premium Breathable",
+          "color": "Midnight Black",
+          "colorHex": "#1C1C1E",
+          "estimatedPrice": "Rp 265.000",
+          "shopeeQuery": "jaket kulit wanita cropped ruffle biker",
+          "tokopediaQuery": "jaket kulit wanita biker hitam casual",
+          "driveFileId": "1T864rJcj4Txf48-N1L7xM4Y2VFL-jnEo",
+          "sourceFilename": "outwear_4715516_2.jpg"
+        },
+        {
+          "category": "bawahan",
+          "name": "Classic Straight-Leg Dark Wash Jeans",
+          "material": "Katun Denim Stretch 12oz",
+          "color": "Dark Indigo Blue",
+          "colorHex": "#2C3E50",
+          "estimatedPrice": "Rp 175.000",
+          "shopeeQuery": "celana jeans wanita straight leg dark blue",
+          "tokopediaQuery": "celana jeans lurus wanita navy stretch",
+          "driveFileId": "1Ywy12O8PexlqgVrTl7C3KR6LJCpchHf3",
+          "sourceFilename": "pants_4715516_3.jpg"
+        },
+        {
+          "category": "sepatu",
+          "name": "Slouchy Leather Wrap Chunky Ankle Boots",
+          "material": "Leather Look dengan Tali Lilit & Hak Kayu",
+          "color": "Olive Taupe",
+          "colorHex": "#6E6859",
+          "estimatedPrice": "Rp 210.000",
+          "shopeeQuery": "ankle boots wanita hak tahu tali lilit",
+          "tokopediaQuery": "sepatu boots wanita heels chunky vintage",
+          "driveFileId": "1gzAgWBfYrQDHX_vnT8gSEtfNwNM9hEN7",
+          "sourceFilename": "shoes_10061164_2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "polyvore_female_02_parisian_summer",
+      "title": "Airy Graphic Slip & Knit Cardigan",
+      "tagline": "Paduan gaun santai katun bernapas dengan kardigan rajut tipis hitam untuk kenyamanan kafe dan kampus.",
+      "overallVibe": "casual_clean",
+      "styleCategory": "Casual Campus & Cafe",
+      "comfortRating": 4.9,
+      "affordabilityRating": 4.8,
+      "modestFriendly": false,
+      "skinToneMatch": "Universal untuk semua undertone kulit Indonesia (Kuning Langsat, Sawo Matang, Fair) berkat palet monokrom minimalis.",
+      "whyItWorks": "Gaun katun menyerap keringat di bawah terik matahari 33°C, sementara kardigan rajut melindungi kulit dari hembusan pendingin ruangan (AC).",
+      "stylingTip": "Gulung sedikit lengan kardigan hingga sepertiga lengan bawah untuk kesan effortless dan dinamis.",
+      "colorPalette": [
+        {
+          "name": "Clean Broken White",
+          "hex": "#FDFBF7"
+        },
+        {
+          "name": "Onyx Black",
+          "hex": "#181A18"
+        },
+        {
+          "name": "Graphite Charcoal",
+          "hex": "#2C2C2C"
+        }
+      ],
+      "items": [
+        {
+          "category": "atasan",
+          "name": "White Summer Feather Graphic Tank Dress",
+          "material": "Katun Rayon Combed 30s Adem",
+          "color": "Broken White",
+          "colorHex": "#FDFBF7",
+          "estimatedPrice": "Rp 125.000",
+          "shopeeQuery": "dress santai wanita katun tanpa lengan putih",
+          "tokopediaQuery": "dress tank top wanita kasual broken white",
+          "driveFileId": "13rWnt20ME4GBWEamTsvdMNyy6RPTLQ9U",
+          "sourceFilename": "dress_6467788_1.jpg"
+        },
+        {
+          "category": "outer_hijab",
+          "name": "Classic V-Neck Knit Button Cardigan",
+          "material": "Rajut Katun Halus 12 Gauge (Tidak Gerah)",
+          "color": "Onyx Black",
+          "colorHex": "#181A18",
+          "estimatedPrice": "Rp 95.000",
+          "shopeeQuery": "kardigan rajut wanita v neck kancing hitam",
+          "tokopediaQuery": "cardigan knit hitam casual wanita",
+          "driveFileId": "14IgGJncfU-x3OnnpNy-R57L3sq7lbhwt",
+          "sourceFilename": "outwear_6467788_2.jpg"
+        },
+        {
+          "category": "sepatu",
+          "name": "Croc-Embossed Strappy Stiletto Sandals",
+          "material": "Patent Faux Croc Leather",
+          "color": "Glossy Black",
+          "colorHex": "#181A18",
+          "estimatedPrice": "Rp 185.000",
+          "shopeeQuery": "sandal heels tali wanita hitam glossy pesta",
+          "tokopediaQuery": "heels tali wanita strappy hitam 7cm",
+          "driveFileId": "1ttxA1ls6zZPXHcLtl_5e65xEyBK-fizX",
+          "sourceFilename": "shoes_10050211_3.jpg"
+        }
+      ]
+    },
+    {
+      "id": "polyvore_female_03_cocktail_glamour",
+      "title": "Ice Blue Silk Draping & Bolero Luxe",
+      "tagline": "Gaun sutra lipit warna ice blue berpadu bolero bulu abu-abu lembut untuk jamuan pesta malam.",
+      "overallVibe": "smart_formal",
+      "styleCategory": "Formal Gala & Evening Party",
+      "comfortRating": 4.7,
+      "affordabilityRating": 4.2,
+      "modestFriendly": false,
+      "skinToneMatch": "Sangat anggun untuk kulit Cool Summer dan Putih Gading, memberikan efek radiant dan glowing yang memikat di bawah pencahayaan lampu pesta.",
+      "whyItWorks": "Draping sutra lembut di pinggang membingkai lekuk tubuh secara proporsional, sementara aksen bolero dan stiletto emas menghadirkan dimensi kemewahan.",
+      "stylingTip": "Padukan dengan clutch minimalis bernuansa emas atau perak untuk menyelaraskan detail tali sepatu stiletto.",
+      "colorPalette": [
+        {
+          "name": "Ice Blue Draped Silk",
+          "hex": "#A8C7C7"
+        },
+        {
+          "name": "Misty Feather Grey",
+          "hex": "#8A929A"
+        },
+        {
+          "name": "Metallic Gold Leaf",
+          "hex": "#D4AF37"
+        }
+      ],
+      "items": [
+        {
+          "category": "atasan",
+          "name": "Draped Ruched Cowl Neck Silk Cocktail Dress",
+          "material": "Silk Satin Twill Lembut & Dingin",
+          "color": "Ice Blue",
+          "colorHex": "#A8C7C7",
+          "estimatedPrice": "Rp 320.000",
+          "shopeeQuery": "dress pesta wanita silk satin cowl neck biru",
+          "tokopediaQuery": "dress cocktail sutra satin biru muda pesta",
+          "driveFileId": "1CTf9RsO9JBF1hanWYSY3DsjqbAEBUse1",
+          "sourceFilename": "dress_4204133_1.jpg"
+        },
+        {
+          "category": "outer_hijab",
+          "name": "Feather Accent Evening Cropped Bolero",
+          "material": "Faux Fur / Feather Blended Knit",
+          "color": "Misty Grey",
+          "colorHex": "#8A929A",
+          "estimatedPrice": "Rp 195.000",
+          "shopeeQuery": "bolero pesta wanita bulu abu abu elegan",
+          "tokopediaQuery": "outer pesta bolero fur grey wanita",
+          "driveFileId": "1jfKXaRVMTgTb61x1LN6aOfo3geZkuUKM",
+          "sourceFilename": "outwear_4204133_2.jpg"
+        },
+        {
+          "category": "sepatu",
+          "name": "Christian Louboutin Suede & Metallic Gold Strappy Platform",
+          "material": "Suede Tekstur Halus & Metallic Gold Leather",
+          "color": "Black & Gold",
+          "colorHex": "#D4AF37",
+          "estimatedPrice": "Rp 350.000",
+          "shopeeQuery": "heels platform pesta wanita emas hitam elegan",
+          "tokopediaQuery": "sepatu hak tinggi stiletto pesta gold black",
+          "driveFileId": "1_rEUDVGQDcR5LrFRi5kSQ52deR-taZPu",
+          "sourceFilename": "shoes_10005935_2.jpg"
+        }
+      ]
+    }
+  ]
+}

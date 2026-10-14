@@ -25,6 +25,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "images.tokopedia.net",
       },
+      {
+        protocol: "https",
+        hostname: "drive.google.com",
+      },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+      },
     ],
   },
 };
