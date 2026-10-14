@@ -28,11 +28,10 @@ export default function LookbookPage() {
     <div className="min-h-screen flex flex-col bg-[#FAF8F5] pb-20 md:pb-0">
       <Navbar />
       {/* Main Content Area */}
-      <main className="flex-1 max-w-md md:max-w-6xl mx-auto px-4 md:px-6 lg:px-8 pt-3 pb-8 w-full space-y-8">
+      <main className="flex-1 w-full">
         {/* Full Interactive Trending Feed Component */}
         <TrendingFeed isStandalone={true} onSelectLook={handleSelectLook} />
-
-        </main>
+      </main>
 
       {/* Docked Native Bottom Navigation Bar */}
       
