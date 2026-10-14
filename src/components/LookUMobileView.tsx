@@ -593,7 +593,7 @@ export default function LookUMobileView({
               </div>
 
               {/* METADATA DI LUAR FOTO (Rahasia Uniqlo agar foto tampil bernafas) */}
-              <div className="pt-3 pb-3 border-b border-[#181A18]/10 flex items-start justify-between gap-4 bg-white/40 px-2 rounded-b-xl">
+              <div className="pt-3 pb-3 border-b border-[#181A18]/10 flex items-start justify-between gap-4 bg-white/40 px-2 rounded-none">
                 <div>
                   {/* Dot Swatches Warna ala Uniqlo */}
                   <div className="flex items-center gap-1.5 mb-1.5">
