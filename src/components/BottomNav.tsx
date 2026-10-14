@@ -44,45 +44,43 @@ export default function BottomNav() {
   return (
     <nav
       aria-label="Navigasi Utama"
-      className="md:hidden fixed bottom-0 left-0 right-0 z-40 w-full select-none pointer-events-auto bg-white border-t border-[#E8DFD1]"
+      className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-[92%] max-w-sm rounded-full bg-[#181A18]/95 text-[#FAF8F5] backdrop-blur-md shadow-2xl px-3 py-1.5 border border-white/10 select-none pointer-events-auto"
     >
-      <div className="pb-[max(8px,env(safe-area-inset-bottom,0px))]">
-        <div className="flex items-center justify-around h-[48px] w-full">
-          {navItems.map((item) => {
-            const isActive = activeTab === item.id;
-            const Icon = item.icon;
+      <div className="flex items-center justify-around h-[46px] w-full">
+        {navItems.map((item) => {
+          const isActive = activeTab === item.id;
+          const Icon = item.icon;
 
-            return (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item.id, item.href)}
-                aria-label={item.label}
-                className="flex items-center justify-center flex-1 h-full relative"
-              >
-                <div className="relative flex flex-col items-center justify-center">
+          return (
+            <button
+              key={item.id}
+              onClick={() => handleNavClick(item.id, item.href)}
+              aria-label={item.label}
+              className="flex items-center justify-center flex-1 h-full relative"
+            >
+              <div className="relative flex flex-col items-center justify-center">
+                <motion.div
+                  whileTap={{ scale: 0.85 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                >
+                  <Icon
+                    className={`w-[22px] h-[22px] transition-all duration-200 ${
+                      isActive ? "text-white" : "text-white/40"
+                    }`}
+                    strokeWidth={isActive ? 2.5 : 1.5}
+                    fill="none"
+                  />
+                </motion.div>
+                {isActive && (
                   <motion.div
-                    whileTap={{ scale: 0.85 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  >
-                    <Icon
-                      className={`w-[24px] h-[24px] transition-all duration-200 ${
-                        isActive ? "text-charcoal-900" : "text-charcoal-900/40"
-                      }`}
-                      strokeWidth={isActive ? 2.5 : 1.5}
-                      fill="none"
-                    />
-                  </motion.div>
-                  {isActive && (
-                    <motion.div
-                      layoutId="bottom-nav-active-dot"
-                      className="w-1 h-1 bg-terracotta-500 rounded-full mt-0.5"
-                    />
-                  )}
-                </div>
-              </button>
-            );
-          })}
-        </div>
+                    layoutId="bottom-nav-active-dot"
+                    className="w-1.5 h-1.5 bg-terracotta-400 rounded-full mt-0.5"
+                  />
+                )}
+              </div>
+            </button>
+          );
+        })}
       </div>
     </nav>
   );

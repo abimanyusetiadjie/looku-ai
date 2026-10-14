@@ -232,46 +232,54 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
 ];
 
 // Data Tren Mingguan Horisontal
-const TRENDING_OOTD_LIST = [
+const TROPICAL_EDIT_LIST = [
   {
-    id: "tren-1",
-    judul: "Hangout Senopati",
-    kategori: "Kasual Kafe",
-    rentangHarga: "Rp 240rb - 350rb",
-    sirkulasi: "Katun Dingin",
-    tagModest: "Hijab Friendly",
+    id: "trop-1",
+    judul: "Linen Camp Collar Shirt",
+    kategori: "Atasan Kasual",
+    rentangHarga: "Rp 189.000",
+    climateBadge: "Optimal 33°C · Katun Rayon",
+    swatches: ["#FAF6EE", "#8FA98D", "#D4A373"],
+    undertoneTag: "Warm Spring",
+    fabricNote: "Katun Rayon Twill · Dingin",
     studioParam: "hangout_nonhijab_panas_menengah",
+    gambar: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=600&auto=format&fit=crop&q=80",
+  },
+  {
+    id: "trop-2",
+    judul: "Wide-Leg Flowy Pants",
+    kategori: "Bawahan Longgar",
+    rentangHarga: "Rp 215.000",
+    climateBadge: "Anti-Gerah · Rayon Dingin",
+    swatches: ["#FAF6EE", "#D4A373", "#242724"],
+    undertoneTag: "Warm Autumn",
+    fabricNote: "Rayon Twill · Potongan Loose",
+    studioParam: "santai_weekend_kafe",
+    gambar: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&auto=format&fit=crop&q=80",
+  },
+  {
+    id: "trop-3",
+    judul: "Voal Paris Square Hijab",
+    kategori: "Hijab & Aksesori",
+    rentangHarga: "Rp 85.000",
+    climateBadge: "Pori Mikro · Voal 100%",
+    swatches: ["#FDFBF7", "#91AF90", "#DECBA6"],
+    undertoneTag: "Semua Tone",
+    fabricNote: "Voal Ultrafine · Sangat Ringan",
+    studioParam: "kuliah_hijab_panas_hemat",
     gambar: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600&auto=format&fit=crop&q=80",
   },
   {
-    id: "tren-2",
-    judul: "SCBD Smart Chic",
-    kategori: "Kantor & Rapat",
-    rentangHarga: "Rp 280rb - 390rb",
-    sirkulasi: "AC & Terik",
-    tagModest: "Formal Santun",
-    studioParam: "kantor_scbd_formal",
-    gambar: "https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=600&auto=format&fit=crop&q=80",
-  },
-  {
-    id: "tren-3",
-    judul: "Santai Senopati Matcha",
-    kategori: "Akhir Pekan",
-    rentangHarga: "Rp 210rb - 295rb",
-    sirkulasi: "Linen Ringan",
-    tagModest: "Gaya Rileks",
-    studioParam: "santai_weekend_kafe",
-    gambar: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
-  },
-  {
-    id: "tren-4",
-    judul: "Kondangan Pastel Modest",
-    kategori: "Pesta Santun",
-    rentangHarga: "Rp 320rb - 450rb",
-    sirkulasi: "Sutra Ceruty",
-    tagModest: "100% Modest",
+    id: "trop-4",
+    judul: "Tunik Rayon Panjang",
+    kategori: "Tunik Modest",
+    rentangHarga: "Rp 95.000",
+    climateBadge: "AC & Terik · 100% Modest",
+    swatches: ["#6B705C", "#FAF6EE", "#242724"],
+    undertoneTag: "Kuning Langsat",
+    fabricNote: "Katun Rami Organik · Cepat Kering",
     studioParam: "kondangan_hijab_pastel",
-    gambar: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&auto=format&fit=crop&q=80",
+    gambar: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&auto=format&fit=crop&q=80",
   },
 ];
 
@@ -501,6 +509,24 @@ export default function LookUMobileView({
           {/* 1. EDITORIAL HERO (Visual-First Card & Thumb-Zone CTAs)      */}
           {/* ============================================================ */}
           <section aria-label="Editorial Brand Hero" className="px-4 pt-1 pb-2 w-full flex flex-col gap-3">
+            {/* Interactive AI Context Strip */}
+            <div 
+              onClick={() => {
+                if (onOpenQuiz) onOpenQuiz();
+                else router.push("/?quiz=true");
+              }}
+              className="w-full flex items-center justify-between px-3.5 py-2 rounded-full bg-sand-100/90 border border-sand-300 text-xs shadow-2xs cursor-pointer active:scale-[0.99] transition-transform"
+            >
+              <span className="font-medium text-[#181A18] truncate flex items-center gap-1.5">
+                <span>☀️</span>
+                <span>Rekomendasi Hari Ini:</span>
+                <strong className="text-terracotta-600 font-bold">{weather.location} {weather.temperature}°C · Adem</strong>
+              </span>
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-terracotta-700 bg-terracotta-50 px-2 py-0.5 rounded-full border border-terracotta-200 shrink-0 ml-2">
+                Ubah Filter
+              </span>
+            </div>
+
             {/* Live Climate GPS Sensor Pill + Brand Headline */}
             <div className="flex flex-col items-center text-center gap-1.5 pt-1">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sand-100 border border-sand-300 text-[10px] font-mono font-bold text-charcoal-900 tracking-wider shadow-2xs">
@@ -723,69 +749,76 @@ export default function LookUMobileView({
           </section>
 
           {/* ============================================================ */}
-          {/* 4. TRENDING CAROUSEL (Horizontal Scroll Snap-X)             */}
+          {/* 4. THE TROPICAL EDIT (Disiplin 2 Kolom Uniqlo Grade)         */}
           {/* ============================================================ */}
-          <section aria-label="Tren OOTD Minggu Ini" className="space-y-3">
-            <div className="flex items-center justify-between px-0.5">
+          <section aria-label="The Tropical Edit" className="space-y-3">
+            <div className="flex items-end justify-between px-0.5">
               <div>
-                <h3 className="text-base font-bold text-[#181A18] flex items-center gap-1.5">
-                  <span>Tren OOTD Minggu Ini 🔥</span>
-                </h3>
-                <p className="text-xs text-sand-500 mt-0.5">
-                  Favorit pekan ini untuk cuaca 33°C &amp; hangout kafe
+                <p className="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-terracotta-600 mb-0.5">
+                  Curated by AI
                 </p>
+                <h3 className="text-base font-bold text-[#181A18] font-serif">
+                  The Tropical Edit
+                </h3>
               </div>
               
               <button 
                 type="button"
                 onClick={() => router.push("/lookbook")}
-                className="text-xs font-bold text-sage-700 hover:text-sage-800 flex items-center min-h-[44px] px-1"
+                className="text-xs font-semibold text-charcoal-900/70 hover:text-charcoal-900 underline underline-offset-4 flex items-center min-h-[44px] px-1"
               >
-                Lihat Semua <ChevronRight className="w-3.5 h-3.5 ml-0.5" />
+                Lihat Semua
               </button>
             </div>
 
-            <div className="flex gap-3.5 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-2 -mx-4 px-4 pt-1">
-              {TRENDING_OOTD_LIST.map((item) => (
+            <div className="grid grid-cols-2 gap-2.5 pt-1">
+              {TROPICAL_EDIT_LIST.map((item) => (
                 <div
                   key={item.id}
-                  onClick={() => {
-                    handleOpenOutfitDetails({
-                      ...heroOutfit,
-                      id: item.id,
-                      judul: item.judul,
-                      subjudul: item.tagModest,
-                      gambar: item.gambar,
-                      rentangHarga: item.rentangHarga,
-                      studioParam: item.studioParam,
-                    });
-                  }}
-                  className="snap-start shrink-0 w-[185px] bg-white rounded-2xl border border-[#E8DFD1] overflow-hidden shadow-2xs hover:shadow-tactile active:scale-[0.98] transition-all cursor-pointer flex flex-col justify-between"
+                  onClick={() => router.push(`/studio?look=${item.studioParam}`)}
+                  className="group flex flex-col bg-white rounded-2xl border border-[#E8DFD1] p-2 hover:shadow-tactile active:scale-[0.98] transition-all cursor-pointer"
                 >
-                  <div className="relative w-full aspect-[4/4.5] bg-stone-100 overflow-hidden">
+                  {/* 1. Foto Rasio Mutlak 4:5 */}
+                  <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-[#EFECE6]">
                     <Image
                       src={item.gambar}
                       alt={item.judul}
                       fill
-                      className="object-cover object-center group-hover:scale-105 transition-transform"
-                      sizes="185px"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 480px) 50vw, 200px"
                     />
-                    <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/50 backdrop-blur-xs text-white text-[9px] font-bold">
-                      {item.sirkulasi}
+                    {/* 2. Badge Iklim/Bahan ala Uniqlo AIRism */}
+                    <div className="absolute bottom-2 left-2 right-2">
+                      <span className="inline-block px-2 py-0.5 text-[8px] font-mono font-bold uppercase tracking-wider bg-[#FAF8F5]/90 backdrop-blur-xs text-[#181A18] rounded shadow-2xs">
+                        {item.climateBadge}
+                      </span>
                     </div>
                   </div>
 
-                  <div className="p-3 space-y-1">
-                    <span className="text-[9px] font-bold text-sage-600 uppercase tracking-wider block">
-                      {item.kategori}
+                  {/* 3. Dot Swatches Palet Warna Harmonis (3 Titik) */}
+                  <div className="flex items-center gap-1.5 mt-2 mb-1">
+                    {item.swatches.map((hex, idx) => (
+                      <span
+                        key={idx}
+                        className="w-2.5 h-2.5 rounded-full border border-black/20 shadow-2xs"
+                        style={{ backgroundColor: hex }}
+                      />
+                    ))}
+                    <span className="text-[9px] text-[#181A18]/60 ml-0.5 font-medium truncate">
+                      {item.undertoneTag}
                     </span>
-                    <h4 className="text-xs font-bold text-[#181A18] line-clamp-1 leading-snug">
-                      {item.judul}
-                    </h4>
-                    <p className="text-[11px] font-semibold text-stone-600 pt-0.5">
-                      {item.rentangHarga}
-                    </p>
                   </div>
+
+                  {/* 4. Tipografi Terkunci (Anti Tinggi Belang) */}
+                  <h4 className="text-xs font-bold text-[#181A18] line-clamp-1 leading-snug">
+                    {item.judul}
+                  </h4>
+                  <p className="text-[10px] text-[#181A18]/60 line-clamp-1 mt-0.5">
+                    {item.fabricNote}
+                  </p>
+                  <p className="text-[11px] font-mono font-bold text-[#181A18] pt-1 mt-auto">
+                    {item.rentangHarga}
+                  </p>
                 </div>
               ))}
             </div>
