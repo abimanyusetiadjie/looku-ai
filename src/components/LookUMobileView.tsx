@@ -418,26 +418,38 @@ export default function LookUMobileView({
   };
 
   return (
-    <div className="relative w-full min-h-screen bg-[#FAF8F5] text-[#181A18] font-sans antialiased selection:bg-sage-200 flex flex-col items-center justify-start">
+    <div className="relative w-full min-h-[100dvh] bg-[#FAF8F5] text-[#181A18] font-sans antialiased selection:bg-sage-200 flex flex-col items-center justify-start">
       {/* Kontainer Layar Ponsel (max-w-md mx-auto) */}
-      <div className="w-full max-w-md min-h-screen bg-[#FAF8F5] border-x border-[#E8DFD1]/50 shadow-2xl relative flex flex-col pb-24">
+      <div className="w-full max-w-md min-h-[100dvh] bg-[#FAF8F5] border-x border-[#E8DFD1]/50 shadow-2xl relative flex flex-col pb-28">
         
         {/* ============================================================ */}
         {/* 1. HEADER ATAS (Sticky / Safe Area dengan Brand look.u)       */}
         {/* ============================================================ */}
-        <header className="sticky top-0 z-30 w-full bg-white px-4 pt-[max(16px,env(safe-area-inset-top))] pb-4 transition-all flex items-center justify-between border-b border-[#F0EBE1]">
+        <header className="sticky top-0 z-30 w-full bg-white/95 backdrop-blur-md px-4 pt-[max(10px,env(safe-area-inset-top))] pb-2.5 transition-all flex items-center justify-between border-b border-[#F0EBE1]">
           <button onClick={() => setIsMobileMenuOpen(true)} className="p-2 -ml-2 text-charcoal-900" aria-label="Menu">
             <Menu className="w-5 h-5 stroke-[1.5]" />
           </button>
           
-          <div className="font-serif font-medium text-3xl tracking-[0.05em] text-[#181A18] flex items-baseline select-none">Look<span className="text-terracotta-500 font-bold">.</span>u</div>
+          <div className="flex flex-col items-center select-none">
+            <div className="font-serif font-medium text-2xl tracking-[0.05em] text-[#181A18] leading-tight">
+              Look<span className="text-terracotta-500 font-bold">.</span>u
+            </div>
+            <span className="text-[9px] font-sans font-medium uppercase tracking-[0.18em] text-sand-500 -mt-0.5">
+              Tropical AI Stylist
+            </span>
+          </div>
           
           <div className="flex items-center gap-4">
-            <button className="text-charcoal-900" aria-label="Search">
+            <button onClick={() => router.push("/lookbook")} className="text-charcoal-900 p-1.5" aria-label="Cari Lookbook">
               <Search className="w-5 h-5 stroke-[1.5]" />
             </button>
-            <button onClick={onOpenSavedDrawer} className="text-charcoal-900" aria-label="Bag">
+            <button onClick={onOpenSavedDrawer} className="text-charcoal-900 p-1.5 relative" aria-label="Lemari Koleksi">
               <ShoppingBag className="w-5 h-5 stroke-[1.5]" />
+              {savedCount !== undefined && savedCount > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-terracotta-600 text-white rounded-full text-[9px] font-bold font-mono flex items-center justify-center shadow-xs">
+                  {savedCount}
+                </span>
+              )}
             </button>
           </div>
         </header>
@@ -486,89 +498,39 @@ export default function LookUMobileView({
         <main className="flex-1 w-full space-y-6">
           
           {/* ============================================================ */}
-          {/* 1. EDITORIAL BRAND HERO (Value Proposition Above The Fold)   */}
+          {/* 1. EDITORIAL HERO (Visual-First Card & Thumb-Zone CTAs)      */}
           {/* ============================================================ */}
-          <section aria-label="Brand Hero" className="px-5 pt-3 pb-2 flex flex-col items-center text-center">
-            {/* Live Climate GPS Sensor Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sand-100 border border-sand-300 text-[10px] font-mono font-bold text-charcoal-900 tracking-wider mb-3.5 shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>🌤️ {weather.location} {weather.temperature}°C</span>
-              <span className="text-charcoal-900/40">•</span>
-              <span className="text-terracotta-600 font-semibold uppercase">{weather.condition}</span>
-            </div>
-
-            {/* Serif Luxury Main Heading */}
-            <h1 className="font-serif text-3xl sm:text-4xl text-charcoal-900 tracking-tight leading-[1.15] mb-2.5">
-              Personal Stylist AI.<br />
-              <span className="italic font-normal">Didesain Khusus Tropis.</span>
-            </h1>
-
-            {/* Clear Value Proposition */}
-            <p className="font-sans text-xs text-charcoal-900/70 max-w-[320px] leading-relaxed mb-4">
-              Racik formula OOTD 100% adem, santun &amp; modest, serta presisi warna kulit nusantara.
-            </p>
-
-            {/* Dual High-Intent Call To Action Buttons */}
-            <div className="w-full flex flex-col gap-2 max-w-sm">
-              <button
-                type="button"
-                onClick={() => router.push("/studio")}
-                className="w-full py-3.5 px-5 rounded-2xl bg-[#181A18] text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 shadow-md hover:bg-terracotta-600 active:scale-95 transition-all"
-              >
-                <Sparkles className="w-4 h-4 text-terracotta-400" />
-                <span>Racik OOTD Sekarang ➔</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => {
-                  if (onOpenQuiz) onOpenQuiz();
-                  else router.push("/?quiz=true");
-                }}
-                className="w-full py-3 px-4 rounded-2xl bg-white border border-[#181A18] text-[#181A18] text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 hover:bg-sand-100 active:scale-95 transition-all shadow-2xs"
-              >
-                <Palette className="w-4 h-4 text-terracotta-600" />
-                <span>Tes Warna Kulit (60s)</span>
-              </button>
-            </div>
-
-            {/* Proof Points Ticker Strip */}
-            <div className="w-full mt-5 py-2 px-1 border-y border-charcoal-900/10 flex items-center justify-between text-[8px] font-mono uppercase font-bold tracking-widest text-charcoal-900/60 overflow-x-auto no-scrollbar whitespace-nowrap gap-3">
-              <span>✦ SIRKULASI UDARA MAKSIMAL</span>
-              <span>✦ 100% MODEST FRIENDLY</span>
-              <span>✦ SHOPEE &amp; TOKOPEDIA READY</span>
-            </div>
-          </section>
-
-          {/* ============================================================ */}
-          {/* 2. SPOTLIGHT LOOK OF THE DAY (Curated Daily Formula Card)    */}
-          {/* ============================================================ */}
-          <section aria-label="Gaya Pilihan Hari Ini" className="px-4 w-full flex flex-col">
-            <div className="flex items-center justify-between px-1 mb-2">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-terracotta-500" />
-                <h2 className="font-serif text-base font-bold text-charcoal-900">Spotlight Hari Ini</h2>
+          <section aria-label="Editorial Brand Hero" className="px-4 pt-1 pb-2 w-full flex flex-col gap-3">
+            {/* Live Climate GPS Sensor Pill + Brand Headline */}
+            <div className="flex flex-col items-center text-center gap-1.5 pt-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sand-100 border border-sand-300 text-[10px] font-mono font-bold text-charcoal-900 tracking-wider shadow-2xs">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>🌤️ {weather.location} {weather.temperature}°C</span>
+                <span className="text-charcoal-900/40">•</span>
+                <span className="text-terracotta-600 font-semibold uppercase">{weather.condition}</span>
               </div>
-              <span className="text-[9px] font-mono uppercase font-bold text-terracotta-700 bg-terracotta-50 px-2.5 py-0.5 rounded-full border border-terracotta-200">
-                Swipe 1/{OUTFIT_HERO_LIST.length}
-              </span>
+
+              <h1 className="font-serif text-2xl sm:text-3xl text-charcoal-900 tracking-tight leading-snug">
+                Personal Stylist AI.<br />
+                <span className="italic font-normal">Didesain Khusus Tropis.</span>
+              </h1>
             </div>
 
+            {/* Visual Editorial Card (Proporsi Potret 4:5 yang pas di HP, max-h 42dvh) */}
             <div
               onClick={() => handleOpenOutfitDetails(heroOutfit)}
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
-              className="w-full relative cursor-pointer active:scale-[0.99] transition-all bg-white border border-charcoal-900/20 rounded-3xl overflow-hidden shadow-sm flex flex-col"
+              className="w-full relative cursor-pointer active:scale-[0.99] transition-all bg-white border border-charcoal-900/15 rounded-3xl overflow-hidden shadow-tactile flex flex-col"
             >
-              {/* Image Container - Balanced 4:5 Proportion with Badges */}
-              <div className="w-full aspect-[4/5] max-h-[380px] relative bg-sand-100">
+              <div className="w-full aspect-[4/5] max-h-[42dvh] sm:max-h-[46dvh] relative bg-sand-100">
                 <Image
                   src={heroOutfit.gambar}
                   alt={heroOutfit.judul}
                   fill
                   priority
                   className="object-cover object-top"
-                  sizes="(max-width: 480px) 100vw, 400px"
+                  sizes="(max-width: 480px) 100vw, 420px"
                 />
 
                 {/* Airflow / Breathability Badge */}
@@ -589,83 +551,94 @@ export default function LookUMobileView({
                   <Heart className={`w-4 h-4 ${isSavedLocally ? "fill-[#181A18] text-[#181A18]" : "text-stone-700"}`} />
                 </button>
 
-                {/* Bottom Gradient overlay with Title */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal-900/90 via-charcoal-900/40 to-transparent p-4 text-white">
-                  <span className="text-[9px] font-mono uppercase tracking-widest text-sand-300 font-bold block mb-0.5">
-                    {heroOutfit.subjudul}
-                  </span>
-                  <h3 className="font-serif text-xl font-bold leading-tight drop-shadow-sm">
-                    {heroOutfit.judul}
-                  </h3>
-                </div>
-              </div>
-
-              {/* Compact Card Details */}
-              <div className="p-4 flex flex-col gap-2.5">
-                <p className="text-xs text-charcoal-900/80 leading-snug line-clamp-2">
-                  {heroOutfit.tagline}
-                </p>
-
-                {/* Color and Meta */}
-                <div className="flex items-center justify-between border-t border-charcoal-900/10 pt-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[9px] font-bold uppercase tracking-wider text-charcoal-900/60">
-                      Palet:
+                {/* Bottom Gradient overlay with Title & Swatches */}
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal-900/95 via-charcoal-900/60 to-transparent p-4 text-white">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-[9px] font-mono uppercase tracking-widest text-sand-300 font-bold">
+                      {heroOutfit.subjudul}
                     </span>
-                    <div className="flex gap-1.5">
-                      {heroOutfit.paletWarna.slice(0, 3).map((warna, idx) => (
-                        <span
-                          key={idx}
-                          className="w-3.5 h-3.5 rounded-full border border-black/20 shadow-2xs"
-                          style={{ backgroundColor: warna.hex }}
-                          title={warna.nama}
-                        />
-                      ))}
-                    </div>
+                    <span className="text-[9px] font-mono font-bold text-sand-200 bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded-full">
+                      Swipe {currentHeroIndex + 1}/{OUTFIT_HERO_LIST.length}
+                    </span>
                   </div>
 
-                  <span className="text-[10px] font-mono font-bold text-charcoal-900 bg-sand-100 px-2.5 py-0.5 rounded-full">
-                    {heroOutfit.rentangHarga}
-                  </span>
-                </div>
+                  <h2 className="font-serif text-xl sm:text-2xl font-bold leading-tight drop-shadow-sm mb-1.5">
+                    {heroOutfit.judul}
+                  </h2>
 
-                {/* Action Row */}
-                <div className="grid grid-cols-2 gap-2 pt-1">
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleOpenOutfitDetails(heroOutfit);
-                    }}
-                    className="py-2.5 rounded-xl border border-charcoal-900 text-charcoal-900 text-[10px] font-bold uppercase tracking-wider hover:bg-sand-100 transition-colors"
-                  >
-                    Lihat Formula ↗
-                  </button>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleLaunchStudio(heroOutfit);
-                    }}
-                    className="py-2.5 rounded-xl bg-charcoal-900 text-white text-[10px] font-bold uppercase tracking-wider hover:bg-terracotta-600 transition-colors flex items-center justify-center gap-1"
-                  >
-                    <Sparkles className="w-3 h-3 text-terracotta-400" />
-                    Buka di Studio
-                  </button>
-                </div>
-
-                {/* Swipe Indicators */}
-                <div className="flex items-center justify-center gap-1.5 pt-1">
-                  {OUTFIT_HERO_LIST.map((_, idx) => (
-                    <div
-                      key={idx}
-                      className={`h-[3px] rounded-full transition-all ${
-                        idx === currentHeroIndex ? "w-5 bg-charcoal-900" : "w-1.5 bg-black/15"
-                      }`}
-                    />
-                  ))}
+                  <div className="flex items-center justify-between pt-1.5 border-t border-white/20 text-xs">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[9px] font-mono uppercase tracking-wider text-sand-300">Palet:</span>
+                      <div className="flex gap-1">
+                        {heroOutfit.paletWarna.slice(0, 3).map((warna, idx) => (
+                          <span
+                            key={idx}
+                            className="w-3.5 h-3.5 rounded-full border border-white/40 shadow-xs"
+                            style={{ backgroundColor: warna.hex }}
+                            title={warna.nama}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                    <span className="text-[10px] font-mono font-bold text-white bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded-md">
+                      {heroOutfit.rentangHarga}
+                    </span>
+                  </div>
                 </div>
               </div>
+
+              {/* Swipe Indicator Dots */}
+              <div className="flex items-center justify-center gap-1.5 py-2 bg-sand-50/70">
+                {OUTFIT_HERO_LIST.map((_, idx) => (
+                  <div
+                    key={idx}
+                    className={`h-1 rounded-full transition-all ${
+                      idx === currentHeroIndex ? "w-6 bg-charcoal-900" : "w-1.5 bg-black/15"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Thumb-Zone Call-To-Action Buttons */}
+            <div className="w-full flex flex-col gap-2 pt-1">
+              <button
+                type="button"
+                onClick={() => handleLaunchStudio(heroOutfit)}
+                className="w-full h-12 rounded-2xl bg-[#181A18] text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 shadow-md hover:bg-terracotta-600 active:scale-[0.98] transition-all"
+              >
+                <Sparkles className="w-4 h-4 text-terracotta-400" />
+                <span>Racik OOTD Sekarang ➔</span>
+              </button>
+
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (onOpenQuiz) onOpenQuiz();
+                    else router.push("/?quiz=true");
+                  }}
+                  className="h-11 rounded-2xl bg-white border border-[#181A18]/30 text-[#181A18] text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 hover:bg-sand-100 active:scale-[0.98] transition-all shadow-2xs"
+                >
+                  <Palette className="w-3.5 h-3.5 text-terracotta-600" />
+                  <span>Tes Warna (60s)</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => handleOpenOutfitDetails(heroOutfit)}
+                  className="h-11 rounded-2xl bg-white border border-[#181A18]/30 text-[#181A18] text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 hover:bg-sand-100 active:scale-[0.98] transition-all shadow-2xs"
+                >
+                  <span>Lihat Formula ↗</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Proof Points Ticker Strip */}
+            <div className="w-full mt-1 py-2 px-1 border-y border-charcoal-900/10 flex items-center justify-between text-[8px] font-mono uppercase font-bold tracking-widest text-charcoal-900/60 overflow-x-auto no-scrollbar whitespace-nowrap gap-3">
+              <span>✦ SIRKULASI UDARA MAKSIMAL</span>
+              <span>✦ 100% MODEST FRIENDLY</span>
+              <span>✦ SHOPEE &amp; TOKOPEDIA READY</span>
             </div>
           </section>
 

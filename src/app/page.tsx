@@ -47,21 +47,23 @@ const PWAInstallBanner = dynamic(() => import("@/components/PWAInstallBanner"), 
 
 export default function HomePage() {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
-  const [hasOnboarded, setHasOnboarded] = useState<boolean | null>(null);
+  const [showOnboarding, setShowOnboarding] = useState(false);
 
   useEffect(() => {
     const onboarded = localStorage.getItem('looku_has_onboarded');
     if (window.location.search.includes('quiz=true')) {
       setIsQuizOpen(true);
     }
-    // Onboarding slide hanya untuk mobile; desktop langsung melihat Hero editorial.
+    // Onboarding slide hanya untuk mobile pengguna baru; desktop langsung melihat Hero editorial.
     const isDesktop = window.matchMedia('(min-width: 768px)').matches;
-    setHasOnboarded(Boolean(onboarded) || isDesktop);
+    if (!onboarded && !isDesktop) {
+      setShowOnboarding(true);
+    }
   }, []);
 
   const handleCompleteOnboarding = (startQuiz: boolean) => {
     localStorage.setItem('looku_has_onboarded', 'true');
-    setHasOnboarded(true);
+    setShowOnboarding(false);
     if (startQuiz) setIsQuizOpen(true);
   };
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
@@ -143,14 +145,12 @@ export default function HomePage() {
     });
   };
 
-  if (hasOnboarded === null) return null;
-
-  if (!hasOnboarded) {
-    return <OnboardingFlow onComplete={handleCompleteOnboarding} />;
-  }
-
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F5]">
+    <div className="min-h-[100dvh] flex flex-col bg-[#FAF8F5]">
+      {/* First-time mobile onboarding overlay (does not block initial SSR) */}
+      {showOnboarding && (
+        <OnboardingFlow onComplete={handleCompleteOnboarding} />
+      )}
       {/* ============================================================ */}
       {/* TAMPILAN MOBILE-FIRST KHUSUS PONSEL (< 768px / md:hidden)     */}
       {/* ============================================================ */}
