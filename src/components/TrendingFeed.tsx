@@ -1,9 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ArrowRight, Heart, Sparkles, ExternalLink } from "lucide-react";
+import { 
+  X, 
+  ArrowRight, 
+  Heart, 
+  Sparkles, 
+  ExternalLink,
+  Search,
+  Bookmark,
+  SlidersHorizontal,
+  RotateCcw,
+  Check,
+  ChevronDown
+} from "lucide-react";
 import { TRENDING_LOOKS_FEED } from "@/lib/presets";
 import { OOTDRecommendation } from "@/lib/types";
 
@@ -49,6 +62,27 @@ function getLookGender(look: (typeof TRENDING_LOOKS_FEED)[0]): "PRIA" | "HIJAB" 
 
 type ClimateFilter = "all" | "hot" | "ac" | "mild" | "rainy";
 type OccasionFilter = "all" | "campus" | "office" | "weekend" | "resort" | "party" | "streetwear";
+type SortOption = "trending" | "breathability" | "price_asc" | "price_desc";
+
+export interface QuickChip {
+  id: string;
+  label: string;
+}
+
+export const QUICK_CHIPS: QuickChip[] = [
+  { id: "for-you", label: "For you" },
+  { id: "fashion", label: "Fashion" },
+  { id: "hot", label: "Panas (>30°C)" },
+  { id: "hijab", label: "Hijab Friendly" },
+  { id: "office", label: "Smart SCBD" },
+  { id: "campus", label: "Kuliah Santai" },
+  { id: "weekend", label: "Kafe Weekend" },
+  { id: "pria", label: "Pria Menswear" },
+  { id: "ac", label: "Dingin AC (20–24°C)" },
+  { id: "kondangan", label: "Kondangan Pesta" },
+  { id: "resort", label: "Resort Linen" },
+  { id: "streetwear", label: "Streetwear" },
+];
 
 const PAGE_SIZE = 16;
 
@@ -116,13 +150,57 @@ export function getLookClimate(look: (typeof TRENDING_LOOKS_FEED)[0]): ClimateCl
 }
 
 export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFeedProps) {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeQuickChip, setActiveQuickChip] = useState("for-you");
   const [activeTab, setActiveTab] = useState<TabType>("ALL");
   const [climateFilter, setClimateFilter] = useState<ClimateFilter>("all");
   const [occasionFilter, setOccasionFilter] = useState<OccasionFilter>("all");
+  const [sortBy, setSortBy] = useState<SortOption>("trending");
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+  const [savedCount, setSavedCount] = useState<number>(0);
   const [visibleCount, setVisibleCount] = useState<number>(PAGE_SIZE);
   const [selectedLookId, setSelectedLookId] = useState<string | null>(null);
   const [likedIds, setLikedIds] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  // Sync saved count for Bookmark icon badge
+  useEffect(() => {
+    const updateSavedCount = () => {
+      try {
+        const stored = localStorage.getItem("looku_saved_outfits");
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          setSavedCount(Array.isArray(parsed) ? parsed.length : 0);
+        } else {
+          setSavedCount(0);
+        }
+      } catch {
+        setSavedCount(0);
+      }
+    };
+    updateSavedCount();
+    window.addEventListener("storage", updateSavedCount);
+    window.addEventListener("looku_saved_updated", updateSavedCount);
+    return () => {
+      window.removeEventListener("storage", updateSavedCount);
+      window.removeEventListener("looku_saved_updated", updateSavedCount);
+    };
+  }, []);
+
+  // Lock body scroll and Escape key handler for Filter Modal
+  useEffect(() => {
+    if (isFilterModalOpen) {
+      document.body.style.overflow = "hidden";
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") setIsFilterModalOpen(false);
+      };
+      window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.body.style.overflow = "";
+        window.removeEventListener("keydown", handleKeyDown);
+      };
+    }
+  }, [isFilterModalOpen]);
 
   const toggleLike = (id: string, e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
@@ -147,56 +225,154 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
     setVisibleCount(PAGE_SIZE);
   };
 
+  const handleSelectQuickChip = (chipId: string) => {
+    setActiveQuickChip(chipId);
+    setVisibleCount(PAGE_SIZE);
+
+    if (chipId === "for-you" || chipId === "fashion") {
+      setActiveTab("ALL");
+      setClimateFilter("all");
+      setOccasionFilter("all");
+    } else if (chipId === "hot") {
+      setClimateFilter("hot");
+      setActiveTab("ALL");
+      setOccasionFilter("all");
+    } else if (chipId === "hijab") {
+      setActiveTab("HIJAB");
+      setClimateFilter("all");
+      setOccasionFilter("all");
+    } else if (chipId === "office") {
+      setOccasionFilter("office");
+      setActiveTab("ALL");
+      setClimateFilter("all");
+    } else if (chipId === "campus") {
+      setOccasionFilter("campus");
+      setActiveTab("ALL");
+      setClimateFilter("all");
+    } else if (chipId === "weekend") {
+      setOccasionFilter("weekend");
+      setActiveTab("ALL");
+      setClimateFilter("all");
+    } else if (chipId === "pria") {
+      setActiveTab("PRIA");
+      setClimateFilter("all");
+      setOccasionFilter("all");
+    } else if (chipId === "ac") {
+      setClimateFilter("ac");
+      setActiveTab("ALL");
+      setOccasionFilter("all");
+    } else if (chipId === "kondangan") {
+      setOccasionFilter("party");
+      setActiveTab("ALL");
+      setClimateFilter("all");
+    } else if (chipId === "resort") {
+      setOccasionFilter("resort");
+      setActiveTab("ALL");
+      setClimateFilter("all");
+    } else if (chipId === "streetwear") {
+      setOccasionFilter("streetwear");
+      setActiveTab("ALL");
+      setClimateFilter("all");
+    }
+  };
+
   const resetAllFilters = () => {
+    setSearchQuery("");
+    setActiveQuickChip("for-you");
     setActiveTab("ALL");
     setClimateFilter("all");
     setOccasionFilter("all");
+    setSortBy("trending");
     setVisibleCount(PAGE_SIZE);
   };
 
-  // Filter 500 looks based on Tab, Climate, & Occasion
+  // Filter 500 looks based on Search Query, Tab, Climate, & Occasion
   const filteredLooks = TRENDING_LOOKS_FEED.filter((look) => {
-    // 1. Gender Category Tab
+    // 1. Search Query Filter
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase().trim();
+      const titleMatch = (look.title || "").toLowerCase().includes(q);
+      const vibeMatch = (look.vibe || "").toLowerCase().includes(q);
+      const tagMatch = (look.tag || "").toLowerCase().includes(q);
+      const catMatch = (look.category || "").toLowerCase().includes(q);
+      const skinMatch = (look.skinToneRecommendation || "").toLowerCase().includes(q);
+      const itemsMatch = look.outfit?.items?.some(it => 
+        (it.name || "").toLowerCase().includes(q) || 
+        (it.material || "").toLowerCase().includes(q) || 
+        (it.color || "").toLowerCase().includes(q)
+      );
+      if (!titleMatch && !vibeMatch && !tagMatch && !catMatch && !skinMatch && !itemsMatch) {
+        return false;
+      }
+    }
+
+    // 2. Gender Category Tab
     if (activeTab !== "ALL") {
       const gender = getLookGender(look);
       if (gender !== activeTab) return false;
     }
 
-    // 2. Climate / Temperature Filter
+    // 3. Climate / Temperature Filter
     if (climateFilter !== "all") {
       const climateInfo = getLookClimate(look);
       if (climateInfo.id !== climateFilter) return false;
     }
 
-    // 3. Occasion Filter
+    // 4. Occasion Filter
     if (occasionFilter !== "all") {
       const c = (look.category || "").toLowerCase();
       const t = (look.title || "").toLowerCase();
+      const v = (look.vibe || "").toLowerCase();
       if (occasionFilter === "campus" && !(c.includes("campus") || t.includes("campus") || t.includes("kuliah"))) return false;
-      if (occasionFilter === "office" && !(c.includes("work") || c.includes("meeting") || t.includes("corporate") || t.includes("office") || t.includes("blazer") || t.includes("slacks"))) return false;
+      if (occasionFilter === "office" && !(c.includes("work") || c.includes("meeting") || t.includes("corporate") || t.includes("office") || t.includes("blazer") || t.includes("slacks") || v.includes("corporate"))) return false;
       if (occasionFilter === "weekend" && !(c.includes("weekend") || c.includes("cafe") || t.includes("cafe") || t.includes("brunch") || t.includes("hangout"))) return false;
-      if (occasionFilter === "resort" && !(c.includes("travel") || t.includes("resort") || t.includes("bali") || t.includes("coastal") || t.includes("linen"))) return false;
-      if (occasionFilter === "party" && !(c.includes("pesta") || c.includes("reception") || t.includes("gala") || t.includes("silk") || t.includes("batik"))) return false;
-      if (occasionFilter === "streetwear" && !(c.includes("streetwear") || t.includes("streetwear") || t.includes("cargo") || t.includes("biker") || t.includes("heavyweight") || t.includes("boxy"))) return false;
+      if (occasionFilter === "resort" && !(c.includes("travel") || t.includes("resort") || t.includes("bali") || t.includes("coastal") || t.includes("linen") || v.includes("resort"))) return false;
+      if (occasionFilter === "party" && !(c.includes("pesta") || c.includes("reception") || t.includes("gala") || t.includes("silk") || t.includes("batik") || v.includes("formal"))) return false;
+      if (occasionFilter === "streetwear" && !(c.includes("streetwear") || t.includes("streetwear") || t.includes("cargo") || t.includes("biker") || t.includes("heavyweight") || t.includes("boxy") || v.includes("streetwear"))) return false;
     }
 
     return true;
   });
 
-  const displayedLooks = filteredLooks.slice(0, visibleCount);
+  // Sorting
+  const sortedLooks = [...filteredLooks].sort((a, b) => {
+    if (sortBy === "breathability") {
+      const breathA = a.outfit?.comfortRating || 0;
+      const breathB = b.outfit?.comfortRating || 0;
+      return breathB - breathA;
+    }
+    if (sortBy === "price_asc") {
+      const extractPrice = (str: string) => {
+        const num = parseInt(str.replace(/[^0-9]/g, ""), 10);
+        return isNaN(num) ? 0 : num;
+      };
+      return extractPrice(a.priceRange) - extractPrice(b.priceRange);
+    }
+    if (sortBy === "price_desc") {
+      const extractPrice = (str: string) => {
+        const num = parseInt(str.replace(/[^0-9]/g, ""), 10);
+        return isNaN(num) ? 0 : num;
+      };
+      return extractPrice(b.priceRange) - extractPrice(a.priceRange);
+    }
+    return 0; // Default: trending order
+  });
+
+  const displayedLooks = sortedLooks.slice(0, visibleCount);
   const selectedLook = TRENDING_LOOKS_FEED.find(l => l.id === selectedLookId);
-  const isFilterActive = activeTab !== "ALL" || climateFilter !== "all" || occasionFilter !== "all";
+  const isFilterActive = searchQuery.trim() !== "" || activeTab !== "ALL" || climateFilter !== "all" || occasionFilter !== "all" || sortBy !== "trending";
+  const activeFilterCount = (activeTab !== "ALL" ? 1 : 0) + (climateFilter !== "all" ? 1 : 0) + (occasionFilter !== "all" ? 1 : 0) + (sortBy !== "trending" ? 1 : 0);
 
   return (
     <section className="w-full bg-[#FAF8F5] min-h-screen pb-24">
       {/* Editorial Header Section */}
-      <div className="pt-8 md:pt-14 pb-4 max-w-[1400px] mx-auto px-4 sm:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between border-b border-[#181A18]/10 pb-6 gap-4">
+      <div className="pt-6 md:pt-10 pb-4 max-w-[1400px] mx-auto px-4 sm:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between border-b border-[#181A18]/10 pb-5 gap-3">
           <div>
             <p className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-[#8C5A3C] mb-1">
               Look.u Editorial Luxe
             </p>
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#181A18] tracking-tight">
+            <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl text-[#181A18] tracking-tight">
               Katalog Koleksi &amp; Lookbook
             </h1>
           </div>
@@ -204,98 +380,114 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
             500 formula padu-padan iklim tropis terkurasi AI dari dataset Param Aggarwal, Myntra, Polyvore, dan arsip busana modest Indonesia.
           </p>
         </div>
+      </div>
 
-        {/* ============================================================ */}
-        {/* UNIQLO-STYLE CATEGORY TAB BAR (Tegas, Rata, Border-Bottom)   */}
-        {/* ============================================================ */}
-        <div className="flex items-center gap-2 sm:gap-6 border-b border-[#181A18]/15 mt-6 overflow-x-auto no-scrollbar">
-          {CATEGORY_TABS.map((tab) => {
-            const isActive = activeTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                type="button"
-                onClick={() => handleTabClick(tab.id)}
-                className={`pb-3 px-1 text-xs sm:text-sm font-bold tracking-wider uppercase whitespace-nowrap transition-all border-b-2 relative ${
-                  isActive
-                    ? "border-[#181A18] text-[#181A18]"
-                    : "border-transparent text-[#181A18]/45 hover:text-[#181A18] hover:border-[#181A18]/30"
-                }`}
-              >
-                <span>{tab.label}</span>
-                <span className={`ml-1.5 text-[10px] font-mono ${isActive ? "text-[#8C5A3C]" : "text-[#181A18]/30"}`}>
-                  ({tab.count})
+      {/* ============================================================ */}
+      {/* STICKY SEARCH & FILTER HEADER (MIRRORING USER REFERENCE UI)  */}
+      {/* ============================================================ */}
+      <div className="sticky top-16 sm:top-20 z-30 bg-[#FAF8F5]/95 backdrop-blur-md border-y border-[#181A18]/10 py-2.5 px-4 sm:px-8 shadow-2xs">
+        <div className="max-w-[1400px] mx-auto flex flex-col gap-2.5">
+          
+          {/* Baris 1: Search Pill Input + Bookmark Icon (Persis Gambar Referensi) */}
+          <div className="flex items-center gap-2.5 sm:gap-3.5">
+            {/* Search Capsule Input */}
+            <div className="relative flex-1 flex items-center">
+              <Search className="absolute left-4 w-4 h-4 sm:w-5 sm:h-5 text-[#181A18]/45 pointer-events-none" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setVisibleCount(PAGE_SIZE);
+                }}
+                placeholder="Search"
+                className="w-full h-11 sm:h-12 pl-11 sm:pl-12 pr-10 bg-[#EFECE6] hover:bg-[#EAE4DC] focus:bg-white text-[#181A18] placeholder:text-[#181A18]/40 text-sm font-sans rounded-full border border-transparent focus:border-[#181A18]/30 transition-all outline-none"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  aria-label="Bersihkan pencarian"
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3.5 w-5 h-5 flex items-center justify-center rounded-full bg-[#181A18]/10 text-[#181A18] hover:bg-[#181A18]/25 transition-colors"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
+            </div>
+
+            {/* Bookmark Icon Button on Right (Persis di foto) */}
+            <Link
+              href="/profile?tab=wardrobe"
+              title="Buka Lemari Koleksi"
+              className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#EFECE6] hover:bg-[#EAE4DC] flex items-center justify-center text-[#181A18] transition-colors shrink-0"
+            >
+              <Bookmark className="w-5 h-5 stroke-[1.8]" />
+              {savedCount > 0 && (
+                <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] bg-[#8C5A3C] text-white text-[10px] font-mono font-bold rounded-full flex items-center justify-center px-1 border-2 border-[#FAF8F5]">
+                  {savedCount}
                 </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* ============================================================ */}
-        {/* SUB-FILTER BAR: Suhu Tropis & Acara (Utilitarian Minimalist) */}
-        {/* ============================================================ */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 mt-4 pt-3 border-t border-[#181A18]/10 text-xs">
-          {/* Suhu / Iklim */}
-          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-[#181A18]/50 mr-1 shrink-0">SUHU:</span>
-            {[
-              { id: "all", label: "Semua Suhu" },
-              { id: "hot", label: "☀️ Panas (>30°C)" },
-              { id: "ac", label: "🏢 Dingin AC (20–24°C)" },
-              { id: "mild", label: "🌤️ Hangat (28–30°C)" },
-              { id: "rainy", label: "🌧️ Hujan / Sejuk (24–27°C)" }
-            ].map((f) => (
-              <button
-                key={f.id}
-                type="button"
-                onClick={() => handleClimateFilter(f.id as ClimateFilter)}
-                className={`px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider transition-colors shrink-0 rounded-none border ${
-                  climateFilter === f.id
-                    ? "bg-[#181A18] text-[#FAF8F5] border-[#181A18]"
-                    : "bg-white text-[#181A18]/70 border-[#181A18]/15 hover:border-[#181A18]"
-                }`}
-              >
-                {f.label}
-              </button>
-            ))}
+              )}
+            </Link>
           </div>
 
-          {/* Acara / Occasion + Reset */}
-          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-[#181A18]/50 mr-1 shrink-0">ACARA:</span>
-            {[
-              { id: "all", label: "Semua" },
-              { id: "campus", label: "Kuliah" },
-              { id: "office", label: "Kantor" },
-              { id: "weekend", label: "Kafe" },
-              { id: "resort", label: "Resort" },
-              { id: "party", label: "Pesta" },
-              { id: "streetwear", label: "Street" }
-            ].map((f) => (
-              <button
-                key={f.id}
-                type="button"
-                onClick={() => handleOccasionFilter(f.id as OccasionFilter)}
-                className={`px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider transition-colors shrink-0 rounded-none border ${
-                  occasionFilter === f.id
-                    ? "bg-[#8C5A3C] text-[#FAF8F5] border-[#8C5A3C]"
-                    : "bg-white text-[#181A18]/70 border-[#181A18]/15 hover:border-[#8C5A3C]"
-                }`}
-              >
-                {f.label}
-              </button>
-            ))}
+          {/* Baris 2: Filter Sliders Button + Horizontal Scrolling Quick Chips */}
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5 select-none">
+            {/* 1. Filter Sliders Icon Button (Item pertama persis di foto) */}
+            <button
+              type="button"
+              onClick={() => setIsFilterModalOpen(true)}
+              className={`relative shrink-0 h-9 sm:h-10 px-3.5 rounded-full border flex items-center justify-center gap-1.5 transition-all ${
+                activeFilterCount > 0
+                  ? "bg-[#181A18] text-white border-[#181A18] shadow-xs"
+                  : "bg-white text-[#181A18] border-[#181A18]/20 hover:border-[#181A18]"
+              }`}
+              title="Filter Terpadu (Suhu, Gender, Acara, Urutan)"
+            >
+              <SlidersHorizontal className="w-4 h-4" />
+              {activeFilterCount > 0 && (
+                <span className="min-w-[16px] h-4 text-[9px] font-mono font-bold rounded-full bg-[#8C5A3C] text-white flex items-center justify-center px-1">
+                  {activeFilterCount}
+                </span>
+              )}
+            </button>
 
-            {isFilterActive && (
+            {/* 2. Scrollable Rounded Pill Chips */}
+            {QUICK_CHIPS.map((chip) => {
+              const isSelected = activeQuickChip === chip.id && !searchQuery.trim();
+              return (
+                <button
+                  key={chip.id}
+                  type="button"
+                  onClick={() => handleSelectQuickChip(chip.id)}
+                  className={`shrink-0 h-9 sm:h-10 px-4 rounded-full text-xs font-semibold whitespace-nowrap transition-all border flex items-center gap-1.5 ${
+                    isSelected
+                      ? "bg-[#181A18] text-[#FAF8F5] border-[#181A18] shadow-xs"
+                      : "bg-white text-[#181A18]/80 border-[#181A18]/15 hover:border-[#181A18] hover:text-[#181A18]"
+                  }`}
+                >
+                  <span>{chip.label}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Baris 3: Status Pencarian & Counter Ringkas */}
+          {(isFilterActive || searchQuery.trim()) && (
+            <div className="flex items-center justify-between text-[11px] text-[#181A18]/70 pt-0.5 px-1 border-t border-[#181A18]/5">
+              <span>
+                Menampilkan <strong className="text-[#181A18]">{sortedLooks.length}</strong> dari {TRENDING_LOOKS_FEED.length} formula OOTD
+                {searchQuery.trim() && <span> untuk &ldquo;{searchQuery}&rdquo;</span>}
+              </span>
               <button
                 type="button"
                 onClick={resetAllFilters}
-                className="ml-2 px-2.5 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-[#8C5A3C] hover:text-[#181A18] underline underline-offset-2 shrink-0"
+                className="font-mono text-[10px] font-bold text-[#8C5A3C] uppercase underline hover:text-[#181A18] transition-colors"
               >
-                Reset
+                Reset Filter ↺
               </button>
-            )}
-          </div>
+            </div>
+          )}
+
         </div>
       </div>
 
@@ -406,15 +598,43 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
             })
           ) : (
             /* Empty State */
-            <div className="col-span-2 lg:col-span-4 flex flex-col items-center justify-center py-20 text-center bg-white border border-[#181A18]/10 p-8">
-              <p className="font-serif text-xl text-[#181A18] mb-1">Belum ada gaya untuk filter ini</p>
-              <p className="text-xs text-[#181A18]/60 mb-4">Silakan sesuaikan filter suhu/acara atau kembali ke seluruh katalog.</p>
+            <div className="col-span-2 lg:col-span-4 flex flex-col items-center justify-center py-16 text-center bg-white border border-[#181A18]/10 p-8 shadow-2xs">
+              <div className="w-12 h-12 rounded-full bg-[#EFECE6] flex items-center justify-center text-[#181A18] mb-3">
+                <Search className="w-6 h-6 stroke-[1.5]" />
+              </div>
+              <p className="font-serif text-xl text-[#181A18] mb-1">
+                {searchQuery.trim() ? `Tidak ada gaya untuk "${searchQuery}"` : "Belum ada gaya untuk filter ini"}
+              </p>
+              <p className="text-xs text-[#181A18]/60 mb-4 max-w-sm">
+                Silakan coba kata kunci pakaian lain atau sesuaikan filter suhu dan acara.
+              </p>
+
+              {/* Quick Keywords Chips */}
+              <div className="flex flex-wrap items-center justify-center gap-1.5 max-w-md mb-6">
+                <span className="text-[10px] font-mono text-[#181A18]/50 uppercase tracking-wider block w-full mb-1">
+                  Saran Pencarian Populer:
+                </span>
+                {["Linen", "Kulot", "SCBD", "Batik", "Hijab", "Blazer", "Sage", "Kemeja", "Casual"].map((kw) => (
+                  <button
+                    key={kw}
+                    type="button"
+                    onClick={() => {
+                      setSearchQuery(kw);
+                      setVisibleCount(PAGE_SIZE);
+                    }}
+                    className="px-3 py-1 bg-stone-100 hover:bg-[#181A18] hover:text-white rounded-full text-xs text-[#181A18] border border-[#181A18]/10 transition-colors"
+                  >
+                    {kw}
+                  </button>
+                ))}
+              </div>
+
               <button
                 type="button"
                 onClick={resetAllFilters}
-                className="h-10 px-6 bg-[#181A18] text-white text-xs font-bold uppercase tracking-widest rounded-none hover:bg-[#8C5A3C] transition-colors"
+                className="h-10 px-6 bg-[#181A18] text-white text-xs font-bold uppercase tracking-widest rounded-full hover:bg-[#8C5A3C] transition-colors shadow-xs"
               >
-                KEMBALI KE SEMUA (500)
+                Kembali ke Semua (500)
               </button>
             </div>
           )}
@@ -595,6 +815,215 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
               </div>
             </motion.div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ============================================================ */}
+      {/* MODAL / DRAWER FILTER LENGKAP LOOKBOOK (Advanced Filter)     */}
+      {/* ============================================================ */}
+      <AnimatePresence>
+        {isFilterModalOpen && (
+          <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4">
+            {/* Backdrop Gelap Solid */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setIsFilterModalOpen(false)}
+              className="absolute inset-0 bg-black/75 backdrop-blur-sm"
+            />
+
+            {/* Modal Card / Bottom Sheet */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 40 }}
+              transition={{ type: "spring", damping: 26, stiffness: 300 }}
+              className="relative z-[70] w-full sm:max-w-lg bg-white border-t-2 sm:border-2 border-[#181A18] shadow-2xl flex flex-col max-h-[88vh] overflow-hidden rounded-t-2xl sm:rounded-none"
+            >
+              {/* Mobile Drag Indicator */}
+              <div className="sm:hidden w-full flex justify-center pt-2.5 pb-1 bg-white">
+                <div className="w-12 h-1 bg-stone-300 rounded-full" />
+              </div>
+
+              {/* Header Modal */}
+              <div className="px-5 py-4 border-b border-[#181A18]/15 flex items-center justify-between bg-white shrink-0">
+                <div>
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#8C5A3C] bg-[#8C5A3C]/10 px-2 py-0.5">
+                    Look.u Smart Filter
+                  </span>
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#181A18] mt-1">
+                    Filter Terpadu Lookbook
+                  </h3>
+                </div>
+
+                <button
+                  type="button"
+                  aria-label="Tutup Filter"
+                  onClick={() => setIsFilterModalOpen(false)}
+                  className="w-9 h-9 bg-stone-100 flex items-center justify-center text-[#181A18] hover:bg-[#181A18] hover:text-white transition-colors cursor-pointer shrink-0 ml-3"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Scrollable Filter Options */}
+              <div className="p-5 overflow-y-auto space-y-5 text-xs bg-[#FAF8F5]">
+                {/* 1. Kategori Gender */}
+                <div>
+                  <label className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#181A18]/70 block mb-2">
+                    Kategori Pengguna:
+                  </label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {CATEGORY_TABS.map((tab) => {
+                      const isSel = activeTab === tab.id;
+                      return (
+                        <button
+                          key={tab.id}
+                          type="button"
+                          onClick={() => {
+                            setActiveTab(tab.id);
+                            setActiveQuickChip("for-you");
+                          }}
+                          className={`p-2.5 text-xs font-semibold border flex items-center justify-between transition-colors ${
+                            isSel
+                              ? "bg-[#181A18] text-white border-[#181A18]"
+                              : "bg-white text-[#181A18]/80 border-[#181A18]/15 hover:border-[#181A18]"
+                          }`}
+                        >
+                          <span>{tab.label}</span>
+                          <span className="text-[10px] font-mono opacity-60">({tab.count})</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* 2. Suhu & Iklim Tropis */}
+                <div>
+                  <label className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#181A18]/70 block mb-2">
+                    Kondisi Iklim &amp; Suhu:
+                  </label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      { id: "all", label: "Semua Suhu" },
+                      { id: "hot", label: "☀️ Panas Terik (>30°C)" },
+                      { id: "ac", label: "🏢 Dingin AC (20–24°C)" },
+                      { id: "mild", label: "🌤️ Hangat (28–30°C)" },
+                      { id: "rainy", label: "🌧️ Hujan / Sejuk (24–27°C)" }
+                    ].map((f) => {
+                      const isSel = climateFilter === f.id;
+                      return (
+                        <button
+                          key={f.id}
+                          type="button"
+                          onClick={() => {
+                            setClimateFilter(f.id as ClimateFilter);
+                            setActiveQuickChip("for-you");
+                          }}
+                          className={`p-2.5 text-xs font-semibold border text-left transition-colors ${
+                            isSel
+                              ? "bg-[#181A18] text-white border-[#181A18]"
+                              : "bg-white text-[#181A18]/80 border-[#181A18]/15 hover:border-[#181A18]"
+                          }`}
+                        >
+                          {f.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* 3. Tujuan Acara / Occasion */}
+                <div>
+                  <label className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#181A18]/70 block mb-2">
+                    Tujuan Acara (Occasion):
+                  </label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      { id: "all", label: "Semua Acara" },
+                      { id: "campus", label: "🎒 Kuliah Kampus" },
+                      { id: "office", label: "🏢 Kantor SCBD" },
+                      { id: "weekend", label: "☕ Kafe & Weekend" },
+                      { id: "resort", label: "🌴 Resort & Liburan" },
+                      { id: "party", label: "✨ Kondangan Pesta" },
+                      { id: "streetwear", label: "🛹 Streetwear Indie" }
+                    ].map((f) => {
+                      const isSel = occasionFilter === f.id;
+                      return (
+                        <button
+                          key={f.id}
+                          type="button"
+                          onClick={() => {
+                            setOccasionFilter(f.id as OccasionFilter);
+                            setActiveQuickChip("for-you");
+                          }}
+                          className={`p-2.5 text-xs font-semibold border text-left transition-colors ${
+                            isSel
+                              ? "bg-[#8C5A3C] text-white border-[#8C5A3C]"
+                              : "bg-white text-[#181A18]/80 border-[#181A18]/15 hover:border-[#8C5A3C]"
+                          }`}
+                        >
+                          {f.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* 4. Urutan Tampilan (Sort) */}
+                <div>
+                  <label className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#181A18]/70 block mb-2">
+                    Urutkan Tampilan:
+                  </label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      { id: "trending", label: "✦ Rekomendasi Terkini" },
+                      { id: "breathability", label: "💨 Sirkulasi Adem Tertinggi" },
+                      { id: "price_asc", label: "🏷️ Harga Terendah" },
+                      { id: "price_desc", label: "💎 Harga Tertinggi" },
+                    ].map((s) => {
+                      const isSel = sortBy === s.id;
+                      return (
+                        <button
+                          key={s.id}
+                          type="button"
+                          onClick={() => setSortBy(s.id as SortOption)}
+                          className={`p-2.5 text-xs font-semibold border text-left transition-colors ${
+                            isSel
+                              ? "bg-[#181A18] text-white border-[#181A18]"
+                              : "bg-white text-[#181A18]/80 border-[#181A18]/15 hover:border-[#181A18]"
+                          }`}
+                        >
+                          {s.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Actions in Filter Modal */}
+              <div className="p-4 bg-white border-t border-[#181A18]/15 flex items-center gap-3 shrink-0">
+                <button
+                  type="button"
+                  onClick={resetAllFilters}
+                  className="px-4 py-3 border border-[#181A18]/25 bg-white text-[#181A18] text-xs font-mono font-bold uppercase tracking-wider hover:bg-stone-100 transition-colors"
+                >
+                  Reset
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setIsFilterModalOpen(false)}
+                  className="flex-1 py-3 bg-[#181A18] text-[#FAF8F5] text-xs font-mono font-bold uppercase tracking-wider hover:bg-[#8C5A3C] active:scale-[0.99] transition-all flex items-center justify-center gap-2 shadow-sm"
+                >
+                  <span>Terapkan Filter ({sortedLooks.length} Look)</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </section>
