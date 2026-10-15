@@ -365,27 +365,10 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
 
   return (
     <section className="w-full bg-[#FAF8F5] min-h-screen pb-24">
-      {/* Editorial Header Section */}
-      <div className="pt-6 md:pt-10 pb-4 max-w-[1400px] mx-auto px-4 sm:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between border-b border-[#181A18]/10 pb-5 gap-3">
-          <div>
-            <p className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-[#8C5A3C] mb-1">
-              Look.u Editorial Luxe
-            </p>
-            <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl text-[#181A18] tracking-tight">
-              Katalog Koleksi &amp; Lookbook
-            </h1>
-          </div>
-          <p className="text-xs text-[#181A18]/65 max-w-sm font-sans leading-relaxed">
-            500 formula padu-padan iklim tropis terkurasi AI dari dataset Param Aggarwal, Myntra, Polyvore, dan arsip busana modest Indonesia.
-          </p>
-        </div>
-      </div>
-
       {/* ============================================================ */}
-      {/* STICKY SEARCH & FILTER HEADER (MIRRORING USER REFERENCE UI)  */}
+      {/* STICKY SEARCH & FILTER HEADER (INSTAGRAM EXPLORE STYLE)      */}
       {/* ============================================================ */}
-      <div className="sticky top-16 sm:top-20 z-30 bg-[#FAF8F5]/95 backdrop-blur-md border-y border-[#181A18]/10 py-2.5 px-4 sm:px-8 shadow-2xs">
+      <div className="sticky top-0 md:top-20 z-30 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#181A18]/10 pt-[max(0.65rem,env(safe-area-inset-top))] pb-2.5 px-3.5 sm:px-8 shadow-2xs">
         <div className="max-w-[1400px] mx-auto flex flex-col gap-2.5">
           
           {/* Baris 1: Search Pill Input + Bookmark Icon (Persis Gambar Referensi) */}

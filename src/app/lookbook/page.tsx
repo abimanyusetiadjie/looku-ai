@@ -26,7 +26,10 @@ export default function LookbookPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF8F5] pb-20 md:pb-0">
-      <Navbar />
+      {/* Desktop Top Navbar (Hidden on mobile so Search Bar docks directly at the top like Instagram Explore) */}
+      <div className="hidden md:block">
+        <Navbar />
+      </div>
       {/* Main Content Area */}
       <main className="flex-1 w-full">
         {/* Full Interactive Trending Feed Component */}
