@@ -47,22 +47,72 @@ function getLookGender(look: (typeof TRENDING_LOOKS_FEED)[0]): "PRIA" | "HIJAB" 
   return "WANITA";
 }
 
-type ClimateFilter = "all" | "tropical" | "ac" | "rainy";
+type ClimateFilter = "all" | "hot" | "ac" | "mild" | "rainy";
 type OccasionFilter = "all" | "campus" | "office" | "weekend" | "resort" | "party" | "streetwear";
 
 const PAGE_SIZE = 16;
 
-function getContextualClimateBadge(title: string, category: string): string {
-  const t = title.toLowerCase();
-  const c = category.toLowerCase();
-  
-  if (t.includes("biker") || t.includes("corporate") || t.includes("silk draping") || t.includes("gala") || t.includes("scbd") || t.includes("blazer")) {
-    return "INDOOR AC / EVENING";
+export interface ClimateClassification {
+  id: "hot" | "ac" | "mild" | "rainy";
+  badge: string;
+  temp: string;
+  label: string;
+}
+
+export function getLookClimate(look: (typeof TRENDING_LOOKS_FEED)[0]): ClimateClassification {
+  const cat = (look.category || "").toLowerCase();
+  const vibe = (look.vibe || "").toLowerCase();
+  const t = (look.title || "").toLowerCase();
+  const outfitTitle = (look.outfit?.title || "").toLowerCase();
+
+  // 1. Ruang AC Dingin / Kantor / Formal (20–24°C)
+  if (
+    cat.includes("work") || cat.includes("meeting") || cat.includes("reception") || cat.includes("pesta") ||
+    vibe.includes("corporate") || vibe.includes("formal") || vibe.includes("cocktail") || vibe.includes("office") || vibe.includes("luxe") ||
+    t.includes("blazer") || t.includes("corporate") || t.includes("gala") || t.includes("scbd") || t.includes("suit") || t.includes("slacks") || t.includes("oxford") || t.includes("batik") ||
+    outfitTitle.includes("blazer") || outfitTitle.includes("corporate")
+  ) {
+    return {
+      id: "ac",
+      badge: "🏢 RUANG AC 20–24°C",
+      temp: "20–24°C",
+      label: "Dingin AC (20–24°C)"
+    };
   }
-  if (t.includes("rainy") || t.includes("hujan") || t.includes("cardigan cozy") || t.includes("layering")) {
-    return "BREEZY / RAINY 24°C";
+
+  // 2. Hujan / Sejuk / Layering (24–27°C)
+  if (
+    t.includes("rainy") || t.includes("hujan") || t.includes("cardigan") || t.includes("knit") || t.includes("sweatshirt") || t.includes("biker") || t.includes("layering") ||
+    vibe.includes("cozy") || vibe.includes("layering") || vibe.includes("warm")
+  ) {
+    return {
+      id: "rainy",
+      badge: "🌧️ HUJAN / SEJUK 24°C",
+      temp: "24–27°C",
+      label: "Hujan / Sejuk (24–27°C)"
+    };
   }
-  return "AIRY TROPICAL · OPTIMAL";
+
+  // 3. Hangat Normal / Luar Ruang Pagi-Sore (28–30°C)
+  if (
+    cat.includes("travel") || vibe.includes("resort") || vibe.includes("brunch") || vibe.includes("nomad") || vibe.includes("vacation") ||
+    t.includes("resort") || t.includes("bali") || t.includes("nomad") || t.includes("brunch") || t.includes("streetwear")
+  ) {
+    return {
+      id: "mild",
+      badge: "🌤️ HANGAT 28–30°C",
+      temp: "28–30°C",
+      label: "Hangat (28–30°C)"
+    };
+  }
+
+  // 4. Panas Terik (>30°C / Tropis Siang)
+  return {
+    id: "hot",
+    badge: "☀️ PANAS TERIK 31–35°C",
+    temp: "31–35°C",
+    label: "Panas (>30°C)"
+  };
 }
 
 export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFeedProps) {
@@ -104,7 +154,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
     setVisibleCount(PAGE_SIZE);
   };
 
-  // Filter 202 looks based on Tab, Climate, & Occasion
+  // Filter 500 looks based on Tab, Climate, & Occasion
   const filteredLooks = TRENDING_LOOKS_FEED.filter((look) => {
     // 1. Gender Category Tab
     if (activeTab !== "ALL") {
@@ -112,12 +162,10 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
       if (gender !== activeTab) return false;
     }
 
-    // 2. Climate Filter
+    // 2. Climate / Temperature Filter
     if (climateFilter !== "all") {
-      const badge = getContextualClimateBadge(look.title, look.category);
-      if (climateFilter === "tropical" && !badge.includes("AIRY TROPICAL")) return false;
-      if (climateFilter === "ac" && !badge.includes("INDOOR AC")) return false;
-      if (climateFilter === "rainy" && !badge.includes("RAINY") && !badge.includes("BREEZY")) return false;
+      const climateInfo = getLookClimate(look);
+      if (climateInfo.id !== climateFilter) return false;
     }
 
     // 3. Occasion Filter
@@ -189,12 +237,13 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 mt-4 pt-3 border-t border-[#181A18]/10 text-xs">
           {/* Suhu / Iklim */}
           <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-[#181A18]/50 mr-1 shrink-0">IKLIM:</span>
+            <span className="text-[10px] font-mono uppercase tracking-wider text-[#181A18]/50 mr-1 shrink-0">SUHU:</span>
             {[
               { id: "all", label: "Semua Suhu" },
-              { id: "tropical", label: "☀️ Tropis 30°C+" },
-              { id: "ac", label: "🏢 Ruang AC" },
-              { id: "rainy", label: "🌧️ Hujan / Sejuk" }
+              { id: "hot", label: "☀️ Panas (>30°C)" },
+              { id: "ac", label: "🏢 Dingin AC (20–24°C)" },
+              { id: "mild", label: "🌤️ Hangat (28–30°C)" },
+              { id: "rainy", label: "🌧️ Hujan / Sejuk (24–27°C)" }
             ].map((f) => (
               <button
                 key={f.id}
@@ -267,7 +316,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
             ))
           ) : displayedLooks.length > 0 ? (
             displayedLooks.map((look) => {
-              const climateBadge = getContextualClimateBadge(look.title, look.category);
+              const climateInfo = getLookClimate(look);
               const isLiked = likedIds.includes(look.id);
 
               return (
@@ -294,7 +343,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                     {/* Badge Iklim Kontekstual di Kiri Atas */}
                     <div className="absolute top-2 left-2 z-10">
                       <span className="inline-block px-2 py-0.5 text-[8px] sm:text-[9px] font-mono font-bold uppercase tracking-wider bg-[#181A18]/90 text-[#FAF8F5] shadow-xs">
-                        {climateBadge}
+                        {climateInfo.badge}
                       </span>
                     </div>
 
@@ -427,7 +476,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute top-2.5 left-2.5 bg-[#181A18]/90 text-white px-2.5 py-1 text-[9px] font-mono font-bold uppercase tracking-widest">
-                    {getContextualClimateBadge(selectedLook.title, selectedLook.category)}
+                    {getLookClimate(selectedLook).badge}
                   </div>
                 </div>
               </div>
@@ -463,21 +512,60 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                     </p>
                   </div>
 
-                  {/* Rincian Komponen Baju */}
+                  {/* Rincian Komponen Baju (Termasuk Sepatu & Aksesoris Terkurasi) */}
                   <div className="mt-4 space-y-2">
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#181A18]/50 block">
-                      KOMPOSISI SET:
-                    </span>
-                    {selectedLook.outfit?.items?.map((it, idx) => (
-                      <div key={idx} className="flex items-center justify-between text-xs py-1 border-b border-[#181A18]/5">
-                        <span className="text-[#181A18] font-medium line-clamp-1 flex-1 pr-2">
-                          {it.name}
-                        </span>
-                        <span className="font-mono text-[#181A18]/70 text-[11px] shrink-0">
-                          {it.estimatedPrice}
-                        </span>
-                      </div>
-                    ))}
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#181A18]/50 block">
+                        KOMPOSISI ITEM REAL ({selectedLook.outfit?.items?.length || 0} PIECES):
+                      </span>
+                      <span className="text-[9px] font-mono text-[#8C5A3C] uppercase">Authentic Catalog</span>
+                    </div>
+
+                    <div className="space-y-1.5 max-h-48 overflow-y-auto pr-1">
+                      {selectedLook.outfit?.items?.map((it, idx) => {
+                        const categoryLabelMap: Record<string, string> = {
+                          atasan: "Atasan",
+                          bawahan: "Bawahan",
+                          outer_hijab: "Hijab / Outer",
+                          sepatu: "Sepatu / Alas Kaki",
+                          aksesoris: "Aksesoris",
+                        };
+                        const catLabel = categoryLabelMap[it.category] || it.category;
+
+                        return (
+                          <div key={idx} className="flex items-center gap-2.5 py-1.5 px-2 bg-stone-50/70 border border-[#181A18]/5">
+                            {it.imageUrl ? (
+                              <img
+                                src={it.imageUrl}
+                                alt={it.name}
+                                className="w-10 h-10 object-cover bg-white border border-[#181A18]/10 shrink-0"
+                                loading="lazy"
+                              />
+                            ) : (
+                              <div className="w-10 h-10 bg-stone-100 border border-[#181A18]/10 shrink-0 flex items-center justify-center text-[10px] text-stone-500 font-mono">
+                                ✦
+                              </div>
+                            )}
+                            <div className="flex-1 min-w-0">
+                              <span className="text-[8px] font-mono uppercase tracking-wider text-[#8C5A3C] block font-bold">
+                                {catLabel}
+                              </span>
+                              <span className="text-[#181A18] text-[11px] font-medium truncate block">
+                                {it.name}
+                              </span>
+                              {it.material && (
+                                <span className="text-[10px] text-stone-500 truncate block">
+                                  {it.material}
+                                </span>
+                              )}
+                            </div>
+                            <span className="font-mono text-[#181A18]/80 text-[11px] font-semibold shrink-0">
+                              {it.estimatedPrice}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
 
