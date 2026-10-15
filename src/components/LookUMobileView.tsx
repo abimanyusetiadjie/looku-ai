@@ -57,7 +57,7 @@ export interface LookUMobileViewProps {
   savedCount?: number;
 }
 
-// 4 Skenario Iklim Tropis Riil LookU AI untuk Hero Swipe Carousel
+// 4 Skenario Iklim Tropis Riil LookU AI untuk Hero Auto-Animated Editorial Showcase
 const OUTFIT_HERO_LIST: MobileOutfit[] = [
   {
     id: "casual-campus-chiffon",
@@ -67,10 +67,10 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
     suhu: "33°C Tropis Siang Hari",
     sirkulasiUdara: "Sirkulasi Udara Maksimal",
     alasanCocok: "Kombinasi serat linen alami dan voal paris berpori mikro melepas panas tubuh seketika tanpa menerawang, sangat santun untuk hijab kampus maupun semi-formal.",
-    gambar: "https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?w=900&auto=format&fit=crop&q=85",
+    gambar: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=900&auto=format&fit=crop&q=85",
     paletWarna: [
       { nama: "Krem Oat", hex: "#FAF6EE" },
-      { nama: "Sage Green", hex: "#6B8E68" },
+      { nama: "Sage Green", hex: "#84A98C" },
       { nama: "Sand Cokelat", hex: "#D4A373" },
     ],
     warnaKulitCocok: "Sawo Matang & Kuning Langsat",
@@ -116,134 +116,152 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
     ],
   },
   {
-    id: "metropolitan-oxford-chino",
-    judul: "Metropolitan Oxford & Chino",
-    subjudul: "Indoor AC & Tropis · Pria",
-    tagline: "Kemeja oxford breathable dengan chino rapi untuk mobilitas kerja dan kafe.",
+    id: "scbd-corporate-blazer",
+    judul: "SCBD Corporate Blazer",
+    subjudul: "Indoor AC & Urban · Semi-Wool",
+    tagline: "Blazer semi-wool berstruktur ringan dengan inner tencel anti-gerah.",
     suhu: "22°C AC & 33°C Luar",
-    sirkulasiUdara: "Adaptif Suhu Terik & AC",
-    alasanCocok: "Katun oxford pin-point berpori sejuk memberikan kehangatan lembut di ruang kerja ber-AC namun tetap adem saat melangkah di luar ruangan.",
-    gambar: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=900&auto=format&fit=crop&q=85",
-    paletWarna: [
-      { nama: "Sky Blue", hex: "#87CEEB" },
-      { nama: "Tailored Navy", hex: "#1B2A4A" },
-      { nama: "Khaki Sand", hex: "#C2B280" },
-    ],
-    warnaKulitCocok: "Semua Tone Kulit Pria",
-    rentangHarga: "Rp 280rb - 390rb",
-    studioParam: "kantor_pria_ac_menengah",
-    itemPakaian: [
-      {
-        kategori: "Atasan",
-        nama: "Kemeja Oxford Pin-Point Breathable",
-        bahan: "100% Katun Oxford Sejuk",
-        warna: "Sky Blue",
-        warnaHex: "#87CEEB",
-        estimasiHarga: "Rp 145.000",
-        keunggulanAdem: "Anyaman pin-point menyerap keringat tanpa menempel di kulit.",
-      },
-      {
-        kategori: "Bawahan",
-        nama: "Slim Straight Chino Pants",
-        bahan: "Katun Twill Stretch Ringan",
-        warna: "Khaki Sand",
-        warnaHex: "#C2B280",
-        estimasiHarga: "Rp 155.000",
-        keunggulanAdem: "Elastis dan fleksibel untuk mobilitas perkotaan.",
-      },
-      {
-        kategori: "Alas Kaki",
-        nama: "Leather Penny Loafers",
-        bahan: "Breathable Leather & Rubber Sol",
-        warna: "Dark Brown",
-        warnaHex: "#3E2723",
-        estimasiHarga: "Rp 195.000",
-        keunggulanAdem: "Nyaman seharian di ruang kantor dan luar ruangan.",
-      },
-    ],
-  },
-  {
-    id: "seoul-cafe-hopping",
-    judul: "Hangout Senopati Look",
-    subjudul: "Airy Tropical · 31°C",
-    tagline: "Paduan kemeja camp collar dan linen trousers bergaya minimalis tropis.",
-    suhu: "31°C Cuaca Terik",
-    sirkulasiUdara: "Optimal untuk 31°C",
-    alasanCocok: "Potongan kerah terbuka dan siluet santai menghasilkan tampilan urban kafe yang fotogenik sekaligus anti-keringat berlebih.",
+    sirkulasiUdara: "Sirkulasi Adaptif Tropis",
+    alasanCocok: "Material semi-wool ultra-ringan dengan lining katun menjaga siluet rapi dan formal saat meeting klien tanpa rasa sesak saat berjalan di terik Jakarta.",
     gambar: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&auto=format&fit=crop&q=85",
     paletWarna: [
-      { nama: "Putih Gading", hex: "#FDFBF7" },
-      { nama: "Sage Soft", hex: "#91AF90" },
-      { nama: "Sand Terang", hex: "#DECBA6" },
+      { nama: "Tailored Navy", hex: "#1B2A4A" },
+      { nama: "Charcoal Grey", hex: "#3A3F47" },
+      { nama: "Crisp Off-White", hex: "#F8F7F4" },
     ],
-    warnaKulitCocok: "Semua Tone Kulit Nusantara",
-    rentangHarga: "Rp 240rb - 350rb",
-    studioParam: "hangout_nonhijab_panas_menengah",
+    warnaKulitCocok: "Semua Tone Kulit Urban",
+    rentangHarga: "Rp 290rb - 420rb",
+    studioParam: "scbd_corporate_blazer",
     itemPakaian: [
       {
         kategori: "Atasan",
-        nama: "Kemeja Camp Collar Linen",
-        bahan: "Linen Euro Blend",
-        warna: "Sage Soft",
-        warnaHex: "#91AF90",
-        estimasiHarga: "Rp 135.000",
-        keunggulanAdem: "Kerah rileks menyerap keringat di area leher.",
+        nama: "Structured Oversized Blazer",
+        bahan: "Semi-Wool Light Blend",
+        warna: "Tailored Navy",
+        warnaHex: "#1B2A4A",
+        estimasiHarga: "Rp 165.000",
+        keunggulanAdem: "Potongan rapi berstruktur dengan furing katun adem.",
+      },
+      {
+        kategori: "Inner",
+        nama: "Tencel Modal Crewneck Inner",
+        bahan: "100% Tencel Dingin",
+        warna: "Crisp Off-White",
+        warnaHex: "#F8F7F4",
+        estimasiHarga: "Rp 75.000",
+        keunggulanAdem: "Menyerap keringat 50% lebih cepat dari katun biasa.",
       },
       {
         kategori: "Bawahan",
-        nama: "Celana Lurus Linen Blend",
-        bahan: "Katun Linen Organik",
-        warna: "Putih Gading",
-        warnaHex: "#FDFBF7",
-        estimasiHarga: "Rp 115.000",
-        keunggulanAdem: "Daya serap tinggi dan cepat kering di cuaca lembap.",
-      },
-    ],
-  },
-  {
-    id: "modern-modest-silk",
-    judul: "Modern Modest Silk Elegance",
-    subjudul: "Elegant Modest · Pesta",
-    tagline: "Gamis silk satin twill jatuh mewah dengan sentuhan pashmina ceruty premium.",
-    suhu: "22°C AC Ballroom & Resepsi",
-    sirkulasiUdara: "Sirkulasi Udara Halus",
-    alasanCocok: "Serat silk satin twill dingin memberi kilau elegan saat acara formal dan resepsi tanpa menimbulkan rasa panas.",
-    gambar: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=900&auto=format&fit=crop&q=85",
-    paletWarna: [
-      { nama: "Champagne Silk", hex: "#EAD7C5" },
-      { nama: "Rose Gold", hex: "#B76E79" },
-      { nama: "Warm Mocca", hex: "#8A6652" },
-    ],
-    warnaKulitCocok: "Sawo Matang & Kuning Langsat",
-    rentangHarga: "Rp 320rb - 480rb",
-    studioParam: "kondangan_hijab_formal_menengah",
-    itemPakaian: [
-      {
-        kategori: "Hijab / Kerudung",
-        nama: "Pashmina Ceruty Baby Doll Silk",
-        bahan: "Ceruty Silk Ringan Dingin",
-        warna: "Champagne Soft",
-        warnaHex: "#EAD7C5",
-        estimasiHarga: "Rp 49.000",
-        keunggulanAdem: "Jatuh anggun dan adem di kepala.",
-      },
-      {
-        kategori: "Gaun / Dress",
-        nama: "Modest Silk Satin Maxi Dress",
-        bahan: "Silk Satin Twill Halus",
-        warna: "Rose Gold Mocca",
-        warnaHex: "#B76E79",
-        estimasiHarga: "Rp 280.000",
-        keunggulanAdem: "Bahan dingin di kulit dan tidak menerawang.",
+        nama: "Highwaist Tailored Culottes",
+        bahan: "Premium Crepe Flowy",
+        warna: "Charcoal Grey",
+        warnaHex: "#3A3F47",
+        estimasiHarga: "Rp 120.000",
+        keunggulanAdem: "Jatuh berbobot tapi tetap adem dan tidak kaku.",
       },
       {
         kategori: "Alas Kaki",
         nama: "Pointed Block Heels Mules",
         bahan: "Cushioned Insole & Suede",
-        warna: "Nude Champagne",
-        warnaHex: "#EAD7C5",
-        estimasiHarga: "Rp 150.000",
-        keunggulanAdem: "Empuk untuk berdiri lama di pesta.",
+        warna: "Dark Navy",
+        warnaHex: "#1B2A4A",
+        estimasiHarga: "Rp 140.000",
+        keunggulanAdem: "Empuk untuk mobilitas aktif dari ruang kantor ke kafe.",
+      },
+    ],
+  },
+  {
+    id: "coastal-linen-camp-collar",
+    judul: "Coastal Linen Camp Collar",
+    subjudul: "Pure Flax Linen · Menswear",
+    tagline: "Kemeja kerah terbuka tenun linen alami dengan celana chino bernapas.",
+    suhu: "33°C Tropis Siang Hari",
+    sirkulasiUdara: "Optimal 98.4% Airflow",
+    alasanCocok: "Serat flax linen memiliki rongga alami yang mengalirkan angin bebas hambatan, menjaga suhu tubuh tetap adem meski di terik pantai atau kafe outdoor.",
+    gambar: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=900&auto=format&fit=crop&q=85",
+    paletWarna: [
+      { nama: "Oatmeal Linen", hex: "#E8DFD1" },
+      { nama: "Sky Blue", hex: "#87CEEB" },
+      { nama: "Khaki Sand", hex: "#C2B280" },
+    ],
+    warnaKulitCocok: "Sawo Matang & Deep Bronze",
+    rentangHarga: "Rp 240rb - 350rb",
+    studioParam: "old_money_coastal",
+    itemPakaian: [
+      {
+        kategori: "Atasan",
+        nama: "Kemeja Linen Camp Collar Cuban",
+        bahan: "100% Pure Flax Linen",
+        warna: "Sky Blue",
+        warnaHex: "#87CEEB",
+        estimasiHarga: "Rp 135.000",
+        keunggulanAdem: "Kerah terbuka mempermudah sirkulasi angin di area leher.",
+      },
+      {
+        kategori: "Bawahan",
+        nama: "Slim Straight Chino Pants",
+        bahan: "Katun Twill Stretch Sejuk",
+        warna: "Khaki Sand",
+        warnaHex: "#C2B280",
+        estimasiHarga: "Rp 145.000",
+        keunggulanAdem: "Elastis dan fleksibel untuk mobilitas perkotaan.",
+      },
+      {
+        kategori: "Alas Kaki",
+        nama: "Suede Penny Loafers",
+        bahan: "Breathable Leather & Rubber Sol",
+        warna: "Dark Brown",
+        warnaHex: "#3E2723",
+        estimasiHarga: "Rp 160.000",
+        keunggulanAdem: "Nyaman tanpa kaos kaki, sirkulasi kaki tetap segar.",
+      },
+    ],
+  },
+  {
+    id: "senopati-weekend-hangout",
+    judul: "Senopati Weekend Hangout",
+    subjudul: "Hangout Chic · Airy Knit",
+    tagline: "Paduan knitwear berpori halus dan pleated flowy skirt yang fotogenik.",
+    suhu: "31°C Kafe & Semi-Outdoor",
+    sirkulasiUdara: "Sirkulasi Halus Lembut",
+    alasanCocok: "Rajutan benang katun berongga mikro memberikan kesan berkelas untuk foto OOTD kafe tanpa membuat gerah di bawah terik matahari siang.",
+    gambar: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&auto=format&fit=crop&q=85",
+    paletWarna: [
+      { nama: "Buttercream", hex: "#FEFAE0" },
+      { nama: "Soft Matcha", hex: "#CCD5AE" },
+      { nama: "Terra Blush", hex: "#D4A373" },
+    ],
+    warnaKulitCocok: "Kuning Langsat & Putih Gading",
+    rentangHarga: "Rp 210rb - 310rb",
+    studioParam: "senopati_brunch_knit",
+    itemPakaian: [
+      {
+        kategori: "Atasan",
+        nama: "Fine Knitwear Drop Shoulder",
+        bahan: "Katun Berpori Mikro",
+        warna: "Buttercream Soft",
+        warnaHex: "#FEFAE0",
+        estimasiHarga: "Rp 115.000",
+        keunggulanAdem: "Rajutan anyaman longgar anti-gerah saat nongkrong di kafe.",
+      },
+      {
+        kategori: "Bawahan",
+        nama: "Flowy Pleated A-Line Skirt",
+        bahan: "Chiffon Crepe Dingin",
+        warna: "Soft Matcha",
+        warnaHex: "#CCD5AE",
+        estimasiHarga: "Rp 110.000",
+        keunggulanAdem: "Jatuh melayang, memberi angin sejuk saat melangkah.",
+      },
+      {
+        kategori: "Alas Kaki",
+        nama: "Chunky Loafers / Mary Jane",
+        bahan: "Soft Cushioned Insole",
+        warna: "Off-White",
+        warnaHex: "#FAF6EE",
+        estimasiHarga: "Rp 135.000",
+        keunggulanAdem: "Sol empuk untuk jalan santai seharian.",
       },
     ],
   },
@@ -336,6 +354,7 @@ export default function LookUMobileView({
 
   // State Interaktif
   const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const [selectedSkinTone, setSelectedSkinTone] = useState<string>("sawo-matang");
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
   const [activeSheetOutfit, setActiveSheetOutfit] = useState<MobileOutfit>(OUTFIT_HERO_LIST[0]);
@@ -345,6 +364,15 @@ export default function LookUMobileView({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const heroOutfit = OUTFIT_HERO_LIST[currentHeroIndex];
+
+  // Auto-Play Living Lookbook (4.5s) dengan Pause-on-Touch
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setCurrentHeroIndex((prev) => (prev + 1) % OUTFIT_HERO_LIST.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
   // Sinkronisasi status simpan dari localStorage
   useEffect(() => {
@@ -372,10 +400,12 @@ export default function LookUMobileView({
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
+    setIsPaused(true);
     setTouchStartX(e.targetTouches[0].clientX);
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
+    setIsPaused(false);
     if (touchStartX === null) return;
     const touchEndX = e.changedTouches[0].clientX;
     const diff = touchStartX - touchEndX;
@@ -581,26 +611,40 @@ export default function LookUMobileView({
               </div>
             </div>
 
-            {/* Kanvas Foto Bersih (Rasio 4:5, Sudut Tegas, Zero Clutter di Foto) */}
+            {/* Kanvas Foto Editorial Living Lookbook (Rasio Terkunci 33dvh, Auto-Play Track, Micro-Zoom) */}
             <div 
               onClick={() => handleOpenOutfitDetails(heroOutfit)}
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
               className="group cursor-pointer active:scale-[0.99] transition-all"
             >
-              <div className="relative w-full aspect-[4/5] max-h-[38dvh] bg-[#E5E0D8] overflow-hidden">
-                <Image
-                  src={heroOutfit.gambar}
-                  alt={heroOutfit.judul}
-                  fill
-                  priority
-                  className="w-full h-full object-cover object-top"
-                  sizes="(max-width: 480px) 100vw, 420px"
-                />
+              <div className="relative w-full h-[33dvh] min-h-[210px] max-h-[275px] bg-[#EFECE6] overflow-hidden border border-[#181A18]/10">
+                {/* Horizontal Auto-Sliding Track */}
+                <div
+                  className="flex w-full h-full transition-transform duration-700 ease-out"
+                  style={{ transform: `translateX(-${currentHeroIndex * 100}%)` }}
+                >
+                  {OUTFIT_HERO_LIST.map((outfit, idx) => (
+                    <div key={outfit.id} className="w-full h-full shrink-0 relative overflow-hidden bg-[#EFECE6]">
+                      <Image
+                        src={outfit.gambar}
+                        alt={outfit.judul}
+                        fill
+                        priority={idx === 0}
+                        className={`w-full h-full object-cover object-top mix-blend-multiply transition-transform ease-out ${
+                          idx === currentHeroIndex && !isPaused ? "scale-105 duration-[4500ms]" : "scale-100 duration-700"
+                        }`}
+                        sizes="(max-width: 480px) 100vw, 420px"
+                      />
 
-                {/* Badge Teknologi Bahan di Kiri Atas (Dinamis Sesuai Outfit) */}
-                <div className="absolute top-2.5 left-2.5 bg-[#181A18]/85 backdrop-blur-sm text-[#FAF8F5] px-2 py-0.5 text-[9px] font-bold font-mono tracking-widest uppercase shadow-xs">
-                  {heroOutfit.subjudul}
+                      {/* Badge Teknologi Bahan di Kiri Atas */}
+                      <div className="absolute top-2.5 left-2.5 bg-[#181A18]/85 backdrop-blur-sm text-[#FAF8F5] px-2 py-0.5 text-[9px] font-bold font-mono tracking-widest uppercase shadow-xs z-10">
+                        {outfit.subjudul}
+                      </div>
+                    </div>
+                  ))}
                 </div>
 
                 {/* Tombol Wishlist Bersih Tanpa Border Tebal */}
@@ -611,66 +655,80 @@ export default function LookUMobileView({
                     e.stopPropagation();
                     handleToggleSaveOutfit(heroOutfit);
                   }}
-                  className="absolute top-2.5 right-2.5 w-7 h-7 bg-white/85 backdrop-blur-sm flex items-center justify-center text-[#181A18] shadow-xs active:scale-90 transition-transform"
+                  className="absolute top-2.5 right-2.5 w-7 h-7 bg-white/85 backdrop-blur-sm flex items-center justify-center text-[#181A18] shadow-xs active:scale-90 transition-transform z-10"
                 >
                   <Heart className={`w-3.5 h-3.5 ${isSavedLocally ? "fill-[#181A18] text-[#181A18]" : "text-stone-700"}`} />
                 </button>
 
                 {/* Indikator Panah Swipe Halus di Sisi Kiri & Kanan */}
-                <div className="absolute inset-y-0 left-1 flex items-center pointer-events-none opacity-40 group-hover:opacity-100 transition-opacity">
+                <div className="absolute inset-y-0 left-1 flex items-center pointer-events-none opacity-40 group-hover:opacity-100 transition-opacity z-10">
                   <div className="w-6 h-6 rounded-full bg-white/70 backdrop-blur-xs flex items-center justify-center text-[#181A18] shadow-xs">
                     <ChevronLeft className="w-3.5 h-3.5" />
                   </div>
                 </div>
-                <div className="absolute inset-y-0 right-1 flex items-center pointer-events-none opacity-40 group-hover:opacity-100 transition-opacity">
+                <div className="absolute inset-y-0 right-1 flex items-center pointer-events-none opacity-40 group-hover:opacity-100 transition-opacity z-10">
                   <div className="w-6 h-6 rounded-full bg-white/70 backdrop-blur-xs flex items-center justify-center text-[#181A18] shadow-xs">
                     <ChevronRight className="w-3.5 h-3.5" />
                   </div>
                 </div>
-
-                {/* Progress Bar Slide Tipis di Bawah Foto */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/10 flex">
-                  <div
-                    className="h-full bg-[#181A18] transition-all duration-300"
-                    style={{
-                      width: `${100 / OUTFIT_HERO_LIST.length}%`,
-                      marginLeft: `${(currentHeroIndex * 100) / OUTFIT_HERO_LIST.length}%`,
-                    }}
-                  />
-                </div>
               </div>
 
-              {/* METADATA DI LUAR FOTO: Bersih, Rapi, & Bebas Truncation */}
+              {/* 4-Segment Live Progress Bar (Tap-to-Slide) */}
+              <div className="grid grid-cols-4 gap-1.5 pt-2 pb-0.5 w-full">
+                {OUTFIT_HERO_LIST.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    aria-label={`Lihat inspirasi 0${i + 1}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCurrentHeroIndex(i);
+                    }}
+                    className="h-1 rounded-full overflow-hidden bg-[#181A18]/15 relative focus:outline-none"
+                  >
+                    <div
+                      className={`h-full bg-[#181A18] transition-all duration-300 ${
+                        i === currentHeroIndex ? "w-full" : i < currentHeroIndex ? "w-full opacity-40" : "w-0"
+                      }`}
+                    />
+                  </button>
+                ))}
+              </div>
+
+              {/* METADATA DI LUAR FOTO: 2 Baris Bersih & Bebas Truncation */}
               <div className="pt-2 pb-2 border-b border-[#181A18]/10 flex flex-col gap-1 bg-white/60 px-2.5">
-                <div className="flex items-center justify-between">
-                  {/* Dot Swatches Warna ala Uniqlo */}
-                  <div className="flex items-center gap-1.5">
-                    {heroOutfit.paletWarna.slice(0, 3).map((warna, idx) => (
-                      <span
-                        key={idx}
-                        className="w-3 h-3 rounded-full border border-[#181A18]/25 shadow-2xs"
-                        style={{ backgroundColor: warna.hex }}
-                        title={warna.nama}
-                      />
-                    ))}
-                    <span className="text-[10px] uppercase tracking-wider text-[#181A18]/70 ml-1 font-mono font-medium truncate max-w-[160px]">
+                {/* Baris 1: Swatches + Tone Kulit (Kiri) dan Estimasi Harga (Kanan) */}
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-1.5 min-w-0">
+                    <div className="flex items-center gap-1 shrink-0">
+                      {heroOutfit.paletWarna.slice(0, 3).map((warna, idx) => (
+                        <span
+                          key={idx}
+                          className="w-3 h-3 rounded-full border border-[#181A18]/25 shadow-2xs shrink-0"
+                          style={{ backgroundColor: warna.hex }}
+                          title={warna.nama}
+                        />
+                      ))}
+                    </div>
+                    <span className="text-[10px] uppercase tracking-wider text-[#181A18]/70 font-mono font-medium truncate">
                       {heroOutfit.warnaKulitCocok}
                     </span>
                   </div>
 
                   {/* Estimasi Harga: Tegas & Rapi Tanpa Terpotong */}
                   <div className="text-right shrink-0">
-                    <span className="text-xs font-bold font-mono text-[#181A18]">
+                    <span className="text-xs font-bold font-mono text-[#181A18] whitespace-nowrap">
                       {heroOutfit.rentangHarga}
                     </span>
                   </div>
                 </div>
 
+                {/* Baris 2: Judul dan Tagline */}
                 <div>
-                  <h2 className="font-serif text-lg font-bold text-[#181A18] leading-tight">
+                  <h2 className="font-serif text-lg font-bold text-[#181A18] leading-tight truncate">
                     {heroOutfit.judul}
                   </h2>
-                  <p className="text-[11px] text-[#181A18]/70 mt-0.5 leading-snug line-clamp-1">
+                  <p className="text-[11px] text-[#181A18]/75 mt-0.5 leading-snug line-clamp-1">
                     {heroOutfit.tagline}
                   </p>
                 </div>

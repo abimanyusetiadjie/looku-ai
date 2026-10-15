@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { 
   Sparkles, 
   X, 
@@ -101,6 +101,7 @@ const DEFAULT_WELCOME_MSG: Message = {
 
 export default function FloatingChatbot() {
   const router = useRouter();
+  const pathname = usePathname();
   const { weather } = useWeather();
   const [isOpen, setIsOpen] = useState(false);
   const [inputMessage, setInputMessage] = useState("");
@@ -399,7 +400,7 @@ export default function FloatingChatbot() {
                 whileTap={{ scale: 0.92 }}
                 onClick={() => setIsOpen(true)}
                 aria-label="Buka AI Stylist Concierge"
-                className="sm:hidden w-10 h-10 bg-[#181A18] text-white shadow-xl flex items-center justify-center relative active:scale-95 transition-transform border border-white/20 rounded-full"
+                className={`sm:hidden ${pathname === "/" ? "hidden" : "flex"} w-10 h-10 bg-[#181A18] text-white shadow-xl items-center justify-center relative active:scale-95 transition-transform border border-white/20 rounded-full`}
               >
                 <Sparkles className="w-4 h-4 text-cream-200" />
                 <span className="absolute top-0.5 right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-[#181A18] animate-pulse" />

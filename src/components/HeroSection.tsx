@@ -20,7 +20,7 @@ const DESKTOP_HERO_SLIDES = [
     tagline: "Kemeja katun linen oversized berpori sejuk dan kulot broken white santun.",
     suhu: "33°C Terik Tropis",
     climateBadge: "AIRY TROPICAL · OPTIMAL 33°C",
-    image: "https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?w=900&auto=format&fit=crop&q=85",
+    image: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=900&auto=format&fit=crop&q=85",
     swatches: [
       { name: "Cream Oat", hex: "#F5EBE0" },
       { name: "Sage Green", hex: "#84A98C" },
