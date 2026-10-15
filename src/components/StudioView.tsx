@@ -492,6 +492,21 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
   const [feedbackToast, setFeedbackToast] = useState<string | null>(null);
   const [isShuffling, setIsShuffling] = useState(false);
 
+  // Lock body scroll and handle Escape key for modal
+  useEffect(() => {
+    if (isDetailsDrawerOpen) {
+      document.body.style.overflow = "hidden";
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") setIsDetailsDrawerOpen(false);
+      };
+      window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.body.style.overflow = "";
+        window.removeEventListener("keydown", handleKeyDown);
+      };
+    }
+  }, [isDetailsDrawerOpen]);
+
   // Trigger feedback toast
   const triggerToast = (msg: string) => {
     setFeedbackToast(msg);
@@ -1289,31 +1304,47 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
       {/* ============================================================ */}
       {/* 3. SLIDE-UP DRAWER: RINCIAN 4 KOMPONEN & MARKETPLACE LINK    */}
       {/* ============================================================ */}
+      {/* ============================================================ */}
+      {/* 3. MODAL / DRAWER: RINCIAN 4 KOMPONEN & MARKETPLACE LINK     */}
+      {/* ============================================================ */}
       <AnimatePresence>
         {isDetailsDrawerOpen && (
-          <>
+          <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4">
+            {/* Backdrop Gelap Solid - Mengisolasi tampilan background */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={() => setIsDetailsDrawerOpen(false)}
-              className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs"
+              className="absolute inset-0 bg-black/75 backdrop-blur-sm"
             />
 
+            {/* Modal Card / Bottom Sheet Solid Opaque */}
             <motion.div
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "100%" }}
-              transition={{ type: "spring", damping: 28, stiffness: 300 }}
-              className="fixed inset-x-0 bottom-0 z-55 max-w-md md:max-w-xl mx-auto max-h-[85vh] bg-[#FAF8F5] border-t border-[#181A18]/20 shadow-2xl flex flex-col overflow-hidden pb-8"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 40 }}
+              transition={{ type: "spring", damping: 26, stiffness: 300 }}
+              className="relative z-[70] w-full sm:max-w-xl bg-white border-t-2 sm:border-2 border-[#181A18] shadow-2xl flex flex-col max-h-[88vh] overflow-hidden rounded-t-2xl sm:rounded-none"
             >
+              {/* Mobile Drag/Visual Indicator */}
+              <div className="sm:hidden w-full flex justify-center pt-2.5 pb-1 bg-white">
+                <div className="w-12 h-1 bg-stone-300 rounded-full" />
+              </div>
+
               {/* Header Drawer */}
-              <div className="px-5 py-3.5 border-b border-[#181A18]/10 flex items-center justify-between bg-white">
+              <div className="px-5 py-3.5 border-b border-[#181A18]/15 flex items-center justify-between bg-white shrink-0">
                 <div>
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#8C5A3C]">
-                    Komposisi 4 Komponen
-                  </span>
-                  <h3 className="font-serif text-xl font-bold text-[#181A18] mt-0.5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#8C5A3C] bg-[#8C5A3C]/10 px-2 py-0.5">
+                      Komposisi 4 Komponen
+                    </span>
+                    <span className="text-[9px] font-mono text-[#181A18]/50">
+                      Look.u Official Catalog
+                    </span>
+                  </div>
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#181A18] mt-1 leading-snug">
                     Bedah Rincian Pakaian &amp; Pembelian
                   </h3>
                 </div>
@@ -1322,57 +1353,66 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                   type="button"
                   aria-label="Tutup Rincian"
                   onClick={() => setIsDetailsDrawerOpen(false)}
-                  className="w-8 h-8 bg-stone-100 flex items-center justify-center text-[#181A18] hover:bg-[#181A18] hover:text-white transition-colors"
+                  className="w-9 h-9 bg-stone-100 flex items-center justify-center text-[#181A18] hover:bg-[#181A18] hover:text-white transition-colors cursor-pointer shrink-0 ml-3"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="w-5 h-5" />
                 </button>
               </div>
 
               {/* Rincian Komponen List */}
-              <div className="p-4 overflow-y-auto space-y-2.5 text-xs">
+              <div className="p-4 sm:p-5 overflow-y-auto space-y-3 text-xs bg-[#FAF8F5]">
                 {[activeSlots.top, activeSlots.bottom, activeSlots.outer, activeSlots.shoes].map((item, idx) => (
                   <div
                     key={idx}
-                    className="p-3 bg-white border border-[#181A18]/10 flex items-center justify-between gap-3 shadow-2xs"
+                    className="p-3.5 bg-white border border-[#181A18]/15 flex items-center justify-between gap-3 shadow-xs hover:border-[#181A18]/40 transition-colors"
                   >
                     <img
                       src={item.imageUrl}
                       alt={item.name}
-                      className="w-12 h-12 object-cover bg-[#EFECE6] border border-[#181A18]/10 shrink-0"
+                      className="w-14 h-14 object-cover bg-[#EFECE6] border border-[#181A18]/10 shrink-0"
                     />
 
                     <div className="flex-1 min-w-0">
-                      <span className="text-[8px] font-mono font-bold uppercase tracking-wider text-[#8C5A3C] block">
-                        {item.categoryLabel}
-                      </span>
-                      <h4 className="font-bold text-[#181A18] text-xs truncate">
+                      <div className="flex items-center gap-2">
+                        <span className="text-[8px] font-mono font-bold uppercase tracking-wider text-[#8C5A3C]">
+                          {item.categoryLabel}
+                        </span>
+                        <span
+                          className="w-2 h-2 rounded-full border border-black/15 shrink-0"
+                          style={{ backgroundColor: item.colorHex }}
+                          title={item.colorName}
+                        />
+                      </div>
+                      <h4 className="font-bold text-[#181A18] text-xs sm:text-sm truncate mt-0.5">
                         {item.name}
                       </h4>
-                      <p className="text-[10px] text-[#181A18]/65 truncate">
-                        {item.material} · Adem {item.breathability}%
+                      <p className="text-[10px] text-[#181A18]/70 truncate mt-0.5">
+                        {item.material} · Sirkulasi Adem {item.breathability}%
                       </p>
                     </div>
 
-                    <div className="flex flex-col items-end gap-1 shrink-0">
-                      <span className="font-mono font-bold text-xs text-[#181A18]">
+                    <div className="flex flex-col items-end gap-1.5 shrink-0">
+                      <span className="font-mono font-bold text-xs sm:text-sm text-[#181A18]">
                         {item.priceStr}
                       </span>
-                      <div className="flex items-center gap-1">
+                      <div className="flex items-center gap-1.5">
                         <a
                           href={`https://shopee.co.id/search?keyword=${encodeURIComponent(item.shopeeQuery)}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-2 py-0.5 bg-[#EE4D2D] text-white text-[9px] font-mono font-bold uppercase hover:opacity-90"
+                          className="px-2.5 py-1 bg-[#EE4D2D] text-white text-[9px] font-mono font-bold uppercase tracking-wider hover:opacity-90 transition-opacity flex items-center gap-1 shadow-xs"
                         >
-                          Shopee
+                          <span>Shopee</span>
+                          <span>↗</span>
                         </a>
                         <a
                           href={`https://www.tokopedia.com/search?st=product&q=${encodeURIComponent(item.tokopediaQuery)}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-2 py-0.5 bg-[#03AC0E] text-white text-[9px] font-mono font-bold uppercase hover:opacity-90"
+                          className="px-2.5 py-1 bg-[#03AC0E] text-white text-[9px] font-mono font-bold uppercase tracking-wider hover:opacity-90 transition-opacity flex items-center gap-1 shadow-xs"
                         >
-                          Tokopedia
+                          <span>Tokopedia</span>
+                          <span>↗</span>
                         </a>
                       </div>
                     </div>
@@ -1380,17 +1420,48 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                 ))}
 
                 {/* Total Estimasi Belanja */}
-                <div className="p-3 bg-[#EFECE6] border border-[#181A18]/10 flex items-center justify-between text-xs mt-3">
-                  <span className="font-mono uppercase font-bold text-[#181A18]/70">
-                    Total Estimasi 4 Item:
-                  </span>
-                  <span className="font-mono font-extrabold text-base text-[#181A18]">
-                    {totalPriceStr}
-                  </span>
+                <div className="p-3.5 bg-white border-2 border-[#181A18] flex items-center justify-between text-xs mt-3 shadow-xs">
+                  <div>
+                    <span className="font-mono uppercase font-bold text-[#181A18]/70 block text-[10px]">
+                      Total Estimasi 4 Item
+                    </span>
+                    <span className="text-[10px] text-[#181A18]/50">
+                      Harga pasar terkurasi
+                    </span>
+                  </div>
+                  <div className="text-right">
+                    <span className="font-mono font-extrabold text-lg text-[#181A18] block leading-tight">
+                      {totalPriceStr}
+                    </span>
+                    <span className="text-[9px] font-mono text-emerald-700 font-semibold">
+                      Efisiensi Outfit 100%
+                    </span>
+                  </div>
+                </div>
+
+                {/* Footer Action inside Modal */}
+                <div className="pt-2 flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleSaveToWardrobe();
+                      setIsDetailsDrawerOpen(false);
+                    }}
+                    className="flex-1 py-3 bg-[#181A18] text-[#FAF8F5] text-xs font-mono font-bold uppercase tracking-wider hover:bg-terracotta-600 active:scale-[0.99] transition-all flex items-center justify-center gap-2 shadow-sm"
+                  >
+                    <span>📌 Simpan ke Lemari</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setIsDetailsDrawerOpen(false)}
+                    className="px-4 py-3 border border-[#181A18]/25 bg-white text-[#181A18] text-xs font-mono font-bold uppercase tracking-wider hover:bg-stone-100 transition-colors"
+                  >
+                    Tutup
+                  </button>
                 </div>
               </div>
             </motion.div>
-          </>
+          </div>
         )}
       </AnimatePresence>
     </div>
