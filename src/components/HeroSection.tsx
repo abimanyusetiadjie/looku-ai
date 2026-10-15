@@ -333,7 +333,7 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
             </h2>
           </div>
           <Link href="/lookbook" className="text-xs font-sans font-bold text-[#8C5A3C] hover:text-[#181A18] uppercase tracking-wider flex items-center gap-1.5 transition-colors">
-            Lihat Semua (202) <ArrowRight className="w-3.5 h-3.5" />
+            Lihat Semua (500) <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
         

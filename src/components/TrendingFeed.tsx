@@ -21,10 +21,10 @@ interface CategoryTab {
 }
 
 const CATEGORY_TABS: CategoryTab[] = [
-  { id: "ALL", label: "SEMUA", count: 202 },
-  { id: "WANITA", label: "WANITA", count: 75 },
-  { id: "HIJAB", label: "HIJAB / MODEST", count: 66 },
-  { id: "PRIA", label: "PRIA", count: 61 },
+  { id: "ALL", label: "SEMUA", count: 500 },
+  { id: "WANITA", label: "WANITA", count: 170 },
+  { id: "HIJAB", label: "HIJAB / MODEST", count: 170 },
+  { id: "PRIA", label: "PRIA", count: 160 },
 ];
 
 const SIGNATURE_PRIA_IDS = new Set([
@@ -42,8 +42,8 @@ function getLookGender(look: (typeof TRENDING_LOOKS_FEED)[0]): "PRIA" | "HIJAB" 
   if (SIGNATURE_HIJAB_IDS.has(look.id)) return "HIJAB";
   if (SIGNATURE_WANITA_IDS.has(look.id)) return "WANITA";
 
-  if (look.tag === "MENSWEAR" || look.outfit?.id?.startsWith("synthesized_male")) return "PRIA";
-  if (look.tag === "MODEST CAPSULE" || look.outfit?.id?.startsWith("synthesized_hijab")) return "HIJAB";
+  if (look.tag === "MENSWEAR" || look.outfit?.id?.startsWith("pa_male") || look.outfit?.id?.startsWith("synthesized_male")) return "PRIA";
+  if (look.tag === "MODEST CAPSULE" || look.outfit?.id?.startsWith("pa_hijab") || look.outfit?.id?.startsWith("synthesized_hijab")) return "HIJAB";
   return "WANITA";
 }
 
@@ -153,7 +153,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
             </h1>
           </div>
           <p className="text-xs text-[#181A18]/65 max-w-sm font-sans leading-relaxed">
-            202 formula padu-padan iklim tropis terkurasi AI dari dataset Polyvore, Myntra, dan arsip busana lokal Indonesia.
+            500 formula padu-padan iklim tropis terkurasi AI dari dataset Param Aggarwal, Myntra, Polyvore, dan arsip busana modest Indonesia.
           </p>
         </div>
 
@@ -365,7 +365,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                 onClick={resetAllFilters}
                 className="h-10 px-6 bg-[#181A18] text-white text-xs font-bold uppercase tracking-widest rounded-none hover:bg-[#8C5A3C] transition-colors"
               >
-                KEMBALI KE SEMUA (202)
+                KEMBALI KE SEMUA (500)
               </button>
             </div>
           )}

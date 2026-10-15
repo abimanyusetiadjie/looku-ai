@@ -11,6 +11,14 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "assets.myntassets.com",
+      },
+      {
+        protocol: "http",
+        hostname: "assets.myntassets.com",
+      },
+      {
+        protocol: "https",
         hostname: "cf.shopee.co.id",
       },
       {
