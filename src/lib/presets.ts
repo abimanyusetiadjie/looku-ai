@@ -1,7 +1,10 @@
 import { OOTDRecommendation, UserPreferences, TrendingLook, OutfitItem } from "./types";
 import { GOLDEN_DATASET } from "./fashion-catalog-data";
+import { EXTENDED_OOTD_CATALOG, EXTENDED_TRENDING_LOOKS, CATALOG_METRICS } from "./synthesized-catalog";
 
-export const PRESET_OOTD_COLLECTION: Record<string, OOTDRecommendation> = {
+export { CATALOG_METRICS };
+
+const SIGNATURE_PRESETS: Record<string, OOTDRecommendation> = {
   "kuliah_hijab_panas_hemat": {
     id: "rec_kuliah_hijab_1",
     title: "Casual Campus Chiffon",
@@ -1136,7 +1139,12 @@ export const PRESET_OOTD_COLLECTION: Record<string, OOTDRecommendation> = {
 
 };
 
-export const TRENDING_LOOKS_FEED: TrendingLook[] = [
+export const PRESET_OOTD_COLLECTION: Record<string, OOTDRecommendation> = {
+  ...SIGNATURE_PRESETS,
+  ...EXTENDED_OOTD_CATALOG,
+};
+
+const SIGNATURE_TRENDING_LOOKS: TrendingLook[] = [
   {
     id: "trend_poly_f1",
     title: "Edgy Biker & Dark Denim",
@@ -1402,6 +1410,11 @@ export const TRENDING_LOOKS_FEED: TrendingLook[] = [
     likes: 812,
     outfit: PRESET_OOTD_COLLECTION["minimalist_slip_dress"]
   }
+];
+
+export const TRENDING_LOOKS_FEED: TrendingLook[] = [
+  ...SIGNATURE_TRENDING_LOOKS,
+  ...EXTENDED_TRENDING_LOOKS,
 ];
 
 export function generateHeuristicOOTD(pref: UserPreferences): OOTDRecommendation {

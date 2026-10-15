@@ -21,11 +21,36 @@ interface CategoryTab {
 }
 
 const CATEGORY_TABS: CategoryTab[] = [
-  { id: "ALL", label: "SEMUA", count: 22 },
-  { id: "WANITA", label: "WANITA", count: 10 },
-  { id: "HIJAB", label: "HIJAB / MODEST", count: 6 },
-  { id: "PRIA", label: "PRIA", count: 6 },
+  { id: "ALL", label: "SEMUA", count: 202 },
+  { id: "WANITA", label: "WANITA", count: 75 },
+  { id: "HIJAB", label: "HIJAB / MODEST", count: 66 },
+  { id: "PRIA", label: "PRIA", count: 61 },
 ];
+
+const SIGNATURE_PRIA_IDS = new Set([
+  "trend_poly_m1", "trend_poly_m2", "trend_poly_m3", "trend_04", "trend_10", "trend_12"
+]);
+const SIGNATURE_HIJAB_IDS = new Set([
+  "trend_01", "trend_03", "trend_06", "trend_07", "trend_14", "trend_15"
+]);
+const SIGNATURE_WANITA_IDS = new Set([
+  "trend_poly_f1", "trend_poly_f2", "trend_poly_f3", "trend_02", "trend_05", "trend_08", "trend_09", "trend_11", "trend_13", "trend_16"
+]);
+
+function getLookGender(look: (typeof TRENDING_LOOKS_FEED)[0]): "PRIA" | "HIJAB" | "WANITA" {
+  if (SIGNATURE_PRIA_IDS.has(look.id)) return "PRIA";
+  if (SIGNATURE_HIJAB_IDS.has(look.id)) return "HIJAB";
+  if (SIGNATURE_WANITA_IDS.has(look.id)) return "WANITA";
+
+  if (look.tag === "MENSWEAR" || look.outfit?.id?.startsWith("synthesized_male")) return "PRIA";
+  if (look.tag === "MODEST CAPSULE" || look.outfit?.id?.startsWith("synthesized_hijab")) return "HIJAB";
+  return "WANITA";
+}
+
+type ClimateFilter = "all" | "tropical" | "ac" | "rainy";
+type OccasionFilter = "all" | "campus" | "office" | "weekend" | "resort" | "party" | "streetwear";
+
+const PAGE_SIZE = 16;
 
 function getContextualClimateBadge(title: string, category: string): string {
   const t = title.toLowerCase();
@@ -42,6 +67,9 @@ function getContextualClimateBadge(title: string, category: string): string {
 
 export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFeedProps) {
   const [activeTab, setActiveTab] = useState<TabType>("ALL");
+  const [climateFilter, setClimateFilter] = useState<ClimateFilter>("all");
+  const [occasionFilter, setOccasionFilter] = useState<OccasionFilter>("all");
+  const [visibleCount, setVisibleCount] = useState<number>(PAGE_SIZE);
   const [selectedLookId, setSelectedLookId] = useState<string | null>(null);
   const [likedIds, setLikedIds] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -55,38 +83,61 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
     if (tabId === activeTab) return;
     setIsLoading(true);
     setActiveTab(tabId);
-    setTimeout(() => setIsLoading(false), 250);
+    setVisibleCount(PAGE_SIZE);
+    setTimeout(() => setIsLoading(false), 200);
   };
 
-  // Filter 22 looks based on Tab
+  const handleClimateFilter = (filter: ClimateFilter) => {
+    setClimateFilter(filter);
+    setVisibleCount(PAGE_SIZE);
+  };
+
+  const handleOccasionFilter = (filter: OccasionFilter) => {
+    setOccasionFilter(filter);
+    setVisibleCount(PAGE_SIZE);
+  };
+
+  const resetAllFilters = () => {
+    setActiveTab("ALL");
+    setClimateFilter("all");
+    setOccasionFilter("all");
+    setVisibleCount(PAGE_SIZE);
+  };
+
+  // Filter 202 looks based on Tab, Climate, & Occasion
   const filteredLooks = TRENDING_LOOKS_FEED.filter((look) => {
-    if (activeTab === "ALL") return true;
-
-    const t = look.title.toLowerCase();
-    const c = look.category.toLowerCase();
-    const tag = look.tag.toLowerCase();
-    const isPria = t.includes("pria") || t.includes("chino") || t.includes("menswear") || tag.includes("menswear") || tag.includes("myntra") || t.includes("batik modern tulis") || t.includes("office nomad");
-
-    if (activeTab === "PRIA") {
-      return isPria;
+    // 1. Gender Category Tab
+    if (activeTab !== "ALL") {
+      const gender = getLookGender(look);
+      if (gender !== activeTab) return false;
     }
 
-    if (activeTab === "HIJAB") {
-      if (isPria) return false;
-      return look.outfit?.modestFriendly || c.includes("hijab") || t.includes("chiffon") || t.includes("vest") || t.includes("corporate") || t.includes("rainy") || t.includes("pastel");
+    // 2. Climate Filter
+    if (climateFilter !== "all") {
+      const badge = getContextualClimateBadge(look.title, look.category);
+      if (climateFilter === "tropical" && !badge.includes("AIRY TROPICAL")) return false;
+      if (climateFilter === "ac" && !badge.includes("INDOOR AC")) return false;
+      if (climateFilter === "rainy" && !badge.includes("RAINY") && !badge.includes("BREEZY")) return false;
     }
 
-    if (activeTab === "WANITA") {
-      // Non-hijab female / universal chic
-      if (isPria) return false;
-      const isPureHijab = c.includes("campus & hijab") || t.includes("casual campus chiffon") || t.includes("modern modest silk") || t.includes("sweetheart pastel date");
-      return !isPureHijab;
+    // 3. Occasion Filter
+    if (occasionFilter !== "all") {
+      const c = (look.category || "").toLowerCase();
+      const t = (look.title || "").toLowerCase();
+      if (occasionFilter === "campus" && !(c.includes("campus") || t.includes("campus") || t.includes("kuliah"))) return false;
+      if (occasionFilter === "office" && !(c.includes("work") || c.includes("meeting") || t.includes("corporate") || t.includes("office") || t.includes("blazer") || t.includes("slacks"))) return false;
+      if (occasionFilter === "weekend" && !(c.includes("weekend") || c.includes("cafe") || t.includes("cafe") || t.includes("brunch") || t.includes("hangout"))) return false;
+      if (occasionFilter === "resort" && !(c.includes("travel") || t.includes("resort") || t.includes("bali") || t.includes("coastal") || t.includes("linen"))) return false;
+      if (occasionFilter === "party" && !(c.includes("pesta") || c.includes("reception") || t.includes("gala") || t.includes("silk") || t.includes("batik"))) return false;
+      if (occasionFilter === "streetwear" && !(c.includes("streetwear") || t.includes("streetwear") || t.includes("cargo") || t.includes("biker") || t.includes("heavyweight") || t.includes("boxy"))) return false;
     }
 
     return true;
   });
 
+  const displayedLooks = filteredLooks.slice(0, visibleCount);
   const selectedLook = TRENDING_LOOKS_FEED.find(l => l.id === selectedLookId);
+  const isFilterActive = activeTab !== "ALL" || climateFilter !== "all" || occasionFilter !== "all";
 
   return (
     <section className="w-full bg-[#FAF8F5] min-h-screen pb-24">
@@ -102,7 +153,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
             </h1>
           </div>
           <p className="text-xs text-[#181A18]/65 max-w-sm font-sans leading-relaxed">
-            22 formula padu-padan iklim tropis terkurasi AI dari dataset Polyvore, Myntra, dan arsip busana lokal Indonesia.
+            202 formula padu-padan iklim tropis terkurasi AI dari dataset Polyvore, Myntra, dan arsip busana lokal Indonesia.
           </p>
         </div>
 
@@ -131,6 +182,72 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
             );
           })}
         </div>
+
+        {/* ============================================================ */}
+        {/* SUB-FILTER BAR: Suhu Tropis & Acara (Utilitarian Minimalist) */}
+        {/* ============================================================ */}
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 mt-4 pt-3 border-t border-[#181A18]/10 text-xs">
+          {/* Suhu / Iklim */}
+          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-[#181A18]/50 mr-1 shrink-0">IKLIM:</span>
+            {[
+              { id: "all", label: "Semua Suhu" },
+              { id: "tropical", label: "☀️ Tropis 30°C+" },
+              { id: "ac", label: "🏢 Ruang AC" },
+              { id: "rainy", label: "🌧️ Hujan / Sejuk" }
+            ].map((f) => (
+              <button
+                key={f.id}
+                type="button"
+                onClick={() => handleClimateFilter(f.id as ClimateFilter)}
+                className={`px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider transition-colors shrink-0 rounded-none border ${
+                  climateFilter === f.id
+                    ? "bg-[#181A18] text-[#FAF8F5] border-[#181A18]"
+                    : "bg-white text-[#181A18]/70 border-[#181A18]/15 hover:border-[#181A18]"
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Acara / Occasion + Reset */}
+          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-[#181A18]/50 mr-1 shrink-0">ACARA:</span>
+            {[
+              { id: "all", label: "Semua" },
+              { id: "campus", label: "Kuliah" },
+              { id: "office", label: "Kantor" },
+              { id: "weekend", label: "Kafe" },
+              { id: "resort", label: "Resort" },
+              { id: "party", label: "Pesta" },
+              { id: "streetwear", label: "Street" }
+            ].map((f) => (
+              <button
+                key={f.id}
+                type="button"
+                onClick={() => handleOccasionFilter(f.id as OccasionFilter)}
+                className={`px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider transition-colors shrink-0 rounded-none border ${
+                  occasionFilter === f.id
+                    ? "bg-[#8C5A3C] text-[#FAF8F5] border-[#8C5A3C]"
+                    : "bg-white text-[#181A18]/70 border-[#181A18]/15 hover:border-[#8C5A3C]"
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+
+            {isFilterActive && (
+              <button
+                type="button"
+                onClick={resetAllFilters}
+                className="ml-2 px-2.5 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-[#8C5A3C] hover:text-[#181A18] underline underline-offset-2 shrink-0"
+              >
+                Reset
+              </button>
+            )}
+          </div>
+        </div>
       </div>
 
       {/* ============================================================ */}
@@ -148,8 +265,8 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                 <div className="h-3 w-1/3 bg-[#EFECE6] mt-2 pt-1 border-t border-[#181A18]/10" />
               </div>
             ))
-          ) : filteredLooks.length > 0 ? (
-            filteredLooks.map((look) => {
+          ) : displayedLooks.length > 0 ? (
+            displayedLooks.map((look) => {
               const climateBadge = getContextualClimateBadge(look.title, look.category);
               const isLiked = likedIds.includes(look.id);
 
@@ -241,18 +358,35 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
           ) : (
             /* Empty State */
             <div className="col-span-2 lg:col-span-4 flex flex-col items-center justify-center py-20 text-center bg-white border border-[#181A18]/10 p-8">
-              <p className="font-serif text-xl text-[#181A18] mb-1">Belum ada gaya untuk kategori ini</p>
-              <p className="text-xs text-[#181A18]/60 mb-4">Silakan pilih kategori lain atau kembali ke seluruh koleksi.</p>
+              <p className="font-serif text-xl text-[#181A18] mb-1">Belum ada gaya untuk filter ini</p>
+              <p className="text-xs text-[#181A18]/60 mb-4">Silakan sesuaikan filter suhu/acara atau kembali ke seluruh katalog.</p>
               <button
                 type="button"
-                onClick={() => handleTabClick("ALL")}
-                className="h-10 px-6 bg-[#181A18] text-white text-xs font-bold uppercase tracking-widest rounded-none"
+                onClick={resetAllFilters}
+                className="h-10 px-6 bg-[#181A18] text-white text-xs font-bold uppercase tracking-widest rounded-none hover:bg-[#8C5A3C] transition-colors"
               >
-                KEMBALI KE SEMUA (22)
+                KEMBALI KE SEMUA (202)
               </button>
             </div>
           )}
         </div>
+
+        {/* Load More Pagination Button */}
+        {visibleCount < filteredLooks.length && (
+          <div className="mt-12 flex flex-col items-center justify-center gap-2.5">
+            <button
+              type="button"
+              onClick={() => setVisibleCount((prev) => prev + PAGE_SIZE)}
+              className="h-12 px-8 bg-[#181A18] text-[#FAF8F5] text-xs font-bold uppercase tracking-[0.18em] hover:bg-[#8C5A3C] active:opacity-90 transition-all rounded-none shadow-sm flex items-center gap-2.5"
+            >
+              <span>Muat Lebih Banyak ({Math.min(visibleCount + PAGE_SIZE, filteredLooks.length)} dari {filteredLooks.length} Set)</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+            <p className="text-[10px] font-mono uppercase tracking-wider text-[#181A18]/50">
+              Menampilkan {Math.min(visibleCount, filteredLooks.length)} dari {filteredLooks.length} Formula Terkurasi
+            </p>
+          </div>
+        )}
       </div>
 
       {/* ============================================================ */}
