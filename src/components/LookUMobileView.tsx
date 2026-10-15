@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Menu, Search, ShoppingBag, Sun, House, Sparkles, Palette, BookOpen, Shirt, Wind, ChevronRight, ArrowRight, Check, X, Heart, ThermometerSun, Layers, Bookmark, User } from "lucide-react";
+import { Menu, Search, ShoppingBag, Sun, House, Sparkles, Palette, BookOpen, Shirt, Wind, ChevronRight, ChevronLeft, ArrowRight, Check, X, Heart, ThermometerSun, Layers, Bookmark, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWeather } from "@/hooks/useWeather";
 
@@ -62,19 +62,19 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
   {
     id: "casual-campus-chiffon",
     judul: "Casual Campus Chiffon",
-    subjudul: "100% Adem & Modest",
-    tagline: "Kombinasi linen crinkle dan kulot jatuh bebas gerah untuk aktivitas seharian.",
+    subjudul: "Adem Optimal · 100% Modest",
+    tagline: "Kombinasi katun linen berpori sejuk dan kulot santun bebas gerah di kelas.",
     suhu: "33°C Tropis Siang Hari",
     sirkulasiUdara: "Sirkulasi Udara Maksimal",
-    alasanCocok: "Kombinasi serat linen alami dan voal paris berpori mikro melepas panas tubuh seketika tanpa menerawang, sangat santun untuk hijab santai maupun semi-formal.",
-    gambar: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=900&auto=format&fit=crop&q=85",
+    alasanCocok: "Kombinasi serat linen alami dan voal paris berpori mikro melepas panas tubuh seketika tanpa menerawang, sangat santun untuk hijab kampus maupun semi-formal.",
+    gambar: "https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?w=900&auto=format&fit=crop&q=85",
     paletWarna: [
       { nama: "Krem Oat", hex: "#FAF6EE" },
       { nama: "Sage Green", hex: "#6B8E68" },
       { nama: "Sand Cokelat", hex: "#D4A373" },
     ],
     warnaKulitCocok: "Sawo Matang & Kuning Langsat",
-    rentangHarga: "Rp 240rb - 320rb",
+    rentangHarga: "Rp 180rb - 260rb",
     studioParam: "kuliah_hijab_panas_hemat",
     itemPakaian: [
       {
@@ -105,25 +105,72 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
         keunggulanAdem: "Potongan longgar anti-lekat, fleksibel melangkah di terik matahari.",
       },
       {
-        kategori: "Alas Kaki & Tas",
-        nama: "Mules Slip-On & Tas Kanvas Mini",
-        bahan: "Kulit Sintetis Lentur & Kanvas",
-        warna: "Krem Sand",
-        warnaHex: "#ECE0C7",
+        kategori: "Alas Kaki",
+        nama: "Canvas Slip-on Retro White",
+        bahan: "Breathable Canvas & Rubber Sole",
+        warna: "Broken White",
+        warnaHex: "#FAF6EE",
         estimasiHarga: "Rp 85.000",
         keunggulanAdem: "Bebas lembap pada kaki, praktis untuk mobilitas tinggi.",
       },
     ],
   },
   {
+    id: "metropolitan-oxford-chino",
+    judul: "Metropolitan Oxford & Chino",
+    subjudul: "Indoor AC & Tropis · Pria",
+    tagline: "Kemeja oxford breathable dengan chino rapi untuk mobilitas kerja dan kafe.",
+    suhu: "22°C AC & 33°C Luar",
+    sirkulasiUdara: "Adaptif Suhu Terik & AC",
+    alasanCocok: "Katun oxford pin-point berpori sejuk memberikan kehangatan lembut di ruang kerja ber-AC namun tetap adem saat melangkah di luar ruangan.",
+    gambar: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=900&auto=format&fit=crop&q=85",
+    paletWarna: [
+      { nama: "Sky Blue", hex: "#87CEEB" },
+      { nama: "Tailored Navy", hex: "#1B2A4A" },
+      { nama: "Khaki Sand", hex: "#C2B280" },
+    ],
+    warnaKulitCocok: "Semua Tone Kulit Pria",
+    rentangHarga: "Rp 280rb - 390rb",
+    studioParam: "kantor_pria_ac_menengah",
+    itemPakaian: [
+      {
+        kategori: "Atasan",
+        nama: "Kemeja Oxford Pin-Point Breathable",
+        bahan: "100% Katun Oxford Sejuk",
+        warna: "Sky Blue",
+        warnaHex: "#87CEEB",
+        estimasiHarga: "Rp 145.000",
+        keunggulanAdem: "Anyaman pin-point menyerap keringat tanpa menempel di kulit.",
+      },
+      {
+        kategori: "Bawahan",
+        nama: "Slim Straight Chino Pants",
+        bahan: "Katun Twill Stretch Ringan",
+        warna: "Khaki Sand",
+        warnaHex: "#C2B280",
+        estimasiHarga: "Rp 155.000",
+        keunggulanAdem: "Elastis dan fleksibel untuk mobilitas perkotaan.",
+      },
+      {
+        kategori: "Alas Kaki",
+        nama: "Leather Penny Loafers",
+        bahan: "Breathable Leather & Rubber Sol",
+        warna: "Dark Brown",
+        warnaHex: "#3E2723",
+        estimasiHarga: "Rp 195.000",
+        keunggulanAdem: "Nyaman seharian di ruang kantor dan luar ruangan.",
+      },
+    ],
+  },
+  {
     id: "seoul-cafe-hopping",
-    judul: "Hangout Senopati",
-    subjudul: "100% Adem & Estetik",
+    judul: "Hangout Senopati Look",
+    subjudul: "Airy Tropical · 31°C",
     tagline: "Paduan kemeja camp collar dan linen trousers bergaya minimalis tropis.",
-    suhu: "33°C Cuaca Terik",
-    sirkulasiUdara: "Optimal untuk 33°C",
+    suhu: "31°C Cuaca Terik",
+    sirkulasiUdara: "Optimal untuk 31°C",
     alasanCocok: "Potongan kerah terbuka dan siluet santai menghasilkan tampilan urban kafe yang fotogenik sekaligus anti-keringat berlebih.",
-    gambar: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=900&auto=format&fit=crop&q=85",
+    gambar: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&auto=format&fit=crop&q=85",
     paletWarna: [
       { nama: "Putih Gading", hex: "#FDFBF7" },
       { nama: "Sage Soft", hex: "#91AF90" },
@@ -154,78 +201,49 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
     ],
   },
   {
-    id: "scbd-smart-chic",
-    judul: "SCBD Smart Chic",
-    subjudul: "Anti-Gerah & AC Meeting",
-    tagline: "Blazer tencel sejuk dan celana palazzo rapi untuk mobilitas kerja ibu kota.",
-    suhu: "22°C AC & 33°C Terik Jalanan",
-    sirkulasiUdara: "Adaptif Suhu Terik & AC",
-    alasanCocok: "Kain Tencel Lyocell memberikan kehangatan lembut di ruang kantor ber-AC namun melepas panas seketika saat melangkah di luar ruangan.",
-    gambar: "https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=900&auto=format&fit=crop&q=85",
+    id: "modern-modest-silk",
+    judul: "Modern Modest Silk Elegance",
+    subjudul: "Elegant Modest · Pesta",
+    tagline: "Gamis silk satin twill jatuh mewah dengan sentuhan pashmina ceruty premium.",
+    suhu: "22°C AC Ballroom & Resepsi",
+    sirkulasiUdara: "Sirkulasi Udara Halus",
+    alasanCocok: "Serat silk satin twill dingin memberi kilau elegan saat acara formal dan resepsi tanpa menimbulkan rasa panas.",
+    gambar: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=900&auto=format&fit=crop&q=85",
     paletWarna: [
-      { nama: "Olive Lembut", hex: "#6B705C" },
-      { nama: "Oatmeal", hex: "#FAF6EE" },
-      { nama: "Charcoal Rapi", hex: "#242724" },
+      { nama: "Champagne Silk", hex: "#EAD7C5" },
+      { nama: "Rose Gold", hex: "#B76E79" },
+      { nama: "Warm Mocca", hex: "#8A6652" },
     ],
-    warnaKulitCocok: "Kuning Langsat & Fair",
-    rentangHarga: "Rp 280rb - 390rb",
-    studioParam: "kantor_scbd_formal",
+    warnaKulitCocok: "Sawo Matang & Kuning Langsat",
+    rentangHarga: "Rp 320rb - 480rb",
+    studioParam: "kondangan_hijab_formal_menengah",
     itemPakaian: [
       {
-        kategori: "Outerwear",
-        nama: "Blazer Tencel Breathable",
-        bahan: "100% Tencel Lyocell",
-        warna: "Olive Lembut",
-        warnaHex: "#6B705C",
-        estimasiHarga: "Rp 195.000",
-        keunggulanAdem: "Serat lembut ramah kulit dengan kontrol kelembapan optimal.",
+        kategori: "Hijab / Kerudung",
+        nama: "Pashmina Ceruty Baby Doll Silk",
+        bahan: "Ceruty Silk Ringan Dingin",
+        warna: "Champagne Soft",
+        warnaHex: "#EAD7C5",
+        estimasiHarga: "Rp 49.000",
+        keunggulanAdem: "Jatuh anggun dan adem di kepala.",
       },
       {
-        kategori: "Bawahan",
-        nama: "Palazzo High-Waist Rapi",
-        bahan: "Poly-Rayon Stretch Dingin",
-        warna: "Charcoal Rapi",
-        warnaHex: "#242724",
-        estimasiHarga: "Rp 135.000",
-        keunggulanAdem: "Potongan lurus rapi tanpa membatasi langkah kaki.",
-      },
-    ],
-  },
-  {
-    id: "santai-sore-senopati",
-    judul: "Santai Sore Senopati",
-    subjudul: "100% Santai & Rileks",
-    tagline: "Kemeja oversized katun rami dan celana pendek bermuda untuk sore santai.",
-    suhu: "31°C Lembap Sore Hari",
-    sirkulasiUdara: "Sirkulasi Udara Maksimal",
-    alasanCocok: "Katun rami alami tenun terbuka memaksimalkan sirkulasi udara sore hari di kafe semi-outdoor.",
-    gambar: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=900&auto=format&fit=crop&q=85",
-    paletWarna: [
-      { nama: "Sage Hijau", hex: "#557352" },
-      { nama: "Krem Alami", hex: "#FAF6EE" },
-      { nama: "Sand Cokelat", hex: "#D4A373" },
-    ],
-    warnaKulitCocok: "Sawo Matang & Tan Eksotis",
-    rentangHarga: "Rp 210rb - 295rb",
-    studioParam: "santai_weekend_kafe",
-    itemPakaian: [
-      {
-        kategori: "Atasan",
-        nama: "Kemeja Oversized Katun Rami",
-        bahan: "Tenun Rami Alami",
-        warna: "Sage Hijau",
-        warnaHex: "#557352",
-        estimasiHarga: "Rp 130.000",
-        keunggulanAdem: "Anyaman berongga membiarkan angin sepoi-sepoi masuk bebas.",
+        kategori: "Gaun / Dress",
+        nama: "Modest Silk Satin Maxi Dress",
+        bahan: "Silk Satin Twill Halus",
+        warna: "Rose Gold Mocca",
+        warnaHex: "#B76E79",
+        estimasiHarga: "Rp 280.000",
+        keunggulanAdem: "Bahan dingin di kulit dan tidak menerawang.",
       },
       {
-        kategori: "Bawahan",
-        nama: "Celana Relaxed Drawstring",
-        bahan: "Linen Katun Ringan",
-        warna: "Sand Cokelat",
-        warnaHex: "#D4A373",
-        estimasiHarga: "Rp 110.000",
-        keunggulanAdem: "Pinggang elastis nyaman tanpa tekanan berlebih.",
+        kategori: "Alas Kaki",
+        nama: "Pointed Block Heels Mules",
+        bahan: "Cushioned Insole & Suede",
+        warna: "Nude Champagne",
+        warnaHex: "#EAD7C5",
+        estimasiHarga: "Rp 150.000",
+        keunggulanAdem: "Empuk untuk berdiri lama di pesta.",
       },
     ],
   },
@@ -509,13 +527,11 @@ export default function LookUMobileView({
           {/* 1. UTILITY CLIMATE STRIP (Satu Baris Bersih ala Uniqlo)      */}
           {/* ============================================================ */}
           <div className="bg-[#EFECE6] border-b border-[#181A18]/10 px-4 py-2 flex items-center justify-between text-[11px] select-none">
-            <div className="flex items-center gap-2 truncate">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
-              <span className="font-semibold tracking-wider uppercase text-[#181A18]">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="w-2 h-2 rounded-full bg-emerald-600 shrink-0 animate-pulse" />
+              <span className="font-bold tracking-wider uppercase text-[#181A18] truncate text-[11px]">
                 {weather.location} {weather.temperature}°C · {weather.condition}
               </span>
-              <span className="text-[#181A18]/30">|</span>
-              <span className="text-[#181A18]/70 truncate">Mode Sirkulasi Adem</span>
             </div>
             <button
               type="button"
@@ -523,7 +539,7 @@ export default function LookUMobileView({
                 if (onOpenQuiz) onOpenQuiz();
                 else router.push("/?quiz=true");
               }}
-              className="text-[10px] font-bold uppercase tracking-widest underline underline-offset-2 text-[#181A18] shrink-0 ml-2 hover:text-terracotta-600 transition-colors"
+              className="text-[10px] font-bold font-mono uppercase tracking-widest bg-white border border-[#181A18]/15 px-2.5 py-0.5 text-[#181A18] shrink-0 hover:bg-[#181A18] hover:text-white transition-colors"
             >
               Ubah
             </button>
@@ -532,9 +548,9 @@ export default function LookUMobileView({
           {/* ============================================================ */}
           {/* 2. EDITORIAL HERO (Uniqlo Clean: Foto Bersih, Sudut Tegas)   */}
           {/* ============================================================ */}
-          <section aria-label="Editorial Brand Hero" className="px-4 pt-1 pb-4 w-full flex flex-col gap-3">
-            {/* Header Seksi Ringkas Rata Kiri */}
-            <div className="pt-2 pb-1 flex items-baseline justify-between">
+          <section aria-label="Editorial Brand Hero" className="px-4 pt-1 pb-2 w-full flex flex-col gap-2.5">
+            {/* Header Seksi Ringkas dengan Tombol Carousel */}
+            <div className="pt-1.5 pb-0.5 flex items-center justify-between">
               <div>
                 <p className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-[#8C5A3C]">
                   AI Daily Curated · 0{currentHeroIndex + 1} / 0{OUTFIT_HERO_LIST.length}
@@ -542,6 +558,26 @@ export default function LookUMobileView({
                 <h1 className="font-serif text-2xl font-normal tracking-tight text-[#181A18] mt-0.5">
                   Personal Stylist <span className="italic">Khusus Tropis.</span>
                 </h1>
+              </div>
+
+              {/* Tombol Panah Ganti Slide Cepat */}
+              <div className="flex items-center gap-1 shrink-0">
+                <button
+                  type="button"
+                  aria-label="Outfit Sebelumnya"
+                  onClick={handlePrevHero}
+                  className="w-7 h-7 bg-white border border-[#181A18]/20 flex items-center justify-center text-[#181A18] active:bg-[#181A18] active:text-white transition-colors"
+                >
+                  <ChevronLeft className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  type="button"
+                  aria-label="Outfit Berikutnya"
+                  onClick={handleNextHero}
+                  className="w-7 h-7 bg-white border border-[#181A18]/20 flex items-center justify-center text-[#181A18] active:bg-[#181A18] active:text-white transition-colors"
+                >
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </button>
               </div>
             </div>
 
@@ -552,7 +588,7 @@ export default function LookUMobileView({
               onTouchEnd={handleTouchEnd}
               className="group cursor-pointer active:scale-[0.99] transition-all"
             >
-              <div className="relative w-full aspect-[4/5] max-h-[44dvh] bg-[#E5E0D8] overflow-hidden">
+              <div className="relative w-full aspect-[4/5] max-h-[38dvh] bg-[#E5E0D8] overflow-hidden">
                 <Image
                   src={heroOutfit.gambar}
                   alt={heroOutfit.judul}
@@ -562,9 +598,9 @@ export default function LookUMobileView({
                   sizes="(max-width: 480px) 100vw, 420px"
                 />
 
-                {/* HANYA 1 Badge Teknologi Bahan di Kiri Atas (Gaya Uniqlo AIRism) */}
-                <div className="absolute top-3 left-3 bg-[#181A18]/85 backdrop-blur-sm text-[#FAF8F5] px-2.5 py-1 text-[10px] font-bold font-mono tracking-widest uppercase shadow-xs">
-                  Adem Optimal · 100% Modest
+                {/* Badge Teknologi Bahan di Kiri Atas (Dinamis Sesuai Outfit) */}
+                <div className="absolute top-2.5 left-2.5 bg-[#181A18]/85 backdrop-blur-sm text-[#FAF8F5] px-2 py-0.5 text-[9px] font-bold font-mono tracking-widest uppercase shadow-xs">
+                  {heroOutfit.subjudul}
                 </div>
 
                 {/* Tombol Wishlist Bersih Tanpa Border Tebal */}
@@ -575,12 +611,24 @@ export default function LookUMobileView({
                     e.stopPropagation();
                     handleToggleSaveOutfit(heroOutfit);
                   }}
-                  className="absolute top-3 right-3 w-8 h-8 bg-white/85 backdrop-blur-sm flex items-center justify-center text-[#181A18] shadow-xs active:scale-90 transition-transform"
+                  className="absolute top-2.5 right-2.5 w-7 h-7 bg-white/85 backdrop-blur-sm flex items-center justify-center text-[#181A18] shadow-xs active:scale-90 transition-transform"
                 >
-                  <Heart className={`w-4 h-4 ${isSavedLocally ? "fill-[#181A18] text-[#181A18]" : "text-stone-700"}`} />
+                  <Heart className={`w-3.5 h-3.5 ${isSavedLocally ? "fill-[#181A18] text-[#181A18]" : "text-stone-700"}`} />
                 </button>
 
-                {/* Progress Bar Slide Tipis di Bawah Foto (Menggantikan Kapsul Gembung & Titik Tebal) */}
+                {/* Indikator Panah Swipe Halus di Sisi Kiri & Kanan */}
+                <div className="absolute inset-y-0 left-1 flex items-center pointer-events-none opacity-40 group-hover:opacity-100 transition-opacity">
+                  <div className="w-6 h-6 rounded-full bg-white/70 backdrop-blur-xs flex items-center justify-center text-[#181A18] shadow-xs">
+                    <ChevronLeft className="w-3.5 h-3.5" />
+                  </div>
+                </div>
+                <div className="absolute inset-y-0 right-1 flex items-center pointer-events-none opacity-40 group-hover:opacity-100 transition-opacity">
+                  <div className="w-6 h-6 rounded-full bg-white/70 backdrop-blur-xs flex items-center justify-center text-[#181A18] shadow-xs">
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </div>
+                </div>
+
+                {/* Progress Bar Slide Tipis di Bawah Foto */}
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/10 flex">
                   <div
                     className="h-full bg-[#181A18] transition-all duration-300"
@@ -592,80 +640,80 @@ export default function LookUMobileView({
                 </div>
               </div>
 
-              {/* METADATA DI LUAR FOTO (Rahasia Uniqlo agar foto tampil bernafas) */}
-              <div className="pt-3 pb-3 border-b border-[#181A18]/10 flex items-start justify-between gap-4 bg-white/40 px-2 rounded-none">
-                <div>
+              {/* METADATA DI LUAR FOTO: Bersih, Rapi, & Bebas Truncation */}
+              <div className="pt-2 pb-2 border-b border-[#181A18]/10 flex flex-col gap-1 bg-white/60 px-2.5">
+                <div className="flex items-center justify-between">
                   {/* Dot Swatches Warna ala Uniqlo */}
-                  <div className="flex items-center gap-1.5 mb-1.5">
+                  <div className="flex items-center gap-1.5">
                     {heroOutfit.paletWarna.slice(0, 3).map((warna, idx) => (
                       <span
                         key={idx}
-                        className="w-3.5 h-3.5 rounded-full border border-[#181A18]/25 shadow-2xs"
+                        className="w-3 h-3 rounded-full border border-[#181A18]/25 shadow-2xs"
                         style={{ backgroundColor: warna.hex }}
                         title={warna.nama}
                       />
                     ))}
-                    <span className="text-[10px] uppercase tracking-wider text-[#181A18]/60 ml-1 font-medium truncate">
+                    <span className="text-[10px] uppercase tracking-wider text-[#181A18]/70 ml-1 font-mono font-medium truncate max-w-[160px]">
                       {heroOutfit.warnaKulitCocok}
                     </span>
                   </div>
-                  <h2 className="font-serif text-xl font-bold text-[#181A18] leading-snug">
-                    {heroOutfit.judul}
-                  </h2>
-                  <p className="text-xs text-[#181A18]/65 mt-0.5 line-clamp-1">
-                    {heroOutfit.tagline}
-                  </p>
+
+                  {/* Estimasi Harga: Tegas & Rapi Tanpa Terpotong */}
+                  <div className="text-right shrink-0">
+                    <span className="text-xs font-bold font-mono text-[#181A18]">
+                      {heroOutfit.rentangHarga}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Estimasi Harga Tegas Tanpa Kapsul Abu-Abu */}
-                <div className="text-right shrink-0">
-                  <span className="text-[10px] uppercase tracking-wider text-[#181A18]/50 block font-mono">
-                    Estimasi Set
-                  </span>
-                  <span className="text-sm font-bold font-mono text-[#181A18]">
-                    {heroOutfit.rentangHarga}
-                  </span>
+                <div>
+                  <h2 className="font-serif text-lg font-bold text-[#181A18] leading-tight">
+                    {heroOutfit.judul}
+                  </h2>
+                  <p className="text-[11px] text-[#181A18]/70 mt-0.5 leading-snug line-clamp-1">
+                    {heroOutfit.tagline}
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* ACTION AREA: TEGAS, RAPI, TANPA KAPSUL GEMBUNG */}
-            <div className="pt-2 flex flex-col gap-2.5">
-              {/* Primary CTA: Persegi Tegas ala Uniqlo (h-12) */}
+            {/* ACTION AREA: Rapi, Terbaca Jelas, & Pas di Layar */}
+            <div className="pt-1 flex flex-col gap-2">
+              {/* Primary CTA: Full Width Persegi Tegas Uniqlo */}
               <button
                 type="button"
                 onClick={() => handleLaunchStudio(heroOutfit)}
-                className="w-full h-12 bg-[#181A18] text-[#FAF8F5] text-xs font-bold uppercase tracking-[0.15em] flex items-center justify-center gap-2 hover:bg-terracotta-600 active:opacity-90 transition-all shadow-sm"
+                className="w-full h-11 bg-[#181A18] text-[#FAF8F5] text-xs font-bold uppercase tracking-[0.15em] flex items-center justify-center gap-2 hover:bg-terracotta-600 active:scale-[0.99] transition-all shadow-sm rounded-none"
               >
-                <span>✦ Racik OOTD Sekarang</span>
+                <span>✦ Racik OOTD Ini di Studio</span>
                 <span>→</span>
               </button>
 
-              {/* 2 Aksi Sekunder: Grid Bersih dengan Garis Tipis */}
-              <div className="grid grid-cols-2 gap-2.5">
+              {/* 2 Aksi Sekunder: Kompak (h-9) & Tidak Terpotong Bottom Nav */}
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={() => handleOpenOutfitDetails(heroOutfit)}
+                  className="h-9 border border-[#181A18]/20 bg-white text-[#181A18] text-[10px] font-mono uppercase tracking-wider flex items-center justify-center gap-1 hover:bg-[#181A18] hover:text-white transition-colors"
+                >
+                  <span>Lihat 4 Komponen</span>
+                  <span>↗</span>
+                </button>
+
                 <button
                   type="button"
                   onClick={() => {
                     if (onOpenQuiz) onOpenQuiz();
                     else router.push("/?quiz=true");
                   }}
-                  className="h-10 border border-[#181A18]/25 bg-transparent text-[#181A18] text-[11px] font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 hover:bg-[#181A18]/5 transition-colors"
+                  className="h-9 border border-[#8C5A3C]/30 bg-[#FAF8F5] text-[#8C5A3C] text-[10px] font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-1 hover:bg-[#8C5A3C] hover:text-white transition-colors"
                 >
-                  <span>Tes Warna (60s)</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => handleOpenOutfitDetails(heroOutfit)}
-                  className="h-10 border border-[#181A18]/25 bg-transparent text-[#181A18] text-[11px] font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 hover:bg-[#181A18]/5 transition-colors"
-                >
-                  <span>Lihat Formula ↗</span>
+                  <span>🎨 Tes Warna (60s)</span>
                 </button>
               </div>
             </div>
           </section>
 
-          {/* ============================================================ */}
           {/* 3. QUICK ACTION WIDGET (Gamified Personal Color)             */}
           {/* ============================================================ */}
           <section aria-label="Widget Personal Color">
