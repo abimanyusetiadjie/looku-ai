@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Menu, Search, ShoppingBag, Sun, House, Sparkles, Palette, BookOpen, Shirt, Wind, ChevronRight, ChevronLeft, ArrowRight, Check, X, Heart, ThermometerSun, Layers, Bookmark, User } from "lucide-react";
+import { Menu, Search, ShoppingBag, Sun, House, Sparkles, Palette, BookOpen, Shirt, Wind, ChevronRight, ChevronLeft, ArrowRight, Check, X, Heart, ThermometerSun, Layers, Bookmark, User, Bell, CloudSun } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWeather } from "@/hooks/useWeather";
 
@@ -479,35 +479,25 @@ export default function LookUMobileView({
       <div className="w-full max-w-md min-h-[100dvh] bg-[#FAF8F5] border-x border-[#E8DFD1]/50 shadow-2xl relative flex flex-col pb-28">
         
         {/* ============================================================ */}
-        {/* 1. HEADER ATAS (Sticky / Safe Area dengan Brand look.u)       */}
+        {/* 1. HEADER ATAS (Persis Konsep Referensi Mobile)             */}
         {/* ============================================================ */}
-        <header className="sticky top-0 z-30 w-full bg-white/95 backdrop-blur-md px-4 pt-[max(10px,env(safe-area-inset-top))] pb-2.5 transition-all flex items-center justify-between border-b border-[#F0EBE1]">
-          <button onClick={() => setIsMobileMenuOpen(true)} className="p-2 -ml-2 text-charcoal-900" aria-label="Menu">
-            <Menu className="w-5 h-5 stroke-[1.5]" />
+        <header className="sticky top-0 z-30 w-full bg-[#FAF8F5]/90 backdrop-blur-md px-5 pt-[max(12px,env(safe-area-inset-top))] pb-3 transition-all flex items-center justify-between border-b border-[#181A18]/5">
+          <button onClick={() => setIsMobileMenuOpen(true)} className="p-2 -ml-2 text-[#181A18] active:scale-95 transition-transform" aria-label="Menu">
+            <Menu className="w-6 h-6 stroke-[1.5]" />
           </button>
           
-          <div className="flex flex-col items-center select-none">
-            <div className="font-serif font-medium text-2xl tracking-[0.05em] text-[#181A18] leading-tight">
-              Look<span className="text-terracotta-500 font-bold">.</span>u
-            </div>
-            <span className="text-[9px] font-sans font-medium uppercase tracking-[0.18em] text-sand-500 -mt-0.5">
-              Tropical AI Stylist
-            </span>
+          <div className="font-serif text-[1.85rem] font-medium tracking-tight text-[#181A18] leading-none select-none">
+            Look<span className="text-terracotta-500 font-bold">.</span>u
           </div>
           
-          <div className="flex items-center gap-4">
-            <button onClick={() => router.push("/lookbook")} className="text-charcoal-900 p-1.5" aria-label="Cari Lookbook">
-              <Search className="w-5 h-5 stroke-[1.5]" />
-            </button>
-            <button onClick={onOpenSavedDrawer} className="text-charcoal-900 p-1.5 relative" aria-label="Lemari Koleksi">
-              <ShoppingBag className="w-5 h-5 stroke-[1.5]" />
-              {savedCount !== undefined && savedCount > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-terracotta-600 text-white rounded-full text-[9px] font-bold font-mono flex items-center justify-center shadow-xs">
-                  {savedCount}
-                </span>
-              )}
-            </button>
-          </div>
+          <button 
+            onClick={() => triggerNotification(`Suhu Jakarta ${weather.temperature || 33}°C: Rekomendasi busana adem aktif!`)}
+            className="p-2 -mr-2 text-[#181A18] relative active:scale-95 transition-transform" 
+            aria-label="Notifikasi"
+          >
+            <Bell className="w-5 h-5 stroke-[1.5]" />
+            <span className="absolute top-2 right-2 w-1.5 h-1.5 bg-terracotta-500 rounded-full" />
+          </button>
         </header>
         <AnimatePresence>
           {isMobileMenuOpen && (
@@ -551,43 +541,64 @@ export default function LookUMobileView({
         </AnimatePresence>
 
         {/* Konten Scroll Utama */}
-        <main className="flex-1 w-full space-y-6">
+        <main className="flex-1 w-full space-y-7">
           
           {/* ============================================================ */}
-          {/* 1. UTILITY CLIMATE STRIP (Satu Baris Bersih ala Uniqlo)      */}
+          {/* 1. EDITORIAL STATEMENT HERO (Persis Konsep Referensi Mobile)  */}
           {/* ============================================================ */}
-          <div className="bg-[#EFECE6] border-b border-[#181A18]/10 px-4 py-2 flex items-center justify-between text-[11px] select-none">
-            <div className="flex items-center gap-2 min-w-0">
-              <span className="w-2 h-2 rounded-full bg-emerald-600 shrink-0 animate-pulse" />
-              <span className="font-bold tracking-wider uppercase text-[#181A18] truncate text-[11px]">
-                {weather.location} {weather.temperature}°C · {weather.condition}
-              </span>
+          <section aria-label="Editorial Brand Hero" className="px-5 pt-3 pb-2 flex flex-col items-start w-full select-none">
+            {/* Weather Context Pill */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#F0EBE1] border border-[#E3DBD0] text-xs font-medium text-[#181A18] shadow-2xs mb-5">
+              <CloudSun className="w-4 h-4 text-[#181A18]/80 stroke-[1.75]" />
+              <span className="tracking-tight">{weather.location || "Jakarta"} {weather.temperature || 33}°C</span>
             </div>
-            <button
-              type="button"
-              onClick={() => {
-                if (onOpenQuiz) onOpenQuiz();
-                else router.push("/?quiz=true");
-              }}
-              className="text-[10px] font-bold font-mono uppercase tracking-widest bg-white border border-[#181A18]/15 px-2.5 py-0.5 text-[#181A18] shrink-0 hover:bg-[#181A18] hover:text-white transition-colors"
-            >
-              Ubah
-            </button>
-          </div>
+
+            {/* Headline Serif Anggun */}
+            <h1 className="font-serif text-[2.6rem] leading-[1.08] tracking-tight text-[#181A18] font-normal mb-3">
+              Personal Stylist AI<br />
+              Didesain Khusus<br />
+              Tropis
+            </h1>
+
+            {/* Subtitle Ringan & Hangat */}
+            <p className="font-sans text-[13.5px] leading-relaxed text-[#181A18]/70 max-w-xs mb-6 font-normal">
+              AI stylist yang memahami iklim tropis, warna kulitmu, dan gaya pribadimu.
+            </p>
+
+            {/* 2 Tombol Aksi Utama Sesuai Referensi Gambar */}
+            <div className="flex flex-col gap-2.5 w-full">
+              <button
+                type="button"
+                onClick={() => handleLaunchStudio(heroOutfit)}
+                className="w-full h-12 bg-[#181A18] hover:bg-terracotta-600 active:scale-[0.99] text-[#FAF8F5] text-sm font-medium rounded-xl flex items-center justify-center transition-all shadow-xs"
+              >
+                Racik OOTD Sekarang
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  if (onOpenQuiz) onOpenQuiz();
+                  else router.push("/?quiz=true");
+                }}
+                className="w-full h-12 bg-transparent border border-[#181A18]/25 hover:bg-[#181A18]/5 active:scale-[0.99] text-[#181A18] text-sm font-medium rounded-xl flex items-center justify-center transition-colors"
+              >
+                Tes Warna Kulit
+              </button>
+            </div>
+          </section>
 
           {/* ============================================================ */}
-          {/* 2. EDITORIAL HERO (Uniqlo Clean: Foto Bersih, Sudut Tegas)   */}
+          {/* 2. LIVING LOOKBOOK SHOWCASE (Auto-Play 4.5s & Micro-Zoom)    */}
           {/* ============================================================ */}
-          <section aria-label="Editorial Brand Hero" className="px-4 pt-1 pb-2 w-full flex flex-col gap-2.5">
+          <section aria-label="Living Lookbook Carousel" className="px-5 pt-1 pb-2 w-full flex flex-col gap-2.5">
             {/* Header Seksi Ringkas dengan Tombol Carousel */}
-            <div className="pt-1.5 pb-0.5 flex items-center justify-between">
-              <div>
+            <div className="pt-1 pb-1 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
                 <p className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-[#8C5A3C]">
-                  AI Daily Curated · 0{currentHeroIndex + 1} / 0{OUTFIT_HERO_LIST.length}
+                  Inspirasi Tropis Hari Ini · 0{currentHeroIndex + 1} / 0{OUTFIT_HERO_LIST.length}
                 </p>
-                <h1 className="font-serif text-2xl font-normal tracking-tight text-[#181A18] mt-0.5">
-                  Personal Stylist <span className="italic">Khusus Tropis.</span>
-                </h1>
               </div>
 
               {/* Tombol Panah Ganti Slide Cepat */}
@@ -596,7 +607,7 @@ export default function LookUMobileView({
                   type="button"
                   aria-label="Outfit Sebelumnya"
                   onClick={handlePrevHero}
-                  className="w-7 h-7 bg-white border border-[#181A18]/20 flex items-center justify-center text-[#181A18] active:bg-[#181A18] active:text-white transition-colors"
+                  className="w-7 h-7 bg-white border border-[#181A18]/20 rounded-lg flex items-center justify-center text-[#181A18] active:bg-[#181A18] active:text-white transition-colors"
                 >
                   <ChevronLeft className="w-3.5 h-3.5" />
                 </button>
@@ -604,14 +615,14 @@ export default function LookUMobileView({
                   type="button"
                   aria-label="Outfit Berikutnya"
                   onClick={handleNextHero}
-                  className="w-7 h-7 bg-white border border-[#181A18]/20 flex items-center justify-center text-[#181A18] active:bg-[#181A18] active:text-white transition-colors"
+                  className="w-7 h-7 bg-white border border-[#181A18]/20 rounded-lg flex items-center justify-center text-[#181A18] active:bg-[#181A18] active:text-white transition-colors"
                 >
                   <ChevronRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>
 
-            {/* Kanvas Foto Editorial Living Lookbook (Rasio Terkunci 33dvh, Auto-Play Track, Micro-Zoom) */}
+            {/* Kanvas Foto Editorial Living Lookbook (Rasio Terkunci, Auto-Play Track, Micro-Zoom) */}
             <div 
               onClick={() => handleOpenOutfitDetails(heroOutfit)}
               onTouchStart={handleTouchStart}
@@ -620,7 +631,7 @@ export default function LookUMobileView({
               onMouseLeave={() => setIsPaused(false)}
               className="group cursor-pointer active:scale-[0.99] transition-all"
             >
-              <div className="relative w-full h-[33dvh] min-h-[210px] max-h-[275px] bg-[#EFECE6] overflow-hidden border border-[#181A18]/10">
+              <div className="relative w-full h-[33dvh] min-h-[220px] max-h-[285px] bg-[#EFECE6] overflow-hidden rounded-2xl border border-[#181A18]/10 shadow-xs">
                 {/* Horizontal Auto-Sliding Track */}
                 <div
                   className="flex w-full h-full transition-transform duration-700 ease-out"
@@ -640,14 +651,14 @@ export default function LookUMobileView({
                       />
 
                       {/* Badge Teknologi Bahan di Kiri Atas */}
-                      <div className="absolute top-2.5 left-2.5 bg-[#181A18]/85 backdrop-blur-sm text-[#FAF8F5] px-2 py-0.5 text-[9px] font-bold font-mono tracking-widest uppercase shadow-xs z-10">
+                      <div className="absolute top-2.5 left-2.5 bg-[#181A18]/85 backdrop-blur-sm text-[#FAF8F5] px-2 py-0.5 text-[9px] font-bold font-mono tracking-widest uppercase rounded-md shadow-xs z-10">
                         {outfit.subjudul}
                       </div>
                     </div>
                   ))}
                 </div>
 
-                {/* Tombol Wishlist Bersih Tanpa Border Tebal */}
+                {/* Tombol Wishlist Bersih */}
                 <button
                   type="button"
                   aria-label="Simpan Outfit"
@@ -655,22 +666,10 @@ export default function LookUMobileView({
                     e.stopPropagation();
                     handleToggleSaveOutfit(heroOutfit);
                   }}
-                  className="absolute top-2.5 right-2.5 w-7 h-7 bg-white/85 backdrop-blur-sm flex items-center justify-center text-[#181A18] shadow-xs active:scale-90 transition-transform z-10"
+                  className="absolute top-2.5 right-2.5 w-7 h-7 bg-white/85 backdrop-blur-sm rounded-full flex items-center justify-center text-[#181A18] shadow-xs active:scale-90 transition-transform z-10"
                 >
                   <Heart className={`w-3.5 h-3.5 ${isSavedLocally ? "fill-[#181A18] text-[#181A18]" : "text-stone-700"}`} />
                 </button>
-
-                {/* Indikator Panah Swipe Halus di Sisi Kiri & Kanan */}
-                <div className="absolute inset-y-0 left-1 flex items-center pointer-events-none opacity-40 group-hover:opacity-100 transition-opacity z-10">
-                  <div className="w-6 h-6 rounded-full bg-white/70 backdrop-blur-xs flex items-center justify-center text-[#181A18] shadow-xs">
-                    <ChevronLeft className="w-3.5 h-3.5" />
-                  </div>
-                </div>
-                <div className="absolute inset-y-0 right-1 flex items-center pointer-events-none opacity-40 group-hover:opacity-100 transition-opacity z-10">
-                  <div className="w-6 h-6 rounded-full bg-white/70 backdrop-blur-xs flex items-center justify-center text-[#181A18] shadow-xs">
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </div>
-                </div>
               </div>
 
               {/* 4-Segment Live Progress Bar (Tap-to-Slide) */}
@@ -695,9 +694,8 @@ export default function LookUMobileView({
                 ))}
               </div>
 
-              {/* METADATA DI LUAR FOTO: 2 Baris Bersih & Bebas Truncation */}
-              <div className="pt-2 pb-2 border-b border-[#181A18]/10 flex flex-col gap-1 bg-white/60 px-2.5">
-                {/* Baris 1: Swatches + Tone Kulit (Kiri) dan Estimasi Harga (Kanan) */}
+              {/* METADATA DI LUAR FOTO */}
+              <div className="pt-2 pb-2.5 border-b border-[#181A18]/10 flex flex-col gap-1 px-1">
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-1.5 min-w-0">
                     <div className="flex items-center gap-1 shrink-0">
@@ -715,7 +713,6 @@ export default function LookUMobileView({
                     </span>
                   </div>
 
-                  {/* Estimasi Harga: Tegas & Rapi Tanpa Terpotong */}
                   <div className="text-right shrink-0">
                     <span className="text-xs font-bold font-mono text-[#181A18] whitespace-nowrap">
                       {heroOutfit.rentangHarga}
@@ -723,7 +720,6 @@ export default function LookUMobileView({
                   </div>
                 </div>
 
-                {/* Baris 2: Judul dan Tagline */}
                 <div>
                   <h2 className="font-serif text-lg font-bold text-[#181A18] leading-tight truncate">
                     {heroOutfit.judul}
@@ -735,41 +731,15 @@ export default function LookUMobileView({
               </div>
             </div>
 
-            {/* ACTION AREA: Rapi, Terbaca Jelas, & Pas di Layar */}
-            <div className="pt-1 flex flex-col gap-2">
-              {/* Primary CTA: Full Width Persegi Tegas Uniqlo */}
-              <button
-                type="button"
-                onClick={() => handleLaunchStudio(heroOutfit)}
-                className="w-full h-11 bg-[#181A18] text-[#FAF8F5] text-xs font-bold uppercase tracking-[0.15em] flex items-center justify-center gap-2 hover:bg-terracotta-600 active:scale-[0.99] transition-all shadow-sm rounded-none"
-              >
-                <span>✦ Racik OOTD Ini di Studio</span>
-                <span>→</span>
-              </button>
-
-              {/* 2 Aksi Sekunder: Kompak (h-9) & Tidak Terpotong Bottom Nav */}
-              <div className="grid grid-cols-2 gap-2">
-                <button
-                  type="button"
-                  onClick={() => handleOpenOutfitDetails(heroOutfit)}
-                  className="h-9 border border-[#181A18]/20 bg-white text-[#181A18] text-[10px] font-mono uppercase tracking-wider flex items-center justify-center gap-1 hover:bg-[#181A18] hover:text-white transition-colors"
-                >
-                  <span>Lihat 4 Komponen</span>
-                  <span>↗</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (onOpenQuiz) onOpenQuiz();
-                    else router.push("/?quiz=true");
-                  }}
-                  className="h-9 border border-[#8C5A3C]/30 bg-[#FAF8F5] text-[#8C5A3C] text-[10px] font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-1 hover:bg-[#8C5A3C] hover:text-white transition-colors"
-                >
-                  <span>🎨 Tes Warna (60s)</span>
-                </button>
-              </div>
-            </div>
+            {/* Tombol Lihat Rincian Komponen */}
+            <button
+              type="button"
+              onClick={() => handleOpenOutfitDetails(heroOutfit)}
+              className="w-full h-10 border border-[#181A18]/20 bg-white/80 hover:bg-[#181A18] hover:text-white text-[#181A18] text-xs font-medium rounded-xl flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
+            >
+              <span>Lihat 4 Komponen & Rincian Bahan</span>
+              <span>↗</span>
+            </button>
           </section>
 
           {/* 3. QUICK ACTION WIDGET (Gamified Personal Color)             */}
