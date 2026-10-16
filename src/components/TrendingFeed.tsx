@@ -20,14 +20,31 @@ import {
   Ruler
 } from "lucide-react";
 import dynamic from "next/dynamic";
-import { TRENDING_LOOKS_FEED } from "@/lib/presets";
+import { 
+  TRENDING_LOOKS_FEED, 
+  getLookGender, 
+  getLookHeight, 
+  HeightFilterRange 
+} from "@/lib/presets";
 import { OOTDRecommendation } from "@/lib/types";
 
 const InfluencerCloneModal = dynamic(() => import("@/components/InfluencerCloneModal"), { ssr: false });
 
+export interface SelectedLookPayload {
+  lookId: string;
+  outfitId?: string;
+  image: string;
+  title: string;
+  tag?: string;
+  priceRange?: string;
+  vibe?: string;
+  category?: string;
+  outfit?: OOTDRecommendation;
+}
+
 interface TrendingFeedProps {
   isStandalone?: boolean;
-  onSelectLook?: (outfit: OOTDRecommendation) => void;
+  onSelectLook?: (look: SelectedLookPayload | OOTDRecommendation) => void;
 }
 
 type TabType = "ALL" | "WANITA" | "HIJAB" | "PRIA";
@@ -39,31 +56,11 @@ interface CategoryTab {
 }
 
 const CATEGORY_TABS: CategoryTab[] = [
-  { id: "ALL", label: "SEMUA", count: 500 },
-  { id: "WANITA", label: "WANITA", count: 170 },
-  { id: "HIJAB", label: "HIJAB / MODEST", count: 170 },
-  { id: "PRIA", label: "PRIA", count: 160 },
+  { id: "ALL", label: "SEMUA", count: 1022 },
+  { id: "WANITA", label: "WANITA", count: 165 },
+  { id: "HIJAB", label: "HIJAB / MODEST", count: 435 },
+  { id: "PRIA", label: "PRIA", count: 400 },
 ];
-
-const SIGNATURE_PRIA_IDS = new Set([
-  "trend_poly_m1", "trend_poly_m2", "trend_poly_m3", "trend_04", "trend_10", "trend_12"
-]);
-const SIGNATURE_HIJAB_IDS = new Set([
-  "trend_01", "trend_03", "trend_06", "trend_07", "trend_14", "trend_15"
-]);
-const SIGNATURE_WANITA_IDS = new Set([
-  "trend_poly_f1", "trend_poly_f2", "trend_poly_f3", "trend_02", "trend_05", "trend_08", "trend_09", "trend_11", "trend_13", "trend_16"
-]);
-
-function getLookGender(look: (typeof TRENDING_LOOKS_FEED)[0]): "PRIA" | "HIJAB" | "WANITA" {
-  if (SIGNATURE_PRIA_IDS.has(look.id)) return "PRIA";
-  if (SIGNATURE_HIJAB_IDS.has(look.id)) return "HIJAB";
-  if (SIGNATURE_WANITA_IDS.has(look.id)) return "WANITA";
-
-  if (look.tag === "MENSWEAR" || look.outfit?.id?.startsWith("pa_male") || look.outfit?.id?.startsWith("synthesized_male")) return "PRIA";
-  if (look.tag === "MODEST CAPSULE" || look.outfit?.id?.startsWith("pa_hijab") || look.outfit?.id?.startsWith("synthesized_hijab")) return "HIJAB";
-  return "WANITA";
-}
 
 type ClimateFilter = "all" | "hot" | "ac" | "mild" | "rainy";
 type OccasionFilter = "all" | "campus" | "office" | "weekend" | "resort" | "party" | "streetwear";
@@ -154,29 +151,36 @@ export function getLookClimate(look: (typeof TRENDING_LOOKS_FEED)[0]): ClimateCl
   };
 }
 
-export type HeightFilterRange = "all" | "petite" | "standard" | "tall";
-
-export function getLookHeight(look: (typeof TRENDING_LOOKS_FEED)[0]): {
-  cm: number;
-  range: "petite" | "standard" | "tall";
-  label: string;
-} {
-  const gender = getLookGender(look);
-  if (gender === "PRIA") {
-    const hash = (look.id.charCodeAt(0) + look.id.charCodeAt(look.id.length - 1)) % 7;
-    const cm = 172 + hash; // 172-178 cm
-    return { cm, range: "tall", label: `${cm} cm` };
-  } else {
-    const hash = (look.id.charCodeAt(0) + look.id.charCodeAt(look.id.length - 1)) % 15;
-    const cm = 154 + hash; // 154-168 cm
-    const range = cm < 158 ? "petite" : cm <= 165 ? "standard" : "tall";
-    return { cm, range, label: `${cm} cm` };
-  }
-}
-
 export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFeedProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeQuickChip, setActiveQuickChip] = useState("for-you");
+
+  const handleSelectLookForStudio = (look: (typeof TRENDING_LOOKS_FEED)[0]) => {
+    const payload: SelectedLookPayload = {
+      lookId: look.id,
+      outfitId: look.outfit?.id || look.id,
+      image: look.image,
+      title: look.title,
+      tag: look.tag,
+      priceRange: look.priceRange,
+      vibe: look.vibe,
+      category: look.category,
+      outfit: look.outfit,
+    };
+
+    try {
+      localStorage.setItem("looku_selected_studio_look", JSON.stringify(payload));
+    } catch (e) {
+      console.warn("Storage write failed", e);
+    }
+
+    if (onSelectLook) {
+      onSelectLook(payload);
+    } else {
+      window.location.href = `/studio?look=${encodeURIComponent(look.id)}`;
+    }
+  };
+
   const [activeTab, setActiveTab] = useState<TabType>("ALL");
   const [climateFilter, setClimateFilter] = useState<ClimateFilter>("all");
   const [occasionFilter, setOccasionFilter] = useState<OccasionFilter>("all");
@@ -575,13 +579,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
               return (
                 <article
                   key={look.id}
-                  onClick={() => {
-                    if (onSelectLook && look.outfit) {
-                      onSelectLook(look.outfit);
-                    } else {
-                      setSelectedLookId(look.id);
-                    }
-                  }}
+                  onClick={() => handleSelectLookForStudio(look)}
                   className="group flex flex-col bg-white border border-[#181A18]/10 p-2 sm:p-2.5 hover:shadow-md transition-all duration-300 rounded-none cursor-pointer"
                 >
                   {/* Kanvas Foto 4:5 Latar Warm Stone (#EFECE6) */}
@@ -865,12 +863,8 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                   <button
                     type="button"
                     onClick={() => {
-                      if (onSelectLook && selectedLook.outfit) {
-                        onSelectLook(selectedLook.outfit);
-                        setSelectedLookId(null);
-                      } else {
-                        window.location.href = `/studio?look=${selectedLook.id}`;
-                      }
+                      handleSelectLookForStudio(selectedLook);
+                      setSelectedLookId(null);
                     }}
                     className="w-full h-11 bg-[#181A18] text-[#FAF8F5] text-xs font-bold uppercase tracking-[0.15em] flex items-center justify-center gap-2 hover:bg-terracotta-600 transition-colors rounded-none"
                   >

@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import StudioView from "@/components/StudioView";
 import Toast, { ToastMessage } from "@/components/Toast";
 import { OOTDRecommendation } from "@/lib/types";
-import { PRESET_OOTD_COLLECTION } from "@/lib/presets";
+import { PRESET_OOTD_COLLECTION, resolveLookForStudio } from "@/lib/presets";
 
 // Dynamic Code-Splitting for Heavy Modals & Offscreen Widgets
 const SavedLooksDrawer = dynamic(() => import("@/components/SavedLooksDrawer"), { ssr: false });
@@ -33,7 +33,10 @@ export default function StudioPage() {
       const look = params.get("look");
       if (look) {
         setInitialLookId(look);
-        if (PRESET_OOTD_COLLECTION[look]) {
+        const resolved = resolveLookForStudio(look);
+        if (resolved) {
+          setCurrentOutfit(resolved.outfit);
+        } else if (PRESET_OOTD_COLLECTION[look]) {
           setCurrentOutfit(PRESET_OOTD_COLLECTION[look]);
         }
       }

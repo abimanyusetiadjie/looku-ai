@@ -16,8 +16,8 @@ import {
   Eye,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { OOTDRecommendation } from "@/lib/types";
-import { PRESET_OOTD_COLLECTION } from "@/lib/presets";
+import { OOTDRecommendation, OutfitItem } from "@/lib/types";
+import { PRESET_OOTD_COLLECTION, resolveLookForStudio } from "@/lib/presets";
 
 export interface StudioItem {
   id: string;
@@ -771,6 +771,67 @@ const SKIN_TONES_DRAPE = [
   },
 ];
 
+function outfitItemToStudioItem(
+  item: OutfitItem | undefined,
+  slotKey: "top" | "bottom" | "outer" | "shoes",
+  fallback: StudioItem,
+  fallbackImage: string
+): StudioItem {
+  if (!item) return fallback;
+
+  let price = fallback.price;
+  const numMatches = (item.estimatedPrice || "").match(/\d+[\d.]*/g);
+  if (numMatches && numMatches.length > 0) {
+    const rawNum = parseInt(numMatches[0].replace(/\./g, ""), 10);
+    if (!isNaN(rawNum) && rawNum > 1000) {
+      price = rawNum;
+    }
+  }
+
+  const categoryLabels: Record<string, string> = {
+    outer: "Outer / Hijab · Layering",
+    top: "Tops · Atasan Utama",
+    bottom: "Bottoms · Bawahan",
+    shoes: "Footwear · Sepatu & Sandal",
+  };
+
+  const pinNumbers: Record<string, number> = {
+    outer: 1,
+    top: 2,
+    bottom: 3,
+    shoes: 4,
+  };
+
+  const cleanPriceStr = item.estimatedPrice || fallback.priceStr;
+  const dupePriceStr = cleanPriceStr.includes("Dupe:")
+    ? cleanPriceStr.split("Dupe:")[1]?.replace(")", "").trim() || cleanPriceStr
+    : cleanPriceStr;
+
+  return {
+    id: `item_${slotKey}_${(item.name || "garment").replace(/\s+/g, "_").toLowerCase()}`,
+    category: slotKey,
+    categoryLabel: categoryLabels[slotKey] || fallback.categoryLabel,
+    categoryOrder: pinNumbers[slotKey] || fallback.categoryOrder,
+    pinNumber: pinNumbers[slotKey] || fallback.pinNumber,
+    brand: item.brand || (item.isOfficialBrand ? "UNIQLO" : "LOCAL_CURATED"),
+    officialUrl: item.brandUrl || "https://www.uniqlo.com/id/id/",
+    officialPriceStr: cleanPriceStr.split("(")[0].trim() || fallback.officialPriceStr,
+    name: item.name,
+    material: item.material || "Katun Rayon & Linen",
+    breathability: 96,
+    colorName: item.color || "Harmonis",
+    colorHex: item.colorHex || fallback.colorHex,
+    price: price,
+    priceStr: dupePriceStr,
+    imageUrl: item.imageUrl || fallbackImage || fallback.imageUrl,
+    shopeeQuery: item.shopeeQuery || item.name,
+    tokopediaQuery: item.tokopediaQuery || item.name,
+    note: `Kombinasi material ${item.material || "adem"} bersirkulasi optimal`,
+    gender: "female",
+    modest: true,
+  };
+}
+
 interface StudioViewProps {
   initialLookId?: string | null;
   onSaveOutfit?: (outfit: OOTDRecommendation) => void;
@@ -782,6 +843,13 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
   const [heroImageIndex, setHeroImageIndex] = useState<number>(0);
   const [customHeroImage, setCustomHeroImage] = useState<string | null>(null);
   const [customLookTitle, setCustomLookTitle] = useState<string | null>(null);
+  const [customLookTag, setCustomLookTag] = useState<string | null>(null);
+  const [customModelSpec, setCustomModelSpec] = useState<{
+    height: string;
+    size: string;
+    silhouette: string;
+    keyFabric: string;
+  } | null>(null);
 
   const [genderMode, setGenderMode] = useState<"hijab" | "nonhijab" | "pria">("hijab");
   const [weatherMode, setWeatherMode] = useState<"hot" | "ac" | "rainy" | "mild">("hot");
@@ -820,67 +888,93 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
   const [feedbackToast, setFeedbackToast] = useState<string | null>(null);
   const [isShuffling, setIsShuffling] = useState(false);
 
-  // Sinkronisasi Deep-Link dari Lookbook (?look=...)
+  // Sinkronisasi Deep-Link dari Lookbook (?look=...) & LocalStorage
   useEffect(() => {
-    if (!initialLookId) return;
+    const applyResolvedLook = (
+      image: string,
+      title: string,
+      tag: string | undefined,
+      outfit: OOTDRecommendation | undefined,
+      modelSpec?: { height: string; size: string; silhouette: string; keyFabric: string },
+      gMode?: "hijab" | "nonhijab" | "pria"
+    ) => {
+      if (image) setCustomHeroImage(image);
+      if (title) setCustomLookTitle(title);
+      if (tag) setCustomLookTag(tag);
+      if (modelSpec) setCustomModelSpec(modelSpec);
+      if (gMode) setGenderMode(gMode);
 
-    if (PRESET_OOTD_COLLECTION[initialLookId]) {
-      const preset = PRESET_OOTD_COLLECTION[initialLookId];
-      setCustomHeroImage(preset.flatlayImages?.[0] || null);
-      setCustomLookTitle(preset.title);
+      if (outfit?.items && outfit.items.length > 0) {
+        const topItem = outfit.items.find((i) => i.category === "atasan");
+        const botItem = outfit.items.find((i) => i.category === "bawahan");
+        const outItem = outfit.items.find((i) => i.category === "outer_hijab");
+        const shoItem = outfit.items.find((i) => i.category === "sepatu");
 
-      const items = preset.items;
-      if (items && items.length > 0) {
-        const topItem = items.find((i) => i.category === "atasan");
-        const botItem = items.find((i) => i.category === "bawahan");
-        const outItem = items.find((i) => i.category === "outer_hijab");
-        const shoItem = items.find((i) => i.category === "sepatu");
-
-        setActiveSlots((prev) => ({
-          top: topItem
-            ? {
-                ...prev.top,
-                name: topItem.name,
-                material: topItem.material,
-                brand: topItem.brand || "UNIQLO",
-                officialPriceStr: topItem.estimatedPrice || "Rp 399.000",
-                imageUrl: topItem.imageUrl || prev.top.imageUrl,
-              }
-            : prev.top,
-          bottom: botItem
-            ? {
-                ...prev.bottom,
-                name: botItem.name,
-                material: botItem.material,
-                brand: botItem.brand || "UNIQLO",
-                officialPriceStr: botItem.estimatedPrice || "Rp 499.000",
-                imageUrl: botItem.imageUrl || prev.bottom.imageUrl,
-              }
-            : prev.bottom,
-          outer: outItem
-            ? {
-                ...prev.outer,
-                name: outItem.name,
-                material: outItem.material,
-                brand: outItem.brand || "COTTONINK",
-                officialPriceStr: outItem.estimatedPrice || "Rp 249.000",
-                imageUrl: outItem.imageUrl || prev.outer.imageUrl,
-              }
-            : prev.outer,
-          shoes: shoItem
-            ? {
-                ...prev.shoes,
-                name: shoItem.name,
-                material: shoItem.material,
-                brand: shoItem.brand || "H&M",
-                officialPriceStr: shoItem.estimatedPrice || "Rp 499.000",
-                imageUrl: shoItem.imageUrl || prev.shoes.imageUrl,
-              }
-            : prev.shoes,
-        }));
+        setActiveSlots({
+          top: outfitItemToStudioItem(topItem, "top", TOP_POOL[0], image),
+          bottom: outfitItemToStudioItem(botItem, "bottom", BOTTOM_POOL[0], image),
+          outer: outfitItemToStudioItem(outItem, "outer", OUTER_POOL[0], image),
+          shoes: outfitItemToStudioItem(shoItem, "shoes", SHOES_POOL[0], image),
+        });
       }
+    };
 
-      triggerToast(`Formula '${preset.title}' dimuat.`);
+    // 1. Prioritas Utama: URL param look
+    let targetId = initialLookId;
+    if (!targetId && typeof window !== "undefined") {
+      const p = new URLSearchParams(window.location.search);
+      targetId = p.get("look");
+    }
+
+    if (targetId) {
+      const resolved = resolveLookForStudio(targetId);
+      if (resolved) {
+        applyResolvedLook(
+          resolved.image,
+          resolved.title,
+          resolved.tag,
+          resolved.outfit,
+          resolved.modelSpec,
+          resolved.genderMode
+        );
+        triggerToast(`Formula '${resolved.title}' berhasil dimuat.`);
+        return;
+      }
+    }
+
+    // 2. Prioritas Kedua: Storage Sync dari klik Lookbook
+    if (typeof window !== "undefined") {
+      try {
+        const stored = localStorage.getItem("looku_selected_studio_look");
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (parsed && (parsed.image || parsed.title)) {
+            if (!targetId || targetId === parsed.lookId || targetId === parsed.outfitId) {
+              const isPria = parsed.tag?.toUpperCase() === "MENSWEAR" || parsed.category?.toLowerCase().includes("pria");
+              const isHijab = parsed.tag?.toUpperCase().includes("HIJAB") || parsed.outfit?.modestFriendly;
+              const gMode = isPria ? "pria" : isHijab ? "hijab" : "nonhijab";
+              const topItem = parsed.outfit?.items?.find((i: any) => i.category === "atasan");
+
+              applyResolvedLook(
+                parsed.image,
+                parsed.title,
+                parsed.tag,
+                parsed.outfit,
+                {
+                  height: isPria ? "175 cm" : isHijab ? "160 cm" : "162 cm",
+                  size: "M (Model Fit)",
+                  silhouette: parsed.vibe || "Modern Minimalist",
+                  keyFabric: topItem?.material || "Katun Rayon & Linen",
+                },
+                gMode
+              );
+              triggerToast(`Formula '${parsed.title}' berhasil dimuat.`);
+            }
+          }
+        }
+      } catch (e) {
+        console.warn("Failed to read studio look from localStorage", e);
+      }
     }
   }, [initialLookId]);
 
@@ -896,6 +990,8 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
     setHeroImageIndex(0);
     setCustomHeroImage(null);
     setCustomLookTitle(null);
+    setCustomLookTag(null);
+    setCustomModelSpec(null);
     setGenderMode(vibe.gender);
     setWeatherMode(vibe.weather);
 
@@ -1292,7 +1388,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                 {/* Micro Header Badges */}
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
                   <span className="px-2.5 py-1 bg-white/90 backdrop-blur-md text-neutral-900 text-[10px] font-mono uppercase tracking-[0.14em] font-medium rounded-full shadow-2xs">
-                    {currentVibeObj.badge}
+                    {customLookTag || currentVibeObj.badge}
                   </span>
                   <button
                     type="button"
@@ -1389,12 +1485,12 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
               <div className="mt-2.5 px-3 py-2 bg-neutral-50 border border-neutral-200/70 rounded-lg flex items-center justify-between text-[10px] text-neutral-600 font-mono">
                 <div className="flex items-center gap-2">
                   <span className="font-semibold text-neutral-800">
-                    {currentVibeObj.modelSpec.height}
+                    {customModelSpec?.height || currentVibeObj.modelSpec.height}
                   </span>
                   <span>•</span>
-                  <span>Size {currentVibeObj.modelSpec.size}</span>
+                  <span>Size {customModelSpec?.size || currentVibeObj.modelSpec.size}</span>
                   <span>•</span>
-                  <span>{currentVibeObj.modelSpec.silhouette}</span>
+                  <span>{customModelSpec?.silhouette || currentVibeObj.modelSpec.silhouette}</span>
                 </div>
                 <span className="text-neutral-500 font-medium">
                   Airflow {breathabilityScore}%
@@ -1409,8 +1505,8 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                   <span className="text-[10px] font-mono tracking-[0.16em] uppercase text-neutral-400 font-semibold block">
                     ITEMS WORN IN THIS LOOK (4)
                   </span>
-                  <span className="text-xs font-semibold text-neutral-900">
-                    Sentuh pin di foto atau pilih item di bawah
+                  <span className="text-xs font-semibold text-neutral-900 block truncate max-w-[220px]">
+                    {customLookTitle ? `Formula: ${customLookTitle}` : "Sentuh pin di foto atau pilih item di bawah"}
                   </span>
                 </div>
 
@@ -1738,7 +1834,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                 {/* Top Overlay Badge */}
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
                   <span className="px-3 py-1 bg-white/95 backdrop-blur-md text-neutral-900 text-[10px] font-mono font-medium uppercase tracking-[0.16em] rounded-full shadow-2xs">
-                    {currentVibeObj.badge}
+                    {customLookTag || currentVibeObj.badge}
                   </span>
                   <button
                     type="button"
@@ -1813,16 +1909,16 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
               <div className="p-3.5 bg-neutral-50 border border-neutral-200/80 rounded-xl space-y-2">
                 <div className="flex items-center justify-between text-xs font-mono text-neutral-700">
                   <div className="flex items-center gap-2">
-                    <span className="font-bold text-neutral-900">{currentVibeObj.modelSpec.height}</span>
+                    <span className="font-bold text-neutral-900">{customModelSpec?.height || currentVibeObj.modelSpec.height}</span>
                     <span>•</span>
-                    <span>Size {currentVibeObj.modelSpec.size}</span>
+                    <span>Size {customModelSpec?.size || currentVibeObj.modelSpec.size}</span>
                     <span>•</span>
-                    <span>{currentVibeObj.modelSpec.silhouette}</span>
+                    <span>{customModelSpec?.silhouette || currentVibeObj.modelSpec.silhouette}</span>
                   </div>
                   <span className="text-neutral-500 font-medium">Airflow {breathabilityScore}%</span>
                 </div>
                 <p className="text-xs text-neutral-600 leading-relaxed font-sans">
-                  {currentVibeObj.tagline}
+                  {customLookTitle ? `Formula: ${customLookTitle}. ${currentVibeObj.tagline}` : currentVibeObj.tagline}
                 </p>
               </div>
 

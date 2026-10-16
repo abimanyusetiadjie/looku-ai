@@ -19,9 +19,14 @@ export default function LookbookPage() {
   const router = useRouter();
   const [storyOutfit, setStoryOutfit] = useState<OOTDRecommendation | null>(null);
 
-  const handleSelectLook = (outfit: OOTDRecommendation) => {
+  const handleSelectLook = (payload: any) => {
     // Navigate directly to Studio with the selected look ID
-    router.push(`/studio?look=${outfit.id}`);
+    const lookId = payload?.lookId || payload?.id;
+    if (lookId) {
+      router.push(`/studio?look=${encodeURIComponent(lookId)}`);
+    } else {
+      router.push("/studio");
+    }
   };
 
   return (
