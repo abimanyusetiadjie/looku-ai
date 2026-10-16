@@ -356,7 +356,7 @@ export default function SavedLooksDrawer({
                         ) : (
                           <div className="flex items-start justify-between gap-2">
                             <div>
-                              <span className="text-[9px] font-mono uppercase text-terracotta-600 font-bold tracking-wider">
+                              <span className="text-[10px] font-mono uppercase text-terracotta-600 font-semibold tracking-wider">
                                 {outfit.overallVibe}
                               </span>
                               <h4 className="font-serif font-bold text-base text-[#181A18]">

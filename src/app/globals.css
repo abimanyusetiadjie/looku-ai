@@ -326,7 +326,7 @@ h1, h2, h3, h4 {
     padding: 2px 8px; border-radius: var(--ds-radius-full);
     border: 1px solid var(--ds-line); background: var(--ds-white);
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ds-ink);
+    font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ds-ink);
   }
   .ds-badge-ink { background: var(--ds-ink); color: #fff; border-color: var(--ds-ink); }
 

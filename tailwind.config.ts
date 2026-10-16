@@ -62,6 +62,17 @@ const config: Config = {
         sans: ["var(--font-jakarta)", "system-ui", "sans-serif"],
         serif: ["var(--font-playfair)", "Georgia", "serif"],
       },
+      fontSize: {
+        // 5-Tier Typography System
+        'meta': ['0.625rem', { lineHeight: '0.875rem', letterSpacing: '0.14em' }], // 10px - Micro metadata & brand badges
+        'body-sm': ['0.75rem', { lineHeight: '1.125rem', letterSpacing: '0' }], // 12px - Body & price details
+        'title-sm': ['0.8125rem', { lineHeight: '1.125rem', letterSpacing: '-0.005em' }], // 13px - Compact product title
+        'title-md': ['0.875rem', { lineHeight: '1.25rem', letterSpacing: '-0.01em' }], // 14px - Primary product title & action label
+        'heading-sm': ['1rem', { lineHeight: '1.375rem', letterSpacing: '-0.01em' }], // 16px - Section & card header
+        'heading-md': ['1.125rem', { lineHeight: '1.5rem', letterSpacing: '-0.015em' }], // 18px - Prominent card title
+        'display-sm': ['1.5rem', { lineHeight: '1.875rem', letterSpacing: '-0.02em' }], // 24px - Mobile page & hero title
+        'display-md': ['2rem', { lineHeight: '2.375rem', letterSpacing: '-0.025em' }], // 32px - Desktop hero title
+      },
     },
   },
   plugins: [],

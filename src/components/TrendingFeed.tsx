@@ -517,7 +517,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
 
                     {/* Badge Iklim Kontekstual di Kiri Atas */}
                     <div className="absolute top-2 left-2 z-10">
-                      <span className="inline-block px-2 py-0.5 text-[8px] sm:text-[9px] font-mono font-bold uppercase tracking-wider bg-[#181A18]/90 text-[#FAF8F5] shadow-xs">
+                      <span className="inline-block px-2 py-0.5 text-[10px] font-mono font-semibold uppercase tracking-wider bg-[#181A18]/90 text-[#FAF8F5] shadow-xs">
                         {climateInfo.badge}
                       </span>
                     </div>
@@ -550,28 +550,28 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                             <span className="w-2.5 h-2.5 rounded-full bg-[#181A18]" />
                           )}
                         </div>
-                        <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-[#8C5A3C] truncate max-w-[110px]">
+                        <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-[#8C5A3C] truncate max-w-[110px]">
                           {look.tag}
                         </span>
                       </div>
 
                       {/* Baris 2: Judul Formula (Strict line-clamp-1) */}
-                      <h3 className="font-serif text-sm sm:text-base font-bold text-[#181A18] group-hover:text-terracotta-600 transition-colors line-clamp-1 leading-snug">
+                      <h3 className="font-serif text-sm sm:text-base font-semibold text-[#181A18] group-hover:text-terracotta-600 transition-colors line-clamp-1 leading-snug">
                         {look.title}
                       </h3>
 
                       {/* Baris 3: Deskripsi Bahan / Vibe (Strict line-clamp-1) */}
-                      <p className="text-[10px] sm:text-[11px] text-[#181A18]/65 line-clamp-1 mt-0.5">
+                      <p className="text-xs text-[#181A18]/65 line-clamp-1 mt-0.5">
                         {look.outfit?.items?.[0]?.material || look.vibe}
                       </p>
                     </div>
 
                     {/* Baris 4: Harga Set IDR (Rata & Tegas) */}
                     <div className="pt-2 mt-2 border-t border-[#181A18]/10 flex items-center justify-between">
-                      <span className="text-[9px] font-mono uppercase tracking-wider text-[#181A18]/45">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#181A18]/45">
                         Estimasi
                       </span>
-                      <span className="font-mono text-xs font-bold text-[#181A18]">
+                      <span className="font-mono text-xs font-semibold text-[#181A18]">
                         {look.priceRange.replace(" / Set", "")}
                       </span>
                     </div>
@@ -678,7 +678,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                     alt={selectedLook.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-2.5 left-2.5 bg-[#181A18]/90 text-white px-2.5 py-1 text-[9px] font-mono font-bold uppercase tracking-widest">
+                  <div className="absolute top-2.5 left-2.5 bg-[#181A18]/90 text-white px-2.5 py-1 text-[10px] font-mono font-semibold uppercase tracking-widest">
                     {getLookClimate(selectedLook).badge}
                   </div>
                 </div>
@@ -688,7 +688,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
               <div className="w-full md:w-1/2 p-5 sm:p-6 flex flex-col justify-between space-y-4">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#8C5A3C]">
+                    <span className="text-[10px] font-mono font-semibold uppercase tracking-widest text-[#8C5A3C]">
                       {selectedLook.tag}
                     </span>
                     <span className="text-[#181A18]/30">·</span>
@@ -707,10 +707,10 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
 
                   {/* Rekomendasi Warna Kulit */}
                   <div className="mt-4 p-3 bg-white border border-[#181A18]/10 text-xs">
-                    <span className="font-bold text-[#181A18] block text-[11px] mb-0.5">
+                    <span className="font-semibold text-[#181A18] block text-xs mb-0.5">
                       Cocok untuk Warna Kulit:
                     </span>
-                    <p className="text-[#181A18]/70 text-[11px] leading-relaxed">
+                    <p className="text-[#181A18]/70 text-xs leading-relaxed">
                       {selectedLook.outfit?.skinToneMatch || selectedLook.skinToneRecommendation}
                     </p>
                   </div>
@@ -718,10 +718,10 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                   {/* Rincian Komponen Baju (Termasuk Sepatu & Aksesoris Terkurasi) */}
                   <div className="mt-4 space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#181A18]/50 block">
+                      <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-[#181A18]/50 block">
                         KOMPOSISI ITEM REAL ({selectedLook.outfit?.items?.length || 0} PIECES):
                       </span>
-                      <span className="text-[9px] font-mono text-[#8C5A3C] uppercase">Authentic Catalog</span>
+                      <span className="text-[10px] font-mono text-[#8C5A3C] uppercase tracking-wider">Authentic Catalog</span>
                     </div>
 
                     <div className="space-y-1.5 max-h-48 overflow-y-auto pr-1">
@@ -750,19 +750,19 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                               </div>
                             )}
                             <div className="flex-1 min-w-0">
-                              <span className="text-[8px] font-mono uppercase tracking-wider text-[#8C5A3C] block font-bold">
+                              <span className="text-[10px] font-mono uppercase tracking-wider text-[#8C5A3C] block font-semibold">
                                 {catLabel}
                               </span>
-                              <span className="text-[#181A18] text-[11px] font-medium truncate block">
+                              <span className="text-[#181A18] text-xs font-semibold truncate block">
                                 {it.name}
                               </span>
                               {it.material && (
-                                <span className="text-[10px] text-stone-500 truncate block">
+                                <span className="text-xs text-stone-500 truncate block">
                                   {it.material}
                                 </span>
                               )}
                             </div>
-                            <span className="font-mono text-[#181A18]/80 text-[11px] font-semibold shrink-0">
+                            <span className="font-mono text-[#181A18] text-xs font-semibold shrink-0">
                               {it.estimatedPrice}
                             </span>
                           </div>

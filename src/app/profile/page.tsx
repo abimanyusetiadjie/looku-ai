@@ -525,7 +525,7 @@ function ProfileContent() {
                               alt={item.name}
                               className="w-full h-full object-cover group-hover/item:scale-105 transition-transform"
                             />
-                            <div className="absolute bottom-0 inset-x-0 bg-charcoal-900/80 text-white text-[8px] font-bold uppercase tracking-wider py-0.5 px-1 truncate text-center">
+                            <div className="absolute bottom-0 inset-x-0 bg-charcoal-900/85 text-white text-[10px] font-mono font-semibold uppercase tracking-wider py-0.5 px-1 truncate text-center">
                               {item.category}
                             </div>
                           </div>

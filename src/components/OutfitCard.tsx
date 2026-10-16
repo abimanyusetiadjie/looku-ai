@@ -308,10 +308,10 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
           {/* 2-Column Shoppable Pieces Grid (Fashion Commerce Standard) */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-mono tracking-wider uppercase text-sand-500 font-bold">
+              <span className="text-[10px] font-mono tracking-wider uppercase text-sand-500 font-semibold">
                 KOMPOSISI LOOK
               </span>
-              <span className="text-[9px] font-mono text-terracotta-600 font-bold">
+              <span className="text-[10px] font-mono text-terracotta-600 font-semibold tracking-wider uppercase">
                 MARKETPLACE
               </span>
             </div>
@@ -343,11 +343,11 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
 
                       {/* Top Category & Brand Badge */}
                       <div className="absolute top-2 left-2 flex items-center gap-1">
-                        <span className="px-2 py-0.5 rounded-md bg-charcoal-900/85 text-white text-[8px] font-mono font-bold uppercase tracking-wider backdrop-blur-xs">
+                        <span className="px-2 py-0.5 rounded-md bg-charcoal-900/85 text-white text-[10px] font-mono font-semibold uppercase tracking-wider backdrop-blur-xs">
                           {getCategoryTag(item.category)}
                         </span>
                         {item.brand && (
-                          <span className="px-1.5 py-0.5 rounded-md bg-[#8C5A3C] text-white text-[8px] font-mono font-bold uppercase tracking-wider backdrop-blur-xs">
+                          <span className="px-1.5 py-0.5 rounded-md bg-[#8C5A3C] text-white text-[10px] font-mono font-semibold uppercase tracking-wider backdrop-blur-xs">
                             {item.brand}
                           </span>
                         )}
@@ -358,15 +358,15 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                         <button
                           type="button"
                           onClick={() => handleSwapItem(index)}
-                          className="absolute top-2 right-2 px-2 py-0.5 rounded-lg bg-white/95 hover:bg-white text-charcoal-900 text-[8px] font-mono font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm transition-all"
+                          className="absolute top-2 right-2 px-2 py-0.5 rounded-lg bg-white/95 hover:bg-white text-charcoal-900 text-[10px] font-mono font-semibold uppercase tracking-wider flex items-center gap-1 shadow-sm transition-all"
                           title={`Ganti varian ${catLabel}`}
                         >
-                          <span> Ganti</span>
+                          <span>Ganti</span>
                         </button>
                       )}
 
                       {/* Bottom Color Chip */}
-                      <div className="absolute bottom-2 left-2 flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-white/95 backdrop-blur-xs text-[9px] font-mono font-semibold text-charcoal-900 shadow-2xs">
+                      <div className="absolute bottom-2 left-2 flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-white/95 backdrop-blur-xs text-[10px] font-mono font-semibold text-charcoal-900 shadow-2xs">
                         <span
                           className="w-2.5 h-2.5 rounded-full border border-black/10 shrink-0"
                           style={{ backgroundColor: item.colorHex || "#C69365" }}

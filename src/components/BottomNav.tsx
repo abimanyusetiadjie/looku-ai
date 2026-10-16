@@ -100,7 +100,7 @@ export default function BottomNav() {
 
                 {/* Instagram-style In-Menu Notification / Saved Badge */}
                 {item.badge !== undefined && item.badge > 0 && (
-                  <span className="absolute -top-1 -right-2.5 min-w-[16px] h-4 px-1 rounded-full bg-terracotta-500 text-white text-[9px] font-bold font-mono flex items-center justify-center shadow-xs ring-2 ring-white">
+                  <span className="absolute -top-1 -right-2.5 min-w-[16px] h-4 px-1 rounded-full bg-terracotta-500 text-white text-[10px] font-bold font-mono leading-none flex items-center justify-center shadow-xs ring-2 ring-white">
                     {item.badge}
                   </span>
                 )}
