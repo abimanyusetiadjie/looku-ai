@@ -1,21 +1,19 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Lock,
   Unlock,
   RotateCw,
-  Sparkles,
   ExternalLink,
   X,
   Bookmark,
-  Wind,
-  Palette,
-  Layers,
-  Check,
   ShoppingBag,
   Store,
   SlidersHorizontal,
+  ChevronRight,
+  Check,
+  Eye,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { OOTDRecommendation } from "@/lib/types";
@@ -25,6 +23,8 @@ export interface StudioItem {
   id: string;
   category: "top" | "bottom" | "outer" | "shoes";
   categoryLabel: string;
+  categoryOrder: number;
+  pinNumber: number;
   brand: string;
   officialUrl: string;
   officialPriceStr: string;
@@ -51,6 +51,12 @@ export interface SkenaVibePreset {
   gender: "hijab" | "nonhijab" | "pria";
   weather: "hot" | "ac" | "rainy" | "mild";
   occasion: "campus" | "office" | "cafe" | "party";
+  modelSpec: {
+    height: string;
+    size: string;
+    silhouette: string;
+    keyFabric: string;
+  };
   heroImage: string;
   altImages: string[];
   tagline: string;
@@ -58,22 +64,30 @@ export interface SkenaVibePreset {
   bottomId: string;
   outerId: string;
   shoesId: string;
+  pinCoords: {
+    outer: { top: string; left: string };
+    top: { top: string; left: string };
+    bottom: { top: string; left: string };
+    shoes: { top: string; left: string };
+  };
 }
 
 // -------------------------------------------------------------
-// POOL KOMPONEN BRAND RESMI & SKENA (100% BEBAS UNSPLASH LAMA)
+// POOL KOMPONEN BRAND RESMI & SKENA
 // Menggunakan CDN Resmi Pinterest HD & Zalora Static CDN
 // -------------------------------------------------------------
 const TOP_POOL: StudioItem[] = [
   {
     id: "top_cottonink_rayon_mocca",
     category: "top",
-    categoryLabel: "Atasan · Blus Rayon",
+    categoryLabel: "Tops · Blouse",
+    categoryOrder: 2,
+    pinNumber: 2,
     brand: "COTTONINK",
     officialUrl: "https://www.cottonink.co.id/",
     officialPriceStr: "Rp 279.000",
     name: "Blus Rayon Flowy Dropped Shoulder",
-    material: "100% Rayon Twill Dingin",
+    material: "100% Rayon Twill",
     breathability: 98,
     colorName: "Mocca Oat",
     colorHex: "#C4A482",
@@ -89,7 +103,9 @@ const TOP_POOL: StudioItem[] = [
   {
     id: "top_uniqlo_linen_relaxed",
     category: "top",
-    categoryLabel: "Atasan · Pure Linen",
+    categoryLabel: "Tops · Pure Linen",
+    categoryOrder: 2,
+    pinNumber: 2,
     brand: "UNIQLO",
     officialUrl: "https://www.uniqlo.com/id/id/",
     officialPriceStr: "Rp 399.000",
@@ -110,12 +126,14 @@ const TOP_POOL: StudioItem[] = [
   {
     id: "top_uniqlo_airism_boxy",
     category: "top",
-    categoryLabel: "Atasan · Boxy Tee",
+    categoryLabel: "Tops · Boxy Tee",
+    categoryOrder: 2,
+    pinNumber: 2,
     brand: "UNIQLO",
     officialUrl: "https://www.uniqlo.com/id/id/",
     officialPriceStr: "Rp 199.000",
     name: "AIRism Katun T-Shirt Oversize Kerah Bulat",
-    material: "AIRism Tech Cotton 24s Cool-Touch",
+    material: "AIRism Tech Cotton 24s",
     breathability: 96,
     colorName: "Charcoal Black",
     colorHex: "#181A18",
@@ -131,12 +149,14 @@ const TOP_POOL: StudioItem[] = [
   {
     id: "top_zara_poplin_scbd",
     category: "top",
-    categoryLabel: "Atasan · Structured Poplin",
+    categoryLabel: "Tops · Structured Poplin",
+    categoryOrder: 2,
+    pinNumber: 2,
     brand: "ZARA",
     officialUrl: "https://www.zara.com/id/",
     officialPriceStr: "Rp 599.000",
     name: "Structured Poplin Shirt Clean Collar",
-    material: "Crisp Cotton Poplin Breathable",
+    material: "Crisp Cotton Poplin",
     breathability: 94,
     colorName: "Broken White",
     colorHex: "#FAF8F5",
@@ -152,63 +172,46 @@ const TOP_POOL: StudioItem[] = [
   {
     id: "top_erigo_vintage_boxy",
     category: "top",
-    categoryLabel: "Atasan · Streetwear Tee",
+    categoryLabel: "Tops · Heavyweight Tee",
+    categoryOrder: 2,
+    pinNumber: 2,
     brand: "ERIGO_X",
     officialUrl: "https://erigostore.id/",
     officialPriceStr: "Rp 150.000",
     name: "Heavyweight Boxy Graphic Vintage Tee",
     material: "Cotton Combed 16s Washed",
     breathability: 92,
-    colorName: "Washed Charcoal",
-    colorHex: "#232528",
-    price: 85000,
-    priceStr: "Rp 85.000",
-    imageUrl: "https://i.pinimg.com/originals/7e/1f/d9/7e1fd97d20cdafff61417316956352e7.jpg",
-    shopeeQuery: "Kaos Heavyweight Boxy Cut Vintage Streetwear",
-    tokopediaQuery: "Tshirt Boxy Streetwear Pria Wanita",
-    note: "Potongan lebar Blok M skena yang tidak menempel di badan",
+    colorName: "Washed Faded Grey",
+    colorHex: "#4A4E51",
+    price: 79000,
+    priceStr: "Rp 79.000",
+    imageUrl: "https://i.pinimg.com/originals/18/eb/9c/18eb9ca35a782410a768e9e1bb34a81e.jpg",
+    shopeeQuery: "Kaos Vintage Washed Heavyweight Boxy Cut",
+    tokopediaQuery: "Kaos Faded Washed Oversized Blok M Indie",
+    note: "Karakter vintage streetwear kasual dengan tekstur washed tahan lama",
     gender: "unisex",
-    modest: false,
-  },
-  {
-    id: "top_hm_camp_collar_linen",
-    category: "top",
-    categoryLabel: "Atasan · Camp Collar",
-    brand: "H&M",
-    officialUrl: "https://id.hm.com/",
-    officialPriceStr: "Rp 299.900",
-    name: "Relaxed Fit Camp Collar Linen-Blend Shirt",
-    material: "Linen-Blend Poplin Berpori",
-    breathability: 97,
-    colorName: "Ivory Sand",
-    colorHex: "#F5F2EB",
-    price: 110000,
-    priceStr: "Rp 110.000",
-    imageUrl: "https://i.pinimg.com/originals/84/45/40/84454020b4c5a1c18939d4627ea97ad0.png",
-    shopeeQuery: "Kemeja Kerah Terbuka Cuban Camp Collar Linen",
-    tokopediaQuery: "Kemeja Pantai Camp Collar Pria Linen Blend",
-    note: "Kerah terbuka mengalirkan udara sejuk di leher untuk gaya Old Money",
-    gender: "male",
     modest: false,
   },
   {
     id: "top_thenblank_cropped_blouse",
     category: "top",
-    categoryLabel: "Atasan · Cropped Linen",
+    categoryLabel: "Tops · Cropped Linen",
+    categoryOrder: 2,
+    pinNumber: 2,
     brand: "THENBLANK",
     officialUrl: "https://thenblank.com/",
     officialPriceStr: "Rp 249.000",
-    name: "Cropped Linen Casual Blouse Sage",
-    material: "Linen Cotton Crinkle",
-    breathability: 95,
-    colorName: "Sage Olive",
-    colorHex: "#8A9A86",
-    price: 98000,
-    priceStr: "Rp 98.000",
+    name: "Minimalist Square Neck Linen Top",
+    material: "Soft Pure Crinkle Linen",
+    breathability: 96,
+    colorName: "Butter Cream",
+    colorHex: "#F3E5AB",
+    price: 99000,
+    priceStr: "Rp 99.000",
     imageUrl: "https://i.pinimg.com/originals/d0/e1/79/d0e179729344bf55f3b2454ae8f10098.jpg",
-    shopeeQuery: "Atasan Crop Blouse Linen Casual Wanita",
-    tokopediaQuery: "Crop Top Linen Casual Adem Elegan",
-    note: "Siluet modern Senopati brunch yang memberi kesan kaki jenjang",
+    shopeeQuery: "Atasan Crop Top Linen Square Neck Katun",
+    tokopediaQuery: "Blouse Linen Square Neck Wanita Adem",
+    note: "Siluet kontemporer untuk brunch santai di Senopati atau kafe aesthetic",
     gender: "female",
     modest: false,
   },
@@ -218,128 +221,117 @@ const BOTTOM_POOL: StudioItem[] = [
   {
     id: "bot_uniqlo_pleated_wide",
     category: "bottom",
-    categoryLabel: "Bawahan · Pleated Wide",
+    categoryLabel: "Bottoms · Wide Pants",
+    categoryOrder: 3,
+    pinNumber: 3,
     brand: "UNIQLO",
     officialUrl: "https://www.uniqlo.com/id/id/",
     officialPriceStr: "Rp 499.000",
-    name: "Pleated Wide Pants Siluet Jatuh Flowy",
-    material: "Stretch Crepe Rayon Anti-Kusut",
-    breathability: 96,
-    colorName: "Cream Sand",
-    colorHex: "#EFECE6",
-    price: 115000,
-    priceStr: "Rp 115.000",
+    name: "Celana Lebar Lipit Pleated Wide Pants",
+    material: "Rayon Blend 2-Way Stretch",
+    breathability: 97,
+    colorName: "Warm Sand Taupe",
+    colorHex: "#D8C7B5",
+    price: 110000,
+    priceStr: "Rp 110.000",
     imageUrl: "https://i.pinimg.com/originals/73/2b/97/732b9765f65e63ebf02595822e3524d3.jpg",
-    shopeeQuery: "Celana Kulot Highwaist Loose Trousers Flowy Adem",
-    tokopediaQuery: "Celana Kulot Loose Pants Wanita Kerja Santai",
-    note: "Siluet lebar memberi ruang udara penuh di kaki tanpa rasa pengap",
+    shopeeQuery: "Kulot Highwaist Pleated Flowy Wanita Bahan Jatuh",
+    tokopediaQuery: "Celana Kulot Lipit Wanita Pinggang Karet",
+    note: "Draping jatuh sangat anggun, menyamarkan lekuk tubuh & anti-gerah",
     gender: "female",
     modest: true,
   },
   {
-    id: "bot_hm_baggy_denim",
+    id: "bot_uniqlo_geared_shorts",
     category: "bottom",
-    categoryLabel: "Bawahan · Baggy Denim",
-    brand: "H&M",
-    officialUrl: "https://id.hm.com/",
-    officialPriceStr: "Rp 499.900",
-    name: "Baggy Wide Jeans Light Wash Non-Stretch",
-    material: "100% Breathable Cotton Denim 12oz",
-    breathability: 93,
-    colorName: "Sky Chambray",
-    colorHex: "#9BB0C1",
-    price: 139000,
-    priceStr: "Rp 139.000",
-    imageUrl: "https://i.pinimg.com/originals/af/9a/0f/af9a0fd8f7060c3de4b1ab08e1be80e5.jpg",
-    shopeeQuery: "Celana Baggy Jeans Loose Denim Pria Wanita",
-    tokopediaQuery: "Baggy Jeans Loose Fit Denim Katun",
-    note: "Potongan baggy longgar yang ikonik untuk gaya City Boy & Skena",
-    gender: "unisex",
-    modest: true,
-  },
-  {
-    id: "bot_uniqlo_smart_ankle",
-    category: "bottom",
-    categoryLabel: "Bawahan · Smart Ankle",
+    categoryLabel: "Bottoms · Geared Cargo",
+    categoryOrder: 3,
+    pinNumber: 3,
     brand: "UNIQLO",
     officialUrl: "https://www.uniqlo.com/id/id/",
-    officialPriceStr: "Rp 499.000",
-    name: "Smart Ankle Pants 2-Way Stretch",
-    material: "Dry-EX Quick-Drying Stretch",
+    officialPriceStr: "Rp 299.000",
+    name: "Celana Pendek Geared Ripstop Ringan",
+    material: "Water-Repellent Ripstop Nylon",
     breathability: 95,
-    colorName: "Charcoal Rapi",
-    colorHex: "#232528",
-    price: 125000,
-    priceStr: "Rp 125.000",
-    imageUrl: "https://i.pinimg.com/originals/1a/a6/26/1aa62655c0d74b818319298d30447479.jpg",
-    shopeeQuery: "Celana Ankle Chino Pants Slim Fit Katun Stretch",
-    tokopediaQuery: "Celana Ankle Pants Formal Kasual Adem",
-    note: "Cepat kering dan rapi seharian untuk rapat kantor SCBD",
-    gender: "unisex",
-    modest: true,
+    colorName: "Olive Military",
+    colorHex: "#556B2F",
+    price: 85000,
+    priceStr: "Rp 85.000",
+    imageUrl: "https://i.pinimg.com/originals/fa/77/80/fa7780f2eb19143c746bc5cfbe637dbf.png",
+    shopeeQuery: "Celana Cargo Pendek Ripstop Quickdry Pria",
+    tokopediaQuery: "Celana Geared Pendek Taktikal Ringan",
+    note: "Sangat fleksibel untuk mobilitas perkotaan & gowes sore santai",
+    gender: "male",
+    modest: false,
   },
   {
-    id: "bot_hm_cargo_parachute",
+    id: "bot_hm_loose_straight_slacks",
     category: "bottom",
-    categoryLabel: "Bawahan · Parachute Cargo",
+    categoryLabel: "Bottoms · Straight Slacks",
+    categoryOrder: 3,
+    pinNumber: 3,
     brand: "H&M",
     officialUrl: "https://id.hm.com/",
-    officialPriceStr: "Rp 449.900",
-    name: "Cargo Parachute Loose Trousers",
-    material: "Lightweight Poplin Ripstop",
+    officialPriceStr: "Rp 449.000",
+    name: "Loose Fit Tailored Straight Trousers",
+    material: "Viscose Twill Breathable Weave",
     breathability: 95,
-    colorName: "Olive Drab",
-    colorHex: "#556B2F",
-    price: 120000,
-    priceStr: "Rp 120.000",
-    imageUrl: "https://i.pinimg.com/originals/a6/31/43/a6314305310bcc36cfd87c7f0b001144.jpg",
-    shopeeQuery: "Celana Cargo Parasut Loose Unisex Streetwear",
-    tokopediaQuery: "Cargo Parachute Pants Ringan Adem",
-    note: "Bahan parasut katun super ringan untuk mobilitas jalanan",
-    gender: "unisex",
-    modest: true,
-  },
-  {
-    id: "bot_thenblank_linen_trousers",
-    category: "bottom",
-    categoryLabel: "Bawahan · Tailored Linen",
-    brand: "THENBLANK",
-    officialUrl: "https://thenblank.com/",
-    officialPriceStr: "Rp 299.000",
-    name: "Relaxed Tailored Linen Trousers",
-    material: "Linen Katun Twill Washed",
-    breathability: 97,
-    colorName: "Warm Khaki",
-    colorHex: "#D4A373",
-    price: 110000,
-    priceStr: "Rp 110.000",
-    imageUrl: "https://i.pinimg.com/originals/ae/6a/d8/ae6ad82525d384daf2f5a51ec466c375.png",
-    shopeeQuery: "Celana Panjang Linen Kasual Adem Relaxed",
-    tokopediaQuery: "Celana Bahan Tapered Slacks Linen",
-    note: "Tekstur linen santai berkelas untuk pesisir & kafe",
-    gender: "unisex",
+    colorName: "Dark Slate Grey",
+    colorHex: "#2F4F4F",
+    price: 125000,
+    priceStr: "Rp 125.000",
+    imageUrl: "https://i.pinimg.com/originals/e8/37/10/e8371077ea4144fb4a2d8ebf5139aa2c.jpg",
+    shopeeQuery: "Celana Bahan Wanita Semi Formal Highwaist Lurus",
+    tokopediaQuery: "Celana Kantor Wanita Straight Trousers Adem",
+    note: "Garis siluet tegas melangsingkan kaki untuk busana profesional kantor",
+    gender: "female",
     modest: true,
   },
   {
     id: "bot_cottonink_satin_skirt",
     category: "bottom",
-    categoryLabel: "Bawahan · Satin Skirt",
+    categoryLabel: "Bottoms · Satin Skirt",
+    categoryOrder: 3,
+    pinNumber: 3,
     brand: "COTTONINK",
     officialUrl: "https://www.cottonink.co.id/",
     officialPriceStr: "Rp 329.000",
-    name: "Satin Midi/Maxi Slip Skirt Flowy A-Line",
-    material: "Silk Satin Twill Sejuk",
-    breathability: 94,
-    colorName: "Champagne Oat",
-    colorHex: "#D4B996",
+    name: "Bias Cut Satin Midi Skirt Silky Touch",
+    material: "Airflow Matte Silk Rayon",
+    breathability: 96,
+    colorName: "Champagne Pearl",
+    colorHex: "#EAE0D5",
     price: 105000,
     priceStr: "Rp 105.000",
     imageUrl: "https://i.pinimg.com/originals/40/70/7a/40707a334f8badcd3a4e39b4643da309.png",
-    shopeeQuery: "Rok Satin Silk Midi Maxi A Line Kasual",
-    tokopediaQuery: "Rok Plisket Satin Panjang Wanita Flowy",
-    note: "Permukaan silk memantulkan panas dan tampak anggun",
+    shopeeQuery: "Rok Satin Midi Silk Wanita Flare A-Line",
+    tokopediaQuery: "Rok Satin Panjang High Waist Cantik",
+    note: "Kilau matte mewah tanpa rasa panas lengket saat dipakai jalan siang",
     gender: "female",
     modest: true,
+  },
+  {
+    id: "bot_erigo_vintage_denim",
+    category: "bottom",
+    categoryLabel: "Bottoms · Baggy Denim",
+    categoryOrder: 3,
+    pinNumber: 3,
+    brand: "ERIGO_X",
+    officialUrl: "https://erigostore.id/",
+    officialPriceStr: "Rp 299.000",
+    name: "Classic Baggy 90s Vintage Raw Denim",
+    material: "12oz Non-Stretch Washed Cotton Denim",
+    breathability: 91,
+    colorName: "Medium Vintage Indigo",
+    colorHex: "#3B5998",
+    price: 135000,
+    priceStr: "Rp 135.000",
+    imageUrl: "https://i.pinimg.com/originals/1e/8a/a5/1e8aa5fa0466487e49f87c95e1e5b1eb.jpg",
+    shopeeQuery: "Celana Jeans Baggy 90s Vintage Pria Wanita Loose",
+    tokopediaQuery: "Celana Jeans Loose Wide Leg Vintage Washed",
+    note: "Potongan longgar 90-an yang memberi sirkulasi udara bebas di paha",
+    gender: "unisex",
+    modest: false,
   },
 ];
 
@@ -347,12 +339,14 @@ const OUTER_POOL: StudioItem[] = [
   {
     id: "outer_voal_miracle",
     category: "outer",
-    categoryLabel: "Hijab · Voal Miracle",
+    categoryLabel: "Headwear · Voal Miracle",
+    categoryOrder: 1,
+    pinNumber: 1,
     brand: "LOKAL_MODEST",
     officialUrl: "https://www.zalora.co.id/",
     officialPriceStr: "Rp 85.000",
     name: "Hijab Voal Miracle Ultrafine Laser Cut",
-    material: "100% Voal Ultrafine Berpori Mikro",
+    material: "100% Voal Ultrafine",
     breathability: 98,
     colorName: "Warm Sand",
     colorHex: "#EAE4DC",
@@ -368,12 +362,14 @@ const OUTER_POOL: StudioItem[] = [
   {
     id: "outer_thenblank_linen_blazer",
     category: "outer",
-    categoryLabel: "Outer · Linen Blazer",
+    categoryLabel: "Outerwear · Linen Blazer",
+    categoryOrder: 1,
+    pinNumber: 1,
     brand: "THENBLANK",
     officialUrl: "https://thenblank.com/",
     officialPriceStr: "Rp 379.000",
     name: "Tailored Semi-Relaxed Unlined Linen Blazer",
-    material: "Linen Tencel Tanpa Furing Tebal",
+    material: "Linen Tencel Unlined",
     breathability: 95,
     colorName: "Espresso Charcoal",
     colorHex: "#2C3539",
@@ -389,12 +385,14 @@ const OUTER_POOL: StudioItem[] = [
   {
     id: "outer_uniqlo_uv_parka",
     category: "outer",
-    categoryLabel: "Outer · Airy UV Mesh",
+    categoryLabel: "Outerwear · UV Protection",
+    categoryOrder: 1,
+    pinNumber: 1,
     brand: "UNIQLO",
     officialUrl: "https://www.uniqlo.com/id/id/",
     officialPriceStr: "Rp 399.000",
     name: "Jaket Parka Saku Proteksi Sinar UV (Airy Mesh)",
-    material: "AIRism UV-Cut Breathable Mesh",
+    material: "AIRism UV-Cut Mesh",
     breathability: 96,
     colorName: "Light Stone",
     colorHex: "#EFECE6",
@@ -410,12 +408,14 @@ const OUTER_POOL: StudioItem[] = [
   {
     id: "outer_pashmina_ceruty",
     category: "outer",
-    categoryLabel: "Hijab · Ceruty Silk",
+    categoryLabel: "Headwear · Ceruty Silk",
+    categoryOrder: 1,
+    pinNumber: 1,
     brand: "LOKAL_MODEST",
     officialUrl: "https://www.zalora.co.id/",
     officialPriceStr: "Rp 75.000",
     name: "Pashmina Ceruty Baby Doll Silk Flowy",
-    material: "Ceruty Babydoll Silk Ringan",
+    material: "Ceruty Babydoll Silk",
     breathability: 96,
     colorName: "Sage Muted",
     colorHex: "#8A9A86",
@@ -434,12 +434,14 @@ const SHOES_POOL: StudioItem[] = [
   {
     id: "shoes_hm_retro_court",
     category: "shoes",
-    categoryLabel: "Sepatu · Retro Sneakers",
+    categoryLabel: "Footwear · Sneakers",
+    categoryOrder: 4,
+    pinNumber: 4,
     brand: "H&M",
     officialUrl: "https://id.hm.com/",
     officialPriceStr: "Rp 499.000",
     name: "Retro Court Chunky Leather Sneakers",
-    material: "Vegan Leather & Breathable Mesh Insole",
+    material: "Vegan Leather & Mesh",
     breathability: 95,
     colorName: "Clean White",
     colorHex: "#FAF8F5",
@@ -448,19 +450,21 @@ const SHOES_POOL: StudioItem[] = [
     imageUrl: "https://static-id.zacdn.com/p/cottonink-8521-7299143-1-zoom.jpg",
     shopeeQuery: "Sepatu Retro Court Sneakers Putih Vintage Kasual",
     tokopediaQuery: "Sneakers Retro Vintage Casual Low Cut Unisex",
-    note: "Bantalan empuk untuk jalan kaki 10.000 langkah antar stasiun & kafe",
+    note: "Bantalan empuk untuk mobilitas jalan kaki antar stasiun & kafe",
     gender: "unisex",
     modest: true,
   },
   {
     id: "shoes_zara_chunky_loafers",
     category: "shoes",
-    categoryLabel: "Sepatu · Penny Loafers",
+    categoryLabel: "Footwear · Penny Loafers",
+    categoryOrder: 4,
+    pinNumber: 4,
     brand: "ZARA",
     officialUrl: "https://www.zara.com/id/",
     officialPriceStr: "Rp 899.000",
     name: "Chunky Lug Sole Leather Penny Loafers",
-    material: "Soft Matte Leather & Rubber Sole",
+    material: "Matte Leather & Rubber",
     breathability: 93,
     colorName: "Espresso Black",
     colorHex: "#181A18",
@@ -476,12 +480,14 @@ const SHOES_POOL: StudioItem[] = [
   {
     id: "shoes_zara_strappy_mules",
     category: "shoes",
-    categoryLabel: "Sepatu · Kitten Mules",
+    categoryLabel: "Footwear · Mule Sandals",
+    categoryOrder: 4,
+    pinNumber: 4,
     brand: "ZARA",
     officialUrl: "https://www.zara.com/id/",
     officialPriceStr: "Rp 699.000",
     name: "Minimalist Suede & Leather Mule Sandals",
-    material: "Soft Cushioned Footbed",
+    material: "Cushioned Footbed",
     breathability: 97,
     colorName: "Nude Oatmeal",
     colorHex: "#D4B996",
@@ -497,17 +503,23 @@ const SHOES_POOL: StudioItem[] = [
 ];
 
 // -------------------------------------------------------------
-// 6 PRESET GAYA SKENA NUSANTARA (1-TAP STUDIO PRESETS)
+// 6 PRESET GAYA SKENA DENGAN MODEL SPECS & HOTSPOT COORDS
 // -------------------------------------------------------------
 const SKENA_VIBES: SkenaVibePreset[] = [
   {
     id: "earthy_hijab",
     label: "Earthy Modest Hijab",
     shortLabel: "Earthy Hijab",
-    badge: "MODEST SKENA",
+    badge: "MODEST CASUAL",
     gender: "hijab",
     weather: "hot",
     occasion: "cafe",
+    modelSpec: {
+      height: "162 cm",
+      size: "M",
+      silhouette: "Relaxed Flowy",
+      keyFabric: "Rayon Twill & Pure Linen",
+    },
     heroImage: "https://i.pinimg.com/originals/54/2c/ad/542cadb7970189fddff971caf303b24b.png",
     altImages: [
       "https://i.pinimg.com/originals/f1/ff/32/f1ff32036ab3216cbb743dffcbadda35.jpg",
@@ -519,113 +531,177 @@ const SKENA_VIBES: SkenaVibePreset[] = [
     bottomId: "bot_uniqlo_pleated_wide",
     outerId: "outer_voal_miracle",
     shoesId: "shoes_hm_retro_court",
+    pinCoords: {
+      outer: { top: "18%", left: "48%" },
+      top: { top: "42%", left: "44%" },
+      bottom: { top: "68%", left: "54%" },
+      shoes: { top: "90%", left: "48%" },
+    },
   },
   {
-    id: "japanese_city_boy",
+    id: "city_boy",
     label: "Japanese City Boy",
     shortLabel: "City Boy",
-    badge: "TOKYO BOXY",
+    badge: "JAPANESE STREET",
     gender: "pria",
     weather: "hot",
     occasion: "campus",
+    modelSpec: {
+      height: "176 cm",
+      size: "L",
+      silhouette: "Boxy Oversized",
+      keyFabric: "AIRism Cotton & Ripstop",
+    },
     heroImage: "https://i.pinimg.com/originals/8b/37/01/8b370169218458e48e093fd8140c898a.jpg",
     altImages: [
-      "https://i.pinimg.com/originals/af/9a/0f/af9a0fd8f7060c3de4b1ab08e1be80e5.jpg",
-      "https://i.pinimg.com/originals/15/c1/5f/15c15f2bff7e8c9ea2a19922696ab2f6.jpg",
+      "https://i.pinimg.com/originals/fa/77/80/fa7780f2eb19143c746bc5cfbe637dbf.png",
+      "https://i.pinimg.com/originals/18/eb/9c/18eb9ca35a782410a768e9e1bb34a81e.jpg",
     ],
-    tagline: "Siluet boxy Uniqlo AIRism & baggy denim H&M dengan sirkulasi udara maksimal.",
+    tagline: "Karakter Tokyo street minimalis: kaos boxy sejuk AIRism & ripstop shorts fungsional.",
     topId: "top_uniqlo_airism_boxy",
-    bottomId: "bot_hm_baggy_denim",
+    bottomId: "bot_uniqlo_geared_shorts",
     outerId: "outer_uniqlo_uv_parka",
     shoesId: "shoes_hm_retro_court",
+    pinCoords: {
+      outer: { top: "25%", left: "68%" },
+      top: { top: "38%", left: "45%" },
+      bottom: { top: "64%", left: "46%" },
+      shoes: { top: "88%", left: "46%" },
+    },
   },
   {
     id: "scbd_corporate",
     label: "SCBD Smart Corporate",
     shortLabel: "SCBD Smart",
-    badge: "EXECUTIVE CHIC",
+    badge: "COMMUTER SMART",
     gender: "nonhijab",
     weather: "ac",
     occasion: "office",
+    modelSpec: {
+      height: "165 cm",
+      size: "S",
+      silhouette: "Tailored Crisp",
+      keyFabric: "Crisp Poplin & Viscose",
+    },
     heroImage: "https://i.pinimg.com/originals/be/35/11/be3511d3523f1db782d53ca53864b245.jpg",
     altImages: [
-      "https://i.pinimg.com/originals/28/e3/60/28e360de49b60fd6913bf53a8a6e3915.jpg",
+      "https://i.pinimg.com/originals/e8/37/10/e8371077ea4144fb4a2d8ebf5139aa2c.jpg",
       "https://i.pinimg.com/originals/3c/9c/d7/3c9cd7ce6ed7158cc75cbe999b745984.jpg",
     ],
-    tagline: "Kemeja poplin Zara & blazer linen tanpa furing THENBLANK untuk transisi komuter ke ruang AC.",
+    tagline: "Kemeja crisp poplin Zara & loose slacks lurus yang tahan kusut dan wibawa seharian.",
     topId: "top_zara_poplin_scbd",
-    bottomId: "bot_uniqlo_smart_ankle",
+    bottomId: "bot_hm_loose_straight_slacks",
     outerId: "outer_thenblank_linen_blazer",
     shoesId: "shoes_zara_chunky_loafers",
+    pinCoords: {
+      outer: { top: "32%", left: "70%" },
+      top: { top: "40%", left: "44%" },
+      bottom: { top: "67%", left: "50%" },
+      shoes: { top: "89%", left: "48%" },
+    },
   },
   {
-    id: "blok_m_streetwear",
+    id: "blok_m_vintage",
     label: "Blok M Vintage Streetwear",
-    shortLabel: "Blok M Skena",
-    badge: "INDIE STREET",
+    shortLabel: "Blok M Street",
+    badge: "VINTAGE CASUAL",
     gender: "pria",
-    weather: "hot",
+    weather: "mild",
     occasion: "cafe",
-    heroImage: "https://i.pinimg.com/originals/7e/1f/d9/7e1fd97d20cdafff61417316956352e7.jpg",
+    modelSpec: {
+      height: "172 cm",
+      size: "L",
+      silhouette: "Baggy 90s",
+      keyFabric: "Heavyweight Washed Denim",
+    },
+    heroImage: "https://i.pinimg.com/originals/18/eb/9c/18eb9ca35a782410a768e9e1bb34a81e.jpg",
     altImages: [
-      "https://i.pinimg.com/originals/a6/31/43/a6314305310bcc36cfd87c7f0b001144.jpg",
+      "https://i.pinimg.com/originals/1e/8a/a5/1e8aa5fa0466487e49f87c95e1e5b1eb.jpg",
+      "https://i.pinimg.com/originals/8b/37/01/8b370169218458e48e093fd8140c898a.jpg",
     ],
-    tagline: "Kaos boxy Erigo-X 16s & celana kargo parasut H&M yang santai untuk skena kreatif.",
+    tagline: "Kaos heavyweight vintage Erigo-X dan baggy denim washed untuk tongkrongan Blok M.",
     topId: "top_erigo_vintage_boxy",
-    bottomId: "bot_hm_cargo_parachute",
+    bottomId: "bot_erigo_vintage_denim",
     outerId: "outer_uniqlo_uv_parka",
     shoesId: "shoes_hm_retro_court",
+    pinCoords: {
+      outer: { top: "28%", left: "66%" },
+      top: { top: "42%", left: "48%" },
+      bottom: { top: "68%", left: "46%" },
+      shoes: { top: "89%", left: "48%" },
+    },
   },
   {
-    id: "old_money_linen",
+    id: "old_money_coastal",
     label: "Old Money Coastal Linen",
     shortLabel: "Old Money",
     badge: "QUIET LUXURY",
-    gender: "pria",
+    gender: "hijab",
     weather: "hot",
-    occasion: "party",
-    heroImage: "https://i.pinimg.com/originals/84/45/40/84454020b4c5a1c18939d4627ea97ad0.png",
+    occasion: "cafe",
+    modelSpec: {
+      height: "168 cm",
+      size: "M",
+      silhouette: "Relaxed Resort",
+      keyFabric: "100% European Flax Linen",
+    },
+    heroImage: "https://i.pinimg.com/originals/1b/3d/24/1b3d240b29e3ea29a9f1d8fdcb0fa1dc.png",
     altImages: [
-      "https://i.pinimg.com/originals/ae/6a/d8/ae6ad82525d384daf2f5a51ec466c375.png",
-      "https://i.pinimg.com/originals/85/4d/54/854d54111eb21df5d77ed2a826363a0b.jpg",
+      "https://i.pinimg.com/originals/73/2b/97/732b9765f65e63ebf02595822e3524d3.jpg",
+      "https://i.pinimg.com/originals/54/2c/ad/542cadb7970189fddff971caf303b24b.png",
     ],
-    tagline: "Kemeja camp collar linen H&M & celana linen tailored THENBLANK bernuansa resort mewah.",
-    topId: "top_hm_camp_collar_linen",
-    bottomId: "bot_thenblank_linen_trousers",
-    outerId: "outer_thenblank_linen_blazer",
-    shoesId: "shoes_zara_chunky_loafers",
+    tagline: "Kemeja linen murni Uniqlo sage green & kulot pasir: estetika coastal resort mewah.",
+    topId: "top_uniqlo_linen_relaxed",
+    bottomId: "bot_uniqlo_pleated_wide",
+    outerId: "outer_pashmina_ceruty",
+    shoesId: "shoes_zara_strappy_mules",
+    pinCoords: {
+      outer: { top: "16%", left: "50%" },
+      top: { top: "42%", left: "45%" },
+      bottom: { top: "66%", left: "52%" },
+      shoes: { top: "88%", left: "50%" },
+    },
   },
   {
     id: "senopati_brunch",
     label: "Senopati Chic Brunch",
     shortLabel: "Senopati Chic",
-    badge: "CONTEMPORARY",
+    badge: "MODERN CONTEMPORARY",
     gender: "nonhijab",
     weather: "mild",
     occasion: "cafe",
+    modelSpec: {
+      height: "163 cm",
+      size: "S",
+      silhouette: "Clean A-Line",
+      keyFabric: "Crinkle Linen & Matte Satin",
+    },
     heroImage: "https://i.pinimg.com/originals/d0/e1/79/d0e179729344bf55f3b2454ae8f10098.jpg",
     altImages: [
       "https://i.pinimg.com/originals/40/70/7a/40707a334f8badcd3a4e39b4643da309.png",
       "https://i.pinimg.com/originals/b9/26/7d/b9267d7260917f982132bdb2bef3242b.jpg",
     ],
-    tagline: "Atasan cropped linen THENBLANK & rok satin midi Cottonink yang elegan untuk brunch akhir pekan.",
+    tagline: "Atasan square neck linen THENBLANK & rok satin midi Cottonink untuk brunch akhir pekan.",
     topId: "top_thenblank_cropped_blouse",
     bottomId: "bot_cottonink_satin_skirt",
     outerId: "outer_thenblank_linen_blazer",
     shoesId: "shoes_zara_strappy_mules",
+    pinCoords: {
+      outer: { top: "30%", left: "66%" },
+      top: { top: "42%", left: "46%" },
+      bottom: { top: "66%", left: "50%" },
+      shoes: { top: "89%", left: "48%" },
+    },
   },
 ];
 
-// -------------------------------------------------------------
-// METADATA DRAPING TAB 02: PERSONAL COLOR LAB (60S)
-// -------------------------------------------------------------
 const SKIN_TONES_DRAPE = [
   {
     id: "sawo-matang",
     nama: "Sawo Matang",
     season: "Warm Autumn",
     hex: "#B87B52",
-    vein: "Kehijauan (Warm Undertone)",
+    vein: "Greenish (Warm Undertone)",
     bestPalettes: [
       { name: "Terracotta", hex: "#D4A373" },
       { name: "Sage Olive", hex: "#6E8B74" },
@@ -633,68 +709,65 @@ const SKIN_TONES_DRAPE = [
       { name: "Bronze Brown", hex: "#8C5A3C" },
     ],
     avoidPalettes: [
-      { name: "Ash Grey (Bikin Kusam)", hex: "#8A929A" },
-      { name: "Neon Pink (Kontras Tajam)", hex: "#FF1493" },
-      { name: "Kuning Stabilo", hex: "#E6FF00" },
+      { name: "Ash Grey", hex: "#8A929A" },
+      { name: "Neon Pink", hex: "#FF1493" },
+      { name: "Electric Yellow", hex: "#E6FF00" },
     ],
-    deskripsi: "Rona paling umum di Indonesia. Sangat bercahaya dengan earth tones hangat.",
+    deskripsi: "Rona hangat paling dominan di Indonesia. Sangat bercahaya dengan palet earth tones alami.",
   },
   {
     id: "kuning-langsat",
     nama: "Kuning Langsat",
     season: "Warm Spring",
     hex: "#E8C8A2",
-    vein: "Campuran Hijau-Biru (Neutral-Warm)",
+    vein: "Blue-Green (Neutral Warm)",
     bestPalettes: [
-      { name: "Coral Lembut", hex: "#F08080" },
+      { name: "Soft Coral", hex: "#F08080" },
       { name: "Sky Soft", hex: "#87CEEB" },
       { name: "Butter Cream", hex: "#FFFDD0" },
-      { name: "Sage Light", hex: "#A8C3A0" },
+      { name: "Light Sage", hex: "#A8C3A0" },
     ],
     avoidPalettes: [
-      { name: "Hitam Pekat Berat", hex: "#000000" },
-      { name: "Cokelat Terlalu Gelap", hex: "#2E1A0C" },
-      { name: "Kuning Kunyit Pudar", hex: "#D4AF37" },
+      { name: "Pitch Black", hex: "#000000" },
+      { name: "Deep Mud Brown", hex: "#2E1A0C" },
     ],
-    deskripsi: "Memancarkan kilau radiant alami saat dipadukan dengan pastel hangat.",
+    deskripsi: "Memancarkan kilau radiant alami saat dipadukan dengan pastel hangat dan soft earth tones.",
   },
   {
     id: "putih-gading",
     nama: "Putih Gading",
     season: "Light Spring / Summer",
     hex: "#F5D6C6",
-    vein: "Kebiruan / Ungu (Cool Undertone)",
+    vein: "Bluish / Purple (Cool Undertone)",
     bestPalettes: [
       { name: "Rose Quartz", hex: "#F7CAC9" },
-      { name: "Lavender Muted", hex: "#E6E6FA" },
+      { name: "Muted Lavender", hex: "#E6E6FA" },
       { name: "Navy Blue", hex: "#1B2A4A" },
       { name: "Broken White", hex: "#FAF6EE" },
     ],
     avoidPalettes: [
-      { name: "Orange Menyala", hex: "#FF4500" },
-      { name: "Mustard Pekat", hex: "#CC7722" },
-      { name: "Cokelat Bata Gelap", hex: "#8B4513" },
+      { name: "Neon Orange", hex: "#FF4500" },
+      { name: "Dark Rust", hex: "#8B4513" },
     ],
-    deskripsi: "Kontras seimbang dengan warna dingin dan soft pastels.",
+    deskripsi: "Kontras seimbang dengan warna dingin, pastel lembut, dan broken white.",
   },
   {
     id: "tan-eksotis",
     nama: "Tan Eksotis",
     season: "Deep Autumn",
     hex: "#7D5335",
-    vein: "Hijau Zaitun (Deep Warm)",
+    vein: "Deep Olive (Deep Warm)",
     bestPalettes: [
       { name: "Deep Terracotta", hex: "#C86446" },
-      { name: "Mustard Emas", hex: "#DAA520" },
+      { name: "Mustard Gold", hex: "#DAA520" },
       { name: "Forest Green", hex: "#228B22" },
       { name: "Cream Oat", hex: "#FAF6EE" },
     ],
     avoidPalettes: [
-      { name: "Baby Pink Pucat", hex: "#F4C2C2" },
-      { name: "Putih Kapur Silau", hex: "#FFFFFF" },
-      { name: "Abu-Abu Monoton", hex: "#708090" },
+      { name: "Chalk White", hex: "#FFFFFF" },
+      { name: "Monotone Cool Grey", hex: "#708090" },
     ],
-    deskripsi: "Tone eksotis tropis berwibawa, sangat mewah dengan jewel & rich earth tones.",
+    deskripsi: "Tone eksotis tropis berwibawa, sangat mewah dengan perpaduan warna rich jewel tones.",
   },
 ];
 
@@ -704,7 +777,6 @@ interface StudioViewProps {
 }
 
 export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewProps) {
-  // State Mode Studio
   const [activeTab, setActiveTab] = useState<"mixer" | "colorlab">("mixer");
   const [selectedVibeId, setSelectedVibeId] = useState<string>("earthy_hijab");
   const [heroImageIndex, setHeroImageIndex] = useState<number>(0);
@@ -714,7 +786,9 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
   const [genderMode, setGenderMode] = useState<"hijab" | "nonhijab" | "pria">("hijab");
   const [weatherMode, setWeatherMode] = useState<"hot" | "ac" | "rainy" | "mild">("hot");
   const [selectedSkinToneId, setSelectedSkinToneId] = useState<string>("sawo-matang");
-  const [occasion, setOccasion] = useState<"campus" | "office" | "cafe" | "party">("cafe");
+
+  // State Hotspot Interaktif (Point 2: Shoppable Pins)
+  const [activeHotspot, setActiveHotspot] = useState<"top" | "bottom" | "outer" | "shoes" | null>(null);
 
   // State 4 Slot Pakaian Aktif
   const [activeSlots, setActiveSlots] = useState<{
@@ -729,7 +803,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
     shoes: SHOES_POOL[0],
   });
 
-  // State Penguncian Slot (Lock & Swap Engine)
+  // State Penguncian Slot
   const [lockedSlots, setLockedSlots] = useState<{
     top: boolean;
     bottom: boolean;
@@ -748,69 +822,75 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
 
   // Sinkronisasi Deep-Link dari Lookbook (?look=...)
   useEffect(() => {
-    if (initialLookId && PRESET_OOTD_COLLECTION[initialLookId]) {
-      const preset = PRESET_OOTD_COLLECTION[initialLookId];
-      setCustomLookTitle(preset.title);
-      const firstImg = preset.items?.[0]?.imageUrl;
-      if (firstImg) setCustomHeroImage(firstImg);
+    if (!initialLookId) return;
 
-      // Petakan komponen dari preset ke StudioItem
-      const mappedItems = preset.items || [];
-      setActiveSlots((prev) => {
-        const next = { ...prev };
-        mappedItems.forEach((it, i) => {
-          const studioItem: StudioItem = {
-            id: `${initialLookId}_${i}`,
-            category: it.category === "bawahan" ? "bottom" : it.category === "sepatu" ? "shoes" : it.category === "outer_hijab" ? "outer" : "top",
-            categoryLabel: it.category === "atasan" ? "Atasan · Kurasi" : it.category === "bawahan" ? "Bawahan · Kurasi" : it.category === "sepatu" ? "Sepatu · Kurasi" : "Outer / Hijab",
-            brand: it.brand || "UNIQLO",
-            officialUrl: it.brandUrl || "https://www.uniqlo.com/id/id/",
-            officialPriceStr: it.estimatedPrice.split(" (")[0] || "Rp 299.000",
-            name: it.name,
-            material: it.material || "Katun Linen Adem",
-            breathability: 96,
-            colorName: it.color || "Earthy Tone",
-            colorHex: it.colorHex || preset.colorPalette?.[0]?.hex || "#8A9A86",
-            price: 115000,
-            priceStr: "Rp 115.000",
-            imageUrl: it.imageUrl || firstImg || prev.top.imageUrl,
-            shopeeQuery: it.shopeeQuery || it.name,
-            tokopediaQuery: it.tokopediaQuery || it.name,
-            note: "Sirkulasi udara optimal teruji untuk cuaca tropis 33°C",
-            gender: preset.modestFriendly ? "female" : "unisex",
-            modest: preset.modestFriendly,
-          };
-          if (studioItem.category === "top") next.top = studioItem;
-          else if (studioItem.category === "bottom") next.bottom = studioItem;
-          else if (studioItem.category === "outer") next.outer = studioItem;
-          else if (studioItem.category === "shoes") next.shoes = studioItem;
-        });
-        return next;
-      });
+    if (PRESET_OOTD_COLLECTION[initialLookId]) {
+      const preset = PRESET_OOTD_COLLECTION[initialLookId];
+      setCustomHeroImage(preset.flatlayImages?.[0] || null);
+      setCustomLookTitle(preset.title);
+
+      const items = preset.items;
+      if (items && items.length > 0) {
+        const topItem = items.find((i) => i.category === "atasan");
+        const botItem = items.find((i) => i.category === "bawahan");
+        const outItem = items.find((i) => i.category === "outer_hijab");
+        const shoItem = items.find((i) => i.category === "sepatu");
+
+        setActiveSlots((prev) => ({
+          top: topItem
+            ? {
+                ...prev.top,
+                name: topItem.name,
+                material: topItem.material,
+                brand: topItem.brand || "UNIQLO",
+                officialPriceStr: topItem.estimatedPrice || "Rp 399.000",
+                imageUrl: topItem.imageUrl || prev.top.imageUrl,
+              }
+            : prev.top,
+          bottom: botItem
+            ? {
+                ...prev.bottom,
+                name: botItem.name,
+                material: botItem.material,
+                brand: botItem.brand || "UNIQLO",
+                officialPriceStr: botItem.estimatedPrice || "Rp 499.000",
+                imageUrl: botItem.imageUrl || prev.bottom.imageUrl,
+              }
+            : prev.bottom,
+          outer: outItem
+            ? {
+                ...prev.outer,
+                name: outItem.name,
+                material: outItem.material,
+                brand: outItem.brand || "COTTONINK",
+                officialPriceStr: outItem.estimatedPrice || "Rp 249.000",
+                imageUrl: outItem.imageUrl || prev.outer.imageUrl,
+              }
+            : prev.outer,
+          shoes: shoItem
+            ? {
+                ...prev.shoes,
+                name: shoItem.name,
+                material: shoItem.material,
+                brand: shoItem.brand || "H&M",
+                officialPriceStr: shoItem.estimatedPrice || "Rp 499.000",
+                imageUrl: shoItem.imageUrl || prev.shoes.imageUrl,
+              }
+            : prev.shoes,
+        }));
+      }
+
+      triggerToast(`Formula '${preset.title}' dimuat.`);
     }
   }, [initialLookId]);
 
-  // Lock body scroll untuk drawer rincian
-  useEffect(() => {
-    if (isDetailsDrawerOpen) {
-      document.body.style.overflow = "hidden";
-      const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.key === "Escape") setIsDetailsDrawerOpen(false);
-      };
-      window.addEventListener("keydown", handleKeyDown);
-      return () => {
-        document.body.style.overflow = "";
-        window.removeEventListener("keydown", handleKeyDown);
-      };
-    }
-  }, [isDetailsDrawerOpen]);
-
   const triggerToast = (msg: string) => {
     setFeedbackToast(msg);
-    setTimeout(() => setFeedbackToast(null), 2600);
+    setTimeout(() => {
+      setFeedbackToast((current) => (current === msg ? null : current));
+    }, 2800);
   };
 
-  // Terapkan Preset Gaya Skena (1-Tap)
   const handleSelectSkenaVibe = (vibe: SkenaVibePreset) => {
     setSelectedVibeId(vibe.id);
     setHeroImageIndex(0);
@@ -818,143 +898,112 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
     setCustomLookTitle(null);
     setGenderMode(vibe.gender);
     setWeatherMode(vibe.weather);
-    setOccasion(vibe.occasion);
 
-    const foundTop = TOP_POOL.find((t) => t.id === vibe.topId) || TOP_POOL[0];
-    const foundBot = BOTTOM_POOL.find((b) => b.id === vibe.bottomId) || BOTTOM_POOL[0];
-    const foundOut = OUTER_POOL.find((o) => o.id === vibe.outerId) || OUTER_POOL[0];
-    const foundSho = SHOES_POOL.find((s) => s.id === vibe.shoesId) || SHOES_POOL[0];
+    const newTop = TOP_POOL.find((t) => t.id === vibe.topId) || TOP_POOL[0];
+    const newBottom = BOTTOM_POOL.find((b) => b.id === vibe.bottomId) || BOTTOM_POOL[0];
+    const newOuter = OUTER_POOL.find((o) => o.id === vibe.outerId) || OUTER_POOL[0];
+    const newShoes = SHOES_POOL.find((s) => s.id === vibe.shoesId) || SHOES_POOL[0];
 
-    setActiveSlots((prev) => ({
-      top: lockedSlots.top ? prev.top : foundTop,
-      bottom: lockedSlots.bottom ? prev.bottom : foundBot,
-      outer: lockedSlots.outer ? prev.outer : foundOut,
-      shoes: lockedSlots.shoes ? prev.shoes : foundSho,
-    }));
+    setActiveSlots({
+      top: lockedSlots.top ? activeSlots.top : newTop,
+      bottom: lockedSlots.bottom ? activeSlots.bottom : newBottom,
+      outer: lockedSlots.outer ? activeSlots.outer : newOuter,
+      shoes: lockedSlots.shoes ? activeSlots.shoes : newShoes,
+    });
 
-    triggerToast(`✦ Gaya Skena Aktif: ${vibe.label}`);
+    triggerToast(`Gaya ${vibe.label} dipilih.`);
   };
 
-  // Toggle Kunci Slot
-  const toggleSlotLock = (slot: "top" | "bottom" | "outer" | "shoes") => {
-    const slotNames = { top: "Atasan", bottom: "Bawahan", outer: "Outer/Hijab", shoes: "Sepatu" };
+  const toggleSlotLock = (slotKey: "top" | "bottom" | "outer" | "shoes") => {
     setLockedSlots((prev) => {
-      const next = !prev[slot];
-      triggerToast(next ? `🔒 ${slotNames[slot]} dikunci` : `🔓 ${slotNames[slot]} dibuka`);
-      return { ...prev, [slot]: next };
+      const next = !prev[slotKey];
+      triggerToast(next ? `Item terkunci.` : `Item terbuka.`);
+      return { ...prev, [slotKey]: next };
     });
   };
 
-  // Ganti Satuan Slot
-  const swapSingleSlot = (slot: "top" | "bottom" | "outer" | "shoes") => {
-    let pool = TOP_POOL;
-    if (slot === "bottom") pool = BOTTOM_POOL;
-    if (slot === "outer") pool = OUTER_POOL;
-    if (slot === "shoes") pool = SHOES_POOL;
+  const swapSingleSlot = (slotKey: "top" | "bottom" | "outer" | "shoes") => {
+    let pool: StudioItem[] = [];
+    if (slotKey === "top") pool = TOP_POOL;
+    if (slotKey === "bottom") pool = BOTTOM_POOL;
+    if (slotKey === "outer") pool = OUTER_POOL;
+    if (slotKey === "shoes") pool = SHOES_POOL;
 
-    const currentItem = activeSlots[slot];
-    const currentIndex = pool.findIndex((it) => it.id === currentItem.id);
-    const nextIndex = (currentIndex + 1) % pool.length;
-    const nextItem = pool[nextIndex];
+    const filtered = pool.filter((item) => {
+      if (genderMode === "hijab" && !item.modest && item.gender === "female") return false;
+      if (genderMode === "pria" && item.gender === "female") return false;
+      if (genderMode === "nonhijab" && item.gender === "male") return false;
+      return true;
+    });
 
-    setActiveSlots((prev) => ({ ...prev, [slot]: nextItem }));
-    if (slot === "top") {
-      setCustomHeroImage(nextItem.imageUrl);
-    }
-    triggerToast(`↻ Diganti ke: ${nextItem.brand} ${nextItem.name}`);
+    const activePool = filtered.length > 1 ? filtered : pool;
+    const currentIndex = activePool.findIndex((i) => i.id === activeSlots[slotKey].id);
+    const nextIndex = (currentIndex + 1) % activePool.length;
+    const nextItem = activePool[nextIndex];
+
+    setActiveSlots((prev) => ({
+      ...prev,
+      [slotKey]: nextItem,
+    }));
+
+    triggerToast(`${nextItem.name} (${nextItem.brand}) dipilih.`);
   };
 
-  // Acak Semua Slot yang Tidak Terkunci
   const handleShuffleUnlocked = () => {
     setIsShuffling(true);
+
     setTimeout(() => {
-      // Rotasi juga referensi visual hero
-      const currentVibe = SKENA_VIBES.find((v) => v.id === selectedVibeId) || SKENA_VIBES[0];
-      const allVibeImages = [currentVibe.heroImage, ...currentVibe.altImages];
-      setHeroImageIndex((prev) => (prev + 1) % allVibeImages.length);
-      setCustomHeroImage(null);
+      const getRandomUnpicked = (pool: StudioItem[], currentId: string) => {
+        const filtered = pool.filter((item) => {
+          if (genderMode === "hijab" && !item.modest && item.gender === "female") return false;
+          if (genderMode === "pria" && item.gender === "female") return false;
+          if (genderMode === "nonhijab" && item.gender === "male") return false;
+          return item.id !== currentId;
+        });
+        const candidatePool = filtered.length > 0 ? filtered : pool;
+        return candidatePool[Math.floor(Math.random() * candidatePool.length)];
+      };
 
-      setActiveSlots((prev) => {
-        const next = { ...prev };
+      setActiveSlots((prev) => ({
+        top: lockedSlots.top ? prev.top : getRandomUnpicked(TOP_POOL, prev.top.id),
+        bottom: lockedSlots.bottom ? prev.bottom : getRandomUnpicked(BOTTOM_POOL, prev.bottom.id),
+        outer: lockedSlots.outer ? prev.outer : getRandomUnpicked(OUTER_POOL, prev.outer.id),
+        shoes: lockedSlots.shoes ? prev.shoes : getRandomUnpicked(SHOES_POOL, prev.shoes.id),
+      }));
 
-        if (!lockedSlots.top) {
-          const eligibleTops = TOP_POOL.filter((it) => {
-            if (genderMode === "pria") return it.gender === "male" || it.gender === "unisex";
-            if (genderMode === "hijab") return it.modest;
-            return it.gender === "female" || it.gender === "unisex";
-          });
-          const pool = eligibleTops.length > 0 ? eligibleTops : TOP_POOL;
-          const otherTops = pool.filter((it) => it.id !== prev.top.id);
-          next.top = otherTops[Math.floor(Math.random() * (otherTops.length || 1))] || pool[0];
-        }
-
-        if (!lockedSlots.bottom) {
-          const eligibleBottoms = BOTTOM_POOL.filter((it) => {
-            if (genderMode === "pria") return it.gender === "male" || it.gender === "unisex";
-            return true;
-          });
-          const pool = eligibleBottoms.length > 0 ? eligibleBottoms : BOTTOM_POOL;
-          const otherBottoms = pool.filter((it) => it.id !== prev.bottom.id);
-          next.bottom = otherBottoms[Math.floor(Math.random() * (otherBottoms.length || 1))] || pool[0];
-        }
-
-        if (!lockedSlots.outer) {
-          const eligibleOuters = OUTER_POOL.filter((it) => {
-            if (genderMode === "pria") return it.gender === "male" || it.gender === "unisex";
-            if (genderMode === "hijab") return it.categoryLabel.includes("Hijab") || it.modest;
-            return !it.categoryLabel.includes("Hijab");
-          });
-          const pool = eligibleOuters.length > 0 ? eligibleOuters : OUTER_POOL;
-          const otherOuters = pool.filter((it) => it.id !== prev.outer.id);
-          next.outer = otherOuters[Math.floor(Math.random() * (otherOuters.length || 1))] || pool[0];
-        }
-
-        if (!lockedSlots.shoes) {
-          const eligibleShoes = SHOES_POOL.filter((it) => {
-            if (genderMode === "pria") return it.gender === "male" || it.gender === "unisex";
-            return it.gender === "female" || it.gender === "unisex";
-          });
-          const pool = eligibleShoes.length > 0 ? eligibleShoes : SHOES_POOL;
-          const otherShoes = pool.filter((it) => it.id !== prev.shoes.id);
-          next.shoes = otherShoes[Math.floor(Math.random() * (otherShoes.length || 1))] || pool[0];
-        }
-
-        return next;
-      });
       setIsShuffling(false);
-      triggerToast("✨ Formula OOTD baru diracik oleh AI Stylist!");
-    }, 220);
+      triggerToast("Kombinasi OOTD baru diterapkan.");
+    }, 250);
   };
 
-  // Reset Kanvas
   const handleResetCanvas = () => {
     setLockedSlots({ top: false, bottom: false, outer: false, shoes: false });
     handleSelectSkenaVibe(SKENA_VIBES[0]);
-    triggerToast("Kanvas Studio di-reset ke gaya dasar.");
+    triggerToast("Studio direset ke konfigurasi awal.");
   };
 
-  // Simpan Racikan Aktif ke Lemari
   const handleSaveToWardrobe = () => {
-    const activeTone = SKIN_TONES_DRAPE.find((t) => t.id === selectedSkinToneId) || SKIN_TONES_DRAPE[0];
     const currentVibe = SKENA_VIBES.find((v) => v.id === selectedVibeId) || SKENA_VIBES[0];
-
     const recommendation: OOTDRecommendation = {
-      id: `studio_mix_${Date.now()}`,
-      title: customLookTitle || `${currentVibe.label}: ${activeSlots.top.brand} × ${activeSlots.bottom.brand}`,
-      tagline: `Formula adem terkurasi Studio untuk ${weatherLabel} dengan harmoni warna ${activeTone.nama}.`,
-      overallVibe: `${currentVibe.label} · ${activeSlots.top.colorName}`,
-      comfortRating: Number((breathabilityScore / 20).toFixed(1)),
-      affordabilityRating: 4.9,
+      id: `studio_${Date.now()}`,
+      title: customLookTitle || `${currentVibe.label} Look`,
+      tagline: currentVibe.tagline,
+      overallVibe: currentVibe.badge,
+      comfortRating: 5,
+      affordabilityRating: 4,
       modestFriendly: genderMode === "hijab",
-      skinToneMatch: `Sangat harmonis untuk ${activeTone.nama} (${activeTone.season}).`,
-      whyItWorks: `Kombinasi ${activeSlots.top.material} dan ${activeSlots.bottom.material} melepas panas tubuh hingga skor sirkulasi ${breathabilityScore}%.`,
-      stylingTip: `Padukan dengan ${activeSlots.outer.name} dan ${activeSlots.shoes.name} untuk siluet proporsional.`,
+      skinToneMatch: `Harmonisasi sempurna untuk kulit ${activeSkinTone.nama}`,
+      whyItWorks: currentVibe.tagline,
+      stylingTip: `Sirkulasi udara ${breathabilityScore}% optimal untuk cuaca tropis`,
       colorPalette: [
         { name: activeSlots.top.colorName, hex: activeSlots.top.colorHex },
         { name: activeSlots.bottom.colorName, hex: activeSlots.bottom.colorHex },
         { name: activeSlots.outer.colorName, hex: activeSlots.outer.colorHex },
         { name: activeSlots.shoes.colorName, hex: activeSlots.shoes.colorHex },
       ],
+      flatlayImages: [activeHeroImage, activeSlots.top.imageUrl, activeSlots.bottom.imageUrl],
+      sweatStainResistance: "Optimal Anti-Stain",
+      costPerWearSavings: totalDupePriceStr,
       items: [
         {
           category: "atasan",
@@ -1014,7 +1063,6 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
         },
       ],
       createdAt: new Date().toISOString(),
-      flatlayImages: [activeSlots.top.imageUrl, activeSlots.bottom.imageUrl],
     };
 
     try {
@@ -1028,14 +1076,14 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
       if (onSaveOutfit) {
         onSaveOutfit(recommendation);
       }
-      triggerToast("✨ Formula OOTD Berhasil Disimpan ke Lemari!");
+      triggerToast("Outfit tersimpan di lemari.");
     } catch {
-      triggerToast("Berhasil disimpan.");
+      triggerToast("Tersimpan.");
     }
   };
 
   // -------------------------------------------------------------
-  // PERHITUNGAN TELEMETRI ILMIAH REAL-TIME
+  // METRIK TELEMETRI
   // -------------------------------------------------------------
   const breathabilityScore = Math.round(
     (activeSlots.top.breathability +
@@ -1056,7 +1104,14 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
     activeSlots.outer.price +
     activeSlots.shoes.price;
 
-  const totalDupePriceStr = `Rp ${Math.round(totalDupePrice / 1000)}rb`;
+  const totalOfficialPrice =
+    (activeSlots.top.brand === "UNIQLO" ? 399000 : 279000) +
+    (activeSlots.bottom.brand === "UNIQLO" ? 499000 : 329000) +
+    (activeSlots.outer.brand === "UNIQLO" ? 399000 : 120000) +
+    (activeSlots.shoes.brand === "ZARA" ? 899000 : 499000);
+
+  const totalDupePriceStr = `Rp ${totalDupePrice.toLocaleString("id-ID")}`;
+  const totalOfficialPriceStr = `Rp ${totalOfficialPrice.toLocaleString("id-ID")}`;
 
   const currentVibeObj = SKENA_VIBES.find((v) => v.id === selectedVibeId) || SKENA_VIBES[0];
   const allCurrentVibeImgs = [currentVibeObj.heroImage, ...currentVibeObj.altImages];
@@ -1067,98 +1122,99 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
 
   const weatherLabel =
     weatherMode === "hot"
-      ? "☀️ 33°C Terik"
+      ? "33°C Hot"
       : weatherMode === "ac"
-      ? "🏢 22°C AC Kantor"
+      ? "22°C AC"
       : weatherMode === "rainy"
-      ? "🌧️ 25°C Hujan Sejuk"
-      : "🌤️ 29°C Hangat";
+      ? "25°C Rainy"
+      : "29°C Mild";
 
   const genderLabel =
     genderMode === "hijab"
-      ? "Wanita Hijab"
+      ? "Modest"
       : genderMode === "nonhijab"
-      ? "Wanita Non-Hijab"
-      : "Pria Menswear";
+      ? "Women"
+      : "Men";
 
   const slotEntries: { key: "top" | "bottom" | "outer" | "shoes"; item: StudioItem }[] = [
+    { key: "outer", item: activeSlots.outer },
     { key: "top", item: activeSlots.top },
     { key: "bottom", item: activeSlots.bottom },
-    { key: "outer", item: activeSlots.outer },
     { key: "shoes", item: activeSlots.shoes },
   ];
 
   return (
-    <div className="relative w-full min-h-[100dvh] bg-[#FAF8F5] text-[#181A18] font-sans antialiased select-none">
-      {/* Notifikasi Toast Mengambang */}
+    <div className="relative w-full min-h-[100dvh] bg-white text-neutral-900 font-sans antialiased selection:bg-neutral-900 selection:text-white">
+      {/* Toast Feedback StyleHint Minimalis */}
       <AnimatePresence>
         {feedbackToast && (
           <motion.div
-            initial={{ opacity: 0, y: -12 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            className="fixed top-16 md:top-24 left-4 right-4 max-w-sm mx-auto z-50 bg-[#181A18] text-[#FAF8F5] text-xs px-4 py-3 shadow-2xl border border-white/20 flex items-center justify-between"
+            exit={{ opacity: 0, y: -10 }}
+            className="fixed top-14 md:top-20 left-1/2 -translate-x-1/2 z-50 bg-neutral-900 text-white text-[11px] font-medium tracking-wide px-4 py-2.5 rounded-full shadow-lg border border-neutral-700/50 flex items-center gap-2 pointer-events-none"
           >
-            <span className="font-mono text-[11px]">{feedbackToast}</span>
-            <span className="text-[10px] text-[#D4A373] font-bold uppercase ml-2">OK</span>
+            <span>{feedbackToast}</span>
           </motion.div>
         )}
       </AnimatePresence>
 
       {/* ===================================================================== */}
-      {/* 📱 1. TAMPILAN MOBILE STUDIO (< 768px / block md:hidden)              */}
-      {/* Gaya 1: Uniqlo StyleHint x Editorial Card + 4 Kartu Komponen Rapi     */}
+      {/* 📱 1. MOBILE VIEW (< 768px): STYLEHINT CLEAN STANDARDS                */}
       {/* ===================================================================== */}
-      <div className="block md:hidden w-full max-w-md mx-auto min-h-[100dvh] bg-[#FAF8F5] pb-40">
-        {/* A. Sticky Top Bar Mobile */}
-        <div className="sticky top-0 z-30 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#181A18]/10 pt-[max(0px,env(safe-area-inset-top))]">
+      <div className="block md:hidden w-full max-w-md mx-auto min-h-[100dvh] bg-white pb-36">
+        {/* Top Minimalist Header */}
+        <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-neutral-100 pt-[max(0px,env(safe-area-inset-top))]">
           <div className="h-12 px-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <h1 className="font-serif text-lg font-bold tracking-tight text-[#181A18]">
-                Look<span className="text-[#8C5A3C]">.</span>u Studio
-              </h1>
-              <span className="text-[9px] font-mono font-bold uppercase tracking-widest bg-[#181A18] text-[#FAF8F5] px-1.5 py-0.5">
-                AI Stylist
+              <span className="font-semibold text-sm tracking-tight text-neutral-900">
+                LOOK.U STUDIO
+              </span>
+              <span className="text-[10px] tracking-widest uppercase text-neutral-400 font-mono">
+                STYLEHINT
               </span>
             </div>
-            <button
-              type="button"
-              onClick={handleResetCanvas}
-              className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#181A18]/60 hover:text-[#181A18] px-2 py-1"
-            >
-              Reset
-            </button>
+
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={handleResetCanvas}
+                className="text-[11px] font-medium text-neutral-400 hover:text-neutral-900 px-2 py-1 transition-colors"
+              >
+                Reset
+              </button>
+            </div>
           </div>
 
-          {/* Segmented Mode Switcher */}
-          <div className="grid grid-cols-2 border-t border-[#181A18]/10 text-[10px] font-mono font-bold uppercase tracking-[0.14em]">
+          {/* Mode Switcher Minimalis */}
+          <div className="grid grid-cols-2 border-t border-neutral-100 text-[11px] font-medium uppercase tracking-[0.12em]">
             <button
               type="button"
               onClick={() => setActiveTab("mixer")}
               className={`py-2.5 text-center transition-all border-b-2 ${
                 activeTab === "mixer"
-                  ? "border-[#181A18] text-[#181A18] bg-[#EFECE6]/70"
-                  : "border-transparent text-[#181A18]/45"
+                  ? "border-neutral-900 text-neutral-900"
+                  : "border-transparent text-neutral-400"
               }`}
             >
-              01. Racik OOTD
+              Outfit Curator
             </button>
             <button
               type="button"
               onClick={() => setActiveTab("colorlab")}
               className={`py-2.5 text-center transition-all border-b-2 ${
                 activeTab === "colorlab"
-                  ? "border-[#181A18] text-[#181A18] bg-[#EFECE6]/70"
-                  : "border-transparent text-[#181A18]/45"
+                  ? "border-neutral-900 text-neutral-900"
+                  : "border-transparent text-neutral-400"
               }`}
             >
-              02. Tes Warna Kulit
+              Skin Color Lab
             </button>
           </div>
 
-          {/* 6 Vibe Skena Pills Horizontal Scroll */}
+          {/* 6 Skena Vibe Filter Rail */}
           {activeTab === "mixer" && (
-            <div className="bg-[#EFECE6]/80 border-t border-[#181A18]/10 px-3 py-2 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+            <div className="border-t border-neutral-100 px-3 py-2 flex items-center gap-2 overflow-x-auto no-scrollbar bg-neutral-50/50">
               {SKENA_VIBES.map((vibe) => {
                 const isSelected = selectedVibeId === vibe.id && !customLookTitle;
                 return (
@@ -1166,226 +1222,306 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                     key={vibe.id}
                     type="button"
                     onClick={() => handleSelectSkenaVibe(vibe)}
-                    className={`shrink-0 h-8 px-3 rounded-full text-[11px] font-semibold transition-all flex items-center gap-1.5 border ${
+                    className={`shrink-0 px-3 py-1.5 rounded-full text-[11px] tracking-wide transition-all ${
                       isSelected
-                        ? "bg-[#181A18] text-[#FAF8F5] border-[#181A18] shadow-xs"
-                        : "bg-white text-[#181A18]/80 border-[#181A18]/15"
+                        ? "bg-neutral-900 text-white font-medium"
+                        : "bg-white text-neutral-600 border border-neutral-200/80 hover:border-neutral-400"
                     }`}
                   >
-                    <span>{vibe.shortLabel}</span>
+                    {vibe.shortLabel}
                   </button>
                 );
               })}
             </div>
           )}
-        </div>
+        </header>
 
-        {/* B. Konten Utama Mobile */}
         {activeTab === "mixer" ? (
-          <div className="px-3.5 pt-3 space-y-3.5">
-            {/* Quick Context Strip (Gender, Cuaca, Kulit) */}
-            <div className="flex items-center justify-between gap-1.5 text-[10px] font-mono">
-              <button
-                type="button"
-                onClick={() => {
-                  const nextG = genderMode === "hijab" ? "nonhijab" : genderMode === "nonhijab" ? "pria" : "hijab";
-                  setGenderMode(nextG);
-                  triggerToast(`Mode Gender: ${nextG === "hijab" ? "Wanita Hijab" : nextG === "nonhijab" ? "Wanita Non-Hijab" : "Pria Menswear"}`);
-                }}
-                className="px-2.5 py-1.5 bg-white border border-[#181A18]/20 font-bold text-[#181A18] flex items-center gap-1 shadow-2xs"
-              >
-                <span>{genderLabel}</span>
-                <span className="text-[#8C5A3C]">↻</span>
-              </button>
+          <div className="space-y-4 pt-2">
+            {/* Context Filters Strip (Clean & Uncluttered) */}
+            <div className="px-4 flex items-center justify-between text-[11px] text-neutral-500 font-medium">
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const nextG = genderMode === "hijab" ? "nonhijab" : genderMode === "nonhijab" ? "pria" : "hijab";
+                    setGenderMode(nextG);
+                    triggerToast(`Style: ${nextG === "hijab" ? "Modest Hijab" : nextG === "nonhijab" ? "Women" : "Men"}`);
+                  }}
+                  className="px-2.5 py-1 rounded bg-neutral-100 hover:bg-neutral-200 text-neutral-700 transition-colors flex items-center gap-1"
+                >
+                  <span>{genderLabel}</span>
+                  <span className="text-neutral-400">↻</span>
+                </button>
 
-              <button
-                type="button"
-                onClick={() => {
-                  setWeatherMode((prev) =>
-                    prev === "hot" ? "ac" : prev === "ac" ? "rainy" : prev === "rainy" ? "mild" : "hot"
-                  );
-                }}
-                className="px-2.5 py-1.5 bg-white border border-[#181A18]/20 font-bold text-[#181A18] shadow-2xs"
-              >
-                {weatherLabel}
-              </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setWeatherMode((prev) =>
+                      prev === "hot" ? "ac" : prev === "ac" ? "rainy" : prev === "rainy" ? "mild" : "hot"
+                    );
+                  }}
+                  className="px-2.5 py-1 rounded bg-neutral-100 hover:bg-neutral-200 text-neutral-700 transition-colors"
+                >
+                  {weatherLabel}
+                </button>
+              </div>
 
               <button
                 type="button"
                 onClick={() => setActiveTab("colorlab")}
-                className="px-2.5 py-1.5 bg-white border border-[#8C5A3C]/40 font-bold text-[#8C5A3C] flex items-center gap-1.5 shadow-2xs"
+                className="flex items-center gap-1.5 px-2.5 py-1 rounded border border-neutral-200 hover:border-neutral-400 text-neutral-700 transition-colors"
               >
                 <span
-                  className="w-2.5 h-2.5 rounded-full border border-black/20"
+                  className="w-2.5 h-2.5 rounded-full border border-black/10"
                   style={{ backgroundColor: activeSkinTone.hex }}
                 />
-                <span className="truncate max-w-[80px]">{activeSkinTone.nama}</span>
+                <span className="truncate max-w-[85px]">{activeSkinTone.nama}</span>
               </button>
             </div>
 
-            {/* 1. HERO STYLEHINT EDITORIAL CARD (Foto Besar & Jelas) */}
-            <div className="relative w-full aspect-[4/4.4] bg-[#EFECE6] border border-[#181A18]/20 overflow-hidden shadow-sm">
-              <img
-                src={activeHeroImage}
-                alt={customLookTitle || currentVibeObj.label}
-                className="w-full h-full object-cover object-top transition-all duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#181A18]/90 via-[#181A18]/20 to-transparent" />
+            {/* POINT 2: HERO OOTD DENGAN SHOPPABLE INTERACTIVE PINS */}
+            <div className="px-4">
+              <div className="relative w-full aspect-[4/5] bg-neutral-100 overflow-hidden rounded-xl shadow-xs border border-neutral-200/70">
+                <img
+                  src={activeHeroImage}
+                  alt={customLookTitle || currentVibeObj.label}
+                  className="w-full h-full object-cover object-top transition-all duration-500"
+                />
 
-              {/* Floating Top Badges */}
-              <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-                <span className="px-2.5 py-1 bg-[#181A18]/90 backdrop-blur-md text-[#FAF8F5] text-[9px] font-mono font-bold uppercase tracking-widest border border-white/15">
-                  ✦ {currentVibeObj.badge}
-                </span>
-                <span className="px-2.5 py-1 bg-emerald-950/90 backdrop-blur-md text-emerald-300 text-[9px] font-mono font-bold uppercase tracking-wider border border-emerald-500/30 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  Adem {breathabilityScore}% · 33°C
-                </span>
-              </div>
-
-              {/* Floating Bottom Editorial Summary */}
-              <div className="absolute bottom-3 left-3 right-3 text-[#FAF8F5]">
-                <div className="flex items-center justify-between mb-1.5">
-                  <div className="flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2 py-1 border border-white/15">
-                    {slotEntries.map(({ key, item }) => (
-                      <span
-                        key={key}
-                        className="w-3 h-3 rounded-full border border-white/40"
-                        style={{ backgroundColor: item.colorHex }}
-                        title={item.colorName}
-                      />
-                    ))}
-                    <span className="text-[9px] font-mono text-white/90 ml-1">
-                      {skinMatchScore}% Match {activeSkinTone.nama}
-                    </span>
-                  </div>
-
+                {/* Micro Header Badges */}
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                  <span className="px-2.5 py-1 bg-white/90 backdrop-blur-md text-neutral-900 text-[10px] font-mono uppercase tracking-[0.14em] font-medium rounded-full shadow-2xs">
+                    {currentVibeObj.badge}
+                  </span>
                   <button
                     type="button"
                     onClick={() => {
                       setCustomHeroImage(null);
                       setHeroImageIndex((prev) => prev + 1);
-                      triggerToast("Visual referensi OOTD diganti");
+                      triggerToast("Visual gaya diperbarui");
                     }}
-                    className="px-2.5 py-1 bg-white/95 text-[#181A18] text-[9px] font-mono font-bold uppercase tracking-wider flex items-center gap-1 shadow-md active:scale-95"
+                    className="pointer-events-auto px-2.5 py-1 bg-white/90 backdrop-blur-md text-neutral-900 hover:bg-neutral-900 hover:text-white text-[10px] font-medium rounded-full shadow-2xs flex items-center gap-1 transition-all"
                   >
                     <RotateCw className="w-2.5 h-2.5" />
                     <span>Foto Lain</span>
                   </button>
                 </div>
 
-                <h2 className="font-serif text-lg font-bold leading-snug text-white">
-                  {customLookTitle || currentVibeObj.label}
-                </h2>
-                <p className="text-[11px] text-white/80 line-clamp-2 mt-0.5 leading-relaxed">
-                  {currentVibeObj.tagline}
-                </p>
+                {/* SHOPPABLE HOTSPOT PINS (4 TITIK INTERAKTIF) */}
+                {slotEntries.map(({ key, item }) => {
+                  const coords = currentVibeObj.pinCoords[key];
+                  const isActive = activeHotspot === key;
+                  return (
+                    <div
+                      key={key}
+                      style={{ top: coords.top, left: coords.left }}
+                      className="absolute -translate-x-1/2 -translate-y-1/2 z-20"
+                    >
+                      {/* Pulse Halo */}
+                      <button
+                        type="button"
+                        aria-label={`Lihat ${item.name}`}
+                        onClick={() => setActiveHotspot(isActive ? null : key)}
+                        className="group relative flex items-center justify-center p-2"
+                      >
+                        <span className={`absolute w-7 h-7 rounded-full bg-white/70 transition-transform ${isActive ? "scale-125 bg-white" : "group-hover:scale-110"}`} />
+                        <span className={`relative w-4 h-4 rounded-full flex items-center justify-center text-[8px] font-mono font-bold transition-all shadow-md ${isActive ? "bg-neutral-900 text-white ring-2 ring-white" : "bg-white text-neutral-900 border border-neutral-300"}`}>
+                          {item.pinNumber}
+                        </span>
+                      </button>
+
+                      {/* Micro Popover Tooltip saat Pin Diklik */}
+                      <AnimatePresence>
+                        {isActive && (
+                          <motion.div
+                            initial={{ opacity: 0, scale: 0.9, y: 4 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.9, y: 4 }}
+                            className="absolute left-1/2 -translate-x-1/2 top-8 z-30 w-52 p-2.5 bg-white/95 backdrop-blur-md border border-neutral-200 rounded-xl shadow-xl text-neutral-900 space-y-1.5"
+                          >
+                            <div className="flex items-center justify-between">
+                              <span className="text-[9px] font-mono uppercase tracking-widest text-neutral-400">
+                                {item.categoryLabel}
+                              </span>
+                              <span className="text-[8px] font-bold bg-neutral-900 text-white px-1.5 py-0.5 rounded">
+                                {item.brand}
+                              </span>
+                            </div>
+
+                            <p className="text-[11px] font-semibold text-neutral-900 line-clamp-1">
+                              {item.name}
+                            </p>
+
+                            <div className="flex items-center justify-between text-[10px] pt-1 border-t border-neutral-100 font-mono">
+                              <span className="text-neutral-500">Resmi: {item.officialPriceStr}</span>
+                              <span className="font-semibold text-neutral-900">Dupe: {item.priceStr}</span>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-1.5 pt-1">
+                              <button
+                                type="button"
+                                onClick={() => swapSingleSlot(key)}
+                                className="py-1 px-2 bg-neutral-100 hover:bg-neutral-200 text-neutral-800 text-[9px] font-medium rounded flex items-center justify-center gap-1"
+                              >
+                                <RotateCw className="w-2.5 h-2.5" />
+                                <span>Ganti</span>
+                              </button>
+                              <a
+                                href={item.officialUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="py-1 px-2 bg-neutral-900 text-white text-[9px] font-medium rounded text-center flex items-center justify-center gap-1"
+                              >
+                                <span>Toko</span>
+                                <ExternalLink className="w-2.5 h-2.5" />
+                              </a>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* POINT 3: MODEL SPEC & RELATABILITY TAG (Ala StyleHint) */}
+              <div className="mt-2.5 px-3 py-2 bg-neutral-50 border border-neutral-200/70 rounded-lg flex items-center justify-between text-[10px] text-neutral-600 font-mono">
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold text-neutral-800">
+                    {currentVibeObj.modelSpec.height}
+                  </span>
+                  <span>•</span>
+                  <span>Size {currentVibeObj.modelSpec.size}</span>
+                  <span>•</span>
+                  <span>{currentVibeObj.modelSpec.silhouette}</span>
+                </div>
+                <span className="text-neutral-500 font-medium">
+                  Airflow {breathabilityScore}%
+                </span>
               </div>
             </div>
 
-            {/* 2. DAFTAR 4 KARTU KOMPONEN RAPI (Ramah Jempol 44px) */}
-            <div className="space-y-2">
-              <div className="flex items-center justify-between px-0.5">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#181A18]/70">
-                  Komposisi 4 Item Pakaian (Tap ↻ Untuk Ganti Satuan)
-                </span>
-                <span className="text-[10px] font-mono font-bold text-[#8C5A3C]">
-                  Dupe ~{totalDupePriceStr}
+            {/* POINT 4: HORIZONTAL PRODUCT SHELF ALA STYLEHINT */}
+            <div className="px-4 space-y-2.5">
+              <div className="flex items-center justify-between">
+                <div>
+                  <span className="text-[10px] font-mono tracking-[0.16em] uppercase text-neutral-400 font-semibold block">
+                    ITEMS WORN IN THIS LOOK (4)
+                  </span>
+                  <span className="text-xs font-semibold text-neutral-900">
+                    Sentuh pin di foto atau pilih item di bawah
+                  </span>
+                </div>
+
+                <span className="text-[11px] font-mono font-medium text-neutral-500">
+                  Total Dupe ~{totalDupePriceStr}
                 </span>
               </div>
 
-              {slotEntries.map(({ key, item }) => {
-                const isLocked = lockedSlots[key];
-                return (
-                  <div
-                    key={key}
-                    className={`p-2.5 bg-white border transition-all flex items-center gap-3 ${
-                      isLocked
-                        ? "border-2 border-[#181A18] bg-[#FAF8F5] shadow-xs"
-                        : "border-[#181A18]/15 shadow-2xs"
-                    }`}
-                  >
-                    {/* Thumbnail Foto Item */}
-                    <div className="relative w-16 h-16 bg-[#EFECE6] border border-[#181A18]/10 shrink-0 overflow-hidden">
-                      <img
-                        src={item.imageUrl}
-                        alt={item.name}
-                        className="w-full h-full object-cover object-top"
-                      />
-                      <span
-                        className="absolute bottom-1 right-1 w-3 h-3 rounded-full border border-white shadow-2xs"
-                        style={{ backgroundColor: item.colorHex }}
-                      />
-                    </div>
+              {/* Horizontal Scrollable Product Shelf */}
+              <div className="flex gap-3 overflow-x-auto no-scrollbar pb-2 pt-1 snap-x">
+                {slotEntries.map(({ key, item }) => {
+                  const isLocked = lockedSlots[key];
+                  const isHotspotActive = activeHotspot === key;
 
-                    {/* Detail Nama, Brand & Harga */}
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-1.5">
-                        <span className="px-1.5 py-0.5 bg-[#181A18] text-[#FAF8F5] text-[8px] font-mono font-bold uppercase tracking-wider">
+                  return (
+                    <div
+                      key={key}
+                      onClick={() => setActiveHotspot(key)}
+                      className={`snap-start shrink-0 w-44 bg-white border rounded-xl overflow-hidden p-2.5 transition-all cursor-pointer ${
+                        isHotspotActive
+                          ? "border-neutral-900 ring-2 ring-neutral-900 shadow-sm"
+                          : "border-neutral-200/90 hover:border-neutral-400"
+                      }`}
+                    >
+                      {/* Product Image Frame */}
+                      <div className="relative w-full aspect-[4/4.5] bg-neutral-50 rounded-lg overflow-hidden border border-neutral-100">
+                        <img
+                          src={item.imageUrl}
+                          alt={item.name}
+                          className="w-full h-full object-cover object-top"
+                        />
+                        <span className="absolute top-1.5 left-1.5 w-4 h-4 rounded-full bg-white text-neutral-900 text-[8px] font-mono font-bold flex items-center justify-center shadow-xs">
+                          {item.pinNumber}
+                        </span>
+                        <span
+                          className="absolute bottom-1.5 right-1.5 w-3 h-3 rounded-full border border-white shadow-2xs"
+                          style={{ backgroundColor: item.colorHex }}
+                          title={item.colorName}
+                        />
+                      </div>
+
+                      {/* Brand & Category */}
+                      <div className="mt-2 flex items-center justify-between">
+                        <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-neutral-800">
                           {item.brand}
                         </span>
-                        <span className="text-[9px] font-mono font-semibold text-[#8C5A3C] truncate">
-                          {item.categoryLabel}
+                        <span className="text-[8px] font-mono text-neutral-400">
+                          {item.categoryLabel.split("·")[1]?.trim() || item.categoryLabel}
                         </span>
                       </div>
 
-                      <h3 className="text-xs font-bold text-[#181A18] truncate mt-1">
+                      {/* Title */}
+                      <h4 className="text-[11px] font-semibold text-neutral-900 truncate mt-0.5" title={item.name}>
                         {item.name}
-                      </h3>
+                      </h4>
 
-                      <p className="text-[10px] text-[#181A18]/65 truncate mt-0.5">
-                        {item.material} · <span className="text-emerald-700 font-semibold">Adem {item.breathability}%</span>
-                      </p>
+                      {/* Price Comparison */}
+                      <div className="mt-1 text-[10px] font-mono leading-tight">
+                        <span className="text-neutral-400 block text-[9px]">Resmi: {item.officialPriceStr}</span>
+                        <span className="font-semibold text-neutral-900 block">Dupe: {item.priceStr}</span>
+                      </div>
 
-                      <div className="flex items-center gap-2 mt-1 text-[10px] font-mono">
-                        <span className="text-[#181A18]/60">Resmi: {item.officialPriceStr}</span>
-                        <span className="font-bold text-[#8C5A3C]">Dupe: {item.priceStr}</span>
+                      {/* Action Bar (Lock & Swap) */}
+                      <div className="mt-2.5 pt-2 border-t border-neutral-100 flex items-center gap-1.5">
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleSlotLock(key);
+                          }}
+                          className={`flex-1 h-7 rounded text-[9px] font-mono font-medium flex items-center justify-center gap-1 transition-colors ${
+                            isLocked
+                              ? "bg-neutral-900 text-white"
+                              : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
+                          }`}
+                          title="Kunci item saat acak"
+                        >
+                          {isLocked ? <Lock className="w-2.5 h-2.5" /> : <Unlock className="w-2.5 h-2.5" />}
+                          <span>{isLocked ? "Terkunci" : "Kunci"}</span>
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            swapSingleSlot(key);
+                          }}
+                          className="w-7 h-7 rounded bg-neutral-100 hover:bg-neutral-900 hover:text-white text-neutral-700 flex items-center justify-center transition-colors"
+                          title="Ganti variasi pakaian"
+                        >
+                          <RotateCw className="w-3 h-3" />
+                        </button>
                       </div>
                     </div>
-
-                    {/* Tombol Lock & Swap Ramah Jempol (40px x 40px) */}
-                    <div className="flex items-center gap-1.5 shrink-0">
-                      <button
-                        type="button"
-                        aria-label={`Kunci ${item.categoryLabel}`}
-                        onClick={() => toggleSlotLock(key)}
-                        className={`w-10 h-10 flex items-center justify-center border transition-all ${
-                          isLocked
-                            ? "bg-[#181A18] text-white border-[#181A18]"
-                            : "bg-[#FAF8F5] text-[#181A18]/70 border-[#181A18]/20 active:bg-[#181A18] active:text-white"
-                        }`}
-                        title="Kunci Item"
-                      >
-                        {isLocked ? <Lock className="w-4 h-4" /> : <Unlock className="w-4 h-4" />}
-                      </button>
-
-                      <button
-                        type="button"
-                        aria-label={`Ganti ${item.categoryLabel}`}
-                        onClick={() => swapSingleSlot(key)}
-                        className="w-10 h-10 bg-white border border-[#181A18]/25 text-[#181A18] flex items-center justify-center active:bg-[#181A18] active:text-white transition-all shadow-2xs"
-                        title="Ganti Item Ini"
-                      >
-                        <RotateCw className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
         ) : (
-          /* TAB 02 MOBILE: PERSONAL COLOR LAB */
-          <div className="px-4 pt-4 space-y-4">
+          /* TAB 02: PERSONAL COLOR LAB (CLEAN EDITORIAL) */
+          <div className="px-4 pt-3 space-y-4">
             <div>
-              <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-[#8C5A3C]">
-                Interactive Draping Lab
+              <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.16em] text-neutral-400">
+                PERSONAL COLOR LAB
               </span>
-              <h2 className="font-serif text-2xl text-[#181A18] mt-0.5">
+              <h2 className="text-xl font-serif text-neutral-900 mt-0.5">
                 Kalibrasi Rona Kulit Tropis
               </h2>
-              <p className="text-xs text-[#181A18]/70 mt-1 leading-relaxed">
-                Pilih rona kulit dasar Anda untuk mengunci palet pakaian yang mencerahkan wajah.
+              <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+                Pilih rona kulit dasar Anda untuk mengunci palet warna yang mencerahkan paras di bawah cahaya tropis.
               </p>
             </div>
 
@@ -1398,20 +1534,20 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                     type="button"
                     onClick={() => {
                       setSelectedSkinToneId(tone.id);
-                      triggerToast(`Rona Kulit: ${tone.nama} (${tone.season})`);
+                      triggerToast(`Undertone: ${tone.nama}`);
                     }}
-                    className={`p-3 border text-left transition-all ${
+                    className={`p-3 rounded-xl border text-left transition-all ${
                       isActive
-                        ? "border-2 border-[#181A18] bg-white shadow-sm"
-                        : "border-[#181A18]/15 bg-[#EFECE6]/50"
+                        ? "border-neutral-900 ring-2 ring-neutral-900 bg-neutral-50"
+                        : "border-neutral-200 bg-white hover:border-neutral-300"
                     }`}
                   >
                     <span
-                      className="block w-full h-9 mb-2 border border-black/10"
+                      className="block w-full h-8 rounded-lg mb-2 border border-black/5"
                       style={{ backgroundColor: tone.hex }}
                     />
-                    <span className="text-xs font-bold block text-[#181A18]">{tone.nama}</span>
-                    <span className="text-[10px] font-mono text-[#8C5A3C] uppercase block mt-0.5">
+                    <span className="text-xs font-semibold block text-neutral-900">{tone.nama}</span>
+                    <span className="text-[9px] font-mono text-neutral-400 uppercase block">
                       {tone.season}
                     </span>
                   </button>
@@ -1419,38 +1555,18 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
               })}
             </div>
 
-            <div className="border border-[#181A18]/15 bg-white p-4 space-y-3.5 shadow-2xs">
-              <div>
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-emerald-700 block mb-2">
-                  ✓ Palet Terbaik Kulit {activeSkinTone.nama}
-                </span>
-                <div className="grid grid-cols-4 gap-2 text-center text-[9px] font-mono font-semibold">
-                  {activeSkinTone.bestPalettes.map((p, idx) => (
-                    <div key={idx}>
-                      <div
-                        className="h-10 border border-black/10 mb-1"
-                        style={{ backgroundColor: p.hex }}
-                      />
-                      <span className="truncate block text-[#181A18]">{p.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-2.5 border-t border-[#181A18]/10">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-rose-700 block mb-1.5">
-                  ✕ Hindari (Membuat Kusam)
-                </span>
-                <div className="flex flex-wrap gap-1.5">
-                  {activeSkinTone.avoidPalettes.map((p, idx) => (
-                    <span
-                      key={idx}
-                      className="px-2 py-0.5 bg-rose-50 border border-rose-200 text-rose-900 text-[9px] font-mono"
-                    >
-                      {p.name}
-                    </span>
-                  ))}
-                </div>
+            {/* Palet Terbaik */}
+            <div className="p-3.5 bg-neutral-50 rounded-xl border border-neutral-200/80 space-y-2">
+              <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-neutral-500 block">
+                Palet Harmonis: {activeSkinTone.nama}
+              </span>
+              <div className="grid grid-cols-4 gap-2 text-center text-[10px] font-mono">
+                {activeSkinTone.bestPalettes.map((p, idx) => (
+                  <div key={idx} className="space-y-1">
+                    <div className="h-10 rounded-md border border-black/5" style={{ backgroundColor: p.hex }} />
+                    <span className="text-neutral-700 block truncate">{p.name}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -1460,30 +1576,31 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                 setActiveTab("mixer");
                 handleShuffleUnlocked();
               }}
-              className="w-full h-12 bg-[#181A18] text-[#FAF8F5] text-xs font-mono font-bold uppercase tracking-widest flex items-center justify-center gap-2"
+              className="w-full h-11 bg-neutral-900 text-white text-xs font-medium tracking-wide rounded-lg flex items-center justify-center gap-1.5 active:scale-[0.99] transition-transform"
             >
-              <span>Terapkan ke Studio OOTD →</span>
+              <span>Terapkan ke Studio OOTD</span>
+              <ChevronRight className="w-3.5 h-3.5" />
             </button>
           </div>
         )}
 
-        {/* C. Docked Bottom Action Bar Mobile (Di atas BottomNav) */}
-        <div className="fixed bottom-[64px] left-0 right-0 z-30 bg-[#FAF8F5]/95 backdrop-blur-md border-t border-[#181A18]/15 px-3.5 py-2.5 max-w-md mx-auto">
+        {/* DOCKED BOTTOM ACTION BAR (CLEAN STYLEHINT) */}
+        <div className="fixed bottom-[60px] left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-neutral-200/80 px-4 py-2.5 max-w-md mx-auto">
           <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={handleShuffleUnlocked}
               disabled={isShuffling}
-              className="flex-1 h-11 bg-[#181A18] text-[#FAF8F5] text-[11px] font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 active:scale-[0.99] shadow-sm"
+              className="flex-1 h-11 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium rounded-lg flex items-center justify-center gap-2 active:scale-[0.99] transition-all shadow-xs"
             >
-              <Sparkles className={`w-3.5 h-3.5 text-[#D4A373] ${isShuffling ? "animate-spin" : ""}`} />
-              <span>Acak Formula AI</span>
+              <RotateCw className={`w-3.5 h-3.5 ${isShuffling ? "animate-spin" : ""}`} />
+              <span>Acak Kombinasi</span>
             </button>
 
             <button
               type="button"
               onClick={handleSaveToWardrobe}
-              className="h-11 px-3.5 bg-white border border-[#181A18]/30 text-[#181A18] text-[10px] font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-1 active:bg-stone-100"
+              className="h-11 px-4 bg-white border border-neutral-200 text-neutral-800 hover:border-neutral-400 text-xs font-medium rounded-lg flex items-center justify-center gap-1.5 transition-colors"
               title="Simpan ke Lemari"
             >
               <Bookmark className="w-3.5 h-3.5" />
@@ -1493,45 +1610,44 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
             <button
               type="button"
               onClick={() => setIsDetailsDrawerOpen(true)}
-              className="h-11 px-3.5 bg-[#8C5A3C] text-white text-[10px] font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-1 active:opacity-90 shadow-xs"
+              className="h-11 px-4 bg-neutral-100 hover:bg-neutral-200 text-neutral-900 text-xs font-medium rounded-lg flex items-center justify-center gap-1.5 transition-colors"
             >
               <ShoppingBag className="w-3.5 h-3.5" />
-              <span>Beli Set</span>
+              <span>Belanja</span>
             </button>
           </div>
         </div>
       </div>
 
       {/* ===================================================================== */}
-      {/* 🖥️ 2. TAMPILAN DESKTOP WORKSTATION (>= 768px / hidden md:block)       */}
-      {/* Layar Lebar 2-Kolom (Editorial Showcase Kiri + 2x2 Workbench Kanan)   */}
+      {/* 🖥️ 2. DESKTOP VIEW (>= 768px): 2-COLUMN SPLIT WORKSTATION (STYLEHINT) */}
       {/* ===================================================================== */}
       <div className="hidden md:block w-full max-w-6xl mx-auto px-6 lg:px-8 py-8">
-        {/* Header Workstation Desktop */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-6 border-b border-[#181A18]/15">
+        {/* Top Control Bar */}
+        <div className="flex items-center justify-between pb-6 border-b border-neutral-200">
           <div>
-            <div className="flex items-center gap-2.5">
-              <span className="px-2.5 py-0.5 bg-[#181A18] text-[#FAF8F5] text-[10px] font-mono font-bold uppercase tracking-[0.2em]">
-                AI Styling Workstation v3.0
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-neutral-400 font-semibold">
+                LOOK.U STUDIO
               </span>
-              <span className="text-xs font-mono text-[#8C5A3C] font-bold">
-                ✦ Safe Harbor Brand Aggregator (Uniqlo · H&amp;M · Zara · Local Pride)
+              <span className="text-xs text-neutral-400">•</span>
+              <span className="text-xs font-medium text-neutral-500">
+                StyleHint Curation Edition
               </span>
             </div>
-            <h1 className="font-serif text-3xl lg:text-4xl font-bold text-[#181A18] mt-2 tracking-tight">
-              Studio Peracik OOTD &amp; Kalibrasi Iklim Tropis
+            <h1 className="text-2xl lg:text-3xl font-serif text-neutral-900 mt-1 font-normal tracking-tight">
+              Outfit Curator &amp; Garment Workbench
             </h1>
           </div>
 
-          {/* Tab Switcher Desktop */}
-          <div className="flex items-center gap-2 bg-[#EFECE6] p-1 border border-[#181A18]/15 shrink-0">
+          <div className="flex items-center gap-2 bg-neutral-100 p-1 rounded-lg">
             <button
               type="button"
               onClick={() => setActiveTab("mixer")}
-              className={`px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider transition-all ${
+              className={`px-4 py-2 text-xs font-medium rounded-md transition-all ${
                 activeTab === "mixer"
-                  ? "bg-[#181A18] text-[#FAF8F5] shadow-xs"
-                  : "text-[#181A18]/60 hover:text-[#181A18]"
+                  ? "bg-white text-neutral-900 shadow-xs"
+                  : "text-neutral-500 hover:text-neutral-900"
               }`}
             >
               01. Garment Workbench
@@ -1539,22 +1655,22 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
             <button
               type="button"
               onClick={() => setActiveTab("colorlab")}
-              className={`px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider transition-all ${
+              className={`px-4 py-2 text-xs font-medium rounded-md transition-all ${
                 activeTab === "colorlab"
-                  ? "bg-[#181A18] text-[#FAF8F5] shadow-xs"
-                  : "text-[#181A18]/60 hover:text-[#181A18]"
+                  ? "bg-white text-neutral-900 shadow-xs"
+                  : "text-neutral-500 hover:text-neutral-900"
               }`}
             >
-              02. Personal Color Lab ({activeSkinTone.nama})
+              02. Color Calibration ({activeSkinTone.nama})
             </button>
           </div>
         </div>
 
-        {/* Baris Pilihan 6 Gaya Skena Modern (Desktop) */}
-        <div className="py-4 border-b border-[#181A18]/10 flex items-center justify-between gap-4 flex-wrap">
+        {/* Preset Skena Filter Bar */}
+        <div className="py-4 border-b border-neutral-100 flex items-center justify-between gap-4 flex-wrap">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#181A18]/50 mr-1">
-              Preset Skena:
+            <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-400 mr-1 font-semibold">
+              PRESET:
             </span>
             {SKENA_VIBES.map((vibe) => {
               const isSelected = selectedVibeId === vibe.id && !customLookTitle;
@@ -1563,26 +1679,26 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                   key={vibe.id}
                   type="button"
                   onClick={() => handleSelectSkenaVibe(vibe)}
-                  className={`px-3.5 py-1.5 text-xs font-semibold transition-all border flex items-center gap-1.5 ${
+                  className={`px-3.5 py-1.5 text-xs rounded-full transition-all border ${
                     isSelected
-                      ? "bg-[#181A18] text-[#FAF8F5] border-[#181A18] shadow-xs"
-                      : "bg-white text-[#181A18]/80 border-[#181A18]/20 hover:border-[#181A18]"
+                      ? "bg-neutral-900 text-white border-neutral-900 font-medium"
+                      : "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-400"
                   }`}
                 >
-                  <span>{vibe.label}</span>
+                  {vibe.label}
                 </button>
               );
             })}
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-mono">
+          <div className="flex items-center gap-2 text-xs font-medium">
             <button
               type="button"
               onClick={() => {
                 const nextG = genderMode === "hijab" ? "nonhijab" : genderMode === "nonhijab" ? "pria" : "hijab";
                 setGenderMode(nextG);
               }}
-              className="px-3 py-1.5 bg-white border border-[#181A18]/20 font-bold hover:border-[#181A18]"
+              className="px-3 py-1.5 rounded-md border border-neutral-200 hover:border-neutral-400 text-neutral-700 transition-colors"
             >
               {genderLabel} ↻
             </button>
@@ -1593,14 +1709,14 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                   prev === "hot" ? "ac" : prev === "ac" ? "rainy" : prev === "rainy" ? "mild" : "hot"
                 );
               }}
-              className="px-3 py-1.5 bg-white border border-[#181A18]/20 font-bold hover:border-[#181A18]"
+              className="px-3 py-1.5 rounded-md border border-neutral-200 hover:border-neutral-400 text-neutral-700 transition-colors"
             >
               {weatherLabel} ↻
             </button>
             <button
               type="button"
               onClick={handleResetCanvas}
-              className="px-3 py-1.5 text-[#181A18]/60 hover:text-[#181A18] underline underline-offset-4 font-bold"
+              className="px-3 py-1.5 text-neutral-400 hover:text-neutral-900 transition-colors"
             >
               Reset
             </button>
@@ -1608,215 +1724,256 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
         </div>
 
         {activeTab === "mixer" ? (
-          /* GRID 12 KOLOM DESKTOP WORKSTATION */
+          /* 12-COLUMN DESKTOP WORKSTATION */
           <div className="grid grid-cols-12 gap-8 mt-6 items-start">
-            {/* KOLOM KIRI (5 KOLOM): EDITORIAL LOOKBOOK CARD & TELEMETRY */}
+            {/* LEFT 5-COL: EDITORIAL PHOTO DENGAN SHOPPABLE PINS & MODEL SPECS */}
             <div className="col-span-5 space-y-4 sticky top-24">
-              <div className="relative w-full aspect-[4/4.8] bg-[#EFECE6] border-2 border-[#181A18] overflow-hidden shadow-md group">
+              <div className="relative w-full aspect-[4/5] bg-neutral-100 rounded-2xl overflow-hidden border border-neutral-200 shadow-sm group">
                 <img
                   src={activeHeroImage}
                   alt={customLookTitle || currentVibeObj.label}
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-102"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#181A18]/90 via-[#181A18]/15 to-transparent" />
 
+                {/* Top Overlay Badge */}
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                  <span className="px-3 py-1 bg-[#181A18]/90 backdrop-blur-md text-[#FAF8F5] text-[10px] font-mono font-bold uppercase tracking-widest border border-white/15">
-                    ✦ {currentVibeObj.badge}
+                  <span className="px-3 py-1 bg-white/95 backdrop-blur-md text-neutral-900 text-[10px] font-mono font-medium uppercase tracking-[0.16em] rounded-full shadow-2xs">
+                    {currentVibeObj.badge}
                   </span>
                   <button
                     type="button"
                     onClick={() => {
                       setCustomHeroImage(null);
                       setHeroImageIndex((prev) => prev + 1);
-                      triggerToast("Visual referensi OOTD diganti");
+                      triggerToast("Visual gaya diperbarui");
                     }}
-                    className="px-3 py-1 bg-white/95 hover:bg-[#181A18] text-[#181A18] hover:text-white text-[10px] font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 transition-colors shadow-sm"
+                    className="px-3 py-1 bg-white/95 backdrop-blur-md hover:bg-neutral-900 hover:text-white text-neutral-800 text-[10px] font-medium rounded-full shadow-2xs flex items-center gap-1.5 transition-colors"
                   >
                     <RotateCw className="w-3 h-3" />
-                    <span>Ganti Foto Referensi</span>
+                    <span>Ganti Foto</span>
                   </button>
                 </div>
 
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <div className="flex items-center gap-2 mb-2">
-                    {slotEntries.map(({ key, item }) => (
-                      <span
-                        key={key}
-                        className="w-4 h-4 rounded-full border border-white/50 shadow-xs"
-                        style={{ backgroundColor: item.colorHex }}
-                        title={`${item.colorName} (${item.brand})`}
-                      />
-                    ))}
-                    <span className="text-[10px] font-mono text-white/90 bg-black/50 px-2 py-0.5 border border-white/15">
-                      Palet Harmoni {activeSkinTone.nama}
-                    </span>
-                  </div>
-                  <h2 className="font-serif text-2xl font-bold leading-tight">
-                    {customLookTitle || currentVibeObj.label}
-                  </h2>
-                  <p className="text-xs text-white/85 mt-1 leading-relaxed">
-                    {currentVibeObj.tagline}
-                  </p>
-                </div>
-              </div>
-
-              {/* Telemetry Bar Ilmiah 3-Kolom */}
-              <div className="grid grid-cols-3 border border-[#181A18]/20 bg-white divide-x divide-[#181A18]/15 shadow-xs">
-                <div className="p-3 text-center">
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#181A18]/50 block">
-                    Sirkulasi Udara
-                  </span>
-                  <span className="text-sm font-mono font-extrabold text-emerald-700 mt-0.5 block">
-                    {breathabilityScore}% Optimal
-                  </span>
-                </div>
-                <div className="p-3 text-center">
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#181A18]/50 block">
-                    Harmoni Kulit
-                  </span>
-                  <span className="text-sm font-mono font-extrabold text-[#8C5A3C] mt-0.5 block">
-                    {skinMatchScore}% Match
-                  </span>
-                </div>
-                <div className="p-3 text-center">
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#181A18]/50 block">
-                    Total Set Dupe
-                  </span>
-                  <span className="text-sm font-mono font-extrabold text-[#181A18] mt-0.5 block">
-                    ~{totalDupePriceStr}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* KOLOM KANAN (7 KOLOM): 2x2 INTERACTIVE GARMENT WORKBENCH */}
-            <div className="col-span-7 space-y-5">
-              <div className="flex items-center justify-between bg-[#EFECE6]/70 px-4 py-2.5 border-l-4 border-[#8C5A3C]">
-                <p className="text-xs text-[#181A18]/85">
-                  <strong>Tips AI Stylist:</strong> Kunci (<Lock className="w-3 h-3 inline" />) item favorit Anda, lalu klik tombol <strong>Acak Ulang</strong> untuk mencari padanan terbaik.
-                </p>
-                <span className="text-[10px] font-mono font-bold uppercase text-[#8C5A3C] shrink-0 ml-2">
-                  4 Komponen Aktif
-                </span>
-              </div>
-
-              {/* Grid 2x2 Kartu Pakaian */}
-              <div className="grid grid-cols-2 gap-4">
+                {/* SHOPPABLE HOTSPOT PINS DI DESKTOP */}
                 {slotEntries.map(({ key, item }) => {
-                  const isLocked = lockedSlots[key];
+                  const coords = currentVibeObj.pinCoords[key];
+                  const isActive = activeHotspot === key;
                   return (
                     <div
                       key={key}
-                      className={`bg-white border transition-all flex flex-col justify-between p-4 ${
-                        isLocked
-                          ? "border-2 border-[#181A18] shadow-md bg-[#FAF8F5]"
-                          : "border-[#181A18]/20 hover:border-[#181A18]/50 shadow-xs"
+                      style={{ top: coords.top, left: coords.left }}
+                      className="absolute -translate-x-1/2 -translate-y-1/2 z-20"
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setActiveHotspot(isActive ? null : key)}
+                        className="group relative flex items-center justify-center p-2.5"
+                      >
+                        <span className={`absolute w-8 h-8 rounded-full bg-white/70 transition-transform ${isActive ? "scale-125 bg-white" : "group-hover:scale-110"}`} />
+                        <span className={`relative w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-mono font-bold transition-all shadow-md ${isActive ? "bg-neutral-900 text-white ring-2 ring-white" : "bg-white text-neutral-900 border border-neutral-300"}`}>
+                          {item.pinNumber}
+                        </span>
+                      </button>
+
+                      {/* Tooltip Hover/Click Desktop */}
+                      <AnimatePresence>
+                        {isActive && (
+                          <motion.div
+                            initial={{ opacity: 0, scale: 0.9, y: 4 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.9, y: 4 }}
+                            className="absolute left-1/2 -translate-x-1/2 top-9 z-30 w-56 p-3 bg-white/95 backdrop-blur-md border border-neutral-200 rounded-xl shadow-xl text-neutral-900 space-y-1.5"
+                          >
+                            <div className="flex items-center justify-between">
+                              <span className="text-[9px] font-mono uppercase tracking-widest text-neutral-400">
+                                {item.categoryLabel}
+                              </span>
+                              <span className="text-[8px] font-bold bg-neutral-900 text-white px-1.5 py-0.5 rounded">
+                                {item.brand}
+                              </span>
+                            </div>
+
+                            <p className="text-xs font-semibold text-neutral-900 line-clamp-1">
+                              {item.name}
+                            </p>
+
+                            <div className="flex items-center justify-between text-[10px] pt-1 border-t border-neutral-100 font-mono">
+                              <span className="text-neutral-500">Resmi: {item.officialPriceStr}</span>
+                              <span className="font-semibold text-neutral-900">Dupe: {item.priceStr}</span>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* MODEL SPECS CARD DESKTOP */}
+              <div className="p-3.5 bg-neutral-50 border border-neutral-200/80 rounded-xl space-y-2">
+                <div className="flex items-center justify-between text-xs font-mono text-neutral-700">
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-neutral-900">{currentVibeObj.modelSpec.height}</span>
+                    <span>•</span>
+                    <span>Size {currentVibeObj.modelSpec.size}</span>
+                    <span>•</span>
+                    <span>{currentVibeObj.modelSpec.silhouette}</span>
+                  </div>
+                  <span className="text-neutral-500 font-medium">Airflow {breathabilityScore}%</span>
+                </div>
+                <p className="text-xs text-neutral-600 leading-relaxed font-sans">
+                  {currentVibeObj.tagline}
+                </p>
+              </div>
+
+              {/* Action Buttons Desktop */}
+              <div className="flex items-center gap-2.5">
+                <button
+                  type="button"
+                  onClick={handleShuffleUnlocked}
+                  disabled={isShuffling}
+                  className="flex-1 h-12 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium rounded-xl flex items-center justify-center gap-2 transition-all shadow-sm"
+                >
+                  <RotateCw className={`w-3.5 h-3.5 ${isShuffling ? "animate-spin" : ""}`} />
+                  <span>Acak Kombinasi</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleSaveToWardrobe}
+                  className="h-12 px-5 bg-white border border-neutral-200 hover:border-neutral-400 text-neutral-800 text-xs font-medium rounded-xl flex items-center justify-center gap-1.5 transition-colors"
+                >
+                  <Bookmark className="w-3.5 h-3.5" />
+                  <span>Simpan</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setIsDetailsDrawerOpen(true)}
+                  className="h-12 px-5 bg-neutral-100 hover:bg-neutral-200 text-neutral-900 text-xs font-medium rounded-xl flex items-center justify-center gap-1.5 transition-colors"
+                >
+                  <ShoppingBag className="w-3.5 h-3.5" />
+                  <span>Belanja (4)</span>
+                </button>
+              </div>
+            </div>
+
+            {/* RIGHT 7-COL: 2x2 CLEAN PRODUCT WORKBENCH (STYLEHINT SHELF) */}
+            <div className="col-span-7 space-y-4">
+              <div className="flex items-center justify-between pb-1">
+                <div>
+                  <span className="text-[10px] font-mono tracking-[0.16em] uppercase text-neutral-400 font-semibold block">
+                    GARMENT COMPONENTS (4)
+                  </span>
+                  <span className="text-xs text-neutral-600">
+                    Klik pin pada foto atau sesuaikan item pakaian di bawah ini
+                  </span>
+                </div>
+
+                <div className="text-right text-xs font-mono">
+                  <span className="text-neutral-400 block text-[10px]">Estimasi Total Dupe</span>
+                  <span className="font-bold text-neutral-900">{totalDupePriceStr}</span>
+                </div>
+              </div>
+
+              {/* 2x2 Grid of Elegant Clean Cards */}
+              <div className="grid grid-cols-2 gap-4">
+                {slotEntries.map(({ key, item }) => {
+                  const isLocked = lockedSlots[key];
+                  const isHotspotActive = activeHotspot === key;
+
+                  return (
+                    <div
+                      key={key}
+                      onMouseEnter={() => setActiveHotspot(key)}
+                      onMouseLeave={() => setActiveHotspot(null)}
+                      className={`p-3.5 bg-white border rounded-2xl transition-all space-y-3 ${
+                        isHotspotActive
+                          ? "border-neutral-900 ring-2 ring-neutral-900 shadow-sm"
+                          : isLocked
+                          ? "border-neutral-800 bg-neutral-50/40"
+                          : "border-neutral-200/90 hover:border-neutral-400"
                       }`}
                     >
-                      <div>
-                        {/* Baris Header Kartu: Brand & Lock/Swap */}
-                        <div className="flex items-center justify-between gap-2 mb-3">
-                          <div className="flex items-center gap-1.5">
-                            <span className="px-2 py-0.5 bg-[#181A18] text-[#FAF8F5] text-[9px] font-mono font-bold uppercase tracking-wider">
-                              {item.brand}
-                            </span>
-                            <span className="text-[10px] font-mono font-bold text-[#8C5A3C] uppercase">
-                              {item.categoryLabel}
-                            </span>
-                          </div>
-
-                          <div className="flex items-center gap-1.5">
-                            <button
-                              type="button"
-                              onClick={() => toggleSlotLock(key)}
-                              className={`h-8 px-2.5 text-[10px] font-mono font-bold uppercase flex items-center gap-1 border transition-colors ${
-                                isLocked
-                                  ? "bg-[#181A18] text-white border-[#181A18]"
-                                  : "bg-white text-[#181A18] border-[#181A18]/25 hover:bg-[#181A18] hover:text-white"
-                              }`}
-                              title="Kunci Slot Ini"
-                            >
-                              {isLocked ? <Lock className="w-3 h-3" /> : <Unlock className="w-3 h-3" />}
-                              <span>{isLocked ? "Terkunci" : "Kunci"}</span>
-                            </button>
-
-                            <button
-                              type="button"
-                              onClick={() => swapSingleSlot(key)}
-                              className="h-8 px-2.5 bg-[#EFECE6] hover:bg-[#181A18] text-[#181A18] hover:text-white border border-[#181A18]/20 text-[10px] font-mono font-bold uppercase flex items-center gap-1 transition-colors"
-                              title="Ganti Item Satuan"
-                            >
-                              <RotateCw className="w-3 h-3" />
-                              <span>Ganti</span>
-                            </button>
-                          </div>
+                      <div className="flex gap-3">
+                        {/* Clean Product Cutout/Image */}
+                        <div className="relative w-20 h-24 bg-neutral-50 rounded-lg overflow-hidden border border-neutral-100 shrink-0">
+                          <img
+                            src={item.imageUrl}
+                            alt={item.name}
+                            className="w-full h-full object-cover object-top"
+                          />
+                          <span className="absolute top-1 left-1 w-4 h-4 rounded-full bg-white text-neutral-900 text-[8px] font-mono font-bold flex items-center justify-center shadow-xs">
+                            {item.pinNumber}
+                          </span>
+                          <span
+                            className="absolute bottom-1 right-1 w-3 h-3 rounded-full border border-white shadow-2xs"
+                            style={{ backgroundColor: item.colorHex }}
+                            title={item.colorName}
+                          />
                         </div>
 
-                        {/* Preview Gambar + Spesifikasi Kain */}
-                        <div className="flex gap-3.5 items-start">
-                          <div className="w-20 h-24 bg-[#EFECE6] border border-[#181A18]/15 shrink-0 overflow-hidden relative">
-                            <img
-                              src={item.imageUrl}
-                              alt={item.name}
-                              className="w-full h-full object-cover object-top"
-                            />
-                            <span
-                              className="absolute bottom-1.5 right-1.5 w-3.5 h-3.5 rounded-full border border-white shadow-xs"
-                              style={{ backgroundColor: item.colorHex }}
-                              title={item.colorName}
-                            />
+                        {/* Product Data */}
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-neutral-900">
+                              {item.brand}
+                            </span>
+                            <span className="text-[9px] font-mono text-neutral-400 truncate">
+                              {item.categoryLabel.split("·")[1]?.trim() || item.categoryLabel}
+                            </span>
                           </div>
 
-                          <div className="flex-1 min-w-0">
-                            <h3 className="font-bold text-sm text-[#181A18] leading-snug line-clamp-2">
-                              {item.name}
-                            </h3>
-                            <p className="text-[11px] text-[#181A18]/70 mt-1">
-                              {item.material}
-                            </p>
-                            <span className="inline-block mt-1.5 px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[10px] font-mono font-bold">
-                              🌬️ Adem {item.breathability}%
-                            </span>
+                          <h4 className="text-xs font-semibold text-neutral-900 truncate mt-1" title={item.name}>
+                            {item.name}
+                          </h4>
+
+                          <p className="text-[10px] text-neutral-500 truncate mt-0.5">
+                            {item.material}
+                          </p>
+
+                          <div className="mt-2 text-[10px] font-mono space-y-0.5">
+                            <span className="text-neutral-400 block text-[9px]">Resmi: {item.officialPriceStr}</span>
+                            <span className="font-semibold text-neutral-900 block">Dupe: {item.priceStr}</span>
                           </div>
                         </div>
                       </div>
 
-                      {/* Bagian Bawah Kartu: Perbandingan Harga & Dual Action Links */}
-                      <div className="mt-4 pt-3 border-t border-[#181A18]/10 space-y-2.5">
-                        <div className="flex items-center justify-between text-xs font-mono">
-                          <span className="text-[#181A18]/60">
-                            Resmi: <strong className="text-[#181A18]">{item.officialPriceStr}</strong>
-                          </span>
-                          <span className="text-[#8C5A3C] font-bold">
-                            Dupe: {item.priceStr}
-                          </span>
+                      {/* Card Bottom Controls */}
+                      <div className="pt-2 border-t border-neutral-100 flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-1.5">
+                          <button
+                            type="button"
+                            onClick={() => toggleSlotLock(key)}
+                            className={`h-7 px-2.5 rounded text-[10px] font-mono font-medium flex items-center gap-1 transition-colors ${
+                              isLocked
+                                ? "bg-neutral-900 text-white"
+                                : "bg-neutral-100 hover:bg-neutral-200 text-neutral-700"
+                            }`}
+                          >
+                            {isLocked ? <Lock className="w-2.5 h-2.5" /> : <Unlock className="w-2.5 h-2.5" />}
+                            <span>{isLocked ? "Terkunci" : "Kunci"}</span>
+                          </button>
+
+                          <button
+                            type="button"
+                            onClick={() => swapSingleSlot(key)}
+                            className="h-7 px-2.5 rounded bg-neutral-100 hover:bg-neutral-200 text-neutral-700 text-[10px] font-mono font-medium flex items-center gap-1 transition-colors"
+                          >
+                            <RotateCw className="w-2.5 h-2.5" />
+                            <span>Ganti</span>
+                          </button>
                         </div>
 
-                        <div className="grid grid-cols-3 gap-1.5">
+                        <div className="flex items-center gap-1">
                           <a
                             href={item.officialUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="py-1.5 px-2 bg-[#181A18] text-white text-[9px] font-mono font-bold uppercase tracking-wider text-center hover:bg-[#8C5A3C] transition-colors truncate"
+                            className="h-7 px-2 rounded bg-neutral-100 hover:bg-neutral-900 hover:text-white text-neutral-700 text-[9px] font-mono font-medium flex items-center justify-center transition-colors"
+                            title="Toko Resmi"
                           >
-                            ↗ {item.brand}
-                          </a>
-                          <a
-                            href={`https://shopee.co.id/search?keyword=${encodeURIComponent(item.shopeeQuery)}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="py-1.5 px-2 bg-[#EE4D2D]/10 text-[#EE4D2D] border border-[#EE4D2D]/30 text-[9px] font-mono font-bold uppercase tracking-wider text-center hover:bg-[#EE4D2D] hover:text-white transition-colors"
-                          >
-                            Shopee ↗
-                          </a>
-                          <a
-                            href={`https://www.tokopedia.com/search?st=product&q=${encodeURIComponent(item.tokopediaQuery)}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="py-1.5 px-2 bg-[#03AC0E]/10 text-[#03AC0E] border border-[#03AC0E]/30 text-[9px] font-mono font-bold uppercase tracking-wider text-center hover:bg-[#03AC0E] hover:text-white transition-colors"
-                          >
-                            Tokped ↗
+                            <ExternalLink className="w-2.5 h-2.5" />
                           </a>
                         </div>
                       </div>
@@ -1824,50 +1981,19 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                   );
                 })}
               </div>
-
-              {/* Action Bar Utama Desktop */}
-              <div className="grid grid-cols-12 gap-3 pt-2">
-                <button
-                  type="button"
-                  onClick={handleShuffleUnlocked}
-                  disabled={isShuffling}
-                  className="col-span-6 h-12 bg-[#181A18] text-[#FAF8F5] text-xs font-mono font-bold uppercase tracking-[0.15em] flex items-center justify-center gap-2 hover:bg-[#8C5A3C] transition-all shadow-sm"
-                >
-                  <Sparkles className={`w-4 h-4 text-[#D4A373] ${isShuffling ? "animate-spin" : ""}`} />
-                  <span>✦ Acak Ulang Item Tidak Terkunci</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={handleSaveToWardrobe}
-                  className="col-span-3 h-12 bg-white border-2 border-[#181A18] text-[#181A18] text-xs font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 hover:bg-[#EFECE6] transition-colors"
-                >
-                  <Bookmark className="w-4 h-4" />
-                  <span>Simpan Lemari</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setIsDetailsDrawerOpen(true)}
-                  className="col-span-3 h-12 bg-[#8C5A3C] text-white text-xs font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 hover:opacity-95 transition-opacity shadow-sm"
-                >
-                  <ShoppingBag className="w-4 h-4" />
-                  <span>Ringkasan Set</span>
-                </button>
-              </div>
             </div>
           </div>
         ) : (
-          /* TAB 02 DESKTOP: PERSONAL COLOR LAB */
+          /* TAB 02: PERSONAL COLOR LAB DESKTOP */
           <div className="mt-8 grid grid-cols-12 gap-8 items-start">
             <div className="col-span-5 space-y-4">
-              <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#8C5A3C]">
-                Interactive Draping Simulator
+              <span className="text-xs font-mono font-medium uppercase tracking-[0.16em] text-neutral-400">
+                PERSONAL COLOR LAB
               </span>
-              <h2 className="font-serif text-3xl text-[#181A18]">
+              <h2 className="text-2xl font-serif text-neutral-900">
                 Kalibrasi Rona Kulit Nusantara
               </h2>
-              <p className="text-sm text-[#181A18]/70 leading-relaxed">
+              <p className="text-sm text-neutral-600 leading-relaxed">
                 Pilih rona kulit dasar Anda untuk mengunci palet pakaian yang memancarkan kecerahan wajah alami di bawah pencahayaan tropis.
               </p>
 
@@ -1880,20 +2006,20 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                       type="button"
                       onClick={() => {
                         setSelectedSkinToneId(tone.id);
-                        triggerToast(`Undertone aktif: ${tone.nama} (${tone.season})`);
+                        triggerToast(`Undertone: ${tone.nama}`);
                       }}
-                      className={`p-3.5 border text-left transition-all ${
+                      className={`p-3.5 rounded-xl border text-left transition-all ${
                         isActive
-                          ? "border-2 border-[#181A18] bg-white shadow-sm"
-                          : "border-[#181A18]/15 bg-[#EFECE6]/50 hover:border-[#181A18]/40"
+                          ? "border-neutral-900 ring-2 ring-neutral-900 bg-neutral-50 shadow-xs"
+                          : "border-neutral-200 bg-white hover:border-neutral-300"
                       }`}
                     >
                       <span
-                        className="block w-full h-10 mb-2.5 border border-black/10"
+                        className="block w-full h-10 mb-2.5 rounded-lg border border-black/5"
                         style={{ backgroundColor: tone.hex }}
                       />
-                      <span className="text-sm font-bold block text-[#181A18]">{tone.nama}</span>
-                      <span className="text-[10px] font-mono text-[#8C5A3C] uppercase block mt-0.5">
+                      <span className="text-sm font-semibold block text-neutral-900">{tone.nama}</span>
+                      <span className="text-[10px] font-mono text-neutral-400 uppercase block mt-0.5">
                         {tone.season}
                       </span>
                     </button>
@@ -1902,35 +2028,32 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
               </div>
             </div>
 
-            <div className="col-span-7 bg-white border-2 border-[#181A18] p-6 space-y-6 shadow-sm">
+            <div className="col-span-7 bg-white border border-neutral-200 rounded-2xl p-6 space-y-6 shadow-xs">
               <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-700 block mb-3">
-                  ✓ Palet Paling Cerah di Kulit {activeSkinTone.nama} ({activeSkinTone.season})
+                <span className="text-xs font-mono font-medium uppercase tracking-wider text-neutral-600 block mb-2">
+                  Palet Paling Cerah: {activeSkinTone.nama} ({activeSkinTone.season})
                 </span>
-                <p className="text-xs text-[#181A18]/70 mb-4">{activeSkinTone.deskripsi}</p>
-                <div className="grid grid-cols-4 gap-3 text-center text-xs font-mono font-semibold">
+                <p className="text-xs text-neutral-500 mb-4">{activeSkinTone.deskripsi}</p>
+                <div className="grid grid-cols-4 gap-3 text-center text-xs font-mono">
                   {activeSkinTone.bestPalettes.map((p, idx) => (
-                    <div key={idx} className="p-2 border border-[#181A18]/10 bg-[#FAF8F5]">
-                      <div
-                        className="h-16 border border-black/10 mb-2"
-                        style={{ backgroundColor: p.hex }}
-                      />
-                      <span className="block text-[#181A18]">{p.name}</span>
-                      <span className="text-[10px] text-[#181A18]/50">{p.hex}</span>
+                    <div key={idx} className="p-2.5 border border-neutral-100 bg-neutral-50 rounded-xl space-y-1">
+                      <div className="h-14 rounded-lg border border-black/5 mb-2" style={{ backgroundColor: p.hex }} />
+                      <span className="block font-semibold text-neutral-900">{p.name}</span>
+                      <span className="text-[10px] text-neutral-400">{p.hex}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#181A18]/10">
-                <span className="text-xs font-mono font-bold uppercase tracking-widest text-rose-700 block mb-2">
-                  ✕ Warna yang Membuat Kulit Terlihat Kusam (Washed Out)
+              <div className="pt-4 border-t border-neutral-100">
+                <span className="text-xs font-mono font-medium uppercase tracking-wider text-neutral-400 block mb-2">
+                  Hindari Warna Ini (Washed Out)
                 </span>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {activeSkinTone.avoidPalettes.map((p, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 bg-rose-50 border border-rose-200 text-rose-900 text-xs font-mono"
+                      className="px-3 py-1 bg-neutral-100 rounded-md text-neutral-700 text-xs font-mono"
                     >
                       {p.name}
                     </span>
@@ -1944,7 +2067,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                   setActiveTab("mixer");
                   handleShuffleUnlocked();
                 }}
-                className="w-full h-12 bg-[#181A18] text-[#FAF8F5] text-xs font-mono font-bold uppercase tracking-[0.15em] hover:bg-[#8C5A3C] transition-colors"
+                className="w-full h-12 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium tracking-wide rounded-xl transition-colors"
               >
                 Terapkan Palet {activeSkinTone.nama} ke Workbench OOTD →
               </button>
@@ -1954,7 +2077,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
       </div>
 
       {/* ===================================================================== */}
-      {/* 3. MODAL / DRAWER RINCIAN BELANJA (RESMI BRAND VS DUPE MARKETPLACE)   */}
+      {/* 3. MODAL RINCIAN BELANJA (RESMI VS DUPE)                              */}
       {/* ===================================================================== */}
       <AnimatePresence>
         {isDetailsDrawerOpen && (
@@ -1964,59 +2087,59 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsDetailsDrawerOpen(false)}
-              className="absolute inset-0 bg-black/75 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/50 backdrop-blur-xs"
             />
 
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 40 }}
-              className="relative z-[70] w-full sm:max-w-xl bg-white border-t-2 sm:border-2 border-[#181A18] shadow-2xl flex flex-col max-h-[88vh] overflow-hidden rounded-t-2xl sm:rounded-none"
+              exit={{ opacity: 0, y: 30 }}
+              className="relative z-[70] w-full sm:max-w-xl bg-white border border-neutral-200 shadow-2xl flex flex-col max-h-[85vh] overflow-hidden rounded-t-2xl sm:rounded-2xl"
             >
-              <div className="px-5 py-4 border-b border-[#181A18]/15 flex items-center justify-between bg-white shrink-0">
+              <div className="px-5 py-4 border-b border-neutral-100 flex items-center justify-between bg-white shrink-0">
                 <div>
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#8C5A3C] bg-[#8C5A3C]/10 px-2 py-0.5">
-                    Safe Harbor Brand Aggregator
+                  <span className="text-[9px] font-mono uppercase tracking-widest text-neutral-400">
+                    STYLEHINT BRAND AGGREGATOR
                   </span>
-                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#181A18] mt-1">
-                    Rincian 4 Pakaian: Toko Resmi &amp; Alternatif Dupe
+                  <h3 className="font-serif text-lg font-medium text-neutral-900 mt-0.5">
+                    Rincian Belanja Resmi &amp; Alternatif Dupe
                   </h3>
                 </div>
                 <button
                   type="button"
                   onClick={() => setIsDetailsDrawerOpen(false)}
-                  className="w-9 h-9 bg-stone-100 flex items-center justify-center text-[#181A18] hover:bg-[#181A18] hover:text-white transition-colors"
+                  className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 flex items-center justify-center text-neutral-600 transition-colors"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-4 h-4" />
                 </button>
               </div>
 
-              <div className="p-4 sm:p-5 overflow-y-auto space-y-3 text-xs bg-[#FAF8F5]">
+              <div className="p-4 sm:p-5 overflow-y-auto space-y-3 text-xs bg-white">
                 {slotEntries.map(({ key, item }) => (
                   <div
                     key={key}
-                    className="p-3.5 bg-white border border-[#181A18]/15 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs"
+                    className="p-3 bg-neutral-50 rounded-xl border border-neutral-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       <img
                         src={item.imageUrl}
                         alt={item.name}
-                        className="w-14 h-14 object-cover bg-[#EFECE6] border border-[#181A18]/10 shrink-0"
+                        className="w-14 h-16 object-cover bg-neutral-100 rounded-md border border-neutral-200 shrink-0"
                       />
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5">
-                          <span className="px-1.5 py-0.5 bg-[#181A18] text-white text-[8px] font-mono font-bold uppercase">
+                          <span className="px-1.5 py-0.5 bg-neutral-900 text-white text-[8px] font-mono font-bold uppercase rounded">
                             {item.brand}
                           </span>
-                          <span className="text-[9px] font-mono font-bold uppercase text-[#8C5A3C]">
+                          <span className="text-[9px] font-mono text-neutral-400 uppercase">
                             {item.categoryLabel}
                           </span>
                         </div>
-                        <h4 className="font-bold text-[#181A18] text-xs sm:text-sm truncate mt-0.5">
+                        <h4 className="font-semibold text-neutral-900 text-xs sm:text-sm truncate mt-1">
                           {item.name}
                         </h4>
-                        <p className="text-[10px] text-[#181A18]/65">
-                          Resmi: <strong>{item.officialPriceStr}</strong> · Dupe: <strong className="text-[#8C5A3C]">{item.priceStr}</strong>
+                        <p className="text-[10px] text-neutral-500">
+                          Resmi: {item.officialPriceStr} • Dupe: {item.priceStr}
                         </p>
                       </div>
                     </div>
@@ -2026,41 +2149,41 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                         href={item.officialUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-2.5 py-1.5 bg-[#181A18] text-white text-[9px] font-mono font-bold uppercase tracking-wider hover:bg-[#8C5A3C]"
+                        className="px-3 py-1.5 bg-neutral-900 text-white text-[10px] font-medium rounded hover:bg-neutral-800 transition-colors"
                       >
-                        ↗ Resmi
+                        Resmi
                       </a>
                       <a
                         href={`https://shopee.co.id/search?keyword=${encodeURIComponent(item.shopeeQuery)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-2.5 py-1.5 bg-[#EE4D2D] text-white text-[9px] font-mono font-bold uppercase tracking-wider hover:opacity-90"
+                        className="px-3 py-1.5 bg-[#EE4D2D] text-white text-[10px] font-medium rounded hover:opacity-90 transition-opacity"
                       >
-                        Shopee ↗
+                        Shopee
                       </a>
                       <a
                         href={`https://www.tokopedia.com/search?st=product&q=${encodeURIComponent(item.tokopediaQuery)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-2.5 py-1.5 bg-[#03AC0E] text-white text-[9px] font-mono font-bold uppercase tracking-wider hover:opacity-90"
+                        className="px-3 py-1.5 bg-[#03AC0E] text-white text-[10px] font-medium rounded hover:opacity-90 transition-opacity"
                       >
-                        Tokped ↗
+                        Tokopedia
                       </a>
                     </div>
                   </div>
                 ))}
 
-                <div className="p-3.5 bg-white border-2 border-[#181A18] flex items-center justify-between mt-3">
+                <div className="p-4 bg-neutral-50 rounded-xl border border-neutral-200 flex items-center justify-between mt-3">
                   <div>
-                    <span className="font-mono uppercase font-bold text-[#181A18]/70 block text-[10px]">
-                      Estimasi Total 4 Item (Opsi Dupe Hemat)
+                    <span className="font-mono uppercase font-semibold text-neutral-500 block text-[10px]">
+                      Estimasi Total Belanja (Opsi Dupe Hemat)
                     </span>
-                    <span className="text-[10px] text-[#181A18]/55">
-                      Hemat ~65% dibanding harga ritel penuh
+                    <span className="text-[11px] text-neutral-400">
+                      Hemat ~65% dibanding harga ritel penuh ({totalOfficialPriceStr})
                     </span>
                   </div>
-                  <span className="font-mono font-extrabold text-lg text-[#181A18]">
-                    ~{totalDupePriceStr}
+                  <span className="font-mono font-bold text-lg text-neutral-900">
+                    {totalDupePriceStr}
                   </span>
                 </div>
               </div>

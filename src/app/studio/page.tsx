@@ -75,7 +75,7 @@ export default function StudioPage() {
   };
 
   return (
-    <div className="min-h-[100dvh] flex flex-col bg-[#FAF8F5]">
+    <div className="min-h-[100dvh] flex flex-col bg-white">
       {/* Desktop Top Navbar (Hidden on Mobile to keep 100dvh studio fit) */}
       <div className="hidden md:block">
         <Navbar 
@@ -84,7 +84,7 @@ export default function StudioPage() {
         />
       </div>
 
-      {/* Main Studio Workstation (Uniqlo Utilitarian x Interactive Bento Studio) */}
+      {/* Main Studio Workstation (StyleHint Edition) */}
       <main className="flex-1 w-full flex flex-col items-center">
         <StudioView 
           initialLookId={initialLookId}
@@ -93,14 +93,14 @@ export default function StudioPage() {
 
         {/* Desktop-Only Weekly Planner Accordion */}
         {currentOutfit && (
-          <div className="hidden md:block w-full max-w-6xl mx-auto px-6 lg:px-8 mt-6 pb-20 border-t border-[#181A18]/10 pt-6">
+          <div className="hidden md:block w-full max-w-6xl mx-auto px-6 lg:px-8 mt-6 pb-20 border-t border-neutral-200 pt-6">
             <button
               type="button"
               onClick={() => setIsCalendarOpen(!isCalendarOpen)}
-              className="w-full py-3.5 px-5 bg-white hover:bg-stone-50 border border-[#181A18]/15 rounded-2xl text-[#181A18] font-mono font-bold text-xs uppercase tracking-wider flex items-center justify-between shadow-2xs transition-all"
+              className="w-full py-3.5 px-5 bg-white hover:bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-800 font-mono font-medium text-xs uppercase tracking-wider flex items-center justify-between shadow-2xs transition-all"
             >
-              <span>📅 JADWALKAN OOTD INI KE KALENDER MINGGUAN</span>
-              <span className="text-terracotta-600 font-bold">
+              <span>Jadwalkan OOTD Ini ke Kalender Mingguan</span>
+              <span className="text-neutral-500 font-medium">
                 {isCalendarOpen ? "Tutup ▲" : "Buka Kalender ▼"}
               </span>
             </button>
