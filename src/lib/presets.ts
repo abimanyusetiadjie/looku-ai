@@ -1433,7 +1433,7 @@ const uniqueSignatureLooks = SIGNATURE_TRENDING_LOOKS.filter(look => {
 });
 
 const uniqueExtendedLooks = EXTENDED_TRENDING_LOOKS.filter(look => {
-  if (!look.image || look.image.includes("image.uniqlo.com")) return false; // Exclude 404 Uniqlo CDN until live catalog is compiled
+  if (!look.image) return false;
   if (seenImages.has(look.image)) return false; // Strict zero duplicate images in Lookbook
   seenImages.add(look.image);
   return true;
