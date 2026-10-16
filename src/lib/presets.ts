@@ -1423,9 +1423,25 @@ const SIGNATURE_TRENDING_LOOKS: TrendingLook[] = [
   }
 ];
 
+// Deduplicate feed by image URL and exclude broken image links
+const seenImages = new Set<string>();
+const uniqueSignatureLooks = SIGNATURE_TRENDING_LOOKS.filter(look => {
+  if (!look.image) return false;
+  if (seenImages.has(look.image)) return false;
+  seenImages.add(look.image);
+  return true;
+});
+
+const uniqueExtendedLooks = EXTENDED_TRENDING_LOOKS.filter(look => {
+  if (!look.image || look.image.includes("image.uniqlo.com")) return false; // Exclude 404 Uniqlo CDN until live catalog is compiled
+  if (seenImages.has(look.image)) return false; // Strict zero duplicate images in Lookbook
+  seenImages.add(look.image);
+  return true;
+});
+
 export const TRENDING_LOOKS_FEED: TrendingLook[] = [
-  ...SIGNATURE_TRENDING_LOOKS,
-  ...EXTENDED_TRENDING_LOOKS,
+  ...uniqueSignatureLooks,
+  ...uniqueExtendedLooks,
 ];
 
 export function generateHeuristicOOTD(pref: UserPreferences): OOTDRecommendation {
