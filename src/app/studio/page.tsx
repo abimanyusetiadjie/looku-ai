@@ -93,11 +93,11 @@ export default function StudioPage() {
 
         {/* Desktop-Only Weekly Planner Accordion */}
         {currentOutfit && (
-          <div className="hidden md:block w-full max-w-xl mx-auto px-4 mt-6 pb-24 border-t border-[#181A18]/10 pt-6">
+          <div className="hidden md:block w-full max-w-6xl mx-auto px-6 lg:px-8 mt-6 pb-20 border-t border-[#181A18]/10 pt-6">
             <button
               type="button"
               onClick={() => setIsCalendarOpen(!isCalendarOpen)}
-              className="w-full py-3 px-4 bg-white hover:bg-stone-50 border border-[#181A18]/20 text-[#181A18] font-mono font-bold text-xs uppercase tracking-wider flex items-center justify-between shadow-2xs transition-all"
+              className="w-full py-3.5 px-5 bg-white hover:bg-stone-50 border border-[#181A18]/15 rounded-2xl text-[#181A18] font-mono font-bold text-xs uppercase tracking-wider flex items-center justify-between shadow-2xs transition-all"
             >
               <span>📅 JADWALKAN OOTD INI KE KALENDER MINGGUAN</span>
               <span className="text-terracotta-600 font-bold">
