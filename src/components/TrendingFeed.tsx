@@ -15,10 +15,15 @@ import {
   SlidersHorizontal,
   RotateCcw,
   Check,
-  ChevronDown
+  ChevronDown,
+  Camera,
+  Ruler
 } from "lucide-react";
+import dynamic from "next/dynamic";
 import { TRENDING_LOOKS_FEED } from "@/lib/presets";
 import { OOTDRecommendation } from "@/lib/types";
+
+const InfluencerCloneModal = dynamic(() => import("@/components/InfluencerCloneModal"), { ssr: false });
 
 interface TrendingFeedProps {
   isStandalone?: boolean;
@@ -149,12 +154,34 @@ export function getLookClimate(look: (typeof TRENDING_LOOKS_FEED)[0]): ClimateCl
   };
 }
 
+export type HeightFilterRange = "all" | "petite" | "standard" | "tall";
+
+export function getLookHeight(look: (typeof TRENDING_LOOKS_FEED)[0]): {
+  cm: number;
+  range: "petite" | "standard" | "tall";
+  label: string;
+} {
+  const gender = getLookGender(look);
+  if (gender === "PRIA") {
+    const hash = (look.id.charCodeAt(0) + look.id.charCodeAt(look.id.length - 1)) % 7;
+    const cm = 172 + hash; // 172-178 cm
+    return { cm, range: "tall", label: `${cm} cm` };
+  } else {
+    const hash = (look.id.charCodeAt(0) + look.id.charCodeAt(look.id.length - 1)) % 15;
+    const cm = 154 + hash; // 154-168 cm
+    const range = cm < 158 ? "petite" : cm <= 165 ? "standard" : "tall";
+    return { cm, range, label: `${cm} cm` };
+  }
+}
+
 export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFeedProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeQuickChip, setActiveQuickChip] = useState("for-you");
   const [activeTab, setActiveTab] = useState<TabType>("ALL");
   const [climateFilter, setClimateFilter] = useState<ClimateFilter>("all");
   const [occasionFilter, setOccasionFilter] = useState<OccasionFilter>("all");
+  const [heightFilter, setHeightFilter] = useState<HeightFilterRange>("all");
+  const [isVisualSearchOpen, setIsVisualSearchOpen] = useState(false);
   const [sortBy, setSortBy] = useState<SortOption>("trending");
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const [savedCount, setSavedCount] = useState<number>(0);
@@ -282,11 +309,12 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
     setActiveTab("ALL");
     setClimateFilter("all");
     setOccasionFilter("all");
+    setHeightFilter("all");
     setSortBy("trending");
     setVisibleCount(PAGE_SIZE);
   };
 
-  // Filter 500 looks based on Search Query, Tab, Climate, & Occasion
+  // Filter 500 looks based on Search Query, Tab, Climate, Occasion & Height
   const filteredLooks = TRENDING_LOOKS_FEED.filter((look) => {
     // 1. Search Query Filter
     if (searchQuery.trim()) {
@@ -331,6 +359,12 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
       if (occasionFilter === "streetwear" && !(c.includes("streetwear") || t.includes("streetwear") || t.includes("cargo") || t.includes("biker") || t.includes("heavyweight") || t.includes("boxy") || v.includes("streetwear"))) return false;
     }
 
+    // 5. Height Filter (StyleHint Petite / Standard / Tall)
+    if (heightFilter !== "all") {
+      const h = getLookHeight(look);
+      if (h.range !== heightFilter) return false;
+    }
+
     return true;
   });
 
@@ -360,8 +394,8 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
 
   const displayedLooks = sortedLooks.slice(0, visibleCount);
   const selectedLook = TRENDING_LOOKS_FEED.find(l => l.id === selectedLookId);
-  const isFilterActive = searchQuery.trim() !== "" || activeTab !== "ALL" || climateFilter !== "all" || occasionFilter !== "all" || sortBy !== "trending";
-  const activeFilterCount = (activeTab !== "ALL" ? 1 : 0) + (climateFilter !== "all" ? 1 : 0) + (occasionFilter !== "all" ? 1 : 0) + (sortBy !== "trending" ? 1 : 0);
+  const isFilterActive = searchQuery.trim() !== "" || activeTab !== "ALL" || climateFilter !== "all" || occasionFilter !== "all" || heightFilter !== "all" || sortBy !== "trending";
+  const activeFilterCount = (activeTab !== "ALL" ? 1 : 0) + (climateFilter !== "all" ? 1 : 0) + (occasionFilter !== "all" ? 1 : 0) + (heightFilter !== "all" ? 1 : 0) + (sortBy !== "trending" ? 1 : 0);
 
   return (
     <section className="w-full bg-[#FAF8F5] min-h-screen pb-24">
@@ -373,7 +407,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
           
           {/* Baris 1: Search Pill Input + Bookmark Icon (Persis Gambar Referensi) */}
           <div className="flex items-center gap-2.5 sm:gap-3.5">
-            {/* Search Capsule Input */}
+            {/* Search Capsule Input with Camera Visual Search (StyleHint) */}
             <div className="relative flex-1 flex items-center">
               <Search className="absolute left-4 w-4 h-4 sm:w-5 sm:h-5 text-[#181A18]/45 pointer-events-none" />
               <input
@@ -383,19 +417,30 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                   setSearchQuery(e.target.value);
                   setVisibleCount(PAGE_SIZE);
                 }}
-                placeholder="Search"
-                className="w-full h-11 sm:h-12 pl-11 sm:pl-12 pr-10 bg-[#EFECE6] hover:bg-[#EAE4DC] focus:bg-white text-[#181A18] placeholder:text-[#181A18]/40 text-sm font-sans rounded-full border border-transparent focus:border-[#181A18]/30 transition-all outline-none"
+                placeholder="Cari gaya, linen, blazer, kafe..."
+                className="w-full h-11 sm:h-12 pl-11 sm:pl-12 pr-20 bg-[#EFECE6] hover:bg-[#EAE4DC] focus:bg-white text-[#181A18] placeholder:text-[#181A18]/40 text-sm font-sans rounded-full border border-transparent focus:border-[#181A18]/30 transition-all outline-none"
               />
-              {searchQuery && (
+              <div className="absolute right-2.5 flex items-center gap-1.5">
+                {searchQuery && (
+                  <button
+                    type="button"
+                    aria-label="Bersihkan pencarian"
+                    onClick={() => setSearchQuery("")}
+                    className="w-6 h-6 flex items-center justify-center rounded-full bg-[#181A18]/10 text-[#181A18] hover:bg-[#181A18]/25 transition-colors"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
                 <button
                   type="button"
-                  aria-label="Bersihkan pencarian"
-                  onClick={() => setSearchQuery("")}
-                  className="absolute right-3.5 w-5 h-5 flex items-center justify-center rounded-full bg-[#181A18]/10 text-[#181A18] hover:bg-[#181A18]/25 transition-colors"
+                  onClick={() => setIsVisualSearchOpen(true)}
+                  aria-label="Visual Search dari Foto"
+                  title="Visual Search AI: Cari OOTD dari foto kamera atau screenshot galeri"
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-neutral-900 text-white hover:bg-neutral-800 flex items-center justify-center transition-all shadow-xs active:scale-95 shrink-0"
                 >
-                  <X className="w-3.5 h-3.5" />
+                  <Camera className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </button>
-              )}
+              </div>
             </div>
 
             {/* Bookmark Icon Button on Right (Persis di foto) */}
@@ -424,11 +469,11 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                   ? "bg-[#181A18] text-white border-[#181A18] shadow-xs"
                   : "bg-white text-[#181A18] border-[#181A18]/20 hover:border-[#181A18]"
               }`}
-              title="Filter Terpadu (Suhu, Gender, Acara, Urutan)"
+              title="Filter Terpadu (Suhu, Gender, Acara, Tinggi, Urutan)"
             >
               <SlidersHorizontal className="w-4 h-4" />
               {activeFilterCount > 0 && (
-                <span className="min-w-[16px] h-4 text-[9px] font-mono font-bold rounded-full bg-[#8C5A3C] text-white flex items-center justify-center px-1">
+                <span className="min-w-[16px] h-4 text-[10px] font-mono font-bold rounded-full bg-[#8C5A3C] text-white flex items-center justify-center px-1">
                   {activeFilterCount}
                 </span>
               )}
@@ -449,6 +494,39 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                   }`}
                 >
                   <span>{chip.label}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Baris 3: Height Filter Pills ala StyleHint */}
+          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 select-none text-[10px] font-mono border-t border-[#181A18]/5">
+            <span className="text-[10px] uppercase font-bold tracking-wider text-neutral-400 shrink-0 mr-1 flex items-center gap-1">
+              <Ruler className="w-3 h-3 text-neutral-400" />
+              <span>TINGGI MODEL:</span>
+            </span>
+            {[
+              { id: "all", label: "SEMUA TINGGI" },
+              { id: "petite", label: "PETITE (< 158 CM)" },
+              { id: "standard", label: "STANDARD (158–165 CM)" },
+              { id: "tall", label: "TALL (> 165 CM)" },
+            ].map((h) => {
+              const isSelected = heightFilter === h.id;
+              return (
+                <button
+                  key={h.id}
+                  type="button"
+                  onClick={() => {
+                    setHeightFilter(h.id as any);
+                    setVisibleCount(PAGE_SIZE);
+                  }}
+                  className={`shrink-0 px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-wide transition-all border ${
+                    isSelected
+                      ? "bg-neutral-900 text-white border-neutral-900 shadow-xs"
+                      : "bg-white text-neutral-700 border-neutral-200/90 hover:border-neutral-400"
+                  }`}
+                >
+                  {h.label}
                 </button>
               );
             })}
@@ -536,21 +614,26 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                   {/* Metadata Bersih di Bawah Foto (Uniqlo Anatomy) */}
                   <div className="pt-2.5 flex flex-col flex-1 justify-between">
                     <div>
-                      {/* Baris 1: 3 Dot Swatches Palet Warna + Tag Kategori */}
+                      {/* Baris 1: 3 Dot Swatches Palet Warna + Height Pill + Tag Kategori */}
                       <div className="flex items-center justify-between mb-1">
-                        <div className="flex items-center gap-1">
-                          {look.outfit?.colorPalette?.slice(0, 3).map((warna, idx) => (
-                            <span
-                              key={idx}
-                              className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full border border-[#181A18]/25 shadow-2xs"
-                              style={{ backgroundColor: warna.hex }}
-                              title={warna.name}
-                            />
-                          )) || (
-                            <span className="w-2.5 h-2.5 rounded-full bg-[#181A18]" />
-                          )}
+                        <div className="flex items-center gap-1.5">
+                          <div className="flex items-center gap-0.5">
+                            {look.outfit?.colorPalette?.slice(0, 3).map((warna, idx) => (
+                              <span
+                                key={idx}
+                                className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full border border-[#181A18]/25 shadow-2xs"
+                                style={{ backgroundColor: warna.hex }}
+                                title={warna.name}
+                              />
+                            )) || (
+                              <span className="w-2.5 h-2.5 rounded-full bg-[#181A18]" />
+                            )}
+                          </div>
+                          <span className="text-[10px] font-mono text-neutral-600 bg-neutral-100 px-1.5 py-0.5 rounded font-medium">
+                            {getLookHeight(look).label}
+                          </span>
                         </div>
-                        <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-[#8C5A3C] truncate max-w-[110px]">
+                        <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-[#8C5A3C] truncate max-w-[100px]">
                           {look.tag}
                         </span>
                       </div>
@@ -955,7 +1038,42 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                   </div>
                 </div>
 
-                {/* 4. Urutan Tampilan (Sort) */}
+                {/* 4. Tinggi Badan Model (StyleHint Fit) */}
+                <div>
+                  <label className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#181A18]/70 block mb-2 flex items-center gap-1.5">
+                    <Ruler className="w-3.5 h-3.5 text-neutral-500" />
+                    <span>Tinggi Badan Model:</span>
+                  </label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      { id: "all", label: "Semua Tinggi" },
+                      { id: "petite", label: "Petite (< 158 cm)" },
+                      { id: "standard", label: "Standard (158–165 cm)" },
+                      { id: "tall", label: "Tall (> 165 cm)" },
+                    ].map((h) => {
+                      const isSel = heightFilter === h.id;
+                      return (
+                        <button
+                          key={h.id}
+                          type="button"
+                          onClick={() => {
+                            setHeightFilter(h.id as HeightFilterRange);
+                            setActiveQuickChip("for-you");
+                          }}
+                          className={`p-2.5 text-xs font-semibold border text-left transition-colors ${
+                            isSel
+                              ? "bg-[#181A18] text-white border-[#181A18]"
+                              : "bg-white text-[#181A18]/80 border-[#181A18]/15 hover:border-[#181A18]"
+                          }`}
+                        >
+                          {h.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* 5. Urutan Tampilan (Sort) */}
                 <div>
                   <label className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#181A18]/70 block mb-2">
                     Urutkan Tampilan:
@@ -1009,6 +1127,22 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
           </div>
         )}
       </AnimatePresence>
+
+      {/* Visual Search AI Modal (StyleHint Vision) */}
+      <InfluencerCloneModal
+        isOpen={isVisualSearchOpen}
+        onClose={() => setIsVisualSearchOpen(false)}
+        onOpenStudio={() => {
+          setIsVisualSearchOpen(false);
+          window.location.href = "/studio";
+        }}
+        onSelectDupeLook={(outfitData) => {
+          setIsVisualSearchOpen(false);
+          if (outfitData?.title) {
+            setSearchQuery(outfitData.title.replace("✦", "").trim());
+          }
+        }}
+      />
     </section>
   );
 }
