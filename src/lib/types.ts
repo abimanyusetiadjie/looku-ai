@@ -58,6 +58,8 @@ export interface UserPreferences {
   ownedItem?: string; // Item pakaian yang sudah dimiliki pengguna untuk di-mix & match
 }
 
+export type FashionBrand = "UNIQLO" | "H&M" | "ZARA" | "COS" | "LOCAL_CURATED";
+
 export interface OutfitItem {
   category: "atasan" | "bawahan" | "outer_hijab" | "sepatu" | "aksesoris";
   name: string;
@@ -69,6 +71,9 @@ export interface OutfitItem {
   tokopediaQuery: string;
   imageUrl?: string;
   isOwnedItem?: boolean; // True jika item ini adalah baju milik pengguna sendiri
+  brand?: FashionBrand | string;
+  brandUrl?: string; // Direct link ke toko resmi brand (e.g. uniqlo.com/id atau id.hm.com)
+  isOfficialBrand?: boolean;
 }
 
 export interface OOTDRecommendation {

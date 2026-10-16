@@ -13,269 +13,317 @@ export interface FashionItem {
     source: string;
   };
   imageUrl?: string;
+  brand?: "UNIQLO" | "H&M" | "ZARA" | "COS" | "LOCAL_CURATED" | string;
+  brandUrl?: string; // Direct link ke toko resmi brand (Uniqlo/H&M)
+  isOfficialBrand?: boolean;
   [key: string]: any; // Backward compatibility with legacy CMS
 }
 
 /**
- * GOLDEN DATASET (Timeless Tropical Minimalist)
- * Terdiri dari 15 item busana yang saling melengkapi (Mix & Match friendly).
- * Data ini divalidasi berdasarkan top keyword marketplace Indonesia Q3.
+ * GOLDEN DATASET (Aggregator Curated: Uniqlo, H&M, & Contemporary Essentials)
+ * Menampilkan item busana modern dengan siluet skena & clean look.
+ * Foto & merek dagang adalah hak milik masing-masing pemegang merek (Safe Harbor Model).
  */
 export const GOLDEN_DATASET: FashionItem[] = [
   // ==========================================
-  // ATASAN (5 Items)
+  // ATASAN (Uniqlo, H&M, & Curated Tops)
   // ==========================================
   {
     id: "top_linen_white",
-    name: "Kemeja Linen Oversized Klasik",
+    name: "Uniqlo Premium Linen Long Sleeve Shirt",
     category: "atasan",
-    material: "Linen Euro",
+    material: "100% European Flax Linen (Super Breathable)",
     breathabilityScore: 98,
     colorName: "Broken White",
     colorHex: "#F3EFE6",
+    brand: "UNIQLO",
+    brandUrl: "https://www.uniqlo.com/id/id/products/E464937-000/00",
+    isOfficialBrand: true,
     suitableForSkinTones: ["Fair", "Light", "Medium", "Tan", "Deep"],
     marketValidation: {
-      estimatedPrice: 145000,
-      searchVolumeTrend: "RISING_45K_MONTHLY",
-      source: "Top 10 Shopee Mall (Kemeja Wanita)"
+      estimatedPrice: 399000,
+      searchVolumeTrend: "TOP_TRENDING_LINEN",
+      source: "Uniqlo Official Store ID"
     },
-    imageUrl: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=800&auto=format&fit=crop&q=85"
   },
   {
     id: "top_crinkle_sage",
-    name: "Blouse Crinkle Airflow Batwing",
+    name: "H&M Relaxed Fit Camp Collar Linen Shirt",
     category: "atasan",
-    material: "Crinkle Airflow",
-    breathabilityScore: 92,
-    colorName: "Sage Green",
+    material: "Linen-Blend Poplin (Kerah Terbuka Skena)",
+    breathabilityScore: 94,
+    colorName: "Sage Green Muted",
     colorHex: "#8A9A86",
+    brand: "H&M",
+    brandUrl: "https://id.hm.com/search?q=linen+shirt",
+    isOfficialBrand: true,
     suitableForSkinTones: ["Light", "Medium", "Tan"],
     marketValidation: {
-      estimatedPrice: 125000,
-      searchVolumeTrend: "STABLE_HIGH_30K_MONTHLY",
-      source: "Top 5 Keyword Tokopedia (Baju Sage Green)"
+      estimatedPrice: 299000,
+      searchVolumeTrend: "CAFE_HOPPING_SKENA",
+      source: "H&M Indonesia Online"
     },
-    imageUrl: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80" // Greenish aesthetic top
+    imageUrl: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=800&auto=format&fit=crop&q=85"
   },
   {
     id: "top_cotton_black",
-    name: "Boxy Basic Tee Ultra-Cool",
+    name: "Uniqlo U AIRism Cotton Oversized T-Shirt",
     category: "atasan",
-    material: "Cotton Combed 24s Cooltech",
-    breathabilityScore: 88,
-    colorName: "Jet Black",
+    material: "AIRism Tech Cotton (Lapisan Dingin Anti-Gerah)",
+    breathabilityScore: 96,
+    colorName: "Jet Black Boxy",
     colorHex: "#181A18",
+    brand: "UNIQLO",
+    brandUrl: "https://www.uniqlo.com/id/id/products/E425974-000/00",
+    isOfficialBrand: true,
     suitableForSkinTones: ["Fair", "Light", "Medium", "Tan", "Deep"],
     marketValidation: {
-      estimatedPrice: 89000,
-      searchVolumeTrend: "EVERGREEN_100K_MONTHLY",
-      source: "Shopee Top 50 Baju Kaos"
+      estimatedPrice: 199000,
+      searchVolumeTrend: "EVERGREEN_ICONIC_AIRISM",
+      source: "Uniqlo U Collection by Christophe Lemaire"
     },
-    imageUrl: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&auto=format&fit=crop&q=85"
   },
   {
     id: "top_rayon_tunic",
-    name: "Tunik Asimetris Flowy",
+    name: "Uniqlo Rayon Relaxed Long Sleeve Blouse",
     category: "atasan",
-    material: "Katun Rayon Twill",
+    material: "Rayon Anti-Kusut (Jatuh Flowy & Dingin)",
     breathabilityScore: 95,
     colorName: "Mocca Oat",
     colorHex: "#D7CABC",
+    brand: "UNIQLO",
+    brandUrl: "https://www.uniqlo.com/id/id/products/E455734-000/00",
+    isOfficialBrand: true,
     suitableForSkinTones: ["Fair", "Medium", "Deep"],
     marketValidation: {
-      estimatedPrice: 165000,
-      searchVolumeTrend: "RISING_25K_MONTHLY",
-      source: "Zalora Modest Wear Trend Q3"
+      estimatedPrice: 299000,
+      searchVolumeTrend: "SMART_CASUAL_OFFICE",
+      source: "Uniqlo Work & Everyday"
     },
-    imageUrl: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&auto=format&fit=crop&q=85"
   },
   {
     id: "top_silk_champagne",
-    name: "Satin Silk Wrap Blouse (Kondangan)",
+    name: "Zara Structured Wrap Satin Blouse",
     category: "atasan",
-    material: "Satin Silk Premium",
-    breathabilityScore: 75, // Lebih panas, khusus acara malam/AC
+    material: "Satin Silk Finish Premium",
+    breathabilityScore: 78,
     colorName: "Champagne Gold",
     colorHex: "#D4AF37",
+    brand: "ZARA",
+    brandUrl: "https://www.zara.com/id/",
+    isOfficialBrand: true,
     suitableForSkinTones: ["Medium", "Tan", "Deep"],
     marketValidation: {
-      estimatedPrice: 185000,
-      searchVolumeTrend: "SEASONAL_HIGH_WEEKEND",
-      source: "Top Search 'Baju Kondangan Simple'"
+      estimatedPrice: 499000,
+      searchVolumeTrend: "FORMAL_KONDANGAN_ELEGANT",
+      source: "Zara Indonesia Official"
     },
-    imageUrl: "https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=800&auto=format&fit=crop&q=85"
   },
 
   // ==========================================
-  // BAWAHAN (5 Items)
+  // BAWAHAN (Uniqlo Pleated Wide, H&M Slacks)
   // ==========================================
   {
     id: "btm_linen_culotte",
-    name: "Kulot Highwaist Linen Loose",
+    name: "Uniqlo Pleated Wide Pants",
     category: "bawahan",
-    material: "Linen Rami",
+    material: "Flowy Crepe Twill (2-Way Stretch Bebas Gerah)",
     breathabilityScore: 97,
-    colorName: "Oatmeal",
+    colorName: "Sand Oat",
     colorHex: "#E8DFD1",
+    brand: "UNIQLO",
+    brandUrl: "https://www.uniqlo.com/id/id/products/E460311-000/00",
+    isOfficialBrand: true,
     suitableForSkinTones: ["Fair", "Light", "Medium", "Tan", "Deep"],
     marketValidation: {
-      estimatedPrice: 135000,
-      searchVolumeTrend: "RISING_80K_MONTHLY",
-      source: "Shopee Mall Top 10 Bawahan"
+      estimatedPrice: 499000,
+      searchVolumeTrend: "VIRAL_TIKTOK_BESTSELLER",
+      source: "Uniqlo Must-Have Wardrobe"
     },
-    imageUrl: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&auto=format&fit=crop&q=85"
   },
   {
     id: "btm_crinkle_skirt",
-    name: "Rok A-Line Flowy Crinkle",
+    name: "H&M A-Line Tiered Flowy Midi Skirt",
     category: "bawahan",
-    material: "Crinkle Airflow",
+    material: "Lightweight Woven Rayon",
     breathabilityScore: 94,
-    colorName: "Terracotta",
+    colorName: "Terracotta Earth",
     colorHex: "#BA5D38",
+    brand: "H&M",
+    brandUrl: "https://id.hm.com/search?q=skirt",
+    isOfficialBrand: true,
     suitableForSkinTones: ["Fair", "Light", "Medium"],
     marketValidation: {
-      estimatedPrice: 110000,
-      searchVolumeTrend: "STABLE_40K_MONTHLY",
-      source: "Tokopedia Top Skirt Modest"
+      estimatedPrice: 349000,
+      searchVolumeTrend: "STABLE_MODEST_TREND",
+      source: "H&M Summer Collection"
     },
-    imageUrl: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&auto=format&fit=crop&q=85"
   },
   {
     id: "btm_ankle_pants",
-    name: "Smart Ankle Pants (Office)",
+    name: "Uniqlo Smart Ankle Pants (Tapered)",
     category: "bawahan",
-    material: "Semi Wool Stretch",
-    breathabilityScore: 82,
-    colorName: "Charcoal Deep",
+    material: "Wool-Like Easy Care Stretch",
+    breathabilityScore: 88,
+    colorName: "Charcoal Slate",
     colorHex: "#2B2620",
+    brand: "UNIQLO",
+    brandUrl: "https://www.uniqlo.com/id/id/products/E464887-000/00",
+    isOfficialBrand: true,
     suitableForSkinTones: ["Fair", "Light", "Medium", "Tan", "Deep"],
     marketValidation: {
-      estimatedPrice: 175000,
-      searchVolumeTrend: "EVERGREEN_60K_MONTHLY",
-      source: "Top 5 'Celana Kerja Wanita'"
+      estimatedPrice: 499000,
+      searchVolumeTrend: "OFFICE_SCBD_STAPLE",
+      source: "Uniqlo Smart Office Pant"
     },
-    imageUrl: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&auto=format&fit=crop&q=85"
   },
   {
     id: "btm_denim_maxi",
-    name: "Maxi Skirt Denim Washed",
+    name: "H&M Loose Straight Fit Denim Pants",
     category: "bawahan",
-    material: "Lightweight Denim 10oz",
-    breathabilityScore: 85,
-    colorName: "Light Blue Wash",
+    material: "100% Breathable Cotton Denim 10oz",
+    breathabilityScore: 86,
+    colorName: "Light Indigo Vintage",
     colorHex: "#89A1B5",
+    brand: "H&M",
+    brandUrl: "https://id.hm.com/search?q=loose+jeans",
+    isOfficialBrand: true,
     suitableForSkinTones: ["Fair", "Light", "Medium", "Deep"],
     marketValidation: {
-      estimatedPrice: 195000,
-      searchVolumeTrend: "TRENDING_PEAK_Q3",
-      source: "WGSN Gen-Z Local Trend"
+      estimatedPrice: 449000,
+      searchVolumeTrend: "GEN_Z_BAGGY_JEANS",
+      source: "H&M Denim Department"
     },
-    imageUrl: "https://images.unsplash.com/photo-1551803091-e20673f15770?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1551803091-e20673f15770?w=800&auto=format&fit=crop&q=85"
   },
   {
     id: "btm_cotton_chino",
-    name: "Chino Pants Relaxed Fit",
+    name: "Uniqlo Relaxed Fit Parachute Pants",
     category: "bawahan",
-    material: "Cotton Twill",
-    breathabilityScore: 88,
-    colorName: "Khaki Sand",
+    material: "Ultra Light Nylon Ripstop",
+    breathabilityScore: 92,
+    colorName: "Khaki Olive",
     colorHex: "#C3B091",
+    brand: "UNIQLO",
+    brandUrl: "https://www.uniqlo.com/id/id/products/E464888-000/00",
+    isOfficialBrand: true,
     suitableForSkinTones: ["Medium", "Tan", "Deep"],
     marketValidation: {
-      estimatedPrice: 155000,
-      searchVolumeTrend: "STABLE_50K_MONTHLY",
-      source: "Zalora Casual Wear"
+      estimatedPrice: 499000,
+      searchVolumeTrend: "SKENA_URBAN_STREETWEAR",
+      source: "Uniqlo Urban Trend"
     },
-    imageUrl: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=800&auto=format&fit=crop&q=85"
   },
 
   // ==========================================
-  // OUTER & HIJAB (3 Items)
+  // OUTER & HIJAB (AIRism UV & Curated Voal)
   // ==========================================
   {
     id: "hijab_voal_nude",
-    name: "Hijab Segiempat Voal Paris",
+    name: "Voal Paris Ultrafine Clean Laser-Cut",
     category: "outer_hijab",
-    material: "Voal Paris Premium",
-    breathabilityScore: 99, // Sangat adem untuk kepala
-    colorName: "Nude Blush",
+    material: "100% Voal Ultrafine Berpori Mikro",
+    breathabilityScore: 99,
+    colorName: "Nude Blush Muted",
     colorHex: "#E2C4B8",
+    brand: "LOCAL_CURATED",
+    brandUrl: "https://shopee.co.id/search?keyword=voal%20ultrafine%20laser%20cut",
+    isOfficialBrand: false,
     suitableForSkinTones: ["Fair", "Light", "Medium", "Tan", "Deep"],
     marketValidation: {
       estimatedPrice: 65000,
-      searchVolumeTrend: "EVERGREEN_200K_MONTHLY",
-      source: "Shopee Keyword 'Hijab Voal'"
+      searchVolumeTrend: "DAILY_MODEST_ESSENTIAL",
+      source: "Top Local Hijab Brand Shopee Mall"
     },
-    imageUrl: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=800&auto=format&fit=crop&q=85"
   },
   {
     id: "hijab_silk_pashmina",
-    name: "Pashmina Silk Ceruty",
+    name: "Flowy Pashmina Ceruty Baby Doll",
     category: "outer_hijab",
-    material: "Ceruty Babydoll",
-    breathabilityScore: 90,
-    colorName: "Rose Gold",
+    material: "Ceruty Baby Doll Premium",
+    breathabilityScore: 92,
+    colorName: "Dusty Mauve",
     colorHex: "#B76E79",
+    brand: "LOCAL_CURATED",
+    brandUrl: "https://shopee.co.id/search?keyword=pashmina%20ceruty%20baby%20doll",
+    isOfficialBrand: false,
     suitableForSkinTones: ["Light", "Medium", "Tan"],
     marketValidation: {
-      estimatedPrice: 55000,
-      searchVolumeTrend: "RISING_150K_MONTHLY",
-      source: "Shopee Keyword 'Pashmina Silk'"
+      estimatedPrice: 45000,
+      searchVolumeTrend: "VIRAL_CLEAN_GIRL_HIJAB",
+      source: "Modest Wear Star+ Curator"
     },
-    imageUrl: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&auto=format&fit=crop&q=85"
   },
   {
     id: "outer_knit_cardigan",
-    name: "Cardigan Rajut Ringan (Anti-UV)",
+    name: "Uniqlo AIRism UV Protection Mesh Hoodie",
     category: "outer_hijab",
-    material: "Lightweight Cotton Knit",
-    breathabilityScore: 86,
-    colorName: "Vanilla Cream",
+    material: "AIRism Mesh Cooltech (Perlindungan UV UPF50+)",
+    breathabilityScore: 98,
+    colorName: "Vanilla Broken White",
     colorHex: "#F3E5AB",
+    brand: "UNIQLO",
+    brandUrl: "https://www.uniqlo.com/id/id/products/E456261-000/00",
+    isOfficialBrand: true,
     suitableForSkinTones: ["Fair", "Medium", "Deep"],
     marketValidation: {
-      estimatedPrice: 145000,
-      searchVolumeTrend: "STABLE_45K_MONTHLY",
-      source: "Tokopedia 'Cardigan Tipis'"
+      estimatedPrice: 399000,
+      searchVolumeTrend: "BEST_TROPICAL_OUTER",
+      source: "Uniqlo UV Protection Series"
     },
-    imageUrl: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&auto=format&fit=crop&q=85"
   },
 
   // ==========================================
-  // SEPATU (2 Items)
+  // SEPATU (Contemporary Skena Footwear)
   // ==========================================
   {
     id: "shoe_loafers_black",
-    name: "Classic Leather Loafers",
+    name: "Zara Chunky Lug-Sole Leather Loafers",
     category: "sepatu",
-    material: "Vegan Leather",
-    breathabilityScore: 70, // Sepatu standar
-    colorName: "Black Gloss",
+    material: "Supple Vegan Leather with Padded Insole",
+    breathabilityScore: 78,
+    colorName: "Polished Black",
     colorHex: "#111111",
+    brand: "ZARA",
+    brandUrl: "https://www.zara.com/id/en/woman-shoes-loafers-l1281.html",
+    isOfficialBrand: true,
     suitableForSkinTones: ["Fair", "Light", "Medium", "Tan", "Deep"],
     marketValidation: {
-      estimatedPrice: 225000,
-      searchVolumeTrend: "RISING_Q3",
-      source: "Top 10 Footwear Zalora"
+      estimatedPrice: 699000,
+      searchVolumeTrend: "IT_GIRL_SCBD_LOAFERS",
+      source: "Zara Footwear Department"
     },
-    imageUrl: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&auto=format&fit=crop&q=85"
   },
   {
     id: "shoe_canvas_sneakers",
-    name: "Minimalist Canvas Sneakers",
+    name: "H&M Retro Low Court Sneakers",
     category: "sepatu",
-    material: "Breathable Canvas",
-    breathabilityScore: 85,
-    colorName: "Chalk White",
+    material: "Washed Canvas & Textured Gum Rubber Sole",
+    breathabilityScore: 89,
+    colorName: "Vintage Off-White",
     colorHex: "#FAFAFA",
+    brand: "H&M",
+    brandUrl: "https://id.hm.com/search?q=sneakers",
+    isOfficialBrand: true,
     suitableForSkinTones: ["Fair", "Light", "Medium", "Tan", "Deep"],
     marketValidation: {
-      estimatedPrice: 250000,
-      searchVolumeTrend: "EVERGREEN_HIGH",
-      source: "Shopee 'Sneakers Putih'"
+      estimatedPrice: 449000,
+      searchVolumeTrend: "SAMBA_ALTERNATIVE_RETRO",
+      source: "H&M Footwear Division"
     },
-    imageUrl: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=800&auto=format&fit=crop&q=85"
   },
 
   // ==========================================

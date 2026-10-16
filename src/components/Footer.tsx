@@ -173,6 +173,11 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Safe Harbor Legal Aggregator Disclaimer */}
+        <div className="py-6 border-b border-sand-300 text-center sm:text-left text-[11px] text-charcoal-700/70 font-sans leading-relaxed select-none">
+          ⚖️ <span className="font-semibold text-charcoal-900">Safe Harbor Aggregator Disclaimer:</span> Look.u adalah platform kurasi AI Personal Stylist independen (Search &amp; Style Aggregator). Seluruh foto, merek dagang, dan nama brand (Uniqlo, H&amp;M, Zara, COS, dll.) adalah hak milik masing-masing pemegang merek yang dilindungi undang-undang. Seluruh tombol transaksi ditujukan langsung ke toko resmi pemilik merek terkait.
+        </div>
+
         {/* Bottom Colophon & Legal Links */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-sand-500">
           <div>

@@ -341,11 +341,16 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                         className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
                       />
 
-                      {/* Top Category Badge */}
-                      <div className="absolute top-2 left-2">
+                      {/* Top Category & Brand Badge */}
+                      <div className="absolute top-2 left-2 flex items-center gap-1">
                         <span className="px-2 py-0.5 rounded-md bg-charcoal-900/85 text-white text-[8px] font-mono font-bold uppercase tracking-wider backdrop-blur-xs">
                           {getCategoryTag(item.category)}
                         </span>
+                        {item.brand && (
+                          <span className="px-1.5 py-0.5 rounded-md bg-[#8C5A3C] text-white text-[8px] font-mono font-bold uppercase tracking-wider backdrop-blur-xs">
+                            {item.brand}
+                          </span>
+                        )}
                       </div>
 
                       {/* Top Swap Button */}
@@ -373,9 +378,11 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                     {/* Garment Details & Actions */}
                     <div className="p-3 space-y-2 flex flex-col justify-between flex-1">
                       <div className="space-y-0.5">
-                        <h4 className="font-bold text-xs sm:text-sm text-charcoal-900 line-clamp-1 leading-snug">
-                          {item.name}
-                        </h4>
+                        <div className="flex items-center justify-between gap-1">
+                          <h4 className="font-bold text-xs sm:text-sm text-charcoal-900 line-clamp-1 leading-snug">
+                            {item.name}
+                          </h4>
+                        </div>
                         <p className="text-[10px] text-sand-500 line-clamp-1">
                           {item.material}
                         </p>
@@ -396,32 +403,45 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                           ✓ Ada di Lemarimu
                         </div>
                       ) : (
-                        <div className="grid grid-cols-2 gap-1.5 pt-1">
-                          <motion.a
-                            href={links.shopee + (activeBudgetTier === "mall" ? "%20official%20store" : "")}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => trackAffiliateClick("shopee", item.shopeeQuery || item.name, "outfit_card")}
-                            whileTap={{ scale: 0.96 }}
-                            className="ds-btn-marketplace ds-mp-shopee"
-                            title="Beli di Shopee"
-                          >
-                            <ShopeeIcon className="w-3 h-3 shrink-0" />
-                            <span>Shopee</span>
-                          </motion.a>
+                        <div className="space-y-1.5 pt-1">
+                          {item.brandUrl && (
+                            <a
+                              href={item.brandUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="w-full py-1.5 px-2 bg-[#181A18] hover:bg-[#8C5A3C] text-[#FAF8F5] text-[10px] font-mono font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
+                              title={`Beli resmi di ${item.brand || 'Brand'}`}
+                            >
+                              <span>↗ Beli Resmi ({item.brand || "Brand"})</span>
+                            </a>
+                          )}
+                          <div className="grid grid-cols-2 gap-1.5">
+                            <motion.a
+                              href={links.shopee + (activeBudgetTier === "mall" ? "%20official%20store" : "")}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => trackAffiliateClick("shopee", item.shopeeQuery || item.name, "outfit_card")}
+                              whileTap={{ scale: 0.96 }}
+                              className="ds-btn-marketplace ds-mp-shopee"
+                              title="Cari alternatif di Shopee"
+                            >
+                              <ShopeeIcon className="w-3 h-3 shrink-0" />
+                              <span>{item.brandUrl ? "Dupe Shopee" : "Shopee"}</span>
+                            </motion.a>
 
-                          <motion.a
-                            href={links.tokopedia + (activeBudgetTier === "mall" ? "%20official%20store" : "")}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => trackAffiliateClick("tokopedia", item.shopeeQuery || item.name, "outfit_card")}
-                            whileTap={{ scale: 0.96 }}
-                            className="ds-btn-marketplace ds-mp-tokopedia"
-                            title="Beli di Tokopedia"
-                          >
-                            <TokopediaIcon className="w-3 h-3 shrink-0" />
-                            <span>Tokped</span>
-                          </motion.a>
+                            <motion.a
+                              href={links.tokopedia + (activeBudgetTier === "mall" ? "%20official%20store" : "")}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => trackAffiliateClick("tokopedia", item.shopeeQuery || item.name, "outfit_card")}
+                              whileTap={{ scale: 0.96 }}
+                              className="ds-btn-marketplace ds-mp-tokopedia"
+                              title="Cari alternatif di Tokopedia"
+                            >
+                              <TokopediaIcon className="w-3 h-3 shrink-0" />
+                              <span>{item.brandUrl ? "Dupe Tokped" : "Tokped"}</span>
+                            </motion.a>
+                          </div>
                         </div>
                       )}
                     </div>
@@ -577,9 +597,14 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
             </div>
           </div>
 
+          {/* Safe Harbor Legal Aggregator Disclaimer */}
+          <div className="p-3 bg-[#FAF8F5] border border-[#181A18]/10 text-center text-[10px] text-[#181A18]/65 font-sans leading-relaxed select-none">
+            ⚖️ <span className="font-semibold text-[#181A18]/85">Safe Harbor Disclaimer:</span> Foto dan merek dagang (Uniqlo, H&M, Zara, dll.) adalah hak milik masing-masing pemegang merek. Look.u bertindak semata-mata sebagai kurator gaya personal &amp; pengarah rujukan resmi (Aggregator Model).
+          </div>
+
           {/* Footer Actions */}
           <div className="pt-2 flex flex-wrap items-center justify-between gap-3 text-xs text-sand-500 border-t border-sand-200">
-            <span>Kombinasi disesuaikan dengan iklim tropis harian &amp; ketersediaan toko lokal.</span>
+            <span>Kombinasi disesuaikan dengan iklim tropis harian &amp; ketersediaan toko resmi &amp; lokal.</span>
             {onRegenerate && (
               <button
                 onClick={() => onRegenerate()}
