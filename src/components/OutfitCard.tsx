@@ -21,6 +21,7 @@ import { OOTDRecommendation, OutfitItem } from "@/lib/types";
 import { getMarketplaceLinks, trackAffiliateClick } from "@/lib/affiliate";
 import { ShopeeIcon, TokopediaIcon } from "@/components/MarketplaceIcons";
 import StoryShareModal from "./StoryShareModal";
+import { resolveCleanShoePackshot } from "@/lib/packshot-dictionary";
 
 interface OutfitCardProps {
   outfit: OOTDRecommendation;
@@ -326,7 +327,12 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                   "https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?w=400&auto=format&fit=crop&q=80",
                   "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&auto=format&fit=crop&q=80",
                 ];
-                const itemImage = item.imageUrl || outfit.flatlayImages?.[index] || fallbackImages[index % fallbackImages.length];
+                const isShoe = item.category === "sepatu";
+                const itemImage = isShoe
+                  ? resolveCleanShoePackshot(item.name, item.color, item.colorHex)
+                  : item.cropConfig?.isCrop
+                  ? (item.cropConfig.heroUrl || item.imageUrl)
+                  : (item.imageUrl || outfit.flatlayImages?.[index] || fallbackImages[index % fallbackImages.length]);
 
                 return (
                   <div
@@ -334,11 +340,15 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                     className="rounded-none sm:rounded-sm bg-white border border-sand-200 hover:border-charcoal-900 transition-all overflow-hidden flex flex-col justify-between shadow-2xs group/card"
                   >
                     {/* Garment Image + Category Badge + Swap Button */}
-                    <div className="relative aspect-square sm:aspect-[4/3] bg-sand-100 overflow-hidden">
+                    <div className="relative aspect-square sm:aspect-[4/3] bg-[#EFECE6] overflow-hidden">
                       <img
                         src={itemImage}
                         alt={item.name}
-                        className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
+                        className={`w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500 ${
+                          !isShoe && item.cropConfig?.isCrop
+                            ? `${item.cropConfig.position} ${item.cropConfig.scale}`
+                            : "object-top"
+                        }`}
                       />
 
                       {/* Top Category & Brand Badge */}

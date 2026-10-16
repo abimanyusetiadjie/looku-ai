@@ -1425,14 +1425,35 @@ const SIGNATURE_TRENDING_LOOKS: TrendingLook[] = [
 
 // Deduplicate feed by image URL and exclude broken image links
 const seenImages = new Set<string>();
-const uniqueSignatureLooks = SIGNATURE_TRENDING_LOOKS.filter(look => {
+
+// Lapis 3: Kunci ~50 "Golden Looks" (isGoldenSignature: true)
+const uniqueSignatureLooks: TrendingLook[] = SIGNATURE_TRENDING_LOOKS.map(look => ({
+  ...look,
+  isGoldenSignature: true,
+  outfit: {
+    ...look.outfit,
+    isGoldenSignature: true,
+  },
+})).filter(look => {
   if (!look.image) return false;
   if (seenImages.has(look.image)) return false;
   seenImages.add(look.image);
   return true;
 });
 
-const uniqueExtendedLooks = EXTENDED_TRENDING_LOOKS.filter(look => {
+let goldenExtendedCounter = 0;
+const uniqueExtendedLooks: TrendingLook[] = EXTENDED_TRENDING_LOOKS.map(look => {
+  const isGolden = goldenExtendedCounter < (50 - uniqueSignatureLooks.length);
+  if (isGolden) goldenExtendedCounter++;
+  return {
+    ...look,
+    isGoldenSignature: isGolden,
+    outfit: {
+      ...look.outfit,
+      isGoldenSignature: isGolden,
+    },
+  };
+}).filter(look => {
   if (!look.image) return false;
   if (seenImages.has(look.image)) return false; // Strict zero duplicate images in Lookbook
   seenImages.add(look.image);
@@ -1649,6 +1670,7 @@ export function generateHeuristicOOTD(pref: UserPreferences): OOTDRecommendation
   result.items = newItems;
   // --- END INJEKSI ---
   
+  result.isGoldenSignature = true;
   return result;
 
 }
@@ -1789,6 +1811,31 @@ export function resolveLookForStudio(lookupId: string): ResolvedStudioLook | nul
         outfit: preset,
       };
     }
+  }
+
+  // 3. Direct match in EXTENDED_OOTD_CATALOG
+  if (EXTENDED_OOTD_CATALOG[cleanId]) {
+    const extOutfit = EXTENDED_OOTD_CATALOG[cleanId];
+    const isPria = cleanId.includes("male") || extOutfit.title.toLowerCase().includes("pria");
+    const isHijab = extOutfit.modestFriendly;
+    const genderMode: "hijab" | "nonhijab" | "pria" = isPria ? "pria" : isHijab ? "hijab" : "nonhijab";
+    const topItem = extOutfit.items?.find((i) => i.category === "atasan");
+    const image = extOutfit.items?.[0]?.imageUrl || "";
+
+    return {
+      lookId: cleanId,
+      title: extOutfit.title,
+      image,
+      tag: isPria ? "MENSWEAR" : isHijab ? "MODEST CAPSULE" : "EDITORIAL",
+      genderMode,
+      modelSpec: {
+        height: isPria ? "175 cm" : "160 cm",
+        size: "M (Model Fit)",
+        silhouette: extOutfit.overallVibe || "Clean Minimalist",
+        keyFabric: topItem?.material || "Katun Rayon & Linen",
+      },
+      outfit: extOutfit,
+    };
   }
 
   return null;

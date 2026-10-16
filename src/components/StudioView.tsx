@@ -18,6 +18,11 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { OOTDRecommendation, OutfitItem } from "@/lib/types";
 import { PRESET_OOTD_COLLECTION, resolveLookForStudio } from "@/lib/presets";
+import {
+  resolveSmartItemVisual,
+  resolveCleanShoePackshot,
+  CLEAN_PACKSHOT_DICTIONARY,
+} from "@/lib/packshot-dictionary";
 
 export interface StudioItem {
   id: string;
@@ -36,6 +41,12 @@ export interface StudioItem {
   price: number;
   priceStr: string; // Dupe price estimate
   imageUrl: string;
+  cropConfig?: {
+    isCrop: boolean;
+    position: string;
+    scale: string;
+    heroUrl: string;
+  };
   shopeeQuery: string;
   tokopediaQuery: string;
   note: string;
@@ -447,7 +458,7 @@ const SHOES_POOL: StudioItem[] = [
     colorHex: "#FAF8F5",
     price: 155000,
     priceStr: "Rp 155.000",
-    imageUrl: "https://static-id.zacdn.com/p/cottonink-8521-7299143-1-zoom.jpg",
+    imageUrl: CLEAN_PACKSHOT_DICTIONARY.shoes.sneakers.white,
     shopeeQuery: "Sepatu Retro Court Sneakers Putih Vintage Kasual",
     tokopediaQuery: "Sneakers Retro Vintage Casual Low Cut Unisex",
     note: "Bantalan empuk untuk mobilitas jalan kaki antar stasiun & kafe",
@@ -470,7 +481,7 @@ const SHOES_POOL: StudioItem[] = [
     colorHex: "#181A18",
     price: 185000,
     priceStr: "Rp 185.000",
-    imageUrl: "https://static-id.zacdn.com/p/thenblank-1432-8812343-1-zoom.jpg",
+    imageUrl: CLEAN_PACKSHOT_DICTIONARY.shoes.loafers.black,
     shopeeQuery: "Sepatu Loafers Kulit Chunky Sol Tebal Docmart Style",
     tokopediaQuery: "Sepatu Penny Loafers Pria Wanita Sol Tebal",
     note: "Aksen kontemporer yang langsung mengangkat wibawa smart-casual",
@@ -493,7 +504,7 @@ const SHOES_POOL: StudioItem[] = [
     colorHex: "#D4B996",
     price: 135000,
     priceStr: "Rp 135.000",
-    imageUrl: "https://static-id.zacdn.com/p/erigo-3291-9128372-1-zoom.jpg",
+    imageUrl: CLEAN_PACKSHOT_DICTIONARY.shoes.mules.cream,
     shopeeQuery: "Sandal Mules Wanita Slip On Minimalis Hak Tahu",
     tokopediaQuery: "Mules Sandal Wanita Flat Kasual Elegan",
     note: "Bebas lembap untuk brunch akhir pekan & acara semi-formal",
@@ -807,6 +818,9 @@ function outfitItemToStudioItem(
     ? cleanPriceStr.split("Dupe:")[1]?.replace(")", "").trim() || cleanPriceStr
     : cleanPriceStr;
 
+  // Lapis 1 & Lapis 2 Hybrid Visual Resolver
+  const visual = resolveSmartItemVisual(item, slotKey, fallbackImage);
+
   return {
     id: `item_${slotKey}_${(item.name || "garment").replace(/\s+/g, "_").toLowerCase()}`,
     category: slotKey,
@@ -823,7 +837,8 @@ function outfitItemToStudioItem(
     colorHex: item.colorHex || fallback.colorHex,
     price: price,
     priceStr: dupePriceStr,
-    imageUrl: item.imageUrl || fallbackImage || fallback.imageUrl,
+    imageUrl: visual.imageUrl || item.imageUrl || fallbackImage || fallback.imageUrl,
+    cropConfig: visual.cropConfig,
     shopeeQuery: item.shopeeQuery || item.name,
     tokopediaQuery: item.tokopediaQuery || item.name,
     note: `Kombinasi material ${item.material || "adem"} bersirkulasi optimal`,
@@ -1114,6 +1129,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
           shopeeQuery: activeSlots.top.shopeeQuery,
           tokopediaQuery: activeSlots.top.tokopediaQuery,
           imageUrl: activeSlots.top.imageUrl,
+          cropConfig: activeSlots.top.cropConfig,
         },
         {
           category: "bawahan",
@@ -1128,6 +1144,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
           shopeeQuery: activeSlots.bottom.shopeeQuery,
           tokopediaQuery: activeSlots.bottom.tokopediaQuery,
           imageUrl: activeSlots.bottom.imageUrl,
+          cropConfig: activeSlots.bottom.cropConfig,
         },
         {
           category: "outer_hijab",
@@ -1142,6 +1159,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
           shopeeQuery: activeSlots.outer.shopeeQuery,
           tokopediaQuery: activeSlots.outer.tokopediaQuery,
           imageUrl: activeSlots.outer.imageUrl,
+          cropConfig: activeSlots.outer.cropConfig,
         },
         {
           category: "sepatu",
@@ -1532,11 +1550,15 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                       }`}
                     >
                       {/* Product Image Frame */}
-                      <div className="relative w-full aspect-[4/4.5] bg-neutral-50 rounded-lg overflow-hidden border border-neutral-100">
+                      <div className="relative w-full aspect-[4/4.5] bg-[#EFECE6] rounded-lg overflow-hidden border border-neutral-100">
                         <img
-                          src={item.imageUrl}
+                          src={item.cropConfig?.isCrop ? (item.cropConfig.heroUrl || item.imageUrl) : item.imageUrl}
                           alt={item.name}
-                          className="w-full h-full object-cover object-top"
+                          className={`w-full h-full object-cover transition-transform duration-300 ${
+                            item.cropConfig?.isCrop
+                              ? `${item.cropConfig.position} ${item.cropConfig.scale}`
+                              : "object-top"
+                          }`}
                         />
                         <span className="absolute top-1.5 left-1.5 w-4 h-4 rounded-full bg-white text-neutral-900 text-[8px] font-mono font-bold flex items-center justify-center shadow-xs">
                           {item.pinNumber}
@@ -1993,11 +2015,15 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                     >
                       <div className="flex gap-3">
                         {/* Clean Product Cutout/Image */}
-                        <div className="relative w-20 h-24 bg-neutral-50 rounded-lg overflow-hidden border border-neutral-100 shrink-0">
+                        <div className="relative w-20 h-24 bg-[#EFECE6] rounded-lg overflow-hidden border border-neutral-100 shrink-0">
                           <img
-                            src={item.imageUrl}
+                            src={item.cropConfig?.isCrop ? (item.cropConfig.heroUrl || item.imageUrl) : item.imageUrl}
                             alt={item.name}
-                            className="w-full h-full object-cover object-top"
+                            className={`w-full h-full object-cover transition-transform duration-300 ${
+                              item.cropConfig?.isCrop
+                                ? `${item.cropConfig.position} ${item.cropConfig.scale}`
+                                : "object-top"
+                            }`}
                           />
                           <span className="absolute top-1 left-1 w-4 h-4 rounded-full bg-white text-neutral-900 text-[8px] font-mono font-bold flex items-center justify-center shadow-xs">
                             {item.pinNumber}
@@ -2217,11 +2243,17 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                     className="p-3 bg-neutral-50 rounded-xl border border-neutral-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      <img
-                        src={item.imageUrl}
-                        alt={item.name}
-                        className="w-14 h-16 object-cover bg-neutral-100 rounded-md border border-neutral-200 shrink-0"
-                      />
+                      <div className="w-14 h-16 bg-[#EFECE6] rounded-md border border-neutral-200 shrink-0 overflow-hidden relative">
+                        <img
+                          src={item.cropConfig?.isCrop ? (item.cropConfig.heroUrl || item.imageUrl) : item.imageUrl}
+                          alt={item.name}
+                          className={`w-full h-full object-cover transition-transform duration-300 ${
+                            item.cropConfig?.isCrop
+                              ? `${item.cropConfig.position} ${item.cropConfig.scale}`
+                              : "object-top"
+                          }`}
+                        />
+                      </div>
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5">
                           <span className="px-1.5 py-0.5 bg-neutral-900 text-white text-[8px] font-mono font-bold uppercase rounded">

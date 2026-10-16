@@ -27,6 +27,7 @@ import {
   HeightFilterRange 
 } from "@/lib/presets";
 import { OOTDRecommendation } from "@/lib/types";
+import { resolveSmartItemVisual, resolveCleanShoePackshot } from "@/lib/packshot-dictionary";
 
 const InfluencerCloneModal = dynamic(() => import("@/components/InfluencerCloneModal"), { ssr: false });
 
@@ -372,8 +373,15 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
     return true;
   });
 
-  // Sorting
+  // Sorting (Lapis 3: Prioritas Golden Signature Looks)
   const sortedLooks = [...filteredLooks].sort((a, b) => {
+    // 1. Prioritaskan Golden Signature Looks di posisi teratas
+    const aGold = a.isGoldenSignature ? 1 : 0;
+    const bGold = b.isGoldenSignature ? 1 : 0;
+    if (bGold !== aGold) {
+      return bGold - aGold;
+    }
+
     if (sortBy === "breathability") {
       const breathA = a.outfit?.comfortRating || 0;
       const breathB = b.outfit?.comfortRating || 0;
@@ -393,7 +401,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
       };
       return extractPrice(b.priceRange) - extractPrice(a.priceRange);
     }
-    return 0; // Default: trending order
+    return (b.likes || 0) - (a.likes || 0); // Default: Urutan likes tertinggi
   });
 
   const displayedLooks = sortedLooks.slice(0, visibleCount);
@@ -591,8 +599,13 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                       loading="lazy"
                     />
 
-                    {/* Badge Iklim Kontekstual di Kiri Atas */}
-                    <div className="absolute top-2 left-2 z-10">
+                    {/* Badge Iklim Kontekstual & Golden Signature di Kiri Atas */}
+                    <div className="absolute top-2 left-2 z-10 flex flex-col items-start gap-1">
+                      {look.isGoldenSignature && (
+                        <span className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[9px] font-mono font-bold uppercase tracking-wider bg-[#8C5A3C] text-white shadow-xs">
+                          ★ GOLDEN LOOK
+                        </span>
+                      )}
                       <span className="inline-block px-2 py-0.5 text-[10px] font-mono font-semibold uppercase tracking-wider bg-[#181A18]/90 text-[#FAF8F5] shadow-xs">
                         {climateInfo.badge}
                       </span>
@@ -816,20 +829,27 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                         };
                         const catLabel = categoryLabelMap[it.category] || it.category;
 
+                        const isShoe = it.category === "sepatu";
+                        const slotKey = it.category === "atasan" ? "top" : it.category === "bawahan" ? "bottom" : it.category === "outer_hijab" ? "outer" : "shoes";
+                        const visual = resolveSmartItemVisual(it, slotKey, selectedLook.image);
+                        const displayImg = isShoe
+                          ? resolveCleanShoePackshot(it.name, it.color, it.colorHex)
+                          : visual.imageUrl || it.imageUrl;
+
                         return (
                           <div key={idx} className="flex items-center gap-2.5 py-1.5 px-2 bg-stone-50/70 border border-[#181A18]/5">
-                            {it.imageUrl ? (
+                            <div className="w-10 h-10 bg-[#EFECE6] border border-[#181A18]/10 shrink-0 overflow-hidden relative">
                               <img
-                                src={it.imageUrl}
+                                src={displayImg}
                                 alt={it.name}
-                                className="w-10 h-10 object-cover bg-white border border-[#181A18]/10 shrink-0"
+                                className={`w-full h-full object-cover ${
+                                  !isShoe && visual.cropConfig?.isCrop
+                                    ? `${visual.cropConfig.position} ${visual.cropConfig.scale}`
+                                    : "object-top"
+                                }`}
                                 loading="lazy"
                               />
-                            ) : (
-                              <div className="w-10 h-10 bg-stone-100 border border-[#181A18]/10 shrink-0 flex items-center justify-center text-[10px] text-stone-500 font-mono">
-                                ✦
-                              </div>
-                            )}
+                            </div>
                             <div className="flex-1 min-w-0">
                               <span className="text-[10px] font-mono uppercase tracking-wider text-[#8C5A3C] block font-semibold">
                                 {catLabel}

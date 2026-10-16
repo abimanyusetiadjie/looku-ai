@@ -74,6 +74,12 @@ export interface OutfitItem {
   brand?: FashionBrand | string;
   brandUrl?: string; // Direct link ke toko resmi brand (e.g. uniqlo.com/id atau id.hm.com)
   isOfficialBrand?: boolean;
+  cropConfig?: {
+    isCrop: boolean;
+    position: string;
+    scale: string;
+    heroUrl: string;
+  };
 }
 
 export interface OOTDRecommendation {
@@ -94,6 +100,7 @@ export interface OOTDRecommendation {
   sweatStainResistance?: string; // Sweat-Stain Resistance Scoring (SSRS)
   hijabHarmonyTip?: string; // Panduan kombinasi warna hijab/pashmina
   costPerWearSavings?: string; // Estimasi penghematan Capsule Re-mix
+  isGoldenSignature?: boolean;
 }
 
 export interface TrendingLook {
@@ -107,6 +114,7 @@ export interface TrendingLook {
   image: string;
   likes: number;
   outfit: OOTDRecommendation;
+  isGoldenSignature?: boolean;
 }
 
 export interface WaitlistEntry {
