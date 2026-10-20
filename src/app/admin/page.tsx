@@ -69,6 +69,53 @@ export default function AdminCMSPage() {
   const [lookbookCategoryFilter, setLookbookCategoryFilter] = useState("Semua");
   const [editingLook, setEditingLook] = useState<TrendingLook | null>(null);
   const [isLookModalOpen, setIsLookModalOpen] = useState(false);
+  const [isExtractingImage, setIsExtractingImage] = useState(false);
+
+  const handleImageUrlChange = (val: string) => {
+    let clean = val.trim();
+    // Auto-decode google image search url
+    if (clean.includes("google.") && clean.includes("/imgres")) {
+      try {
+        const u = new URL(clean);
+        const img = u.searchParams.get("imgurl");
+        if (img) clean = decodeURIComponent(img);
+      } catch {}
+    }
+    if (editingLook) {
+      setEditingLook({ ...editingLook, image: clean });
+    }
+  };
+
+  const handleAutoExtractImage = async () => {
+    if (!editingLook?.image) return;
+    setIsExtractingImage(true);
+    try {
+      const res = await fetch(`/api/extract-image?url=${encodeURIComponent(editingLook.image)}`);
+      const data = await res.json();
+      if (data.success && data.imageUrl) {
+        setEditingLook({ ...editingLook, image: data.imageUrl });
+        addToast({
+          title: "Foto Berhasil Ditemukan!",
+          description: `Sumber gambar ${data.source || "Web"} siap digunakan.`,
+          type: "success",
+        });
+      } else {
+        addToast({
+          title: "Gagal Mengambil Gambar",
+          description: data.error || "Gunakan cara Klik Kanan pada foto lalu pilih 'Salin Alamat Gambar'.",
+          type: "error",
+        });
+      }
+    } catch {
+      addToast({
+        title: "Koneksi Gagal",
+        description: "Gunakan cara Klik Kanan pada foto lalu pilih 'Salin Alamat Gambar'.",
+        type: "error",
+      });
+    } finally {
+      setIsExtractingImage(false);
+    }
+  };
 
   // Presets State
   const [presets, setPresets] = useState<OOTDRecommendation[]>([]);
@@ -998,6 +1045,7 @@ export default function AdminCMSPage() {
                           alt={look.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           loading="lazy"
+                          referrerPolicy="no-referrer"
                         />
 
                         {/* Top Badges */}
@@ -1621,6 +1669,7 @@ export default function AdminCMSPage() {
                       src={editingLook.image}
                       alt="Preview"
                       className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src =
                           "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80";
@@ -1630,14 +1679,32 @@ export default function AdminCMSPage() {
 
                   <div className="flex-1 space-y-3 w-full">
                     <div className="space-y-1">
-                      <label className="font-bold font-mono">URL Foto Model (Unsplash / CDN):</label>
+                      <div className="flex items-center justify-between">
+                        <label className="font-bold font-mono">
+                          URL Foto Model (Pinterest / Uniqlo / Google / Unsplash):
+                        </label>
+                        <button
+                          type="button"
+                          onClick={handleAutoExtractImage}
+                          disabled={isExtractingImage || !editingLook.image.trim()}
+                          className="px-2.5 py-1 rounded-lg bg-sand-100 hover:bg-sand-200 border border-sand-300 text-[10px] font-mono font-bold text-charcoal-900 flex items-center gap-1 transition-colors disabled:opacity-40"
+                          title="Ekstrak gambar otomatis jika menempelkan link produk Uniqlo, Zalora, atau link Google"
+                        >
+                          <Search className="w-3 h-3" />
+                          <span>{isExtractingImage ? "Mengekstrak..." : "🔍 Ekstrak dari Link Web"}</span>
+                        </button>
+                      </div>
                       <input
                         type="url"
                         required
                         value={editingLook.image}
-                        onChange={(e) => setEditingLook({ ...editingLook, image: e.target.value })}
+                        onChange={(e) => handleImageUrlChange(e.target.value)}
+                        placeholder="https://i.pinimg.com/... atau https://image.uniqlo.com/... atau link halaman produk Uniqlo"
                         className="w-full p-2.5 rounded-xl bg-sand-50 border border-sand-300 font-mono text-[11px]"
                       />
+                      <p className="text-[10px] text-sand-500 font-sans leading-tight">
+                        💡 <b>Tips Cepat:</b> Di Pinterest, Google, atau Uniqlo, cukup <b>Klik Kanan pada Foto ➔ Pilih &quot;Copy Image Address&quot; (Salin Alamat Gambar)</b> lalu tempel di sini. Atau tempel link produk Uniqlo lalu klik tombol <b>Ekstrak</b> di atas.
+                      </p>
                     </div>
 
                     <div className="space-y-1">

@@ -29,6 +29,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://looku.ai"),
+  referrer: "no-referrer",
   title: "look.u — Personal Stylist AI & Kurasi OOTD Tropis 33°C",
   description:
     "Kurasi paduan outfit adem di cuaca tropis 33°C, ramah hijab, dan langsung terhubung ke official store Shopee & Tokopedia.",

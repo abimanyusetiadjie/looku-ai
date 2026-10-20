@@ -630,6 +630,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                       alt={look.title}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
+                      referrerPolicy="no-referrer"
                     />
 
                     {/* Badge Iklim Kontekstual & Golden Signature di Kiri Atas */}
@@ -804,6 +805,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                     src={selectedLook.image}
                     alt={selectedLook.title}
                     className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute top-2.5 left-2.5 bg-[#181A18]/90 text-white px-2.5 py-1 text-[10px] font-mono font-semibold uppercase tracking-widest">
                     {getLookClimate(selectedLook).badge}
@@ -877,6 +879,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                                 alt={it.name}
                                 className="w-full h-full object-cover object-top"
                                 loading="lazy"
+                                referrerPolicy="no-referrer"
                               />
                             </div>
                             <div className="flex-1 min-w-0">
