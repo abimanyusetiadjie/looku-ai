@@ -31,6 +31,7 @@ export interface StudioItem {
   categoryOrder: number;
   pinNumber: number;
   brand: string;
+  dupeBrand: string;
   officialUrl: string;
   officialPriceStr: string;
   name: string;
@@ -52,6 +53,8 @@ export interface StudioItem {
   note: string;
   gender: "female" | "male" | "unisex";
   modest: boolean;
+  isHijab?: boolean;
+  suitableWeather: ("hot" | "ac" | "rainy" | "mild")[];
 }
 
 export interface SkenaVibePreset {
@@ -85,7 +88,7 @@ export interface SkenaVibePreset {
 
 // -------------------------------------------------------------
 // POOL KOMPONEN BRAND RESMI & SKENA
-// Menggunakan CDN Resmi Pinterest HD & Zalora Static CDN
+// Menggunakan Packshot Satuan Bersih (Bebas Duplikasi Foto Model Hero)
 // -------------------------------------------------------------
 const TOP_POOL: StudioItem[] = [
   {
@@ -95,7 +98,8 @@ const TOP_POOL: StudioItem[] = [
     categoryOrder: 2,
     pinNumber: 2,
     brand: "COTTONINK",
-    officialUrl: "https://www.cottonink.co.id/",
+    dupeBrand: "Shopatvelvet",
+    officialUrl: "https://www.zalora.co.id/search?q=Cottonink+Rayon+Blouse",
     officialPriceStr: "Rp 279.000",
     name: "Blus Rayon Flowy Dropped Shoulder",
     material: "100% Rayon Twill",
@@ -104,12 +108,13 @@ const TOP_POOL: StudioItem[] = [
     colorHex: "#C4A482",
     price: 95000,
     priceStr: "Rp 95.000",
-    imageUrl: "https://i.pinimg.com/originals/54/2c/ad/542cadb7970189fddff971caf303b24b.png",
-    shopeeQuery: "Blouse Rayon Twill Oversize Wanita Adem",
-    tokopediaQuery: "Tunik Rayon Wanita Adem Flowy",
-    note: "Sirkulasi udara 98% optimal pada suhu 33°C, jatuh lembut & anti-lecek",
+    imageUrl: CLEAN_PACKSHOT_DICTIONARY.top.rayon_blouse,
+    shopeeQuery: "Shopatvelvet Blouse Rayon Twill Oversize Wanita Adem",
+    tokopediaQuery: "Tunik Rayon Wanita Adem Flowy Shopatvelvet",
+    note: "Sirkulasi udara optimal pada suhu 33°C, jatuh lembut & anti-lecek",
     gender: "female",
     modest: true,
+    suitableWeather: ["hot", "mild"],
   },
   {
     id: "top_uniqlo_linen_relaxed",
@@ -118,7 +123,8 @@ const TOP_POOL: StudioItem[] = [
     categoryOrder: 2,
     pinNumber: 2,
     brand: "UNIQLO",
-    officialUrl: "https://www.uniqlo.com/id/id/",
+    dupeBrand: "Thenblank",
+    officialUrl: "https://www.uniqlo.com/id/id/search?q=Kemeja+Premium+Linen+Lengan+Panjang",
     officialPriceStr: "Rp 399.000",
     name: "Kemeja Premium Linen Relaxed Lengan Panjang",
     material: "100% European Flax Linen",
@@ -127,12 +133,13 @@ const TOP_POOL: StudioItem[] = [
     colorHex: "#8A9A86",
     price: 115000,
     priceStr: "Rp 115.000",
-    imageUrl: "https://i.pinimg.com/originals/1b/3d/24/1b3d240b29e3ea29a9f1d8fdcb0fa1dc.png",
-    shopeeQuery: "Kemeja Linen Rami Oversize Lengan Panjang Adem",
-    tokopediaQuery: "Kemeja Linen Panjang Relaxed Fit Unisex",
+    imageUrl: CLEAN_PACKSHOT_DICTIONARY.top.linen_sage,
+    shopeeQuery: "Thenblank Kemeja Linen Rami Oversize Lengan Panjang Adem",
+    tokopediaQuery: "Thenblank Kemeja Linen Panjang Relaxed Fit",
     note: "Serat flax alami melepas hawa panas tubuh seketika di cuaca terik",
     gender: "unisex",
     modest: true,
+    suitableWeather: ["hot", "mild"],
   },
   {
     id: "top_uniqlo_airism_boxy",
@@ -141,7 +148,8 @@ const TOP_POOL: StudioItem[] = [
     categoryOrder: 2,
     pinNumber: 2,
     brand: "UNIQLO",
-    officialUrl: "https://www.uniqlo.com/id/id/",
+    dupeBrand: "Erigo",
+    officialUrl: "https://www.uniqlo.com/id/id/search?q=AIRism+Katun+T-Shirt+Oversize",
     officialPriceStr: "Rp 199.000",
     name: "AIRism Katun T-Shirt Oversize Kerah Bulat",
     material: "AIRism Tech Cotton 24s",
@@ -150,12 +158,13 @@ const TOP_POOL: StudioItem[] = [
     colorHex: "#181A18",
     price: 89000,
     priceStr: "Rp 89.000",
-    imageUrl: "https://i.pinimg.com/originals/8b/37/01/8b370169218458e48e093fd8140c898a.jpg",
-    shopeeQuery: "Kaos Oversize Boxy Cotton Bamboo 24s Cooltech",
-    tokopediaQuery: "Kaos Polos Oversize Cooltech Katun Adem Pria",
+    imageUrl: CLEAN_PACKSHOT_DICTIONARY.top.boxy_tee_black,
+    shopeeQuery: "Erigo Kaos Oversize Boxy Cotton Bamboo 24s Cooltech",
+    tokopediaQuery: "Erigo Kaos Polos Oversize Cooltech Katun Adem Pria",
     note: "Siluet Japanese City Boy boxy dengan lapisan dalam sejuk",
     gender: "male",
     modest: false,
+    suitableWeather: ["hot", "mild"],
   },
   {
     id: "top_zara_poplin_scbd",
@@ -164,7 +173,8 @@ const TOP_POOL: StudioItem[] = [
     categoryOrder: 2,
     pinNumber: 2,
     brand: "ZARA",
-    officialUrl: "https://www.zara.com/id/",
+    dupeBrand: "This Is April",
+    officialUrl: "https://www.zara.com/id/id/search?searchTerm=Poplin+Shirt",
     officialPriceStr: "Rp 599.000",
     name: "Structured Poplin Shirt Clean Collar",
     material: "Crisp Cotton Poplin",
@@ -173,35 +183,38 @@ const TOP_POOL: StudioItem[] = [
     colorHex: "#FAF8F5",
     price: 129000,
     priceStr: "Rp 129.000",
-    imageUrl: "https://i.pinimg.com/originals/be/35/11/be3511d3523f1db782d53ca53864b245.jpg",
-    shopeeQuery: "Kemeja Katun Poplin Wanita Kerja Kerah Rapi",
-    tokopediaQuery: "Kemeja Putih Kerja Wanita Oversize Poplin",
+    imageUrl: CLEAN_PACKSHOT_DICTIONARY.top.linen_white,
+    shopeeQuery: "This Is April Kemeja Katun Poplin Wanita Kerja Kerah Rapi",
+    tokopediaQuery: "This Is April Kemeja Putih Kerja Wanita Oversize Poplin",
     note: "Tegas dan rapi seharian untuk mobilitas komuter & ruang AC SCBD",
     gender: "female",
     modest: true,
+    suitableWeather: ["ac", "rainy", "mild"],
   },
   {
     id: "top_erigo_vintage_boxy",
     category: "top",
-    categoryLabel: "Tops · Heavyweight Tee",
+    categoryLabel: "Tops · Cool-Touch Tee",
     categoryOrder: 2,
     pinNumber: 2,
-    brand: "ERIGO_X",
-    officialUrl: "https://erigostore.id/",
+    brand: "ERIGO",
+    dupeBrand: "Erigo",
+    officialUrl: "https://www.zalora.co.id/search?q=Erigo+Boxy+T-Shirt",
     officialPriceStr: "Rp 150.000",
-    name: "Heavyweight Boxy Graphic Vintage Tee",
-    material: "Cotton Combed 16s Washed",
-    breathability: 92,
+    name: "Boxy Graphic Vintage Cool-Touch Tee",
+    material: "Cotton Combed 24s/30s Cool-Touch",
+    breathability: 95,
     colorName: "Washed Faded Grey",
     colorHex: "#4A4E51",
     price: 79000,
     priceStr: "Rp 79.000",
-    imageUrl: "https://i.pinimg.com/originals/18/eb/9c/18eb9ca35a782410a768e9e1bb34a81e.jpg",
-    shopeeQuery: "Kaos Vintage Washed Heavyweight Boxy Cut",
-    tokopediaQuery: "Kaos Faded Washed Oversized Blok M Indie",
-    note: "Karakter vintage streetwear kasual dengan tekstur washed tahan lama",
+    imageUrl: CLEAN_PACKSHOT_DICTIONARY.top.boxy_tee_grey,
+    shopeeQuery: "Erigo Kaos Vintage Washed Cotton Combed 24s Boxy Cut",
+    tokopediaQuery: "Erigo Kaos Faded Washed Oversized Blok M Indie",
+    note: "Katun Combed 24s/30s Cool-Touch berpori adem untuk skena kasual tropis",
     gender: "unisex",
     modest: false,
+    suitableWeather: ["hot", "mild", "rainy"],
   },
   {
     id: "top_thenblank_cropped_blouse",
@@ -210,7 +223,8 @@ const TOP_POOL: StudioItem[] = [
     categoryOrder: 2,
     pinNumber: 2,
     brand: "THENBLANK",
-    officialUrl: "https://thenblank.com/",
+    dupeBrand: "Shopatvelvet",
+    officialUrl: "https://www.zalora.co.id/search?q=Thenblank+Linen+Top",
     officialPriceStr: "Rp 249.000",
     name: "Minimalist Square Neck Linen Top",
     material: "Soft Pure Crinkle Linen",
@@ -219,12 +233,13 @@ const TOP_POOL: StudioItem[] = [
     colorHex: "#F3E5AB",
     price: 99000,
     priceStr: "Rp 99.000",
-    imageUrl: "https://i.pinimg.com/originals/d0/e1/79/d0e179729344bf55f3b2454ae8f10098.jpg",
-    shopeeQuery: "Atasan Crop Top Linen Square Neck Katun",
-    tokopediaQuery: "Blouse Linen Square Neck Wanita Adem",
+    imageUrl: CLEAN_PACKSHOT_DICTIONARY.top.silk_satin,
+    shopeeQuery: "Shopatvelvet Atasan Linen Square Neck Katun",
+    tokopediaQuery: "Thenblank Blouse Linen Square Neck Wanita Adem",
     note: "Siluet kontemporer untuk brunch santai di Senopati atau kafe aesthetic",
     gender: "female",
     modest: false,
+    suitableWeather: ["hot", "mild", "ac"],
   },
 ];
 
@@ -236,7 +251,8 @@ const BOTTOM_POOL: StudioItem[] = [
     categoryOrder: 3,
     pinNumber: 3,
     brand: "UNIQLO",
-    officialUrl: "https://www.uniqlo.com/id/id/",
+    dupeBrand: "Thenblank",
+    officialUrl: "https://www.uniqlo.com/id/id/search?q=Celana+Lebar+Lipit+Pleated+Wide+Pants",
     officialPriceStr: "Rp 499.000",
     name: "Celana Lebar Lipit Pleated Wide Pants",
     material: "Rayon Blend 2-Way Stretch",
@@ -246,11 +262,12 @@ const BOTTOM_POOL: StudioItem[] = [
     price: 110000,
     priceStr: "Rp 110.000",
     imageUrl: "https://i.pinimg.com/originals/73/2b/97/732b9765f65e63ebf02595822e3524d3.jpg",
-    shopeeQuery: "Kulot Highwaist Pleated Flowy Wanita Bahan Jatuh",
-    tokopediaQuery: "Celana Kulot Lipit Wanita Pinggang Karet",
+    shopeeQuery: "Thenblank Kulot Highwaist Pleated Flowy Wanita Bahan Jatuh",
+    tokopediaQuery: "Thenblank Celana Kulot Lipit Wanita Pinggang Karet",
     note: "Draping jatuh sangat anggun, menyamarkan lekuk tubuh & anti-gerah",
     gender: "female",
     modest: true,
+    suitableWeather: ["hot", "mild", "ac"],
   },
   {
     id: "bot_uniqlo_geared_shorts",
@@ -259,7 +276,8 @@ const BOTTOM_POOL: StudioItem[] = [
     categoryOrder: 3,
     pinNumber: 3,
     brand: "UNIQLO",
-    officialUrl: "https://www.uniqlo.com/id/id/",
+    dupeBrand: "Erigo",
+    officialUrl: "https://www.uniqlo.com/id/id/search?q=Celana+Pendek+Geared",
     officialPriceStr: "Rp 299.000",
     name: "Celana Pendek Geared Ripstop Ringan",
     material: "Water-Repellent Ripstop Nylon",
@@ -269,11 +287,12 @@ const BOTTOM_POOL: StudioItem[] = [
     price: 85000,
     priceStr: "Rp 85.000",
     imageUrl: "https://i.pinimg.com/originals/fa/77/80/fa7780f2eb19143c746bc5cfbe637dbf.png",
-    shopeeQuery: "Celana Cargo Pendek Ripstop Quickdry Pria",
-    tokopediaQuery: "Celana Geared Pendek Taktikal Ringan",
+    shopeeQuery: "Erigo Celana Cargo Pendek Ripstop Quickdry Pria",
+    tokopediaQuery: "Erigo Celana Geared Pendek Taktikal Ringan",
     note: "Sangat fleksibel untuk mobilitas perkotaan & gowes sore santai",
     gender: "male",
     modest: false,
+    suitableWeather: ["hot", "rainy"],
   },
   {
     id: "bot_hm_loose_straight_slacks",
@@ -282,7 +301,8 @@ const BOTTOM_POOL: StudioItem[] = [
     categoryOrder: 3,
     pinNumber: 3,
     brand: "H&M",
-    officialUrl: "https://id.hm.com/",
+    dupeBrand: "This Is April",
+    officialUrl: "https://id.hm.com/id_id/search-results.html?q=tailored+trousers",
     officialPriceStr: "Rp 449.000",
     name: "Loose Fit Tailored Straight Trousers",
     material: "Viscose Twill Breathable Weave",
@@ -292,11 +312,12 @@ const BOTTOM_POOL: StudioItem[] = [
     price: 125000,
     priceStr: "Rp 125.000",
     imageUrl: "https://i.pinimg.com/originals/e8/37/10/e8371077ea4144fb4a2d8ebf5139aa2c.jpg",
-    shopeeQuery: "Celana Bahan Wanita Semi Formal Highwaist Lurus",
-    tokopediaQuery: "Celana Kantor Wanita Straight Trousers Adem",
+    shopeeQuery: "This Is April Celana Bahan Wanita Semi Formal Highwaist Lurus",
+    tokopediaQuery: "This Is April Celana Kantor Wanita Straight Trousers Adem",
     note: "Garis siluet tegas melangsingkan kaki untuk busana profesional kantor",
     gender: "female",
     modest: true,
+    suitableWeather: ["ac", "rainy", "mild"],
   },
   {
     id: "bot_cottonink_satin_skirt",
@@ -305,7 +326,8 @@ const BOTTOM_POOL: StudioItem[] = [
     categoryOrder: 3,
     pinNumber: 3,
     brand: "COTTONINK",
-    officialUrl: "https://www.cottonink.co.id/",
+    dupeBrand: "Shopatvelvet",
+    officialUrl: "https://www.zalora.co.id/search?q=Cottonink+Satin+Midi+Skirt",
     officialPriceStr: "Rp 329.000",
     name: "Bias Cut Satin Midi Skirt Silky Touch",
     material: "Airflow Matte Silk Rayon",
@@ -315,34 +337,37 @@ const BOTTOM_POOL: StudioItem[] = [
     price: 105000,
     priceStr: "Rp 105.000",
     imageUrl: "https://i.pinimg.com/originals/40/70/7a/40707a334f8badcd3a4e39b4643da309.png",
-    shopeeQuery: "Rok Satin Midi Silk Wanita Flare A-Line",
-    tokopediaQuery: "Rok Satin Panjang High Waist Cantik",
+    shopeeQuery: "Shopatvelvet Rok Satin Midi Silk Wanita Flare A-Line",
+    tokopediaQuery: "Shopatvelvet Rok Satin Panjang High Waist Cantik",
     note: "Kilau matte mewah tanpa rasa panas lengket saat dipakai jalan siang",
     gender: "female",
     modest: true,
+    suitableWeather: ["hot", "mild", "ac"],
   },
   {
     id: "bot_erigo_vintage_denim",
     category: "bottom",
-    categoryLabel: "Bottoms · Baggy Denim",
+    categoryLabel: "Bottoms · Chino & Light Denim",
     categoryOrder: 3,
     pinNumber: 3,
-    brand: "ERIGO_X",
-    officialUrl: "https://erigostore.id/",
+    brand: "ERIGO",
+    dupeBrand: "Erigo",
+    officialUrl: "https://www.zalora.co.id/search?q=Erigo+Loose+Denim+Chino",
     officialPriceStr: "Rp 299.000",
-    name: "Classic Baggy 90s Vintage Raw Denim",
-    material: "12oz Non-Stretch Washed Cotton Denim",
-    breathability: 91,
+    name: "Relaxed Baggy 90s Breathable Denim",
+    material: "10oz Breathable Washed Cotton Denim",
+    breathability: 93,
     colorName: "Medium Vintage Indigo",
     colorHex: "#3B5998",
     price: 135000,
     priceStr: "Rp 135.000",
     imageUrl: "https://i.pinimg.com/originals/1e/8a/a5/1e8aa5fa0466487e49f87c95e1e5b1eb.jpg",
-    shopeeQuery: "Celana Jeans Baggy 90s Vintage Pria Wanita Loose",
-    tokopediaQuery: "Celana Jeans Loose Wide Leg Vintage Washed",
+    shopeeQuery: "Erigo Celana Jeans Baggy 90s Vintage Pria Wanita Loose",
+    tokopediaQuery: "Erigo Celana Jeans Loose Wide Leg Vintage Washed",
     note: "Potongan longgar 90-an yang memberi sirkulasi udara bebas di paha",
     gender: "unisex",
     modest: false,
+    suitableWeather: ["mild", "ac", "rainy"],
   },
 ];
 
@@ -350,25 +375,80 @@ const OUTER_POOL: StudioItem[] = [
   {
     id: "outer_voal_miracle",
     category: "outer",
-    categoryLabel: "Headwear · Voal Miracle",
+    categoryLabel: "Hijab · Voal Miracle",
     categoryOrder: 1,
     pinNumber: 1,
-    brand: "LOKAL_MODEST",
-    officialUrl: "https://www.zalora.co.id/",
-    officialPriceStr: "Rp 85.000",
+    brand: "KAMI.",
+    dupeBrand: "Vanilla Hijab",
+    officialUrl: "https://www.zalora.co.id/search?q=Kami+Voal+Hijab",
+    officialPriceStr: "Rp 185.000",
     name: "Hijab Voal Miracle Ultrafine Laser Cut",
     material: "100% Voal Ultrafine",
     breathability: 98,
     colorName: "Warm Sand",
     colorHex: "#EAE4DC",
-    price: 39000,
-    priceStr: "Rp 39.000",
+    price: 45000,
+    priceStr: "Rp 45.000",
     imageUrl: "https://i.pinimg.com/originals/f1/ff/32/f1ff32036ab3216cbb743dffcbadda35.jpg",
-    shopeeQuery: "Hijab Voal Miracle Laser Cut 115x115 Adem",
-    tokopediaQuery: "Jilbab Segiempat Voal Miracle Lasercut",
+    shopeeQuery: "Vanilla Hijab Voal Miracle Laser Cut 115x115 Adem",
+    tokopediaQuery: "Vanilla Hijab Segiempat Voal Miracle Lasercut",
     note: "Tegak di dahi, sangat ringan, dan bebas kedap di telinga",
     gender: "female",
     modest: true,
+    isHijab: true,
+    suitableWeather: ["hot", "mild", "ac", "rainy"],
+  },
+  {
+    id: "outer_pashmina_ceruty",
+    category: "outer",
+    categoryLabel: "Hijab · Ceruty Silk",
+    categoryOrder: 1,
+    pinNumber: 1,
+    brand: "LAFIYE",
+    dupeBrand: "Vanilla Hijab",
+    officialUrl: "https://www.zalora.co.id/search?q=Pashmina+Hijab+Modest",
+    officialPriceStr: "Rp 129.000",
+    name: "Pashmina Ceruty Baby Doll Silk Flowy",
+    material: "Ceruty Babydoll Silk",
+    breathability: 96,
+    colorName: "Sage Muted",
+    colorHex: "#8A9A86",
+    price: 42000,
+    priceStr: "Rp 42.000",
+    imageUrl: "https://i.pinimg.com/originals/22/49/32/22493275ad9b0132d65280c7e3049265.png",
+    shopeeQuery: "Lafiye Pashmina Ceruty Babydoll Premium Jahit Tepi",
+    tokopediaQuery: "Lafiye Pashmina Shawl Ceruty Panjang Adem",
+    note: "Draping jatuh anggun untuk gaya kampus & kafe",
+    gender: "female",
+    modest: true,
+    isHijab: true,
+    suitableWeather: ["hot", "mild", "ac"],
+  },
+  {
+    id: "outer_lafiye_crinkle_shawl",
+    category: "outer",
+    categoryLabel: "Hijab · Airy Crinkle",
+    categoryOrder: 1,
+    pinNumber: 1,
+    brand: "VANILLA HIJAB",
+    dupeBrand: "Lafiye",
+    officialUrl: "https://www.zalora.co.id/search?q=Crinkle+Shawl+Hijab",
+    officialPriceStr: "Rp 119.000",
+    name: "Pashmina Crinkle Cotton Voile Tanpa Setrika",
+    material: "100% Airy Crinkle Cotton Voile",
+    breathability: 98,
+    colorName: "Oatmeal Latte",
+    colorHex: "#D8C7B5",
+    price: 39000,
+    priceStr: "Rp 39.000",
+    imageUrl: CLEAN_PACKSHOT_DICTIONARY.hijab.earth_tone,
+    shopeeQuery: "Lafiye Pashmina Crinkle Airflow Cotton Voile Adem",
+    tokopediaQuery: "Vanilla Hijab Pashmina Crinkle Cotton Ironless",
+    note: "Tekstur crinkle bernapas dengan sirkulasi udara alami untuk 33°C",
+    gender: "female",
+    modest: true,
+    isHijab: true,
+    suitableWeather: ["hot", "rainy", "mild"],
   },
   {
     id: "outer_thenblank_linen_blazer",
@@ -377,7 +457,8 @@ const OUTER_POOL: StudioItem[] = [
     categoryOrder: 1,
     pinNumber: 1,
     brand: "THENBLANK",
-    officialUrl: "https://thenblank.com/",
+    dupeBrand: "This Is April",
+    officialUrl: "https://www.zalora.co.id/search?q=Thenblank+Linen+Blazer",
     officialPriceStr: "Rp 379.000",
     name: "Tailored Semi-Relaxed Unlined Linen Blazer",
     material: "Linen Tencel Unlined",
@@ -387,11 +468,13 @@ const OUTER_POOL: StudioItem[] = [
     price: 145000,
     priceStr: "Rp 145.000",
     imageUrl: "https://i.pinimg.com/originals/3c/9c/d7/3c9cd7ce6ed7158cc75cbe999b745984.jpg",
-    shopeeQuery: "Blazer Kerja Semi Formal Linen Unlined Adem",
-    tokopediaQuery: "Deconstructed Blazer Linen Pria Wanita",
+    shopeeQuery: "Thenblank Blazer Kerja Semi Formal Linen Unlined Adem",
+    tokopediaQuery: "This Is April Deconstructed Blazer Linen Wanita",
     note: "Struktur bahu rapi tanpa furing poliester yang bikin gerah",
     gender: "unisex",
     modest: true,
+    isHijab: false,
+    suitableWeather: ["ac", "mild", "rainy"],
   },
   {
     id: "outer_uniqlo_uv_parka",
@@ -400,7 +483,8 @@ const OUTER_POOL: StudioItem[] = [
     categoryOrder: 1,
     pinNumber: 1,
     brand: "UNIQLO",
-    officialUrl: "https://www.uniqlo.com/id/id/",
+    dupeBrand: "Erigo",
+    officialUrl: "https://www.uniqlo.com/id/id/search?q=Jaket+Parka+Saku+Proteksi+Sinar+UV",
     officialPriceStr: "Rp 399.000",
     name: "Jaket Parka Saku Proteksi Sinar UV (Airy Mesh)",
     material: "AIRism UV-Cut Mesh",
@@ -410,34 +494,13 @@ const OUTER_POOL: StudioItem[] = [
     price: 120000,
     priceStr: "Rp 120.000",
     imageUrl: "https://i.pinimg.com/originals/15/c1/5f/15c15f2bff7e8c9ea2a19922696ab2f6.jpg",
-    shopeeQuery: "Jaket Parasut UV Protection Mesh Ringan",
-    tokopediaQuery: "Jaket UV Protection Quick Dry Unisex",
+    shopeeQuery: "Erigo Jaket Parasut UV Protection Mesh Ringan",
+    tokopediaQuery: "Thenblank Jaket UV Protection Quick Dry Unisex",
     note: "Menangkal terik UV matahari UPF50+ sekaligus mengalirkan angin",
     gender: "unisex",
     modest: false,
-  },
-  {
-    id: "outer_pashmina_ceruty",
-    category: "outer",
-    categoryLabel: "Headwear · Ceruty Silk",
-    categoryOrder: 1,
-    pinNumber: 1,
-    brand: "LOKAL_MODEST",
-    officialUrl: "https://www.zalora.co.id/",
-    officialPriceStr: "Rp 75.000",
-    name: "Pashmina Ceruty Baby Doll Silk Flowy",
-    material: "Ceruty Babydoll Silk",
-    breathability: 96,
-    colorName: "Sage Muted",
-    colorHex: "#8A9A86",
-    price: 35000,
-    priceStr: "Rp 35.000",
-    imageUrl: "https://i.pinimg.com/originals/22/49/32/22493275ad9b0132d65280c7e3049265.png",
-    shopeeQuery: "Pashmina Ceruty Babydoll Premium Jahit Tepi",
-    tokopediaQuery: "Pashmina Shawl Ceruty Panjang Adem",
-    note: "Draping jatuh anggun untuk gaya kampus & kafe",
-    gender: "female",
-    modest: true,
+    isHijab: false,
+    suitableWeather: ["hot", "rainy", "mild"],
   },
 ];
 
@@ -449,7 +512,8 @@ const SHOES_POOL: StudioItem[] = [
     categoryOrder: 4,
     pinNumber: 4,
     brand: "H&M",
-    officialUrl: "https://id.hm.com/",
+    dupeBrand: "Brodo",
+    officialUrl: "https://id.hm.com/id_id/search-results.html?q=court+sneakers",
     officialPriceStr: "Rp 499.000",
     name: "Retro Court Chunky Leather Sneakers",
     material: "Vegan Leather & Mesh",
@@ -459,11 +523,12 @@ const SHOES_POOL: StudioItem[] = [
     price: 155000,
     priceStr: "Rp 155.000",
     imageUrl: CLEAN_PACKSHOT_DICTIONARY.shoes.sneakers.white,
-    shopeeQuery: "Sepatu Retro Court Sneakers Putih Vintage Kasual",
-    tokopediaQuery: "Sneakers Retro Vintage Casual Low Cut Unisex",
+    shopeeQuery: "Brodo Sepatu Retro Court Sneakers Putih Vintage Kasual",
+    tokopediaQuery: "Brodo Sneakers Retro Vintage Casual Low Cut Unisex",
     note: "Bantalan empuk untuk mobilitas jalan kaki antar stasiun & kafe",
     gender: "unisex",
     modest: true,
+    suitableWeather: ["hot", "ac", "rainy", "mild"],
   },
   {
     id: "shoes_zara_chunky_loafers",
@@ -472,7 +537,8 @@ const SHOES_POOL: StudioItem[] = [
     categoryOrder: 4,
     pinNumber: 4,
     brand: "ZARA",
-    officialUrl: "https://www.zara.com/id/",
+    dupeBrand: "Brodo",
+    officialUrl: "https://www.zara.com/id/id/search?searchTerm=Leather+Loafers",
     officialPriceStr: "Rp 899.000",
     name: "Chunky Lug Sole Leather Penny Loafers",
     material: "Matte Leather & Rubber",
@@ -482,11 +548,12 @@ const SHOES_POOL: StudioItem[] = [
     price: 185000,
     priceStr: "Rp 185.000",
     imageUrl: CLEAN_PACKSHOT_DICTIONARY.shoes.loafers.black,
-    shopeeQuery: "Sepatu Loafers Kulit Chunky Sol Tebal Docmart Style",
-    tokopediaQuery: "Sepatu Penny Loafers Pria Wanita Sol Tebal",
+    shopeeQuery: "Brodo Sepatu Loafers Kulit Chunky Sol Tebal",
+    tokopediaQuery: "Brodo Sepatu Penny Loafers Pria Wanita Sol Tebal",
     note: "Aksen kontemporer yang langsung mengangkat wibawa smart-casual",
     gender: "unisex",
     modest: true,
+    suitableWeather: ["ac", "rainy", "mild"],
   },
   {
     id: "shoes_zara_strappy_mules",
@@ -495,7 +562,8 @@ const SHOES_POOL: StudioItem[] = [
     categoryOrder: 4,
     pinNumber: 4,
     brand: "ZARA",
-    officialUrl: "https://www.zara.com/id/",
+    dupeBrand: "Shopatvelvet",
+    officialUrl: "https://www.zara.com/id/id/search?searchTerm=Flat+Mules+Sandals",
     officialPriceStr: "Rp 699.000",
     name: "Minimalist Suede & Leather Mule Sandals",
     material: "Cushioned Footbed",
@@ -505,11 +573,12 @@ const SHOES_POOL: StudioItem[] = [
     price: 135000,
     priceStr: "Rp 135.000",
     imageUrl: CLEAN_PACKSHOT_DICTIONARY.shoes.mules.cream,
-    shopeeQuery: "Sandal Mules Wanita Slip On Minimalis Hak Tahu",
-    tokopediaQuery: "Mules Sandal Wanita Flat Kasual Elegan",
+    shopeeQuery: "Shopatvelvet Sandal Mules Wanita Slip On Minimalis",
+    tokopediaQuery: "This Is April Mules Sandal Wanita Flat Kasual Elegan",
     note: "Bebas lembap untuk brunch akhir pekan & acara semi-formal",
     gender: "female",
     modest: false,
+    suitableWeather: ["hot", "mild"],
   },
 ];
 
@@ -623,14 +692,14 @@ const SKENA_VIBES: SkenaVibePreset[] = [
       height: "172 cm",
       size: "L",
       silhouette: "Baggy 90s",
-      keyFabric: "Heavyweight Washed Denim",
+      keyFabric: "Cotton Combed 24s/30s Cool-Touch",
     },
     heroImage: "https://i.pinimg.com/originals/18/eb/9c/18eb9ca35a782410a768e9e1bb34a81e.jpg",
     altImages: [
       "https://i.pinimg.com/originals/1e/8a/a5/1e8aa5fa0466487e49f87c95e1e5b1eb.jpg",
       "https://i.pinimg.com/originals/8b/37/01/8b370169218458e48e093fd8140c898a.jpg",
     ],
-    tagline: "Kaos heavyweight vintage Erigo-X dan baggy denim washed untuk tongkrongan Blok M.",
+    tagline: "Kaos boxy vintage Erigo berbahan Cotton Combed 24s/30s Cool-Touch dan baggy denim ringan untuk Blok M.",
     topId: "top_erigo_vintage_boxy",
     bottomId: "bot_erigo_vintage_denim",
     outerId: "outer_uniqlo_uv_parka",
@@ -782,6 +851,39 @@ const SKIN_TONES_DRAPE = [
   },
 ];
 
+function buildSpecificOfficialSearchUrl(brand: string, itemName: string, rawUrl?: string): string {
+  const q = encodeURIComponent(itemName);
+  const b = (brand || "").toUpperCase();
+  if (rawUrl && rawUrl.includes("?")) return rawUrl;
+  if (b.includes("UNIQLO")) return `https://www.uniqlo.com/id/id/search?q=${q}`;
+  if (b.includes("ZARA")) return `https://www.zara.com/id/id/search?searchTerm=${q}`;
+  if (b.includes("H&M") || b.includes("HM")) return `https://id.hm.com/id_id/search-results.html?q=${q}`;
+  return `https://www.zalora.co.id/search?q=${encodeURIComponent(`${brand} ${itemName}`.trim())}`;
+}
+
+function resolveAuthenticLocalDupeBrand(slotKey: "top" | "bottom" | "outer" | "shoes", itemName: string): string {
+  const n = (itemName || "").toLowerCase();
+  if (slotKey === "outer" && (n.includes("hijab") || n.includes("voal") || n.includes("pashmina") || n.includes("shawl"))) {
+    return n.includes("voal") ? "Vanilla Hijab" : "Lafiye";
+  }
+  if (slotKey === "shoes") {
+    return n.includes("mule") || n.includes("heels") || n.includes("sandal") ? "Shopatvelvet" : "Brodo";
+  }
+  if (slotKey === "top") {
+    if (n.includes("kaos") || n.includes("tee") || n.includes("t-shirt") || n.includes("boxy")) return "Erigo";
+    if (n.includes("blus") || n.includes("blouse") || n.includes("satin") || n.includes("tunik")) return "Shopatvelvet";
+    if (n.includes("poplin") || n.includes("knit") || n.includes("cardigan")) return "This Is April";
+    return "Thenblank";
+  }
+  if (slotKey === "bottom") {
+    if (n.includes("rok") || n.includes("skirt")) return "Shopatvelvet";
+    if (n.includes("cargo") || n.includes("denim") || n.includes("jeans") || n.includes("pendek")) return "Erigo";
+    if (n.includes("slacks") || n.includes("trousers") || n.includes("tailored")) return "This Is April";
+    return "Thenblank";
+  }
+  return "Thenblank";
+}
+
 function outfitItemToStudioItem(
   item: OutfitItem | undefined,
   slotKey: "top" | "bottom" | "outer" | "shoes",
@@ -799,8 +901,12 @@ function outfitItemToStudioItem(
     }
   }
 
+  const isHijabPiece =
+    slotKey === "outer" &&
+    /hijab|voal|pashmina|shawl|kerudung/i.test(`${item.name} ${item.material || ""}`);
+
   const categoryLabels: Record<string, string> = {
-    outer: "Outer / Hijab · Layering",
+    outer: isHijabPiece ? "Hijab · Modest Headwear" : "Outerwear · Layering",
     top: "Tops · Atasan Utama",
     bottom: "Bottoms · Bawahan",
     shoes: "Footwear · Sepatu & Sandal",
@@ -818,8 +924,10 @@ function outfitItemToStudioItem(
     ? cleanPriceStr.split("Dupe:")[1]?.replace(")", "").trim() || cleanPriceStr
     : cleanPriceStr;
 
-  // Lapis 1 & Lapis 2 Hybrid Visual Resolver
+  // Lapis 1 & Lapis 2 Hybrid Visual Resolver (Pure Standalone Packshot)
   const visual = resolveSmartItemVisual(item, slotKey, fallbackImage);
+  const resolvedBrand = item.brand || (item.isOfficialBrand ? "UNIQLO" : "THENBLANK");
+  const resolvedDupeBrand = resolveAuthenticLocalDupeBrand(slotKey, item.name);
 
   return {
     id: `item_${slotKey}_${(item.name || "garment").replace(/\s+/g, "_").toLowerCase()}`,
@@ -827,8 +935,9 @@ function outfitItemToStudioItem(
     categoryLabel: categoryLabels[slotKey] || fallback.categoryLabel,
     categoryOrder: pinNumbers[slotKey] || fallback.categoryOrder,
     pinNumber: pinNumbers[slotKey] || fallback.pinNumber,
-    brand: item.brand || (item.isOfficialBrand ? "UNIQLO" : "LOCAL_CURATED"),
-    officialUrl: item.brandUrl || "https://www.uniqlo.com/id/id/",
+    brand: resolvedBrand,
+    dupeBrand: resolvedDupeBrand,
+    officialUrl: buildSpecificOfficialSearchUrl(resolvedBrand, item.name, item.brandUrl),
     officialPriceStr: cleanPriceStr.split("(")[0].trim() || fallback.officialPriceStr,
     name: item.name,
     material: item.material || "Katun Rayon & Linen",
@@ -837,13 +946,14 @@ function outfitItemToStudioItem(
     colorHex: item.colorHex || fallback.colorHex,
     price: price,
     priceStr: dupePriceStr,
-    imageUrl: visual.imageUrl || item.imageUrl || fallbackImage || fallback.imageUrl,
-    cropConfig: visual.cropConfig,
-    shopeeQuery: item.shopeeQuery || item.name,
-    tokopediaQuery: item.tokopediaQuery || item.name,
-    note: `Kombinasi material ${item.material || "adem"} bersirkulasi optimal`,
+    imageUrl: visual.imageUrl || fallback.imageUrl,
+    shopeeQuery: item.shopeeQuery || `${resolvedDupeBrand} ${item.name}`,
+    tokopediaQuery: item.tokopediaQuery || `${resolvedDupeBrand} ${item.name}`,
+    note: `Kombinasi material ${item.material || "adem"} dengan sirkulasi udara optimal`,
     gender: "female",
     modest: true,
+    isHijab: isHijabPiece,
+    suitableWeather: fallback.suitableWeather,
   };
 }
 
@@ -903,7 +1013,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
   const [feedbackToast, setFeedbackToast] = useState<string | null>(null);
   const [isShuffling, setIsShuffling] = useState(false);
 
-  // Sinkronisasi Deep-Link dari Lookbook (?look=...) & LocalStorage
+  // Sinkronisasi Deep-Link dari Hero/Lookbook (?vibe=... atau ?look=...) & LocalStorage
   useEffect(() => {
     const applyResolvedLook = (
       image: string,
@@ -934,6 +1044,18 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
       }
     };
 
+    if (typeof window !== "undefined") {
+      const p = new URLSearchParams(window.location.search);
+      const vibeParam = p.get("vibe");
+      if (vibeParam) {
+        const matchedVibe = SKENA_VIBES.find((v) => v.id === vibeParam);
+        if (matchedVibe) {
+          handleSelectSkenaVibe(matchedVibe);
+          return;
+        }
+      }
+    }
+
     // 1. Prioritas Utama: URL param look
     let targetId = initialLookId;
     if (!targetId && typeof window !== "undefined") {
@@ -942,6 +1064,12 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
     }
 
     if (targetId) {
+      const matchedVibeById = SKENA_VIBES.find((v) => v.id === targetId);
+      if (matchedVibeById) {
+        handleSelectSkenaVibe(matchedVibeById);
+        return;
+      }
+
       const resolved = resolveLookForStudio(targetId);
       if (resolved) {
         applyResolvedLook(
@@ -1000,6 +1128,112 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
     }, 2800);
   };
 
+  const filterPoolByContext = (
+    pool: StudioItem[],
+    slotKey: "top" | "bottom" | "outer" | "shoes",
+    gMode: "hijab" | "nonhijab" | "pria",
+    wMode: "hot" | "ac" | "rainy" | "mild"
+  ): StudioItem[] => {
+    // 1. Filter wajib berdasarkan Gender & penguncian komponen Hijab pada mode Modest/Hijab
+    const genderFiltered = pool.filter((item) => {
+      if (slotKey === "outer") {
+        // Saat mode Modest / Hijab aktif, slot ke-3 (outer) WAJIB mempertahankan komponen Hijab
+        if (gMode === "hijab") return Boolean(item.isHijab);
+        // Saat mode non-hijab atau pria, hanya tampilkan outerwear non-hijab
+        return !item.isHijab;
+      }
+      if (gMode === "hijab" && !item.modest && item.gender === "female") return false;
+      if (gMode === "pria" && item.gender === "female") return false;
+      if (gMode === "nonhijab" && item.gender === "male") return false;
+      return true;
+    });
+
+    const basePool = genderFiltered.length > 0 ? genderFiltered : pool;
+
+    // 2. Prioritaskan item yang sesuai dengan suhu weatherMode aktif (33°C Hot, 22°C AC, 25°C Rainy, 29°C Mild)
+    const weatherMatched = basePool.filter((item) => item.suitableWeather?.includes(wMode));
+    if (weatherMatched.length > 1) {
+      return weatherMatched;
+    }
+    if (weatherMatched.length === 1 && basePool.length > 1) {
+      // Tempatkan item yang paling cocok dengan cuaca di urutan pertama diikuti opsi kompatibel lainnya
+      return [weatherMatched[0], ...basePool.filter((i) => i.id !== weatherMatched[0].id)];
+    }
+    return basePool;
+  };
+
+  const handleChangeGenderMode = () => {
+    const nextG: "hijab" | "nonhijab" | "pria" =
+      genderMode === "hijab" ? "nonhijab" : genderMode === "nonhijab" ? "pria" : "hijab";
+    setGenderMode(nextG);
+
+    // Pastikan slot Hijab terjaga saat masuk ke mode Modest Hijab, atau diganti outer saat keluar dari mode Hijab
+    setActiveSlots((prev) => {
+      let nextOuter = prev.outer;
+      if (nextG === "hijab" && !prev.outer.isHijab) {
+        nextOuter = OUTER_POOL.find((o) => o.isHijab) || OUTER_POOL[0];
+      } else if (nextG !== "hijab" && prev.outer.isHijab) {
+        nextOuter = OUTER_POOL.find((o) => !o.isHijab) || OUTER_POOL[3];
+      }
+      return {
+        ...prev,
+        outer: nextOuter,
+      };
+    });
+
+    triggerToast(
+      `Mode: ${
+        nextG === "hijab"
+          ? "Modest Hijab (Slot Hijab Terkunci)"
+          : nextG === "nonhijab"
+          ? "Women"
+          : "Men"
+      }`
+    );
+  };
+
+  const handleChangeWeatherMode = () => {
+    const nextW: "hot" | "ac" | "rainy" | "mild" =
+      weatherMode === "hot"
+        ? "ac"
+        : weatherMode === "ac"
+        ? "rainy"
+        : weatherMode === "rainy"
+        ? "mild"
+        : "hot";
+    setWeatherMode(nextW);
+
+    // Prioritaskan otomatis pakaian pada slot yang tidak dikunci agar selaras dengan suhu baru
+    setActiveSlots((prev) => {
+      const pickForWeather = (pool: StudioItem[], slotKey: "top" | "bottom" | "outer" | "shoes", current: StudioItem) => {
+        const candidates = filterPoolByContext(pool, slotKey, genderMode, nextW);
+        const weatherStrict = candidates.filter((i) => i.suitableWeather?.includes(nextW));
+        if (weatherStrict.length > 0) {
+          const different = weatherStrict.find((i) => i.id !== current.id);
+          return different || weatherStrict[0];
+        }
+        return candidates[0] || current;
+      };
+
+      return {
+        top: lockedSlots.top ? prev.top : pickForWeather(TOP_POOL, "top", prev.top),
+        bottom: lockedSlots.bottom ? prev.bottom : pickForWeather(BOTTOM_POOL, "bottom", prev.bottom),
+        outer: lockedSlots.outer ? prev.outer : pickForWeather(OUTER_POOL, "outer", prev.outer),
+        shoes: lockedSlots.shoes ? prev.shoes : pickForWeather(SHOES_POOL, "shoes", prev.shoes),
+      };
+    });
+
+    const wText =
+      nextW === "hot"
+        ? "33°C Hot (Prioritas Linen & Rayon Tipis)"
+        : nextW === "ac"
+        ? "22°C AC (Prioritas Blazer & Tailored)"
+        : nextW === "rainy"
+        ? "25°C Rainy (Prioritas Quick-Dry & Outer)"
+        : "29°C Mild (Prioritas Katun Sejuk)";
+    triggerToast(`Filter Suhu: ${wText}`);
+  };
+
   const handleSelectSkenaVibe = (vibe: SkenaVibePreset) => {
     setSelectedVibeId(vibe.id);
     setHeroImageIndex(0);
@@ -1040,14 +1274,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
     if (slotKey === "outer") pool = OUTER_POOL;
     if (slotKey === "shoes") pool = SHOES_POOL;
 
-    const filtered = pool.filter((item) => {
-      if (genderMode === "hijab" && !item.modest && item.gender === "female") return false;
-      if (genderMode === "pria" && item.gender === "female") return false;
-      if (genderMode === "nonhijab" && item.gender === "male") return false;
-      return true;
-    });
-
-    const activePool = filtered.length > 1 ? filtered : pool;
+    const activePool = filterPoolByContext(pool, slotKey, genderMode, weatherMode);
     const currentIndex = activePool.findIndex((i) => i.id === activeSlots[slotKey].id);
     const nextIndex = (currentIndex + 1) % activePool.length;
     const nextItem = activePool[nextIndex];
@@ -1057,33 +1284,41 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
       [slotKey]: nextItem,
     }));
 
-    triggerToast(`${nextItem.name} (${nextItem.brand}) dipilih.`);
+    triggerToast(`${nextItem.name} (${nextItem.brand} / Dupe ${nextItem.dupeBrand}) dipilih.`);
   };
 
   const handleShuffleUnlocked = () => {
     setIsShuffling(true);
 
     setTimeout(() => {
-      const getRandomUnpicked = (pool: StudioItem[], currentId: string) => {
-        const filtered = pool.filter((item) => {
-          if (genderMode === "hijab" && !item.modest && item.gender === "female") return false;
-          if (genderMode === "pria" && item.gender === "female") return false;
-          if (genderMode === "nonhijab" && item.gender === "male") return false;
-          return item.id !== currentId;
-        });
-        const candidatePool = filtered.length > 0 ? filtered : pool;
+      const getRandomUnpicked = (
+        pool: StudioItem[],
+        slotKey: "top" | "bottom" | "outer" | "shoes",
+        currentId: string
+      ) => {
+        const contextPool = filterPoolByContext(pool, slotKey, genderMode, weatherMode);
+        const weatherPreferred = contextPool.filter(
+          (item) => item.suitableWeather?.includes(weatherMode) && item.id !== currentId
+        );
+        const nonCurrent = contextPool.filter((item) => item.id !== currentId);
+        const candidatePool =
+          weatherPreferred.length > 0
+            ? weatherPreferred
+            : nonCurrent.length > 0
+            ? nonCurrent
+            : contextPool;
         return candidatePool[Math.floor(Math.random() * candidatePool.length)];
       };
 
       setActiveSlots((prev) => ({
-        top: lockedSlots.top ? prev.top : getRandomUnpicked(TOP_POOL, prev.top.id),
-        bottom: lockedSlots.bottom ? prev.bottom : getRandomUnpicked(BOTTOM_POOL, prev.bottom.id),
-        outer: lockedSlots.outer ? prev.outer : getRandomUnpicked(OUTER_POOL, prev.outer.id),
-        shoes: lockedSlots.shoes ? prev.shoes : getRandomUnpicked(SHOES_POOL, prev.shoes.id),
+        top: lockedSlots.top ? prev.top : getRandomUnpicked(TOP_POOL, "top", prev.top.id),
+        bottom: lockedSlots.bottom ? prev.bottom : getRandomUnpicked(BOTTOM_POOL, "bottom", prev.bottom.id),
+        outer: lockedSlots.outer ? prev.outer : getRandomUnpicked(OUTER_POOL, "outer", prev.outer.id),
+        shoes: lockedSlots.shoes ? prev.shoes : getRandomUnpicked(SHOES_POOL, "shoes", prev.shoes.id),
       }));
 
       setIsShuffling(false);
-      triggerToast("Kombinasi OOTD baru diterapkan.");
+      triggerToast(`Kombinasi OOTD ${weatherLabel} diterapkan.`);
     }, 250);
   };
 
@@ -1105,7 +1340,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
       modestFriendly: genderMode === "hijab",
       skinToneMatch: `Harmonisasi sempurna untuk kulit ${activeSkinTone.nama}`,
       whyItWorks: currentVibe.tagline,
-      stylingTip: `Sirkulasi udara ${breathabilityScore}% optimal untuk cuaca tropis`,
+      stylingTip: "Sirkulasi Udara Optimal · Serat Bernapas untuk cuaca tropis",
       colorPalette: [
         { name: activeSlots.top.colorName, hex: activeSlots.top.colorHex },
         { name: activeSlots.bottom.colorName, hex: activeSlots.bottom.colorHex },
@@ -1125,11 +1360,10 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
           material: activeSlots.top.material,
           color: activeSlots.top.colorName,
           colorHex: activeSlots.top.colorHex,
-          estimatedPrice: `${activeSlots.top.officialPriceStr} (Dupe: ${activeSlots.top.priceStr})`,
+          estimatedPrice: `${activeSlots.top.officialPriceStr} (Dupe ${activeSlots.top.dupeBrand}: ${activeSlots.top.priceStr})`,
           shopeeQuery: activeSlots.top.shopeeQuery,
           tokopediaQuery: activeSlots.top.tokopediaQuery,
           imageUrl: activeSlots.top.imageUrl,
-          cropConfig: activeSlots.top.cropConfig,
         },
         {
           category: "bawahan",
@@ -1140,11 +1374,10 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
           material: activeSlots.bottom.material,
           color: activeSlots.bottom.colorName,
           colorHex: activeSlots.bottom.colorHex,
-          estimatedPrice: `${activeSlots.bottom.officialPriceStr} (Dupe: ${activeSlots.bottom.priceStr})`,
+          estimatedPrice: `${activeSlots.bottom.officialPriceStr} (Dupe ${activeSlots.bottom.dupeBrand}: ${activeSlots.bottom.priceStr})`,
           shopeeQuery: activeSlots.bottom.shopeeQuery,
           tokopediaQuery: activeSlots.bottom.tokopediaQuery,
           imageUrl: activeSlots.bottom.imageUrl,
-          cropConfig: activeSlots.bottom.cropConfig,
         },
         {
           category: "outer_hijab",
@@ -1155,11 +1388,10 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
           material: activeSlots.outer.material,
           color: activeSlots.outer.colorName,
           colorHex: activeSlots.outer.colorHex,
-          estimatedPrice: `${activeSlots.outer.officialPriceStr} (Dupe: ${activeSlots.outer.priceStr})`,
+          estimatedPrice: `${activeSlots.outer.officialPriceStr} (Dupe ${activeSlots.outer.dupeBrand}: ${activeSlots.outer.priceStr})`,
           shopeeQuery: activeSlots.outer.shopeeQuery,
           tokopediaQuery: activeSlots.outer.tokopediaQuery,
           imageUrl: activeSlots.outer.imageUrl,
-          cropConfig: activeSlots.outer.cropConfig,
         },
         {
           category: "sepatu",
@@ -1170,7 +1402,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
           material: activeSlots.shoes.material,
           color: activeSlots.shoes.colorName,
           colorHex: activeSlots.shoes.colorHex,
-          estimatedPrice: `${activeSlots.shoes.officialPriceStr} (Dupe: ${activeSlots.shoes.priceStr})`,
+          estimatedPrice: `${activeSlots.shoes.officialPriceStr} (Dupe ${activeSlots.shoes.dupeBrand}: ${activeSlots.shoes.priceStr})`,
           shopeeQuery: activeSlots.shoes.shopeeQuery,
           tokopediaQuery: activeSlots.shoes.tokopediaQuery,
           imageUrl: activeSlots.shoes.imageUrl,
@@ -1357,11 +1589,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
               <div className="flex items-center gap-2">
                 <button
                   type="button"
-                  onClick={() => {
-                    const nextG = genderMode === "hijab" ? "nonhijab" : genderMode === "nonhijab" ? "pria" : "hijab";
-                    setGenderMode(nextG);
-                    triggerToast(`Style: ${nextG === "hijab" ? "Modest Hijab" : nextG === "nonhijab" ? "Women" : "Men"}`);
-                  }}
+                  onClick={handleChangeGenderMode}
                   className="px-2.5 py-1 rounded bg-neutral-100 hover:bg-neutral-200 text-neutral-700 transition-colors flex items-center gap-1"
                 >
                   <span>{genderLabel}</span>
@@ -1370,11 +1598,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
 
                 <button
                   type="button"
-                  onClick={() => {
-                    setWeatherMode((prev) =>
-                      prev === "hot" ? "ac" : prev === "ac" ? "rainy" : prev === "rainy" ? "mild" : "hot"
-                    );
-                  }}
+                  onClick={handleChangeWeatherMode}
                   className="px-2.5 py-1 rounded bg-neutral-100 hover:bg-neutral-200 text-neutral-700 transition-colors"
                 >
                   {weatherLabel}
@@ -1469,7 +1693,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
 
                             <div className="flex items-center justify-between text-[10px] pt-1 border-t border-neutral-100 font-mono">
                               <span className="text-neutral-500">Resmi: {item.officialPriceStr}</span>
-                              <span className="font-semibold text-neutral-900">Dupe: {item.priceStr}</span>
+                              <span className="font-semibold text-neutral-900">Dupe ({item.dupeBrand}): {item.priceStr}</span>
                             </div>
 
                             <div className="grid grid-cols-2 gap-1.5 pt-1">
@@ -1511,7 +1735,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                   <span>{customModelSpec?.silhouette || currentVibeObj.modelSpec.silhouette}</span>
                 </div>
                 <span className="text-neutral-500 font-medium">
-                  Airflow {breathabilityScore}%
+                  Sirkulasi Udara Optimal · Serat Bernapas
                 </span>
               </div>
             </div>
@@ -1552,13 +1776,9 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                       {/* Product Image Frame */}
                       <div className="relative w-full aspect-[4/4.5] bg-[#EFECE6] rounded-lg overflow-hidden border border-neutral-100">
                         <img
-                          src={item.cropConfig?.isCrop ? (item.cropConfig.heroUrl || item.imageUrl) : item.imageUrl}
+                          src={item.imageUrl}
                           alt={item.name}
-                          className={`w-full h-full object-cover transition-transform duration-300 ${
-                            item.cropConfig?.isCrop
-                              ? `${item.cropConfig.position} ${item.cropConfig.scale}`
-                              : "object-top"
-                          }`}
+                          className="w-full h-full object-cover object-top transition-transform duration-300"
                         />
                         <span className="absolute top-1.5 left-1.5 w-4 h-4 rounded-full bg-white text-neutral-900 text-[8px] font-mono font-bold flex items-center justify-center shadow-xs">
                           {item.pinNumber}
@@ -1576,7 +1796,9 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                           {item.brand}
                         </span>
                         <span className="text-[8px] font-mono text-neutral-400">
-                          {item.categoryLabel.split("·")[1]?.trim() || item.categoryLabel}
+                          {key === "outer" && genderMode === "hijab"
+                            ? "Hijab · Modest"
+                            : item.categoryLabel.split("·")[1]?.trim() || item.categoryLabel}
                         </span>
                       </div>
 
@@ -1588,7 +1810,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                       {/* Price Comparison */}
                       <div className="mt-1 text-[10px] font-mono leading-tight">
                         <span className="text-neutral-400 block text-[9px]">Resmi: {item.officialPriceStr}</span>
-                        <span className="font-semibold text-neutral-900 block">Dupe: {item.priceStr}</span>
+                        <span className="font-semibold text-neutral-900 block">Dupe ({item.dupeBrand}): {item.priceStr}</span>
                       </div>
 
                       {/* Action Bar (Lock & Swap) */}
@@ -1617,7 +1839,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                             swapSingleSlot(key);
                           }}
                           className="w-7 h-7 rounded bg-neutral-100 hover:bg-neutral-900 hover:text-white text-neutral-700 flex items-center justify-center transition-colors"
-                          title="Ganti variasi pakaian"
+                          title={key === "outer" && genderMode === "hijab" ? "Ganti variasi Hijab" : "Ganti variasi pakaian"}
                         >
                           <RotateCw className="w-3 h-3" />
                         </button>
@@ -1812,21 +2034,14 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
           <div className="flex items-center gap-2 text-xs font-medium">
             <button
               type="button"
-              onClick={() => {
-                const nextG = genderMode === "hijab" ? "nonhijab" : genderMode === "nonhijab" ? "pria" : "hijab";
-                setGenderMode(nextG);
-              }}
+              onClick={handleChangeGenderMode}
               className="px-3 py-1.5 rounded-md border border-neutral-200 hover:border-neutral-400 text-neutral-700 transition-colors"
             >
               {genderLabel} ↻
             </button>
             <button
               type="button"
-              onClick={() => {
-                setWeatherMode((prev) =>
-                  prev === "hot" ? "ac" : prev === "ac" ? "rainy" : prev === "rainy" ? "mild" : "hot"
-                );
-              }}
+              onClick={handleChangeWeatherMode}
               className="px-3 py-1.5 rounded-md border border-neutral-200 hover:border-neutral-400 text-neutral-700 transition-colors"
             >
               {weatherLabel} ↻
@@ -1917,7 +2132,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
 
                             <div className="flex items-center justify-between text-[10px] pt-1 border-t border-neutral-100 font-mono">
                               <span className="text-neutral-500">Resmi: {item.officialPriceStr}</span>
-                              <span className="font-semibold text-neutral-900">Dupe: {item.priceStr}</span>
+                              <span className="font-semibold text-neutral-900">Dupe ({item.dupeBrand}): {item.priceStr}</span>
                             </div>
                           </motion.div>
                         )}
@@ -1937,7 +2152,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                     <span>•</span>
                     <span>{customModelSpec?.silhouette || currentVibeObj.modelSpec.silhouette}</span>
                   </div>
-                  <span className="text-neutral-500 font-medium">Airflow {breathabilityScore}%</span>
+                  <span className="text-neutral-500 font-medium">Sirkulasi Udara Optimal · Serat Bernapas</span>
                 </div>
                 <p className="text-xs text-neutral-600 leading-relaxed font-sans">
                   {customLookTitle ? `Formula: ${customLookTitle}. ${currentVibeObj.tagline}` : currentVibeObj.tagline}
@@ -2017,13 +2232,9 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                         {/* Clean Product Cutout/Image */}
                         <div className="relative w-20 h-24 bg-[#EFECE6] rounded-lg overflow-hidden border border-neutral-100 shrink-0">
                           <img
-                            src={item.cropConfig?.isCrop ? (item.cropConfig.heroUrl || item.imageUrl) : item.imageUrl}
+                            src={item.imageUrl}
                             alt={item.name}
-                            className={`w-full h-full object-cover transition-transform duration-300 ${
-                              item.cropConfig?.isCrop
-                                ? `${item.cropConfig.position} ${item.cropConfig.scale}`
-                                : "object-top"
-                            }`}
+                            className="w-full h-full object-cover object-top transition-transform duration-300"
                           />
                           <span className="absolute top-1 left-1 w-4 h-4 rounded-full bg-white text-neutral-900 text-[8px] font-mono font-bold flex items-center justify-center shadow-xs">
                             {item.pinNumber}
@@ -2042,7 +2253,9 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                               {item.brand}
                             </span>
                             <span className="text-[9px] font-mono text-neutral-400 truncate">
-                              {item.categoryLabel.split("·")[1]?.trim() || item.categoryLabel}
+                              {key === "outer" && genderMode === "hijab"
+                                ? "Hijab · Modest"
+                                : item.categoryLabel.split("·")[1]?.trim() || item.categoryLabel}
                             </span>
                           </div>
 
@@ -2056,7 +2269,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
 
                           <div className="mt-2 text-[10px] font-mono space-y-0.5">
                             <span className="text-neutral-400 block text-[9px]">Resmi: {item.officialPriceStr}</span>
-                            <span className="font-semibold text-neutral-900 block">Dupe: {item.priceStr}</span>
+                            <span className="font-semibold text-neutral-900 block">Dupe ({item.dupeBrand}): {item.priceStr}</span>
                           </div>
                         </div>
                       </div>
@@ -2083,7 +2296,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                             className="h-7 px-2.5 rounded bg-neutral-100 hover:bg-neutral-200 text-neutral-700 text-[10px] font-mono font-medium flex items-center gap-1 transition-colors"
                           >
                             <RotateCw className="w-2.5 h-2.5" />
-                            <span>Ganti</span>
+                            <span>{key === "outer" && genderMode === "hijab" ? "Ganti Hijab" : "Ganti"}</span>
                           </button>
                         </div>
 
@@ -2245,13 +2458,9 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                     <div className="flex items-center gap-3 min-w-0">
                       <div className="w-14 h-16 bg-[#EFECE6] rounded-md border border-neutral-200 shrink-0 overflow-hidden relative">
                         <img
-                          src={item.cropConfig?.isCrop ? (item.cropConfig.heroUrl || item.imageUrl) : item.imageUrl}
+                          src={item.imageUrl}
                           alt={item.name}
-                          className={`w-full h-full object-cover transition-transform duration-300 ${
-                            item.cropConfig?.isCrop
-                              ? `${item.cropConfig.position} ${item.cropConfig.scale}`
-                              : "object-top"
-                          }`}
+                          className="w-full h-full object-cover object-top transition-transform duration-300"
                         />
                       </div>
                       <div className="min-w-0">
@@ -2267,7 +2476,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                           {item.name}
                         </h4>
                         <p className="text-[10px] text-neutral-500">
-                          Resmi: {item.officialPriceStr} • Dupe: {item.priceStr}
+                          Resmi: {item.officialPriceStr} • Dupe ({item.dupeBrand}): {item.priceStr}
                         </p>
                       </div>
                     </div>

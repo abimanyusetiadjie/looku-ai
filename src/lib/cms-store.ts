@@ -1,6 +1,6 @@
-import { OOTDRecommendation } from "./types";
-import { PRESET_OOTD_COLLECTION } from "./presets";
-import { FASHION_CATALOG_300, FashionCatalogItem } from "./fashion-catalog-data";
+import { OOTDRecommendation, TrendingLook } from "./types";
+import { PRESET_OOTD_COLLECTION, FASHION_CATALOG_300, FashionCatalogItem, TRENDING_LOOKS_FEED } from "./presets";
+import { getAffiliateStats, AffiliateStats } from "./affiliate";
 
 export interface AISettingsConfig {
   temperature: number;
@@ -132,8 +132,11 @@ export function resetCatalogToFactory(): void {
   if (typeof window === "undefined") return;
   localStorage.removeItem("looku_custom_catalog");
   localStorage.removeItem("looku_custom_presets");
+  localStorage.removeItem("looku_custom_lookbook");
+  localStorage.removeItem("looku_deleted_lookbook_ids");
   window.dispatchEvent(new Event("looku_catalog_updated"));
   window.dispatchEvent(new Event("looku_presets_updated"));
+  window.dispatchEvent(new Event("looku_lookbook_updated"));
 }
 
 // ==========================================
@@ -160,4 +163,136 @@ export function saveAdminAISettings(settings: Partial<AISettingsConfig>): void {
   } catch (e) {
     console.error("Error saving AI settings:", e);
   }
+}
+
+// ==========================================
+// LOOKBOOK OOTD FEED MANAGEMENT (ADMIN CRUD)
+// ==========================================
+
+export function getAllAdminLookbook(): TrendingLook[] {
+  if (typeof window === "undefined") {
+    return TRENDING_LOOKS_FEED;
+  }
+
+  try {
+    const customRaw = localStorage.getItem("looku_custom_lookbook");
+    const customLooks: TrendingLook[] = customRaw ? JSON.parse(customRaw) : [];
+
+    const deletedRaw = localStorage.getItem("looku_deleted_lookbook_ids");
+    const deletedIds: string[] = deletedRaw ? JSON.parse(deletedRaw) : [];
+
+    const customIds = new Set(customLooks.map((l) => l.id));
+    const activeDefault = TRENDING_LOOKS_FEED.filter(
+      (l) => !deletedIds.includes(l.id) && !customIds.has(l.id)
+    );
+
+    return [...customLooks, ...activeDefault];
+  } catch (e) {
+    console.error("Error reading lookbook:", e);
+    return TRENDING_LOOKS_FEED;
+  }
+}
+
+export function saveAdminLookbookItem(look: TrendingLook): void {
+  if (typeof window === "undefined") return;
+
+  try {
+    const customRaw = localStorage.getItem("looku_custom_lookbook");
+    const customLooks: TrendingLook[] = customRaw ? JSON.parse(customRaw) : [];
+
+    const index = customLooks.findIndex((l) => l.id === look.id);
+    let updated: TrendingLook[];
+
+    if (index >= 0) {
+      updated = [...customLooks];
+      updated[index] = look;
+    } else {
+      updated = [look, ...customLooks];
+    }
+
+    localStorage.setItem("looku_custom_lookbook", JSON.stringify(updated));
+    window.dispatchEvent(new Event("looku_lookbook_updated"));
+    window.dispatchEvent(new Event("storage"));
+  } catch (e) {
+    console.error("Error saving lookbook item:", e);
+  }
+}
+
+export function deleteAdminLookbookItem(lookId: string): void {
+  if (typeof window === "undefined") return;
+
+  try {
+    const customRaw = localStorage.getItem("looku_custom_lookbook");
+    const customLooks: TrendingLook[] = customRaw ? JSON.parse(customRaw) : [];
+    const updatedCustom = customLooks.filter((l) => l.id !== lookId);
+    localStorage.setItem("looku_custom_lookbook", JSON.stringify(updatedCustom));
+
+    const deletedRaw = localStorage.getItem("looku_deleted_lookbook_ids");
+    const deletedIds: string[] = deletedRaw ? JSON.parse(deletedRaw) : [];
+    if (!deletedIds.includes(lookId)) {
+      deletedIds.push(lookId);
+      localStorage.setItem("looku_deleted_lookbook_ids", JSON.stringify(deletedIds));
+    }
+
+    window.dispatchEvent(new Event("looku_lookbook_updated"));
+    window.dispatchEvent(new Event("storage"));
+  } catch (e) {
+    console.error("Error deleting lookbook item:", e);
+  }
+}
+
+export interface AdminDashboardMetrics {
+  totalLookbook: number;
+  totalGoldenLooks: number;
+  totalPresets: number;
+  totalCatalogItems: number;
+  totalActiveShopeeLinks: number;
+  categories: {
+    hijab: number;
+    wanita: number;
+    pria: number;
+  };
+  affiliateStats: AffiliateStats;
+}
+
+export function getAdminDashboardMetrics(): AdminDashboardMetrics {
+  const looks = getAllAdminLookbook();
+  const presets = getAllAdminPresets();
+  const catalog = getAllAdminCatalog();
+  const affiliateStats = getAffiliateStats();
+
+  let totalActiveShopeeLinks = 0;
+  let hijabCount = 0;
+  let wanitaCount = 0;
+  let priaCount = 0;
+  let goldenCount = 0;
+
+  looks.forEach((l) => {
+    if (l.isGoldenSignature || l.outfit?.isGoldenSignature) goldenCount++;
+    if (l.shopeeUrl) totalActiveShopeeLinks++;
+    l.outfit?.items?.forEach((it) => {
+      if (it.shopeeUrl) totalActiveShopeeLinks++;
+    });
+
+    const isPria = l.tag?.toUpperCase() === "MENSWEAR" || l.category?.toLowerCase().includes("pria");
+    const isHijab = l.tag?.toUpperCase().includes("HIJAB") || l.category?.toLowerCase().includes("hijab") || l.outfit?.modestFriendly;
+
+    if (isPria) priaCount++;
+    else if (isHijab) hijabCount++;
+    else wanitaCount++;
+  });
+
+  return {
+    totalLookbook: looks.length,
+    totalGoldenLooks: goldenCount,
+    totalPresets: presets.length,
+    totalCatalogItems: catalog.length,
+    totalActiveShopeeLinks,
+    categories: {
+      hijab: hijabCount,
+      wanita: wanitaCount,
+      pria: priaCount,
+    },
+    affiliateStats,
+  };
 }

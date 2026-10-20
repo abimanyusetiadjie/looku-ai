@@ -427,29 +427,29 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                           )}
                           <div className="grid grid-cols-2 gap-1.5">
                             <motion.a
-                              href={links.shopee + (activeBudgetTier === "mall" ? "%20official%20store" : "")}
+                              href={item.shopeeUrl || (links.shopee + (activeBudgetTier === "mall" ? "%20official%20store" : ""))}
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={() => trackAffiliateClick("shopee", item.shopeeQuery || item.name, "outfit_card")}
                               whileTap={{ scale: 0.96 }}
                               className="ds-btn-marketplace ds-mp-shopee"
-                              title="Cari alternatif di Shopee"
+                              title={item.shopeeUrl ? "Buka link produk resmi Shopee" : "Cari alternatif di Shopee"}
                             >
                               <ShopeeIcon className="w-3 h-3 shrink-0" />
-                              <span>{item.brandUrl ? "Dupe Shopee" : "Shopee"}</span>
+                              <span>{item.shopeeUrl ? "Beli Shopee" : item.brandUrl ? "Dupe Shopee" : "Shopee"}</span>
                             </motion.a>
 
                             <motion.a
-                              href={links.tokopedia + (activeBudgetTier === "mall" ? "%20official%20store" : "")}
+                              href={item.tokopediaUrl || (links.tokopedia + (activeBudgetTier === "mall" ? "%20official%20store" : ""))}
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={() => trackAffiliateClick("tokopedia", item.shopeeQuery || item.name, "outfit_card")}
                               whileTap={{ scale: 0.96 }}
                               className="ds-btn-marketplace ds-mp-tokopedia"
-                              title="Cari alternatif di Tokopedia"
+                              title={item.tokopediaUrl ? "Buka link produk resmi Tokopedia" : "Cari alternatif di Tokopedia"}
                             >
                               <TokopediaIcon className="w-3 h-3 shrink-0" />
-                              <span>{item.brandUrl ? "Dupe Tokped" : "Tokped"}</span>
+                              <span>{item.tokopediaUrl ? "Tokopedia" : item.brandUrl ? "Dupe Tokped" : "Tokped"}</span>
                             </motion.a>
                           </div>
                         </div>

@@ -73,10 +73,26 @@ export const CLEAN_PACKSHOT_DICTIONARY = {
   },
   bottom: {
     charcoal: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=800&q=80",
-    cream: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=80",
-    denim: "https://images.unsplash.com/photo-1551803091-e20673f15770?auto=format&fit=crop&w=800&q=80",
+    cream: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80",
+    denim: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
     terracotta: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=800&q=80",
     default: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=800&q=80",
+  },
+  top: {
+    linen_white: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
+    linen_sage: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80",
+    rayon_blouse: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80",
+    boxy_tee_black: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
+    boxy_tee_grey: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=800&q=80",
+    silk_satin: "https://images.unsplash.com/photo-1596783074918-c84cb06531ca?auto=format&fit=crop&w=800&q=80",
+    default: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
+  },
+  outer: {
+    linen_blazer: "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=800&q=80",
+    uv_parka: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&q=80",
+    knit_cardigan: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=800&q=80",
+    organza_outer: "https://images.unsplash.com/photo-1596783074918-c84cb06531ca?auto=format&fit=crop&w=800&q=80",
+    default: "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=800&q=80",
   },
 } as const;
 
@@ -266,8 +282,8 @@ export function resolveCleanHijabPackshot(
 }
 
 /**
- * Smart Visual Resolver (Lapis 1 & Lapis 2 Hybrid)
- * Memetakan setiap komponen busana ke representasi visual presisi tinggi.
+ * Smart Visual Resolver (100% Clean Standalone Packshot — Zero Fake CSS Auto-Crop)
+ * Memetakan setiap komponen busana ke foto produk satuan yang bersih dan berbeda dari foto model Hero.
  */
 export function resolveSmartItemVisual(
   item: OutfitItem | undefined,
@@ -277,103 +293,91 @@ export function resolveSmartItemVisual(
   const itemName = item?.name || "";
   const itemColor = item?.color || "";
   const itemHex = item?.colorHex;
+  const lowerName = itemName.toLowerCase();
+  const family = detectColorFamily(`${itemName} ${itemColor}`, itemHex);
+
+  const hasDistinctItemImage =
+    Boolean(item?.imageUrl) && item?.imageUrl !== heroImage;
+
   const isHijab =
-    itemName.toLowerCase().includes("hijab") ||
-    itemName.toLowerCase().includes("pashmina") ||
-    itemName.toLowerCase().includes("voal") ||
-    itemName.toLowerCase().includes("segiempat");
+    lowerName.includes("hijab") ||
+    lowerName.includes("pashmina") ||
+    lowerName.includes("voal") ||
+    lowerName.includes("segiempat") ||
+    lowerName.includes("jilbab");
 
-  // ATURAN PRESISI 1: Sepatu (Pin 4) DILARANG auto-crop! Selalu gunakan packshot studio bersih Lapis 1.
+  // 1. Sepatu (Pin 4): Selalu gunakan packshot sepatu bersih
   if (slotKey === "shoes") {
-    const cleanUrl = resolveCleanShoePackshot(itemName, itemColor, itemHex);
     return {
-      imageUrl: cleanUrl,
+      imageUrl: resolveCleanShoePackshot(itemName, itemColor, itemHex),
     };
   }
 
-  // ATURAN PRESISI 2: Atasan (Pin 2) -> Smart Auto-Crop Torso Model (50% 35% scale 125%)
+  // 2. Atasan (Pin 2): Gunakan packshot atasan satuan bersih (bukan crop foto model)
   if (slotKey === "top") {
-    if (heroImage) {
+    if (hasDistinctItemImage && item?.imageUrl) {
+      return { imageUrl: item.imageUrl };
+    }
+    if (lowerName.includes("kaos") || lowerName.includes("tee") || lowerName.includes("t-shirt") || lowerName.includes("airism")) {
       return {
-        imageUrl: heroImage,
-        cropConfig: {
-          isCrop: true,
-          position: "object-[50%_35%]",
-          scale: "scale-125",
-          heroUrl: heroImage,
-        },
+        imageUrl:
+          family === "black"
+            ? CLEAN_PACKSHOT_DICTIONARY.top.boxy_tee_black
+            : CLEAN_PACKSHOT_DICTIONARY.top.boxy_tee_grey,
       };
     }
-    return {
-      imageUrl: item?.imageUrl || CLEAN_PACKSHOT_DICTIONARY.bottom.default,
-    };
+    if (lowerName.includes("silk") || lowerName.includes("satin") || lowerName.includes("dress") || lowerName.includes("kebaya")) {
+      return { imageUrl: CLEAN_PACKSHOT_DICTIONARY.top.silk_satin };
+    }
+    if (lowerName.includes("rayon") || lowerName.includes("blus") || lowerName.includes("blouse") || lowerName.includes("tunik")) {
+      return { imageUrl: CLEAN_PACKSHOT_DICTIONARY.top.rayon_blouse };
+    }
+    if (family === "sage_olive" || family === "navy_blue") {
+      return { imageUrl: CLEAN_PACKSHOT_DICTIONARY.top.linen_sage };
+    }
+    return { imageUrl: CLEAN_PACKSHOT_DICTIONARY.top.linen_white };
   }
 
-  // ATURAN PRESISI 3: Bawahan (Pin 3) -> Smart Auto-Crop Pinggang-Kaki (50% 72% scale 125%)
+  // 3. Bawahan (Pin 3): Gunakan packshot bawahan satuan bersih (bukan crop foto model)
   if (slotKey === "bottom") {
-    if (heroImage) {
-      return {
-        imageUrl: heroImage,
-        cropConfig: {
-          isCrop: true,
-          position: "object-[50%_72%]",
-          scale: "scale-125",
-          heroUrl: heroImage,
-        },
-      };
+    if (hasDistinctItemImage && item?.imageUrl) {
+      return { imageUrl: item.imageUrl };
     }
-    const family = detectColorFamily(`${itemName} ${itemColor}`, itemHex);
-    let fallback: string = CLEAN_PACKSHOT_DICTIONARY.bottom.default;
-    if (family === "navy_blue" || itemName.toLowerCase().includes("denim") || itemName.toLowerCase().includes("jeans")) {
-      fallback = CLEAN_PACKSHOT_DICTIONARY.bottom.denim;
-    } else if (family === "white_cream") {
-      fallback = CLEAN_PACKSHOT_DICTIONARY.bottom.cream;
-    } else if (family === "earth_brown") {
-      fallback = CLEAN_PACKSHOT_DICTIONARY.bottom.terracotta;
+    if (family === "navy_blue" || lowerName.includes("denim") || lowerName.includes("jeans")) {
+      return { imageUrl: CLEAN_PACKSHOT_DICTIONARY.bottom.denim };
     }
-    return {
-      imageUrl: item?.imageUrl || fallback,
-    };
+    if (family === "white_cream" || lowerName.includes("kulot") || lowerName.includes("pleated") || lowerName.includes("chino")) {
+      return { imageUrl: CLEAN_PACKSHOT_DICTIONARY.bottom.cream };
+    }
+    if (family === "earth_brown" || lowerName.includes("skirt") || lowerName.includes("rok")) {
+      return { imageUrl: CLEAN_PACKSHOT_DICTIONARY.bottom.terracotta };
+    }
+    return { imageUrl: CLEAN_PACKSHOT_DICTIONARY.bottom.charcoal };
   }
 
-  // ATURAN PRESISI 4: Outer / Hijab (Pin 1)
+  // 4. Outer / Hijab (Pin 1): Gunakan packshot hijab atau outerwear satuan bersih
   if (slotKey === "outer") {
+    if (hasDistinctItemImage && item?.imageUrl) {
+      return { imageUrl: item.imageUrl };
+    }
     if (isHijab) {
-      // Untuk hijab, jika ada foto model utama, gunakan crop area kepala (50% 12% scale 150%)
-      if (heroImage) {
-        return {
-          imageUrl: heroImage,
-          cropConfig: {
-            isCrop: true,
-            position: "object-[50%_12%]",
-            scale: "scale-150",
-            heroUrl: heroImage,
-          },
-        };
-      }
       return {
         imageUrl: resolveCleanHijabPackshot(itemName, itemColor, itemHex),
       };
     }
-
-    // Untuk outerwear non-hijab (blazer, cardigan, vest)
-    if (heroImage) {
-      return {
-        imageUrl: heroImage,
-        cropConfig: {
-          isCrop: true,
-          position: "object-[50%_30%]",
-          scale: "scale-125",
-          heroUrl: heroImage,
-        },
-      };
+    if (lowerName.includes("organza") || lowerName.includes("silk") || lowerName.includes("kebaya")) {
+      return { imageUrl: CLEAN_PACKSHOT_DICTIONARY.outer.organza_outer };
     }
-    return {
-      imageUrl: item?.imageUrl || CLEAN_PACKSHOT_DICTIONARY.hijab.default,
-    };
+    if (lowerName.includes("parka") || lowerName.includes("windbreaker") || lowerName.includes("uv") || lowerName.includes("overshirt")) {
+      return { imageUrl: CLEAN_PACKSHOT_DICTIONARY.outer.uv_parka };
+    }
+    if (lowerName.includes("cardigan") || lowerName.includes("kardigan") || lowerName.includes("knit") || lowerName.includes("rajut")) {
+      return { imageUrl: CLEAN_PACKSHOT_DICTIONARY.outer.knit_cardigan };
+    }
+    return { imageUrl: CLEAN_PACKSHOT_DICTIONARY.outer.linen_blazer };
   }
 
   return {
-    imageUrl: item?.imageUrl || CLEAN_PACKSHOT_DICTIONARY.bottom.default,
+    imageUrl: CLEAN_PACKSHOT_DICTIONARY.top.default,
   };
 }

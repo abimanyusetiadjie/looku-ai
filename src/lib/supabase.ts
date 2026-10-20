@@ -165,7 +165,7 @@ export async function deleteChallengeEntry(id: string) {
   return { success: true };
 }
 
-import { FASHION_CATALOG_300, FashionCatalogItem } from './fashion-catalog-data';
+import { FASHION_CATALOG_300, FashionCatalogItem } from './presets';
 
 // ==========================================
 // FASHION CATALOG & SEARCH

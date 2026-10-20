@@ -69,6 +69,8 @@ export interface OutfitItem {
   estimatedPrice: string;
   shopeeQuery: string;
   tokopediaQuery: string;
+  shopeeUrl?: string; // Direct link affiliate/toko resmi Shopee yang diatur Admin
+  tokopediaUrl?: string; // Direct link toko resmi Tokopedia yang diatur Admin
   imageUrl?: string;
   isOwnedItem?: boolean; // True jika item ini adalah baju milik pengguna sendiri
   brand?: FashionBrand | string;
@@ -101,6 +103,9 @@ export interface OOTDRecommendation {
   hijabHarmonyTip?: string; // Panduan kombinasi warna hijab/pashmina
   costPerWearSavings?: string; // Estimasi penghematan Capsule Re-mix
   isGoldenSignature?: boolean;
+  heroImage?: string; // Foto model utama untuk crop & visual hero
+  shopeeUrl?: string; // Direct outfit set link di Shopee
+  tokopediaUrl?: string;
 }
 
 export interface TrendingLook {
@@ -113,8 +118,11 @@ export interface TrendingLook {
   priceRange: string;
   image: string;
   likes: number;
+  likesCount?: number;
   outfit: OOTDRecommendation;
   isGoldenSignature?: boolean;
+  shopeeUrl?: string; // Direct affiliate link untuk outfit ini
+  tokopediaUrl?: string;
 }
 
 export interface WaitlistEntry {

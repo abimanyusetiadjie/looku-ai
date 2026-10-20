@@ -161,7 +161,7 @@ function ProfileContent() {
   const { myItems, usingStarter } = useMemo(() => {
     const items: OutfitItem[] = [];
     savedOutfits.forEach((o) =>
-      o.items.forEach((i) => {
+      (o.items ?? []).forEach((i) => {
         if (!items.some((e) => e.name === i.name)) items.push(i);
       })
     );
@@ -277,9 +277,9 @@ function ProfileContent() {
     const q = searchQuery.toLowerCase();
     return savedOutfits.filter(
       (o) =>
-        o.title.toLowerCase().includes(q) ||
+        (o.title || "").toLowerCase().includes(q) ||
         (o.overallVibe && o.overallVibe.toLowerCase().includes(q)) ||
-        o.items.some((i) => i.name.toLowerCase().includes(q) || i.color.toLowerCase().includes(q))
+        (o.items ?? []).some((i) => (i.name || "").toLowerCase().includes(q) || (i.color || "").toLowerCase().includes(q))
     );
   }, [savedOutfits, searchQuery]);
 
@@ -515,7 +515,7 @@ function ProfileContent() {
                     <div>
                       {/* Outfit Preview Pieces Grid */}
                       <div className="grid grid-cols-3 gap-2 mb-4">
-                        {outfit.items.slice(0, 3).map((item, idx) => (
+                        {(outfit.items ?? []).slice(0, 3).map((item, idx) => (
                           <div
                             key={idx}
                             className="aspect-square rounded-2xl overflow-hidden bg-sand-100 border border-charcoal-900/10 relative group/item"

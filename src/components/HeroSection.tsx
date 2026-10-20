@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useWeather } from "@/hooks/useWeather";
 import { ArrowRight, Heart } from "lucide-react";
 import { motion } from "framer-motion";
+import { TRENDING_LOOKS_FEED } from "@/lib/presets";
 
 interface HeroSectionProps {
   onOpenQuiz?: () => void;
@@ -22,6 +23,7 @@ const DESKTOP_HERO_SLIDES = [
     priceRange: "Rp 180–260rb",
     image: "/hero-kampus-linen.jpg",
     studioParam: "kuliah_hijab_panas_hemat",
+    studioHref: "/studio?vibe=earthy_hijab",
   },
   {
     id: "hero_02",
@@ -32,6 +34,7 @@ const DESKTOP_HERO_SLIDES = [
     priceRange: "Rp 195–280rb",
     image: "/hero-linen-cream.jpg",
     studioParam: "old_money_coastal",
+    studioHref: "/studio?look=old_money_coastal",
   },
   {
     id: "hero_03",
@@ -42,6 +45,7 @@ const DESKTOP_HERO_SLIDES = [
     priceRange: "Rp 290–420rb",
     image: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&auto=format&fit=crop&q=85",
     studioParam: "scbd_corporate_blazer",
+    studioHref: "/studio?look=scbd_corporate_blazer",
   },
   {
     id: "hero_04",
@@ -50,8 +54,9 @@ const DESKTOP_HERO_SLIDES = [
     title: "Coastal Linen Camp Collar",
     skinTone: "Sawo Matang & Tan",
     priceRange: "Rp 240–350rb",
-    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=900&auto=format&fit=crop&q=85",
+    image: "https://images.unsplash.com/photo-1488161628813-04466f872be2?w=900&auto=format&fit=crop&q=85",
     studioParam: "old_money_coastal",
+    studioHref: "/studio?look=old_money_coastal",
   },
   {
     id: "hero_05",
@@ -62,6 +67,7 @@ const DESKTOP_HERO_SLIDES = [
     priceRange: "Rp 210–310rb",
     image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&auto=format&fit=crop&q=85",
     studioParam: "senopati_brunch_knit",
+    studioHref: "/studio?look=senopati_brunch_knit",
   },
 ];
 
@@ -104,7 +110,7 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
         if (isSaved) {
           next = local.filter((item: any) => item.id !== currentHero.id && item.title !== currentHero.title);
         } else {
-          next = [...local, currentHero];
+          next = [...local, { ...currentHero, items: (currentHero as any).items || [] }];
         }
         localStorage.setItem("looku_saved_outfits", JSON.stringify(next));
         setSavedLooks(next.map((item: any) => item.id || item.title));
@@ -148,7 +154,7 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
             {/* 4. Hierarki Tombol Aksi (Persis Gambar 1) */}
             <div className="flex flex-col items-start gap-4 sm:gap-5">
               <Link
-                href={`/studio?look=${currentHero.studioParam || currentHero.id}`}
+                href={currentHero.studioHref || `/studio?look=${currentHero.studioParam || currentHero.id}`}
                 className="h-12 px-7 bg-[#181A18] hover:bg-terracotta-600 active:scale-[0.99] text-[#FAF8F5] text-xs sm:text-sm font-medium tracking-wide inline-flex items-center gap-2.5 transition-all shadow-xs rounded-none"
               >
                 <span>Racik OOTD Sekarang</span>
@@ -183,7 +189,7 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
           >
             {/* Foto Murni Borderless Tanpa Kotak Ganda ala Gambar 1 */}
             <div 
-              onClick={() => router.push(`/studio?look=${currentHero.studioParam || currentHero.id}`)}
+              onClick={() => router.push(currentHero.studioHref || `/studio?look=${currentHero.studioParam || currentHero.id}`)}
               className="relative w-full max-w-[380px] sm:max-w-[400px] xl:max-w-[420px] aspect-[4/5] overflow-hidden cursor-pointer group bg-[#EFECE6] shadow-xs"
             >
               {/* Horizontal Living Lookbook Track (Auto-slide 4.5s) */}
@@ -240,14 +246,14 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
         <div className="flex items-end justify-between mb-8 border-b border-[#181A18]/10 pb-4">
           <div>
             <p className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-[#8C5A3C] mb-1">
-              Curated by AI
+              Sirkulasi Udara Optimal · Serat Bernapas
             </p>
             <h2 className="font-serif text-2xl lg:text-3xl text-[#181A18] tracking-tight">
               The Tropical Edit — Koleksi Pilihan
             </h2>
           </div>
           <Link href="/lookbook" className="text-xs font-sans font-bold text-[#8C5A3C] hover:text-[#181A18] uppercase tracking-wider flex items-center gap-1.5 transition-colors">
-            Lihat Semua (500) <ArrowRight className="w-3.5 h-3.5" />
+            Lihat Semua ({TRENDING_LOOKS_FEED.length}) <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
         
@@ -286,13 +292,13 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
             },
             {
               id: "trop-4",
-              img: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600",
-              title: "Biker Leather & Ruffle",
-              climateBadge: "INDOOR AC / EVENING",
-              swatches: ["#1C1C1E", "#2C3E50", "#6E6859"],
-              undertoneTag: "Sawo Matang & Deep",
-              fabricNote: "Breathable Vegan Leather · Cropped",
-              price: "Rp 265.000",
+              img: "https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=600",
+              title: "Linen Vest & Flowy Culottes",
+              climateBadge: "AIRY TROPICAL · OPTIMAL",
+              swatches: ["#FAF6EE", "#D4A373", "#8FA98D"],
+              undertoneTag: "Sawo Matang & Kuning Langsat",
+              fabricNote: "100% Pure Flax Linen & Rayon Twill",
+              price: "Rp 195.000",
             }
           ].map((item) => (
             <Link href="/studio" key={item.id} className="group flex flex-col bg-white border border-[#181A18]/10 p-2.5 sm:p-3 hover:shadow-md transition-all duration-300 rounded-none">

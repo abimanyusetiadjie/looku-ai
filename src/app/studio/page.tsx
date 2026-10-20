@@ -30,8 +30,11 @@ export default function StudioPage() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
+      const vibe = params.get("vibe");
       const look = params.get("look");
-      if (look) {
+      if (vibe) {
+        setInitialLookId(vibe);
+      } else if (look) {
         setInitialLookId(look);
         const resolved = resolveLookForStudio(look);
         if (resolved) {

@@ -177,9 +177,9 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
     subjudul: "Pure Flax Linen · Menswear",
     tagline: "Kemeja kerah terbuka tenun linen alami dengan celana chino bernapas.",
     suhu: "33°C Tropis Siang Hari",
-    sirkulasiUdara: "Optimal 98.4% Airflow",
+    sirkulasiUdara: "Sirkulasi Udara Optimal · Serat Bernapas",
     alasanCocok: "Serat flax linen memiliki rongga alami yang mengalirkan angin bebas hambatan, menjaga suhu tubuh tetap adem meski di terik pantai atau kafe outdoor.",
-    gambar: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=900&auto=format&fit=crop&q=85",
+    gambar: "https://images.unsplash.com/photo-1488161628813-04466f872be2?w=900&auto=format&fit=crop&q=85",
     paletWarna: [
       { nama: "Oatmeal Linen", hex: "#E8DFD1" },
       { nama: "Sky Blue", hex: "#87CEEB" },
@@ -431,7 +431,7 @@ export default function LookUMobileView({
   const handleToggleSaveOutfit = (outfit: MobileOutfit) => {
     try {
       const stored = localStorage.getItem("looku_saved_outfits");
-      let list: Array<{ id: string; title: string; price: string }> = stored ? JSON.parse(stored) : [];
+      let list: Array<{ id: string; title: string; price: string; items?: unknown[] }> = stored ? JSON.parse(stored) : [];
       const alreadySaved = list.some((item) => item.id === outfit.id);
 
       if (alreadySaved) {
@@ -444,6 +444,7 @@ export default function LookUMobileView({
           id: outfit.id,
           title: outfit.judul,
           price: outfit.rentangHarga,
+          items: [],
         });
         localStorage.setItem("looku_saved_outfits", JSON.stringify(list));
         setIsSavedLocally(true);
@@ -828,7 +829,7 @@ export default function LookUMobileView({
             <div className="flex items-end justify-between px-0.5">
               <div>
                 <p className="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-terracotta-600 mb-0.5">
-                  Curated by AI
+                  Sirkulasi Udara Optimal · Serat Bernapas
                 </p>
                 <h3 className="text-base font-bold text-[#181A18] font-serif">
                   The Tropical Edit

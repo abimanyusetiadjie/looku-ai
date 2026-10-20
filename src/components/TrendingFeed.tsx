@@ -26,7 +26,8 @@ import {
   getLookHeight, 
   HeightFilterRange 
 } from "@/lib/presets";
-import { OOTDRecommendation } from "@/lib/types";
+import { OOTDRecommendation, TrendingLook } from "@/lib/types";
+import { trackAffiliateClick } from "@/lib/affiliate";
 import { resolveSmartItemVisual, resolveCleanShoePackshot } from "@/lib/packshot-dictionary";
 
 const InfluencerCloneModal = dynamic(() => import("@/components/InfluencerCloneModal"), { ssr: false });
@@ -57,10 +58,10 @@ interface CategoryTab {
 }
 
 const CATEGORY_TABS: CategoryTab[] = [
-  { id: "ALL", label: "SEMUA", count: 1022 },
-  { id: "WANITA", label: "WANITA", count: 165 },
-  { id: "HIJAB", label: "HIJAB / MODEST", count: 435 },
-  { id: "PRIA", label: "PRIA", count: 400 },
+  { id: "ALL", label: "SEMUA", count: TRENDING_LOOKS_FEED.length },
+  { id: "WANITA", label: "WANITA", count: TRENDING_LOOKS_FEED.filter((l) => getLookGender(l) === "WANITA").length },
+  { id: "HIJAB", label: "HIJAB / MODEST", count: TRENDING_LOOKS_FEED.filter((l) => getLookGender(l) === "HIJAB").length },
+  { id: "PRIA", label: "PRIA", count: TRENDING_LOOKS_FEED.filter((l) => getLookGender(l) === "PRIA").length },
 ];
 
 type ClimateFilter = "all" | "hot" | "ac" | "mild" | "rainy";
@@ -193,6 +194,38 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
   const [visibleCount, setVisibleCount] = useState<number>(PAGE_SIZE);
   const [selectedLookId, setSelectedLookId] = useState<string | null>(null);
   const [likedIds, setLikedIds] = useState<string[]>([]);
+  const [allFeedLooks, setAllFeedLooks] = useState<TrendingLook[]>(TRENDING_LOOKS_FEED);
+
+  // Live Sync Lookbook Feed dengan Admin CMS
+  useEffect(() => {
+    const syncLookbook = () => {
+      if (typeof window !== "undefined") {
+        try {
+          const customRaw = localStorage.getItem("looku_custom_lookbook");
+          const customLooks: TrendingLook[] = customRaw ? JSON.parse(customRaw) : [];
+          const deletedRaw = localStorage.getItem("looku_deleted_lookbook_ids");
+          const deletedIds: string[] = deletedRaw ? JSON.parse(deletedRaw) : [];
+
+          const customIds = new Set(customLooks.map((l) => l.id));
+          const activeDefault = TRENDING_LOOKS_FEED.filter(
+            (l) => !deletedIds.includes(l.id) && !customIds.has(l.id)
+          );
+
+          setAllFeedLooks([...customLooks, ...activeDefault]);
+        } catch (e) {
+          console.warn("Gagal membaca custom lookbook:", e);
+        }
+      }
+    };
+
+    syncLookbook();
+    window.addEventListener("looku_lookbook_updated", syncLookbook);
+    window.addEventListener("storage", syncLookbook);
+    return () => {
+      window.removeEventListener("looku_lookbook_updated", syncLookbook);
+      window.removeEventListener("storage", syncLookbook);
+    };
+  }, []);
   const [isLoading, setIsLoading] = useState(false);
 
   // Sync saved count for Bookmark icon badge
@@ -320,7 +353,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
   };
 
   // Filter 500 looks based on Search Query, Tab, Climate, Occasion & Height
-  const filteredLooks = TRENDING_LOOKS_FEED.filter((look) => {
+  const filteredLooks = allFeedLooks.filter((look) => {
     // 1. Search Query Filter
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase().trim();
@@ -405,7 +438,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
   });
 
   const displayedLooks = sortedLooks.slice(0, visibleCount);
-  const selectedLook = TRENDING_LOOKS_FEED.find(l => l.id === selectedLookId);
+  const selectedLook = allFeedLooks.find(l => l.id === selectedLookId);
   const isFilterActive = searchQuery.trim() !== "" || activeTab !== "ALL" || climateFilter !== "all" || occasionFilter !== "all" || heightFilter !== "all" || sortBy !== "trending";
   const activeFilterCount = (activeTab !== "ALL" ? 1 : 0) + (climateFilter !== "all" ? 1 : 0) + (occasionFilter !== "all" ? 1 : 0) + (heightFilter !== "all" ? 1 : 0) + (sortBy !== "trending" ? 1 : 0);
 
@@ -548,7 +581,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
           {(isFilterActive || searchQuery.trim()) && (
             <div className="flex items-center justify-between text-[11px] text-[#181A18]/70 pt-0.5 px-1 border-t border-[#181A18]/5">
               <span>
-                Menampilkan <strong className="text-[#181A18]">{sortedLooks.length}</strong> dari {TRENDING_LOOKS_FEED.length} formula OOTD
+                Menampilkan <strong className="text-[#181A18]">{sortedLooks.length}</strong> dari {allFeedLooks.length} formula OOTD
                 {searchQuery.trim() && <span> untuk &ldquo;{searchQuery}&rdquo;</span>}
               </span>
               <button
@@ -711,7 +744,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                 onClick={resetAllFilters}
                 className="h-10 px-6 bg-[#181A18] text-white text-xs font-bold uppercase tracking-widest rounded-full hover:bg-[#8C5A3C] transition-colors shadow-xs"
               >
-                Kembali ke Semua (500)
+                Kembali ke Semua ({TRENDING_LOOKS_FEED.length})
               </button>
             </div>
           )}
@@ -842,11 +875,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                               <img
                                 src={displayImg}
                                 alt={it.name}
-                                className={`w-full h-full object-cover ${
-                                  !isShoe && visual.cropConfig?.isCrop
-                                    ? `${visual.cropConfig.position} ${visual.cropConfig.scale}`
-                                    : "object-top"
-                                }`}
+                                className="w-full h-full object-cover object-top"
                                 loading="lazy"
                               />
                             </div>
@@ -863,9 +892,26 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                                 </span>
                               )}
                             </div>
-                            <span className="font-mono text-[#181A18] text-xs font-semibold shrink-0">
-                              {it.estimatedPrice}
-                            </span>
+                            <div className="flex items-center gap-2 shrink-0">
+                              <span className="font-mono text-[#181A18] text-xs font-semibold">
+                                {it.estimatedPrice}
+                              </span>
+                              {it.shopeeUrl && (
+                                <a
+                                  href={it.shopeeUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    trackAffiliateClick("shopee", it.shopeeQuery || it.name, "outfit_card");
+                                  }}
+                                  className="px-2 py-0.5 bg-orange-50 hover:bg-orange-100 text-[#EE4D2D] border border-orange-200 text-[9px] font-mono font-bold uppercase rounded flex items-center gap-1 transition-colors"
+                                  title="Beli langsung di Shopee"
+                                >
+                                  <span>Shopee ↗</span>
+                                </a>
+                              )}
+                            </div>
                           </div>
                         );
                       })}
@@ -879,6 +925,19 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                     <span className="text-xs font-mono uppercase text-[#181A18]/50">Total Estimasi:</span>
                     <span className="text-base font-mono font-bold text-[#181A18]">{selectedLook.priceRange}</span>
                   </div>
+
+                  {selectedLook.shopeeUrl && (
+                    <a
+                      href={selectedLook.shopeeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackAffiliateClick("shopee", selectedLook.title, "outfit_card")}
+                      className="w-full h-11 bg-[#EE4D2D] hover:bg-[#D73211] text-white text-xs font-bold uppercase tracking-[0.15em] flex items-center justify-center gap-2 transition-colors rounded-none shadow-xs"
+                    >
+                      <span>🛍️ Beli Setelan Ini di Shopee</span>
+                      <span>↗</span>
+                    </a>
+                  )}
 
                   <button
                     type="button"

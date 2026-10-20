@@ -26,10 +26,14 @@ import {
   X,
   Eye,
   Tag,
-  Palette
+  Palette,
+  TrendingUp,
+  MousePointerClick,
+  Star,
+  Link as LinkIcon
 } from "lucide-react";
-import { OOTDRecommendation, OutfitItem } from "@/lib/types";
-import { FashionCatalogItem } from "@/lib/fashion-catalog-data";
+import { OOTDRecommendation, OutfitItem, TrendingLook } from "@/lib/types";
+import { FashionCatalogItem } from "@/lib/presets";
 import { 
   getAllAdminPresets, 
   saveAdminPreset, 
@@ -41,7 +45,12 @@ import {
   getAdminAISettings,
   saveAdminAISettings,
   AISettingsConfig,
-  DEFAULT_AI_SETTINGS
+  DEFAULT_AI_SETTINGS,
+  getAllAdminLookbook,
+  saveAdminLookbookItem,
+  deleteAdminLookbookItem,
+  getAdminDashboardMetrics,
+  AdminDashboardMetrics
 } from "@/lib/cms-store";
 import { isSupabaseConfigured, supabaseUrl } from "@/lib/supabase";
 import Toast, { ToastMessage } from "@/components/Toast";
@@ -50,8 +59,16 @@ export default function AdminCMSPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [pinInput, setPinInput] = useState("");
   const [pinError, setPinError] = useState(false);
-  const [activeTab, setActiveTab] = useState<"presets" | "catalog" | "ai" | "database">("presets");
+  const [activeTab, setActiveTab] = useState<"lookbook" | "presets" | "catalog" | "ai" | "database">("lookbook");
+  const [metrics, setMetrics] = useState<AdminDashboardMetrics | null>(null);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
+
+  // Lookbook Feed State (Admin Curated & Direct Shopee URLs)
+  const [lookbookItems, setLookbookItems] = useState<TrendingLook[]>([]);
+  const [lookbookSearch, setLookbookSearch] = useState("");
+  const [lookbookCategoryFilter, setLookbookCategoryFilter] = useState("Semua");
+  const [editingLook, setEditingLook] = useState<TrendingLook | null>(null);
+  const [isLookModalOpen, setIsLookModalOpen] = useState(false);
 
   // Presets State
   const [presets, setPresets] = useState<OOTDRecommendation[]>([]);
@@ -96,6 +113,8 @@ export default function AdminCMSPage() {
     setPresets(getAllAdminPresets());
     setCatalog(getAllAdminCatalog());
     setAiSettings(getAdminAISettings());
+    setLookbookItems(getAllAdminLookbook());
+    setMetrics(getAdminDashboardMetrics());
   };
 
   useEffect(() => {
@@ -106,11 +125,13 @@ export default function AdminCMSPage() {
       window.addEventListener("looku_presets_updated", handleUpdate);
       window.addEventListener("looku_catalog_updated", handleUpdate);
       window.addEventListener("looku_ai_settings_updated", handleUpdate);
+      window.addEventListener("looku_lookbook_updated", handleUpdate);
 
       return () => {
         window.removeEventListener("looku_presets_updated", handleUpdate);
         window.removeEventListener("looku_catalog_updated", handleUpdate);
         window.removeEventListener("looku_ai_settings_updated", handleUpdate);
+        window.removeEventListener("looku_lookbook_updated", handleUpdate);
       };
     }
   }, [isAuthenticated]);
@@ -141,6 +162,205 @@ export default function AdminCMSPage() {
     setIsAuthenticated(false);
     sessionStorage.removeItem("looku_admin_authenticated");
     setPinInput("");
+  };
+
+  // ==========================================
+  // LOOKBOOK CURATION ACTIONS (CRUD & SHOPEE)
+  // ==========================================
+  const handleOpenNewLook = () => {
+    const newId = `custom_look_${Date.now()}`;
+    setEditingLook({
+      id: newId,
+      title: "Setelan Tropis Minimalis",
+      tag: "SIGNATURE LOOK",
+      category: "Campus Hijab",
+      vibe: "Earthy Minimalist",
+      image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80",
+      skinToneRecommendation: "Sawo Matang & Kuning Langsat",
+      priceRange: "Rp 210.000 - Rp 295.000",
+      shopeeUrl: "",
+      isGoldenSignature: true,
+      likes: 154,
+      likesCount: 154,
+      outfit: {
+        id: `rec_${newId}`,
+        createdAt: new Date().toISOString(),
+        title: "Setelan Tropis Minimalis",
+        tagline: "Perpaduan bahan katun adem untuk iklim tropis 33°C",
+        overallVibe: "Earthy Minimalist",
+        comfortRating: 4.9,
+        affordabilityRating: 4.8,
+        modestFriendly: true,
+        skinToneMatch: "Sangat cocok untuk tone kulit Sawo Matang dan Kuning Langsat.",
+        whyItWorks: "Bahan katun rayon dan linen memberikan sirkulasi udara maksimal di cuaca terik.",
+        stylingTip: "Gunakan french-tuck pada bagian depan atasan untuk proporsi tubuh yang lebih jenjang.",
+        isGoldenSignature: true,
+        heroImage: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80",
+        shopeeUrl: "",
+        colorPalette: [
+          { name: "Sage Green", hex: "#7A8471" },
+          { name: "Broken White", hex: "#F4EFE6" },
+          { name: "Warm Sand", hex: "#D7CABC" },
+          { name: "Terracotta", hex: "#BA5D38" },
+        ],
+        items: [
+          {
+            category: "atasan",
+            name: "Kemeja Linen Crinkle Relaxed",
+            material: "Linen Euro Berkualitas",
+            color: "Sage Green",
+            colorHex: "#7A8471",
+            estimatedPrice: "Rp 85.000 - 110.000",
+            shopeeUrl: "",
+            shopeeQuery: "kemeja linen sage green oversized wanita",
+            tokopediaQuery: "kemeja linen crinkle sage green",
+          },
+          {
+            category: "bawahan",
+            name: "Celana Kulot Loose Highwaist",
+            material: "Katun Twill Flowy",
+            color: "Broken White",
+            colorHex: "#F4EFE6",
+            estimatedPrice: "Rp 95.000 - 125.000",
+            shopeeUrl: "",
+            shopeeQuery: "celana kulot highwaist broken white",
+            tokopediaQuery: "kulot loose broken white wanita",
+          },
+          {
+            category: "outer_hijab",
+            name: "Pashmina Ceruty Babydoll",
+            material: "Ceruty Premium",
+            color: "Warm Sand",
+            colorHex: "#D7CABC",
+            estimatedPrice: "Rp 35.000 - 55.000",
+            shopeeUrl: "",
+            shopeeQuery: "pashmina ceruty babydoll warm sand",
+            tokopediaQuery: "pashmina ceruty sand",
+          },
+          {
+            category: "sepatu",
+            name: "Pointed Mules / Loafers Kulit",
+            material: "Kulit Vegan",
+            color: "Warm Sand",
+            colorHex: "#D7CABC",
+            estimatedPrice: "Rp 120.000 - 160.000",
+            shopeeUrl: "",
+            shopeeQuery: "mules loafers pointed wanita cream",
+            tokopediaQuery: "loafers pointed mules wanita",
+          },
+        ],
+      },
+    });
+    setIsLookModalOpen(true);
+  };
+
+  const handleEditLook = (look: TrendingLook) => {
+    // Clone deeply to avoid in-place mutations
+    const cloned: TrendingLook = JSON.parse(JSON.stringify(look));
+    if (!cloned.outfit) {
+      cloned.outfit = {
+        id: `rec_${cloned.id}`,
+        createdAt: new Date().toISOString(),
+        title: cloned.title,
+        tagline: cloned.title,
+        overallVibe: cloned.vibe,
+        comfortRating: 4.9,
+        affordabilityRating: 4.8,
+        modestFriendly: cloned.category.toLowerCase().includes("hijab"),
+        skinToneMatch: cloned.skinToneRecommendation,
+        whyItWorks: "Bahan adem tropis.",
+        stylingTip: "Padukan dengan aksesoris minimalis.",
+        heroImage: cloned.image,
+        shopeeUrl: cloned.shopeeUrl || "",
+        colorPalette: [
+          { name: "Neutral 1", hex: "#7A8471" },
+          { name: "Neutral 2", hex: "#F4EFE6" },
+        ],
+        items: [
+          { category: "atasan", name: "Atasan Casual", material: "Katun", color: "Netral", colorHex: "#FFFFFF", estimatedPrice: "Rp 85.000", shopeeUrl: "", shopeeQuery: "atasan casual wanita", tokopediaQuery: "atasan casual" },
+          { category: "bawahan", name: "Bawahan Nyaman", material: "Twill", color: "Netral", colorHex: "#000000", estimatedPrice: "Rp 95.000", shopeeUrl: "", shopeeQuery: "bawahan celana kulot", tokopediaQuery: "celana kulot" },
+          { category: "outer_hijab", name: "Outer / Hijab", material: "Ceruty", color: "Netral", colorHex: "#D7CABC", estimatedPrice: "Rp 45.000", shopeeUrl: "", shopeeQuery: "outer hijab pashmina", tokopediaQuery: "pashmina ceruty" },
+          { category: "sepatu", name: "Sepatu Rapi", material: "Kulit Vegan", color: "Netral", colorHex: "#D7CABC", estimatedPrice: "Rp 125.000", shopeeUrl: "", shopeeQuery: "sepatu loafers mules", tokopediaQuery: "loafers mules" },
+        ],
+      };
+    }
+    // Ensure all 4 items exist
+    if (!cloned.outfit.items || cloned.outfit.items.length < 4) {
+      const existing = cloned.outfit.items || [];
+      const cats: Array<"atasan" | "bawahan" | "outer_hijab" | "sepatu"> = ["atasan", "bawahan", "outer_hijab", "sepatu"];
+      cats.forEach((cat) => {
+        if (!existing.some((it) => it.category === cat)) {
+          existing.push({
+            category: cat,
+            name: `Item ${cat}`,
+            material: "Katun Premium",
+            color: "Netral",
+            colorHex: "#F4EFE6",
+            estimatedPrice: "Rp 75.000",
+            shopeeUrl: "",
+            shopeeQuery: `${cat} casual`,
+            tokopediaQuery: `${cat} casual`,
+          });
+        }
+      });
+      cloned.outfit.items = existing;
+    }
+    setEditingLook(cloned);
+    setIsLookModalOpen(true);
+  };
+
+  const handleSaveLookForm = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editingLook) return;
+
+    const lookToSave: TrendingLook = {
+      ...editingLook,
+      outfit: {
+        ...(editingLook.outfit || ({} as any)),
+        id: editingLook.outfit?.id || `rec_${editingLook.id}`,
+        createdAt: editingLook.outfit?.createdAt || new Date().toISOString(),
+        title: editingLook.title,
+        tagline: editingLook.outfit?.tagline || editingLook.title,
+        overallVibe: editingLook.vibe,
+        comfortRating: editingLook.outfit?.comfortRating || 4.9,
+        affordabilityRating: editingLook.outfit?.affordabilityRating || 4.8,
+        modestFriendly:
+          editingLook.category.toLowerCase().includes("hijab") ||
+          editingLook.tag.toLowerCase().includes("hijab") ||
+          editingLook.outfit?.modestFriendly ||
+          false,
+        skinToneMatch: editingLook.skinToneRecommendation,
+        isGoldenSignature: editingLook.isGoldenSignature,
+        heroImage: editingLook.image,
+        shopeeUrl: editingLook.shopeeUrl,
+        items: editingLook.outfit?.items || [],
+        colorPalette: editingLook.outfit?.colorPalette || [
+          { name: "Neutral 1", hex: "#7A8471" },
+          { name: "Neutral 2", hex: "#F4EFE6" },
+        ],
+      },
+    };
+
+    saveAdminLookbookItem(lookToSave);
+    setIsLookModalOpen(false);
+    refreshAllData();
+    addToast({
+      title: "Lookbook Berhasil Disimpan!",
+      description: `"${editingLook.title}" kini aktif di Lookbook & Studio.`,
+      type: "success",
+    });
+  };
+
+  const handleDeleteLook = (id: string, title: string) => {
+    if (confirm(`Hapus outfit kurasi "${title}" dari Lookbook & Studio?`)) {
+      deleteAdminLookbookItem(id);
+      refreshAllData();
+      addToast({
+        title: "Outfit Lookbook Dihapus",
+        description: `"${title}" telah dihapus dari publik.`,
+        type: "info",
+      });
+    }
   };
 
   // ==========================================
@@ -351,6 +571,44 @@ export default function AdminCMSPage() {
     }
   };
 
+  // Filtered Lookbook
+  const filteredLookbook = lookbookItems.filter((look) => {
+    const q = lookbookSearch.toLowerCase();
+    const matchesSearch =
+      (look.title || "").toLowerCase().includes(q) ||
+      (look.vibe || "").toLowerCase().includes(q) ||
+      (look.category || "").toLowerCase().includes(q) ||
+      (look.tag || "").toLowerCase().includes(q) ||
+      (look.skinToneRecommendation || "").toLowerCase().includes(q);
+
+    if (!matchesSearch) return false;
+
+    if (lookbookCategoryFilter === "Semua") return true;
+    if (lookbookCategoryFilter === "golden") return look.isGoldenSignature || look.outfit?.isGoldenSignature;
+    if (lookbookCategoryFilter === "shopee") {
+      return Boolean(look.shopeeUrl || look.outfit?.items?.some((it) => it.shopeeUrl));
+    }
+    if (lookbookCategoryFilter === "hijab") {
+      return (
+        look.tag?.toUpperCase().includes("HIJAB") ||
+        look.category?.toLowerCase().includes("hijab") ||
+        look.outfit?.modestFriendly
+      );
+    }
+    if (lookbookCategoryFilter === "pria") {
+      return look.tag?.toUpperCase() === "MENSWEAR" || look.category?.toLowerCase().includes("pria");
+    }
+    if (lookbookCategoryFilter === "wanita") {
+      const isPria = look.tag?.toUpperCase() === "MENSWEAR" || look.category?.toLowerCase().includes("pria");
+      const isHijab =
+        look.tag?.toUpperCase().includes("HIJAB") ||
+        look.category?.toLowerCase().includes("hijab") ||
+        look.outfit?.modestFriendly;
+      return !isPria && !isHijab;
+    }
+    return true;
+  });
+
   // Filtered lists
   const filteredPresets = presets.filter((p) => {
     const q = presetSearch.toLowerCase();
@@ -498,11 +756,130 @@ export default function AdminCMSPage() {
 
       {/* Main CMS Layout */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-6">
+        {/* ============================================================ */}
+        {/* TOP VISUAL KPI DASHBOARD & CONVERSION ANALYTICS               */}
+        {/* ============================================================ */}
+        <div className="space-y-4">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 bg-white p-5 rounded-3xl border border-sand-300 shadow-2xs">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-terracotta-600">
+                  LIVE ATELIER ANALYTICS & AFFILIATE CONVERSION
+                </span>
+              </div>
+              <h1 className="font-serif text-2xl font-bold text-charcoal-900">
+                Dashboard Manajemen Kurasi & Afiliasi Look.u
+              </h1>
+              <p className="text-xs text-sand-500">
+                Data tersinkronisasi 2 arah secara instan antara CMS Admin, Lookbook publik, dan AI Styling Studio.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2 bg-emerald-50 border border-emerald-200 px-3.5 py-2 rounded-2xl text-emerald-800 text-xs font-mono shrink-0">
+              <span className="w-2 h-2 rounded-full bg-emerald-500" />
+              <span className="font-bold">Real-time Two-Way Sync Active</span>
+            </div>
+          </div>
+
+          {/* 4 Analytics KPI Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Card 1: Curated Looks */}
+            <div className="p-5 rounded-2xl bg-white border border-sand-300 shadow-tactile space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-mono font-bold uppercase text-sand-500">Total Lookbook</span>
+                <div className="w-8 h-8 rounded-xl bg-terracotta-50 text-terracotta-600 flex items-center justify-center">
+                  <Sparkles className="w-4 h-4" />
+                </div>
+              </div>
+              <div className="text-3xl font-serif font-bold text-charcoal-900">
+                {metrics?.totalLookbook ?? lookbookItems.length}
+                <span className="text-xs font-sans font-normal text-sand-400 ml-1.5">Outfit</span>
+              </div>
+              <div className="text-[11px] text-amber-600 font-mono font-bold flex items-center gap-1 pt-1 border-t border-sand-200">
+                <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+                <span>{metrics?.totalGoldenLooks ?? 0} Golden Signature Looks</span>
+              </div>
+            </div>
+
+            {/* Card 2: Active Shopee Links */}
+            <div className="p-5 rounded-2xl bg-white border border-sand-300 shadow-tactile space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-mono font-bold uppercase text-sand-500">Shopee Affiliate Aktif</span>
+                <div className="w-8 h-8 rounded-xl bg-orange-50 text-[#EE4D2D] flex items-center justify-center">
+                  <ShoppingBag className="w-4 h-4" />
+                </div>
+              </div>
+              <div className="text-3xl font-serif font-bold text-[#EE4D2D]">
+                {metrics?.totalActiveShopeeLinks ?? 0}
+                <span className="text-xs font-sans font-normal text-sand-400 ml-1.5">Tautan</span>
+              </div>
+              <div className="text-[11px] text-orange-600 font-mono font-semibold pt-1 border-t border-sand-200">
+                Direct Setelan & Produk Satuan
+              </div>
+            </div>
+
+            {/* Card 3: Live Affiliate Clicks */}
+            <div className="p-5 rounded-2xl bg-white border border-sand-300 shadow-tactile space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-mono font-bold uppercase text-sand-500">Trafik Afiliasi (Live)</span>
+                <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                  <MousePointerClick className="w-4 h-4" />
+                </div>
+              </div>
+              <div className="text-3xl font-serif font-bold text-emerald-700">
+                {metrics?.affiliateStats.totalClicks ?? 0}
+                <span className="text-xs font-sans font-normal text-sand-400 ml-1.5">Klik</span>
+              </div>
+              <div className="text-[11px] text-emerald-700 font-mono font-bold pt-1 border-t border-sand-200">
+                Est. Komisi: Rp {(metrics?.affiliateStats.estimatedCommissionRp ?? 0).toLocaleString("id-ID")}
+              </div>
+            </div>
+
+            {/* Card 4: Catalog & Presets */}
+            <div className="p-5 rounded-2xl bg-white border border-sand-300 shadow-tactile space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-mono font-bold uppercase text-sand-500">Gudang Katalog Busana</span>
+                <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                  <Package className="w-4 h-4" />
+                </div>
+              </div>
+              <div className="text-3xl font-serif font-bold text-charcoal-900">
+                {metrics?.totalCatalogItems ?? catalog.length}
+                <span className="text-xs font-sans font-normal text-sand-400 ml-1.5">Item</span>
+              </div>
+              <div className="text-[11px] text-blue-600 font-mono font-semibold pt-1 border-t border-sand-200">
+                {metrics?.totalPresets ?? presets.length} Preset Engine Heuristik
+              </div>
+            </div>
+          </div>
+
+          {/* Category Distribution Pills Strip */}
+          <div className="flex flex-wrap items-center gap-2.5 p-3.5 bg-sand-100/70 border border-sand-300 rounded-2xl text-xs">
+            <span className="font-mono font-bold uppercase text-[10px] text-sand-600 tracking-wider mr-1">
+              Distribusi Kategori:
+            </span>
+            <span className="px-3 py-1 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 font-medium">
+              🧕 <b>Hijab & Modest:</b> {metrics?.categories.hijab ?? 0} Look
+            </span>
+            <span className="px-3 py-1 rounded-xl bg-rose-50 border border-rose-200 text-rose-900 font-medium">
+              👗 <b>Wanita Modern:</b> {metrics?.categories.wanita ?? 0} Look
+            </span>
+            <span className="px-3 py-1 rounded-xl bg-blue-50 border border-blue-200 text-blue-900 font-medium">
+              👔 <b>Pria & Menswear:</b> {metrics?.categories.pria ?? 0} Look
+            </span>
+            <span className="px-3 py-1 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 font-medium">
+              ⭐ <b>Golden Signature:</b> {metrics?.totalGoldenLooks ?? 0} Look
+            </span>
+          </div>
+        </div>
+
         {/* Navigation Tabs */}
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-sand-300 pb-4">
           <div className="flex flex-wrap items-center gap-2">
             {[
-              { id: "presets", label: `Formula OOTD (${presets.length})`, icon: Sparkles },
+              { id: "lookbook", label: `Kurasi Lookbook (${lookbookItems.length})`, icon: Sparkles },
+              { id: "presets", label: `Formula OOTD (${presets.length})`, icon: Tag },
               { id: "catalog", label: `Katalog Busana (${catalog.length})`, icon: Package },
               { id: "ai", label: "Tuning AI & Prompt", icon: Sliders },
               { id: "database", label: "Backup & JSON Import", icon: Database },
@@ -527,6 +904,16 @@ export default function AdminCMSPage() {
           </div>
 
           <div className="flex items-center gap-2">
+            {activeTab === "lookbook" && (
+              <button
+                onClick={handleOpenNewLook}
+                className="py-2.5 px-4 rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-sm transition-colors"
+              >
+                <Plus className="w-4 h-4" />
+                <span>+ Tambah Outfit Lookbook</span>
+              </button>
+            )}
+
             {activeTab === "presets" && (
               <button
                 onClick={handleOpenNewPreset}
@@ -548,6 +935,189 @@ export default function AdminCMSPage() {
             )}
           </div>
         </div>
+
+        {/* ============================================================ */}
+        {/* TAB 0: LOOKBOOK OOTD FEED CURATION & DIRECT SHOPEE CMS       */}
+        {/* ============================================================ */}
+        {activeTab === "lookbook" && (
+          <div className="space-y-4">
+            {/* Filter & Search Bar */}
+            <div className="flex flex-col md:flex-row gap-3">
+              <div className="relative flex-1">
+                <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-sand-400" />
+                <input
+                  type="text"
+                  value={lookbookSearch}
+                  onChange={(e) => setLookbookSearch(e.target.value)}
+                  placeholder="Cari outfit berdasarkan judul, vibe, kategori, atau tag..."
+                  className="w-full pl-10 pr-4 py-3 rounded-2xl bg-white border border-sand-300 text-xs text-charcoal-900 focus:outline-none focus:border-terracotta-500 shadow-2xs"
+                />
+              </div>
+
+              <div className="flex flex-wrap items-center gap-1.5">
+                {[
+                  { id: "Semua", label: "Semua" },
+                  { id: "hijab", label: "🧕 Hijab & Modest" },
+                  { id: "wanita", label: "👗 Wanita" },
+                  { id: "pria", label: "👔 Pria" },
+                  { id: "golden", label: "⭐ Golden Looks" },
+                  { id: "shopee", label: "🛍️ Shopee Aktif" },
+                ].map((f) => (
+                  <button
+                    key={f.id}
+                    onClick={() => setLookbookCategoryFilter(f.id)}
+                    className={`px-3 py-2 rounded-xl text-xs font-semibold transition-colors ${
+                      lookbookCategoryFilter === f.id
+                        ? "bg-charcoal-900 text-white font-bold"
+                        : "bg-white text-sand-600 hover:bg-sand-100 border border-sand-300"
+                    }`}
+                  >
+                    {f.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Lookbook Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+              {filteredLookbook.map((look) => {
+                const shopeeItemsCount = (look.outfit?.items || []).filter((it) => Boolean(it.shopeeUrl)).length;
+                const hasShopee = Boolean(look.shopeeUrl || shopeeItemsCount > 0);
+                const isGolden = Boolean(look.isGoldenSignature || look.outfit?.isGoldenSignature);
+
+                return (
+                  <div
+                    key={look.id}
+                    className="group bg-white rounded-2xl border border-sand-300 overflow-hidden shadow-tactile flex flex-col justify-between hover:border-charcoal-900 transition-all"
+                  >
+                    <div>
+                      {/* Image Preview with Badges */}
+                      <div className="relative aspect-[3/4] w-full bg-sand-100 overflow-hidden">
+                        <img
+                          src={look.image}
+                          alt={look.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+
+                        {/* Top Badges */}
+                        <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between pointer-events-none">
+                          <span className="px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-xs text-white text-[9px] font-mono font-bold uppercase tracking-wider">
+                            {look.tag || "LOOK"}
+                          </span>
+                          {isGolden && (
+                            <span className="px-2 py-0.5 rounded-md bg-amber-500 text-white text-[9px] font-mono font-bold uppercase tracking-wider flex items-center gap-1 shadow-xs">
+                              ⭐ GOLDEN
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Price Overlay */}
+                        <div className="absolute bottom-2.5 left-2.5">
+                          <span className="px-2.5 py-1 rounded-lg bg-white/95 backdrop-blur-xs text-charcoal-900 font-mono text-[10px] font-bold shadow-xs">
+                            {look.priceRange || "Rp 150rb - 250rb"}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Content Body */}
+                      <div className="p-4 space-y-2.5">
+                        <div className="flex items-center justify-between text-[10px] font-mono text-sand-500">
+                          <span>{look.category}</span>
+                          <span className="text-terracotta-600 font-semibold">{look.vibe}</span>
+                        </div>
+
+                        <h3 className="font-serif font-bold text-sm text-charcoal-900 leading-snug line-clamp-1">
+                          {look.title}
+                        </h3>
+
+                        {/* Shopee Affiliate Status Pill */}
+                        <div className="pt-1">
+                          {look.shopeeUrl ? (
+                            <div className="flex items-center gap-1 text-[10px] font-mono font-bold text-[#EE4D2D] bg-orange-50 border border-orange-200 px-2 py-0.5 rounded-md">
+                              <span>🛍️ Shopee Setelan: Aktif</span>
+                              <ExternalLink className="w-2.5 h-2.5 ml-auto" />
+                            </div>
+                          ) : shopeeItemsCount > 0 ? (
+                            <div className="flex items-center gap-1 text-[10px] font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md">
+                              <span>🎯 {shopeeItemsCount}/4 Item Shopee Terhubung</span>
+                            </div>
+                          ) : (
+                            <div className="flex items-center gap-1 text-[10px] font-mono text-sand-400 bg-sand-50 border border-sand-200 px-2 py-0.5 rounded-md">
+                              <span>⚠️ Belum ada Shopee URL (pakai query)</span>
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Skin Tone & Items Preview */}
+                        <p className="text-[11px] text-sand-500 line-clamp-1 font-sans">
+                          Skin: {look.skinToneRecommendation || "Semua Skin Tone"}
+                        </p>
+
+                        <div className="pt-1 flex flex-wrap gap-1">
+                          {(look.outfit?.items || []).slice(0, 4).map((it, idx) => (
+                            <span
+                              key={idx}
+                              className={`text-[9px] font-mono px-1.5 py-0.5 rounded border ${
+                                it.shopeeUrl
+                                  ? "bg-orange-50 border-orange-200 text-[#EE4D2D] font-bold"
+                                  : "bg-sand-50 border-sand-200 text-sand-600"
+                              }`}
+                              title={it.shopeeUrl ? `Shopee: ${it.shopeeUrl}` : it.name}
+                            >
+                              {it.category}: {it.name.split(" ")[0]}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Footer Actions */}
+                    <div className="p-3 bg-sand-50/80 border-t border-sand-200 flex items-center justify-between gap-1.5">
+                      <Link
+                        href={`/studio?look=${look.id}`}
+                        target="_blank"
+                        className="flex-1 py-1.5 px-2 rounded-lg bg-white hover:bg-sand-100 text-charcoal-900 text-[11px] font-mono font-bold border border-sand-300 text-center transition-colors flex items-center justify-center gap-1"
+                        title="Buka dan racik formula ini di AI Studio"
+                      >
+                        <span>Studio</span>
+                        <ExternalLink className="w-2.5 h-2.5" />
+                      </Link>
+
+                      <button
+                        onClick={() => handleEditLook(look)}
+                        className="py-1.5 px-3 rounded-lg bg-charcoal-900 hover:bg-terracotta-500 text-white text-[11px] font-mono font-bold transition-colors flex items-center gap-1"
+                      >
+                        <Edit3 className="w-3 h-3" />
+                        <span>Edit</span>
+                      </button>
+
+                      <button
+                        onClick={() => handleDeleteLook(look.id, look.title)}
+                        className="p-1.5 rounded-lg text-sand-400 hover:text-rose-600 hover:bg-rose-50 transition-colors"
+                        title="Hapus Outfit dari Lookbook"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {filteredLookbook.length === 0 && (
+              <div className="text-center py-16 bg-white rounded-3xl border border-sand-300 space-y-3">
+                <Sparkles className="w-8 h-8 text-sand-400 mx-auto" />
+                <h3 className="font-serif font-bold text-base text-charcoal-900">
+                  Tidak ada outfit yang cocok dengan filter
+                </h3>
+                <p className="text-xs text-sand-500">
+                  Coba ubah kata kunci pencarian atau kategori filter di atas.
+                </p>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* ============================================================ */}
         {/* TAB 1: FORMULA OOTD PRESETS CMS                              */}
@@ -916,6 +1486,329 @@ export default function AdminCMSPage() {
           </div>
         )}
       </div>
+
+      {/* ============================================================ */}
+      {/* LOOKBOOK EDIT / CREATE MODAL WITH DIRECT SHOPEE URLS         */}
+      {/* ============================================================ */}
+      {isLookModalOpen && editingLook && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm overflow-y-auto">
+          <div className="relative w-full max-w-3xl bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-sand-300 my-8 space-y-6 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between border-b border-sand-200 pb-4">
+              <div>
+                <span className="text-[10px] font-mono uppercase font-bold tracking-widest text-terracotta-600">
+                  LOOKBOOK CURATION & SHOPEE AFFILIATE ENGINE
+                </span>
+                <h3 className="font-serif font-bold text-xl text-charcoal-900">
+                  {editingLook.id.startsWith("custom_look_") ? "Tambah Outfit Lookbook Baru" : "Edit Outfit Lookbook"}
+                </h3>
+              </div>
+              <button
+                onClick={() => setIsLookModalOpen(false)}
+                className="p-1.5 rounded-full hover:bg-sand-100 transition-colors"
+              >
+                <X className="w-5 h-5 text-charcoal-900" />
+              </button>
+            </div>
+
+            <form onSubmit={handleSaveLookForm} className="space-y-6 text-xs">
+              {/* Section 1: Overview */}
+              <div className="space-y-3">
+                <h4 className="font-mono font-bold text-[11px] uppercase tracking-wider text-charcoal-900 border-b border-sand-200 pb-1">
+                  1. Identitas & Tampilan Lookbook
+                </h4>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="space-y-1">
+                    <label className="font-bold font-mono">Judul Setelan OOTD:</label>
+                    <input
+                      type="text"
+                      required
+                      value={editingLook.title}
+                      onChange={(e) => setEditingLook({ ...editingLook, title: e.target.value })}
+                      className="w-full p-2.5 rounded-xl bg-sand-50 border border-sand-300 font-bold text-charcoal-900"
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="font-bold font-mono">Tag Badge (e.g. SIGNATURE LOOK, HIJAB CASUAL):</label>
+                    <input
+                      type="text"
+                      required
+                      value={editingLook.tag}
+                      onChange={(e) => setEditingLook({ ...editingLook, tag: e.target.value })}
+                      className="w-full p-2.5 rounded-xl bg-sand-50 border border-sand-300 font-mono font-bold uppercase"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="space-y-1">
+                    <label className="font-bold font-mono">Kategori Acara:</label>
+                    <input
+                      type="text"
+                      required
+                      value={editingLook.category}
+                      onChange={(e) => setEditingLook({ ...editingLook, category: e.target.value })}
+                      placeholder="Campus Hijab, Work, Weekend..."
+                      className="w-full p-2.5 rounded-xl bg-sand-50 border border-sand-300"
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="font-bold font-mono">Overall Vibe:</label>
+                    <input
+                      type="text"
+                      required
+                      value={editingLook.vibe}
+                      onChange={(e) => setEditingLook({ ...editingLook, vibe: e.target.value })}
+                      placeholder="Earthy Minimalist, Quiet Luxury..."
+                      className="w-full p-2.5 rounded-xl bg-sand-50 border border-sand-300"
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="font-bold font-mono">Rentang Harga:</label>
+                    <input
+                      type="text"
+                      required
+                      value={editingLook.priceRange}
+                      onChange={(e) => setEditingLook({ ...editingLook, priceRange: e.target.value })}
+                      placeholder="Rp 210.000 - Rp 295.000"
+                      className="w-full p-2.5 rounded-xl bg-sand-50 border border-sand-300 font-mono"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="space-y-1">
+                    <label className="font-bold font-mono">Rekomendasi Skin Tone:</label>
+                    <input
+                      type="text"
+                      required
+                      value={editingLook.skinToneRecommendation}
+                      onChange={(e) => setEditingLook({ ...editingLook, skinToneRecommendation: e.target.value })}
+                      placeholder="Sawo Matang & Kuning Langsat"
+                      className="w-full p-2.5 rounded-xl bg-sand-50 border border-sand-300"
+                    />
+                  </div>
+
+                  <div className="flex items-center gap-3 pt-4">
+                    <label className="flex items-center gap-2 cursor-pointer select-none">
+                      <input
+                        type="checkbox"
+                        checked={Boolean(editingLook.isGoldenSignature)}
+                        onChange={(e) => setEditingLook({ ...editingLook, isGoldenSignature: e.target.checked })}
+                        className="w-4 h-4 rounded text-terracotta-500 focus:ring-terracotta-400"
+                      />
+                      <span className="font-mono font-bold text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-lg">
+                        ⭐ Jadikan Golden Signature Look (Prioritas Teratas)
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              {/* Section 2: Photo & Full Set Shopee URL */}
+              <div className="space-y-3">
+                <h4 className="font-mono font-bold text-[11px] uppercase tracking-wider text-charcoal-900 border-b border-sand-200 pb-1">
+                  2. Foto Model & Link Afiliasi Full-Set
+                </h4>
+
+                <div className="flex flex-col sm:flex-row gap-4 items-start">
+                  {/* Photo Preview Thumbnail */}
+                  <div className="w-24 h-32 rounded-xl bg-sand-100 border border-sand-300 overflow-hidden shrink-0">
+                    <img
+                      src={editingLook.image}
+                      alt="Preview"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src =
+                          "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80";
+                      }}
+                    />
+                  </div>
+
+                  <div className="flex-1 space-y-3 w-full">
+                    <div className="space-y-1">
+                      <label className="font-bold font-mono">URL Foto Model (Unsplash / CDN):</label>
+                      <input
+                        type="url"
+                        required
+                        value={editingLook.image}
+                        onChange={(e) => setEditingLook({ ...editingLook, image: e.target.value })}
+                        className="w-full p-2.5 rounded-xl bg-sand-50 border border-sand-300 font-mono text-[11px]"
+                      />
+                    </div>
+
+                    <div className="space-y-1">
+                      <label className="font-bold font-mono text-[#EE4D2D] flex items-center gap-1.5">
+                        <span>🛍️ Tautan Afiliasi Shopee Full-Set (Opsional):</span>
+                        <span className="text-[10px] text-sand-500 font-normal">
+                          (Tombol "Beli Setelan Ini di Shopee" di Lookbook)
+                        </span>
+                      </label>
+                      <input
+                        type="url"
+                        value={editingLook.shopeeUrl || ""}
+                        onChange={(e) => setEditingLook({ ...editingLook, shopeeUrl: e.target.value })}
+                        placeholder="https://shopee.co.id/product/..."
+                        className="w-full p-2.5 rounded-xl bg-orange-50/50 border border-orange-200 font-mono text-[11px] text-[#EE4D2D] focus:border-[#EE4D2D]"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Section 3: 4 Items Breakdown with Individual Shopee Links */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between border-b border-sand-200 pb-1">
+                  <h4 className="font-mono font-bold text-[11px] uppercase tracking-wider text-charcoal-900">
+                    3. Rincian 4 Komponen Busana & Direct Shopee URL
+                  </h4>
+                  <span className="text-[10px] font-mono text-sand-500">
+                    Atasan • Bawahan • Outer/Hijab • Sepatu
+                  </span>
+                </div>
+
+                <div className="space-y-3">
+                  {(editingLook.outfit?.items || []).map((it, idx) => {
+                    const slotLabels = ["1. Atasan (Top)", "2. Bawahan (Bottom)", "3. Outer / Hijab", "4. Sepatu (Footwear)"];
+                    return (
+                      <div
+                        key={idx}
+                        className="p-3.5 rounded-2xl bg-sand-50/70 border border-sand-300 space-y-2.5"
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="font-mono font-bold text-[11px] uppercase text-charcoal-900">
+                            {slotLabels[idx] || `Item #${idx + 1} (${it.category})`}
+                          </span>
+                          <span className="text-[9px] font-mono uppercase bg-white px-2 py-0.5 rounded border border-sand-200">
+                            Slot {it.category}
+                          </span>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-mono font-bold text-sand-600">Nama Item:</label>
+                            <input
+                              type="text"
+                              required
+                              value={it.name}
+                              onChange={(e) => {
+                                const updated = [...(editingLook.outfit?.items || [])];
+                                updated[idx] = { ...updated[idx], name: e.target.value };
+                                setEditingLook({
+                                  ...editingLook,
+                                  outfit: { ...(editingLook.outfit as any), items: updated },
+                                });
+                              }}
+                              className="w-full p-2 rounded-lg bg-white border border-sand-300 text-xs font-semibold"
+                            />
+                          </div>
+
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-mono font-bold text-sand-600">Bahan Kain:</label>
+                            <input
+                              type="text"
+                              required
+                              value={it.material}
+                              onChange={(e) => {
+                                const updated = [...(editingLook.outfit?.items || [])];
+                                updated[idx] = { ...updated[idx], material: e.target.value };
+                                setEditingLook({
+                                  ...editingLook,
+                                  outfit: { ...(editingLook.outfit as any), items: updated },
+                                });
+                              }}
+                              className="w-full p-2 rounded-lg bg-white border border-sand-300 text-xs"
+                            />
+                          </div>
+
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-mono font-bold text-sand-600">Estimasi Harga:</label>
+                            <input
+                              type="text"
+                              required
+                              value={it.estimatedPrice}
+                              onChange={(e) => {
+                                const updated = [...(editingLook.outfit?.items || [])];
+                                updated[idx] = { ...updated[idx], estimatedPrice: e.target.value };
+                                setEditingLook({
+                                  ...editingLook,
+                                  outfit: { ...(editingLook.outfit as any), items: updated },
+                                });
+                              }}
+                              className="w-full p-2 rounded-lg bg-white border border-sand-300 font-mono text-xs"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-mono font-bold text-[#EE4D2D] flex items-center gap-1">
+                              <span>🛍️ Tautan Langsung Shopee Produk Ini (Affiliate):</span>
+                            </label>
+                            <input
+                              type="url"
+                              value={it.shopeeUrl || ""}
+                              onChange={(e) => {
+                                const updated = [...(editingLook.outfit?.items || [])];
+                                updated[idx] = { ...updated[idx], shopeeUrl: e.target.value };
+                                setEditingLook({
+                                  ...editingLook,
+                                  outfit: { ...(editingLook.outfit as any), items: updated },
+                                });
+                              }}
+                              placeholder="https://shopee.co.id/product/..."
+                              className="w-full p-2 rounded-lg bg-white border border-orange-200 text-[#EE4D2D] font-mono text-[10px] focus:border-[#EE4D2D]"
+                            />
+                          </div>
+
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-mono font-bold text-sand-600">
+                              Fallback Kata Kunci Shopee:
+                            </label>
+                            <input
+                              type="text"
+                              value={it.shopeeQuery || ""}
+                              onChange={(e) => {
+                                const updated = [...(editingLook.outfit?.items || [])];
+                                updated[idx] = { ...updated[idx], shopeeQuery: e.target.value };
+                                setEditingLook({
+                                  ...editingLook,
+                                  outfit: { ...(editingLook.outfit as any), items: updated },
+                                });
+                              }}
+                              className="w-full p-2 rounded-lg bg-white border border-sand-300 font-mono text-[10px]"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="pt-4 flex items-center justify-end gap-3 border-t border-sand-200">
+                <button
+                  type="button"
+                  onClick={() => setIsLookModalOpen(false)}
+                  className="py-2.5 px-4 rounded-xl bg-sand-100 hover:bg-sand-200 text-charcoal-900 font-bold"
+                >
+                  Batal
+                </button>
+                <button
+                  type="submit"
+                  className="py-2.5 px-6 rounded-xl bg-charcoal-900 hover:bg-terracotta-500 text-white font-bold uppercase tracking-wider flex items-center gap-2 shadow-md transition-colors"
+                >
+                  <Check className="w-4 h-4" />
+                  <span>Simpan & Sinkronkan ke Publik ➔</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* ============================================================ */}
       {/* EDIT PRESET FORM MODAL                                       */}

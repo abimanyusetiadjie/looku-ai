@@ -1,8 +1,133 @@
 import { OOTDRecommendation, UserPreferences, TrendingLook, OutfitItem } from "./types";
-import { GOLDEN_DATASET } from "./fashion-catalog-data";
-import { EXTENDED_OOTD_CATALOG, EXTENDED_TRENDING_LOOKS, CATALOG_METRICS } from "./synthesized-catalog";
 
-export { CATALOG_METRICS };
+export interface FashionItem {
+  id: string;
+  name: string;
+  category: "atasan" | "bawahan" | "outer_hijab" | "sepatu";
+  material: string;
+  breathabilityScore?: number;
+  colorName: string;
+  colorHex: string;
+  suitableForSkinTones?: Array<"Fair" | "Light" | "Medium" | "Tan" | "Deep">;
+  marketValidation?: {
+    estimatedPrice: number;
+    searchVolumeTrend: string;
+    source: string;
+  };
+  imageUrl?: string;
+  brand?: string;
+  brandUrl?: string;
+  isOfficialBrand?: boolean;
+  [key: string]: any;
+}
+
+export type FashionCatalogItem = FashionItem;
+
+export const GOLDEN_DATASET: FashionItem[] = [
+  {
+    id: "top_linen_white",
+    name: "Uniqlo Premium Linen Long Sleeve Shirt",
+    category: "atasan",
+    material: "100% European Flax Linen (Sirkulasi Udara Optimal)",
+    breathabilityScore: 98,
+    colorName: "Broken White",
+    colorHex: "#F3EFE6",
+    brand: "UNIQLO",
+    brandUrl: "https://www.uniqlo.com/id/id/search?q=Premium%20Linen%20Shirt",
+    isOfficialBrand: true,
+    suitableForSkinTones: ["Fair", "Light", "Medium", "Tan", "Deep"],
+    marketValidation: {
+      estimatedPrice: 399000,
+      searchVolumeTrend: "TOP_TRENDING_LINEN",
+      source: "Uniqlo Official Store ID",
+    },
+    imageUrl: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=800&auto=format&fit=crop&q=85",
+  },
+  {
+    id: "top_crinkle_sage",
+    name: "H&M Relaxed Fit Camp Collar Linen Shirt",
+    category: "atasan",
+    material: "Linen-Blend Poplin (Serat Bernapas)",
+    breathabilityScore: 94,
+    colorName: "Sage Green Muted",
+    colorHex: "#8A9A86",
+    brand: "H&M",
+    brandUrl: "https://id.hm.com/id_id/search-results.html?q=linen+shirt",
+    isOfficialBrand: true,
+    suitableForSkinTones: ["Light", "Medium", "Tan"],
+    marketValidation: {
+      estimatedPrice: 299000,
+      searchVolumeTrend: "CAFE_HOPPING_SKENA",
+      source: "H&M Indonesia Online",
+    },
+    imageUrl: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=800&auto=format&fit=crop&q=85",
+  },
+  {
+    id: "btm_linen_culotte",
+    name: "Uniqlo Pleated Wide Culottes",
+    category: "bawahan",
+    material: "Flowy Rayon Crepe Twill (Anti-Gerah)",
+    breathabilityScore: 97,
+    colorName: "Sand Oat",
+    colorHex: "#E8DFD1",
+    brand: "UNIQLO",
+    brandUrl: "https://www.uniqlo.com/id/id/search?q=Pleated%20Wide%20Pants",
+    isOfficialBrand: true,
+    suitableForSkinTones: ["Fair", "Light", "Medium", "Tan", "Deep"],
+    marketValidation: {
+      estimatedPrice: 499000,
+      searchVolumeTrend: "VIRAL_TIKTOK_BESTSELLER",
+      source: "Uniqlo Must-Have Wardrobe",
+    },
+    imageUrl: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&auto=format&fit=crop&q=85",
+  },
+  {
+    id: "hijab_voal_nude",
+    name: "Lafiye Voal Ultrafine Clean Laser-Cut",
+    category: "outer_hijab",
+    material: "100% Voal Ultrafine Berpori Mikro",
+    breathabilityScore: 99,
+    colorName: "Nude Blush Muted",
+    colorHex: "#E2C4B8",
+    brand: "LAFIYE",
+    brandUrl: "https://shopee.co.id/search?keyword=lafiye%20voal%20ultrafine",
+    isOfficialBrand: false,
+    suitableForSkinTones: ["Fair", "Light", "Medium", "Tan", "Deep"],
+    marketValidation: {
+      estimatedPrice: 65000,
+      searchVolumeTrend: "DAILY_MODEST_ESSENTIAL",
+      source: "Top Local Hijab Brand",
+    },
+    imageUrl: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=800&auto=format&fit=crop&q=85",
+  },
+  {
+    id: "shoe_canvas_sneakers",
+    name: "H&M Retro Low Court Sneakers",
+    category: "sepatu",
+    material: "Washed Breathable Canvas & Gum Sole",
+    breathabilityScore: 92,
+    colorName: "Vintage Off-White",
+    colorHex: "#FAFAFA",
+    brand: "H&M",
+    brandUrl: "https://id.hm.com/id_id/search-results.html?q=court+sneakers",
+    isOfficialBrand: true,
+    suitableForSkinTones: ["Fair", "Light", "Medium", "Tan", "Deep"],
+    marketValidation: {
+      estimatedPrice: 449000,
+      searchVolumeTrend: "RETRO_COURT_SNEAKERS",
+      source: "H&M Footwear Division",
+    },
+    imageUrl: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80",
+  },
+];
+
+export const FASHION_CATALOG_300: FashionCatalogItem[] = GOLDEN_DATASET;
+
+export const CATALOG_METRICS = {
+  totalCuratedLooks: 22,
+  climateTarget: "33°C Tropical Humid",
+  status: "Golden Curated Set",
+};
 
 const SIGNATURE_PRESETS: Record<string, OOTDRecommendation> = {
   "kuliah_hijab_panas_hemat": {
@@ -633,14 +758,14 @@ const SIGNATURE_PRESETS: Record<string, OOTDRecommendation> = {
   "rainy_cardigan_cozy": {
     id: "rec_rainy_cardigan_1",
     title: "Rainy Day Soft Layering Knit & Pashmina",
-    tagline: "Nyaman dan hangat di cuaca hujan, tetap stylish.",
-    overallVibe: "Cozy & Warm",
+    tagline: "Nyaman dan adem di cuaca hujan tropis lembap, tetap stylish.",
+    overallVibe: "Cozy & Breathable",
     comfortRating: 4.9,
     affordabilityRating: 4.6,
     modestFriendly: true,
     skinToneMatch: "Warna plum dan navy memberi kedalaman pada kulit Kuning Langsat dan Fair.",
-    whyItWorks: "Layering dengan cardigan tebal menjaga suhu tubuh saat hujan, dipadu dengan bawahan denim yang awet.",
-    stylingTip: "Padukan dengan pashmina kasmir/voal dan sepatu bot tahan air atau sneakers kulit.",
+    whyItWorks: "Layering dengan rajut katun berpori halus menjaga kenyamanan suhu tubuh saat hujan tropis tanpa memicu rasa pengap, dipadu bawahan chino twill yang ringan.",
+    stylingTip: "Padukan dengan pashmina voal berpori dan sneakers kulit tahan cipratan air.",
     colorPalette: [
       { name: "Plum", hex: "#8E4585" },
       { name: "Navy", hex: "#000080" },
@@ -650,23 +775,23 @@ const SIGNATURE_PRESETS: Record<string, OOTDRecommendation> = {
     items: [
       {
         category: "atasan",
-        name: "Chunky Knit Cardigan",
-        material: "Thick Cotton Acrylic Knit",
+        name: "Fine Breathable Cotton Knit Cardigan",
+        material: "Fine Breathable Cotton Knit + Chino Twill",
         color: "Plum / Grey Marl",
         colorHex: "#8E4585",
         estimatedPrice: "Rp 110.000 - 180.000",
-        shopeeQuery: "cardigan rajut tebal wanita korea",
-        tokopediaQuery: "chunky knit cardigan wanita tebal",
+        shopeeQuery: "cardigan rajut katun tipis wanita adem",
+        tokopediaQuery: "fine cotton knit cardigan wanita breathable",
       },
       {
         category: "bawahan",
-        name: "Straight Leg Denim / Corduroy Pants",
-        material: "Denim / Corduroy",
+        name: "Straight Leg Chino Twill Pants",
+        material: "Fine Breathable Cotton Knit + Chino Twill",
         color: "Navy / Black",
         colorHex: "#000080",
         estimatedPrice: "Rp 130.000 - 200.000",
-        shopeeQuery: "celana jeans wanita straight leg",
-        tokopediaQuery: "celana corduroy wanita pinggang karet",
+        shopeeQuery: "celana chino twill wanita straight leg",
+        tokopediaQuery: "celana katun twill wanita pinggang karet",
       }
     ],
     createdAt: new Date().toISOString(),
@@ -735,12 +860,12 @@ const SIGNATURE_PRESETS: Record<string, OOTDRecommendation> = {
       {
         category: "atasan",
         name: "Heavyweight Boxy Fit T-Shirt",
-        material: "Cotton Combed 20s / 24s",
+        material: "Cotton Combed 24s/30s Cool-Touch",
         color: "Black / White",
         colorHex: "#000000",
         estimatedPrice: "Rp 70.000 - 130.000",
-        shopeeQuery: "kaos boxy fit pria oversized polos tebal",
-        tokopediaQuery: "boxy t-shirt pria katun 20s",
+        shopeeQuery: "kaos boxy fit pria oversized katun 24s",
+        tokopediaQuery: "boxy t-shirt pria katun 24s adem",
       },
       {
         category: "bawahan",
@@ -799,65 +924,65 @@ const SIGNATURE_PRESETS: Record<string, OOTDRecommendation> = {
   },
 
   // ==========================================
-  // POLYVORE & MYNTRA EXPANSION (FEMALE & MALE)
+  // TROPICAL EDITORIAL CURATION (FEMALE & MALE)
   // ==========================================
   "polyvore_female_01_edgy_streetwear": {
     id: "polyvore_female_01",
-    title: "Edgy Biker & Dark Denim Streetwear",
-    tagline: "Jaket kulit aksen ruffle dengan celana denim lurus klasik untuk gaya metropolitan berkarakter.",
-    overallVibe: "Urban Streetwear Chic",
-    comfortRating: 4.8,
-    affordabilityRating: 4.5,
+    title: "Linen Vest & Flowy Culottes",
+    tagline: "Paduan rompi linen tanpa lengan dan kulot rayon jatuh yang sejuk untuk cuaca tropis 33°C.",
+    overallVibe: "Airy Tropical Chic",
+    comfortRating: 5.0,
+    affordabilityRating: 4.8,
     modestFriendly: true,
-    skinToneMatch: "Sangat proporsional untuk kulit Sawo Matang dan Deep Bronze, menciptakan kontras tegas yang memancarkan aura percaya diri.",
-    whyItWorks: "Kombinasi tekstur jaket kulit berstruktur dengan celana denim katun menyeimbangkan kesan tangguh dan santai, cocok untuk mobilitas urban sore hingga malam.",
-    stylingTip: "Buka sedikit ritsleting jaket dan kenakan kaus katun putih di dalam untuk menciptakan ilusi siluet jenjang.",
+    skinToneMatch: "Sangat proporsional untuk kulit Sawo Matang dan Deep Bronze, palet pasir dan terracotta memancarkan kesan cerah alami.",
+    whyItWorks: "Kombinasi linen berpori dengan celana kulot rayon twill menyeimbangkan struktur rapi dan sirkulasi udara optimal untuk mobilitas siang hingga sore.",
+    stylingTip: "Kenakan bersama inner kemeja katun crinkle tipis atau pakai langsung sebagai smart-casual set dengan sandal mules kulit.",
     colorPalette: [
-      { name: "Midnight Black", hex: "#1C1C1E" },
-      { name: "Indigo Denim", hex: "#2C3E50" },
-      { name: "Olive Taupe", hex: "#6E6859" }
+      { name: "Oatmeal Linen", hex: "#FAF6EE" },
+      { name: "Terracotta Sand", hex: "#D4A373" },
+      { name: "Sage Olive", hex: "#8FA98D" }
     ],
     items: [
       {
         category: "atasan",
-        name: "Inner Katun Combed 30s Adem",
-        material: "100% Katun Combed Ultra Soft",
+        name: "Airy Crinkle Cotton Inner Blouse",
+        material: "100% Katun Crinkle Airflow Dingin",
         color: "Clean Broken White",
         colorHex: "#FDFBF7",
-        estimatedPrice: "Rp 65.000 - 85.000",
-        shopeeQuery: "kaus polos wanita broken white katun combed",
-        tokopediaQuery: "kaos polos katun wanita putih",
+        estimatedPrice: "Rp 85.000 - 115.000",
+        shopeeQuery: "blouse katun crinkle wanita putih adem",
+        tokopediaQuery: "atasan katun airflow wanita broken white",
       },
       {
         category: "outer_hijab",
-        name: "Ruffle Biker Leather Jacket",
-        material: "Kulit Sintetis Breathable Lembut",
-        color: "Midnight Black",
-        colorHex: "#1C1C1E",
-        estimatedPrice: "Rp 240.000 - 295.000",
-        shopeeQuery: "jaket kulit wanita cropped biker ruffle",
-        tokopediaQuery: "jaket kulit wanita biker casual hitam",
-        imageUrl: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80",
+        name: "Sleeveless Tailored Pure Linen Vest",
+        material: "100% Pure Flax Linen Unlined",
+        color: "Oatmeal Sand",
+        colorHex: "#D4A373",
+        estimatedPrice: "Rp 135.000 - 189.000",
+        shopeeQuery: "vest linen wanita tailored rompi adem",
+        tokopediaQuery: "rompi linen wanita smart casual",
+        imageUrl: "https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=600&q=80",
       },
       {
         category: "bawahan",
-        name: "Straight-Leg Dark Wash Jeans",
-        material: "Katun Denim Stretch 12oz",
-        color: "Dark Indigo Blue",
-        colorHex: "#2C3E50",
-        estimatedPrice: "Rp 155.000 - 195.000",
-        shopeeQuery: "celana jeans wanita straight leg dark blue",
-        tokopediaQuery: "celana jeans lurus wanita navy stretch",
+        name: "High-Waist Flowy Rayon Culottes",
+        material: "Katun Rayon Twill Premium Breathable",
+        color: "Warm Sand",
+        colorHex: "#E8DFD1",
+        estimatedPrice: "Rp 125.000 - 165.000",
+        shopeeQuery: "celana kulot rayon twill highwaist wanita",
+        tokopediaQuery: "kulot linen rayon wanita loose adem",
       },
       {
         category: "sepatu",
-        name: "Slouchy Wrap Chunky Ankle Boots",
-        material: "Leather Look dengan Hak Tahu & Aksen Tali",
-        color: "Olive Taupe",
-        colorHex: "#6E6859",
-        estimatedPrice: "Rp 190.000 - 235.000",
-        shopeeQuery: "ankle boots wanita hak tahu tali lilit",
-        tokopediaQuery: "sepatu boots wanita heels chunky vintage",
+        name: "Minimalist Leather Flat Mule Sandals",
+        material: "Soft Vegan Leather & Cushioned Footbed",
+        color: "Tan Caramel",
+        colorHex: "#A67C52",
+        estimatedPrice: "Rp 135.000 - 175.000",
+        shopeeQuery: "sandal mules wanita flat kulit minimalis",
+        tokopediaQuery: "sepatu sandal mules wanita slip on",
       }
     ],
     createdAt: new Date().toISOString(),
@@ -926,18 +1051,18 @@ const SIGNATURE_PRESETS: Record<string, OOTDRecommendation> = {
 
   "polyvore_female_03_cocktail_glamour": {
     id: "polyvore_female_03",
-    title: "Ice Blue Silk Draping & Bolero Luxe",
-    tagline: "Gaun sutra lipit warna ice blue berpadu bolero bulu abu-abu lembut untuk jamuan pesta malam.",
+    title: "Ice Blue Silk Draping & Organza Luxe",
+    tagline: "Gaun sutra lipit warna ice blue berpadu sheer silk organza outer yang sejuk untuk jamuan pesta malam tropis.",
     overallVibe: "Formal Gala & Cocktail Luxe",
-    comfortRating: 4.7,
-    affordabilityRating: 4.2,
+    comfortRating: 4.9,
+    affordabilityRating: 4.4,
     modestFriendly: false,
     skinToneMatch: "Sangat anggun untuk kulit Cool Summer dan Putih Gading, memberikan efek radiant dan glowing yang memikat di bawah pencahayaan pesta.",
-    whyItWorks: "Draping sutra lembut di pinggang membingkai lekuk tubuh secara proporsional, sementara aksen bolero dan stiletto emas menghadirkan dimensi kemewahan.",
+    whyItWorks: "Draping sutra lembut di pinggang membingkai lekuk tubuh secara proporsional, sementara luaran sheer silk organza menghadirkan dimensi kemewahan tanpa rasa gerah.",
     stylingTip: "Padukan dengan clutch minimalis bernuansa emas atau perak untuk menyelaraskan detail tali sepatu stiletto.",
     colorPalette: [
       { name: "Ice Blue Draped Silk", hex: "#A8C7C7" },
-      { name: "Misty Feather Grey", hex: "#8A929A" },
+      { name: "Misty Organza Grey", hex: "#8A929A" },
       { name: "Metallic Gold Leaf", hex: "#D4AF37" }
     ],
     items: [
@@ -953,13 +1078,13 @@ const SIGNATURE_PRESETS: Record<string, OOTDRecommendation> = {
       },
       {
         category: "outer_hijab",
-        name: "Feather Accent Evening Cropped Bolero",
-        material: "Faux Fur / Feather Blended Knit",
+        name: "Sheer Silk Organza Evening Outer",
+        material: "Sheer Silk Organza Breathable",
         color: "Misty Grey",
         colorHex: "#8A929A",
         estimatedPrice: "Rp 175.000 - 225.000",
-        shopeeQuery: "bolero pesta wanita bulu abu abu elegan",
-        tokopediaQuery: "outer pesta bolero fur grey wanita",
+        shopeeQuery: "outer organza silk pesta wanita elegan",
+        tokopediaQuery: "luaran kebaya organza silk pesta malam",
       },
       {
         category: "sepatu",
@@ -978,13 +1103,13 @@ const SIGNATURE_PRESETS: Record<string, OOTDRecommendation> = {
   "polyvore_male_01_smart_blazer": {
     id: "polyvore_male_01",
     title: "Metropolitan Oxford & Tailored Chino",
-    tagline: "Kemeja katun oxford sejuk dengan celana chino slim fit dan sepatu kulit monk strap untuk mobilitas kerja modern.",
+    tagline: "Kemeja katun oxford sejuk dengan celana chino slim fit dan sepatu kulit loafers untuk mobilitas kerja modern.",
     overallVibe: "Smart Executive Menswear",
     comfortRating: 4.8,
     affordabilityRating: 4.6,
     modestFriendly: true,
     skinToneMatch: "Sangat serasi untuk kulit Sawo Matang dan Kuning Langsat, rona biru muda memberikan kesan berwibawa dan segar.",
-    whyItWorks: "Tenunan katun oxford pin-point memungkinkan udara bersirkulasi saat melangkah di luar gedung, sementara luaran blazer deconstructed memberikan kesan rapi seketika.",
+    whyItWorks: "Tenunan katun oxford pin-point memungkinkan udara bersirkulasi saat melangkah di luar gedung, sementara luaran blazer linen unlined memberikan kesan rapi seketika.",
     stylingTip: "Kancingkan kancing tengah blazer saja saat berdiri, dan biarkan terbuka saat duduk agar kain tidak kusut.",
     colorPalette: [
       { name: "Sky Oxford Blue", hex: "#87CEEB" },
@@ -1045,7 +1170,7 @@ const SIGNATURE_PRESETS: Record<string, OOTDRecommendation> = {
     affordabilityRating: 4.9,
     modestFriendly: true,
     skinToneMatch: "Sempurna untuk kulit Eksotis Tropis dan Sawo Matang, warna tanah alami (earth tone) menyatu harmonis dengan rona kulit.",
-    whyItWorks: "Serat rami dan linen murni memiliki sirkulasi udara 98.4%, melepaskan panas tubuh secara instan dalam cuaca lembap Indonesia.",
+    whyItWorks: "Serat rami dan linen murni memiliki Sirkulasi Udara Optimal · Serat Bernapas yang melepaskan panas tubuh secara instan dalam cuaca lembap Indonesia.",
     stylingTip: "Gulung celana santai 1 lipatan kecil di atas mata kaki dan kenakan kacamata hitam berbingkai tortoise.",
     colorPalette: [
       { name: "Sage Natural Linen", hex: "#91AF90" },
@@ -1090,7 +1215,7 @@ const SIGNATURE_PRESETS: Record<string, OOTDRecommendation> = {
   "polyvore_male_03_monochrome_streetwear": {
     id: "polyvore_male_03",
     title: "Boxy Heavyweight Tee & Utility Raw Denim",
-    tagline: "Kaus boxy katun 24s sejuk dengan celana denim lurus santai dan sneakers retro untuk eksplorasi kota.",
+    tagline: "Kaus boxy katun 24s/30s cool-touch sejuk dengan celana denim lurus santai dan sneakers retro untuk eksplorasi kota.",
     overallVibe: "Monochrome Streetwear",
     comfortRating: 4.9,
     affordabilityRating: 4.7,
@@ -1106,12 +1231,12 @@ const SIGNATURE_PRESETS: Record<string, OOTDRecommendation> = {
     items: [
       {
         category: "atasan",
-        name: "Heavyweight Boxy Drop-Shoulder Tee 24s",
-        material: "Katun Combed 24s Cooltech Adem",
+        name: "Boxy Drop-Shoulder Tee 24s/30s",
+        material: "Cotton Combed 24s/30s Cool-Touch",
         color: "Washed Charcoal",
         colorHex: "#2B2B2B",
         estimatedPrice: "Rp 79.000 - 105.000",
-        shopeeQuery: "kaos boxy pria heavyweight 24s charcoal",
+        shopeeQuery: "kaos boxy pria cotton combed 24s charcoal",
         tokopediaQuery: "tshirt boxy oversized pria charcoal",
       },
       {
@@ -1126,12 +1251,12 @@ const SIGNATURE_PRESETS: Record<string, OOTDRecommendation> = {
       },
       {
         category: "bawahan",
-        name: "Relaxed Straight-Cut Raw Indigo Jeans",
-        material: "Katun Denim Kaku Nyaman 13oz",
+        name: "Relaxed Straight-Cut Light Denim",
+        material: "Katun Denim Breathable 10oz",
         color: "Raw Indigo",
         colorHex: "#1A2536",
         estimatedPrice: "Rp 175.000 - 225.000",
-        shopeeQuery: "celana jeans pria straight cut raw denim",
+        shopeeQuery: "celana jeans pria straight cut ringan",
         tokopediaQuery: "celana jeans lurus pria raw indigo",
       },
       {
@@ -1152,19 +1277,18 @@ const SIGNATURE_PRESETS: Record<string, OOTDRecommendation> = {
 
 export const PRESET_OOTD_COLLECTION: Record<string, OOTDRecommendation> = {
   ...SIGNATURE_PRESETS,
-  ...EXTENDED_OOTD_CATALOG,
 };
 
-const SIGNATURE_TRENDING_LOOKS: TrendingLook[] = [
+export const SIGNATURE_TRENDING_LOOKS: TrendingLook[] = [
   {
     id: "trend_poly_f1",
-    title: "Edgy Biker & Dark Denim",
-    vibe: "Urban Streetwear",
-    tag: "POLYVORE EDIT",
-    category: "Streetwear",
+    title: "Linen Vest & Flowy Culottes",
+    vibe: "Airy Tropical Chic",
+    tag: "TROPICAL EDIT",
+    category: "Weekend & Cafe",
     skinToneRecommendation: "Sawo Matang & Deep Bronze",
-    priceRange: "Rp 240rb - 320rb / Set",
-    image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&auto=format&fit=crop&q=80",
+    priceRange: "Rp 195rb - 285rb / Set",
+    image: "https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=600&auto=format&fit=crop&q=80",
     likes: 1140,
     outfit: PRESET_OOTD_COLLECTION["polyvore_female_01_edgy_streetwear"]
   },
@@ -1182,7 +1306,7 @@ const SIGNATURE_TRENDING_LOOKS: TrendingLook[] = [
   },
   {
     id: "trend_poly_f3",
-    title: "Ice Blue Silk Draping",
+    title: "Ice Blue Silk & Organza Luxe",
     vibe: "Cocktail Luxe",
     tag: "GALA EDIT",
     category: "Reception & Pesta",
@@ -1196,11 +1320,11 @@ const SIGNATURE_TRENDING_LOOKS: TrendingLook[] = [
     id: "trend_poly_m1",
     title: "Metropolitan Oxford Chino",
     vibe: "Smart Menswear",
-    tag: "MYNTRA EDIT",
+    tag: "SMART OFFICE",
     category: "Work & Meeting",
     skinToneRecommendation: "Sawo Matang & Kuning Langsat",
     priceRange: "Rp 280rb - 390rb / Set",
-    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
     likes: 820,
     outfit: PRESET_OOTD_COLLECTION["polyvore_male_01_smart_blazer"]
   },
@@ -1218,7 +1342,7 @@ const SIGNATURE_TRENDING_LOOKS: TrendingLook[] = [
   },
   {
     id: "trend_poly_m3",
-    title: "Heavyweight Boxy Streetwear",
+    title: "Boxy Cool-Touch Streetwear",
     vibe: "Streetwear Pria",
     tag: "URBAN HIT",
     category: "Streetwear",
@@ -1388,7 +1512,7 @@ const SIGNATURE_TRENDING_LOOKS: TrendingLook[] = [
   {
     id: "trend_14",
     title: "Rainy Day Soft Layering Knit",
-    vibe: "Cozy & Warm",
+    vibe: "Cozy & Breathable",
     tag: "ESSENTIAL",
     category: "Campus & Hijab",
     skinToneRecommendation: "Fair & Kuning Langsat",
@@ -1417,7 +1541,7 @@ const SIGNATURE_TRENDING_LOOKS: TrendingLook[] = [
     category: "Reception & Pesta",
     skinToneRecommendation: "Sawo Matang & Kuning Langsat",
     priceRange: "Rp 270rb - 450rb / Set",
-    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&auto=format&fit=crop&q=80",
     likes: 812,
     outfit: PRESET_OOTD_COLLECTION["minimalist_slip_dress"]
   }
@@ -1426,7 +1550,7 @@ const SIGNATURE_TRENDING_LOOKS: TrendingLook[] = [
 // Deduplicate feed by image URL and exclude broken image links
 const seenImages = new Set<string>();
 
-// Lapis 3: Kunci ~50 "Golden Looks" (isGoldenSignature: true)
+// Golden Curated Looks (100% Verified Tropical Set, Zero Extended Synthetic Clones)
 const uniqueSignatureLooks: TrendingLook[] = SIGNATURE_TRENDING_LOOKS.map(look => ({
   ...look,
   isGoldenSignature: true,
@@ -1441,28 +1565,8 @@ const uniqueSignatureLooks: TrendingLook[] = SIGNATURE_TRENDING_LOOKS.map(look =
   return true;
 });
 
-let goldenExtendedCounter = 0;
-const uniqueExtendedLooks: TrendingLook[] = EXTENDED_TRENDING_LOOKS.map(look => {
-  const isGolden = goldenExtendedCounter < (50 - uniqueSignatureLooks.length);
-  if (isGolden) goldenExtendedCounter++;
-  return {
-    ...look,
-    isGoldenSignature: isGolden,
-    outfit: {
-      ...look.outfit,
-      isGoldenSignature: isGolden,
-    },
-  };
-}).filter(look => {
-  if (!look.image) return false;
-  if (seenImages.has(look.image)) return false; // Strict zero duplicate images in Lookbook
-  seenImages.add(look.image);
-  return true;
-});
-
 export const TRENDING_LOOKS_FEED: TrendingLook[] = [
   ...uniqueSignatureLooks,
-  ...uniqueExtendedLooks,
 ];
 
 export function generateHeuristicOOTD(pref: UserPreferences): OOTDRecommendation {
@@ -1746,6 +1850,50 @@ export function resolveLookForStudio(lookupId: string): ResolvedStudioLook | nul
   if (!lookupId) return null;
   const cleanId = decodeURIComponent(lookupId).trim().toLowerCase();
 
+  // 0. Prioritas Utama: Custom Lookbook yang di-input / diedit oleh Admin
+  if (typeof window !== 'undefined') {
+    try {
+      const customRaw = localStorage.getItem('looku_custom_lookbook');
+      if (customRaw) {
+        const customLooks: TrendingLook[] = JSON.parse(customRaw);
+        const foundCustom = customLooks.find((l) => {
+          if (!l) return false;
+          if (l.id?.toLowerCase() === cleanId) return true;
+          if (l.outfit?.id?.toLowerCase() === cleanId) return true;
+          if (l.title?.toLowerCase() === cleanId) return true;
+          return false;
+        });
+
+        if (foundCustom && foundCustom.outfit) {
+          const g = getLookGender(foundCustom);
+          const genderMode: 'hijab' | 'nonhijab' | 'pria' = g === 'PRIA' ? 'pria' : g === 'HIJAB' ? 'hijab' : 'nonhijab';
+          const heightObj = getLookHeight(foundCustom);
+          const topItem = foundCustom.outfit.items?.find((i) => i.category === 'atasan');
+
+          return {
+            lookId: foundCustom.id,
+            title: foundCustom.title,
+            image: foundCustom.image,
+            tag: foundCustom.tag,
+            category: foundCustom.category,
+            vibe: foundCustom.vibe,
+            priceRange: foundCustom.priceRange,
+            genderMode,
+            modelSpec: {
+              height: heightObj.label,
+              size: 'M (Model Fit)',
+              silhouette: foundCustom.vibe || 'Modern Minimalist',
+              keyFabric: topItem?.material || 'Katun Rayon & Linen',
+            },
+            outfit: foundCustom.outfit,
+          };
+        }
+      }
+    } catch (e) {
+      console.warn('Error reading custom lookbook for studio:', e);
+    }
+  }
+
   // 1. Direct match in TRENDING_LOOKS_FEED (Contains all 1,022 curated looks)
   const foundTrending = TRENDING_LOOKS_FEED.find((l) => {
     if (!l) return false;
@@ -1813,30 +1961,6 @@ export function resolveLookForStudio(lookupId: string): ResolvedStudioLook | nul
     }
   }
 
-  // 3. Direct match in EXTENDED_OOTD_CATALOG
-  if (EXTENDED_OOTD_CATALOG[cleanId]) {
-    const extOutfit = EXTENDED_OOTD_CATALOG[cleanId];
-    const isPria = cleanId.includes("male") || extOutfit.title.toLowerCase().includes("pria");
-    const isHijab = extOutfit.modestFriendly;
-    const genderMode: "hijab" | "nonhijab" | "pria" = isPria ? "pria" : isHijab ? "hijab" : "nonhijab";
-    const topItem = extOutfit.items?.find((i) => i.category === "atasan");
-    const image = extOutfit.items?.[0]?.imageUrl || "";
-
-    return {
-      lookId: cleanId,
-      title: extOutfit.title,
-      image,
-      tag: isPria ? "MENSWEAR" : isHijab ? "MODEST CAPSULE" : "EDITORIAL",
-      genderMode,
-      modelSpec: {
-        height: isPria ? "175 cm" : "160 cm",
-        size: "M (Model Fit)",
-        silhouette: extOutfit.overallVibe || "Clean Minimalist",
-        keyFabric: topItem?.material || "Katun Rayon & Linen",
-      },
-      outfit: extOutfit,
-    };
-  }
-
   return null;
 }
+

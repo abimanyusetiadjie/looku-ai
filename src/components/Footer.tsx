@@ -46,7 +46,7 @@ function NewsletterForm() {
 
   return (
     <div className="max-w-sm w-full">
-      <h4 className="text-sm font-bold text-white tracking-wide uppercase mb-2">
+      <h4 className="text-sm font-bold text-[#141414] tracking-wide uppercase mb-2">
         Dapatkan Inspirasi Mingguan
       </h4>
       <p className="text-xs text-sand-500 leading-relaxed mb-3">
@@ -194,6 +194,11 @@ export default function Footer() {
             <span>•</span>
             <Link href="/about" className="hover:text-sand-600 transition-colors">
               Tentang Kami
+            </Link>
+            <span>•</span>
+            <Link href="/admin" className="text-sand-500 hover:text-amber-600 transition-colors flex items-center gap-1 font-mono">
+              <span>🔐</span>
+              <span>Admin Portal</span>
             </Link>
             <span>•</span>
             <span className="text-terracotta-400 font-bold">IKLIM TROPIS 33°C</span>
