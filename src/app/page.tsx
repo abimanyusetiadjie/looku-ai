@@ -119,28 +119,29 @@ export default function HomePage() {
     setToasts((prev) => prev.filter((t) => t.id !== id));
   };
 
-  const handleApplyQuizResult = (skinToneId: string) => {
+  const handleApplyQuizResult = (skinToneId: string, summary?: any) => {
     if (typeof window !== "undefined") {
       localStorage.setItem("looku_personal_color", skinToneId);
     }
     
     const toneNames: Record<string, string> = {
-      fair_porcelain: "Putih Gading (Light Spring)",
-      light_medium: "Kuning Langsat (Warm Spring)",
-      sawo_matang: "Sawo Matang (Warm Autumn)",
-      tan_exotic: "Tan Eksotis (Deep Autumn)",
-      dark_ebony: "Gelap Manis (Deep Winter)",
+      fair_porcelain: "Putih Gading",
+      light_medium: "Kuning Langsat",
+      sawo_matang: "Sawo Matang",
+      tan_exotic: "Eksotis Tropis",
+      dark_ebony: "Deep Bronze",
       fair: "Putih Gading",
       light: "Kuning Langsat",
       medium: "Sawo Matang",
-      tan: "Tan Eksotis",
+      tan: "Eksotis Tropis",
       deep: "Deep Bronze",
     };
-    const label = toneNames[skinToneId] || skinToneId;
+    const label = summary?.skinProfileName || toneNames[skinToneId] || skinToneId;
+    const persona = summary?.personaTitle ? ` • Karakter: ${summary.personaTitle}` : "";
 
     addToast({
-      title: "Personal Color Berhasil Disimpan!",
-      description: `Undertone ${label} kini aktif untuk kurasi outfitmu.`,
+      title: "Profil Warna & Bahan Tersimpan!",
+      description: `${label}${persona} aktif untuk rekomendasi bajumu.`,
       type: "success",
     });
   };

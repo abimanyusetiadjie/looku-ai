@@ -13,22 +13,22 @@ interface OnboardingFlowProps {
 const ONBOARDING_SLIDES = [
   {
     id: "weather",
-    title: "Cuaca Berubah,\nGaya Tetap Sempurna",
-    desc: "Rekomendasi outfit otomatis menyesuaikan iklim tropis dan suhu sekitarmu secara real-time.",
+    title: "Bahan Berkualitas\nuntuk Iklim Domisilimu",
+    desc: "Kurasi serat kain terbaik (Linen Euro, Katun Rayon, Tencel & Voal) dari brand internasional hingga lokal sesuai suhu wilayah tempat tinggalmu.",
     icon: Sun,
     image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&auto=format&fit=crop&q=80",
   },
   {
     id: "color",
-    title: "Warna yang\nMemancarkan Auramu",
-    desc: "Analisis personal color untuk menemukan palet warna yang membuat kulitmu bercahaya alami.",
+    title: "Diagnosa Rona Nusantara\n(Ramah Buta Warna)",
+    desc: "Tanpa perlu bingung menebak warna urat nadi! Kenali rona kulitmu lewat panduan profil khas daerah Nusantara dan reaksi cuaca.",
     icon: Palette,
     image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&auto=format&fit=crop&q=80",
   },
   {
     id: "body",
-    title: "Siluet Terbaik\nuntuk Tubuhmu",
-    desc: "Temukan potongan pakaian yang merangkul dan menonjolkan fitur terbaik bentuk tubuhmu.",
+    title: "3 Warna Favoritmu =\nKarakter Berpakaianmu",
+    desc: "Pilih 3 warna outfit yang paling kamu sukai untuk membaca karakter gayamu dan memadukannya dengan warna penyeimbang kulit.",
     icon: User,
     image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&auto=format&fit=crop&q=80",
   },
@@ -108,7 +108,7 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
             onClick={handleNext}
             className="w-full max-w-[280px] py-4 rounded-full bg-[#181A18] text-white font-sans text-[11px] font-bold uppercase tracking-widest hover:bg-terracotta-500 transition-colors flex items-center justify-center gap-2"
           >
-            <span>{currentSlide === ONBOARDING_SLIDES.length - 1 ? "Mulai Personalisasi" : "Selanjutnya"}</span>
+            <span>{currentSlide === ONBOARDING_SLIDES.length - 1 ? "Mulai Diagnosa Warna & Bahan" : "Selanjutnya"}</span>
             <ChevronRight className="w-4 h-4" />
           </button>
           

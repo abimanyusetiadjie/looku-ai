@@ -752,15 +752,15 @@ export default function LookUMobileView({
                   <div className="flex items-center gap-1.5">
                     <Palette className="w-4 h-4 text-terracotta-500" />
                     <h3 className="text-base font-bold text-[#181A18]">
-                      Bingung warna yang cocok?
+                      Diagnosa Warna, Bahan &amp; Domisili
                     </h3>
                   </div>
                   <p className="text-xs text-sand-500 mt-0.5">
-                    Ketahui palet warna pakaian yang bikin wajah cerah seketika di terik tropis.
+                    Pilih zona domisili, profil rona Nusantara (tanpa tebak nadi), dan 3 warna baju favoritmu.
                   </p>
                 </div>
                 <span className="text-[10px] font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full shrink-0">
-                  GRATIS
+                  RAMAH BUTA WARNA
                 </span>
               </div>
 
@@ -816,7 +816,7 @@ export default function LookUMobileView({
                 }}
                 className="w-full py-2.5 px-4 rounded-2xl bg-amber-50 hover:bg-amber-100/90 border border-amber-200/90 text-amber-900 font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-2xs active:scale-[0.99] min-h-[44px]"
               >
-                <span>Mulai Tes Personal Color Lengkap (60 Detik) ✨</span>
+                <span>Mulai Diagnosa Domisili &amp; 3 Warna Favorit ✨</span>
                 <ArrowRight className="w-3.5 h-3.5 text-amber-700" />
               </button>
             </div>
