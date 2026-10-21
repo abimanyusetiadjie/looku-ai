@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { X, Download, Check, Share2, Copy, Sparkles, Palette, ThermometerSun, Wind } from "lucide-react";
+import { X, Download, Check, Share2, Copy, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import { OOTDRecommendation, OutfitItem } from "@/lib/types";
+import { OOTDRecommendation } from "@/lib/types";
 import { toPng } from "html-to-image";
 import { resolveSmartItemVisual, resolveCleanShoePackshot } from "@/lib/packshot-dictionary";
 
@@ -12,11 +12,11 @@ interface StoryShareModalProps {
   onClose: () => void;
 }
 
-type StoryTemplate = "editorial" | "lemon8" | "polaroid";
+type StoryTemplate = "atelier" | "noir" | "archive";
 
 export default function StoryShareModal({ outfit, onClose }: StoryShareModalProps) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [template, setTemplate] = useState<StoryTemplate>("editorial");
+  const [template, setTemplate] = useState<StoryTemplate>("atelier");
   const [downloading, setDownloading] = useState(false);
   const [sharing, setSharing] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -26,7 +26,7 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
   const fallbackHero = "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1000&auto=format&fit=crop&q=85";
   const heroImage = outfit.heroImage || outfit.flatlayImages?.[0] || outfit.items?.[0]?.imageUrl || fallbackHero;
 
-  // Resolve 3 key breakdown packshots for the Lemon8 & Collage layouts
+  // Resolve 3 key breakdown packshots for the archive sheet layout
   const breakdownItems = (outfit.items || []).slice(0, 3).map((item) => {
     const slotMap: Record<string, "top" | "bottom" | "outer" | "shoes"> = {
       atasan: "top",
@@ -45,12 +45,12 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
       resolvedImage: imgUrl,
       categoryTag:
         item.category === "atasan"
-          ? "ATASAN"
+          ? "Top"
           : item.category === "bawahan"
-          ? "BAWAHAN"
+          ? "Bottom"
           : item.category === "outer_hijab"
-          ? "HIJAB/OUTER"
-          : "ALAS KAKI",
+          ? "Layer"
+          : "Shoes",
     };
   });
 
@@ -60,8 +60,8 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
     return await toPng(cardRef.current, {
       cacheBust: true,
       pixelRatio: 2.5,
-      quality: 0.95,
-      backgroundColor: template === "editorial" ? "#121412" : template === "lemon8" ? "#FAF6EE" : "#F4EFE6",
+      quality: 0.98,
+      backgroundColor: template === "noir" ? "#0E100F" : template === "atelier" ? "#F7F5F0" : "#FFFFFF",
     });
   };
 
@@ -100,12 +100,12 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
         await navigator.share({
           files: [file],
           title: `Formula OOTD: ${outfit.title}`,
-          text: `Cek formula OOTD tropis "${outfit.title}" yang dikurasi oleh look.u AI!\nBuka langsung di: ${shareUrl}`,
+          text: `Cek formula OOTD "${outfit.title}" yang dikurasi oleh look.u\n${shareUrl}`,
         });
       } else if (navigator.share) {
         await navigator.share({
           title: `OOTD: ${outfit.title}`,
-          text: `Formula gaya "${outfit.title}" - ${outfit.tagline}\nBuka di: ${shareUrl}`,
+          text: `${outfit.title} — ${outfit.tagline}\n${shareUrl}`,
           url: shareUrl,
         });
       } else {
@@ -121,7 +121,7 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
   const handleCopyLink = async () => {
     try {
       const shareUrl = typeof window !== "undefined" ? `${window.location.origin}/?look=${outfit.id}` : `https://looku.ai/?look=${outfit.id}`;
-      const shareText = `Formula OOTD: ${outfit.title}\n"${outfit.tagline}"\n\n• Atasan: ${outfit.items[0]?.name || "-"}\n• Bawahan: ${outfit.items[1]?.name || "-"}\n• Tips: ${outfit.stylingTip}\n\nLihat kurasi lengkap di: ${shareUrl}`;
+      const shareText = `${outfit.title}\n"${outfit.tagline}"\n\n• Atasan: ${outfit.items[0]?.name || "-"}\n• Bawahan: ${outfit.items[1]?.name || "-"}\n\nLihat kurasi di: ${shareUrl}`;
       await navigator.clipboard.writeText(shareText);
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
@@ -135,7 +135,7 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#121412]/90 backdrop-blur-md overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md overflow-y-auto"
     >
       <motion.div
         initial={{ scale: 0.94, opacity: 0, y: 20 }}
@@ -146,57 +146,57 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
       >
         {/* Top Modal Header */}
         <div className="flex items-center justify-between px-1">
-          <div className="flex items-center gap-1.5 text-xs text-white font-mono uppercase font-bold tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-terracotta-400" />
-            <span>Story Lookbook (9:16)</span>
+          <div className="flex items-center gap-2 text-xs text-white/90 font-mono tracking-widest uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-terracotta-400" />
+            <span>Story Export (9:16)</span>
           </div>
           <button
             onClick={onClose}
-            className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-white/10 text-[#FAF8F5]/80 hover:text-white transition-all"
+            className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-white/10 text-white/80 hover:text-white transition-all"
             aria-label="Tutup Story"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
-        {/* 3 Aesthetic Template Selectors */}
-        <div className="bg-white/10 p-1 rounded-2xl flex items-center gap-1 border border-white/15 text-[11px] font-mono font-bold uppercase tracking-wider">
+        {/* 3 Quiet Luxury Template Switchers */}
+        <div className="bg-white/10 p-1 rounded-xl flex items-center gap-1 border border-white/10 text-[11px] font-mono tracking-wider uppercase">
           <button
-            onClick={() => setTemplate("editorial")}
-            className={`flex-1 py-1.5 rounded-xl transition-all ${
-              template === "editorial"
-                ? "bg-white text-charcoal-900 shadow-sm"
+            onClick={() => setTemplate("atelier")}
+            className={`flex-1 py-1.5 rounded-lg transition-all font-medium ${
+              template === "atelier"
+                ? "bg-[#FAF8F5] text-charcoal-900 shadow-sm font-bold"
                 : "text-white/70 hover:text-white"
             }`}
           >
-            ✦ Editorial
+            Atelier (Ecru)
           </button>
           <button
-            onClick={() => setTemplate("lemon8")}
-            className={`flex-1 py-1.5 rounded-xl transition-all ${
-              template === "lemon8"
-                ? "bg-[#FAF6EE] text-charcoal-900 shadow-sm"
+            onClick={() => setTemplate("noir")}
+            className={`flex-1 py-1.5 rounded-lg transition-all font-medium ${
+              template === "noir"
+                ? "bg-[#181A18] text-white shadow-sm font-bold border border-white/20"
                 : "text-white/70 hover:text-white"
             }`}
           >
-            🍋 Lemon8
+            Noir (Dark)
           </button>
           <button
-            onClick={() => setTemplate("polaroid")}
-            className={`flex-1 py-1.5 rounded-xl transition-all ${
-              template === "polaroid"
-                ? "bg-terracotta-500 text-white shadow-sm"
+            onClick={() => setTemplate("archive")}
+            className={`flex-1 py-1.5 rounded-lg transition-all font-medium ${
+              template === "archive"
+                ? "bg-white text-charcoal-900 shadow-sm font-bold"
                 : "text-white/70 hover:text-white"
             }`}
           >
-            📷 Polaroid
+            Archive (Sheet)
           </button>
         </div>
 
         {/* ============================================================ */}
         {/* 9:16 STORY CANVAS CONTAINER (EXPORTED HIGH-DPI)             */}
         {/* ============================================================ */}
-        <div className="overflow-hidden rounded-3xl shadow-2xl border border-white/10 flex justify-center bg-black/40">
+        <div className="overflow-hidden rounded-2xl shadow-2xl border border-white/10 flex justify-center bg-black/40">
           <div
             ref={cardRef}
             className="w-full relative flex flex-col justify-between overflow-hidden select-none"
@@ -208,30 +208,22 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
             }}
           >
             {/* -------------------------------------------------------- */}
-            {/* TEMPLATE 1: THE HIGH-FASHION EDITORIAL MAGAZINE (KINFOLK) */}
+            {/* TEMPLATE 1: THE ATELIER PASSE-PARTOUT (THE ROW / LEMAIRE) */}
             {/* -------------------------------------------------------- */}
-            {template === "editorial" && (
-              <div className="w-full h-full bg-[#121412] text-[#FAF8F5] p-5 flex flex-col justify-between relative overflow-hidden">
-                {/* Subtle Ambient Radial Glow */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-terracotta-500/15 rounded-full blur-3xl pointer-events-none" />
-
-                {/* Top Magazine Header */}
-                <div className="relative z-10 flex items-center justify-between border-b border-white/20 pb-3">
-                  <div className="flex items-baseline gap-1">
-                    <span className="font-serif font-medium text-2xl tracking-[0.04em] text-white">
-                      Look<span className="text-terracotta-400 font-bold">.</span>u
-                    </span>
-                    <span className="text-[9px] font-mono tracking-[0.25em] text-[#D7CABC] uppercase pl-1">
-                      STUDIO
-                    </span>
+            {template === "atelier" && (
+              <div className="w-full h-full bg-[#FAF8F5] text-[#1E201E] p-6 flex flex-col justify-between relative overflow-hidden border border-[#E8DFD1]">
+                {/* Refined Masthead */}
+                <div className="flex items-center justify-between border-b border-[#E8DFD1] pb-3">
+                  <div className="font-serif font-medium text-lg tracking-[0.06em] text-[#1E201E]">
+                    Look<span className="text-[#8C5A3C] font-bold">.</span>u
                   </div>
-                  <div className="text-[10px] font-mono tracking-widest uppercase px-2.5 py-0.5 rounded-full border border-white/25 text-[#FAF8F5]/90 bg-white/5">
-                    33°C TROPICAL
+                  <div className="text-[10px] font-mono tracking-[0.2em] uppercase text-[#8C5A3C]">
+                    Atelier Series
                   </div>
                 </div>
 
-                {/* Hero Photo (Taking Center Stage ~56% Height) */}
-                <div className="relative z-10 my-3 w-full flex-1 max-h-[58%] rounded-2xl overflow-hidden bg-neutral-900 border border-white/15 shadow-xl">
+                {/* Generous Framed Visual (Museum Passe-Partout) */}
+                <div className="relative w-full aspect-[4/5] my-auto rounded-none overflow-hidden bg-[#EFECE6] border border-[#1E201E]/15 shadow-sm">
                   <img
                     src={heroImage}
                     alt={outfit.title}
@@ -239,84 +231,72 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover object-top"
                   />
-                  {/* Floating Badges */}
-                  <div className="absolute top-3 left-3 flex flex-col gap-1.5">
-                    <span className="px-2.5 py-1 rounded-full bg-[#181A18]/90 text-white text-[10px] font-mono font-bold tracking-wider uppercase backdrop-blur-md shadow-xs">
-                      ✦ {outfit.overallVibe}
-                    </span>
-                    {outfit.modestFriendly && (
-                      <span className="px-2 py-0.5 rounded-full bg-emerald-900/90 text-emerald-200 text-[9px] font-mono font-bold tracking-wider uppercase backdrop-blur-md">
-                        MODEST COMPLIANT
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-white/90 text-charcoal-900 text-[10px] font-mono font-bold backdrop-blur-md shadow-xs">
-                    AIRFLOW 98.4%
+                  {/* Subtle, restrained top-right coordinate */}
+                  <div className="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#FAF8F5]/90 text-[#1E201E] text-[9px] font-mono tracking-widest uppercase">
+                    33°C Tropics
                   </div>
                 </div>
 
-                {/* Editorial Typography & Color Chips */}
-                <div className="relative z-10 space-y-2.5 pt-1">
+                {/* Quiet Luxury Typography & Color Specimen */}
+                <div className="space-y-3 pt-2">
                   <div>
-                    <h3 className="font-serif text-2xl font-bold tracking-tight text-white leading-tight">
+                    <div className="text-[9px] font-mono tracking-[0.25em] text-[#8C5A3C] uppercase mb-0.5">
+                      {outfit.overallVibe}
+                    </div>
+                    <h3 className="font-serif text-2xl font-bold tracking-tight text-[#1E201E] leading-tight">
                       {outfit.title}
                     </h3>
-                    <p className="font-serif italic text-xs text-white/75 mt-0.5 line-clamp-1">
+                    <p className="font-serif italic text-xs text-[#1E201E]/70 mt-1 line-clamp-1">
                       &ldquo;{outfit.tagline}&rdquo;
                     </p>
                   </div>
 
-                  {/* 4-Chip Minimalist Swatch Bar */}
-                  <div className="flex items-center justify-between pt-1 border-t border-white/10">
-                    <div className="flex items-center gap-1.5">
+                  {/* Minimalist Hairline Color Palette Strip */}
+                  <div className="flex items-center justify-between border-t border-[#E8DFD1] pt-2.5">
+                    <div className="flex items-center gap-2">
                       {outfit.colorPalette.slice(0, 4).map((col, idx) => (
-                        <div key={idx} className="flex items-center gap-1 bg-white/5 border border-white/15 px-2 py-1 rounded-md">
+                        <div key={idx} className="flex items-center gap-1.5">
                           <span
-                            className="w-2.5 h-2.5 rounded-full shrink-0 border border-black/20"
+                            className="w-3 h-3 rounded-full border border-black/15 shadow-2xs shrink-0"
                             style={{ backgroundColor: col.hex }}
                           />
-                          <span className="text-[10px] font-mono text-[#D7CABC] truncate max-w-[50px]">
+                          <span className="text-[9px] font-mono text-[#5C554E] truncate max-w-[48px]">
                             {col.name}
                           </span>
                         </div>
                       ))}
                     </div>
+                    <span className="text-[9px] font-mono tracking-widest text-[#8C5A3C] uppercase">
+                      Specimen
+                    </span>
                   </div>
 
-                  {/* Bottom Colophon Barcode */}
-                  <div className="flex items-end justify-between pt-1 border-t border-white/10 text-[9px] font-mono text-white/60">
-                    <div>
-                      <span>CURATED BY LOOK.U ARCHIVE · 2026</span>
-                    </div>
-                    <div className="tracking-widest uppercase text-white/80 font-bold">
-                      #LOOK-{outfit.id.slice(-4).toUpperCase()}
-                    </div>
+                  {/* Whispered Minimal Footer */}
+                  <div className="flex items-center justify-between text-[8px] font-mono text-[#1E201E]/40 pt-1 border-t border-[#E8DFD1]">
+                    <span>LOOKU.AI</span>
+                    <span>CURATED IN JAKARTA</span>
                   </div>
                 </div>
               </div>
             )}
 
             {/* -------------------------------------------------------- */}
-            {/* TEMPLATE 2: THE VIRAL LEMON8 / OOTD BREAKDOWN COLLAGE     */}
+            {/* TEMPLATE 2: THE RUNWAY NOIR (SAINT LAURENT / ACNE STUDIOS)*/}
             {/* -------------------------------------------------------- */}
-            {template === "lemon8" && (
-              <div className="w-full h-full bg-[#FAF6EE] text-[#181A18] p-4 sm:p-5 flex flex-col justify-between relative overflow-hidden border-2 border-[#E8DFD1]">
-                {/* Header Lemon8 Style */}
-                <div className="flex items-center justify-between pb-2 border-b border-[#E8DFD1]">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-                    <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#8C5A3C]">
-                      LEMON8 OOTD GUIDE · 33°C
-                    </span>
+            {template === "noir" && (
+              <div className="w-full h-full bg-[#0E100F] text-[#FAF8F5] p-6 flex flex-col justify-between relative overflow-hidden">
+                {/* Top Minimalist Header */}
+                <div className="flex items-baseline justify-between border-b border-white/15 pb-3">
+                  <div className="font-serif text-xl font-medium tracking-[0.08em] text-white">
+                    LOOK<span className="text-[#C69365] font-bold">.</span>U
                   </div>
-                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-[#E8DFD1] text-[#181A18]">
-                    ANTI-GERAH 100%
-                  </span>
+                  <div className="text-[9px] font-mono tracking-[0.25em] text-white/50 uppercase">
+                    33°C CLIMATE ARCHIVE
+                  </div>
                 </div>
 
-                {/* Hero Visual (Top ~40% Height) */}
-                <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden bg-[#EFECE6] border border-[#181A18]/10 my-2 shadow-sm">
+                {/* Full Bleed Visual */}
+                <div className="relative w-full aspect-[4/5] my-auto overflow-hidden bg-neutral-900 border border-white/10 shadow-2xl">
                   <img
                     src={heroImage}
                     alt={outfit.title}
@@ -324,36 +304,97 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover object-top"
                   />
-                  <div className="absolute bottom-2 left-2 bg-[#181A18]/85 text-white px-2 py-0.5 rounded text-[10px] font-mono font-bold">
-                    EST: ~Rp 185rb - 240rb
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+                </div>
+
+                {/* Editorial Typography */}
+                <div className="space-y-3 pt-2">
+                  <div>
+                    <div className="text-[9px] font-mono tracking-[0.25em] text-[#C69365] uppercase mb-0.5">
+                      COLLECTION 2026
+                    </div>
+                    <h3 className="font-serif text-2xl font-bold tracking-tight text-white leading-tight">
+                      {outfit.title}
+                    </h3>
+                    <p className="text-[11px] font-mono text-white/60 mt-1 line-clamp-1">
+                      {outfit.items[0]?.material || "100% Pure Flax Linen & Cotton Rayon"}
+                    </p>
                   </div>
-                  <div className="absolute top-2 right-2 bg-amber-100 text-amber-900 border border-amber-300 px-2 py-0.5 rounded text-[10px] font-bold">
-                    ★ REKOMENDASI ADEM
+
+                  {/* Horizontal Pantone Graphic Strip */}
+                  <div className="space-y-1 border-t border-white/10 pt-2.5">
+                    <div className="flex h-2 w-full overflow-hidden rounded-full border border-white/20">
+                      {outfit.colorPalette.slice(0, 4).map((col, idx) => (
+                        <div
+                          key={idx}
+                          className="h-full flex-1"
+                          style={{ backgroundColor: col.hex }}
+                        />
+                      ))}
+                    </div>
+                    <div className="flex justify-between text-[8px] font-mono text-white/40 pt-0.5">
+                      {outfit.colorPalette.slice(0, 4).map((col, idx) => (
+                        <span key={idx} className="truncate max-w-[55px]">
+                          {col.name}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Footer Colophon */}
+                  <div className="flex items-center justify-between text-[8px] font-mono text-white/35 pt-1 border-t border-white/10">
+                    <span>LOOKU.AI / STUDIO</span>
+                    <span>#LOOK-{outfit.id.slice(-4).toUpperCase()}</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* -------------------------------------------------------- */}
+            {/* TEMPLATE 3: THE DESIGNER'S LOOKBOOK SHEET (UNIQLO U / CDG)*/}
+            {/* -------------------------------------------------------- */}
+            {template === "archive" && (
+              <div className="w-full h-full bg-white text-[#181A18] p-5 flex flex-col justify-between relative overflow-hidden border border-neutral-200">
+                {/* Lookbook Header Table */}
+                <div className="grid grid-cols-3 border-b border-neutral-300 pb-2 text-[9px] font-mono uppercase tracking-wider text-[#181A18]/60">
+                  <div>LOOK.U STUDIO</div>
+                  <div className="text-center">SEASON: TROPICS</div>
+                  <div className="text-right">33°C HUMID</div>
+                </div>
+
+                {/* Hero Image (~45% Height) */}
+                <div className="relative w-full aspect-[16/11] my-2 overflow-hidden bg-neutral-100 border border-neutral-200">
+                  <img
+                    src={heroImage}
+                    alt={outfit.title}
+                    crossOrigin="anonymous"
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover object-top"
+                  />
+                  <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-white/95 text-neutral-900 text-[9px] font-mono uppercase font-bold tracking-wider">
+                    {outfit.overallVibe}
                   </div>
                 </div>
 
-                {/* Title & Fabric Highlight */}
-                <div className="space-y-0.5 py-1">
-                  <h3 className="font-serif text-xl font-bold text-[#181A18] leading-tight">
+                {/* Clean Editorial Title */}
+                <div className="py-1">
+                  <h3 className="font-serif text-xl font-bold text-neutral-900 leading-tight">
                     {outfit.title}
                   </h3>
-                  <p className="text-[11px] text-[#5C554E] font-medium line-clamp-1">
-                    🍃 {outfit.items[0]?.material || "Linen Crinkle & Katun Rayon Sejuk"}
+                  <p className="font-serif italic text-xs text-neutral-600 mt-0.5 line-clamp-1">
+                    &ldquo;{outfit.tagline}&rdquo;
                   </p>
                 </div>
 
-                {/* The 3-Piece Breakdown Cards (Lemon8 Viral Signature!) */}
-                <div className="space-y-1.5 py-1">
-                  <div className="text-[10px] font-mono font-bold text-[#8C5A3C] uppercase tracking-wider">
-                    BEDAH POTONGAN PAKAIAN:
-                  </div>
+                {/* The 3-Piece Breakdown Specimen Grid (Clean & Non-Gimmicky) */}
+                <div className="space-y-1.5 py-1 border-t border-neutral-200 pt-2">
                   <div className="grid grid-cols-3 gap-2">
                     {breakdownItems.map((item, idx) => (
                       <div
                         key={idx}
-                        className="bg-white rounded-xl p-1.5 border border-[#E8DFD1] flex flex-col justify-between shadow-2xs"
+                        className="bg-neutral-50 p-1.5 border border-neutral-200 flex flex-col justify-between"
                       >
-                        <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-[#EFECE6] mb-1">
+                        <div className="relative aspect-square w-full overflow-hidden bg-neutral-200 mb-1">
                           <img
                             src={item.resolvedImage}
                             alt={item.name}
@@ -361,22 +402,16 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
                             referrerPolicy="no-referrer"
                             className="w-full h-full object-cover object-top"
                           />
-                          <span className="absolute top-1 left-1 bg-[#181A18]/85 text-white text-[8px] font-mono px-1 py-0.2 rounded font-bold">
-                            {item.categoryTag}
-                          </span>
                         </div>
-                        <div className="space-y-0.5">
-                          <h5 className="font-bold text-[10px] text-[#181A18] line-clamp-1 leading-snug">
+                        <div className="space-y-0.5 text-left">
+                          <div className="text-[8px] font-mono text-neutral-400 uppercase tracking-wider">
+                            0{idx + 1} {item.categoryTag}
+                          </div>
+                          <div className="font-bold text-[10px] text-neutral-900 line-clamp-1 leading-snug">
                             {item.name}
-                          </h5>
-                          <div className="flex items-center justify-between text-[9px] font-mono text-[#5C554E]">
-                            <span className="flex items-center gap-1">
-                              <span
-                                className="w-1.5 h-1.5 rounded-full inline-block border border-black/20"
-                                style={{ backgroundColor: item.colorHex || "#C69365" }}
-                              />
-                              <span className="truncate max-w-[40px]">{item.color}</span>
-                            </span>
+                          </div>
+                          <div className="text-[8px] font-mono text-neutral-500 truncate">
+                            {item.color}
                           </div>
                         </div>
                       </div>
@@ -384,79 +419,10 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
                   </div>
                 </div>
 
-                {/* Footer Watermark */}
-                <div className="flex items-center justify-between pt-2 border-t border-[#E8DFD1] text-[10px] font-mono text-[#181A18]/70">
-                  <span className="font-bold">look.u AI Stylist</span>
+                {/* Footer Reference */}
+                <div className="flex items-center justify-between border-t border-neutral-300 pt-2 text-[9px] font-mono text-neutral-500 uppercase tracking-widest">
                   <span>looku.ai/?look={outfit.id}</span>
-                </div>
-              </div>
-            )}
-
-            {/* -------------------------------------------------------- */}
-            {/* TEMPLATE 3: THE KOREAN MINIMALIST POLAROID & PANTONE      */}
-            {/* -------------------------------------------------------- */}
-            {template === "polaroid" && (
-              <div className="w-full h-full bg-[#F4EFE6] text-charcoal-900 p-5 flex flex-col justify-between relative overflow-hidden">
-                {/* Polaroid Frame Card */}
-                <div className="bg-white p-4 pb-5 rounded-2xl shadow-xl border border-sand-300 flex flex-col justify-between flex-1 relative">
-                  {/* Photo Container */}
-                  <div className="relative w-full aspect-[4/4] rounded-lg overflow-hidden bg-sand-100 border border-black/5 shadow-inner">
-                    <img
-                      src={heroImage}
-                      alt={outfit.title}
-                      crossOrigin="anonymous"
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover object-top"
-                    />
-                    {/* Timestamp */}
-                    <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-black/60 text-white font-mono text-[9px] tracking-wider uppercase backdrop-blur-xs">
-                      JAKARTA · 33°C
-                    </div>
-                  </div>
-
-                  {/* Below Polaroid Photo: Handwriting & Details */}
-                  <div className="space-y-3 pt-4 text-center">
-                    <div>
-                      <h4 className="font-serif text-2xl font-bold text-charcoal-900 leading-tight">
-                        {outfit.title}
-                      </h4>
-                      <p className="font-serif italic text-xs text-charcoal-700 mt-1">
-                        &ldquo;{outfit.tagline}&rdquo;
-                      </p>
-                    </div>
-
-                    {/* Minimalist Pantone Swatch Strip */}
-                    <div className="border-t border-sand-200 pt-3">
-                      <div className="text-[9px] font-mono tracking-widest uppercase text-sand-500 font-bold mb-1.5">
-                        PANTONE HARMONY
-                      </div>
-                      <div className="flex items-center justify-center gap-2">
-                        {outfit.colorPalette.slice(0, 4).map((col, idx) => (
-                          <div key={idx} className="flex flex-col items-center">
-                            <span
-                              className="w-6 h-6 rounded-md border border-black/15 shadow-2xs"
-                              style={{ backgroundColor: col.hex }}
-                            />
-                            <span className="text-[8px] font-mono text-charcoal-800 font-semibold mt-0.5 truncate max-w-[42px]">
-                              {col.name}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Stylist Micro-Note */}
-                    <div className="p-2 bg-sand-50 border border-sand-200 rounded-lg text-[10px] text-charcoal-800 text-left leading-snug">
-                      <span className="font-bold font-serif text-charcoal-900">Stylist Note:</span>{" "}
-                      {outfit.stylingTip}
-                    </div>
-                  </div>
-
-                  {/* Polaroid Bottom Brand Stamp */}
-                  <div className="flex items-center justify-between pt-3 border-t border-sand-200 text-[9px] font-mono text-sand-500">
-                    <span>LOOK.U SEOUL-JAKARTA EDITORIAL</span>
-                    <span>ARCHIVE #{outfit.id.slice(-4).toUpperCase()}</span>
-                  </div>
+                  <span>Curated Architecture</span>
                 </div>
               </div>
             )}
@@ -470,7 +436,7 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
               onClick={handleNativeShare}
               disabled={sharing}
               whileTap={{ scale: 0.96 }}
-              className="py-3 px-3 rounded-2xl bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold text-xs tracking-wider uppercase shadow-lg flex items-center justify-center gap-1.5 transition-all"
+              className="py-3 px-3 rounded-xl bg-charcoal-900 hover:bg-terracotta-600 text-white font-bold text-xs tracking-wider uppercase shadow-lg flex items-center justify-center gap-1.5 transition-all"
             >
               <Share2 className="w-3.5 h-3.5" />
               <span>{sharing ? "Menyiapkan..." : "Bagikan (IG/WA)"}</span>
@@ -480,7 +446,7 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
               onClick={handleDownloadImage}
               disabled={downloading}
               whileTap={{ scale: 0.96 }}
-              className="py-3 px-3 rounded-2xl bg-white hover:bg-sand-100 text-charcoal-900 font-bold text-xs tracking-wider uppercase shadow-lg flex items-center justify-center gap-1.5 transition-all"
+              className="py-3 px-3 rounded-xl bg-white hover:bg-sand-100 text-charcoal-900 font-bold text-xs tracking-wider uppercase shadow-lg flex items-center justify-center gap-1.5 transition-all border border-sand-300"
             >
               {downloaded ? (
                 <>
@@ -503,12 +469,12 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
             {copied ? (
               <>
                 <Check className="w-3 h-3 text-emerald-400" />
-                <span className="text-emerald-300">Teks Outfit Disalin ke Clipboard!</span>
+                <span className="text-emerald-300">Teks Formula Disalin ke Clipboard</span>
               </>
             ) : (
               <>
                 <Copy className="w-3 h-3 text-white/70" />
-                <span>Salin Teks Ringkasan Outfit</span>
+                <span>Salin Teks Ringkasan Formula</span>
               </>
             )}
           </button>
