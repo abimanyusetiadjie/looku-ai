@@ -522,6 +522,10 @@ export default function LookUMobileView({
                 <button onClick={() => { setIsMobileMenuOpen(false); router.push('/lookbook') }} className="text-left font-sans font-semibold tracking-widest uppercase text-sm hover:text-terracotta-500 transition-colors">Lookbook</button>
                 <button onClick={() => { setIsMobileMenuOpen(false); router.push('/profile?tab=wardrobe') }} className="text-left font-sans font-semibold tracking-widest uppercase text-sm hover:text-terracotta-500 transition-colors">Wardrobe / Lemari</button>
                 <button onClick={() => { setIsMobileMenuOpen(false); if(onOpenQuiz) onOpenQuiz(); }} className="text-left font-sans font-semibold tracking-widest uppercase text-sm hover:text-terracotta-500 transition-colors">Personal Color Quiz</button>
+                <button onClick={() => { setIsMobileMenuOpen(false); router.push('/admin') }} className="text-left font-sans font-semibold tracking-widest uppercase text-xs text-[#8C5A3C] hover:text-charcoal-900 pt-3 border-t border-[#F0EBE1] flex items-center justify-between">
+                  <span>Portal Admin (CMS &amp; CRUD)</span>
+                  <span>↗</span>
+                </button>
               </div>
             </motion.div>
           )}

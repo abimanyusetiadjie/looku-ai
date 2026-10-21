@@ -744,8 +744,8 @@ export default function AdminCMSPage() {
               </button>
             </form>
 
-            <div className="p-3 bg-sand-50 rounded-xl border border-sand-200 text-left text-[11px] text-sand-500">
-              🔒 <b>Keamanan CMS:</b> Akses khusus kurator dan pengembang look.u Atelier.
+            <div className="p-3 bg-sand-50 rounded-xl border border-sand-200 text-left text-xs text-[#5C554E] leading-relaxed">
+              🔒 <b>Akses Penguji &amp; Kurator:</b> Masukkan PIN <code className="bg-sand-200 text-charcoal-900 font-bold px-1.5 py-0.5 rounded font-mono">admin</code> atau <code className="bg-sand-200 text-charcoal-900 font-bold px-1.5 py-0.5 rounded font-mono">looku2026</code>.
             </div>
           </div>
         </main>

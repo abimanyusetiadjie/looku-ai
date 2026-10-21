@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -195,6 +195,13 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
   const [selectedLookId, setSelectedLookId] = useState<string | null>(null);
   const [likedIds, setLikedIds] = useState<string[]>([]);
   const [allFeedLooks, setAllFeedLooks] = useState<TrendingLook[]>(TRENDING_LOOKS_FEED);
+
+  const dynamicCategoryTabs = useMemo<CategoryTab[]>(() => [
+    { id: "ALL", label: "SEMUA", count: allFeedLooks.length },
+    { id: "WANITA", label: "WANITA", count: allFeedLooks.filter((l) => getLookGender(l) === "WANITA").length },
+    { id: "HIJAB", label: "HIJAB / MODEST", count: allFeedLooks.filter((l) => getLookGender(l) === "HIJAB").length },
+    { id: "PRIA", label: "PRIA", count: allFeedLooks.filter((l) => getLookGender(l) === "PRIA").length },
+  ], [allFeedLooks]);
 
   // Live Sync Lookbook Feed dengan Admin CMS
   useEffect(() => {
@@ -1018,7 +1025,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                     Kategori Pengguna:
                   </label>
                   <div className="grid grid-cols-2 gap-2">
-                    {CATEGORY_TABS.map((tab) => {
+                    {dynamicCategoryTabs.map((tab) => {
                       const isSel = activeTab === tab.id;
                       return (
                         <button
@@ -1035,7 +1042,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                           }`}
                         >
                           <span>{tab.label}</span>
-                          <span className="text-[10px] font-mono opacity-60">({tab.count})</span>
+                          <span className="text-[11px] font-mono opacity-70">({tab.count})</span>
                         </button>
                       );
                     })}
