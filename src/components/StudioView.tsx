@@ -1584,6 +1584,30 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
 
         {activeTab === "mixer" ? (
           <div className="space-y-4 pt-2">
+            {/* Context Anchor Pill when routed from Lookbook */}
+            {customLookTitle && (
+              <div className="mx-4 p-2.5 bg-[#FAF8F5] border border-sand-300 rounded-xl flex items-center justify-between gap-2 shadow-2xs">
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse shrink-0" />
+                  <span className="text-[11px] font-mono text-[#5C554E] uppercase tracking-wider shrink-0">Lookbook:</span>
+                  <span className="text-xs font-bold text-charcoal-900 truncate">{customLookTitle}</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCustomLookTitle(null);
+                    setCustomHeroImage(null);
+                    setCustomLookTag(null);
+                    setCustomModelSpec(null);
+                    triggerToast("Kembali ke kurasi preset Studio");
+                  }}
+                  className="text-[11px] font-mono font-semibold text-terracotta-600 hover:text-terracotta-700 underline shrink-0 min-h-[32px] px-2 flex items-center"
+                >
+                  Ganti Vibe ✕
+                </button>
+              </div>
+            )}
+
             {/* Context Filters Strip (Clean & Uncluttered) */}
             <div className="px-4 flex items-center justify-between text-[11px] text-neutral-500 font-medium">
               <div className="flex items-center gap-2">
@@ -2061,6 +2085,29 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
           <div className="grid grid-cols-12 gap-8 mt-6 items-start">
             {/* LEFT 5-COL: EDITORIAL PHOTO DENGAN SHOPPABLE PINS & MODEL SPECS */}
             <div className="col-span-5 space-y-4 sticky top-24">
+              {/* Context Anchor Pill when routed from Lookbook */}
+              {customLookTitle && (
+                <div className="p-3 bg-[#FAF8F5] border border-sand-300 rounded-xl flex items-center justify-between gap-3 shadow-2xs">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse shrink-0" />
+                    <span className="text-xs font-mono text-[#5C554E] uppercase tracking-wider shrink-0">Kurasi Lookbook:</span>
+                    <span className="text-sm font-bold text-charcoal-900 truncate">{customLookTitle}</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setCustomLookTitle(null);
+                      setCustomHeroImage(null);
+                      setCustomLookTag(null);
+                      setCustomModelSpec(null);
+                      triggerToast("Kembali ke kurasi preset Studio");
+                    }}
+                    className="text-xs font-mono font-semibold text-terracotta-600 hover:text-terracotta-700 underline shrink-0 px-2 py-1"
+                  >
+                    Ganti Vibe ✕
+                  </button>
+                </div>
+              )}
               <div className="relative w-full aspect-[4/5] bg-neutral-100 rounded-2xl overflow-hidden border border-neutral-200 shadow-sm group">
                 <img
                   src={activeHeroImage}

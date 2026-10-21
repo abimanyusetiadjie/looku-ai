@@ -636,11 +636,11 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                     {/* Badge Iklim Kontekstual & Golden Signature di Kiri Atas */}
                     <div className="absolute top-2 left-2 z-10 flex flex-col items-start gap-1">
                       {look.isGoldenSignature && (
-                        <span className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[9px] font-mono font-bold uppercase tracking-wider bg-[#8C5A3C] text-white shadow-xs">
+                        <span className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[11px] font-mono font-bold uppercase tracking-wider bg-[#8C5A3C] text-white shadow-xs">
                           ★ GOLDEN LOOK
                         </span>
                       )}
-                      <span className="inline-block px-2 py-0.5 text-[10px] font-mono font-semibold uppercase tracking-wider bg-[#181A18]/90 text-[#FAF8F5] shadow-xs">
+                      <span className="inline-block px-2 py-0.5 text-[11px] font-mono font-bold uppercase tracking-wider bg-[#181A18]/90 text-[#FAF8F5] shadow-xs">
                         {climateInfo.badge}
                       </span>
                     </div>
@@ -674,11 +674,11 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                               <span className="w-2.5 h-2.5 rounded-full bg-[#181A18]" />
                             )}
                           </div>
-                          <span className="text-[10px] font-mono text-neutral-600 bg-neutral-100 px-1.5 py-0.5 rounded font-medium">
+                          <span className="text-[11px] font-mono text-neutral-700 bg-neutral-100 px-1.5 py-0.5 rounded font-bold">
                             {getLookHeight(look).label}
                           </span>
                         </div>
-                        <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-[#8C5A3C] truncate max-w-[100px]">
+                        <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#8C5A3C] truncate max-w-[110px]">
                           {look.tag}
                         </span>
                       </div>
@@ -696,7 +696,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
 
                     {/* Baris 4: Harga Set IDR (Rata & Tegas) */}
                     <div className="pt-2 mt-2 border-t border-[#181A18]/10 flex items-center justify-between">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#181A18]/45">
+                      <span className="text-[11px] font-mono uppercase tracking-wider text-[#181A18]/60 font-semibold">
                         Estimasi
                       </span>
                       <span className="font-mono text-xs font-semibold text-[#181A18]">
@@ -722,7 +722,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
 
               {/* Quick Keywords Chips */}
               <div className="flex flex-wrap items-center justify-center gap-1.5 max-w-md mb-6">
-                <span className="text-[10px] font-mono text-[#181A18]/50 uppercase tracking-wider block w-full mb-1">
+                <span className="text-[11px] font-mono text-[#181A18]/70 uppercase tracking-wider block w-full mb-1 font-semibold">
                   Saran Pencarian Populer:
                 </span>
                 {["Linen", "Kulot", "SCBD", "Batik", "Hijab", "Blazer", "Sage", "Kemeja", "Casual"].map((kw) => (
@@ -807,7 +807,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute top-2.5 left-2.5 bg-[#181A18]/90 text-white px-2.5 py-1 text-[10px] font-mono font-semibold uppercase tracking-widest">
+                  <div className="absolute top-2.5 left-2.5 bg-[#181A18]/90 text-white px-2.5 py-1 text-[11px] font-mono font-bold uppercase tracking-wider">
                     {getLookClimate(selectedLook).badge}
                   </div>
                 </div>
@@ -817,7 +817,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
               <div className="w-full md:w-1/2 p-5 sm:p-6 flex flex-col justify-between space-y-4">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono font-semibold uppercase tracking-widest text-[#8C5A3C]">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#8C5A3C]">
                       {selectedLook.tag}
                     </span>
                     <span className="text-[#181A18]/30">·</span>

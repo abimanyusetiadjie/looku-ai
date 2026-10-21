@@ -191,11 +191,11 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
           {/* Header Bar: Spec Number & Action Controls (Mobile Clean & Thumb-Friendly) */}
           <div className="flex items-center justify-between gap-2 border-b border-[#E8DFD1] pb-3.5 sm:pb-5">
             <div className="flex items-center gap-1.5 sm:gap-2">
-              <span className="text-[9px] sm:text-[10px] font-mono font-bold tracking-widest uppercase bg-[#181A18] text-[#FAF8F5] px-2.5 py-1 rounded-full">
+              <span className="text-[11px] font-mono font-bold tracking-wider uppercase bg-[#181A18] text-[#FAF8F5] px-2.5 py-1 rounded-full">
                 LOOK OF THE DAY
               </span>
               {outfit.modestFriendly && (
-                <span className="text-[9px] sm:text-[10px] font-mono tracking-wider uppercase text-charcoal-900 border border-sand-300 px-2 py-0.5 sm:py-1 rounded-full font-semibold">
+                <span className="text-[11px] font-mono tracking-wider uppercase text-charcoal-900 border border-sand-300 px-2.5 py-0.5 sm:py-1 rounded-full font-bold">
                   MODEST
                 </span>
               )}
@@ -204,16 +204,16 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
             <div className="flex items-center gap-1 sm:gap-2">
               <button
                 onClick={handleShareSHARE}
-                className="w-9 h-9 sm:w-11 sm:h-11 rounded-none text-charcoal-900/70 hover:text-charcoal-900 hover:bg-sand-100 transition-colors flex items-center justify-center"
-                title="Kirim ke SHARE"
-                aria-label="Kirim ke SHARE"
+                className="w-10 h-10 sm:w-11 sm:h-11 rounded-none text-charcoal-900/70 hover:text-charcoal-900 hover:bg-sand-100 transition-colors flex items-center justify-center min-w-[40px] min-h-[40px]"
+                title="Kirim ke WhatsApp"
+                aria-label="Kirim ke WhatsApp"
               >
                 <MessageCircle className="w-4 h-4 text-emerald-600" />
               </button>
 
               <button
                 onClick={() => setShowStoryModal(true)}
-                className="min-h-[36px] sm:min-h-[44px] bg-sand-100 hover:bg-sand-200 text-charcoal-900 border border-sand-300 font-semibold text-xs py-1.5 px-3 sm:py-2 sm:px-3.5 rounded-none transition-colors flex items-center justify-center gap-1.5 shadow-2xs"
+                className="min-h-[40px] sm:min-h-[44px] bg-sand-100 hover:bg-sand-200 text-charcoal-900 border border-sand-300 font-semibold text-xs py-1.5 px-3 sm:py-2 sm:px-3.5 rounded-none transition-colors flex items-center justify-center gap-1.5 shadow-2xs"
               >
                 <Share2 className="w-3.5 h-3.5 text-charcoal-700" />
                 <span className="hidden xs:inline">Story</span>
@@ -221,7 +221,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
 
               <button
                 onClick={handleToggleSave}
-                className={`min-h-[36px] sm:min-h-[44px] text-xs font-bold py-1.5 px-3 sm:py-2 sm:px-4 rounded-none transition-all flex items-center justify-center gap-1.5 shadow-xs ${
+                className={`min-h-[40px] sm:min-h-[44px] text-xs font-bold py-1.5 px-3 sm:py-2 sm:px-4 rounded-none transition-all flex items-center justify-center gap-1.5 shadow-xs ${
                   isSaved
                     ? "bg-emerald-700 text-white"
                     : "bg-charcoal-900 hover:bg-charcoal-800 text-white"
@@ -237,11 +237,11 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
           {/* Title & Editorial Tagline (Mobile Scaled) */}
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="text-[9px] sm:text-[10px] font-mono text-terracotta-600 font-bold tracking-widest uppercase">
+              <span className="text-[11px] font-mono text-terracotta-600 font-bold tracking-wider uppercase">
                 {outfit.overallVibe}
               </span>
-              <span className="text-[10px] font-mono text-sand-500">•</span>
-              <span className="text-[9px] sm:text-[10px] font-mono text-charcoal-700 font-semibold">Personal Color Match</span>
+              <span className="text-[11px] font-mono text-[#5C554E]">•</span>
+              <span className="text-[11px] font-mono text-[#5C554E] font-bold">Personal Color Match</span>
             </div>
             <h2 className="font-serif text-2xl sm:text-4xl font-bold text-[#181A18] tracking-tight leading-tight">
               {outfit.title}
@@ -276,7 +276,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
           {/* Tier Selector & Total Estimate Bar */}
           <div className="flex flex-wrap items-center justify-between gap-3 border-t border-b border-[#E8DFD1] py-3">
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-mono font-bold uppercase text-sand-500 tracking-wider">
+              <span className="text-[11px] font-mono font-bold uppercase text-[#5C554E] tracking-wider">
                 TIER BELANJA:
               </span>
               <div className="flex items-center gap-1 bg-sand-100 p-1 rounded-none border border-sand-200">
@@ -287,7 +287,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                     setToastMsg("Mode Hemat Terjangkau aktif (< Rp 120rb)");
                     setTimeout(() => setToastMsg(""), 2500);
                   }}
-                  className={`py-1 px-2.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all ${
+                  className={`py-1.5 px-3 rounded-lg text-[11px] font-bold uppercase tracking-wider transition-all ${
                     activeBudgetTier === "budget"
                       ? "bg-charcoal-900 text-white shadow-xs"
                       : "text-charcoal-700 hover:text-charcoal-900"
@@ -302,7 +302,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                     setToastMsg("Mode Official Store & Mall aktif");
                     setTimeout(() => setToastMsg(""), 2500);
                   }}
-                  className={`py-1 px-2.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all ${
+                  className={`py-1.5 px-3 rounded-lg text-[11px] font-bold uppercase tracking-wider transition-all ${
                     activeBudgetTier === "mall"
                       ? "bg-charcoal-900 text-white shadow-xs"
                       : "text-charcoal-700 hover:text-charcoal-900"
@@ -313,7 +313,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
               </div>
             </div>
 
-            <div className="text-[10px] font-mono font-bold text-charcoal-900 bg-sand-100 px-2.5 py-1 rounded-full border border-sand-200">
+            <div className="text-[11px] font-mono font-bold text-charcoal-900 bg-sand-100 px-3 py-1.5 rounded-full border border-sand-200">
               {activeBudgetTier === "mall" ? "TOTAL EST: ~Rp 650rb (Mall)" : "TOTAL EST: ~Rp 185rb (Hemat)"}
             </div>
           </div>
@@ -321,11 +321,11 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
           {/* 2-Column Shoppable Pieces Grid (Fashion Commerce Standard) */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-mono tracking-wider uppercase text-sand-500 font-semibold">
+              <span className="text-[11px] font-mono tracking-wider uppercase text-[#5C554E] font-bold">
                 KOMPOSISI LOOK
               </span>
-              <span className="text-[10px] font-mono text-terracotta-600 font-semibold tracking-wider uppercase">
-                MARKETPLACE
+              <span className="text-[11px] font-mono text-terracotta-600 font-bold tracking-wider uppercase">
+                MARKETPLACE RESMI & DUPE
               </span>
             </div>
 
@@ -364,30 +364,31 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
 
                       {/* Top Category & Brand Badge */}
                       <div className="absolute top-2 left-2 flex items-center gap-1">
-                        <span className="px-2 py-0.5 rounded-md bg-charcoal-900/85 text-white text-[10px] font-mono font-semibold uppercase tracking-wider backdrop-blur-xs">
+                        <span className="px-2 py-0.5 rounded-md bg-charcoal-900/85 text-white text-[11px] font-mono font-bold uppercase tracking-wider backdrop-blur-xs">
                           {getCategoryTag(item.category)}
                         </span>
                         {item.brand && (
-                          <span className="px-1.5 py-0.5 rounded-md bg-[#8C5A3C] text-white text-[10px] font-mono font-semibold uppercase tracking-wider backdrop-blur-xs">
+                          <span className="px-1.5 py-0.5 rounded-md bg-[#8C5A3C] text-white text-[11px] font-mono font-bold uppercase tracking-wider backdrop-blur-xs">
                             {item.brand}
                           </span>
                         )}
                       </div>
 
-                      {/* Top Swap Button */}
+                      {/* Top Swap Button (Touch-Friendly Standard >= 36px) */}
                       {!item.isOwnedItem && (
                         <button
                           type="button"
                           onClick={() => handleSwapItem(index)}
-                          className="absolute top-2 right-2 px-2 py-0.5 rounded-lg bg-white/95 hover:bg-white text-charcoal-900 text-[10px] font-mono font-semibold uppercase tracking-wider flex items-center gap-1 shadow-sm transition-all"
+                          className="absolute top-2 right-2 min-h-[36px] px-2.5 py-1.5 rounded-md bg-white/95 hover:bg-white text-charcoal-900 text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-sm active:scale-95 transition-all"
                           title={`Ganti varian ${catLabel}`}
                         >
+                          <RefreshCw className="w-3 h-3 text-terracotta-600" />
                           <span>Ganti</span>
                         </button>
                       )}
 
                       {/* Bottom Color Chip */}
-                      <div className="absolute bottom-2 left-2 flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-white/95 backdrop-blur-xs text-[10px] font-mono font-semibold text-charcoal-900 shadow-2xs">
+                      <div className="absolute bottom-2 left-2 flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-white/95 backdrop-blur-xs text-[11px] font-mono font-bold text-charcoal-900 shadow-2xs">
                         <span
                           className="w-2.5 h-2.5 rounded-full border border-black/10 shrink-0"
                           style={{ backgroundColor: item.colorHex || "#C69365" }}
@@ -404,7 +405,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                             {item.name}
                           </h4>
                         </div>
-                        <p className="text-[10px] text-sand-500 line-clamp-1">
+                        <p className="text-xs text-[#5C554E] line-clamp-1">
                           {item.material}
                         </p>
                         <div className="pt-0.5">
@@ -418,51 +419,81 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                         </div>
                       </div>
 
-                      {/* Dual Marketplace Direct Buttons (Side-by-Side) */}
+                      {/* Consolidated Marketplace CTA (Eliminates Button Collisions on Mobile) */}
                       {item.isOwnedItem ? (
-                        <div className="py-2 bg-emerald-50 text-emerald-800 font-mono text-[10px] font-bold rounded-none border border-emerald-200 text-center">
+                        <div className="py-2 bg-emerald-50 text-emerald-800 font-mono text-[11px] font-bold rounded-none border border-emerald-200 text-center">
                           ✓ Ada di Lemarimu
                         </div>
                       ) : (
-                        <div className="space-y-1.5 pt-1">
-                          {item.brandUrl && (
-                            <a
-                              href={item.brandUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="w-full py-1.5 px-2 bg-[#181A18] hover:bg-[#8C5A3C] text-[#FAF8F5] text-[10px] font-mono font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
-                              title={`Beli resmi di ${item.brand || 'Brand'}`}
-                            >
-                              <span>↗ Beli Resmi ({item.brand || "Brand"})</span>
-                            </a>
+                        <div className="pt-1">
+                          {item.brandUrl ? (
+                            <div className="space-y-1.5">
+                              <a
+                                href={item.brandUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full min-h-[36px] px-2.5 bg-[#181A18] hover:bg-[#8C5A3C] text-[#FAF8F5] text-[11px] font-mono font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 transition-colors shadow-2xs rounded-sm"
+                                title={`Beli resmi di ${item.brand || 'Brand'}`}
+                              >
+                                <span className="truncate">Beli Resmi ({item.brand || "Brand"})</span>
+                                <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
+                              </a>
+                              <div className="flex items-center justify-between gap-1 pt-0.5">
+                                <motion.a
+                                  href={item.shopeeUrl || (links.shopee + (activeBudgetTier === "mall" ? "%20official%20store" : ""))}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={() => trackAffiliateClick("shopee", item.shopeeQuery || item.name, "outfit_card")}
+                                  whileTap={{ scale: 0.96 }}
+                                  className="flex-1 min-h-[32px] px-2 bg-orange-50/80 hover:bg-orange-100 border border-orange-200 text-[#D7431F] text-[11px] font-mono font-bold flex items-center justify-center gap-1 rounded-sm transition-colors truncate"
+                                  title="Alternatif hemat di Shopee"
+                                >
+                                  <ShopeeIcon className="w-3 h-3 shrink-0" />
+                                  <span className="truncate">Shopee</span>
+                                </motion.a>
+                                <motion.a
+                                  href={item.tokopediaUrl || (links.tokopedia + (activeBudgetTier === "mall" ? "%20official%20store" : ""))}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={() => trackAffiliateClick("tokopedia", item.shopeeQuery || item.name, "outfit_card")}
+                                  whileTap={{ scale: 0.96 }}
+                                  className="flex-1 min-h-[32px] px-2 bg-emerald-50/80 hover:bg-emerald-100 border border-emerald-200 text-[#00884A] text-[11px] font-mono font-bold flex items-center justify-center gap-1 rounded-sm transition-colors truncate"
+                                  title="Alternatif di Tokopedia"
+                                >
+                                  <TokopediaIcon className="w-3 h-3 shrink-0" />
+                                  <span className="truncate">Tokped</span>
+                                </motion.a>
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="space-y-1.5">
+                              <motion.a
+                                href={item.shopeeUrl || (links.shopee + (activeBudgetTier === "mall" ? "%20official%20store" : ""))}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={() => trackAffiliateClick("shopee", item.shopeeQuery || item.name, "outfit_card")}
+                                whileTap={{ scale: 0.96 }}
+                                className="w-full min-h-[36px] px-2.5 bg-[#FAF8F5] hover:bg-orange-50/60 border border-sand-300 hover:border-orange-300 text-[#D7431F] text-[11px] font-mono font-bold tracking-wide flex items-center justify-center gap-1.5 transition-colors shadow-2xs rounded-sm"
+                                title="Beli produk di Shopee"
+                              >
+                                <ShopeeIcon className="w-3.5 h-3.5 shrink-0" />
+                                <span className="truncate">Beli di Shopee</span>
+                                <ArrowUpRight className="w-3 h-3 shrink-0 opacity-60" />
+                              </motion.a>
+                              <div className="text-center pt-0.5">
+                                <a
+                                  href={item.tokopediaUrl || (links.tokopedia + (activeBudgetTier === "mall" ? "%20official%20store" : ""))}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={() => trackAffiliateClick("tokopedia", item.shopeeQuery || item.name, "outfit_card")}
+                                  className="inline-flex items-center gap-1 text-[11px] font-mono font-semibold text-[#00884A] hover:underline"
+                                >
+                                  <TokopediaIcon className="w-3 h-3 shrink-0" />
+                                  <span>Atau cek Tokopedia</span>
+                                </a>
+                              </div>
+                            </div>
                           )}
-                          <div className="grid grid-cols-2 gap-1.5">
-                            <motion.a
-                              href={item.shopeeUrl || (links.shopee + (activeBudgetTier === "mall" ? "%20official%20store" : ""))}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={() => trackAffiliateClick("shopee", item.shopeeQuery || item.name, "outfit_card")}
-                              whileTap={{ scale: 0.96 }}
-                              className="ds-btn-marketplace ds-mp-shopee"
-                              title={item.shopeeUrl ? "Buka link produk resmi Shopee" : "Cari alternatif di Shopee"}
-                            >
-                              <ShopeeIcon className="w-3 h-3 shrink-0" />
-                              <span>{item.shopeeUrl ? "Beli Shopee" : item.brandUrl ? "Dupe Shopee" : "Shopee"}</span>
-                            </motion.a>
-
-                            <motion.a
-                              href={item.tokopediaUrl || (links.tokopedia + (activeBudgetTier === "mall" ? "%20official%20store" : ""))}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={() => trackAffiliateClick("tokopedia", item.shopeeQuery || item.name, "outfit_card")}
-                              whileTap={{ scale: 0.96 }}
-                              className="ds-btn-marketplace ds-mp-tokopedia"
-                              title={item.tokopediaUrl ? "Buka link produk resmi Tokopedia" : "Cari alternatif di Tokopedia"}
-                            >
-                              <TokopediaIcon className="w-3 h-3 shrink-0" />
-                              <span>{item.tokopediaUrl ? "Tokopedia" : item.brandUrl ? "Dupe Tokped" : "Tokped"}</span>
-                            </motion.a>
-                          </div>
                         </div>
                       )}
                     </div>
@@ -493,10 +524,10 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                 {/* Editorial Notes: Color Palette & Swatches */}
                 <div className="border-t border-sand-200 pt-5 space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono tracking-wider uppercase text-sand-500 font-bold">
+                    <span className="text-[11px] font-mono tracking-wider uppercase text-[#5C554E] font-bold">
                       PALET WARNA HARMONIS
                     </span>
-                    <span className="text-[9px] font-mono text-terracotta-600 font-bold">1-TAP SALIN</span>
+                    <span className="text-[11px] font-mono text-terracotta-600 font-bold">1-TAP SALIN</span>
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
@@ -513,7 +544,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                           style={{ backgroundColor: col.hex }}
                         >
                           {copiedHex === col.hex && (
-                            <span className="absolute inset-0 m-auto flex items-center justify-center text-white text-[10px] font-bold">
+                            <span className="absolute inset-0 m-auto flex items-center justify-center text-white text-[11px] font-bold">
                               ✓
                             </span>
                           )}
@@ -522,7 +553,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                           <div className="text-xs font-bold text-charcoal-900 truncate">
                             {col.name}
                           </div>
-                          <div className="text-[9px] font-mono text-sand-500 uppercase">
+                          <div className="text-[11px] font-mono text-[#5C554E] uppercase">
                             {copiedHex === col.hex ? "Tersalin" : col.hex}
                           </div>
                         </div>
@@ -539,7 +570,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
 
                 {/* Styling Rationale */}
                 <div className="border-t border-sand-200 pt-5 space-y-2">
-                  <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-sand-500">
+                  <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#5C554E]">
                     STYLING RATIONALE
                   </div>
                   <p className="text-xs sm:text-sm text-charcoal-800 leading-relaxed">
@@ -553,15 +584,15 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                 {/* Fabric Care & Longevity Guide */}
                 <div className="border-t border-sand-200 pt-5 space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sand-500">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#5C554E]">
                       PANDUAN PERAWATAN KAIN (AGAR TIDAK SUSUT &amp; ADEM)
                     </span>
-                    <span className="text-[10px] font-mono text-sand-500 uppercase">FABRIC CARE</span>
+                    <span className="text-[11px] font-mono text-[#5C554E] uppercase font-bold">FABRIC CARE</span>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div className="p-3 rounded-none bg-sand-50 border border-sand-200 space-y-1">
-                      <div className="text-[10px] font-mono font-bold text-charcoal-900 uppercase">
+                      <div className="text-[11px] font-mono font-bold text-charcoal-900 uppercase">
                         Pencucian
                       </div>
                       <p className="text-[11px] text-charcoal-700 leading-tight">
@@ -570,7 +601,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                     </div>
 
                     <div className="p-3 rounded-none bg-sand-50 border border-sand-200 space-y-1">
-                      <div className="text-[10px] font-mono font-bold text-charcoal-900 uppercase">
+                      <div className="text-[11px] font-mono font-bold text-charcoal-900 uppercase">
                         Pengeringan
                       </div>
                       <p className="text-[11px] text-charcoal-700 leading-tight">
@@ -579,7 +610,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                     </div>
 
                     <div className="p-3 rounded-none bg-sand-50 border border-sand-200 space-y-1">
-                      <div className="text-[10px] font-mono font-bold text-charcoal-900 uppercase">
+                      <div className="text-[11px] font-mono font-bold text-charcoal-900 uppercase">
                         Penyetrikaan
                       </div>
                       <p className="text-[11px] text-charcoal-700 leading-tight">
@@ -596,7 +627,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
           <div className="border-t border-[#E8DFD1] pt-5 space-y-3">
             <div className="flex items-center justify-between text-xs">
               <span className="font-bold text-charcoal-900 font-serif">Directional Adjustments:</span>
-              <span className="text-[10px] font-mono text-sand-500 uppercase tracking-wider font-semibold">DIRECTIONAL CUES</span>
+              <span className="text-[11px] font-mono text-[#5C554E] uppercase tracking-wider font-bold">DIRECTIONAL CUES</span>
             </div>
             <div className="flex flex-wrap gap-2">
               {[
@@ -619,17 +650,17 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
           </div>
 
           {/* Safe Harbor Legal Aggregator Disclaimer */}
-          <div className="p-3 bg-[#FAF8F5] border border-[#181A18]/10 text-center text-[10px] text-[#181A18]/65 font-sans leading-relaxed select-none">
-            ⚖️ <span className="font-semibold text-[#181A18]/85">Safe Harbor Disclaimer:</span> Foto dan merek dagang (Uniqlo, H&M, Zara, dll.) adalah hak milik masing-masing pemegang merek. Look.u bertindak semata-mata sebagai kurator gaya personal &amp; pengarah rujukan resmi (Aggregator Model).
+          <div className="p-3 bg-[#FAF8F5] border border-[#181A18]/10 text-center text-[11px] text-[#181A18]/75 font-sans leading-relaxed select-none">
+            ⚖️ <span className="font-semibold text-[#181A18]/90">Safe Harbor Disclaimer:</span> Foto dan merek dagang (Uniqlo, H&M, Zara, dll.) adalah hak milik masing-masing pemegang merek. Look.u bertindak semata-mata sebagai kurator gaya personal &amp; pengarah rujukan resmi (Aggregator Model).
           </div>
 
           {/* Footer Actions */}
-          <div className="pt-2 flex flex-wrap items-center justify-between gap-3 text-xs text-sand-500 border-t border-sand-200">
+          <div className="pt-2 flex flex-wrap items-center justify-between gap-3 text-xs text-[#5C554E] border-t border-sand-200">
             <span>Kombinasi disesuaikan dengan iklim tropis harian &amp; ketersediaan toko resmi &amp; lokal.</span>
             {onRegenerate && (
               <button
                 onClick={() => onRegenerate()}
-                className="font-bold text-charcoal-900 hover:text-terracotta-600 uppercase tracking-wider text-[11px] underline underline-offset-4"
+                className="font-bold text-charcoal-900 hover:text-terracotta-600 uppercase tracking-wider text-xs underline underline-offset-4"
               >
                 Regenerate 
               </button>

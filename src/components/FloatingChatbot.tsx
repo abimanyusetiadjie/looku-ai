@@ -388,11 +388,11 @@ export default function FloatingChatbot() {
       {/* ============================================================ */}
       {/* 1. FLOATING LAUNCHER (Uniqlo Minimalist Aesthetic)           */}
       {/* ============================================================ */}
-      <div className="fixed bottom-[calc(64px+env(safe-area-inset-bottom,0px))] md:bottom-8 right-3 sm:right-6 md:right-8 z-30 pointer-events-auto">
+      <div className="fixed bottom-[calc(70px+env(safe-area-inset-bottom,0px))] md:bottom-8 right-3.5 sm:right-6 md:right-8 z-40 pointer-events-auto">
         <AnimatePresence>
           {!isOpen && (
             <>
-              {/* Mobile Launcher (< 640px) */}
+              {/* Mobile Launcher (< 640px - Standard 48x48px Touch Target) */}
               <motion.button
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -400,10 +400,10 @@ export default function FloatingChatbot() {
                 whileTap={{ scale: 0.92 }}
                 onClick={() => setIsOpen(true)}
                 aria-label="Buka AI Stylist Concierge"
-                className={`sm:hidden ${pathname === "/" ? "hidden" : "flex"} w-10 h-10 bg-[#181A18] text-white shadow-xl items-center justify-center relative active:scale-95 transition-transform border border-white/20 rounded-full`}
+                className={`sm:hidden ${pathname === "/" ? "hidden" : "flex"} w-12 h-12 bg-[#181A18] text-white shadow-2xl items-center justify-center relative active:scale-95 transition-transform border border-white/25 rounded-full`}
               >
-                <Sparkles className="w-4 h-4 text-cream-200" />
-                <span className="absolute top-0.5 right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-[#181A18] animate-pulse" />
+                <Sparkles className="w-5 h-5 text-cream-200" />
+                <span className="absolute top-1 right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-[#181A18] animate-pulse" />
               </motion.button>
 
               {/* Desktop Launcher (>= 640px) */}
