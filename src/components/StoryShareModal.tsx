@@ -1,17 +1,18 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { X, Download, Check, Share2, Copy, Sparkles, Palette } from "lucide-react";
+import { X, Download, Check, Share2, Copy, Sparkles, Palette, ThermometerSun, Wind } from "lucide-react";
 import { motion } from "framer-motion";
-import { OOTDRecommendation } from "@/lib/types";
+import { OOTDRecommendation, OutfitItem } from "@/lib/types";
 import { toPng } from "html-to-image";
+import { resolveSmartItemVisual, resolveCleanShoePackshot } from "@/lib/packshot-dictionary";
 
 interface StoryShareModalProps {
   outfit: OOTDRecommendation;
   onClose: () => void;
 }
 
-type StoryTemplate = "editorial" | "earthy" | "streetwear";
+type StoryTemplate = "editorial" | "lemon8" | "polaroid";
 
 export default function StoryShareModal({ outfit, onClose }: StoryShareModalProps) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -21,12 +22,46 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
   const [copied, setCopied] = useState(false);
   const [downloaded, setDownloaded] = useState(false);
 
+  // Fallback and Smart Visual Resolution
+  const fallbackHero = "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1000&auto=format&fit=crop&q=85";
+  const heroImage = outfit.heroImage || outfit.flatlayImages?.[0] || outfit.items?.[0]?.imageUrl || fallbackHero;
+
+  // Resolve 3 key breakdown packshots for the Lemon8 & Collage layouts
+  const breakdownItems = (outfit.items || []).slice(0, 3).map((item) => {
+    const slotMap: Record<string, "top" | "bottom" | "outer" | "shoes"> = {
+      atasan: "top",
+      bawahan: "bottom",
+      outer_hijab: "outer",
+      sepatu: "shoes",
+    };
+    const isShoe = item.category === "sepatu";
+    const smartVisual = resolveSmartItemVisual(item, slotMap[item.category] || "top", heroImage);
+    const imgUrl = isShoe
+      ? resolveCleanShoePackshot(item.name, item.color, item.colorHex)
+      : (item.imageUrl || smartVisual.imageUrl || heroImage);
+
+    return {
+      ...item,
+      resolvedImage: imgUrl,
+      categoryTag:
+        item.category === "atasan"
+          ? "ATASAN"
+          : item.category === "bawahan"
+          ? "BAWAHAN"
+          : item.category === "outer_hijab"
+          ? "HIJAB/OUTER"
+          : "ALAS KAKI",
+    };
+  });
+
   const generateDataUrl = async (): Promise<string | null> => {
     if (!cardRef.current) return null;
-    await new Promise((resolve) => setTimeout(resolve, 150));
+    await new Promise((resolve) => setTimeout(resolve, 200));
     return await toPng(cardRef.current, {
       cacheBust: true,
       pixelRatio: 2.5,
+      quality: 0.95,
+      backgroundColor: template === "editorial" ? "#121412" : template === "lemon8" ? "#FAF6EE" : "#F4EFE6",
     });
   };
 
@@ -95,17 +130,12 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
     }
   };
 
-  // Template Styles Config
-  const isEditorial = template === "editorial";
-  const isEarthy = template === "earthy";
-  const isStreetwear = template === "streetwear";
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#181A18]/85 backdrop-blur-md overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#121412]/90 backdrop-blur-md overflow-y-auto"
     >
       <motion.div
         initial={{ scale: 0.94, opacity: 0, y: 20 }}
@@ -114,9 +144,9 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
         className="relative max-w-sm w-full my-auto space-y-3"
       >
-        {/* Top Header & Close */}
+        {/* Top Modal Header */}
         <div className="flex items-center justify-between px-1">
-          <div className="flex items-center gap-1.5 text-xs text-white font-mono uppercase font-bold">
+          <div className="flex items-center gap-1.5 text-xs text-white font-mono uppercase font-bold tracking-wider">
             <Sparkles className="w-3.5 h-3.5 text-terracotta-400" />
             <span>Story Lookbook (9:16)</span>
           </div>
@@ -129,216 +159,307 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
           </button>
         </div>
 
-        {/* Template Selector Tabs */}
-        <div className="bg-white/10 p-1 rounded-2xl flex items-center gap-1 border border-white/10 text-[10px] font-mono font-bold uppercase tracking-wider">
+        {/* 3 Aesthetic Template Selectors */}
+        <div className="bg-white/10 p-1 rounded-2xl flex items-center gap-1 border border-white/15 text-[11px] font-mono font-bold uppercase tracking-wider">
           <button
             onClick={() => setTemplate("editorial")}
             className={`flex-1 py-1.5 rounded-xl transition-all ${
-              isEditorial ? "bg-white text-charcoal-900 shadow-sm" : "text-white/70 hover:text-white"
+              template === "editorial"
+                ? "bg-white text-charcoal-900 shadow-sm"
+                : "text-white/70 hover:text-white"
             }`}
           >
             ✦ Editorial
           </button>
           <button
-            onClick={() => setTemplate("earthy")}
+            onClick={() => setTemplate("lemon8")}
             className={`flex-1 py-1.5 rounded-xl transition-all ${
-              isEarthy ? "bg-[#FAF8F5] text-charcoal-900 shadow-sm" : "text-white/70 hover:text-white"
+              template === "lemon8"
+                ? "bg-[#FAF6EE] text-charcoal-900 shadow-sm"
+                : "text-white/70 hover:text-white"
             }`}
           >
-            🌿 Earthy
+            🍋 Lemon8
           </button>
           <button
-            onClick={() => setTemplate("streetwear")}
+            onClick={() => setTemplate("polaroid")}
             className={`flex-1 py-1.5 rounded-xl transition-all ${
-              isStreetwear ? "bg-terracotta-500 text-white shadow-sm" : "text-white/70 hover:text-white"
+              template === "polaroid"
+                ? "bg-terracotta-500 text-white shadow-sm"
+                : "text-white/70 hover:text-white"
             }`}
           >
-            ⚡ Street
+            📷 Polaroid
           </button>
         </div>
 
-        {/* 9:16 Story Canvas */}
-        <div
-          ref={cardRef}
-          className={`w-full rounded-3xl p-6 sm:p-7 shadow-2xl relative overflow-hidden flex flex-col justify-between transition-colors ${
-            isEditorial
-              ? "bg-[#181A18] text-[#FAF8F5] border border-[#2B352A]"
-              : isEarthy
-              ? "bg-[#FAF8F5] text-charcoal-900 border border-[#D7CABC]"
-              : "bg-[#0F110F] text-[#FAF8F5] border-2 border-terracotta-500/50"
-          }`}
-          style={{ minHeight: "560px", aspectRatio: "9/16" }}
-        >
-          {/* Ambient Aesthetic Background Element */}
-          {isEditorial && (
-            <div className="absolute top-0 right-0 w-48 h-48 bg-terracotta-500/10 rounded-full blur-3xl pointer-events-none" />
-          )}
-          {isEarthy && (
-            <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-[#9DC183]/15 rounded-full blur-3xl pointer-events-none" />
-          )}
-          {isStreetwear && (
-            <div className="absolute inset-0 bg-[radial-gradient(#BA5D38_1px,transparent_1px)] [background-size:16px_16px] opacity-15 pointer-events-none" />
-          )}
-
-          {/* Top Bar: Brand Watermark & Edition */}
+        {/* ============================================================ */}
+        {/* 9:16 STORY CANVAS CONTAINER (EXPORTED HIGH-DPI)             */}
+        {/* ============================================================ */}
+        <div className="overflow-hidden rounded-3xl shadow-2xl border border-white/10 flex justify-center bg-black/40">
           <div
-            className={`relative z-10 flex items-center justify-between border-b pb-3 ${
-              isEarthy ? "border-sand-300" : "border-white/15"
-            }`}
+            ref={cardRef}
+            className="w-full relative flex flex-col justify-between overflow-hidden select-none"
+            style={{
+              width: "100%",
+              maxWidth: "360px",
+              aspectRatio: "9/16",
+              minHeight: "560px",
+            }}
           >
-            <div>
-              <div
-                className={`font-serif font-medium text-xl tracking-[0.05em] flex items-baseline ${isEarthy ? "text-charcoal-900" : "text-white"}`}>Look<span className="text-terracotta-500 font-bold">.</span>u
-              </div>
-              <div
-                className={`text-[8px] font-mono tracking-widest uppercase ${
-                  isEarthy ? "text-sand-500" : "text-[#A89582]"
-                }`}
-              >
-                AI STYLIST ARCHIVE
-              </div>
-            </div>
-            <div
-              className={`text-[8px] font-mono tracking-widest uppercase px-2.5 py-0.5 rounded-full border ${
-                isEarthy
-                  ? "border-sand-400 text-charcoal-800 bg-sand-100"
-                  : "border-white/20 text-[#D7CABC]"
-              }`}
-            >
-              2026 EDITION
-            </div>
-          </div>
+            {/* -------------------------------------------------------- */}
+            {/* TEMPLATE 1: THE HIGH-FASHION EDITORIAL MAGAZINE (KINFOLK) */}
+            {/* -------------------------------------------------------- */}
+            {template === "editorial" && (
+              <div className="w-full h-full bg-[#121412] text-[#FAF8F5] p-5 flex flex-col justify-between relative overflow-hidden">
+                {/* Subtle Ambient Radial Glow */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-terracotta-500/15 rounded-full blur-3xl pointer-events-none" />
 
-          {/* Main Showcase */}
-          <div className="relative z-10 my-auto py-4 space-y-3.5">
-            <div>
-              <div className="text-[10px] font-mono tracking-[0.2em] text-terracotta-500 uppercase font-bold">
-                {outfit.overallVibe}
-              </div>
-              <h3
-                className={`font-serif text-2xl sm:text-[26px] font-bold tracking-tight mt-0.5 leading-tight ${
-                  isEarthy ? "text-charcoal-900" : "text-white"
-                }`}
-              >
-                {outfit.title}
-              </h3>
-              <p
-                className={`font-serif italic text-xs mt-1 ${
-                  isEarthy ? "text-charcoal-700" : "text-white/70"
-                }`}
-              >
-                &ldquo;{outfit.tagline}&rdquo;
-              </p>
-            </div>
-
-            {/* Spec Items Box */}
-            <div
-              className={`space-y-1.5 p-3 rounded-2xl border ${
-                isEarthy
-                  ? "bg-white border-sand-300 shadow-2xs"
-                  : "bg-white/5 border-white/10"
-              }`}
-            >
-              <div
-                className={`text-[8px] font-mono tracking-widest uppercase font-bold ${
-                  isEarthy ? "text-sand-500" : "text-[#A89582]"
-                }`}
-              >
-                CURATED PIECES:
-              </div>
-              {outfit.items.slice(0, 4).map((item, idx) => (
-                <div key={idx} className="flex items-baseline justify-between text-[11px]">
-                  <div className="flex items-center gap-1.5 truncate pr-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-terracotta-500 shrink-0" />
-                    <span
-                      className={`font-medium truncate ${
-                        isEarthy ? "text-charcoal-900" : "text-white/90"
-                      }`}
-                    >
-                      {item.name}
+                {/* Top Magazine Header */}
+                <div className="relative z-10 flex items-center justify-between border-b border-white/20 pb-3">
+                  <div className="flex items-baseline gap-1">
+                    <span className="font-serif font-medium text-2xl tracking-[0.04em] text-white">
+                      Look<span className="text-terracotta-400 font-bold">.</span>u
+                    </span>
+                    <span className="text-[9px] font-mono tracking-[0.25em] text-[#D7CABC] uppercase pl-1">
+                      STUDIO
                     </span>
                   </div>
-                  <span
-                    className={`text-[9px] font-mono shrink-0 ${
-                      isEarthy ? "text-terracotta-600 font-bold" : "text-[#D7CABC]"
-                    }`}
-                  >
-                    {item.color}
+                  <div className="text-[10px] font-mono tracking-widest uppercase px-2.5 py-0.5 rounded-full border border-white/25 text-[#FAF8F5]/90 bg-white/5">
+                    33°C TROPICAL
+                  </div>
+                </div>
+
+                {/* Hero Photo (Taking Center Stage ~56% Height) */}
+                <div className="relative z-10 my-3 w-full flex-1 max-h-[58%] rounded-2xl overflow-hidden bg-neutral-900 border border-white/15 shadow-xl">
+                  <img
+                    src={heroImage}
+                    alt={outfit.title}
+                    crossOrigin="anonymous"
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover object-top"
+                  />
+                  {/* Floating Badges */}
+                  <div className="absolute top-3 left-3 flex flex-col gap-1.5">
+                    <span className="px-2.5 py-1 rounded-full bg-[#181A18]/90 text-white text-[10px] font-mono font-bold tracking-wider uppercase backdrop-blur-md shadow-xs">
+                      ✦ {outfit.overallVibe}
+                    </span>
+                    {outfit.modestFriendly && (
+                      <span className="px-2 py-0.5 rounded-full bg-emerald-900/90 text-emerald-200 text-[9px] font-mono font-bold tracking-wider uppercase backdrop-blur-md">
+                        MODEST COMPLIANT
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-white/90 text-charcoal-900 text-[10px] font-mono font-bold backdrop-blur-md shadow-xs">
+                    AIRFLOW 98.4%
+                  </div>
+                </div>
+
+                {/* Editorial Typography & Color Chips */}
+                <div className="relative z-10 space-y-2.5 pt-1">
+                  <div>
+                    <h3 className="font-serif text-2xl font-bold tracking-tight text-white leading-tight">
+                      {outfit.title}
+                    </h3>
+                    <p className="font-serif italic text-xs text-white/75 mt-0.5 line-clamp-1">
+                      &ldquo;{outfit.tagline}&rdquo;
+                    </p>
+                  </div>
+
+                  {/* 4-Chip Minimalist Swatch Bar */}
+                  <div className="flex items-center justify-between pt-1 border-t border-white/10">
+                    <div className="flex items-center gap-1.5">
+                      {outfit.colorPalette.slice(0, 4).map((col, idx) => (
+                        <div key={idx} className="flex items-center gap-1 bg-white/5 border border-white/15 px-2 py-1 rounded-md">
+                          <span
+                            className="w-2.5 h-2.5 rounded-full shrink-0 border border-black/20"
+                            style={{ backgroundColor: col.hex }}
+                          />
+                          <span className="text-[10px] font-mono text-[#D7CABC] truncate max-w-[50px]">
+                            {col.name}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Bottom Colophon Barcode */}
+                  <div className="flex items-end justify-between pt-1 border-t border-white/10 text-[9px] font-mono text-white/60">
+                    <div>
+                      <span>CURATED BY LOOK.U ARCHIVE · 2026</span>
+                    </div>
+                    <div className="tracking-widest uppercase text-white/80 font-bold">
+                      #LOOK-{outfit.id.slice(-4).toUpperCase()}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* -------------------------------------------------------- */}
+            {/* TEMPLATE 2: THE VIRAL LEMON8 / OOTD BREAKDOWN COLLAGE     */}
+            {/* -------------------------------------------------------- */}
+            {template === "lemon8" && (
+              <div className="w-full h-full bg-[#FAF6EE] text-[#181A18] p-4 sm:p-5 flex flex-col justify-between relative overflow-hidden border-2 border-[#E8DFD1]">
+                {/* Header Lemon8 Style */}
+                <div className="flex items-center justify-between pb-2 border-b border-[#E8DFD1]">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                    <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#8C5A3C]">
+                      LEMON8 OOTD GUIDE · 33°C
+                    </span>
+                  </div>
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-[#E8DFD1] text-[#181A18]">
+                    ANTI-GERAH 100%
                   </span>
                 </div>
-              ))}
-            </div>
 
-            {/* Color Swatch Matrix */}
-            <div>
-              <div
-                className={`text-[8px] font-mono tracking-widest uppercase mb-1 font-bold ${
-                  isEarthy ? "text-sand-500" : "text-[#A89582]"
-                }`}
-              >
-                PALET WARNA HARMONI:
-              </div>
-              <div className="flex items-center gap-1.5">
-                {outfit.colorPalette.map((col, i) => (
-                  <div key={i} className="flex-1 flex flex-col items-center gap-0.5">
-                    <div
-                      className="w-full h-3.5 rounded-md border border-black/15 shadow-2xs"
-                      style={{ backgroundColor: col.hex }}
-                    />
-                    <span
-                      className={`text-[7px] font-mono truncate max-w-[45px] ${
-                        isEarthy ? "text-charcoal-700" : "text-white/70"
-                      }`}
-                    >
-                      {col.name}
-                    </span>
+                {/* Hero Visual (Top ~40% Height) */}
+                <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden bg-[#EFECE6] border border-[#181A18]/10 my-2 shadow-sm">
+                  <img
+                    src={heroImage}
+                    alt={outfit.title}
+                    crossOrigin="anonymous"
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover object-top"
+                  />
+                  <div className="absolute bottom-2 left-2 bg-[#181A18]/85 text-white px-2 py-0.5 rounded text-[10px] font-mono font-bold">
+                    EST: ~Rp 185rb - 240rb
                   </div>
-                ))}
-              </div>
-            </div>
+                  <div className="absolute top-2 right-2 bg-amber-100 text-amber-900 border border-amber-300 px-2 py-0.5 rounded text-[10px] font-bold">
+                    ★ REKOMENDASI ADEM
+                  </div>
+                </div>
 
-            {/* Styling Tip Pill */}
-            <div
-              className={`p-2.5 rounded-xl border text-[10px] leading-relaxed ${
-                isEarthy
-                  ? "bg-sand-100 border-sand-300 text-charcoal-800"
-                  : "bg-white/5 border-white/10 text-white/80"
-              }`}
-            >
-              <b>Catatan Stylist:</b> {outfit.stylingTip}
-            </div>
-          </div>
+                {/* Title & Fabric Highlight */}
+                <div className="space-y-0.5 py-1">
+                  <h3 className="font-serif text-xl font-bold text-[#181A18] leading-tight">
+                    {outfit.title}
+                  </h3>
+                  <p className="text-[11px] text-[#5C554E] font-medium line-clamp-1">
+                    🍃 {outfit.items[0]?.material || "Linen Crinkle & Katun Rayon Sejuk"}
+                  </p>
+                </div>
 
-          {/* Bottom Colophon Barcode */}
-          <div
-            className={`relative z-10 border-t pt-2.5 flex items-end justify-between ${
-              isEarthy ? "border-sand-300" : "border-white/15"
-            }`}
-          >
-            <div>
-              <div
-                className={`text-[7px] font-mono uppercase tracking-widest ${
-                  isEarthy ? "text-sand-500" : "text-[#A89582]"
-                }`}
-              >
-                CURATED BY LOOK.U STUDIO
+                {/* The 3-Piece Breakdown Cards (Lemon8 Viral Signature!) */}
+                <div className="space-y-1.5 py-1">
+                  <div className="text-[10px] font-mono font-bold text-[#8C5A3C] uppercase tracking-wider">
+                    BEDAH POTONGAN PAKAIAN:
+                  </div>
+                  <div className="grid grid-cols-3 gap-2">
+                    {breakdownItems.map((item, idx) => (
+                      <div
+                        key={idx}
+                        className="bg-white rounded-xl p-1.5 border border-[#E8DFD1] flex flex-col justify-between shadow-2xs"
+                      >
+                        <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-[#EFECE6] mb-1">
+                          <img
+                            src={item.resolvedImage}
+                            alt={item.name}
+                            crossOrigin="anonymous"
+                            referrerPolicy="no-referrer"
+                            className="w-full h-full object-cover object-top"
+                          />
+                          <span className="absolute top-1 left-1 bg-[#181A18]/85 text-white text-[8px] font-mono px-1 py-0.2 rounded font-bold">
+                            {item.categoryTag}
+                          </span>
+                        </div>
+                        <div className="space-y-0.5">
+                          <h5 className="font-bold text-[10px] text-[#181A18] line-clamp-1 leading-snug">
+                            {item.name}
+                          </h5>
+                          <div className="flex items-center justify-between text-[9px] font-mono text-[#5C554E]">
+                            <span className="flex items-center gap-1">
+                              <span
+                                className="w-1.5 h-1.5 rounded-full inline-block border border-black/20"
+                                style={{ backgroundColor: item.colorHex || "#C69365" }}
+                              />
+                              <span className="truncate max-w-[40px]">{item.color}</span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Footer Watermark */}
+                <div className="flex items-center justify-between pt-2 border-t border-[#E8DFD1] text-[10px] font-mono text-[#181A18]/70">
+                  <span className="font-bold">look.u AI Stylist</span>
+                  <span>looku.ai/?look={outfit.id}</span>
+                </div>
               </div>
-              <div
-                className={`text-[10px] font-bold tracking-wider ${
-                  isEarthy ? "text-charcoal-900" : "text-white"
-                }`}
-              >
-                looku.ai/?look={outfit.id} <span className="font-normal opacity-60">| Iklim 33°C</span>
+            )}
+
+            {/* -------------------------------------------------------- */}
+            {/* TEMPLATE 3: THE KOREAN MINIMALIST POLAROID & PANTONE      */}
+            {/* -------------------------------------------------------- */}
+            {template === "polaroid" && (
+              <div className="w-full h-full bg-[#F4EFE6] text-charcoal-900 p-5 flex flex-col justify-between relative overflow-hidden">
+                {/* Polaroid Frame Card */}
+                <div className="bg-white p-4 pb-5 rounded-2xl shadow-xl border border-sand-300 flex flex-col justify-between flex-1 relative">
+                  {/* Photo Container */}
+                  <div className="relative w-full aspect-[4/4] rounded-lg overflow-hidden bg-sand-100 border border-black/5 shadow-inner">
+                    <img
+                      src={heroImage}
+                      alt={outfit.title}
+                      crossOrigin="anonymous"
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover object-top"
+                    />
+                    {/* Timestamp */}
+                    <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-black/60 text-white font-mono text-[9px] tracking-wider uppercase backdrop-blur-xs">
+                      JAKARTA · 33°C
+                    </div>
+                  </div>
+
+                  {/* Below Polaroid Photo: Handwriting & Details */}
+                  <div className="space-y-3 pt-4 text-center">
+                    <div>
+                      <h4 className="font-serif text-2xl font-bold text-charcoal-900 leading-tight">
+                        {outfit.title}
+                      </h4>
+                      <p className="font-serif italic text-xs text-charcoal-700 mt-1">
+                        &ldquo;{outfit.tagline}&rdquo;
+                      </p>
+                    </div>
+
+                    {/* Minimalist Pantone Swatch Strip */}
+                    <div className="border-t border-sand-200 pt-3">
+                      <div className="text-[9px] font-mono tracking-widest uppercase text-sand-500 font-bold mb-1.5">
+                        PANTONE HARMONY
+                      </div>
+                      <div className="flex items-center justify-center gap-2">
+                        {outfit.colorPalette.slice(0, 4).map((col, idx) => (
+                          <div key={idx} className="flex flex-col items-center">
+                            <span
+                              className="w-6 h-6 rounded-md border border-black/15 shadow-2xs"
+                              style={{ backgroundColor: col.hex }}
+                            />
+                            <span className="text-[8px] font-mono text-charcoal-800 font-semibold mt-0.5 truncate max-w-[42px]">
+                              {col.name}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Stylist Micro-Note */}
+                    <div className="p-2 bg-sand-50 border border-sand-200 rounded-lg text-[10px] text-charcoal-800 text-left leading-snug">
+                      <span className="font-bold font-serif text-charcoal-900">Stylist Note:</span>{" "}
+                      {outfit.stylingTip}
+                    </div>
+                  </div>
+
+                  {/* Polaroid Bottom Brand Stamp */}
+                  <div className="flex items-center justify-between pt-3 border-t border-sand-200 text-[9px] font-mono text-sand-500">
+                    <span>LOOK.U SEOUL-JAKARTA EDITORIAL</span>
+                    <span>ARCHIVE #{outfit.id.slice(-4).toUpperCase()}</span>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div
-              className={`font-mono text-[7px] tracking-widest uppercase text-right ${
-                isEarthy ? "text-charcoal-500" : "text-white/40"
-              }`}
-            >
-              ||| | |||| | ||| ||
-              <div>#LOOK-{outfit.id.slice(-4).toUpperCase()}</div>
-            </div>
+            )}
           </div>
         </div>
 
@@ -396,5 +517,3 @@ export default function StoryShareModal({ outfit, onClose }: StoryShareModalProp
     </motion.div>
   );
 }
-
-
