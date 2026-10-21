@@ -21,7 +21,7 @@ import { OOTDRecommendation, OutfitItem } from "@/lib/types";
 import { getMarketplaceLinks, trackAffiliateClick } from "@/lib/affiliate";
 import { ShopeeIcon, TokopediaIcon } from "@/components/MarketplaceIcons";
 import StoryShareModal from "./StoryShareModal";
-import { resolveCleanShoePackshot } from "@/lib/packshot-dictionary";
+import { resolveCleanShoePackshot, resolveSmartItemVisual } from "@/lib/packshot-dictionary";
 
 interface OutfitCardProps {
   outfit: OOTDRecommendation;
@@ -77,6 +77,18 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
       alt.name = "Aksesoris Tambahan";
     }
     
+    const slotMap: Record<string, "top" | "bottom" | "outer" | "shoes"> = {
+      atasan: "top",
+      bawahan: "bottom",
+      outer_hijab: "outer",
+      sepatu: "shoes",
+    };
+    const resolvedSwap = resolveSmartItemVisual(
+      { ...alt, imageUrl: undefined },
+      slotMap[cat] || "top"
+    );
+    alt.imageUrl = resolvedSwap.imageUrl;
+
     const newItems = [...items];
     newItems[index] = alt;
     setItems(newItems);
@@ -321,18 +333,17 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
               {items.map((item, index) => {
                 const links = getMarketplaceLinks(item.shopeeQuery);
                 const catLabel = item.category === "outer_hijab" ? "Hijab/Outer" : item.category.charAt(0).toUpperCase() + item.category.slice(1);
-                const fallbackImages = [
-                  "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=400&auto=format&fit=crop&q=80",
-                  "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&auto=format&fit=crop&q=80",
-                  "https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?w=400&auto=format&fit=crop&q=80",
-                  "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&auto=format&fit=crop&q=80",
-                ];
+                const slotMap: Record<string, "top" | "bottom" | "outer" | "shoes"> = {
+                  atasan: "top",
+                  bawahan: "bottom",
+                  outer_hijab: "outer",
+                  sepatu: "shoes",
+                };
                 const isShoe = item.category === "sepatu";
+                const smartVisual = resolveSmartItemVisual(item, slotMap[item.category] || "top", outfit.heroImage);
                 const itemImage = isShoe
                   ? resolveCleanShoePackshot(item.name, item.color, item.colorHex)
-                  : item.cropConfig?.isCrop
-                  ? (item.cropConfig.heroUrl || item.imageUrl)
-                  : (item.imageUrl || outfit.flatlayImages?.[index] || fallbackImages[index % fallbackImages.length]);
+                  : (item.imageUrl || smartVisual.imageUrl || outfit.flatlayImages?.[index]);
 
                 return (
                   <div

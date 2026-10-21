@@ -1,5 +1,6 @@
 import { OOTDRecommendation, UserPreferences } from "./types";
 import { generateHeuristicOOTD } from "./presets";
+import { resolveSmartItemVisual } from "./packshot-dictionary";
 
 const SYSTEM_FASHION_PROMPT = `
 Kamu adalah "Looku AI", personal stylist profesional nomor 1 di Indonesia yang sangat menguasai analisis Personal Color (Skin Tone) & Fashion Harian Indonesia.
@@ -140,7 +141,29 @@ Balas HANYA dalam JSON format persis seperti ini:
     }
 
     const parsed: OOTDRecommendation = JSON.parse(rawText);
+    const matchedBase = generateHeuristicOOTD(pref);
     parsed.createdAt = new Date().toISOString();
+    parsed.heroImage = parsed.heroImage || matchedBase.heroImage;
+    parsed.flatlayImages = parsed.flatlayImages || matchedBase.flatlayImages;
+
+    const slotMap: Record<string, "top" | "bottom" | "outer" | "shoes"> = {
+      atasan: "top",
+      bawahan: "bottom",
+      outer_hijab: "outer",
+      sepatu: "shoes",
+    };
+
+    if (Array.isArray(parsed.items)) {
+      parsed.items = parsed.items.map((item) => {
+        const slot = slotMap[item.category] || "top";
+        const resolved = resolveSmartItemVisual(item, slot, parsed.heroImage);
+        return {
+          ...item,
+          imageUrl: item.imageUrl || resolved.imageUrl,
+        };
+      });
+    }
+
     return parsed;
   } catch (error) {
     console.error("AI Engine error:", error);

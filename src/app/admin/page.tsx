@@ -1850,6 +1850,27 @@ export default function AdminCMSPage() {
                             />
                           </div>
                         </div>
+
+                        <div className="space-y-1 pt-1">
+                          <label className="text-[10px] font-mono font-bold text-charcoal-900 flex items-center justify-between">
+                            <span>📸 URL Gambar CDN Item Satuan (Opsional - Uniqlo/Pinterest/Unsplash):</span>
+                            <span className="text-[9px] text-emerald-700 font-normal">Kosongkan = Pakai Auto Packshot Studio Bersih</span>
+                          </label>
+                          <input
+                            type="url"
+                            value={it.imageUrl || ""}
+                            onChange={(e) => {
+                              const updated = [...(editingLook.outfit?.items || [])];
+                              updated[idx] = { ...updated[idx], imageUrl: e.target.value.trim() || undefined };
+                              setEditingLook({
+                                ...editingLook,
+                                outfit: { ...(editingLook.outfit as any), items: updated },
+                              });
+                            }}
+                            placeholder="https://image.uniqlo.com/... (Kosongkan jika ingin otomatis dari kamus packshot)"
+                            className="w-full p-2 rounded-lg bg-white border border-sand-300 font-mono text-[10px]"
+                          />
+                        </div>
                       </div>
                     );
                   })}
