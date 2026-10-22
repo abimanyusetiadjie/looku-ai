@@ -849,54 +849,61 @@ export default function LookUMobileView({
               </button>
             </div>
 
-            <div className="grid grid-cols-2 gap-2.5 pt-1">
+            <div className="grid grid-cols-2 gap-x-2.5 gap-y-6 pt-1">
               {TROPICAL_EDIT_LIST.map((item) => (
                 <div
                   key={item.id}
                   onClick={() => router.push(`/studio?look=${item.studioParam}`)}
-                  className="group flex flex-col bg-white rounded-2xl border border-[#E8DFD1] p-2 hover:shadow-tactile active:scale-[0.98] transition-all cursor-pointer"
+                  className="group flex flex-col bg-transparent active:scale-[0.98] transition-transform cursor-pointer select-none"
                 >
-                  {/* 1. Foto Rasio Mutlak 4:5 */}
-                  <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-[#EFECE6]">
+                  {/* 1. Foto Rasio Mutlak 4:5 Bleed */}
+                  <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#EFECE6]">
                     <Image
                       src={item.gambar}
                       alt={item.judul}
                       fill
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
                       sizes="(max-width: 480px) 50vw, 200px"
                     />
-                    {/* 2. Badge Iklim/Bahan ala Uniqlo AIRism */}
-                    <div className="absolute bottom-2 left-2 right-2">
-                      <span className="inline-block px-2.5 py-1 text-[11px] font-mono font-bold uppercase tracking-wider bg-[#FAF8F5]/95 backdrop-blur-xs text-[#181A18] rounded shadow-2xs">
-                        {item.climateBadge}
+                    <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-black/25 to-transparent pointer-events-none" />
+                    {/* Floating Glass Pill */}
+                    <div className="absolute top-2 left-2 z-10 flex items-center">
+                      <span className="px-2 py-0.5 bg-[#181A18]/75 backdrop-blur-md text-[#FAF8F5] text-[9px] font-medium uppercase tracking-[0.14em] leading-none flex items-center gap-1">
+                        <span className="text-[#D4A373]">✦</span>
+                        <span>31–35°C · AIRY</span>
                       </span>
                     </div>
                   </div>
 
-                  {/* 3. Dot Swatches Palet Warna Harmonis (3 Titik) */}
-                  <div className="flex items-center gap-1.5 mt-2 mb-1">
-                    {item.swatches.map((hex, idx) => (
-                      <span
-                        key={idx}
-                        className="w-2.5 h-2.5 rounded-full border border-black/20 shadow-2xs"
-                        style={{ backgroundColor: hex }}
-                      />
-                    ))}
-                    <span className="text-[11px] text-[#181A18]/70 ml-0.5 font-semibold truncate">
-                      {item.undertoneTag}
-                    </span>
-                  </div>
+                  {/* Metadata Bersih */}
+                  <div className="pt-2 flex flex-col">
+                    <div className="flex items-center justify-between gap-1 mb-1">
+                      <div className="flex items-center gap-1">
+                        {item.swatches.map((hex, idx) => (
+                          <span
+                            key={idx}
+                            className="w-2.5 h-2.5 rounded-full ring-1 ring-black/15 shadow-2xs shrink-0"
+                            style={{ backgroundColor: hex }}
+                          />
+                        ))}
+                      </div>
+                      <span className="text-[9px] font-semibold uppercase tracking-[0.12em] text-[#181A18]/50 truncate">
+                        {item.kategori.replace("Kasual", "").replace("Longgar", "").trim() || "AIRISM"} · 161 CM
+                      </span>
+                    </div>
 
-                  {/* 4. Tipografi Terkunci (Anti Tinggi Belang) */}
-                  <h4 className="text-xs font-bold text-[#181A18] line-clamp-1 leading-snug">
-                    {item.judul}
-                  </h4>
-                  <p className="text-[11px] text-[#181A18]/70 line-clamp-1 mt-0.5">
-                    {item.fabricNote}
-                  </p>
-                  <p className="text-[11px] font-mono font-bold text-[#181A18] pt-1 mt-auto">
-                    {item.rentangHarga}
-                  </p>
+                    <h4 className="font-serif text-[13px] font-semibold text-[#181A18] line-clamp-1 leading-snug">
+                      {item.judul}
+                    </h4>
+                    <p className="font-sans text-[11px] text-[#181A18]/55 line-clamp-1 mt-0.5">
+                      {item.fabricNote}
+                    </p>
+                    <div className="mt-1 flex items-baseline">
+                      <span className="font-sans text-xs font-semibold text-[#181A18] tracking-tight">
+                        {item.rentangHarga}
+                      </span>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>

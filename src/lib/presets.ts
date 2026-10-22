@@ -1445,7 +1445,7 @@ export const SIGNATURE_TRENDING_LOOKS: TrendingLook[] = [
     category: "Weekend & Cafe",
     skinToneRecommendation: "Fair & Tan",
     priceRange: "Rp 170rb - 270rb / Set",
-    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=600&auto=format&fit=crop&q=80",
     likes: 1302,
     outfit: PRESET_OOTD_COLLECTION["blok_m_indie_streetwear"]
   },

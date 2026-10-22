@@ -264,8 +264,10 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
               id: "trop-1",
               img: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=600",
               title: "Linen Camp Collar Shirt",
-              climateBadge: "AIRY TROPICAL · OPTIMAL",
+              climateBadge: "31–35°C · AIRY",
               swatches: ["#FAF6EE", "#8FA98D", "#D4A373"],
+              tag: "CASUAL",
+              height: "174 CM",
               undertoneTag: "Warm Spring",
               fabricNote: "Katun Rayon Twill · Sirkulasi Dingin",
               price: "Rp 189.000",
@@ -274,8 +276,10 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
               id: "trop-2",
               img: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600",
               title: "Wide-Leg Flowy Pants",
-              climateBadge: "AIRY TROPICAL · OPTIMAL",
+              climateBadge: "31–35°C · AIRY",
               swatches: ["#FAF6EE", "#D4A373", "#242724"],
+              tag: "RELAXED",
+              height: "162 CM",
               undertoneTag: "Warm Autumn",
               fabricNote: "Rayon Twill Premium · Potongan Loose",
               price: "Rp 215.000",
@@ -284,8 +288,10 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
               id: "trop-3",
               img: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600",
               title: "Voal Paris Square Hijab",
-              climateBadge: "AIRY TROPICAL · OPTIMAL",
+              climateBadge: "31–35°C · AIRY",
               swatches: ["#FDFBF7", "#91AF90", "#DECBA6"],
+              tag: "HIJAB",
+              height: "158 CM",
               undertoneTag: "Semua Tone",
               fabricNote: "Voal Ultrafine · Ringan & Santun",
               price: "Rp 85.000",
@@ -294,55 +300,69 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
               id: "trop-4",
               img: "https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=600",
               title: "Linen Vest & Flowy Culottes",
-              climateBadge: "AIRY TROPICAL · OPTIMAL",
+              climateBadge: "31–35°C · AIRY",
               swatches: ["#FAF6EE", "#D4A373", "#8FA98D"],
+              tag: "MINIMALIST",
+              height: "165 CM",
               undertoneTag: "Sawo Matang & Kuning Langsat",
               fabricNote: "100% Pure Flax Linen & Rayon Twill",
               price: "Rp 195.000",
             }
           ].map((item) => (
-            <Link href="/studio" key={item.id} className="group flex flex-col bg-white border border-[#181A18]/10 p-2.5 sm:p-3 hover:shadow-md transition-all duration-300 rounded-none">
-              {/* 1. Foto Rasio Mutlak 4:5 Kanvas Warm Stone */}
-              <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#EFECE6] rounded-none">
+            <Link
+              href="/studio"
+              key={item.id}
+              className="group flex flex-col bg-transparent cursor-pointer select-none"
+            >
+              {/* 1. Foto Rasio 4:5 Bleed */}
+              <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#EFECE6]">
                 <Image
                   src={item.img}
                   alt={item.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
                   sizes="(max-width: 1024px) 50vw, 300px"
                 />
-                {/* 2. Badge Iklim/Bahan Persegi Tegas */}
-                <div className="absolute top-2.5 left-2.5">
-                  <span className="inline-block px-2 py-0.5 text-[9px] font-mono font-bold uppercase tracking-wider bg-[#181A18]/90 text-white shadow-xs">
-                    {item.climateBadge}
+                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/25 to-transparent pointer-events-none" />
+
+                {/* Unified Glass Pill Badge */}
+                <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 z-10">
+                  <span className="px-2 py-1 bg-[#181A18]/75 backdrop-blur-md text-[#FAF8F5] text-[9px] font-medium uppercase tracking-[0.16em] leading-none flex items-center gap-1.5">
+                    <span className="text-[#D4A373]">✦</span>
+                    <span>{item.climateBadge}</span>
                   </span>
                 </div>
               </div>
 
-              {/* 3. Dot Swatches Palet Warna Harmonis (3 Titik) */}
-              <div className="flex items-center gap-1.5 mt-2.5 mb-1">
-                {item.swatches.map((hex, idx) => (
-                  <span
-                    key={idx}
-                    className="w-3 h-3 rounded-full border border-[#181A18]/20 shadow-2xs"
-                    style={{ backgroundColor: hex }}
-                  />
-                ))}
-                <span className="text-[10px] text-[#181A18]/50 ml-1 font-medium truncate">
-                  {item.undertoneTag}
-                </span>
-              </div>
+              {/* Metadata Bersih Bawah Foto */}
+              <div className="pt-2.5 flex flex-col">
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <div className="flex items-center gap-1">
+                    {item.swatches.map((hex, idx) => (
+                      <span
+                        key={idx}
+                        className="w-2.5 h-2.5 rounded-full ring-1 ring-black/15 shadow-2xs shrink-0"
+                        style={{ backgroundColor: hex }}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-[9px] font-semibold uppercase tracking-[0.14em] text-[#181A18]/50 truncate">
+                    {item.tag} · {item.height}
+                  </span>
+                </div>
 
-              {/* 4. Tipografi Terkunci (Anti Tinggi Belang) */}
-              <h3 className="font-serif text-sm font-bold text-[#181A18] group-hover:text-terracotta-600 transition-colors line-clamp-1">
-                {item.title}
-              </h3>
-              <p className="text-[11px] text-[#181A18]/60 line-clamp-1 mt-0.5">
-                {item.fabricNote}
-              </p>
-              <p className="font-mono text-xs font-bold text-[#181A18] mt-2 pt-1 border-t border-[#181A18]/10">
-                {item.price}
-              </p>
+                <h3 className="font-serif text-[15px] sm:text-base font-semibold text-[#181A18] group-hover:text-[#8C5A3C] transition-colors line-clamp-1 leading-snug">
+                  {item.title}
+                </h3>
+                <p className="font-sans text-[11px] text-[#181A18]/55 line-clamp-1 mt-0.5">
+                  {item.fabricNote}
+                </p>
+                <div className="mt-1.5 flex items-baseline justify-between">
+                  <span className="font-sans text-xs font-semibold text-[#181A18] tracking-tight">
+                    {item.price}
+                  </span>
+                </div>
+              </div>
             </Link>
           ))}
         </div>

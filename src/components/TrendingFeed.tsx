@@ -93,6 +93,7 @@ const PAGE_SIZE = 16;
 export interface ClimateClassification {
   id: "hot" | "ac" | "mild" | "rainy";
   badge: string;
+  cleanBadge: string;
   temp: string;
   label: string;
 }
@@ -113,6 +114,7 @@ export function getLookClimate(look: (typeof TRENDING_LOOKS_FEED)[0]): ClimateCl
     return {
       id: "ac",
       badge: "🏢 RUANG AC 20–24°C",
+      cleanBadge: "20–24°C · AC COOL",
       temp: "20–24°C",
       label: "Dingin AC (20–24°C)"
     };
@@ -126,6 +128,7 @@ export function getLookClimate(look: (typeof TRENDING_LOOKS_FEED)[0]): ClimateCl
     return {
       id: "rainy",
       badge: "🌧️ HUJAN / SEJUK 24°C",
+      cleanBadge: "24–27°C · SEJUK",
       temp: "24–27°C",
       label: "Hujan / Sejuk (24–27°C)"
     };
@@ -139,6 +142,7 @@ export function getLookClimate(look: (typeof TRENDING_LOOKS_FEED)[0]): ClimateCl
     return {
       id: "mild",
       badge: "🌤️ HANGAT 28–30°C",
+      cleanBadge: "28–30°C · MILD",
       temp: "28–30°C",
       label: "Hangat (28–30°C)"
     };
@@ -148,6 +152,7 @@ export function getLookClimate(look: (typeof TRENDING_LOOKS_FEED)[0]): ClimateCl
   return {
     id: "hot",
     badge: "☀️ PANAS TERIK 31–35°C",
+    cleanBadge: "31–35°C · AIRY",
     temp: "31–35°C",
     label: "Panas (>30°C)"
   };
@@ -612,11 +617,21 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
           {isLoading ? (
             /* Skeleton Loading State */
             Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="flex flex-col bg-white border border-[#181A18]/10 p-2.5 animate-pulse">
+              <div key={i} className="flex flex-col bg-transparent animate-pulse select-none">
                 <div className="w-full aspect-[4/5] bg-[#EFECE6]" />
-                <div className="h-3 w-3/4 bg-[#EFECE6] mt-3" />
-                <div className="h-2.5 w-1/2 bg-[#EFECE6] mt-1.5" />
-                <div className="h-3 w-1/3 bg-[#EFECE6] mt-2 pt-1 border-t border-[#181A18]/10" />
+                <div className="pt-2.5 flex flex-col">
+                  <div className="flex items-center justify-between mb-1">
+                    <div className="flex gap-1">
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#E5E1D8]" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#E5E1D8]" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#E5E1D8]" />
+                    </div>
+                    <div className="h-2 w-16 bg-[#E5E1D8]" />
+                  </div>
+                  <div className="h-3.5 w-3/4 bg-[#E5E1D8] mt-1" />
+                  <div className="h-2.5 w-1/2 bg-[#E5E1D8] mt-1.5" />
+                  <div className="h-3 w-1/3 bg-[#E5E1D8] mt-2" />
+                </div>
               </div>
             ))
           ) : displayedLooks.length > 0 ? (
@@ -628,85 +643,86 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                 <article
                   key={look.id}
                   onClick={() => handleSelectLookForStudio(look)}
-                  className="group flex flex-col bg-white border border-[#181A18]/10 p-2 sm:p-2.5 hover:shadow-md transition-all duration-300 rounded-none cursor-pointer"
+                  className="group flex flex-col bg-transparent cursor-pointer select-none"
                 >
-                  {/* Kanvas Foto 4:5 Latar Warm Stone (#EFECE6) */}
-                  <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#EFECE6] rounded-none">
+                  {/* Kanvas Foto 4:5 Latar Warm Stone (#EFECE6) - Full Bleed */}
+                  <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#EFECE6]">
                     <img
                       src={look.image}
                       alt={look.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
                       loading="lazy"
                       referrerPolicy="no-referrer"
                     />
 
-                    {/* Badge Iklim Kontekstual & Golden Signature di Kiri Atas */}
-                    <div className="absolute top-2 left-2 z-10 flex flex-col items-start gap-1">
-                      {look.isGoldenSignature && (
-                        <span className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[11px] font-mono font-bold uppercase tracking-wider bg-[#8C5A3C] text-white shadow-xs">
-                          ★ GOLDEN LOOK
-                        </span>
-                      )}
-                      <span className="inline-block px-2 py-0.5 text-[11px] font-mono font-bold uppercase tracking-wider bg-[#181A18]/90 text-[#FAF8F5] shadow-xs">
-                        {climateInfo.badge}
+                    {/* Overlay gradien halus di bagian atas */}
+                    <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/25 to-transparent pointer-events-none" />
+
+                    {/* Single Unified Floating Badge (Tanpa emoji, micro typography mewah) */}
+                    <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 z-10">
+                      <span className="px-2 py-1 bg-[#181A18]/75 backdrop-blur-md text-[#FAF8F5] text-[9px] font-medium uppercase tracking-[0.16em] leading-none flex items-center gap-1.5">
+                        {look.isGoldenSignature ? (
+                          <>
+                            <span className="text-[#D4A373]">✦</span>
+                            <span>GOLDEN · {climateInfo.temp}</span>
+                          </>
+                        ) : (
+                          <span>{climateInfo.cleanBadge}</span>
+                        )}
                       </span>
                     </div>
 
-                    {/* Tombol Wishlist Minimalis di Kanan Atas */}
+                    {/* Tombol Wishlist Glassmorphism di Kanan Atas */}
                     <button
                       type="button"
                       aria-label="Simpan Look"
                       onClick={(e) => toggleLike(look.id, e)}
-                      className="absolute top-2 right-2 z-10 w-7 h-7 bg-white/85 backdrop-blur-sm flex items-center justify-center text-[#181A18] shadow-xs hover:scale-110 active:scale-90 transition-transform"
+                      className="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-full bg-white/80 backdrop-blur-md text-[#181A18] flex items-center justify-center hover:bg-white active:scale-90 transition-all duration-200"
                     >
-                      <Heart className={`w-3.5 h-3.5 ${isLiked ? "fill-[#181A18] text-[#181A18]" : "text-stone-700"}`} />
+                      <Heart
+                        className={`w-3.5 h-3.5 stroke-[1.5] transition-colors ${
+                          isLiked ? "fill-[#181A18] text-[#181A18]" : "text-[#181A18]"
+                        }`}
+                      />
                     </button>
                   </div>
 
-                  {/* Metadata Bersih di Bawah Foto (Uniqlo Anatomy) */}
-                  <div className="pt-2.5 flex flex-col flex-1 justify-between">
-                    <div>
-                      {/* Baris 1: 3 Dot Swatches Palet Warna + Height Pill + Tag Kategori */}
-                      <div className="flex items-center justify-between mb-1">
-                        <div className="flex items-center gap-1.5">
-                          <div className="flex items-center gap-0.5">
-                            {look.outfit?.colorPalette?.slice(0, 3).map((warna, idx) => (
-                              <span
-                                key={idx}
-                                className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full border border-[#181A18]/25 shadow-2xs"
-                                style={{ backgroundColor: warna.hex }}
-                                title={warna.name}
-                              />
-                            )) || (
-                              <span className="w-2.5 h-2.5 rounded-full bg-[#181A18]" />
-                            )}
-                          </div>
-                          <span className="text-[11px] font-mono text-neutral-700 bg-neutral-100 px-1.5 py-0.5 rounded font-bold">
-                            {getLookHeight(look).label}
-                          </span>
-                        </div>
-                        <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#8C5A3C] truncate max-w-[110px]">
-                          {look.tag}
-                        </span>
+                  {/* Metadata Bersih di Bawah Foto (Uniqlo/Zara Editorial Anatomy) */}
+                  <div className="pt-2.5 flex flex-col">
+                    {/* Baris 1: Micro Swatches (10px) + Kategori & Tinggi Menyatu */}
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <div className="flex items-center gap-1">
+                        {look.outfit?.colorPalette?.slice(0, 3).map((warna, idx) => (
+                          <span
+                            key={idx}
+                            className="w-2.5 h-2.5 rounded-full ring-1 ring-black/15 shadow-2xs shrink-0"
+                            style={{ backgroundColor: warna.hex }}
+                            title={warna.name}
+                          />
+                        )) || (
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#181A18] ring-1 ring-black/15 shrink-0" />
+                        )}
                       </div>
-
-                      {/* Baris 2: Judul Formula (Strict line-clamp-1) */}
-                      <h3 className="font-serif text-sm sm:text-base font-semibold text-[#181A18] group-hover:text-terracotta-600 transition-colors line-clamp-1 leading-snug">
-                        {look.title}
-                      </h3>
-
-                      {/* Baris 3: Deskripsi Bahan / Vibe (Strict line-clamp-1) */}
-                      <p className="text-xs text-[#181A18]/65 line-clamp-1 mt-0.5">
-                        {look.outfit?.items?.[0]?.material || look.vibe}
-                      </p>
+                      <span className="text-[9px] font-semibold uppercase tracking-[0.14em] text-[#181A18]/50 truncate">
+                        {look.tag} · {getLookHeight(look).label.toUpperCase()}
+                      </span>
                     </div>
 
-                    {/* Baris 4: Harga Set IDR (Rata & Tegas) */}
-                    <div className="pt-2 mt-2 border-t border-[#181A18]/10 flex items-center justify-between">
-                      <span className="text-[11px] font-mono uppercase tracking-wider text-[#181A18]/60 font-semibold">
-                        Estimasi
-                      </span>
-                      <span className="font-mono text-xs font-semibold text-[#181A18]">
+                    {/* Baris 2: Judul Formula Look */}
+                    <h3 className="font-serif text-[15px] sm:text-base font-semibold text-[#181A18] group-hover:text-[#8C5A3C] transition-colors line-clamp-1 leading-snug">
+                      {look.title}
+                    </h3>
+
+                    {/* Baris 3: Spek Bahan Ringkas */}
+                    <p className="font-sans text-[11px] text-[#181A18]/55 line-clamp-1 mt-0.5">
+                      {look.outfit?.items?.[0]?.material
+                        ? `${look.outfit.items[0].material} · Airy Fit`
+                        : `${look.vibe} · Airy Fit`}
+                    </p>
+
+                    {/* Baris 4: Harga IDR Bersih Tanpa Label 'ESTIMASI' & Tanpa Garis Pembelah */}
+                    <div className="mt-1.5 flex items-baseline justify-between">
+                      <span className="font-sans text-xs font-semibold text-[#181A18] tracking-tight">
                         {look.priceRange.replace(" / Set", "")}
                       </span>
                     </div>
