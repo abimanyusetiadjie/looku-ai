@@ -48,7 +48,10 @@ import {
   DEFAULT_AI_SETTINGS,
   getAllAdminLookbook,
   saveAdminLookbookItem,
+  saveBulkAdminLookbook,
   deleteAdminLookbookItem,
+  exportLookbookToCsv,
+  parseCsvToTrendingLooks,
   getAdminDashboardMetrics,
   AdminDashboardMetrics
 } from "@/lib/cms-store";
@@ -135,7 +138,7 @@ export default function AdminCMSPage() {
 
   // Database JSON Import State
   const [importJson, setImportJson] = useState("");
-  const [importType, setImportType] = useState<"presets" | "catalog">("presets");
+  const [importType, setImportType] = useState<"presets" | "catalog" | "lookbook">("lookbook");
 
   const addToast = (toast: Omit<ToastMessage, "id">) => {
     const id = Math.random().toString(36).substring(2, 9);
@@ -591,9 +594,74 @@ export default function AdminCMSPage() {
     addToast({ title: "Katalog Diekspor!", description: "Database produk berhasil diunduh.", type: "success" });
   };
 
+  const handleExportLookbookCsv = () => {
+    const csvContent = exportLookbookToCsv(lookbookItems);
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `looku-lookbook-dataset-${new Date().toISOString().split("T")[0]}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+    addToast({ title: "Lookbook Diekspor!", description: `${lookbookItems.length} outfit siap dibuka di Excel.`, type: "success" });
+  };
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const res = event.target?.result as string;
+      if (res) {
+        setImportJson(res);
+        if (file.name.toLowerCase().endsWith(".csv")) {
+          setImportType("lookbook");
+        }
+        addToast({
+          title: "File Berhasil Dimuat",
+          description: `File "${file.name}" siap diproses. Klik tombol "Proses & Terapkan Data".`,
+          type: "info",
+        });
+      }
+    };
+    reader.readAsText(file);
+  };
+
   const handleImportSubmit = () => {
     try {
-      const parsed = JSON.parse(importJson);
+      const trimmed = importJson.trim();
+      if (!trimmed) return;
+
+      if (importType === "lookbook") {
+        let looks: TrendingLook[] = [];
+        if (trimmed.startsWith("[") || trimmed.startsWith("{")) {
+          const parsed = JSON.parse(trimmed);
+          looks = Array.isArray(parsed) ? parsed : [parsed];
+        } else {
+          looks = parseCsvToTrendingLooks(trimmed);
+        }
+
+        if (looks.length > 0) {
+          saveBulkAdminLookbook(looks);
+          setImportJson("");
+          refreshAllData();
+          addToast({
+            title: "Lookbook Berhasil Diimpor!",
+            description: `${looks.length} outfit berhasil diterapkan ke Lookbook & Studio.`,
+            type: "success",
+          });
+        } else {
+          addToast({
+            title: "Gagal Mengurai Data",
+            description: "Format CSV atau JSON tidak valid. Pastikan header kolom sesuai template.",
+            type: "error",
+          });
+        }
+        return;
+      }
+
+      const parsed = JSON.parse(trimmed);
       if (Array.isArray(parsed)) {
         if (importType === "presets") {
           const dict: Record<string, OOTDRecommendation> = {};
@@ -603,7 +671,7 @@ export default function AdminCMSPage() {
           localStorage.setItem("looku_custom_presets", JSON.stringify(dict));
           window.dispatchEvent(new Event("looku_presets_updated"));
           addToast({ title: "Presets Berhasil Diimpor!", description: `${parsed.length} formula dimuat.`, type: "success" });
-        } else {
+        } else if (importType === "catalog") {
           localStorage.setItem("looku_custom_catalog", JSON.stringify(parsed));
           window.dispatchEvent(new Event("looku_catalog_updated"));
           addToast({ title: "Katalog Berhasil Diimpor!", description: `${parsed.length} produk dimuat.`, type: "success" });
@@ -614,7 +682,7 @@ export default function AdminCMSPage() {
         addToast({ title: "Format Salah", description: "Format JSON harus berupa Array [...]", type: "error" });
       }
     } catch {
-      addToast({ title: "Gagal Parsing JSON", description: "Pastikan sintaks JSON valid.", type: "error" });
+      addToast({ title: "Gagal Parsing Data", description: "Pastikan format JSON atau CSV sesuai template.", type: "error" });
     }
   };
 
@@ -952,13 +1020,32 @@ export default function AdminCMSPage() {
 
           <div className="flex items-center gap-2">
             {activeTab === "lookbook" && (
-              <button
-                onClick={handleOpenNewLook}
-                className="py-2.5 px-4 rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-sm transition-colors"
-              >
-                <Plus className="w-4 h-4" />
-                <span>+ Tambah Outfit Lookbook</span>
-              </button>
+              <div className="flex flex-wrap items-center gap-2">
+                <a
+                  href="/templates/TEMPLATE_LOOKBOOK_LOOKU.csv"
+                  download="TEMPLATE_LOOKBOOK_LOOKU.csv"
+                  className="py-2.5 px-3.5 rounded-xl bg-sand-100 hover:bg-sand-200 border border-sand-300 text-charcoal-900 font-bold text-xs flex items-center gap-1.5 transition-colors"
+                  title="Unduh format template Excel untuk pengisian data massal"
+                >
+                  <Download className="w-4 h-4 text-emerald-600" />
+                  <span>Template Excel</span>
+                </a>
+                <button
+                  onClick={handleExportLookbookCsv}
+                  className="py-2.5 px-3.5 rounded-xl bg-sand-100 hover:bg-sand-200 border border-sand-300 text-charcoal-900 font-bold text-xs flex items-center gap-1.5 transition-colors"
+                  title="Ekspor seluruh outfit lookbook yang sedang aktif ke file CSV/Excel"
+                >
+                  <Download className="w-4 h-4 text-charcoal-900" />
+                  <span>Ekspor CSV</span>
+                </button>
+                <button
+                  onClick={handleOpenNewLook}
+                  className="py-2.5 px-4 rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-sm transition-colors"
+                >
+                  <Plus className="w-4 h-4" />
+                  <span>Tambah Lookbook Baru</span>
+                </button>
+              </div>
             )}
 
             {activeTab === "presets" && (
@@ -1476,7 +1563,17 @@ export default function AdminCMSPage() {
                 </p>
               </div>
 
-              <div className="flex items-center gap-4 text-xs font-bold">
+              <div className="flex flex-wrap items-center gap-4 text-xs font-bold">
+                <label className="flex items-center gap-1.5 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="importType"
+                    checked={importType === "lookbook"}
+                    onChange={() => setImportType("lookbook")}
+                    className="accent-terracotta-500"
+                  />
+                  <span className="text-terracotta-700">⭐ Impor Lookbook OOTD (CSV / Excel / JSON)</span>
+                </label>
                 <label className="flex items-center gap-1.5 cursor-pointer">
                   <input
                     type="radio"
@@ -1497,6 +1594,25 @@ export default function AdminCMSPage() {
                   />
                   <span>Impor Katalog Busana</span>
                 </label>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-between gap-2 p-3 bg-sand-50 rounded-2xl border border-sand-300">
+                <div className="flex items-center gap-2">
+                  <label className="cursor-pointer py-2 px-3.5 rounded-xl bg-white border border-sand-300 hover:bg-sand-100 text-xs font-bold text-charcoal-900 flex items-center gap-1.5 shadow-2xs transition-colors">
+                    <Upload className="w-3.5 h-3.5 text-terracotta-500" />
+                    <span>📁 Unggah File CSV / Excel (.csv)</span>
+                    <input type="file" accept=".csv,.json" onChange={handleFileUpload} className="hidden" />
+                  </label>
+                  <span className="text-[11px] text-sand-500">atau tempel teks CSV/JSON langsung pada kolom di bawah:</span>
+                </div>
+                <a
+                  href="/templates/TEMPLATE_LOOKBOOK_LOOKU.csv"
+                  download="TEMPLATE_LOOKBOOK_LOOKU.csv"
+                  className="text-xs font-bold text-terracotta-600 hover:underline flex items-center gap-1 py-1 px-2"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>Unduh Template Excel (.csv)</span>
+                </a>
               </div>
 
               <textarea

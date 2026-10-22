@@ -241,6 +241,294 @@ export function deleteAdminLookbookItem(lookId: string): void {
   }
 }
 
+export function saveBulkAdminLookbook(looks: TrendingLook[]): void {
+  if (typeof window === "undefined") return;
+
+  try {
+    const customRaw = localStorage.getItem("looku_custom_lookbook");
+    const customLooks: TrendingLook[] = customRaw ? JSON.parse(customRaw) : [];
+    const customMap = new Map(customLooks.map((l) => [l.id, l]));
+
+    looks.forEach((look) => {
+      customMap.set(look.id, look);
+    });
+
+    const updated = Array.from(customMap.values());
+    localStorage.setItem("looku_custom_lookbook", JSON.stringify(updated));
+    window.dispatchEvent(new Event("looku_lookbook_updated"));
+    window.dispatchEvent(new Event("storage"));
+  } catch (e) {
+    console.error("Error bulk saving lookbook:", e);
+  }
+}
+
+export function parseCsvToTrendingLooks(csvText: string): TrendingLook[] {
+  const lines = csvText.split(/\r?\n/).filter((l) => l.trim().length > 0);
+  if (lines.length < 2) return [];
+
+  const parseLine = (line: string): string[] => {
+    const res: string[] = [];
+    let cur = "";
+    let inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+      if (c === '"') {
+        if (inQuotes && line[i + 1] === '"') {
+          cur += '"';
+          i++;
+        } else {
+          inQuotes = !inQuotes;
+        }
+      } else if (c === "," && !inQuotes) {
+        res.push(cur.trim());
+        cur = "";
+      } else {
+        cur += c;
+      }
+    }
+    res.push(cur.trim());
+    return res;
+  };
+
+  const headers = parseLine(lines[0]).map((h) => h.replace(/^\uFEFF/, "").toLowerCase().replace(/[^a-z0-9_]/g, ""));
+  const headerMap: Record<string, number> = {};
+  headers.forEach((h, i) => {
+    headerMap[h] = i;
+  });
+
+  const getCol = (cols: string[], ...aliases: string[]): string => {
+    for (const a of aliases) {
+      const cleanKey = a.toLowerCase().replace(/[^a-z0-9_]/g, "");
+      if (cleanKey in headerMap) {
+        const val = cols[headerMap[cleanKey]];
+        if (val !== undefined && val !== null) return val.trim();
+      }
+    }
+    return "";
+  };
+
+  const results: TrendingLook[] = [];
+
+  for (let rowIdx = 1; rowIdx < lines.length; rowIdx++) {
+    const cols = parseLine(lines[rowIdx]);
+    if (cols.length === 0 || cols.every((c) => !c)) continue;
+
+    const id = getCol(cols, "id") || `custom_look_${Date.now()}_${rowIdx}`;
+    const title = getCol(cols, "title") || `Lookbook OOTD #${rowIdx}`;
+    const tag = getCol(cols, "tag") || "CURATED LOOK";
+    const category = getCol(cols, "category") || "Wanita";
+    const vibe = getCol(cols, "vibe") || "Earthy Minimalist";
+    const priceRange = getCol(cols, "pricerange", "price") || "Rp 150.000 - Rp 300.000";
+    const skinTone = getCol(cols, "skintone", "skintonerecommendation") || "Sawo Matang & Kuning Langsat";
+    const isGoldenRaw = getCol(cols, "isgolden", "isgoldensignature").toUpperCase();
+    const isGolden = isGoldenRaw === "TRUE" || isGoldenRaw === "1" || isGoldenRaw === "YES";
+    const heroImage =
+      getCol(cols, "heroimage", "image") ||
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&auto=format&fit=crop&q=85";
+    const shopeeUrl = getCol(cols, "shopeeurl") || undefined;
+
+    const topName = getCol(cols, "top_name", "topname") || "Atasan Katun Berpori";
+    const topMaterial = getCol(cols, "top_material", "topmaterial") || "Katun Poplin Breathable";
+    const topPrice = getCol(cols, "top_price", "topprice") || "Rp 120.000";
+    const topShopee = getCol(cols, "top_shopee_url", "topshopeeurl") || undefined;
+    const topImg = getCol(cols, "top_image_url", "topimageurl") || undefined;
+
+    const btmName = getCol(cols, "bottom_name", "bottomname") || "Bawahan Loose Sejuk";
+    const btmMaterial = getCol(cols, "bottom_material", "bottommaterial") || "Rayon Twill / Katun";
+    const btmPrice = getCol(cols, "bottom_price", "bottomprice") || "Rp 95.000";
+    const btmShopee = getCol(cols, "bottom_shopee_url", "bottomshopeeurl") || undefined;
+    const btmImg = getCol(cols, "bottom_image_url", "bottomimageurl") || undefined;
+
+    const outerName = getCol(cols, "outer_name", "outername") || "Hijab / Layer Ringan";
+    const outerMaterial = getCol(cols, "outer_material", "outermaterial") || "Voal Ultrafine / Katun";
+    const outerPrice = getCol(cols, "outer_price", "outerprice") || "Rp 45.000";
+    const outerShopee = getCol(cols, "outer_shopee_url", "outershopeeurl") || undefined;
+    const outerImg = getCol(cols, "outer_image_url", "outerimageurl") || undefined;
+
+    const shoesName = getCol(cols, "shoes_name", "shoesname") || "Alas Kaki Nyaman";
+    const shoesMaterial = getCol(cols, "shoes_material", "shoesmaterial") || "Canvas / Breathable Sole";
+    const shoesPrice = getCol(cols, "shoes_price", "shoesprice") || "Rp 85.000";
+    const shoesShopee = getCol(cols, "shoes_shopee_url", "shoesshopeeurl") || undefined;
+    const shoesImg = getCol(cols, "shoes_image_url", "shoesimageurl") || undefined;
+
+    const items = [
+      {
+        category: "atasan" as const,
+        name: topName,
+        material: topMaterial,
+        color: "Neutral",
+        colorHex: "#EAE5DF",
+        estimatedPrice: topPrice,
+        shopeeQuery: topName,
+        tokopediaQuery: topName,
+        shopeeUrl: topShopee,
+        imageUrl: topImg,
+      },
+      {
+        category: "bawahan" as const,
+        name: btmName,
+        material: btmMaterial,
+        color: "Sand",
+        colorHex: "#D5C8B8",
+        estimatedPrice: btmPrice,
+        shopeeQuery: btmName,
+        tokopediaQuery: btmName,
+        shopeeUrl: btmShopee,
+        imageUrl: btmImg,
+      },
+      {
+        category: "outer_hijab" as const,
+        name: outerName,
+        material: outerMaterial,
+        color: "Soft Tint",
+        colorHex: "#C2B29F",
+        estimatedPrice: outerPrice,
+        shopeeQuery: outerName,
+        tokopediaQuery: outerName,
+        shopeeUrl: outerShopee,
+        imageUrl: outerImg,
+      },
+      {
+        category: "sepatu" as const,
+        name: shoesName,
+        material: shoesMaterial,
+        color: "Clean White",
+        colorHex: "#FFFFFF",
+        estimatedPrice: shoesPrice,
+        shopeeQuery: shoesName,
+        tokopediaQuery: shoesName,
+        shopeeUrl: shoesShopee,
+        imageUrl: shoesImg,
+      },
+    ];
+
+    const lookItem: TrendingLook = {
+      id,
+      title,
+      vibe,
+      tag,
+      category,
+      skinToneRecommendation: skinTone,
+      priceRange,
+      image: heroImage,
+      likes: 650 + ((rowIdx * 43) % 450),
+      isGoldenSignature: isGolden,
+      shopeeUrl,
+      outfit: {
+        id,
+        title,
+        tagline: `Kombinasi ${vibe} sejuk & nyaman untuk iklim tropis.`,
+        overallVibe: vibe,
+        comfortRating: 9.6,
+        affordabilityRating: 9.2,
+        modestFriendly: category.toLowerCase().includes("hijab") || category.toLowerCase().includes("modest"),
+        skinToneMatch: `Sangat harmonis untuk ${skinTone}.`,
+        whyItWorks: `Perpaduan sirkulasi udara dari ${topMaterial} dan ${btmMaterial} menjaga tubuh tetap sejuk di suhu 33°C.`,
+        stylingTip: `Padukan dengan aksesori minimalis senada agar aksen ${vibe} terlihat bersih dan rapi.`,
+        colorPalette: [
+          { name: "Earthy Sand", hex: "#D8C7B5" },
+          { name: "Warm Cream", hex: "#F5EFEB" },
+          { name: "Terracotta Soft", hex: "#C87D55" },
+          { name: "Charcoal Deep", hex: "#2B2927" },
+        ],
+        items,
+        createdAt: new Date().toISOString(),
+        isGoldenSignature: isGolden,
+        heroImage,
+        shopeeUrl,
+      },
+    };
+
+    results.push(lookItem);
+  }
+
+  return results;
+}
+
+export function exportLookbookToCsv(looks: TrendingLook[]): string {
+  const headers = [
+    "id",
+    "title",
+    "tag",
+    "category",
+    "vibe",
+    "priceRange",
+    "skinTone",
+    "isGolden",
+    "heroImage",
+    "shopeeUrl",
+    "top_name",
+    "top_material",
+    "top_price",
+    "top_shopee_url",
+    "top_image_url",
+    "bottom_name",
+    "bottom_material",
+    "bottom_price",
+    "bottom_shopee_url",
+    "bottom_image_url",
+    "outer_name",
+    "outer_material",
+    "outer_price",
+    "outer_shopee_url",
+    "outer_image_url",
+    "shoes_name",
+    "shoes_material",
+    "shoes_price",
+    "shoes_shopee_url",
+    "shoes_image_url",
+  ];
+
+  const escapeCol = (val: any) => {
+    if (val === null || val === undefined) return '""';
+    const s = String(val).replace(/"/g, '""');
+    return `"${s}"`;
+  };
+
+  const rows = looks.map((l) => {
+    const items = l.outfit?.items || [];
+    const top = items.find((i) => i.category === "atasan") || items[0] || ({} as any);
+    const btm = items.find((i) => i.category === "bawahan") || items[1] || ({} as any);
+    const outer = items.find((i) => i.category === "outer_hijab") || items[2] || ({} as any);
+    const shoes = items.find((i) => i.category === "sepatu") || items[3] || ({} as any);
+
+    return [
+      escapeCol(l.id),
+      escapeCol(l.title),
+      escapeCol(l.tag),
+      escapeCol(l.category),
+      escapeCol(l.vibe),
+      escapeCol(l.priceRange),
+      escapeCol(l.skinToneRecommendation),
+      escapeCol(l.isGoldenSignature ? "TRUE" : "FALSE"),
+      escapeCol(l.image || l.outfit?.heroImage),
+      escapeCol(l.shopeeUrl || l.outfit?.shopeeUrl),
+      escapeCol(top.name),
+      escapeCol(top.material),
+      escapeCol(top.estimatedPrice),
+      escapeCol(top.shopeeUrl),
+      escapeCol(top.imageUrl),
+      escapeCol(btm.name),
+      escapeCol(btm.material),
+      escapeCol(btm.estimatedPrice),
+      escapeCol(btm.shopeeUrl),
+      escapeCol(btm.imageUrl),
+      escapeCol(outer.name),
+      escapeCol(outer.material),
+      escapeCol(outer.estimatedPrice),
+      escapeCol(outer.shopeeUrl),
+      escapeCol(outer.imageUrl),
+      escapeCol(shoes.name),
+      escapeCol(shoes.material),
+      escapeCol(shoes.estimatedPrice),
+      escapeCol(shoes.shopeeUrl),
+      escapeCol(shoes.imageUrl),
+    ].join(",");
+  });
+
+  return "\uFEFF" + [headers.join(","), ...rows].join("\r\n");
+}
+
 export interface AdminDashboardMetrics {
   totalLookbook: number;
   totalGoldenLooks: number;
