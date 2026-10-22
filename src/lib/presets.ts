@@ -1,4 +1,5 @@
 import { OOTDRecommendation, UserPreferences, TrendingLook, OutfitItem } from "./types";
+import rawLookbook300 from "./lookbook-300.json";
 
 export interface FashionItem {
   id: string;
@@ -1565,7 +1566,10 @@ const uniqueSignatureLooks: TrendingLook[] = SIGNATURE_TRENDING_LOOKS.map(look =
   return true;
 });
 
+const DATASET_LOOKBOOK_300: TrendingLook[] = (rawLookbook300 as any[]) || [];
+
 export const TRENDING_LOOKS_FEED: TrendingLook[] = [
+  ...DATASET_LOOKBOOK_300,
   ...uniqueSignatureLooks,
 ];
 
