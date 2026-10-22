@@ -266,6 +266,10 @@ export function parseCsvToTrendingLooks(csvText: string): TrendingLook[] {
   const lines = csvText.split(/\r?\n/).filter((l) => l.trim().length > 0);
   if (lines.length < 2) return [];
 
+  const firstLine = lines[0];
+  const isTab = firstLine.includes("\t") && firstLine.split("\t").length >= firstLine.split(",").length;
+  const delimiter = isTab ? "\t" : ",";
+
   const parseLine = (line: string): string[] => {
     const res: string[] = [];
     let cur = "";
@@ -279,7 +283,7 @@ export function parseCsvToTrendingLooks(csvText: string): TrendingLook[] {
         } else {
           inQuotes = !inQuotes;
         }
-      } else if (c === "," && !inQuotes) {
+      } else if (c === delimiter && !inQuotes) {
         res.push(cur.trim());
         cur = "";
       } else {
@@ -322,10 +326,6 @@ export function parseCsvToTrendingLooks(csvText: string): TrendingLook[] {
     const skinTone = getCol(cols, "skintone", "skintonerecommendation") || "Sawo Matang & Kuning Langsat";
     const isGoldenRaw = getCol(cols, "isgolden", "isgoldensignature").toUpperCase();
     const isGolden = isGoldenRaw === "TRUE" || isGoldenRaw === "1" || isGoldenRaw === "YES";
-    const heroImage =
-      getCol(cols, "heroimage", "image") ||
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&auto=format&fit=crop&q=85";
-    const shopeeUrl = getCol(cols, "shopeeurl") || undefined;
 
     const topName = getCol(cols, "top_name", "topname") || "Atasan Katun Berpori";
     const topMaterial = getCol(cols, "top_material", "topmaterial") || "Katun Poplin Breathable";
@@ -350,6 +350,10 @@ export function parseCsvToTrendingLooks(csvText: string): TrendingLook[] {
     const shoesPrice = getCol(cols, "shoes_price", "shoesprice") || "Rp 85.000";
     const shoesShopee = getCol(cols, "shoes_shopee_url", "shoesshopeeurl") || undefined;
     const shoesImg = getCol(cols, "shoes_image_url", "shoesimageurl") || undefined;
+
+    const rawHero = getCol(cols, "heroimage", "image");
+    const heroImage = rawHero || topImg || btmImg || "";
+    const shopeeUrl = getCol(cols, "shopeeurl") || topShopee || undefined;
 
     const items = [
       {

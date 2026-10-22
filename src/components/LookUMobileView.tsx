@@ -865,14 +865,7 @@ export default function LookUMobileView({
                       className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
                       sizes="(max-width: 480px) 50vw, 200px"
                     />
-                    <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-black/25 to-transparent pointer-events-none" />
-                    {/* Floating Glass Pill */}
-                    <div className="absolute top-2 left-2 z-10 flex items-center">
-                      <span className="px-2 py-0.5 bg-[#181A18]/75 backdrop-blur-md text-[#FAF8F5] text-[9px] font-medium uppercase tracking-[0.14em] leading-none flex items-center gap-1">
-                        <span className="text-[#D4A373]">✦</span>
-                        <span>31–35°C · AIRY</span>
-                      </span>
-                    </div>
+
                   </div>
 
                   {/* Metadata Bersih */}

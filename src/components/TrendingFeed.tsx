@@ -655,22 +655,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                       referrerPolicy="no-referrer"
                     />
 
-                    {/* Overlay gradien halus di bagian atas */}
-                    <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/25 to-transparent pointer-events-none" />
 
-                    {/* Single Unified Floating Badge (Tanpa emoji, micro typography mewah) */}
-                    <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 z-10">
-                      <span className="px-2 py-1 bg-[#181A18]/75 backdrop-blur-md text-[#FAF8F5] text-[9px] font-medium uppercase tracking-[0.16em] leading-none flex items-center gap-1.5">
-                        {look.isGoldenSignature ? (
-                          <>
-                            <span className="text-[#D4A373]">✦</span>
-                            <span>GOLDEN · {climateInfo.temp}</span>
-                          </>
-                        ) : (
-                          <span>{climateInfo.cleanBadge}</span>
-                        )}
-                      </span>
-                    </div>
 
                     {/* Tombol Wishlist Glassmorphism di Kanan Atas */}
                     <button
@@ -703,8 +688,9 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                           <span className="w-2.5 h-2.5 rounded-full bg-[#181A18] ring-1 ring-black/15 shrink-0" />
                         )}
                       </div>
-                      <span className="text-[9px] font-semibold uppercase tracking-[0.14em] text-[#181A18]/50 truncate">
-                        {look.tag} · {getLookHeight(look).label.toUpperCase()}
+                      <span className="text-[9px] font-semibold uppercase tracking-[0.14em] text-[#181A18]/50 truncate flex items-center gap-1">
+                        {look.isGoldenSignature && <span className="text-[#D4A373]">✦</span>}
+                        <span>{look.tag} · {getLookHeight(look).label.toUpperCase()}</span>
                       </span>
                     </div>
 
@@ -830,9 +816,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute top-2.5 left-2.5 bg-[#181A18]/90 text-white px-2.5 py-1 text-[11px] font-mono font-bold uppercase tracking-wider">
-                    {getLookClimate(selectedLook).badge}
-                  </div>
+
                 </div>
               </div>
 
