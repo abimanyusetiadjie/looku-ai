@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
-import { Search, ShoppingBag, User, Menu, X } from "lucide-react";
+import { Search, ShoppingBag, User, Menu, X, Palette } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface NavbarProps {
@@ -12,6 +12,26 @@ interface NavbarProps {
   onOpenCatalog?: () => void;
   onOpenHistory?: () => void;
 }
+
+interface SkinToneInfo {
+  id: string;
+  label: string;
+  undertone: string;
+  hex: string;
+}
+
+const SKIN_TONE_MAP: Record<string, SkinToneInfo> = {
+  fair: { id: "fair", label: "Putih Gading", undertone: "Cool", hex: "#F7E6D8" },
+  fair_porcelain: { id: "fair", label: "Putih Gading", undertone: "Cool", hex: "#F7E6D8" },
+  light: { id: "light", label: "Kuning Langsat", undertone: "Neutral", hex: "#EAD0B3" },
+  light_medium: { id: "light", label: "Kuning Langsat", undertone: "Neutral", hex: "#EAD0B3" },
+  medium: { id: "medium", label: "Sawo Matang", undertone: "Warm", hex: "#C78E5F" },
+  sawo_matang: { id: "medium", label: "Sawo Matang", undertone: "Warm", hex: "#C78E5F" },
+  tan: { id: "tan", label: "Eksotis Tropis", undertone: "Warm", hex: "#9E6738" },
+  tan_exotic: { id: "tan", label: "Eksotis Tropis", undertone: "Warm", hex: "#9E6738" },
+  deep: { id: "deep", label: "Deep Bronze", undertone: "Deep", hex: "#5D3B22" },
+  dark_ebony: { id: "deep", label: "Deep Bronze", undertone: "Deep", hex: "#5D3B22" },
+};
 
 const NAV_LINKS = [
   { name: 'Home', href: '/' },
@@ -24,6 +44,7 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenCatalog, o
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
+  const [personalColor, setPersonalColor] = useState<SkinToneInfo | null>(null);
   const router = useRouter();
   const pathname = usePathname();
 
@@ -31,6 +52,28 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenCatalog, o
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const syncColor = () => {
+      try {
+        const stored = localStorage.getItem("looku_personal_color");
+        if (stored && SKIN_TONE_MAP[stored]) {
+          setPersonalColor(SKIN_TONE_MAP[stored]);
+        } else {
+          setPersonalColor(null);
+        }
+      } catch {
+        setPersonalColor(null);
+      }
+    };
+    syncColor();
+    window.addEventListener("storage", syncColor);
+    window.addEventListener("looku_personal_color_updated", syncColor);
+    return () => {
+      window.removeEventListener("storage", syncColor);
+      window.removeEventListener("looku_personal_color_updated", syncColor);
+    };
   }, []);
 
   // Temukan tab yang sedang aktif berdasarkan rute saat ini
@@ -96,18 +139,47 @@ export default function Navbar({ onOpenSavedDrawer, onOpenQuiz, onOpenCatalog, o
               </Link>
             </div>
 
-            {/* Right Icons (Search, Bag, Profile) */}
-            <div className="flex items-center justify-end gap-5 flex-1 text-black">
+            {/* Right Icons (Personal Color Badge, Search, Bag, Profile) */}
+            <div className="flex items-center justify-end gap-3 sm:gap-4 flex-1 text-black">
+              {/* Personal Color Smart Badge */}
+              {personalColor ? (
+                <button
+                  type="button"
+                  onClick={() => onOpenQuiz ? onOpenQuiz() : router.push("/profile?tab=palette")}
+                  className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-[#FAF6EE] hover:bg-[#F3ECE0] border border-[#E8DFD1] transition-all text-[11px] font-sans font-medium text-charcoal-900 tracking-wide shadow-2xs group cursor-pointer"
+                  title="Warna kulit terdiagnosis. Klik untuk re-tes kuis."
+                >
+                  <span
+                    className="w-2.5 h-2.5 rounded-full border border-black/15 shrink-0 group-hover:scale-110 transition-transform"
+                    style={{ backgroundColor: personalColor.hex }}
+                  />
+                  <span className="hidden md:inline font-semibold text-charcoal-900">{personalColor.label}</span>
+                  <span className="text-[9px] font-mono uppercase text-charcoal-900/60 tracking-wider">
+                    {personalColor.undertone}
+                  </span>
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => onOpenQuiz ? onOpenQuiz() : router.push("/?quiz=true")}
+                  className="hidden md:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF8F5] hover:bg-sand-100 border border-sand-300 text-[11px] font-sans font-semibold text-charcoal-900/80 hover:text-charcoal-900 tracking-wider transition-colors cursor-pointer"
+                  title="Cari tahu palet warna terbaikmu"
+                >
+                  <Palette className="w-3 h-3 text-terracotta-500" />
+                  <span>Tes Warna</span>
+                </button>
+              )}
+
               <button 
                 onClick={() => onOpenCatalog ? onOpenCatalog() : router.push("/lookbook")} 
-                className="hover:text-terracotta-500 hover:scale-110 active:scale-95 transition-all duration-200" 
+                className="hover:text-terracotta-500 hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer" 
                 aria-label="Search"
               >
                 <Search className="w-5 h-5 stroke-[1.5]" />
               </button>
               <button 
                 onClick={() => onOpenSavedDrawer ? onOpenSavedDrawer() : router.push("/profile?tab=wardrobe")} 
-                className="hover:text-terracotta-500 hover:scale-110 active:scale-95 transition-all duration-200 relative" 
+                className="hover:text-terracotta-500 hover:scale-110 active:scale-95 transition-all duration-200 relative cursor-pointer" 
                 aria-label="Bag"
               >
                 <ShoppingBag className="w-5 h-5 stroke-[1.5]" />

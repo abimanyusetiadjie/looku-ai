@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { Menu, Search, ShoppingBag, Sun, House, Sparkles, Palette, BookOpen, Shirt, Wind, ChevronRight, ChevronLeft, ArrowRight, Check, X, Heart, ThermometerSun, Layers, Bookmark, User, Bell, CloudSun } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWeather } from "@/hooks/useWeather";
+import BrandMarquee from "@/components/BrandMarquee";
 
 
 
@@ -362,6 +363,41 @@ export default function LookUMobileView({
   const [isSavedLocally, setIsSavedLocally] = useState(false);
   const [notifFeedback, setNotifFeedback] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [personalColor, setPersonalColor] = useState<{ label: string; hex: string; undertone: string } | null>(null);
+
+  useEffect(() => {
+    const syncColor = () => {
+      try {
+        const stored = localStorage.getItem("looku_personal_color");
+        const map: Record<string, { label: string; hex: string; undertone: string }> = {
+          fair: { label: "Putih Gading", hex: "#F7E6D8", undertone: "Cool" },
+          fair_porcelain: { label: "Putih Gading", hex: "#F7E6D8", undertone: "Cool" },
+          light: { label: "Kuning Langsat", hex: "#EAD0B3", undertone: "Neutral" },
+          light_medium: { label: "Kuning Langsat", hex: "#EAD0B3", undertone: "Neutral" },
+          medium: { label: "Sawo Matang", hex: "#C78E5F", undertone: "Warm" },
+          sawo_matang: { label: "Sawo Matang", hex: "#C78E5F", undertone: "Warm" },
+          tan: { label: "Eksotis", hex: "#9E6738", undertone: "Warm" },
+          tan_exotic: { label: "Eksotis", hex: "#9E6738", undertone: "Warm" },
+          deep: { label: "Bronze", hex: "#5D3B22", undertone: "Deep" },
+          dark_ebony: { label: "Bronze", hex: "#5D3B22", undertone: "Deep" },
+        };
+        if (stored && map[stored]) {
+          setPersonalColor(map[stored]);
+        } else {
+          setPersonalColor(null);
+        }
+      } catch {
+        setPersonalColor(null);
+      }
+    };
+    syncColor();
+    window.addEventListener("storage", syncColor);
+    window.addEventListener("looku_personal_color_updated", syncColor);
+    return () => {
+      window.removeEventListener("storage", syncColor);
+      window.removeEventListener("looku_personal_color_updated", syncColor);
+    };
+  }, []);
 
   const heroOutfit = OUTFIT_HERO_LIST[currentHeroIndex];
 
@@ -491,14 +527,27 @@ export default function LookUMobileView({
             Look<span className="text-terracotta-500 font-bold">.</span>u
           </div>
           
-          <button 
-            onClick={() => triggerNotification(`Suhu Jakarta ${weather.temperature || 33}°C: Rekomendasi busana adem aktif!`)}
-            className="p-2 -mr-2 text-[#181A18] relative active:scale-95 transition-transform" 
-            aria-label="Notifikasi"
-          >
-            <Bell className="w-5 h-5 stroke-[1.5]" />
-            <span className="absolute top-2 right-2 w-1.5 h-1.5 bg-terracotta-500 rounded-full" />
-          </button>
+          <div className="flex items-center gap-2">
+            {personalColor && (
+              <button
+                type="button"
+                onClick={() => onOpenQuiz ? onOpenQuiz() : router.push("/profile?tab=palette")}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FAF6EE] border border-[#E8DFD1] text-[10px] font-sans font-semibold text-charcoal-900 shadow-2xs active:scale-95 transition-transform"
+                title="Warna kulit aktif. Klik untuk ganti."
+              >
+                <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: personalColor.hex }} />
+                <span>{personalColor.label}</span>
+              </button>
+            )}
+            <button 
+              onClick={() => triggerNotification(`Suhu Jakarta ${weather.temperature || 33}°C: Rekomendasi busana adem aktif!`)}
+              className="p-2 -mr-2 text-[#181A18] relative active:scale-95 transition-transform" 
+              aria-label="Notifikasi"
+            >
+              <Bell className="w-5 h-5 stroke-[1.5]" />
+              <span className="absolute top-2 right-2 w-1.5 h-1.5 bg-terracotta-500 rounded-full" />
+            </button>
+          </div>
         </header>
         <AnimatePresence>
           {isMobileMenuOpen && (
@@ -592,6 +641,11 @@ export default function LookUMobileView({
               </button>
             </div>
           </section>
+
+          {/* Marquee Brand Strip Halus */}
+          <div className="w-full -my-1">
+            <BrandMarquee />
+          </div>
 
           {/* ============================================================ */}
           {/* 2. LIVING LOOKBOOK SHOWCASE (Auto-Play 4.5s & Micro-Zoom)    */}

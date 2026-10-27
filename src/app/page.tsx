@@ -27,6 +27,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // Core Components
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import BrandMarquee from "@/components/BrandMarquee";
 import Footer from "@/components/Footer";
 import LookUMobileView from "@/components/LookUMobileView";
 import OnboardingFlow from "@/components/OnboardingFlow";
@@ -122,6 +123,7 @@ export default function HomePage() {
   const handleApplyQuizResult = (skinToneId: string, summary?: any) => {
     if (typeof window !== "undefined") {
       localStorage.setItem("looku_personal_color", skinToneId);
+      window.dispatchEvent(new Event("looku_personal_color_updated"));
     }
     
     const toneNames: Record<string, string> = {
@@ -184,6 +186,9 @@ export default function HomePage() {
 
       {/* 3. Hero Section (With 1-Tap Live Climate & Style Switcher) */}
       <HeroSection onOpenQuiz={() => setIsQuizOpen(true)} />
+
+      {/* 3.5 Brand Ecosystem Marquee Strip */}
+      <BrandMarquee />
 
       
         {/* 4. Editorial 3-Grid: Curated for Tropics */}
