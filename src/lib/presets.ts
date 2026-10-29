@@ -1554,10 +1554,17 @@ const seenImages = new Set<string>();
 // Golden Curated Looks (100% Verified Tropical Set, Zero Extended Synthetic Clones)
 const uniqueSignatureLooks: TrendingLook[] = SIGNATURE_TRENDING_LOOKS.map(look => ({
   ...look,
+  priceRange: look.priceRange.startsWith("Perkiraan")
+    ? look.priceRange
+    : `Perkiraan ${look.priceRange.replace(" / Set", "")}`,
   isGoldenSignature: true,
+  is_verified: true,
+  is_published: true,
   outfit: {
     ...look.outfit,
     isGoldenSignature: true,
+    is_verified: true,
+    is_published: true,
   },
 })).filter(look => {
   if (!look.image) return false;
@@ -1568,10 +1575,15 @@ const uniqueSignatureLooks: TrendingLook[] = SIGNATURE_TRENDING_LOOKS.map(look =
 
 const DATASET_LOOKBOOK_300: TrendingLook[] = (rawLookbook300 as any[]) || [];
 
-export const TRENDING_LOOKS_FEED: TrendingLook[] = [
-  ...DATASET_LOOKBOOK_300,
+export const ALL_LOOKS_DATABASE: TrendingLook[] = [
   ...uniqueSignatureLooks,
+  ...DATASET_LOOKBOOK_300,
 ];
+
+// Default public feed only includes verified & published looks (82 curated outfits)
+export const TRENDING_LOOKS_FEED: TrendingLook[] = ALL_LOOKS_DATABASE.filter(
+  (look) => look.is_verified !== false && look.is_published !== false
+);
 
 export function generateHeuristicOOTD(pref: UserPreferences): OOTDRecommendation {
   const isFemale = pref.gender !== "male";
@@ -1899,7 +1911,7 @@ export function resolveLookForStudio(lookupId: string): ResolvedStudioLook | nul
   }
 
   // 1. Direct match in TRENDING_LOOKS_FEED (Contains all 1,022 curated looks)
-  const foundTrending = TRENDING_LOOKS_FEED.find((l) => {
+  const foundTrending = ALL_LOOKS_DATABASE.find((l) => {
     if (!l) return false;
     if (l.id?.toLowerCase() === cleanId) return true;
     if (l.outfit?.id?.toLowerCase() === cleanId) return true;

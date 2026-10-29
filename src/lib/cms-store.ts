@@ -1,5 +1,5 @@
 import { OOTDRecommendation, TrendingLook } from "./types";
-import { PRESET_OOTD_COLLECTION, FASHION_CATALOG_300, FashionCatalogItem, TRENDING_LOOKS_FEED } from "./presets";
+import { PRESET_OOTD_COLLECTION, FASHION_CATALOG_300, FashionCatalogItem, TRENDING_LOOKS_FEED, ALL_LOOKS_DATABASE } from "./presets";
 import { getAffiliateStats, AffiliateStats } from "./affiliate";
 
 export interface AISettingsConfig {
@@ -171,7 +171,7 @@ export function saveAdminAISettings(settings: Partial<AISettingsConfig>): void {
 
 export function getAllAdminLookbook(): TrendingLook[] {
   if (typeof window === "undefined") {
-    return TRENDING_LOOKS_FEED;
+    return ALL_LOOKS_DATABASE;
   }
 
   try {
@@ -182,14 +182,14 @@ export function getAllAdminLookbook(): TrendingLook[] {
     const deletedIds: string[] = deletedRaw ? JSON.parse(deletedRaw) : [];
 
     const customIds = new Set(customLooks.map((l) => l.id));
-    const activeDefault = TRENDING_LOOKS_FEED.filter(
+    const activeDefault = ALL_LOOKS_DATABASE.filter(
       (l) => !deletedIds.includes(l.id) && !customIds.has(l.id)
     );
 
     return [...customLooks, ...activeDefault];
   } catch (e) {
     console.error("Error reading lookbook:", e);
-    return TRENDING_LOOKS_FEED;
+    return ALL_LOOKS_DATABASE;
   }
 }
 
@@ -586,5 +586,59 @@ export function getAdminDashboardMetrics(): AdminDashboardMetrics {
       pria: priaCount,
     },
     affiliateStats,
+  };
+}
+
+
+export interface LookbookValidationResult {
+  isValid: boolean;
+  checks: {
+    cleanTitle: boolean;
+    validHeroImage: boolean;
+    validItemsAndBrands: boolean;
+    validPricing: boolean;
+  };
+  warnings: string[];
+}
+
+export function validateLookbookItem(look: TrendingLook): LookbookValidationResult {
+  const warnings: string[] = [];
+  const cleanTitle = Boolean(look.title && look.title.trim().length >= 8 && !/#\d+/.test(look.title));
+  if (!cleanTitle) {
+    warnings.push("Judul mengandung nomor mentah (#angka) atau terlalu pendek.");
+  }
+
+  const validHeroImage = Boolean(
+    look.image &&
+      look.image.startsWith("https://") &&
+      !look.image.includes("undefined") &&
+      !look.image.includes("placeholder")
+  );
+  if (!validHeroImage) {
+    warnings.push("URL gambar utama tidak valid atau masih placeholder.");
+  }
+
+  const items = look.outfit?.items || [];
+  const validItemsAndBrands =
+    items.length >= 4 &&
+    items.every((it) => Boolean(it.name && !/#\d+/.test(it.name) && (it.shopeeUrl || it.shopeeQuery)));
+  if (!validItemsAndBrands) {
+    warnings.push("Minimal 4 item produk harus memiliki nama bersih & link marketplace.");
+  }
+
+  const validPricing = Boolean(look.priceRange && look.priceRange.includes("Rp"));
+  if (!validPricing) {
+    warnings.push("Rentang harga perkiraan belum diisi dengan format Rp.");
+  }
+
+  return {
+    isValid: cleanTitle && validHeroImage && validItemsAndBrands && validPricing,
+    checks: {
+      cleanTitle,
+      validHeroImage,
+      validItemsAndBrands,
+      validPricing,
+    },
+    warnings,
   };
 }

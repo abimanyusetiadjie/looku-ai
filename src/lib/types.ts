@@ -76,6 +76,10 @@ export interface OutfitItem {
   brand?: FashionBrand | string;
   brandUrl?: string; // Direct link ke toko resmi brand (e.g. uniqlo.com/id atau id.hm.com)
   isOfficialBrand?: boolean;
+  isVerifiedDupe?: boolean;
+  dupeBrand?: string;
+  dupePrice?: string;
+  dupeUrl?: string;
   cropConfig?: {
     isCrop: boolean;
     position: string;
@@ -103,6 +107,8 @@ export interface OOTDRecommendation {
   hijabHarmonyTip?: string; // Panduan kombinasi warna hijab/pashmina
   costPerWearSavings?: string; // Estimasi penghematan Capsule Re-mix
   isGoldenSignature?: boolean;
+  is_verified?: boolean;
+  is_published?: boolean;
   heroImage?: string; // Foto model utama untuk crop & visual hero
   shopeeUrl?: string; // Direct outfit set link di Shopee
   tokopediaUrl?: string;
@@ -121,6 +127,10 @@ export interface TrendingLook {
   likesCount?: number;
   outfit: OOTDRecommendation;
   isGoldenSignature?: boolean;
+  is_verified?: boolean;
+  is_published?: boolean;
+  brand?: string;
+  detailImage?: string;
   shopeeUrl?: string; // Direct affiliate link untuk outfit ini
   tokopediaUrl?: string;
 }

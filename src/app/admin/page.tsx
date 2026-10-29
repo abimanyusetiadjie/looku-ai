@@ -53,7 +53,8 @@ import {
   exportLookbookToCsv,
   parseCsvToTrendingLooks,
   getAdminDashboardMetrics,
-  AdminDashboardMetrics
+  AdminDashboardMetrics,
+  validateLookbookItem
 } from "@/lib/cms-store";
 import { isSupabaseConfigured, supabaseUrl } from "@/lib/supabase";
 import Toast, { ToastMessage } from "@/components/Toast";
@@ -69,7 +70,7 @@ export default function AdminCMSPage() {
   // Lookbook Feed State (Admin Curated & Direct Shopee URLs)
   const [lookbookItems, setLookbookItems] = useState<TrendingLook[]>([]);
   const [lookbookSearch, setLookbookSearch] = useState("");
-  const [lookbookCategoryFilter, setLookbookCategoryFilter] = useState("Semua");
+  const [lookbookCategoryFilter, setLookbookCategoryFilter] = useState("verified");
   const [editingLook, setEditingLook] = useState<TrendingLook | null>(null);
   const [isLookModalOpen, setIsLookModalOpen] = useState(false);
   const [isExtractingImage, setIsExtractingImage] = useState(false);
@@ -413,6 +414,42 @@ export default function AdminCMSPage() {
     }
   };
 
+  const handleToggleVerifyLook = (look: TrendingLook) => {
+    const currentlyVerified = look.is_verified !== false && look.is_published !== false;
+    const nextState = !currentlyVerified;
+    if (nextState) {
+      const check = validateLookbookItem(look);
+      if (!check.isValid) {
+        addToast({
+          title: "Validasi Gagal Sebelum Publish",
+          description: check.warnings.join(" "),
+          type: "error",
+        });
+        return;
+      }
+    }
+    const updatedLook: TrendingLook = {
+      ...look,
+      is_verified: nextState,
+      is_published: nextState,
+      outfit: {
+        ...look.outfit,
+        is_verified: nextState,
+        is_published: nextState,
+      },
+    };
+    saveAdminLookbookItem(updatedLook);
+    refreshAllData();
+    addToast({
+      title: nextState ? "Outfit Diverifikasi & Tayang!" : "Outfit Disembunyikan ke Draft",
+      description: nextState
+        ? `"${look.title}" kini tampil di Lookbook publik.`
+        : `"${look.title}" disembunyikan dari publik (tersimpan di Draft).`,
+      type: nextState ? "success" : "info",
+    });
+  };
+
+
   // ==========================================
   // PRESET ACTIONS
   // ==========================================
@@ -698,6 +735,9 @@ export default function AdminCMSPage() {
 
     if (!matchesSearch) return false;
 
+    const isVerifiedAndPublished = look.is_verified !== false && look.is_published !== false;
+    if (lookbookCategoryFilter === "verified") return isVerifiedAndPublished;
+    if (lookbookCategoryFilter === "draft") return !isVerifiedAndPublished;
     if (lookbookCategoryFilter === "Semua") return true;
     if (lookbookCategoryFilter === "golden") return look.isGoldenSignature || look.outfit?.isGoldenSignature;
     if (lookbookCategoryFilter === "shopee") {
@@ -1022,6 +1062,15 @@ export default function AdminCMSPage() {
             {activeTab === "lookbook" && (
               <div className="flex flex-wrap items-center gap-2">
                 <a
+                  href="/audit-katalog-looku.csv"
+                  download="AUDIT_KATALOG_322_LOOKU.csv"
+                  className="py-2.5 px-3.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-900 font-bold text-xs flex items-center gap-1.5 transition-colors shadow-2xs"
+                  title="Unduh Spreadsheet Hasil Audit 322 Item Katalog Look.u"
+                >
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  <span>Audit 322 Item (.CSV)</span>
+                </a>
+                <a
                   href="/templates/TEMPLATE_LOOKBOOK_LOOKU.csv"
                   download="TEMPLATE_LOOKBOOK_LOOKU.csv"
                   className="py-2.5 px-3.5 rounded-xl bg-sand-100 hover:bg-sand-200 border border-sand-300 text-charcoal-900 font-bold text-xs flex items-center gap-1.5 transition-colors"
@@ -1090,7 +1139,9 @@ export default function AdminCMSPage() {
 
               <div className="flex flex-wrap items-center gap-1.5">
                 {[
-                  { id: "Semua", label: "Semua" },
+                  { id: "verified", label: `✅ Verified & Tayang (${lookbookItems.filter((l) => l.is_verified !== false && l.is_published !== false).length})` },
+                  { id: "draft", label: `⏸️ Draft Disembunyikan (${lookbookItems.filter((l) => l.is_verified === false || l.is_published === false).length})` },
+                  { id: "Semua", label: `Semua (${lookbookItems.length})` },
                   { id: "hijab", label: "🧕 Hijab & Modest" },
                   { id: "wanita", label: "👗 Wanita" },
                   { id: "pria", label: "👔 Pria" },
@@ -1208,7 +1259,27 @@ export default function AdminCMSPage() {
                     </div>
 
                     {/* Footer Actions */}
-                    <div className="p-3 bg-sand-50/80 border-t border-sand-200 flex items-center justify-between gap-1.5">
+                    <div className="px-3 pt-2.5 pb-1 bg-sand-50/80 border-t border-sand-200 flex items-center justify-between gap-1.5">
+                      <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-md border ${
+                        look.is_verified !== false && look.is_published !== false
+                          ? "bg-emerald-50 border-emerald-200 text-emerald-800"
+                          : "bg-amber-50 border-amber-200 text-amber-800"
+                      }`}>
+                        {look.is_verified !== false && look.is_published !== false ? "✓ VERIFIED (TAYANG)" : "⏸ DRAFT (HIDDEN)"}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleToggleVerifyLook(look)}
+                        className={`text-[10px] font-mono font-bold px-2.5 py-1 rounded-md transition-colors ${
+                          look.is_verified !== false && look.is_published !== false
+                            ? "bg-white hover:bg-rose-50 text-sand-600 hover:text-rose-700 border border-sand-300"
+                            : "bg-emerald-600 hover:bg-emerald-700 text-white"
+                        }`}
+                      >
+                        {look.is_verified !== false && look.is_published !== false ? "Sembunyikan" : "Verifikasi & Tayangkan"}
+                      </button>
+                    </div>
+                    <div className="p-3 pt-1.5 bg-sand-50/80 flex items-center justify-between gap-1.5">
                       <Link
                         href={`/studio?look=${look.id}`}
                         target="_blank"
@@ -1606,6 +1677,15 @@ export default function AdminCMSPage() {
                   <span className="text-[11px] text-sand-500">atau tempel teks CSV/JSON langsung pada kolom di bawah:</span>
                 </div>
                 <a
+                  href="/audit-katalog-looku.csv"
+                  download="AUDIT_KATALOG_322_LOOKU.csv"
+                  className="py-2.5 px-3.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-900 font-bold text-xs flex items-center gap-1.5 transition-colors shadow-2xs"
+                  title="Unduh Spreadsheet Hasil Audit 322 Item Katalog Look.u"
+                >
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  <span>Audit 322 Item (.CSV)</span>
+                </a>
+                <a
                   href="/templates/TEMPLATE_LOOKBOOK_LOOKU.csv"
                   download="TEMPLATE_LOOKBOOK_LOOKU.csv"
                   className="text-xs font-bold text-terracotta-600 hover:underline flex items-center gap-1 py-1 px-2"
@@ -1992,6 +2072,59 @@ export default function AdminCMSPage() {
                   })}
                 </div>
               </div>
+
+              {/* Section 4: Automated Verification Pipeline */}
+              {(() => {
+                const vRes = validateLookbookItem(editingLook);
+                return (
+                  <div className={`p-4 rounded-2xl border space-y-2.5 ${
+                    vRes.isValid ? "bg-emerald-50/60 border-emerald-200" : "bg-amber-50/70 border-amber-200"
+                  }`}>
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono font-bold text-[11px] uppercase tracking-wider text-charcoal-900 flex items-center gap-1.5">
+                        <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                        <span>4. Pipeline Validasi Otomatis Sebelum Publish</span>
+                      </span>
+                      <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+                        vRes.isValid ? "bg-emerald-600 text-white" : "bg-amber-500 text-white"
+                      }`}>
+                        {vRes.isValid ? "LOLOS VALIDASI" : "PERLU DICEK"}
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[10px] font-mono">
+                      <div className={vRes.checks.cleanTitle ? "text-emerald-800 font-semibold" : "text-rose-600 font-bold"}>
+                        {vRes.checks.cleanTitle ? "✓ Nama Bebas #Angka" : "✕ Nama Masih Mentah"}
+                      </div>
+                      <div className={vRes.checks.validHeroImage ? "text-emerald-800 font-semibold" : "text-rose-600 font-bold"}>
+                        {vRes.checks.validHeroImage ? "✓ Foto Utama Hidup" : "✕ Foto Utama Invalid"}
+                      </div>
+                      <div className={vRes.checks.validItemsAndBrands ? "text-emerald-800 font-semibold" : "text-rose-600 font-bold"}>
+                        {vRes.checks.validItemsAndBrands ? "✓ 4 Item & Link Valid" : "✕ Cek 4 Item Produk"}
+                      </div>
+                      <div className={vRes.checks.validPricing ? "text-emerald-800 font-semibold" : "text-rose-600 font-bold"}>
+                        {vRes.checks.validPricing ? "✓ Harga Perkiraan Valid" : "✕ Format Harga Rp"}
+                      </div>
+                    </div>
+                    <div className="pt-2 border-t border-black/10 flex flex-wrap items-center gap-4">
+                      <label className="flex items-center gap-2 cursor-pointer select-none font-mono font-bold text-charcoal-900">
+                        <input
+                          type="checkbox"
+                          checked={editingLook.is_verified !== false && editingLook.is_published !== false}
+                          onChange={(e) =>
+                            setEditingLook({
+                              ...editingLook,
+                              is_verified: e.target.checked,
+                              is_published: e.target.checked,
+                            })
+                          }
+                          className="w-4 h-4 rounded text-emerald-600"
+                        />
+                        <span>✓ Tandai Verified &amp; Tayangkan di Lookbook Publik (is_verified = true)</span>
+                      </label>
+                    </div>
+                  </div>
+                );
+              })()}
 
               <div className="pt-4 flex items-center justify-end gap-3 border-t border-sand-200">
                 <button

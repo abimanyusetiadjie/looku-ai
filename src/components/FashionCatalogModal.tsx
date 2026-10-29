@@ -295,7 +295,7 @@ export default function FashionCatalogModal({ isOpen, onClose }: FashionCatalogM
                           </div>
 
                           <div className="font-mono text-[10px] sm:text-xs font-bold text-charcoal-900 inline-block">
-                            {formatPrice(item.priceMin || item.price_min || item.price || item.marketValidation?.estimatedPrice)}
+                            Perkiraan {formatPrice(item.priceMin || item.price_min || item.price || item.marketValidation?.estimatedPrice)}
                           </div>
                         </div>
                       </div>
@@ -332,7 +332,7 @@ export default function FashionCatalogModal({ isOpen, onClose }: FashionCatalogM
                                 className="flex-1 ds-btn-marketplace ds-mp-shopee text-[9px]"
                               >
                                 <ShopeeIcon className="w-3 h-3" />
-                                <span>{item.brandUrl ? "Dupe Shopee" : "Shopee"}</span>
+                                <span>{item.isVerifiedDupe ? "Dupe Shopee" : "Cari di Shopee"}</span>
                               </a>
                               <a
                                 href={links.tokopedia}
@@ -342,7 +342,7 @@ export default function FashionCatalogModal({ isOpen, onClose }: FashionCatalogM
                                 className="flex-1 ds-btn-marketplace ds-mp-tokopedia text-[9px]"
                               >
                                 <TokopediaIcon className="w-3 h-3" />
-                                <span>{item.brandUrl ? "Dupe Tokped" : "Tokped"}</span>
+                                <span>{item.isVerifiedDupe ? "Dupe Tokped" : "Cari di Tokped"}</span>
                               </a>
                             </div>
                           );

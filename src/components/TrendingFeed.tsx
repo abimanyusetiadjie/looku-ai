@@ -219,12 +219,24 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
           const deletedRaw = localStorage.getItem("looku_deleted_lookbook_ids");
           const deletedIds: string[] = deletedRaw ? JSON.parse(deletedRaw) : [];
 
+          // Filter out unverified/unpublished items and sanitize any legacy #XX cached titles
+          const verifiedCustom = customLooks
+            .filter((l) => l && l.is_verified !== false && l.is_published !== false && l.image && !l.image.includes("placeholder"))
+            .map((l) => ({
+              ...l,
+              title: (l.title || "").replace(/\s*#\d+\s*$/, ""),
+            }));
+
           const customIds = new Set(customLooks.map((l) => l.id));
           const activeDefault = TRENDING_LOOKS_FEED.filter(
-            (l) => !deletedIds.includes(l.id) && !customIds.has(l.id)
+            (l) =>
+              !deletedIds.includes(l.id) &&
+              !customIds.has(l.id) &&
+              l.is_verified !== false &&
+              l.is_published !== false
           );
 
-          setAllFeedLooks([...customLooks, ...activeDefault]);
+          setAllFeedLooks([...verifiedCustom, ...activeDefault]);
         } catch (e) {
           console.warn("Gagal membaca custom lookbook:", e);
         }
@@ -613,7 +625,21 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
       {/* ============================================================ */}
       {/* 4:5 DISIPLIN GRID: 2-Col Mobile / 4-Col Desktop               */}
       {/* ============================================================ */}
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 mt-6">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 mt-5">
+        {/* Status Verifikasi Katalog & Harga Perkiraan */}
+        <div className="mb-5 px-3.5 py-2.5 rounded-xl bg-white border border-[#181A18]/10 flex flex-wrap items-center justify-between gap-2 shadow-2xs">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-mono font-bold uppercase tracking-wider">
+              <Check className="w-3 h-3" /> Verified Catalog ({allFeedLooks.length} Look Terbaik)
+            </span>
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200 text-[10px] font-mono font-semibold uppercase tracking-wider">
+              Data sedang diverifikasi berkala
+            </span>
+          </div>
+          <span className="text-[11px] text-[#181A18]/60 font-sans">
+            Hanya menampilkan produk terverifikasi (`verified = true`) · Harga bertanda <strong>Perkiraan</strong> mengikuti rentang pasar resmi
+          </span>
+        </div>
         <div className="grid grid-cols-2 gap-x-2.5 gap-y-6 sm:gap-x-4 lg:grid-cols-4 lg:gap-x-6 lg:gap-y-10">
           {isLoading ? (
             /* Skeleton Loading State */
@@ -713,7 +739,12 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                     {/* Baris 4: Harga IDR Bersih Tanpa Label 'ESTIMASI' & Tanpa Garis Pembelah */}
                     <div className="mt-1.5 flex items-baseline justify-between">
                       <span className="font-sans text-xs font-semibold text-[#181A18] tracking-tight">
-                        {look.priceRange.replace(" / Set", "")}
+                        {look.priceRange.startsWith("Perkiraan")
+                          ? look.priceRange.replace(" / Set", "")
+                          : `Perkiraan ${look.priceRange.replace(" / Set", "")}`}
+                      </span>
+                      <span className="text-[9px] font-mono uppercase tracking-wider text-emerald-700 font-semibold">
+                        ✓ Verified
                       </span>
                     </div>
                   </div>

@@ -1720,7 +1720,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
 
                             <div className="flex items-center justify-between text-[10px] pt-1 border-t border-neutral-100 font-mono">
                               <span className="text-neutral-500">Resmi: {item.officialPriceStr}</span>
-                              <span className="font-semibold text-neutral-900">Dupe ({item.dupeBrand}): {item.priceStr}</span>
+                              <span className="font-semibold text-neutral-900">Alternatif ({item.dupeBrand}): Perkiraan {item.priceStr}</span>
                             </div>
 
                             <div className="grid grid-cols-2 gap-1.5 pt-1">
@@ -1839,7 +1839,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                       {/* Price Comparison */}
                       <div className="mt-1 text-[10px] font-mono leading-tight">
                         <span className="text-neutral-400 block text-[9px]">Resmi: {item.officialPriceStr}</span>
-                        <span className="font-semibold text-neutral-900 block">Dupe ({item.dupeBrand}): {item.priceStr}</span>
+                        <span className="font-semibold text-neutral-900 block">Alternatif ({item.dupeBrand}): Perkiraan {item.priceStr}</span>
                       </div>
 
                       {/* Action Bar (Lock & Swap) */}
@@ -2185,7 +2185,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
 
                             <div className="flex items-center justify-between text-[10px] pt-1 border-t border-neutral-100 font-mono">
                               <span className="text-neutral-500">Resmi: {item.officialPriceStr}</span>
-                              <span className="font-semibold text-neutral-900">Dupe ({item.dupeBrand}): {item.priceStr}</span>
+                              <span className="font-semibold text-neutral-900">Alternatif ({item.dupeBrand}): Perkiraan {item.priceStr}</span>
                             </div>
                           </motion.div>
                         )}
@@ -2257,7 +2257,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                 </div>
 
                 <div className="text-right text-xs font-mono">
-                  <span className="text-neutral-400 block text-[10px]">Estimasi Total Dupe</span>
+                  <span className="text-neutral-400 block text-[10px]">Perkiraan Total Pasar</span>
                   <span className="font-bold text-neutral-900">{totalDupePriceStr}</span>
                 </div>
               </div>
@@ -2324,7 +2324,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
 
                           <div className="mt-2 text-[10px] font-mono space-y-0.5">
                             <span className="text-neutral-400 block text-[9px]">Resmi: {item.officialPriceStr}</span>
-                            <span className="font-semibold text-neutral-900 block">Dupe ({item.dupeBrand}): {item.priceStr}</span>
+                            <span className="font-semibold text-neutral-900 block">Alternatif ({item.dupeBrand}): Perkiraan {item.priceStr}</span>
                           </div>
                         </div>
                       </div>
@@ -2492,7 +2492,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                     STYLEHINT BRAND AGGREGATOR
                   </span>
                   <h3 className="font-serif text-lg font-medium text-neutral-900 mt-0.5">
-                    Rincian Belanja Resmi &amp; Alternatif Dupe
+                    Rincian Belanja Resmi &amp; Alternatif Serupa
                   </h3>
                 </div>
                 <button
@@ -2533,7 +2533,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                           {item.name}
                         </h4>
                         <p className="text-[10px] text-neutral-500">
-                          Resmi: {item.officialPriceStr} • Dupe ({item.dupeBrand}): {item.priceStr}
+                          Resmi: {item.officialPriceStr} • Alternatif ({item.dupeBrand}): Perkiraan {item.priceStr}
                         </p>
                       </div>
                     </div>

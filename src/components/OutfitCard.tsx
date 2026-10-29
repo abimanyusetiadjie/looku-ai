@@ -328,7 +328,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                 KOMPOSISI LOOK
               </span>
               <span className="text-[11px] font-mono text-terracotta-600 font-bold tracking-wider uppercase">
-                MARKETPLACE RESMI & DUPE
+                MARKETPLACE RESMI & PERKIRAAN HARGA
               </span>
             </div>
 
