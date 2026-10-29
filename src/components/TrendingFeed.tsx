@@ -1,6 +1,6 @@
 "use client";
 
-import EditorialLookCollage from "@/components/EditorialLookCollage";
+import ShopTheLookHotspotCanvas from "@/components/ShopTheLookHotspotCanvas";
 
 import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
@@ -201,6 +201,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
   const [savedCount, setSavedCount] = useState<number>(0);
   const [visibleCount, setVisibleCount] = useState<number>(PAGE_SIZE);
   const [selectedLookId, setSelectedLookId] = useState<string | null>(null);
+  const [activeModalHotspotIdx, setActiveModalHotspotIdx] = useState<number | null>(null);
   const [likedIds, setLikedIds] = useState<string[]>([]);
   const [allFeedLooks, setAllFeedLooks] = useState<TrendingLook[]>(TRENDING_LOOKS_FEED);
 
@@ -682,12 +683,12 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                   onClick={() => handleSelectLookForStudio(look)}
                   className="group flex flex-col bg-transparent cursor-pointer select-none"
                 >
-                  {/* Kanvas Foto 4:5 Latar Warm Stone (#EFECE6) - Full Bleed */}
+                  {/* Kanvas Foto 4:5 Latar Warm Stone (#EFECE6) - Full Bleed 100% Satu Kesatuan */}
                   <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#EFECE6]">
-                    <EditorialLookCollage
-                      items={look.outfit?.items}
-                      heroImage={look.image}
+                    <ShopTheLookHotspotCanvas
+                      image={look.image}
                       title={look.title}
+                      items={look.outfit?.items}
                       isPriority={idx < 4}
                     />
 
@@ -848,16 +849,18 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                 <X className="w-4 h-4" />
               </button>
 
-              {/* Kolom Foto Kiri */}
+              {/* Kolom Foto Kiri: 100% Satu Kesatuan Model + Interactive Hotspots */}
               <div className="w-full md:w-1/2 p-4 sm:p-6 bg-[#EFECE6] flex items-center justify-center">
                 <div className="relative w-full aspect-[4/5] overflow-hidden">
-                  <EditorialLookCollage
-                    items={selectedLook.outfit?.items}
-                    heroImage={selectedLook.image}
+                  <ShopTheLookHotspotCanvas
+                    image={selectedLook.image}
                     title={selectedLook.title}
+                    items={selectedLook.outfit?.items}
                     isPriority={true}
+                    isModal={true}
+                    highlightedIndex={activeModalHotspotIdx}
+                    onSelectIndex={(idx) => setActiveModalHotspotIdx(idx)}
                   />
-
                 </div>
               </div>
 
@@ -921,7 +924,16 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                           : visual.imageUrl);
 
                         return (
-                          <div key={idx} className="flex items-center gap-2.5 py-1.5 px-2 bg-stone-50/70 border border-[#181A18]/5">
+                          <div
+                            key={idx}
+                            onMouseEnter={() => setActiveModalHotspotIdx(idx)}
+                            onMouseLeave={() => setActiveModalHotspotIdx(null)}
+                            className={`flex items-center gap-2.5 py-1.5 px-2 transition-all duration-200 cursor-pointer border ${
+                              activeModalHotspotIdx === idx
+                                ? "bg-amber-50/90 border-amber-300 shadow-xs"
+                                : "bg-stone-50/70 border-[#181A18]/5 hover:bg-stone-100/90"
+                            }`}
+                          >
                             <div className="w-10 h-10 bg-[#EFECE6] border border-[#181A18]/10 shrink-0 overflow-hidden relative">
                               <img
                                 src={getOptimizedImageUrl(displayImg, "thumbnail")}
