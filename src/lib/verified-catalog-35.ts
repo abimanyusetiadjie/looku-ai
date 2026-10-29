@@ -23,7 +23,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "76% Viskosa (Rayon), 24% Poliester Daur Ulang",
     "price_official": 399000,
     "product_url": "https://www.uniqlo.com/id/id/products/E464798-000/00",
-    "image_url": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_01.jpg",
     "suitable_for": [
       "Campus",
       "Office",
@@ -40,7 +40,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "76% Viskosa (Rayon), 24% Poliester",
     "price_official": 399000,
     "product_url": "https://www.uniqlo.com/id/id/products/E489228-000/00",
-    "image_url": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_02.jpg",
     "suitable_for": [
       "Campus",
       "Office",
@@ -57,7 +57,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "76% Viskosa (Rayon), 24% Poliester",
     "price_official": 399000,
     "product_url": "https://www.uniqlo.com/id/id/products/E475647-000/01",
-    "image_url": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_03.jpg",
     "suitable_for": [
       "Campus",
       "Office",
@@ -74,7 +74,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "100% Lena (Premium European Linen)",
     "price_official": 599000,
     "product_url": "https://www.uniqlo.com/id/id/products/E475647-000/00",
-    "image_url": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_04.jpg",
     "suitable_for": [
       "Campus",
       "Office",
@@ -92,7 +92,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "100% Lena (Premium Linen)",
     "price_official": 599000,
     "product_url": "https://www.uniqlo.com/id/id/products/E483869-000/01",
-    "image_url": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_05.jpg",
     "suitable_for": [
       "Campus",
       "Office",
@@ -110,7 +110,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "62% Viskosa (Rayon), 33% Lena (Linen), 5% Nilon",
     "price_official": 399000,
     "product_url": "https://www.uniqlo.com/id/id/products/E475655-000/00",
-    "image_url": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_06.jpg",
     "suitable_for": [
       "Campus",
       "Weekend"
@@ -126,7 +126,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Linen Rayon Blend (Viskosa & Lena)",
     "price_official": 349000,
     "product_url": "https://www.uniqlo.com/id/id/products/E483883-000/00",
-    "image_url": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_07.jpg",
     "suitable_for": [
       "Campus",
       "Weekend"
@@ -142,7 +142,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Linen Rayon Blend",
     "price_official": 399000,
     "product_url": "https://www.uniqlo.com/id/id/products/E489228-000/00",
-    "image_url": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_08.jpg",
     "suitable_for": [
       "Campus",
       "Office",
@@ -159,7 +159,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Cotton Linen Blend",
     "price_official": 399000,
     "product_url": "https://www.uniqlo.com/id/id/products/E482483-000/01",
-    "image_url": "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_09.jpg",
     "suitable_for": [
       "Campus",
       "Office",
@@ -177,7 +177,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Cotton Linen Blend",
     "price_official": 399000,
     "product_url": "https://www.uniqlo.com/id/id/products/E482483-000/01",
-    "image_url": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_10.jpg",
     "suitable_for": [
       "Campus",
       "Weekend"
@@ -193,7 +193,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Rayon 70%, Polyester 30% (Light Weight)",
     "price_official": 379000,
     "product_url": "https://cottonink.co.id/products/yellow-thami",
-    "image_url": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_11.jpg",
     "suitable_for": [
       "Office",
       "Weekend",
@@ -210,7 +210,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Rayon 70%, Polyester 30% (Light Weight)",
     "price_official": 329000,
     "product_url": "https://cottonink.co.id/products/navy-jemima",
-    "image_url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_12.jpg",
     "suitable_for": [
       "Office",
       "Weekend",
@@ -227,7 +227,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Rayon Blend (Smooth Lightweight Fabric)",
     "price_official": 429000,
     "product_url": "https://cottonink.co.id/products/off-white-embroidery-nadra",
-    "image_url": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_13.jpg",
     "suitable_for": [
       "Campus",
       "Office",
@@ -244,7 +244,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Soft & Breathable Rayon and Lyocell Blend",
     "price_official": 329000,
     "product_url": "https://cottonink.co.id/products/black-fawnia",
-    "image_url": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_14.jpg",
     "suitable_for": [
       "Campus",
       "Office",
@@ -262,7 +262,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Rayon Lyocell (Light Weight)",
     "price_official": 229000,
     "product_url": "https://cottonink.co.id/products/off-white-weekend-blouse",
-    "image_url": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_15.jpg",
     "suitable_for": [
       "Campus",
       "Weekend"
@@ -278,7 +278,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Premium Voal (Breathable & Sweat-Absorbent)",
     "price_official": 99000,
     "product_url": "https://lozy.id/collections/voal-square-hijab",
-    "image_url": "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_16.jpg",
     "suitable_for": [
       "Campus",
       "Office",
@@ -296,7 +296,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Basic Voal Ringan",
     "price_official": 69000,
     "product_url": "https://lozy.id/collections/voal-square-hijab",
-    "image_url": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_17.jpg",
     "suitable_for": [
       "Campus",
       "Weekend",
@@ -313,7 +313,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "100% Tencel Fiber",
     "price_official": 179000,
     "product_url": "https://lozy.id/collections/tencel-collection",
-    "image_url": "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_18.jpg",
     "suitable_for": [
       "Campus",
       "Office",
@@ -331,7 +331,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Voal Lasercut",
     "price_official": 99000,
     "product_url": "https://lozy.id/collections/voal-square-hijab",
-    "image_url": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_19.jpg",
     "suitable_for": [
       "Campus",
       "Office",
@@ -348,7 +348,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Premium Voile Buttonscarves",
     "price_official": 295000,
     "product_url": "https://www.buttonscarves.com/collections/bs-basic-voal",
-    "image_url": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_20.jpg",
     "suitable_for": [
       "Campus",
       "Office",
@@ -366,7 +366,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Premium Voile",
     "price_official": 395000,
     "product_url": "https://www.buttonscarves.com/collections/scarves",
-    "image_url": "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_21.jpg",
     "suitable_for": [
       "Office",
       "Weekend",
@@ -383,7 +383,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Premium Voile",
     "price_official": 475000,
     "product_url": "https://www.buttonscarves.com/collections/scarves",
-    "image_url": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_22.jpg",
     "suitable_for": [
       "Office",
       "Weekend"
@@ -399,7 +399,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Premium Voile",
     "price_official": 495000,
     "product_url": "https://www.buttonscarves.com/collections/scarves",
-    "image_url": "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_23.jpg",
     "suitable_for": [
       "Office",
       "Weekend",
@@ -416,7 +416,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Premium Hi-Voal (Scented Technology)",
     "price_official": 75000,
     "product_url": "https://shopee.co.id/zaskiameccaofficial",
-    "image_url": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&auto=format&fit=crop&q=80",
+    "image_url": "/products/prod_real_24.jpg",
     "suitable_for": [
       "Campus",
       "Office",
@@ -434,7 +434,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Voal Premium Saudi Upgraded",
     "price_official": 59000,
     "product_url": "https://shopee.co.id/zaskiameccaofficial",
-    "image_url": "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600&auto=format&fit=crop&q=80",
+    "image_url": "/products/prod_real_25.jpg",
     "suitable_for": [
       "Campus",
       "Weekend",
@@ -451,7 +451,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "85% Tencel, 15% Polyester",
     "price_official": 489000,
     "product_url": "https://kamiidea.com/products/solene-loose-tunic-beige",
-    "image_url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_26.jpg",
     "suitable_for": [
       "Office",
       "Weekend",
@@ -468,7 +468,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Premium Venoza Twill",
     "price_official": 795000,
     "product_url": "https://www.zalora.co.id/p/riamiranda-ecru-chaize-sleeveless-tunic",
-    "image_url": "https://images.unsplash.com/photo-1596783074918-c84cb06531ca?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_27.jpg",
     "suitable_for": [
       "Office",
       "Weekend"
@@ -484,7 +484,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Fine Rayon Cotton (Serat Katun Diagonal)",
     "price_official": 189000,
     "product_url": "https://thenblank.com/products/casual-shirt-honey",
-    "image_url": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_28.jpg",
     "suitable_for": [
       "Campus",
       "Office",
@@ -502,7 +502,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Fine Rayon Cotton",
     "price_official": 189000,
     "product_url": "https://thenblank.com/products/casual-shirt-bisque",
-    "image_url": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_29.jpg",
     "suitable_for": [
       "Campus",
       "Office",
@@ -520,7 +520,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "High Quality Cotton Drill",
     "price_official": 189000,
     "product_url": "https://thenblank.com/products/chino-pants-sand",
-    "image_url": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_30.jpg",
     "suitable_for": [
       "Campus",
       "Office",
@@ -538,7 +538,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "100% Rayon",
     "price_official": 118000,
     "product_url": "https://erigostore.co.id/products/erigo-short-shirt-rayon-lavrenti-white",
-    "image_url": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_31.jpg",
     "suitable_for": [
       "Campus",
       "Weekend"
@@ -554,7 +554,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "100% Rayon",
     "price_official": 118000,
     "product_url": "https://erigostore.co.id/products/erigo-short-shirt-rayon-jazlyn-black",
-    "image_url": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_32.jpg",
     "suitable_for": [
       "Campus",
       "Weekend"
@@ -570,7 +570,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "AIRism (Poliester, Elastan, Kupro dengan UV Protection)",
     "price_official": 199000,
     "product_url": "https://www.uniqlo.com/id/id/products/E456261-000/00",
-    "image_url": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_33.jpg",
     "suitable_for": [
       "Campus",
       "Weekend",
@@ -587,7 +587,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Non-Stretch Breathable Cotton Denim",
     "price_official": 175500,
     "product_url": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
-    "image_url": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
+    "image_url": "/products/prod_real_34.jpg",
     "suitable_for": [
       "Campus",
       "Weekend",
@@ -604,7 +604,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "material": "Lightweight Woven Cotton Blend",
     "price_official": 102216,
     "product_url": "https://shopatvelvet.com/",
-    "image_url": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&auto=format&fit=crop&q=80",
+    "image_url": "/products/prod_real_35.jpg",
     "suitable_for": [
       "Campus",
       "Office",
