@@ -29,6 +29,7 @@ import {
 import { OOTDRecommendation, TrendingLook } from "@/lib/types";
 import { trackAffiliateClick } from "@/lib/affiliate";
 import { resolveSmartItemVisual, resolveCleanShoePackshot } from "@/lib/packshot-dictionary";
+import { getOptimizedImageUrl } from "@/lib/image-optimizer";
 
 const InfluencerCloneModal = dynamic(() => import("@/components/InfluencerCloneModal"), { ssr: false });
 
@@ -635,7 +636,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
               </div>
             ))
           ) : displayedLooks.length > 0 ? (
-            displayedLooks.map((look) => {
+            displayedLooks.map((look, idx) => {
               const climateInfo = getLookClimate(look);
               const isLiked = likedIds.includes(look.id);
 
@@ -648,10 +649,13 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                   {/* Kanvas Foto 4:5 Latar Warm Stone (#EFECE6) - Full Bleed */}
                   <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#EFECE6]">
                     <img
-                      src={look.image}
+                      src={getOptimizedImageUrl(look.image, "feed")}
                       alt={look.title}
                       className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-                      loading="lazy"
+                      loading={idx < 4 ? "eager" : "lazy"}
+                      decoding="async"
+                      // @ts-ignore
+                      fetchPriority={idx < 4 ? "high" : "low"}
                       referrerPolicy="no-referrer"
                     />
 
@@ -811,9 +815,10 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
               <div className="w-full md:w-1/2 p-4 sm:p-6 bg-[#EFECE6] flex items-center justify-center">
                 <div className="relative w-full aspect-[4/5] overflow-hidden">
                   <img
-                    src={selectedLook.image}
+                    src={getOptimizedImageUrl(selectedLook.image, "detail")}
                     alt={selectedLook.title}
                     className="w-full h-full object-cover"
+                    decoding="async"
                     referrerPolicy="no-referrer"
                   />
 
@@ -882,10 +887,11 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                           <div key={idx} className="flex items-center gap-2.5 py-1.5 px-2 bg-stone-50/70 border border-[#181A18]/5">
                             <div className="w-10 h-10 bg-[#EFECE6] border border-[#181A18]/10 shrink-0 overflow-hidden relative">
                               <img
-                                src={displayImg}
+                                src={getOptimizedImageUrl(displayImg, "thumbnail")}
                                 alt={it.name}
                                 className="w-full h-full object-cover object-top"
                                 loading="lazy"
+                                decoding="async"
                                 referrerPolicy="no-referrer"
                               />
                             </div>

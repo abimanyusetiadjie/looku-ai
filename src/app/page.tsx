@@ -205,21 +205,21 @@ export default function HomePage() {
                  {/* Item 1 */}
                  <div className="flex flex-col items-center">
                     <div className="w-full aspect-[4/5] border border-charcoal-900/60 overflow-hidden bg-sand-100">
-                       <img src="https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=800&q=80" alt="Linen Crinkle Silhouette" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" />
+                       <img src="https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=600&q=75&auto=format&fit=crop" alt="Linen Crinkle Silhouette" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" />
                     </div>
                     <span className="mt-6 font-sans text-[10px] sm:text-xs uppercase tracking-widest font-bold text-charcoal-900">LINEN CRINKLE</span>
                  </div>
                  {/* Item 2 */}
                  <div className="flex flex-col items-center">
                     <div className="w-full aspect-[4/5] border border-charcoal-900/60 overflow-hidden bg-sand-100">
-                       <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&q=80" alt="Fabric Texture" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" />
+                       <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=75&auto=format&fit=crop" alt="Fabric Texture" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" />
                     </div>
                     <span className="mt-6 font-sans text-[10px] sm:text-xs uppercase tracking-widest font-bold text-charcoal-900">ADEM & MODEST</span>
                  </div>
                  {/* Item 3 */}
                  <div className="flex flex-col items-center">
                     <div className="w-full aspect-[4/5] border border-charcoal-900/60 overflow-hidden bg-sand-100">
-                       <img src="https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=800&q=80" alt="Stylish Modest" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" />
+                       <img src="https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600&q=75&auto=format&fit=crop" alt="Stylish Modest" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" />
                     </div>
                     <span className="mt-6 font-sans text-[10px] sm:text-xs uppercase tracking-widest font-bold text-charcoal-900">STYLISH TANPA GERAH</span>
                  </div>

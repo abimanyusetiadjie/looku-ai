@@ -1,5 +1,7 @@
 "use client";
 
+import { getOptimizedImageUrl } from "@/lib/image-optimizer";
+
 import React, { useState, useEffect, useRef } from "react";
 import {
   Lock,
@@ -261,7 +263,7 @@ const BOTTOM_POOL: StudioItem[] = [
     colorHex: "#D8C7B5",
     price: 110000,
     priceStr: "Rp 110.000",
-    imageUrl: "https://i.pinimg.com/originals/73/2b/97/732b9765f65e63ebf02595822e3524d3.jpg",
+    imageUrl: "https://i.pinimg.com/736x/73/2b/97/732b9765f65e63ebf02595822e3524d3.jpg",
     shopeeQuery: "Thenblank Kulot Highwaist Pleated Flowy Wanita Bahan Jatuh",
     tokopediaQuery: "Thenblank Celana Kulot Lipit Wanita Pinggang Karet",
     note: "Draping jatuh sangat anggun, menyamarkan lekuk tubuh & anti-gerah",
@@ -286,7 +288,7 @@ const BOTTOM_POOL: StudioItem[] = [
     colorHex: "#556B2F",
     price: 85000,
     priceStr: "Rp 85.000",
-    imageUrl: "https://i.pinimg.com/originals/fa/77/80/fa7780f2eb19143c746bc5cfbe637dbf.png",
+    imageUrl: "https://i.pinimg.com/736x/fa/77/80/fa7780f2eb19143c746bc5cfbe637dbf.png",
     shopeeQuery: "Erigo Celana Cargo Pendek Ripstop Quickdry Pria",
     tokopediaQuery: "Erigo Celana Geared Pendek Taktikal Ringan",
     note: "Sangat fleksibel untuk mobilitas perkotaan & gowes sore santai",
@@ -311,7 +313,7 @@ const BOTTOM_POOL: StudioItem[] = [
     colorHex: "#2F4F4F",
     price: 125000,
     priceStr: "Rp 125.000",
-    imageUrl: "https://i.pinimg.com/originals/e8/37/10/e8371077ea4144fb4a2d8ebf5139aa2c.jpg",
+    imageUrl: "https://i.pinimg.com/736x/e8/37/10/e8371077ea4144fb4a2d8ebf5139aa2c.jpg",
     shopeeQuery: "This Is April Celana Bahan Wanita Semi Formal Highwaist Lurus",
     tokopediaQuery: "This Is April Celana Kantor Wanita Straight Trousers Adem",
     note: "Garis siluet tegas melangsingkan kaki untuk busana profesional kantor",
@@ -336,7 +338,7 @@ const BOTTOM_POOL: StudioItem[] = [
     colorHex: "#EAE0D5",
     price: 105000,
     priceStr: "Rp 105.000",
-    imageUrl: "https://i.pinimg.com/originals/40/70/7a/40707a334f8badcd3a4e39b4643da309.png",
+    imageUrl: "https://i.pinimg.com/736x/40/70/7a/40707a334f8badcd3a4e39b4643da309.png",
     shopeeQuery: "Shopatvelvet Rok Satin Midi Silk Wanita Flare A-Line",
     tokopediaQuery: "Shopatvelvet Rok Satin Panjang High Waist Cantik",
     note: "Kilau matte mewah tanpa rasa panas lengket saat dipakai jalan siang",
@@ -361,7 +363,7 @@ const BOTTOM_POOL: StudioItem[] = [
     colorHex: "#3B5998",
     price: 135000,
     priceStr: "Rp 135.000",
-    imageUrl: "https://i.pinimg.com/originals/1e/8a/a5/1e8aa5fa0466487e49f87c95e1e5b1eb.jpg",
+    imageUrl: "https://i.pinimg.com/736x/1e/8a/a5/1e8aa5fa0466487e49f87c95e1e5b1eb.jpg",
     shopeeQuery: "Erigo Celana Jeans Baggy 90s Vintage Pria Wanita Loose",
     tokopediaQuery: "Erigo Celana Jeans Loose Wide Leg Vintage Washed",
     note: "Potongan longgar 90-an yang memberi sirkulasi udara bebas di paha",
@@ -389,7 +391,7 @@ const OUTER_POOL: StudioItem[] = [
     colorHex: "#EAE4DC",
     price: 45000,
     priceStr: "Rp 45.000",
-    imageUrl: "https://i.pinimg.com/originals/f1/ff/32/f1ff32036ab3216cbb743dffcbadda35.jpg",
+    imageUrl: "https://i.pinimg.com/736x/f1/ff/32/f1ff32036ab3216cbb743dffcbadda35.jpg",
     shopeeQuery: "Vanilla Hijab Voal Miracle Laser Cut 115x115 Adem",
     tokopediaQuery: "Vanilla Hijab Segiempat Voal Miracle Lasercut",
     note: "Tegak di dahi, sangat ringan, dan bebas kedap di telinga",
@@ -415,7 +417,7 @@ const OUTER_POOL: StudioItem[] = [
     colorHex: "#8A9A86",
     price: 42000,
     priceStr: "Rp 42.000",
-    imageUrl: "https://i.pinimg.com/originals/22/49/32/22493275ad9b0132d65280c7e3049265.png",
+    imageUrl: "https://i.pinimg.com/736x/22/49/32/22493275ad9b0132d65280c7e3049265.png",
     shopeeQuery: "Lafiye Pashmina Ceruty Babydoll Premium Jahit Tepi",
     tokopediaQuery: "Lafiye Pashmina Shawl Ceruty Panjang Adem",
     note: "Draping jatuh anggun untuk gaya kampus & kafe",
@@ -467,7 +469,7 @@ const OUTER_POOL: StudioItem[] = [
     colorHex: "#2C3539",
     price: 145000,
     priceStr: "Rp 145.000",
-    imageUrl: "https://i.pinimg.com/originals/3c/9c/d7/3c9cd7ce6ed7158cc75cbe999b745984.jpg",
+    imageUrl: "https://i.pinimg.com/736x/3c/9c/d7/3c9cd7ce6ed7158cc75cbe999b745984.jpg",
     shopeeQuery: "Thenblank Blazer Kerja Semi Formal Linen Unlined Adem",
     tokopediaQuery: "This Is April Deconstructed Blazer Linen Wanita",
     note: "Struktur bahu rapi tanpa furing poliester yang bikin gerah",
@@ -493,7 +495,7 @@ const OUTER_POOL: StudioItem[] = [
     colorHex: "#EFECE6",
     price: 120000,
     priceStr: "Rp 120.000",
-    imageUrl: "https://i.pinimg.com/originals/15/c1/5f/15c15f2bff7e8c9ea2a19922696ab2f6.jpg",
+    imageUrl: "https://i.pinimg.com/736x/15/c1/5f/15c15f2bff7e8c9ea2a19922696ab2f6.jpg",
     shopeeQuery: "Erigo Jaket Parasut UV Protection Mesh Ringan",
     tokopediaQuery: "Thenblank Jaket UV Protection Quick Dry Unisex",
     note: "Menangkal terik UV matahari UPF50+ sekaligus mengalirkan angin",
@@ -600,11 +602,11 @@ const SKENA_VIBES: SkenaVibePreset[] = [
       silhouette: "Relaxed Flowy",
       keyFabric: "Rayon Twill & Pure Linen",
     },
-    heroImage: "https://i.pinimg.com/originals/54/2c/ad/542cadb7970189fddff971caf303b24b.png",
+    heroImage: "https://i.pinimg.com/736x/54/2c/ad/542cadb7970189fddff971caf303b24b.png",
     altImages: [
-      "https://i.pinimg.com/originals/f1/ff/32/f1ff32036ab3216cbb743dffcbadda35.jpg",
-      "https://i.pinimg.com/originals/1b/3d/24/1b3d240b29e3ea29a9f1d8fdcb0fa1dc.png",
-      "https://i.pinimg.com/originals/73/2b/97/732b9765f65e63ebf02595822e3524d3.jpg",
+      "https://i.pinimg.com/736x/f1/ff/32/f1ff32036ab3216cbb743dffcbadda35.jpg",
+      "https://i.pinimg.com/736x/1b/3d/24/1b3d240b29e3ea29a9f1d8fdcb0fa1dc.png",
+      "https://i.pinimg.com/736x/73/2b/97/732b9765f65e63ebf02595822e3524d3.jpg",
     ],
     tagline: "Paduan blus rayon dingin Cottonink & kulot jatuh Uniqlo untuk ngopi sore bebas gerah.",
     topId: "top_cottonink_rayon_mocca",
@@ -632,10 +634,10 @@ const SKENA_VIBES: SkenaVibePreset[] = [
       silhouette: "Boxy Oversized",
       keyFabric: "AIRism Cotton & Ripstop",
     },
-    heroImage: "https://i.pinimg.com/originals/8b/37/01/8b370169218458e48e093fd8140c898a.jpg",
+    heroImage: "https://i.pinimg.com/736x/8b/37/01/8b370169218458e48e093fd8140c898a.jpg",
     altImages: [
-      "https://i.pinimg.com/originals/fa/77/80/fa7780f2eb19143c746bc5cfbe637dbf.png",
-      "https://i.pinimg.com/originals/18/eb/9c/18eb9ca35a782410a768e9e1bb34a81e.jpg",
+      "https://i.pinimg.com/736x/fa/77/80/fa7780f2eb19143c746bc5cfbe637dbf.png",
+      "https://i.pinimg.com/736x/18/eb/9c/18eb9ca35a782410a768e9e1bb34a81e.jpg",
     ],
     tagline: "Karakter Tokyo street minimalis: kaos boxy sejuk AIRism & ripstop shorts fungsional.",
     topId: "top_uniqlo_airism_boxy",
@@ -663,10 +665,10 @@ const SKENA_VIBES: SkenaVibePreset[] = [
       silhouette: "Tailored Crisp",
       keyFabric: "Crisp Poplin & Viscose",
     },
-    heroImage: "https://i.pinimg.com/originals/be/35/11/be3511d3523f1db782d53ca53864b245.jpg",
+    heroImage: "https://i.pinimg.com/736x/be/35/11/be3511d3523f1db782d53ca53864b245.jpg",
     altImages: [
-      "https://i.pinimg.com/originals/e8/37/10/e8371077ea4144fb4a2d8ebf5139aa2c.jpg",
-      "https://i.pinimg.com/originals/3c/9c/d7/3c9cd7ce6ed7158cc75cbe999b745984.jpg",
+      "https://i.pinimg.com/736x/e8/37/10/e8371077ea4144fb4a2d8ebf5139aa2c.jpg",
+      "https://i.pinimg.com/736x/3c/9c/d7/3c9cd7ce6ed7158cc75cbe999b745984.jpg",
     ],
     tagline: "Kemeja crisp poplin Zara & loose slacks lurus yang tahan kusut dan wibawa seharian.",
     topId: "top_zara_poplin_scbd",
@@ -694,10 +696,10 @@ const SKENA_VIBES: SkenaVibePreset[] = [
       silhouette: "Baggy 90s",
       keyFabric: "Cotton Combed 24s/30s Cool-Touch",
     },
-    heroImage: "https://i.pinimg.com/originals/18/eb/9c/18eb9ca35a782410a768e9e1bb34a81e.jpg",
+    heroImage: "https://i.pinimg.com/736x/18/eb/9c/18eb9ca35a782410a768e9e1bb34a81e.jpg",
     altImages: [
-      "https://i.pinimg.com/originals/1e/8a/a5/1e8aa5fa0466487e49f87c95e1e5b1eb.jpg",
-      "https://i.pinimg.com/originals/8b/37/01/8b370169218458e48e093fd8140c898a.jpg",
+      "https://i.pinimg.com/736x/1e/8a/a5/1e8aa5fa0466487e49f87c95e1e5b1eb.jpg",
+      "https://i.pinimg.com/736x/8b/37/01/8b370169218458e48e093fd8140c898a.jpg",
     ],
     tagline: "Kaos boxy vintage Erigo berbahan Cotton Combed 24s/30s Cool-Touch dan baggy denim ringan untuk Blok M.",
     topId: "top_erigo_vintage_boxy",
@@ -725,10 +727,10 @@ const SKENA_VIBES: SkenaVibePreset[] = [
       silhouette: "Relaxed Resort",
       keyFabric: "100% European Flax Linen",
     },
-    heroImage: "https://i.pinimg.com/originals/1b/3d/24/1b3d240b29e3ea29a9f1d8fdcb0fa1dc.png",
+    heroImage: "https://i.pinimg.com/736x/1b/3d/24/1b3d240b29e3ea29a9f1d8fdcb0fa1dc.png",
     altImages: [
-      "https://i.pinimg.com/originals/73/2b/97/732b9765f65e63ebf02595822e3524d3.jpg",
-      "https://i.pinimg.com/originals/54/2c/ad/542cadb7970189fddff971caf303b24b.png",
+      "https://i.pinimg.com/736x/73/2b/97/732b9765f65e63ebf02595822e3524d3.jpg",
+      "https://i.pinimg.com/736x/54/2c/ad/542cadb7970189fddff971caf303b24b.png",
     ],
     tagline: "Kemeja linen murni Uniqlo sage green & kulot pasir: estetika coastal resort mewah.",
     topId: "top_uniqlo_linen_relaxed",
@@ -756,10 +758,10 @@ const SKENA_VIBES: SkenaVibePreset[] = [
       silhouette: "Clean A-Line",
       keyFabric: "Crinkle Linen & Matte Satin",
     },
-    heroImage: "https://i.pinimg.com/originals/d0/e1/79/d0e179729344bf55f3b2454ae8f10098.jpg",
+    heroImage: "https://i.pinimg.com/736x/d0/e1/79/d0e179729344bf55f3b2454ae8f10098.jpg",
     altImages: [
-      "https://i.pinimg.com/originals/40/70/7a/40707a334f8badcd3a4e39b4643da309.png",
-      "https://i.pinimg.com/originals/b9/26/7d/b9267d7260917f982132bdb2bef3242b.jpg",
+      "https://i.pinimg.com/736x/40/70/7a/40707a334f8badcd3a4e39b4643da309.png",
+      "https://i.pinimg.com/736x/b9/26/7d/b9267d7260917f982132bdb2bef3242b.jpg",
     ],
     tagline: "Atasan square neck linen THENBLANK & rok satin midi Cottonink untuk brunch akhir pekan.",
     topId: "top_thenblank_cropped_blouse",
@@ -1646,8 +1648,9 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
             <div className="px-4">
               <div className="relative w-full aspect-[4/5] bg-neutral-100 overflow-hidden rounded-xl shadow-xs border border-neutral-200/70">
                 <img
-                  src={activeHeroImage}
+                  src={getOptimizedImageUrl(activeHeroImage, "hero")}
                   alt={customLookTitle || currentVibeObj.label}
+                  decoding="async"
                   className="w-full h-full object-cover object-top transition-all duration-500"
                 />
 
@@ -1800,8 +1803,10 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                       {/* Product Image Frame */}
                       <div className="relative w-full aspect-[4/4.5] bg-[#EFECE6] rounded-lg overflow-hidden border border-neutral-100">
                         <img
-                          src={item.imageUrl}
+                          src={getOptimizedImageUrl(item.imageUrl, "thumbnail")}
                           alt={item.name}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover object-top transition-transform duration-300"
                         />
                         <span className="absolute top-1.5 left-1.5 w-4 h-4 rounded-full bg-white text-neutral-900 text-[8px] font-mono font-bold flex items-center justify-center shadow-xs">
@@ -2110,8 +2115,9 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
               )}
               <div className="relative w-full aspect-[4/5] bg-neutral-100 rounded-2xl overflow-hidden border border-neutral-200 shadow-sm group">
                 <img
-                  src={activeHeroImage}
+                  src={getOptimizedImageUrl(activeHeroImage, "hero")}
                   alt={customLookTitle || currentVibeObj.label}
+                  decoding="async"
                   className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-102"
                 />
 
@@ -2279,8 +2285,10 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                         {/* Clean Product Cutout/Image */}
                         <div className="relative w-20 h-24 bg-[#EFECE6] rounded-lg overflow-hidden border border-neutral-100 shrink-0">
                           <img
-                            src={item.imageUrl}
+                            src={getOptimizedImageUrl(item.imageUrl, "thumbnail")}
                             alt={item.name}
+                            loading="lazy"
+                            decoding="async"
                             className="w-full h-full object-cover object-top transition-transform duration-300"
                           />
                           <span className="absolute top-1 left-1 w-4 h-4 rounded-full bg-white text-neutral-900 text-[8px] font-mono font-bold flex items-center justify-center shadow-xs">
@@ -2505,8 +2513,10 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                     <div className="flex items-center gap-3 min-w-0">
                       <div className="w-14 h-16 bg-[#EFECE6] rounded-md border border-neutral-200 shrink-0 overflow-hidden relative">
                         <img
-                          src={item.imageUrl}
+                          src={getOptimizedImageUrl(item.imageUrl, "thumbnail")}
                           alt={item.name}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover object-top transition-transform duration-300"
                         />
                       </div>

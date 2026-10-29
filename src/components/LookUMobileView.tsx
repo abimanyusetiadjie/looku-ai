@@ -68,7 +68,7 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
     suhu: "33°C Tropis Siang Hari",
     sirkulasiUdara: "Sirkulasi Udara Maksimal",
     alasanCocok: "Kombinasi serat linen alami dan voal paris berpori mikro melepas panas tubuh seketika tanpa menerawang, sangat santun untuk hijab kampus maupun semi-formal.",
-    gambar: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=900&auto=format&fit=crop&q=85",
+    gambar: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600&auto=format&fit=crop&q=75",
     paletWarna: [
       { nama: "Krem Oat", hex: "#FAF6EE" },
       { nama: "Sage Green", hex: "#84A98C" },
@@ -124,7 +124,7 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
     suhu: "22°C AC & 33°C Luar",
     sirkulasiUdara: "Sirkulasi Adaptif Tropis",
     alasanCocok: "Material semi-wool ultra-ringan dengan lining katun menjaga siluet rapi dan formal saat meeting klien tanpa rasa sesak saat berjalan di terik Jakarta.",
-    gambar: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&auto=format&fit=crop&q=85",
+    gambar: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&auto=format&fit=crop&q=75",
     paletWarna: [
       { nama: "Tailored Navy", hex: "#1B2A4A" },
       { nama: "Charcoal Grey", hex: "#3A3F47" },
@@ -180,7 +180,7 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
     suhu: "33°C Tropis Siang Hari",
     sirkulasiUdara: "Sirkulasi Udara Optimal · Serat Bernapas",
     alasanCocok: "Serat flax linen memiliki rongga alami yang mengalirkan angin bebas hambatan, menjaga suhu tubuh tetap adem meski di terik pantai atau kafe outdoor.",
-    gambar: "https://images.unsplash.com/photo-1488161628813-04466f872be2?w=900&auto=format&fit=crop&q=85",
+    gambar: "https://images.unsplash.com/photo-1488161628813-04466f872be2?w=600&auto=format&fit=crop&q=75",
     paletWarna: [
       { nama: "Oatmeal Linen", hex: "#E8DFD1" },
       { nama: "Sky Blue", hex: "#87CEEB" },
@@ -227,7 +227,7 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
     suhu: "31°C Kafe & Semi-Outdoor",
     sirkulasiUdara: "Sirkulasi Halus Lembut",
     alasanCocok: "Rajutan benang katun berongga mikro memberikan kesan berkelas untuk foto OOTD kafe tanpa membuat gerah di bawah terik matahari siang.",
-    gambar: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&auto=format&fit=crop&q=85",
+    gambar: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=75",
     paletWarna: [
       { nama: "Buttercream", hex: "#FEFAE0" },
       { nama: "Soft Matcha", hex: "#CCD5AE" },
@@ -280,7 +280,7 @@ const TROPICAL_EDIT_LIST = [
     undertoneTag: "Warm Spring",
     fabricNote: "Katun Rayon Twill · Dingin",
     studioParam: "hangout_nonhijab_panas_menengah",
-    gambar: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=600&auto=format&fit=crop&q=80",
+    gambar: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=600&auto=format&fit=crop&q=75",
   },
   {
     id: "trop-2",
@@ -292,7 +292,7 @@ const TROPICAL_EDIT_LIST = [
     undertoneTag: "Warm Autumn",
     fabricNote: "Rayon Twill · Potongan Loose",
     studioParam: "santai_weekend_kafe",
-    gambar: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&auto=format&fit=crop&q=80",
+    gambar: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&auto=format&fit=crop&q=75",
   },
   {
     id: "trop-3",
@@ -304,7 +304,7 @@ const TROPICAL_EDIT_LIST = [
     undertoneTag: "Semua Tone",
     fabricNote: "Voal Ultrafine · Sangat Ringan",
     studioParam: "kuliah_hijab_panas_hemat",
-    gambar: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600&auto=format&fit=crop&q=80",
+    gambar: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600&auto=format&fit=crop&q=75",
   },
   {
     id: "trop-4",
@@ -316,7 +316,7 @@ const TROPICAL_EDIT_LIST = [
     undertoneTag: "Kuning Langsat",
     fabricNote: "Katun Rami Organik · Cepat Kering",
     studioParam: "kondangan_hijab_pastel",
-    gambar: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&auto=format&fit=crop&q=80",
+    gambar: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&auto=format&fit=crop&q=75",
   },
 ];
 

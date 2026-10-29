@@ -1,5 +1,7 @@
 "use client";
 
+import { getOptimizedImageUrl } from "@/lib/image-optimizer";
+
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, X, Droplets, Store } from "lucide-react";
@@ -259,7 +261,7 @@ export default function FashionCatalogModal({ isOpen, onClose }: FashionCatalogM
                     >
                       <div>
                         <div className="relative aspect-[3/4] overflow-hidden bg-sand-100">
-                          <img src={item.image || item.imageUrl} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                          <img src={getOptimizedImageUrl(item.image || item.imageUrl, "thumbnail")} alt={item.name} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                           
                           {/* Brand Badge */}
                           <div className="absolute top-2 left-2">

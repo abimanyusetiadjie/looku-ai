@@ -22,6 +22,7 @@ import { getMarketplaceLinks, trackAffiliateClick } from "@/lib/affiliate";
 import { ShopeeIcon, TokopediaIcon } from "@/components/MarketplaceIcons";
 import StoryShareModal from "./StoryShareModal";
 import { resolveCleanShoePackshot, resolveSmartItemVisual } from "@/lib/packshot-dictionary";
+import { getOptimizedImageUrl } from "@/lib/image-optimizer";
 
 interface OutfitCardProps {
   outfit: OOTDRecommendation;
@@ -254,16 +255,18 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
             <div className="w-full aspect-[4/5] sm:aspect-[16/9] mt-6 flex gap-1 overflow-hidden rounded-sm bg-sand-100 border border-sand-200">
               {items.slice(0, 2).map((item, idx) => {
                 const fallbackImages = [
-                  "https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=800&q=80",
-                  "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&q=80"
+                  "https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=600&q=75&auto=format&fit=crop",
+                  "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&q=75&auto=format&fit=crop"
                 ];
                 const itemImage = item.imageUrl || outfit.flatlayImages?.[idx] || fallbackImages[idx % fallbackImages.length];
                 
                 return (
                   <div key={idx} className="flex-1 relative group cursor-pointer overflow-hidden">
                     <img
-                      src={itemImage}
+                      src={getOptimizedImageUrl(itemImage, "thumbnail")}
                       alt={item.name}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
                     />
                     <div className="absolute inset-0 bg-black/5" />
@@ -353,8 +356,10 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                     {/* Garment Image + Category Badge + Swap Button */}
                     <div className="relative aspect-square sm:aspect-[4/3] bg-[#EFECE6] overflow-hidden">
                       <img
-                        src={itemImage}
+                        src={getOptimizedImageUrl(itemImage, "thumbnail")}
                         alt={item.name}
+                        loading="lazy"
+                        decoding="async" 
                         className={`w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500 ${
                           !isShoe && item.cropConfig?.isCrop
                             ? `${item.cropConfig.position} ${item.cropConfig.scale}`
