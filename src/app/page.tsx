@@ -51,14 +51,27 @@ export default function HomePage() {
   const [showOnboarding, setShowOnboarding] = useState(false);
 
   useEffect(() => {
-    const onboarded = localStorage.getItem('looku_has_onboarded');
-    if (window.location.search.includes('quiz=true')) {
-      setIsQuizOpen(true);
-    }
-    // Onboarding slide hanya untuk mobile pengguna baru; desktop langsung melihat Hero editorial.
-    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
-    if (!onboarded && !isDesktop) {
-      setShowOnboarding(true);
+    if (typeof window !== "undefined") {
+      const searchParams = new URLSearchParams(window.location.search);
+      const isDemo = searchParams.get("demo") === "true" || searchParams.get("reset") === "true";
+      if (isDemo) {
+        localStorage.removeItem("looku_has_onboarded");
+        localStorage.removeItem("looku_personal_color");
+        localStorage.removeItem("looku_saved_outfits");
+        localStorage.removeItem("looku_wardrobe");
+      }
+
+      const onboarded = localStorage.getItem("looku_has_onboarded");
+      if (searchParams.get("quiz") === "true") {
+        setIsQuizOpen(true);
+      }
+
+      // Onboarding slide untuk mobile baru atau jika dipicu parameter ?onboarding=true
+      const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+      const forceOnboarding = searchParams.get("onboarding") === "true";
+      if (forceOnboarding || (!onboarded && !isDesktop)) {
+        setShowOnboarding(true);
+      }
     }
   }, []);
 
