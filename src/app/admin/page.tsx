@@ -907,10 +907,13 @@ export default function AdminCMSPage() {
   const filteredCatalog = catalog.filter((item) => {
     const matchesCategory = catalogCategory === "Semua" || item.category === catalogCategory;
     const q = catalogSearch.toLowerCase();
+    const brandStr = item.brandName || item.brand || "";
+    const nameStr = item.name || "";
+    const matStr = item.material || "";
     const matchesSearch =
-      (item.name || "").toLowerCase().includes(q) ||
-      (item.brandName || "").toLowerCase().includes(q) ||
-      (item.material || "").toLowerCase().includes(q);
+      nameStr.toLowerCase().includes(q) ||
+      brandStr.toLowerCase().includes(q) ||
+      matStr.toLowerCase().includes(q);
     return matchesCategory && matchesSearch;
   });
 
@@ -1627,56 +1630,112 @@ export default function AdminCMSPage() {
               </div>
             </div>
 
-            {/* Catalog Grid */}
+            {/* Catalog Grid with Safe Pricing & Authentic Packshots */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {filteredCatalog.slice(0, 48).map((item) => (
-                <div
-                  key={item.id}
-                  className="p-4 rounded-2xl bg-white border border-[#E8DFD1] shadow-tactile flex flex-col justify-between space-y-3"
-                >
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[9px] font-mono font-bold text-sand-500 bg-sand-100 px-2 py-0.5 rounded-full uppercase">
+              {filteredCatalog.slice(0, 48).map((item) => {
+                const rawMin = typeof item.priceMin === "number" ? item.priceMin : (item.marketValidation?.estimatedPrice || item.price || 150000);
+                const rawMax = typeof item.priceMax === "number" ? item.priceMax : rawMin;
+                const priceFormatted = rawMin === rawMax
+                  ? `Rp ${Number(rawMin).toLocaleString("id-ID")}`
+                  : `Rp ${Number(rawMin).toLocaleString("id-ID")} - ${Number(rawMax).toLocaleString("id-ID")}`;
+                const brand = item.brandName || item.brand || "Brand Resmi";
+                const displayImg = item.image || item.imageUrl || `/products/${item.id}.jpg`;
+                const shopeeUrl = item.productUrl || item.brandUrl || "";
+
+                return (
+                  <div
+                    key={item.id}
+                    className="p-3.5 rounded-2xl bg-white border border-[#E8DFD1] shadow-tactile flex flex-col justify-between space-y-3 hover:border-charcoal-900 transition-all"
+                  >
+                    {/* Packshot Image Preview */}
+                    <div className="relative aspect-square w-full rounded-xl bg-[#FAF8F5] overflow-hidden border border-sand-200 flex items-center justify-center p-2">
+                      <img
+                        src={displayImg}
+                        alt={item.name}
+                        className="w-full h-full object-contain"
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = "/fallback-garment.svg";
+                        }}
+                      />
+                      <span className="absolute top-2 left-2 text-[8px] font-mono font-bold text-white bg-charcoal-900/80 px-2 py-0.5 rounded-full uppercase tracking-wider backdrop-blur-xs">
                         {item.category}
                       </span>
-                      <span className="text-[11px] font-bold text-terracotta-600 font-mono">
-                        Rp {item.priceMin.toLocaleString("id-ID")} - {item.priceMax.toLocaleString("id-ID")}
-                      </span>
+                      {shopeeUrl && (
+                        <span className="absolute top-2 right-2 text-[8px] font-mono font-bold text-white bg-[#EE4D2D] px-1.5 py-0.5 rounded-sm uppercase tracking-wider">
+                          Shopee ↗
+                        </span>
+                      )}
                     </div>
 
-                    <div className="font-bold text-xs text-charcoal-900 leading-snug line-clamp-2">
-                      {item.name}
+                    <div className="space-y-1.5">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-mono font-bold text-terracotta-600 truncate">
+                          {brand}
+                        </span>
+                        <span className="text-[11px] font-bold text-charcoal-900 font-mono shrink-0">
+                          {priceFormatted}
+                        </span>
+                      </div>
+
+                      <div className="font-bold text-xs text-charcoal-900 leading-snug line-clamp-2">
+                        {item.name}
+                      </div>
+
+                      <div className="text-[10px] text-sand-500 font-mono truncate">
+                        {item.material || "Katun Bernapas"} • {item.colorName || item.color || "Netral"}
+                      </div>
                     </div>
 
-                    <div className="text-[10px] text-sand-500 font-mono">
-                      Brand: <span className="font-bold text-charcoal-900">{item.brandName}</span> • {item.material}
+                    <div className="pt-2 border-t border-sand-200 flex items-center justify-between">
+                      {shopeeUrl ? (
+                        <a
+                          href={shopeeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[10px] font-mono font-bold text-[#EE4D2D] hover:underline flex items-center gap-1"
+                        >
+                          <span>Buka Shopee ↗</span>
+                        </a>
+                      ) : (
+                        <span className="text-[9px] font-mono text-sand-400">Query Shopee</span>
+                      )}
+
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          onClick={() => {
+                            setEditingCatalogItem({
+                              ...item,
+                              brandName: brand,
+                              priceMin: rawMin,
+                              priceMax: rawMax,
+                              image: displayImg,
+                              imageUrl: displayImg,
+                              productUrl: shopeeUrl,
+                              brandUrl: shopeeUrl,
+                              shopeeQuery: item.shopeeQuery || `${brand} ${item.name}`,
+                              tokopediaQuery: item.tokopediaQuery || `${brand} ${item.name}`,
+                            });
+                            setIsCatalogModalOpen(true);
+                          }}
+                          className="p-1.5 rounded-lg bg-sand-100 hover:bg-sand-200 text-charcoal-900 transition-colors"
+                          title="Edit Produk"
+                        >
+                          <Edit3 className="w-3.5 h-3.5 text-terracotta-600" />
+                        </button>
+                        <button
+                          onClick={() => handleDeleteCatalog(item.id, item.name)}
+                          className="p-1.5 rounded-lg bg-sand-100 hover:bg-rose-50 text-sand-400 hover:text-rose-600 transition-colors"
+                          title="Hapus Produk"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
                     </div>
                   </div>
-
-                  <div className="pt-2 border-t border-sand-200 flex items-center justify-between">
-                    <span className="text-[9px] font-mono text-sand-400">{item.colorName}</span>
-                    <div className="flex items-center gap-1.5">
-                      <button
-                        onClick={() => {
-                          setEditingCatalogItem({ ...item });
-                          setIsCatalogModalOpen(true);
-                        }}
-                        className="p-1 rounded-lg bg-sand-100 hover:bg-sand-200 text-charcoal-900"
-                        title="Edit Produk"
-                      >
-                        <Edit3 className="w-3 h-3 text-terracotta-600" />
-                      </button>
-                      <button
-                        onClick={() => handleDeleteCatalog(item.id, item.name)}
-                        className="p-1 rounded-lg bg-sand-100 hover:bg-rose-50 text-sand-400 hover:text-rose-600"
-                        title="Hapus Produk"
-                      >
-                        <Trash2 className="w-3 h-3" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {filteredCatalog.length > 48 && (
