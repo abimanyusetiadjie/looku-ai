@@ -261,7 +261,7 @@ export default function FashionCatalogModal({ isOpen, onClose }: FashionCatalogM
                     >
                       <div>
                         <div className="relative aspect-[3/4] overflow-hidden bg-sand-100">
-                          <img src={getOptimizedImageUrl(item.image || item.imageUrl, "thumbnail")} alt={item.name} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                          <img src={getOptimizedImageUrl(item.image || item.imageUrl, "thumbnail")} alt={item.name} loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = "/fallback-garment.svg"; }} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                           
                           {/* Brand Badge */}
                           <div className="absolute top-2 left-2">

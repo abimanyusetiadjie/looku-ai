@@ -933,6 +933,10 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                                 loading="lazy"
                                 decoding="async"
                                 referrerPolicy="no-referrer"
+                                onError={(e) => {
+                                  e.currentTarget.onerror = null;
+                                  e.currentTarget.src = visual.imageUrl || "/fallback-garment.svg";
+                                }}
                               />
                             </div>
                             <div className="flex-1 min-w-0">

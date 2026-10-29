@@ -263,12 +263,17 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                 return (
                   <div key={idx} className="flex-1 relative group cursor-pointer overflow-hidden">
                     <img
-                      src={getOptimizedImageUrl(itemImage, "thumbnail")}
-                      alt={item.name}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
-                    />
+                        src={getOptimizedImageUrl(itemImage, "thumbnail")}
+                        alt={item.name}
+                        loading="lazy"
+                        decoding="async" 
+                        referrerPolicy="no-referrer"
+                        onError={(e) => {
+                          e.currentTarget.onerror = null;
+                          e.currentTarget.src = fallbackImages[idx % fallbackImages.length] || "/fallback-garment.svg";
+                        }}
+                        className="w-full h-full object-cover object-top group-hover/card:scale-105 transition-transform duration-500"
+                      />
                     <div className="absolute inset-0 bg-black/5" />
                   </div>
                 );
@@ -367,7 +372,12 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                         src={getOptimizedImageUrl(itemImage, "thumbnail")}
                         alt={item.name}
                         loading="lazy"
-                        decoding="async" 
+                        decoding="async"
+                        referrerPolicy="no-referrer"
+                        onError={(e) => {
+                          e.currentTarget.onerror = null;
+                          e.currentTarget.src = smartVisual.imageUrl || "/fallback-garment.svg";
+                        }}
                         className="w-full h-full object-cover object-top group-hover/card:scale-105 transition-transform duration-500"
                       />
 

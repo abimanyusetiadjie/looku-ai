@@ -55,7 +55,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Flax Linen White",
           "colorHex": "#F4EFE6",
           "estimatedPrice": "Rp 599.000",
-          "imageUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/475647/item/idgoods_42_475647.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "uniqlo kemeja premium linen lengan panjang wanita 475647",
           "shopeeUrl": "https://www.uniqlo.com/id/id/products/E475647-000/00",
           "isOfficialBrand": true
@@ -69,7 +69,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Light Vintage Blue",
           "colorHex": "#779ECB",
           "estimatedPrice": "Rp 175.500",
-          "imageUrl": "https://jiniso.id/cdn/shop/products/778-RELAX.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "jiniso kulot highwaist jeans 778 relax",
           "shopeeUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
           "isOfficialBrand": true
@@ -83,7 +83,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Warm Nude",
           "colorHex": "#E8DFD1",
           "estimatedPrice": "Rp 99.000",
-          "imageUrl": "https://lozy.id/cdn/shop/products/Nala-Voal-Square.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "lozy hijab nala voal square",
           "shopeeUrl": "https://lozy.id/collections/voal-square-hijab",
           "isOfficialBrand": true
@@ -145,7 +145,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Mustard Yellow",
           "colorHex": "#D4A373",
           "estimatedPrice": "Rp 379.000",
-          "imageUrl": "https://cottonink.co.id/cdn/shop/products/Yellow-Thami_1.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "cottonink atasan kemeja thami yellow raya modest",
           "shopeeUrl": "https://cottonink.co.id/products/yellow-thami",
           "isOfficialBrand": true
@@ -159,7 +159,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Sand Khaki",
           "colorHex": "#E6D7C3",
           "estimatedPrice": "Rp 189.000",
-          "imageUrl": "https://thenblank.com/cdn/shop/products/Chino-Pants-Sand.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "thenblank chino pants sand",
           "shopeeUrl": "https://thenblank.com/products/chino-pants-sand",
           "isOfficialBrand": true
@@ -173,7 +173,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Cream",
           "colorHex": "#FDFBF7",
           "estimatedPrice": "Rp 69.000",
-          "imageUrl": "https://lozy.id/cdn/shop/products/Theya-Voal-Square.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "lozy hijab theya voal square cream",
           "shopeeUrl": "https://lozy.id/collections/voal-square-hijab",
           "isOfficialBrand": true
@@ -235,7 +235,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Navy Blue",
           "colorHex": "#1B263B",
           "estimatedPrice": "Rp 329.000",
-          "imageUrl": "https://cottonink.co.id/cdn/shop/products/Navy-Jemima_1.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "cottonink blouse navy jemima raya modest",
           "shopeeUrl": "https://cottonink.co.id/products/navy-jemima",
           "isOfficialBrand": true
@@ -249,7 +249,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Classic Blue",
           "colorHex": "#4A6FA5",
           "estimatedPrice": "Rp 175.500",
-          "imageUrl": "https://jiniso.id/cdn/shop/products/778-RELAX.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "jiniso kulot highwaist jeans 778 relax",
           "shopeeUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
           "isOfficialBrand": true
@@ -263,7 +263,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Pale Blush",
           "colorHex": "#E8D5D5",
           "estimatedPrice": "Rp 295.000",
-          "imageUrl": "https://www.buttonscarves.com/cdn/shop/products/Voal-Square-Pale-Blush.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "buttonscarves basic voal square pale blush",
           "shopeeUrl": "https://www.buttonscarves.com/collections/bs-basic-voal",
           "isOfficialBrand": true
@@ -325,7 +325,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Honey",
           "colorHex": "#D4A373",
           "estimatedPrice": "Rp 189.000",
-          "imageUrl": "https://thenblank.com/cdn/shop/products/Casual-Shirt-Honey.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "thenblank casual shirt honey",
           "shopeeUrl": "https://thenblank.com/products/casual-shirt-honey",
           "isOfficialBrand": true
@@ -339,7 +339,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Sand Khaki",
           "colorHex": "#E6D7C3",
           "estimatedPrice": "Rp 189.000",
-          "imageUrl": "https://thenblank.com/cdn/shop/products/Chino-Pants-Sand.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "thenblank chino pants sand",
           "shopeeUrl": "https://thenblank.com/products/chino-pants-sand",
           "isOfficialBrand": true
@@ -353,7 +353,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Milo Brown",
           "colorHex": "#8D6E63",
           "estimatedPrice": "Rp 179.000",
-          "imageUrl": "https://lozy.id/cdn/shop/products/Ten-Shawl-Milo.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "lozy hijab ten shawl milo tencel",
           "shopeeUrl": "https://lozy.id/collections/tencel-collection",
           "isOfficialBrand": true
@@ -415,7 +415,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Beige",
           "colorHex": "#D8CBB5",
           "estimatedPrice": "Rp 489.000",
-          "imageUrl": "https://kamiidea.com/cdn/shop/products/Solene-Loose-Tunic-Beige.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "kami idea solene loose tunic beige",
           "shopeeUrl": "https://kamiidea.com/products/solene-loose-tunic-beige",
           "isOfficialBrand": true
@@ -443,7 +443,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Tokyo Motif",
           "colorHex": "#E9DAC1",
           "estimatedPrice": "Rp 395.000",
-          "imageUrl": "https://www.buttonscarves.com/cdn/shop/products/The-Journey-Square-Tokyo.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "buttonscarves the journey square tokyo",
           "shopeeUrl": "https://www.buttonscarves.com/collections/scarves",
           "isOfficialBrand": true
@@ -505,7 +505,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Soft White",
           "colorHex": "#F8F9FA",
           "estimatedPrice": "Rp 399.000",
-          "imageUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/464798/item/idgoods_00_464798.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "uniqlo blus rayon wanita 464798",
           "shopeeUrl": "https://www.uniqlo.com/id/id/products/E464798-000/00",
           "isOfficialBrand": true
@@ -533,7 +533,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Dusty Beige",
           "colorHex": "#D4C5B9",
           "estimatedPrice": "Rp 99.000",
-          "imageUrl": "https://lozy.id/cdn/shop/products/Haraa-Voal.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "lozy hijab haraa voal lasercut",
           "shopeeUrl": "https://lozy.id/collections/voal-square-hijab",
           "isOfficialBrand": true
@@ -595,7 +595,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Ecru",
           "colorHex": "#EAE6DF",
           "estimatedPrice": "Rp 795.000",
-          "imageUrl": "https://static-id.zacdn.com/p/riamiranda-chaize-tunic.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1596783074918-c84cb06531ca?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "riamiranda ecru chaize sleeveless tunic",
           "shopeeUrl": "https://www.zalora.co.id/p/riamiranda-ecru-chaize-sleeveless-tunic",
           "isOfficialBrand": true
@@ -609,7 +609,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Sand Khaki",
           "colorHex": "#E6D7C3",
           "estimatedPrice": "Rp 189.000",
-          "imageUrl": "https://thenblank.com/cdn/shop/products/Chino-Pants-Sand.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "thenblank chino pants sand",
           "shopeeUrl": "https://thenblank.com/products/chino-pants-sand",
           "isOfficialBrand": true
@@ -623,7 +623,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Elegance Pattern",
           "colorHex": "#D8BFD8",
           "estimatedPrice": "Rp 475.000",
-          "imageUrl": "https://www.buttonscarves.com/cdn/shop/products/The-Palace-Voile-Square.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "buttonscarves the palace voile square elegance",
           "shopeeUrl": "https://www.buttonscarves.com/collections/scarves",
           "isOfficialBrand": true
@@ -685,7 +685,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Off-White",
           "colorHex": "#FAF0E6",
           "estimatedPrice": "Rp 429.000",
-          "imageUrl": "https://cottonink.co.id/cdn/shop/products/Off-white-Embroidery-Nadra_1.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "cottonink off white embroidery nadra shirt",
           "shopeeUrl": "https://cottonink.co.id/products/off-white-embroidery-nadra",
           "isOfficialBrand": true
@@ -699,7 +699,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Indigo Denim",
           "colorHex": "#3B5998",
           "estimatedPrice": "Rp 175.500",
-          "imageUrl": "https://jiniso.id/cdn/shop/products/778-RELAX.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "jiniso kulot highwaist jeans 778 relax",
           "shopeeUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
           "isOfficialBrand": true
@@ -771,7 +771,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Olive / Sand",
           "colorHex": "#708238",
           "estimatedPrice": "Rp 349.000",
-          "imageUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/483883/item/idgoods_35_483883.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "uniqlo kemeja linen blend kerah terbuka lengan pendek 483883",
           "shopeeUrl": "https://www.uniqlo.com/id/id/products/E483883-000/00",
           "isOfficialBrand": true
@@ -785,7 +785,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Vintage Blue",
           "colorHex": "#4A6FA5",
           "estimatedPrice": "Rp 175.500",
-          "imageUrl": "https://jiniso.id/cdn/shop/products/778-RELAX.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "jiniso kulot highwaist jeans 778 relax",
           "shopeeUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
           "isOfficialBrand": true
@@ -843,7 +843,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Onyx Black",
           "colorHex": "#1C1C1C",
           "estimatedPrice": "Rp 329.000",
-          "imageUrl": "https://cottonink.co.id/cdn/shop/products/Black-Fawnia_1.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "cottonink black fawnia oversized shirt",
           "shopeeUrl": "https://cottonink.co.id/products/black-fawnia",
           "isOfficialBrand": true
@@ -915,7 +915,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Oat Cream",
           "colorHex": "#E8DFD1",
           "estimatedPrice": "Rp 399.000",
-          "imageUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/475655/item/idgoods_61_475655.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "uniqlo blus linen blend lengan volume pendek 475655",
           "shopeeUrl": "https://www.uniqlo.com/id/id/products/E475655-000/00",
           "isOfficialBrand": true
@@ -929,7 +929,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Sand Khaki",
           "colorHex": "#E6D7C3",
           "estimatedPrice": "Rp 189.000",
-          "imageUrl": "https://thenblank.com/cdn/shop/products/Chino-Pants-Sand.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "thenblank chino pants sand",
           "shopeeUrl": "https://thenblank.com/products/chino-pants-sand",
           "isOfficialBrand": true
@@ -987,7 +987,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Off-White",
           "colorHex": "#FAF9F6",
           "estimatedPrice": "Rp 229.000",
-          "imageUrl": "https://cottonink.co.id/cdn/shop/products/Off-white-Weekend-Blouse_1.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "cottonink off white weekend blouse",
           "shopeeUrl": "https://cottonink.co.id/products/off-white-weekend-blouse",
           "isOfficialBrand": true
@@ -1001,7 +1001,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Vintage Denim",
           "colorHex": "#5B7C99",
           "estimatedPrice": "Rp 175.500",
-          "imageUrl": "https://jiniso.id/cdn/shop/products/778-RELAX.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "jiniso kulot highwaist jeans 778 relax",
           "shopeeUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
           "isOfficialBrand": true
@@ -1059,7 +1059,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "White",
           "colorHex": "#FFFFFF",
           "estimatedPrice": "Rp 399.000",
-          "imageUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/464798/sub/idgoods_464798_sub14.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "uniqlo blus rayon kerah skipper lengan 3/4",
           "shopeeUrl": "https://www.uniqlo.com/id/id/products/E489228-000/00",
           "isOfficialBrand": true
@@ -1073,7 +1073,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Sand Khaki",
           "colorHex": "#E6D7C3",
           "estimatedPrice": "Rp 189.000",
-          "imageUrl": "https://thenblank.com/cdn/shop/products/Chino-Pants-Sand.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "thenblank chino pants sand",
           "shopeeUrl": "https://thenblank.com/products/chino-pants-sand",
           "isOfficialBrand": true
@@ -1131,7 +1131,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Blue Stripe",
           "colorHex": "#7D9EC0",
           "estimatedPrice": "Rp 399.000",
-          "imageUrl": "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/464798/item/goods_61_464798.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "uniqlo blus rayon garis lengan panjang",
           "shopeeUrl": "https://www.uniqlo.com/id/id/products/E475647-000/01",
           "isOfficialBrand": true
@@ -1203,7 +1203,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Lavrenti White",
           "colorHex": "#FFFFFF",
           "estimatedPrice": "Rp 118.000",
-          "imageUrl": "https://erigostore.co.id/cdn/shop/products/Lavrenti-White.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "erigo short shirt rayon lavrenti white unisex",
           "shopeeUrl": "https://erigostore.co.id/products/erigo-short-shirt-rayon-lavrenti-white",
           "isOfficialBrand": true
@@ -1217,7 +1217,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Sand Khaki",
           "colorHex": "#E6D7C3",
           "estimatedPrice": "Rp 189.000",
-          "imageUrl": "https://thenblank.com/cdn/shop/products/Chino-Pants-Sand.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "thenblank chino pants sand",
           "shopeeUrl": "https://thenblank.com/products/chino-pants-sand",
           "isOfficialBrand": true
@@ -1275,7 +1275,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Jazlyn Black",
           "colorHex": "#111111",
           "estimatedPrice": "Rp 118.000",
-          "imageUrl": "https://erigostore.co.id/cdn/shop/products/Jazlyn-Black.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "erigo short shirt rayon jazlyn black unisex",
           "shopeeUrl": "https://erigostore.co.id/products/erigo-short-shirt-rayon-jazlyn-black",
           "isOfficialBrand": true
@@ -1289,7 +1289,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Relaxed Denim",
           "colorHex": "#3B4D61",
           "estimatedPrice": "Rp 175.500",
-          "imageUrl": "https://jiniso.id/cdn/shop/products/778-RELAX.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "jiniso kulot highwaist jeans 778 relax",
           "shopeeUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
           "isOfficialBrand": true
@@ -1347,7 +1347,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Beige Khaki",
           "colorHex": "#C2B280",
           "estimatedPrice": "Rp 399.000",
-          "imageUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/482483/item/idgoods_30_482483.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "uniqlo jaket kemeja katun linen lengan panjang",
           "shopeeUrl": "https://www.uniqlo.com/id/id/products/E482483-000/01",
           "isOfficialBrand": true
@@ -1361,7 +1361,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Sand Khaki",
           "colorHex": "#E6D7C3",
           "estimatedPrice": "Rp 189.000",
-          "imageUrl": "https://thenblank.com/cdn/shop/products/Chino-Pants-Sand.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "thenblank chino pants sand",
           "shopeeUrl": "https://thenblank.com/products/chino-pants-sand",
           "isOfficialBrand": true
@@ -1419,7 +1419,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Natural Linen",
           "colorHex": "#DCD7D0",
           "estimatedPrice": "Rp 399.000",
-          "imageUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/482483/item/idgoods_31_482483.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "uniqlo kemeja katun linen lengan pendek uniseks",
           "shopeeUrl": "https://www.uniqlo.com/id/id/products/E482483-000/01",
           "isOfficialBrand": true
@@ -1433,7 +1433,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Relax Denim",
           "colorHex": "#4A6FA5",
           "estimatedPrice": "Rp 175.500",
-          "imageUrl": "https://jiniso.id/cdn/shop/products/778-RELAX.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "jiniso kulot highwaist jeans 778 relax",
           "shopeeUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
           "isOfficialBrand": true
@@ -1491,7 +1491,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Dark Grey",
           "colorHex": "#2B2B2B",
           "estimatedPrice": "Rp 199.000",
-          "imageUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/456261/item/idgoods_30_456261.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "uniqlo airism t-shirt proteksi uv lengan panjang 456261",
           "shopeeUrl": "https://www.uniqlo.com/id/id/products/E456261-000/00",
           "isOfficialBrand": true
@@ -1505,7 +1505,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Sand Khaki",
           "colorHex": "#E6D7C3",
           "estimatedPrice": "Rp 189.000",
-          "imageUrl": "https://thenblank.com/cdn/shop/products/Chino-Pants-Sand.jpg",
+          "imageUrl": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80",
           "shopeeQuery": "thenblank chino pants sand",
           "shopeeUrl": "https://thenblank.com/products/chino-pants-sand",
           "isOfficialBrand": true
