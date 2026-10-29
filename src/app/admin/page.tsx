@@ -1361,6 +1361,11 @@ export default function AdminCMSPage() {
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           loading="lazy"
                           referrerPolicy="no-referrer"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src =
+                              look.outfit?.items?.[0]?.imageUrl ||
+                              "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80";
+                          }}
                         />
 
                         {/* Top Badges */}

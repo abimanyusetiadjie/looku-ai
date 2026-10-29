@@ -618,20 +618,21 @@ export function validateLookbookItem(look: TrendingLook): LookbookValidationResu
 
   const validHeroImage = Boolean(
     look.image &&
-      look.image.startsWith("https://") &&
-      !look.image.includes("undefined") &&
-      !look.image.includes("placeholder")
+      (look.image.startsWith("https://") ||
+        look.image.startsWith("http://") ||
+        look.image.startsWith("/")) &&
+      !look.image.includes("undefined")
   );
   if (!validHeroImage) {
-    warnings.push("URL gambar utama tidak valid atau masih placeholder.");
+    warnings.push("URL gambar utama tidak valid atau masih kosong.");
   }
 
-  const items = look.outfit?.items || [];
+  const items = (look.outfit?.items || []).filter((it) => Boolean(it && it.name));
   const validItemsAndBrands =
-    items.length >= 4 &&
-    items.every((it) => Boolean(it.name && !/#\d+/.test(it.name) && (it.shopeeUrl || it.shopeeQuery)));
+    items.length >= 2 &&
+    items.every((it) => Boolean(it.name && !/#\d+/.test(it.name)));
   if (!validItemsAndBrands) {
-    warnings.push("Minimal 4 item produk harus memiliki nama bersih & link marketplace.");
+    warnings.push("Minimal 2 item produk (Atasan & Bawahan) harus terisi dengan nama bersih.");
   }
 
   const validPricing = Boolean(look.priceRange && look.priceRange.includes("Rp"));
