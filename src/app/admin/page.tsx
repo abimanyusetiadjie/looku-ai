@@ -362,6 +362,67 @@ export default function AdminCMSPage() {
     setIsLookModalOpen(true);
   };
 
+    const handleSelectCatalogForSlot = (slotIdx: number, itemId: string) => {
+    if (!editingLook || !itemId) return;
+    const found = catalog.find((c) => c.id === itemId);
+    if (!found) return;
+
+    const currentItems = [...(editingLook.outfit?.items || [])];
+    while (currentItems.length <= slotIdx) {
+      currentItems.push({
+        category: slotIdx === 0 ? "atasan" : slotIdx === 1 ? "bawahan" : slotIdx === 2 ? "outer_hijab" : "sepatu",
+        name: "",
+        brand: "",
+        material: "",
+        color: "Netral",
+        estimatedPrice: "Rp 150.000",
+        imageUrl: "",
+        shopeeQuery: "",
+      });
+    }
+
+    const rawPrice = found.marketValidation?.estimatedPrice || found.price || 150000;
+    const formattedPrice = `Rp ${Number(rawPrice).toLocaleString("id-ID")}`;
+
+    currentItems[slotIdx] = {
+      ...currentItems[slotIdx],
+      name: found.name,
+      brand: found.brand || found.brandName || "Brand Resmi",
+      material: found.material || "Katun Bernapas",
+      color: found.colorName || "Netral",
+      colorHex: found.colorHex || "#D5C7B7",
+      estimatedPrice: formattedPrice,
+      imageUrl: found.imageUrl || found.image || `/products/${found.id}.jpg`,
+      shopeeUrl: found.brandUrl || found.productUrl || "",
+      shopeeQuery: `${found.brand || ""} ${found.name}`,
+      isOfficialBrand: true,
+    };
+
+    let totalMin = 0;
+    currentItems.forEach((it) => {
+      const num = parseInt(String(it.estimatedPrice || "").replace(/\D/g, ""), 10);
+      if (!isNaN(num) && num > 0) totalMin += num;
+    });
+
+    const updatedOutfit = {
+      ...(editingLook.outfit || ({} as any)),
+      items: currentItems,
+    };
+
+    setEditingLook({
+      ...editingLook,
+      image: editingLook.image || currentItems[0]?.imageUrl || "",
+      priceRange: totalMin > 0 ? `Perkiraan Rp ${totalMin.toLocaleString("id-ID")}` : editingLook.priceRange,
+      outfit: updatedOutfit,
+    });
+
+    addToast({
+      title: "Item Berhasil Dipilih",
+      description: `${found.name} otomatis mengisi slot ${slotIdx === 0 ? "Atasan" : slotIdx === 1 ? "Bawahan" : "Hijab/Outer"}.`,
+      type: "success",
+    });
+  };
+
   const handleSaveLookForm = (e: React.FormEvent) => {
     e.preventDefault();
     if (!editingLook) return;
@@ -1837,6 +1898,70 @@ export default function AdminCMSPage() {
             </div>
 
             <form onSubmit={handleSaveLookForm} className="space-y-6 text-xs">
+              {/* MIX & MATCH BUILDER DROPDOWN BOX */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-amber-50/90 border border-amber-300 shadow-sm space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-amber-950 flex items-center gap-1.5">
+                    <span>⚡ RAKIT CEPAT DARI KATALOG (MIX & MATCH DROPDOWN)</span>
+                  </span>
+                  <span className="text-[10px] text-amber-800 font-sans">
+                    Pilih barang ➔ otomatis isi nama, harga, & foto packshot
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="space-y-1">
+                    <label className="text-[10px] font-mono font-bold text-amber-950 block">1. Pilih Atasan:</label>
+                    <select
+                      onChange={(e) => handleSelectCatalogForSlot(0, e.target.value)}
+                      className="w-full p-2.5 rounded-xl bg-white border border-amber-300 text-xs font-semibold text-charcoal-900 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    >
+                      <option value="">-- Pilih Atasan / Tunik --</option>
+                      {catalog
+                        .filter((c) => (c.category || "").toLowerCase().includes("atasan") || (c.category || "").toLowerCase().includes("tunik"))
+                        .map((c) => (
+                          <option key={c.id} value={c.id}>
+                            [{c.brand || "Brand"}] {c.name}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-[10px] font-mono font-bold text-amber-950 block">2. Pilih Bawahan:</label>
+                    <select
+                      onChange={(e) => handleSelectCatalogForSlot(1, e.target.value)}
+                      className="w-full p-2.5 rounded-xl bg-white border border-amber-300 text-xs font-semibold text-charcoal-900 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    >
+                      <option value="">-- Pilih Bawahan / Kulot --</option>
+                      {catalog
+                        .filter((c) => (c.category || "").toLowerCase().includes("bawahan"))
+                        .map((c) => (
+                          <option key={c.id} value={c.id}>
+                            [{c.brand || "Brand"}] {c.name}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-[10px] font-mono font-bold text-amber-950 block">3. Pilih Hijab / Outer (Opsional):</label>
+                    <select
+                      onChange={(e) => handleSelectCatalogForSlot(2, e.target.value)}
+                      className="w-full p-2.5 rounded-xl bg-white border border-amber-300 text-xs font-semibold text-charcoal-900 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    >
+                      <option value="">-- Tanpa Hijab / Pilih Hijab --</option>
+                      {catalog
+                        .filter((c) => (c.category || "").toLowerCase().includes("hijab") || (c.category || "").toLowerCase().includes("outer"))
+                        .map((c) => (
+                          <option key={c.id} value={c.id}>
+                            [{c.brand || "Brand"}] {c.name}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+                </div>
+              </div>
               {/* Section 1: Overview */}
               <div className="space-y-3">
                 <h4 className="font-mono font-bold text-[11px] uppercase tracking-wider text-charcoal-900 border-b border-sand-200 pb-1">

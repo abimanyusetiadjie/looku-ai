@@ -10,7 +10,12 @@ def parse_csv_to_trending_looks(csv_path):
 
     looks = []
     with open(csv_path, mode="r", encoding="utf-8-sig") as f:
-        reader = csv.DictReader(f)
+        content = f.read()
+        first_line = content.splitlines()[0] if content.splitlines() else ""
+        delimiter = "\t" if "\t" in first_line and first_line.count("\t") >= first_line.count(",") else ","
+
+    with open(csv_path, mode="r", encoding="utf-8-sig") as f:
+        reader = csv.DictReader(f, delimiter=delimiter)
         for idx, row in enumerate(reader):
             look_id = row.get("id", "").strip() or f"custom_look_{idx+1:02d}"
             title = row.get("title", "").strip() or "Untitled Look"
@@ -20,8 +25,10 @@ def parse_csv_to_trending_looks(csv_path):
             price_range = row.get("priceRange", "").strip() or "Rp 150.000 - Rp 300.000"
             skin_tone = row.get("skinTone", "").strip() or "Semua Warna Kulit"
             is_golden = row.get("isGolden", "").strip().upper() in ["TRUE", "1", "YES"]
-            hero_image = row.get("heroImage", "").strip() or "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&auto=format&fit=crop&q=85"
-            shopee_url = row.get("shopeeUrl", "").strip()
+            top_img = row.get("top_image_url", "").strip()
+            btm_img = row.get("bottom_image_url", "").strip()
+            hero_image = row.get("heroImage", "").strip() or top_img or btm_img or ""
+            shopee_url = row.get("shopeeUrl", "").strip() or row.get("top_shopee_url", "").strip()
 
             # Helper for color fallback
             default_colors = [

@@ -1,5 +1,7 @@
 "use client";
 
+import EditorialLookCollage from "@/components/EditorialLookCollage";
+
 import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -682,15 +684,11 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                 >
                   {/* Kanvas Foto 4:5 Latar Warm Stone (#EFECE6) - Full Bleed */}
                   <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#EFECE6]">
-                    <img
-                      src={getOptimizedImageUrl(look.image, "feed")}
-                      alt={look.title}
-                      className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-                      loading={idx < 4 ? "eager" : "lazy"}
-                      decoding="async"
-                      // @ts-ignore
-                      fetchPriority={idx < 4 ? "high" : "low"}
-                      referrerPolicy="no-referrer"
+                    <EditorialLookCollage
+                      items={look.outfit?.items}
+                      heroImage={look.image}
+                      title={look.title}
+                      isPriority={idx < 4}
                     />
 
 
@@ -853,12 +851,11 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
               {/* Kolom Foto Kiri */}
               <div className="w-full md:w-1/2 p-4 sm:p-6 bg-[#EFECE6] flex items-center justify-center">
                 <div className="relative w-full aspect-[4/5] overflow-hidden">
-                  <img
-                    src={getOptimizedImageUrl(selectedLook.image, "detail")}
-                    alt={selectedLook.title}
-                    className="w-full h-full object-cover"
-                    decoding="async"
-                    referrerPolicy="no-referrer"
+                  <EditorialLookCollage
+                    items={selectedLook.outfit?.items}
+                    heroImage={selectedLook.image}
+                    title={selectedLook.title}
+                    isPriority={true}
                   />
 
                 </div>
