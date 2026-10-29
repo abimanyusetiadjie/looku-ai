@@ -214,6 +214,14 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
     const syncLookbook = () => {
       if (typeof window !== "undefined") {
         try {
+          const DATASET_VERSION_KEY = "looku_dataset_v35_verified";
+          const currentVer = localStorage.getItem("looku_dataset_version");
+          if (currentVer !== DATASET_VERSION_KEY) {
+            localStorage.removeItem("looku_custom_lookbook");
+            localStorage.removeItem("looku_deleted_lookbook_ids");
+            localStorage.setItem("looku_dataset_version", DATASET_VERSION_KEY);
+          }
+
           const customRaw = localStorage.getItem("looku_custom_lookbook");
           const customLooks: TrendingLook[] = customRaw ? JSON.parse(customRaw) : [];
           const deletedRaw = localStorage.getItem("looku_deleted_lookbook_ids");
