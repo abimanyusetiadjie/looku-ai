@@ -1,5 +1,6 @@
 import { OOTDRecommendation, UserPreferences, TrendingLook, OutfitItem } from "./types";
 import { REAL_SIGNATURE_LOOKS_28 } from "./real-looks-28";
+import { VERIFIED_FASHION_ITEMS_35 } from "./verified-catalog-35";
 
 export interface FashionItem {
   id: string;
@@ -25,6 +26,7 @@ export interface FashionItem {
 export type FashionCatalogItem = FashionItem;
 
 export const GOLDEN_DATASET: FashionItem[] = [
+  ...VERIFIED_FASHION_ITEMS_35,
   {
     id: "top_linen_white",
     name: "Uniqlo Premium Linen Long Sleeve Shirt",

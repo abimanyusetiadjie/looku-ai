@@ -1,3 +1,5 @@
+import { VERIFIED_FASHION_ITEMS_35 } from "./verified-catalog-35";
+
 export interface FashionItem {
   id: string;
   name: string;
@@ -25,6 +27,7 @@ export interface FashionItem {
  * Foto & merek dagang adalah hak milik masing-masing pemegang merek (Safe Harbor Model).
  */
 export const GOLDEN_DATASET: FashionItem[] = [
+  ...VERIFIED_FASHION_ITEMS_35,
   // ==========================================
   // ATASAN (Uniqlo, H&M, & Curated Tops)
   // ==========================================

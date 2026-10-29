@@ -49,6 +49,50 @@ const nextConfig = {
         protocol: "https",
         hostname: "*.pinimg.com",
       },
+      {
+        protocol: "https",
+        hostname: "image.uniqlo.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cottonink.co.id",
+      },
+      {
+        protocol: "https",
+        hostname: "lozy.id",
+      },
+      {
+        protocol: "https",
+        hostname: "buttonscarves.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.buttonscarves.com",
+      },
+      {
+        protocol: "https",
+        hostname: "kamiidea.com",
+      },
+      {
+        protocol: "https",
+        hostname: "static-id.zacdn.com",
+      },
+      {
+        protocol: "https",
+        hostname: "thenblank.com",
+      },
+      {
+        protocol: "https",
+        hostname: "erigostore.co.id",
+      },
+      {
+        protocol: "https",
+        hostname: "jiniso.id",
+      },
+      {
+        protocol: "https",
+        hostname: "shopatvelvet.com",
+      },
     ],
   },
 };
