@@ -2698,7 +2698,53 @@ export default function AdminCMSPage() {
               </div>
 
               <div className="space-y-1">
-                <label className="font-bold font-mono">Kata Kunci Pencarian Shopee:</label>
+                <label className="font-bold font-mono text-[#EE4D2D] flex items-center justify-between">
+                  <span>🛍️ Link Langsung Shopee (URL Afiliasi Produk):</span>
+                  <span className="text-[10px] text-sand-500 font-normal">Contoh: https://shopee.co.id/...</span>
+                </label>
+                <input
+                  type="url"
+                  value={editingCatalogItem.productUrl || editingCatalogItem.brandUrl || ""}
+                  onChange={(e) => setEditingCatalogItem({ 
+                    ...editingCatalogItem, 
+                    productUrl: e.target.value,
+                    brandUrl: e.target.value 
+                  })}
+                  placeholder="https://shopee.co.id/product/..."
+                  className="w-full p-2.5 rounded-xl bg-orange-50/50 border border-orange-200 text-[#EE4D2D] font-mono text-[11px] focus:border-[#EE4D2D]"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="font-bold font-mono flex items-center justify-between">
+                  <span>📸 URL Foto Produk / Packshot:</span>
+                  <span className="text-[10px] text-sand-500 font-normal">Foto bersih di gantungan / meja</span>
+                </label>
+                <div className="flex gap-2.5 items-center">
+                  <div className="w-12 h-12 rounded-lg bg-sand-100 border border-sand-300 overflow-hidden shrink-0">
+                    <img
+                      src={editingCatalogItem.image || editingCatalogItem.imageUrl || "/fallback-garment.svg"}
+                      alt="Preview"
+                      className="w-full h-full object-cover"
+                      onError={(e) => { (e.target as HTMLImageElement).src = "/fallback-garment.svg"; }}
+                    />
+                  </div>
+                  <input
+                    type="url"
+                    value={editingCatalogItem.image || editingCatalogItem.imageUrl || ""}
+                    onChange={(e) => setEditingCatalogItem({ 
+                      ...editingCatalogItem, 
+                      image: e.target.value,
+                      imageUrl: e.target.value 
+                    })}
+                    placeholder="https://down-id.img.susercontent.com/... atau URL foto produk"
+                    className="flex-1 p-2.5 rounded-xl bg-sand-50 border border-sand-300 font-mono text-[11px]"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <label className="font-bold font-mono text-sand-600">Kata Kunci Pencarian Shopee (Fallback):</label>
                 <input
                   type="text"
                   required
