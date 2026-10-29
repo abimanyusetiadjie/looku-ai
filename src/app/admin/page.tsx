@@ -409,8 +409,39 @@ export default function AdminCMSPage() {
       items: currentItems,
     };
 
+    // Smart Auto Title if still default
+    let newTitle = editingLook.title;
+    if (
+      !newTitle ||
+      newTitle === "Setelan Baru" ||
+      newTitle.startsWith("Setelan Baru #") ||
+      newTitle.includes("Kemeja Linen Crinkle Relaxed")
+    ) {
+      const topName = currentItems[0]?.name ? currentItems[0].name.split("(")[0].replace(/\[.*?\]/g, "").trim() : "";
+      const btmName = currentItems[1]?.name ? currentItems[1].name.split("(")[0].replace(/\[.*?\]/g, "").trim() : "";
+      if (topName && btmName) {
+        newTitle = `${topName} & ${btmName}`;
+      } else if (topName) {
+        newTitle = `Setelan ${topName}`;
+      }
+    }
+
+    // Auto category & tag if hijab
+    let newCategory = editingLook.category;
+    let newTag = editingLook.tag;
+    const hasHijab = currentItems.some((it) => (it.category || "").includes("hijab") || (it.name || "").toLowerCase().includes("hijab") || (it.name || "").toLowerCase().includes("pashmina"));
+    if (hasHijab && (newCategory === "Casual Chic" || newCategory === "Campus & Hijab" || !newCategory)) {
+      newCategory = "Campus & Hijab";
+      if (!newTag || newTag === "CASUAL MODEST" || newTag === "SIGNATURE LOOK") {
+        newTag = "HIJAB CASUAL";
+      }
+    }
+
     setEditingLook({
       ...editingLook,
+      title: newTitle,
+      category: newCategory,
+      tag: newTag,
       image: editingLook.image || currentItems[0]?.imageUrl || "",
       priceRange: totalMin > 0 ? `Perkiraan Rp ${totalMin.toLocaleString("id-ID")}` : editingLook.priceRange,
       outfit: updatedOutfit,
@@ -1909,14 +1940,14 @@ export default function AdminCMSPage() {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                   <div className="space-y-1">
-                    <label className="text-[10px] font-mono font-bold text-amber-950 block">1. Pilih Atasan:</label>
+                    <label className="text-[10px] font-mono font-bold text-amber-950 block">1. Atasan / Blouse / Kemeja:</label>
                     <select
                       onChange={(e) => handleSelectCatalogForSlot(0, e.target.value)}
                       className="w-full p-2.5 rounded-xl bg-white border border-amber-300 text-xs font-semibold text-charcoal-900 focus:outline-none focus:ring-2 focus:ring-amber-500"
                     >
-                      <option value="">-- Pilih Atasan / Tunik --</option>
+                      <option value="">-- Pilih Atasan --</option>
                       {catalog
                         .filter((c) => (c.category || "").toLowerCase().includes("atasan") || (c.category || "").toLowerCase().includes("tunik"))
                         .map((c) => (
@@ -1928,12 +1959,12 @@ export default function AdminCMSPage() {
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[10px] font-mono font-bold text-amber-950 block">2. Pilih Bawahan:</label>
+                    <label className="text-[10px] font-mono font-bold text-amber-950 block">2. Bawahan / Kulot / Jeans:</label>
                     <select
                       onChange={(e) => handleSelectCatalogForSlot(1, e.target.value)}
                       className="w-full p-2.5 rounded-xl bg-white border border-amber-300 text-xs font-semibold text-charcoal-900 focus:outline-none focus:ring-2 focus:ring-amber-500"
                     >
-                      <option value="">-- Pilih Bawahan / Kulot --</option>
+                      <option value="">-- Pilih Bawahan --</option>
                       {catalog
                         .filter((c) => (c.category || "").toLowerCase().includes("bawahan"))
                         .map((c) => (
@@ -1945,7 +1976,7 @@ export default function AdminCMSPage() {
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[10px] font-mono font-bold text-amber-950 block">3. Pilih Hijab / Outer (Opsional):</label>
+                    <label className="text-[10px] font-mono font-bold text-amber-950 block">3. Hijab / Outer (Opsional):</label>
                     <select
                       onChange={(e) => handleSelectCatalogForSlot(2, e.target.value)}
                       className="w-full p-2.5 rounded-xl bg-white border border-amber-300 text-xs font-semibold text-charcoal-900 focus:outline-none focus:ring-2 focus:ring-amber-500"
@@ -1960,6 +1991,51 @@ export default function AdminCMSPage() {
                         ))}
                     </select>
                   </div>
+
+                  <div className="space-y-1">
+                    <label className="text-[10px] font-mono font-bold text-amber-950 block">4. Sepatu / Alas Kaki (Opsional):</label>
+                    <select
+                      onChange={(e) => handleSelectCatalogForSlot(3, e.target.value)}
+                      className="w-full p-2.5 rounded-xl bg-white border border-amber-300 text-xs font-semibold text-charcoal-900 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    >
+                      <option value="">-- Tanpa Sepatu / Pilih Sepatu --</option>
+                      {catalog
+                        .filter((c) => (c.category || "").toLowerCase().includes("sepatu"))
+                        .map((c) => (
+                          <option key={c.id} value={c.id}>
+                            [{c.brand || "Brand"}] {c.name}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap items-center justify-between pt-2 border-t border-amber-200/80 gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-mono font-bold text-amber-950">
+                      Total Setelan: <span className="text-charcoal-900 font-extrabold">{editingLook.priceRange}</span>
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const items = editingLook.outfit?.items || [];
+                      const topName = items[0]?.name ? items[0].name.split("(")[0].replace(/\[.*?\]/g, "").trim() : "";
+                      const btmName = items[1]?.name ? items[1].name.split("(")[0].replace(/\[.*?\]/g, "").trim() : "";
+                      if (topName && btmName) {
+                        setEditingLook({
+                          ...editingLook,
+                          title: `${topName} & ${btmName}`,
+                        });
+                        addToast({ title: "Judul Dibuat!", description: "Judul disesuaikan dengan item terpilih.", type: "success" });
+                      } else {
+                        addToast({ title: "Pilih Item Dulu", description: "Pilih minimal atasan dan bawahan dari dropdown di atas.", type: "info" });
+                      }
+                    }}
+                    className="px-3 py-1.5 rounded-lg bg-amber-700 hover:bg-amber-800 text-white font-mono font-bold text-[10px] uppercase tracking-wider transition-colors flex items-center gap-1.5 shadow-2xs"
+                  >
+                    <span>✨ Buat Judul Otomatis dari Baju Terpilih</span>
+                  </button>
                 </div>
               </div>
               {/* Section 1: Overview */}
@@ -2105,8 +2181,32 @@ export default function AdminCMSPage() {
                         placeholder="https://i.pinimg.com/... atau https://image.uniqlo.com/... atau link halaman produk Uniqlo"
                         className="w-full p-2.5 rounded-xl bg-sand-50 border border-sand-300 font-mono text-[11px]"
                       />
+                      <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                        <span className="text-[10px] font-mono text-charcoal-900 font-bold">Foto Model Cepat:</span>
+                        <button
+                          type="button"
+                          onClick={() => handleImageUrlChange("https://i.pinimg.com/736x/1b/3d/24/1b3d240b29e3ea29a9f1d8fdcb0fa1dc.png")}
+                          className="px-2 py-0.5 rounded bg-sand-200 hover:bg-sand-300 text-[10px] font-mono font-medium transition-colors"
+                        >
+                          🧕 Model Hijab Modest
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleImageUrlChange("https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80")}
+                          className="px-2 py-0.5 rounded bg-sand-200 hover:bg-sand-300 text-[10px] font-mono font-medium transition-colors"
+                        >
+                          👗 Model Wanita Casual
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleImageUrlChange("https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80")}
+                          className="px-2 py-0.5 rounded bg-sand-200 hover:bg-sand-300 text-[10px] font-mono font-medium transition-colors"
+                        >
+                          👔 Model Pria Menswear
+                        </button>
+                      </div>
                       <p className="text-[10px] text-sand-500 font-sans leading-tight">
-                        💡 <b>Tips Cepat:</b> Di Pinterest, Google, atau Uniqlo, cukup <b>Klik Kanan pada Foto ➔ Pilih &quot;Copy Image Address&quot; (Salin Alamat Gambar)</b> lalu tempel di sini. Atau tempel link produk Uniqlo lalu klik tombol <b>Ekstrak</b> di atas.
+                        💡 <b>Tips Cepat:</b> Klik salah satu model cepat di atas atau tempel link foto Pinterest / Google pilihan Anda.
                       </p>
                     </div>
 
@@ -2162,7 +2262,7 @@ export default function AdminCMSPage() {
                             <label className="text-[10px] font-mono font-bold text-sand-600">Nama Item:</label>
                             <input
                               type="text"
-                              required
+                              required={idx < 2}
                               value={it.name}
                               onChange={(e) => {
                                 const updated = [...(editingLook.outfit?.items || [])];
@@ -2180,7 +2280,7 @@ export default function AdminCMSPage() {
                             <label className="text-[10px] font-mono font-bold text-sand-600">Bahan Kain:</label>
                             <input
                               type="text"
-                              required
+                              required={idx < 2}
                               value={it.material}
                               onChange={(e) => {
                                 const updated = [...(editingLook.outfit?.items || [])];
@@ -2198,7 +2298,7 @@ export default function AdminCMSPage() {
                             <label className="text-[10px] font-mono font-bold text-sand-600">Estimasi Harga:</label>
                             <input
                               type="text"
-                              required
+                              required={idx < 2}
                               value={it.estimatedPrice}
                               onChange={(e) => {
                                 const updated = [...(editingLook.outfit?.items || [])];
