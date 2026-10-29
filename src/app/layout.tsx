@@ -36,6 +36,9 @@ export const metadata: Metadata = {
   description:
     "Kurasi paduan outfit adem di cuaca tropis 33°C, ramah hijab dan modest fashion, analisis personal color kulit Nusantara, terhubung langsung ke Shopee & Tokopedia.",
   manifest: "/manifest.webmanifest",
+  verification: {
+    google: "google5df4851d5f05a8bc",
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
