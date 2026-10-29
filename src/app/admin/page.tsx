@@ -71,6 +71,8 @@ export default function AdminCMSPage() {
   const [lookbookItems, setLookbookItems] = useState<TrendingLook[]>([]);
   const [lookbookSearch, setLookbookSearch] = useState("");
   const [lookbookCategoryFilter, setLookbookCategoryFilter] = useState("verified");
+  const [googleSheetUrl, setGoogleSheetUrl] = useState("");
+  const [isSyncingSheets, setIsSyncingSheets] = useState(false);
   const [editingLook, setEditingLook] = useState<TrendingLook | null>(null);
   const [isLookModalOpen, setIsLookModalOpen] = useState(false);
   const [isExtractingImage, setIsExtractingImage] = useState(false);
@@ -411,6 +413,42 @@ export default function AdminCMSPage() {
         description: `"${title}" telah dihapus dari publik.`,
         type: "info",
       });
+    }
+  };
+
+  const handleSyncGoogleSheets = async () => {
+    if (!googleSheetUrl.trim()) return;
+    setIsSyncingSheets(true);
+    try {
+      const res = await fetch("/api/sync-sheets", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: googleSheetUrl }),
+      });
+      const data = await res.json();
+      if (data.success && data.looks) {
+        saveBulkAdminLookbook(data.looks);
+        refreshAllData();
+        addToast({
+          title: "Google Sheets Berhasil Disinkronkan!",
+          description: data.message,
+          type: "success",
+        });
+      } else {
+        addToast({
+          title: "Gagal Sinkronisasi",
+          description: data.error || "Pastikan Google Sheet berstatus Public (Siapa saja dengan link dapat melihat).",
+          type: "error",
+        });
+      }
+    } catch (err: any) {
+      addToast({
+        title: "Koneksi Gagal",
+        description: err.message || "Gagal menghubungi server untuk sinkronisasi Google Sheets.",
+        type: "error",
+      });
+    } finally {
+      setIsSyncingSheets(false);
     }
   };
 
@@ -1124,6 +1162,50 @@ export default function AdminCMSPage() {
         {/* ============================================================ */}
         {activeTab === "lookbook" && (
           <div className="space-y-4">
+            {/* Google Sheets Live Sync Card */}
+            <div className="p-4 bg-white rounded-2xl border border-emerald-300 shadow-2xs space-y-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-sm">
+                    📊
+                  </div>
+                  <div>
+                    <h4 className="font-serif font-bold text-sm text-charcoal-900">
+                      Google Sheets Live Kurasi Sync
+                    </h4>
+                    <p className="text-[11px] text-sand-600">
+                      Kurasi outfit Anda sendiri di Google Sheets lalu sinkronkan langsung ke katalog Look.u secara real-time.
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href="/TEMPLATE_LOOKBOOK_LOOKU_FASHION.csv"
+                  download="TEMPLATE_LOOKBOOK_LOOKU_FASHION.csv"
+                  className="text-xs font-mono font-bold text-emerald-800 hover:text-emerald-950 underline flex items-center gap-1 shrink-0"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>Unduh Template Google Sheet (.csv)</span>
+                </a>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <input
+                  type="url"
+                  value={googleSheetUrl}
+                  onChange={(e) => setGoogleSheetUrl(e.target.value)}
+                  placeholder="Tempel link Google Sheet Anda di sini (contoh: https://docs.google.com/spreadsheets/d/...)"
+                  className="flex-1 px-3.5 py-2.5 rounded-xl bg-sand-50 border border-sand-300 text-xs font-mono text-charcoal-900 focus:outline-none focus:border-emerald-600"
+                />
+                <button
+                  type="button"
+                  onClick={handleSyncGoogleSheets}
+                  disabled={isSyncingSheets || !googleSheetUrl.trim()}
+                  className="px-4 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 disabled:opacity-40 text-white font-mono font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-2xs shrink-0"
+                >
+                  <RefreshCw className={`w-3.5 h-3.5 ${isSyncingSheets ? "animate-spin" : ""}`} />
+                  <span>{isSyncingSheets ? "Menyinkronkan..." : "Tarik & Sinkronkan ➔"}</span>
+                </button>
+              </div>
+            </div>
             {/* Filter & Search Bar */}
             <div className="flex flex-col md:flex-row gap-3">
               <div className="relative flex-1">

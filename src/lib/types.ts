@@ -68,7 +68,7 @@ export interface OutfitItem {
   colorHex?: string;
   estimatedPrice: string;
   shopeeQuery: string;
-  tokopediaQuery: string;
+  tokopediaQuery?: string;
   shopeeUrl?: string; // Direct link affiliate/toko resmi Shopee yang diatur Admin
   tokopediaUrl?: string; // Direct link toko resmi Tokopedia yang diatur Admin
   imageUrl?: string;

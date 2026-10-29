@@ -910,9 +910,10 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                         const isShoe = it.category === "sepatu";
                         const slotKey = it.category === "atasan" ? "top" : it.category === "bawahan" ? "bottom" : it.category === "outer_hijab" ? "outer" : "shoes";
                         const visual = resolveSmartItemVisual(it, slotKey, selectedLook.image);
-                        const displayImg = isShoe
+                        // STRICT 1:1 VISUAL SYNC: Prioritize item's actual packshot image over fallbacks
+                        const displayImg = it.imageUrl || (isShoe
                           ? resolveCleanShoePackshot(it.name, it.color, it.colorHex)
-                          : visual.imageUrl || it.imageUrl;
+                          : visual.imageUrl);
 
                         return (
                           <div key={idx} className="flex items-center gap-2.5 py-1.5 px-2 bg-stone-50/70 border border-[#181A18]/5">

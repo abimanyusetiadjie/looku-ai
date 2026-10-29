@@ -332,7 +332,15 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
               </span>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            <div className={`grid gap-3 sm:gap-4 ${
+              items.length === 1
+                ? "grid-cols-1 max-w-sm mx-auto"
+                : items.length === 2
+                ? "grid-cols-1 sm:grid-cols-2"
+                : items.length === 3
+                ? "grid-cols-1 sm:grid-cols-3"
+                : "grid-cols-2"
+            }`}>
               {items.map((item, index) => {
                 const links = getMarketplaceLinks(item.shopeeQuery);
                 const catLabel = item.category === "outer_hijab" ? "Hijab/Outer" : item.category.charAt(0).toUpperCase() + item.category.slice(1);
@@ -360,11 +368,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                         alt={item.name}
                         loading="lazy"
                         decoding="async" 
-                        className={`w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500 ${
-                          !isShoe && item.cropConfig?.isCrop
-                            ? `${item.cropConfig.position} ${item.cropConfig.scale}`
-                            : "object-top"
-                        }`}
+                        className="w-full h-full object-cover object-top group-hover/card:scale-105 transition-transform duration-500"
                       />
 
                       {/* Top Category & Brand Badge */}

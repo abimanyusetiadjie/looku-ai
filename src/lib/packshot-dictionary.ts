@@ -290,6 +290,11 @@ export function resolveSmartItemVisual(
   slotKey: "top" | "bottom" | "outer" | "shoes",
   heroImage?: string
 ): SmartVisualResult {
+  // STRICT 1:1 RESOLUTION: If item has its own verified product packshot image, ALWAYS use it
+  if (item?.imageUrl && item.imageUrl.trim().length > 0) {
+    return { imageUrl: item.imageUrl };
+  }
+
   const itemName = item?.name || "";
   const itemColor = item?.color || "";
   const itemHex = item?.colorHex;

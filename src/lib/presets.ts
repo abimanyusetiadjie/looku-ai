@@ -1,5 +1,5 @@
 import { OOTDRecommendation, UserPreferences, TrendingLook, OutfitItem } from "./types";
-import rawLookbook300 from "./lookbook-300.json";
+import { REAL_SIGNATURE_LOOKS_28 } from "./real-looks-28";
 
 export interface FashionItem {
   id: string;
@@ -1573,17 +1573,10 @@ const uniqueSignatureLooks: TrendingLook[] = SIGNATURE_TRENDING_LOOKS.map(look =
   return true;
 });
 
-const DATASET_LOOKBOOK_300: TrendingLook[] = (rawLookbook300 as any[]) || [];
-
-export const ALL_LOOKS_DATABASE: TrendingLook[] = [
-  ...uniqueSignatureLooks,
-  ...DATASET_LOOKBOOK_300,
-];
-
-// Default public feed only includes verified & published looks (82 curated outfits)
-export const TRENDING_LOOKS_FEED: TrendingLook[] = ALL_LOOKS_DATABASE.filter(
-  (look) => look.is_verified !== false && look.is_published !== false
-);
+// REAL SIGNATURE LOOKS: Exactly 28 Authentic Verified Looks (10 Hijab, 10 Wanita, 8 Pria)
+// Direct 1:1 Product Match & Flexible 1-3 Hero Pieces. Zero synthetic modulo clones.
+export const ALL_LOOKS_DATABASE: TrendingLook[] = REAL_SIGNATURE_LOOKS_28;
+export const TRENDING_LOOKS_FEED: TrendingLook[] = REAL_SIGNATURE_LOOKS_28;
 
 export function generateHeuristicOOTD(pref: UserPreferences): OOTDRecommendation {
   const isFemale = pref.gender !== "male";
@@ -1802,12 +1795,15 @@ export function generateHeuristicOOTD(pref: UserPreferences): OOTDRecommendation
 export type HeightFilterRange = "all" | "petite" | "standard" | "tall";
 
 const SIGNATURE_PRIA_IDS = new Set([
+  "look_p_01", "look_p_02", "look_p_03", "look_p_04", "look_p_05", "look_p_06", "look_p_07", "look_p_08",
   "trend_poly_m1", "trend_poly_m2", "trend_poly_m3", "trend_04", "trend_10", "trend_12"
 ]);
 const SIGNATURE_HIJAB_IDS = new Set([
+  "look_h_01", "look_h_02", "look_h_03", "look_h_04", "look_h_05", "look_h_06", "look_h_07", "look_h_08", "look_h_09", "look_h_10",
   "trend_01", "trend_03", "trend_06", "trend_07", "trend_14", "trend_15"
 ]);
 const SIGNATURE_WANITA_IDS = new Set([
+  "look_w_01", "look_w_02", "look_w_03", "look_w_04", "look_w_05", "look_w_06", "look_w_07", "look_w_08", "look_w_09", "look_w_10",
   "trend_poly_f1", "trend_poly_f2", "trend_poly_f3", "trend_02", "trend_05", "trend_08", "trend_09", "trend_11", "trend_13", "trend_16"
 ]);
 
