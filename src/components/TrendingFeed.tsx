@@ -217,7 +217,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
     const syncLookbook = () => {
       if (typeof window !== "undefined") {
         try {
-          const DATASET_VERSION_KEY = "looku_dataset_v35_verified";
+          const DATASET_VERSION_KEY = "looku_dataset_v36_harmonized_15";
           const currentVer = localStorage.getItem("looku_dataset_version");
           if (currentVer !== DATASET_VERSION_KEY) {
             localStorage.removeItem("looku_custom_lookbook");

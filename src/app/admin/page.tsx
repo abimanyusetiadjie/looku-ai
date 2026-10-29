@@ -470,8 +470,8 @@ export default function AdminCMSPage() {
         comfortRating: editingLook.outfit?.comfortRating || 4.9,
         affordabilityRating: editingLook.outfit?.affordabilityRating || 4.8,
         modestFriendly:
-          editingLook.category.toLowerCase().includes("hijab") ||
-          editingLook.tag.toLowerCase().includes("hijab") ||
+          (editingLook.category || "").toLowerCase().includes("hijab") ||
+          (editingLook.tag || "").toLowerCase().includes("hijab") ||
           editingLook.outfit?.modestFriendly ||
           false,
         skinToneMatch: editingLook.skinToneRecommendation,
@@ -1116,11 +1116,11 @@ export default function AdminCMSPage() {
                 </div>
               </div>
               <div className="text-3xl font-serif font-bold text-emerald-700">
-                {metrics?.affiliateStats.totalClicks ?? 0}
+                {metrics?.affiliateStats?.totalClicks ?? 0}
                 <span className="text-xs font-sans font-normal text-sand-400 ml-1.5">Klik</span>
               </div>
               <div className="text-[11px] text-emerald-700 font-mono font-bold pt-1 border-t border-sand-200">
-                Est. Komisi: Rp {(metrics?.affiliateStats.estimatedCommissionRp ?? 0).toLocaleString("id-ID")}
+                Est. Komisi: Rp {(metrics?.affiliateStats?.estimatedCommissionRp ?? 0).toLocaleString("id-ID")}
               </div>
             </div>
 
@@ -1148,13 +1148,13 @@ export default function AdminCMSPage() {
               Distribusi Kategori:
             </span>
             <span className="px-3 py-1 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 font-medium">
-              🧕 <b>Hijab & Modest:</b> {metrics?.categories.hijab ?? 0} Look
+              🧕 <b>Hijab & Modest:</b> {metrics?.categories?.hijab ?? 0} Look
             </span>
             <span className="px-3 py-1 rounded-xl bg-rose-50 border border-rose-200 text-rose-900 font-medium">
-              👗 <b>Wanita Modern:</b> {metrics?.categories.wanita ?? 0} Look
+              👗 <b>Wanita Modern:</b> {metrics?.categories?.wanita ?? 0} Look
             </span>
             <span className="px-3 py-1 rounded-xl bg-blue-50 border border-blue-200 text-blue-900 font-medium">
-              👔 <b>Pria & Menswear:</b> {metrics?.categories.pria ?? 0} Look
+              👔 <b>Pria & Menswear:</b> {metrics?.categories?.pria ?? 0} Look
             </span>
             <span className="px-3 py-1 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 font-medium">
               ⭐ <b>Golden Signature:</b> {metrics?.totalGoldenLooks ?? 0} Look
@@ -1433,7 +1433,7 @@ export default function AdminCMSPage() {
                               }`}
                               title={it.shopeeUrl ? `Shopee: ${it.shopeeUrl}` : it.name}
                             >
-                              {it.category}: {it.name.split(" ")[0]}
+                              {it.category}: {(it.name || it.category || "Item").split(" ")[0]}
                             </span>
                           ))}
                         </div>

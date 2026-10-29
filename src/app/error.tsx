@@ -41,6 +41,11 @@ export default function Error({
           <p className="text-xs sm:text-sm text-sand-500 leading-relaxed max-w-md mx-auto">
             Koneksi peramban atau sinkronisasi AI mengalami kendala sesaat. Tenang, data lemari lokal kamu tetap aman di perangkat.
           </p>
+          {error?.message && (
+            <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 font-mono text-[11px] text-left max-w-md mx-auto overflow-x-auto">
+              <span className="font-bold">Info Diagnosis:</span> {error.message}
+            </div>
+          )}
         </div>
 
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">

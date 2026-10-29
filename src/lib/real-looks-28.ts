@@ -3,22 +3,22 @@ import { TrendingLook } from "./types";
 export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
   {
     "id": "look_real_h01",
-    "title": "Uniqlo Pure Linen & Jiniso Highwaist Kulot Modest",
+    "title": "Uniqlo Pure Linen & Jiniso Highwaist Denim Modest",
     "tag": "KAMPUS TROPIS",
     "category": "Campus & Hijab",
     "vibe": "Earthy Minimalist",
     "skinToneRecommendation": "Sawo Matang & Kuning Langsat (Warm Autumn)",
-    "priceRange": "Perkiraan Rp 873.500",
-    "image": "https://i.pinimg.com/736x/1b/3d/24/1b3d240b29e3ea29a9f1d8fdcb0fa1dc.png",
+    "priceRange": "Rp 265.000 - Rp 385.000",
+    "image": "/looks/look_hijab_white_linen_denim.jpg",
     "likes": 1420,
     "isGoldenSignature": true,
     "is_verified": true,
     "is_published": true,
-    "shopeeUrl": "https://www.uniqlo.com/id/id/products/E475647-000/00",
+    "shopeeUrl": "https://shopee.co.id/jiniso.id",
     "outfit": {
       "id": "rec_real_h01",
-      "title": "Uniqlo Pure Linen & Jiniso Highwaist Kulot Modest",
-      "tagline": "Perpaduan 100% serat linen Eropa berpori mikro dengan kulot non-stretch yang tidak menjiplak paha.",
+      "title": "Uniqlo Pure Linen & Jiniso Highwaist Denim Modest",
+      "tagline": "Perpaduan kemeja linen putih bersih dengan kulot jeans vintage wash yang longgar dan breathable.",
       "overallVibe": "Earthy Minimalist",
       "comfortRating": 5,
       "affordabilityRating": 4.8,
@@ -27,9 +27,9 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
       "is_verified": true,
       "is_published": true,
       "skinToneMatch": "Warna Broken White dan Biru Denim menonjolkan rona hangat kulit Sawo Matang dan Kuning Langsat secara natural.",
-      "whyItWorks": "Bahan linen dan voal menyerap keringat seketika, menjaga suhu tubuh tetap adem di cuaca terik kampus 33°C.",
-      "stylingTip": "Tuck-in kemeja linen ke dalam celana kulot Jiniso dan kenakan pashmina Nala Voal tegak di dahi.",
-      "heroImage": "https://i.pinimg.com/736x/1b/3d/24/1b3d240b29e3ea29a9f1d8fdcb0fa1dc.png",
+      "whyItWorks": "Bahan linen dan katun denim non-stretch berpori mikro menyerap keringat seketika, adem di cuaca kampus 33°C.",
+      "stylingTip": "Tuck-in kemeja linen ke dalam celana denim Jiniso dan kenakan voal square taupe dengan lipatan tegak di dahi.",
+      "heroImage": "/looks/look_hijab_white_linen_denim.jpg",
       "createdAt": "2026-10-29T00:00:00.000Z",
       "colorPalette": [
         {
@@ -37,1478 +37,1232 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "hex": "#F4EFE6"
         },
         {
-          "name": "Medium Denim",
+          "name": "Vintage Denim Blue",
           "hex": "#4A6FA5"
         },
         {
-          "name": "Warm Nude",
-          "hex": "#E8DFD1"
+          "name": "Warm Taupe Nude",
+          "hex": "#A89886"
         }
       ],
       "items": [
         {
           "category": "atasan",
-          "name": "Uniqlo Kemeja Premium Linen Lengan Panjang Wanita (Kode: 475647)",
-          "brand": "Uniqlo ID",
-          "brandUrl": "https://www.uniqlo.com/id/id/products/E475647-000/00",
-          "material": "100% Lena (Premium European Linen)",
-          "color": "Flax Linen White",
-          "colorHex": "#F4EFE6",
-          "estimatedPrice": "Rp 599.000",
-          "imageUrl": "/products/prod_real_04.jpg",
-          "shopeeQuery": "uniqlo kemeja premium linen lengan panjang wanita 475647",
-          "shopeeUrl": "https://www.uniqlo.com/id/id/products/E475647-000/00",
-          "isOfficialBrand": true
+          "name": "Kemeja Linen Relaxed Button-Down (Broken White)",
+          "material": "100% Linen Euro Premium",
+          "color": "Broken White",
+          "estimatedPrice": "Rp 149.000 - Rp 189.000",
+          "shopeeQuery": "kemeja linen putih wanita oversized",
+          "shopeeUrl": "https://shopee.co.id/cottonink",
+          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
+          "brand": "Uniqlo / Cottonink"
         },
         {
           "category": "bawahan",
-          "name": "JINISO - Kulot Highwaist Jeans 778 RELAX",
-          "brand": "Jiniso",
-          "brandUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
-          "material": "Non-Stretch Breathable Cotton Denim",
+          "name": "JINISO 778 RELAX Loose Jeans 90s Vintage Denim",
+          "material": "Denim Katun Non-Stretch 12oz Flowy",
           "color": "Light Vintage Blue",
-          "colorHex": "#779ECB",
-          "estimatedPrice": "Rp 175.500",
-          "imageUrl": "/products/prod_real_34.jpg",
-          "shopeeQuery": "jiniso kulot highwaist jeans 778 relax",
-          "shopeeUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
-          "isOfficialBrand": true
+          "estimatedPrice": "Rp 155.000 - Rp 189.000",
+          "shopeeQuery": "jiniso 778 relax loose jeans 90s light blue",
+          "shopeeUrl": "https://shopee.co.id/jiniso.id",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
+          "brand": "JINISO"
         },
         {
           "category": "outer_hijab",
-          "name": "Lozy Hijab - Nala Voal Square",
-          "brand": "Lozy Hijab",
-          "brandUrl": "https://lozy.id/collections/voal-square-hijab",
-          "material": "Premium Voal (Breathable & Sweat-Absorbent)",
-          "color": "Warm Nude",
-          "colorHex": "#E8DFD1",
-          "estimatedPrice": "Rp 99.000",
-          "imageUrl": "/products/prod_real_16.jpg",
-          "shopeeQuery": "lozy hijab nala voal square",
-          "shopeeUrl": "https://lozy.id/collections/voal-square-hijab",
-          "isOfficialBrand": true
+          "name": "Lozy Hijab Nala Voal Square Segiempat",
+          "material": "Voal Ultrafine Breathable",
+          "color": "Warm Taupe / Nude Sand",
+          "estimatedPrice": "Rp 45.000 - Rp 65.000",
+          "shopeeQuery": "lozy hijab nala voal square taupe",
+          "shopeeUrl": "https://shopee.co.id/lozyhijabofficial",
+          "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&auto=format&fit=crop&q=80",
+          "brand": "Lozy Hijab"
+        },
+        {
+          "category": "sepatu",
+          "name": "Minimalist Court Sneaker Kulit Sintetis Low-Top",
+          "material": "Vegan Leather & Rubber Outsole",
+          "color": "Clean White",
+          "estimatedPrice": "Rp 135.000 - Rp 195.000",
+          "shopeeQuery": "sepatu sneakers court putih wanita minimalis",
+          "shopeeUrl": "https://shopee.co.id",
+          "imageUrl": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80"
         }
       ]
     }
   },
   {
     "id": "look_real_h02",
-    "title": "Cottonink Thami Raya Kemeja & Thenblank Chino Sand",
-    "tag": "WEEKEND & CAFE",
-    "category": "Weekend & Modest",
-    "vibe": "Warm Modest Chic",
-    "skinToneRecommendation": "Semua Tone Kulit (Kuning Langsat & Sawo Matang)",
-    "priceRange": "Perkiraan Rp 637.000",
-    "image": "https://i.pinimg.com/736x/87/40/3c/87403c9bbfbf473da238d38865c37cb8.jpg",
-    "likes": 1290,
+    "title": "Cottonink Thami Mustard & THENBLANK Chino Sand",
+    "tag": "SIGNATURE LOOK",
+    "category": "Campus & Hijab",
+    "vibe": "Warm Earthy",
+    "skinToneRecommendation": "Sawo Matang & Kuning Langsat (Warm Autumn)",
+    "priceRange": "Rp 245.000 - Rp 370.000",
+    "image": "/looks/look_hijab_mustard_chino.jpg",
+    "likes": 1850,
     "isGoldenSignature": true,
     "is_verified": true,
     "is_published": true,
-    "shopeeUrl": "https://cottonink.co.id/products/yellow-thami",
+    "shopeeUrl": "https://shopee.co.id/cottonink",
     "outfit": {
       "id": "rec_real_h02",
-      "title": "Cottonink Thami Raya Kemeja & Thenblank Chino Sand",
-      "tagline": "Kemeja aksen ikat samping berbahan rayon ringan berpadu celana katun drill lurus yang santun.",
-      "overallVibe": "Warm Modest Chic",
+      "title": "Cottonink Thami Mustard & THENBLANK Chino Sand",
+      "tagline": "Kemeja mustard aksen tali samping dipadukan chino warna pasir yang elegan dan santun.",
+      "overallVibe": "Warm Earthy",
       "comfortRating": 4.9,
       "affordabilityRating": 4.7,
       "modestFriendly": true,
       "isGoldenSignature": true,
       "is_verified": true,
       "is_published": true,
-      "skinToneMatch": "Nuansa Mustard Yellow dan Sand Khaki memberi efek mencerahkan wajah sawo matang tropis.",
-      "whyItWorks": "Rayon katun 70% membuat gerak leluasa di cafe semi-outdoor tanpa rasa gerah.",
-      "stylingTip": "Ikatkan tali samping dengan simpul pita longgar untuk aksen siluet proporsional.",
-      "heroImage": "https://i.pinimg.com/736x/87/40/3c/87403c9bbfbf473da238d38865c37cb8.jpg",
+      "skinToneMatch": "Gradasi mustard kuning hangat dan celana chino sand memberikan efek mencerahkan kulit sawo matang Indonesia.",
+      "whyItWorks": "Kain katun rayon lembut dikombinasikan dengan celana chino drill berpori menjaga sirkulasi udara tetap sejuk seharian.",
+      "stylingTip": "Ikat tali samping kemeja dengan simpul rileks dan padukan dengan hijab voal warna cream netral.",
+      "heroImage": "/looks/look_hijab_mustard_chino.jpg",
       "createdAt": "2026-10-29T00:00:00.000Z",
       "colorPalette": [
         {
-          "name": "Mustard Gold",
-          "hex": "#D4A373"
+          "name": "Warm Mustard",
+          "hex": "#D4A347"
         },
         {
-          "name": "Sand Beige",
-          "hex": "#E6D7C3"
+          "name": "Chino Sand",
+          "hex": "#D9C9B4"
         },
         {
-          "name": "Cream White",
-          "hex": "#FDFBF7"
+          "name": "Cream Swatch",
+          "hex": "#F5F0E6"
         }
       ],
       "items": [
         {
           "category": "atasan",
-          "name": "COTTONINK - Atasan Kemeja Wanita Thami #RayaModest2026",
-          "brand": "Cottonink",
-          "brandUrl": "https://cottonink.co.id/products/yellow-thami",
-          "material": "Rayon 70%, Polyester 30% (Light Weight)",
-          "color": "Mustard Yellow",
-          "colorHex": "#D4A373",
-          "estimatedPrice": "Rp 379.000",
-          "imageUrl": "/products/prod_real_11.jpg",
-          "shopeeQuery": "cottonink atasan kemeja thami yellow raya modest",
-          "shopeeUrl": "https://cottonink.co.id/products/yellow-thami",
-          "isOfficialBrand": true
+          "name": "Cottonink Thami Kemeja Aksen Tali Samping",
+          "material": "Katun Rayon Twill Dingin",
+          "color": "Warm Mustard Yellow",
+          "estimatedPrice": "Rp 139.000 - Rp 179.000",
+          "shopeeQuery": "cottonink thami kemeja aksen tali mustard yellow",
+          "shopeeUrl": "https://shopee.co.id/cottonink",
+          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
+          "brand": "Cottonink"
         },
         {
           "category": "bawahan",
-          "name": "Thenblank - Chino Pants | Sand",
-          "brand": "Thenblank",
-          "brandUrl": "https://thenblank.com/products/chino-pants-sand",
-          "material": "High Quality Cotton Drill (Breathable)",
+          "name": "THENBLANK Chino Pants Sand / Khaki Drill",
+          "material": "Katun Drill Halus Non-Kaku",
           "color": "Sand Khaki",
-          "colorHex": "#E6D7C3",
-          "estimatedPrice": "Rp 189.000",
-          "imageUrl": "/products/prod_real_30.jpg",
-          "shopeeQuery": "thenblank chino pants sand",
-          "shopeeUrl": "https://thenblank.com/products/chino-pants-sand",
-          "isOfficialBrand": true
+          "estimatedPrice": "Rp 145.000 - Rp 185.000",
+          "shopeeQuery": "thenblank chino pants sand khaki wanita",
+          "shopeeUrl": "https://shopee.co.id/thenblank",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
+          "brand": "THENBLANK"
         },
         {
           "category": "outer_hijab",
-          "name": "Lozy Hijab - Theya Voal Square",
-          "brand": "Lozy Hijab",
-          "brandUrl": "https://lozy.id/collections/voal-square-hijab",
-          "material": "Basic Voal Ringan & Adem",
-          "color": "Cream",
-          "colorHex": "#FDFBF7",
-          "estimatedPrice": "Rp 69.000",
-          "imageUrl": "/products/prod_real_17.jpg",
-          "shopeeQuery": "lozy hijab theya voal square cream",
-          "shopeeUrl": "https://lozy.id/collections/voal-square-hijab",
-          "isOfficialBrand": true
+          "name": "Lozy Hijab Nala Voal Square Segiempat",
+          "material": "Voal Miracle Ringan",
+          "color": "Warm Cream Swatch",
+          "estimatedPrice": "Rp 45.000 - Rp 65.000",
+          "shopeeQuery": "lozy hijab nala voal square cream",
+          "shopeeUrl": "https://shopee.co.id/lozyhijabofficial",
+          "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&auto=format&fit=crop&q=80",
+          "brand": "Lozy Hijab"
+        },
+        {
+          "category": "sepatu",
+          "name": "Pointed Block Mules Kulit Vegan Wanita",
+          "material": "Vegan Leather 3cm Heel",
+          "color": "Nude Cream",
+          "estimatedPrice": "Rp 125.000 - Rp 165.000",
+          "shopeeQuery": "mules pointed block heel cream wanita",
+          "shopeeUrl": "https://shopee.co.id",
+          "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
         }
       ]
     }
   },
   {
     "id": "look_real_h03",
-    "title": "Cottonink Jemima Puff Blouse & Jiniso Kulot 778",
-    "tag": "OFFICE & KAMPUS",
-    "category": "Office & Hijab",
-    "vibe": "Classic Elegant Modest",
-    "skinToneRecommendation": "Sawo Matang & Neutral Undertone",
-    "priceRange": "Perkiraan Rp 799.500",
-    "image": "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600&auto=format&fit=crop&q=80",
-    "likes": 1150,
+    "title": "Powder Blue Flowy Trench & Silver Pashmina Modest",
+    "tag": "SEMI-FORMAL HIJAB",
+    "category": "Campus & Hijab",
+    "vibe": "Sophisticated Cool",
+    "skinToneRecommendation": "Kuning Langsat & Cool Undertone",
+    "priceRange": "Rp 290.000 - Rp 420.000",
+    "image": "/looks/look_powder_blue_hijab.jpg",
+    "likes": 1210,
     "isGoldenSignature": true,
     "is_verified": true,
     "is_published": true,
-    "shopeeUrl": "https://cottonink.co.id/products/navy-jemima",
+    "shopeeUrl": "https://shopee.co.id/thenblank",
     "outfit": {
       "id": "rec_real_h03",
-      "title": "Cottonink Jemima Puff Blouse & Jiniso Kulot 778",
-      "tagline": "Kerah tinggi (high neckline) dan lengan puff anggun dipadukan dengan kulot jeans santun.",
-      "overallVibe": "Classic Elegant Modest",
+      "title": "Powder Blue Flowy Trench & Silver Pashmina Modest",
+      "tagline": "Outer trench biru pastel berpotongan drape flowy dipadukan pashmina satin perak dan ankle boots putih.",
+      "overallVibe": "Sophisticated Cool",
       "comfortRating": 4.8,
       "affordabilityRating": 4.6,
       "modestFriendly": true,
       "isGoldenSignature": true,
       "is_verified": true,
       "is_published": true,
-      "skinToneMatch": "Deep Navy kontras cantik dengan sentuhan Pale Blush di kulit sawo matang Indonesia.",
-      "whyItWorks": "Bahan rayon adem dengan potongan tertutup formal, aman untuk ruangan kantor ber-AC maupun transit luar.",
-      "stylingTip": "Masukkan ujung blouse ke dalam kulot dan sematkan bros minimalis di hijab segiempat.",
-      "heroImage": "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600&auto=format&fit=crop&q=80",
+      "skinToneMatch": "Palet warna pastel dingin (Powder Blue & Silver) memberi kesan wajah cerah berseri dan bersih.",
+      "whyItWorks": "Bahan tencel drape jatuh lembut tanpa membebani tubuh, ideal untuk meeting ber-AC maupun mobilitas harian.",
+      "stylingTip": "Biarkan outer terurai tanpa dikancingkan penuh untuk memperlihatkan inner broken-white yang kontras rapi.",
+      "heroImage": "/looks/look_powder_blue_hijab.jpg",
       "createdAt": "2026-10-29T00:00:00.000Z",
       "colorPalette": [
         {
-          "name": "Navy Blue",
-          "hex": "#1B263B"
+          "name": "Powder Sky Blue",
+          "hex": "#A4C2D6"
         },
         {
-          "name": "Pale Blush",
-          "hex": "#E8D5D5"
+          "name": "Pure Silk Silver",
+          "hex": "#DCE1E3"
         },
         {
-          "name": "Classic Denim",
-          "hex": "#4A6FA5"
+          "name": "Snow White",
+          "hex": "#FDFDFD"
         }
       ],
       "items": [
         {
-          "category": "atasan",
-          "name": "COTTONINK - Atasan Blouse Wanita Navy Jemima #RayaModest2026",
-          "brand": "Cottonink",
-          "brandUrl": "https://cottonink.co.id/products/navy-jemima",
-          "material": "Rayon 70%, Polyester 30% (Light Weight)",
-          "color": "Navy Blue",
-          "colorHex": "#1B263B",
-          "estimatedPrice": "Rp 329.000",
-          "imageUrl": "/products/prod_real_12.jpg",
-          "shopeeQuery": "cottonink blouse navy jemima raya modest",
-          "shopeeUrl": "https://cottonink.co.id/products/navy-jemima",
-          "isOfficialBrand": true
+          "category": "outer_hijab",
+          "name": "Flowy Drape Trench Tunik Panjang Lengan Trompet",
+          "material": "Tencel Modal Drape Dingin",
+          "color": "Powder Sky Blue",
+          "estimatedPrice": "Rp 185.000 - Rp 245.000",
+          "shopeeQuery": "outer trench coat drape flowy powder blue hijab",
+          "shopeeUrl": "https://shopee.co.id/thenblank",
+          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
+          "brand": "THENBLANK"
         },
         {
           "category": "bawahan",
-          "name": "JINISO - Kulot Highwaist Jeans 778 RELAX",
-          "brand": "Jiniso",
-          "brandUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
-          "material": "Non-Stretch Breathable Cotton Denim",
-          "color": "Classic Blue",
-          "colorHex": "#4A6FA5",
-          "estimatedPrice": "Rp 175.500",
-          "imageUrl": "/products/prod_real_34.jpg",
-          "shopeeQuery": "jiniso kulot highwaist jeans 778 relax",
-          "shopeeUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
-          "isOfficialBrand": true
+          "name": "Shop At Velvet Pleated Flowy Wide Culottes",
+          "material": "Katun Twill Flowy Anti Kusut",
+          "color": "Broken White",
+          "estimatedPrice": "Rp 135.000 - Rp 175.000",
+          "shopeeQuery": "shopatvelvet pleated flowy wide culottes broken white",
+          "shopeeUrl": "https://shopee.co.id/shopatvelvet",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
+          "brand": "Shop At Velvet"
         },
         {
           "category": "outer_hijab",
-          "name": "Buttonscarves - Voal Square in Pale Blush",
-          "brand": "Buttonscarves",
-          "brandUrl": "https://www.buttonscarves.com/collections/bs-basic-voal",
-          "material": "Premium Voile Buttonscarves",
-          "color": "Pale Blush",
-          "colorHex": "#E8D5D5",
-          "estimatedPrice": "Rp 295.000",
-          "imageUrl": "/products/prod_real_20.jpg",
-          "shopeeQuery": "buttonscarves basic voal square pale blush",
-          "shopeeUrl": "https://www.buttonscarves.com/collections/bs-basic-voal",
-          "isOfficialBrand": true
+          "name": "Pashmina Ceruty Babydoll Silk Drape",
+          "material": "Ceruty Babydoll Premium",
+          "color": "Silver Grey Ice",
+          "estimatedPrice": "Rp 39.000 - Rp 59.000",
+          "shopeeQuery": "pashmina ceruty babydoll silver grey ice",
+          "shopeeUrl": "https://shopee.co.id/lozyhijabofficial",
+          "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&auto=format&fit=crop&q=80",
+          "brand": "Lozy Hijab"
+        },
+        {
+          "category": "sepatu",
+          "name": "White Leather Block Ankle Boots",
+          "material": "Vegan Nappa Leather",
+          "color": "Crisp White",
+          "estimatedPrice": "Rp 165.000 - Rp 235.000",
+          "shopeeQuery": "ankle boots pointed block heel putih wanita",
+          "shopeeUrl": "https://shopee.co.id",
+          "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
         }
       ]
     }
   },
   {
     "id": "look_real_h04",
-    "title": "Thenblank Honey Rayon Cotton & Chino Sand",
-    "tag": "DAILY CASUAL",
-    "category": "Campus & Daily",
-    "vibe": "Contemporary Earthy",
-    "skinToneRecommendation": "Sawo Matang & Kuning Langsat",
-    "priceRange": "Perkiraan Rp 557.000",
-    "image": "https://i.pinimg.com/736x/85/51/23/855123d51f2f814988bf2fae10be539a.jpg",
-    "likes": 980,
+    "title": "Sage Green Oversized Linen & Wide Pants Hijab",
+    "tag": "BOTANICAL FRESH",
+    "category": "Campus & Hijab",
+    "vibe": "Fresh Natural",
+    "skinToneRecommendation": "Sawo Matang & Kuning Langsat (Neutral Warm)",
+    "priceRange": "Rp 230.000 - Rp 340.000",
+    "image": "/looks/look_hijab_sage_white_pants.jpg",
+    "likes": 1680,
     "isGoldenSignature": true,
     "is_verified": true,
     "is_published": true,
-    "shopeeUrl": "https://thenblank.com/products/casual-shirt-honey",
+    "shopeeUrl": "https://shopee.co.id/cottonink",
     "outfit": {
       "id": "rec_real_h04",
-      "title": "Thenblank Honey Rayon Cotton & Chino Sand",
-      "tagline": "Kemeja Fine Rayon Cotton dingin berpotongan belakang panjang, ramah wudhu dan tertutup santun.",
-      "overallVibe": "Contemporary Earthy",
-      "comfortRating": 4.9,
-      "affordabilityRating": 4.9,
+      "title": "Sage Green Oversized Linen & Wide Pants Hijab",
+      "tagline": "Kemeja tunik linen sage green dipadukan kulot katun broken white yang rileks dan santun.",
+      "overallVibe": "Fresh Natural",
+      "comfortRating": 5,
+      "affordabilityRating": 4.8,
       "modestFriendly": true,
       "isGoldenSignature": true,
       "is_verified": true,
       "is_published": true,
-      "skinToneMatch": "Warna Honey warm dan Milo brown selaras sempurna dengan undertone sawo matang.",
-      "whyItWorks": "Bahan Tencel dan rayon katun memberikan pendinginan pasif optimal di udara lembap Jakarta.",
-      "stylingTip": "Biarkan kemeja jatuh rapi di luar celana chino untuk siluet kasual santun.",
-      "heroImage": "https://i.pinimg.com/736x/85/51/23/855123d51f2f814988bf2fae10be539a.jpg",
+      "skinToneMatch": "Nuansa hijau sage meredam rona kemerahan dan menyatu sempurna dengan undertone kulit tropis Indonesia.",
+      "whyItWorks": "Serat linen berpori tinggi menjamin rasa sejuk maksimal saat beraktivitas outdoor maupun transit kampus.",
+      "stylingTip": "Gulung lengan kemeja 1 lipatan ke atas dan kenakan hijab voal segiempat warna cream bersih.",
+      "heroImage": "/looks/look_hijab_sage_white_pants.jpg",
       "createdAt": "2026-10-29T00:00:00.000Z",
       "colorPalette": [
         {
-          "name": "Honey",
-          "hex": "#D4A373"
+          "name": "Botanical Sage Green",
+          "hex": "#8A9A86"
         },
         {
-          "name": "Sand Drill",
-          "hex": "#E6D7C3"
+          "name": "Broken White",
+          "hex": "#F7F5F0"
         },
         {
-          "name": "Milo Brown",
-          "hex": "#8D6E63"
+          "name": "Warm Cream Swatch",
+          "hex": "#F3EDE2"
         }
       ],
       "items": [
         {
           "category": "atasan",
-          "name": "Thenblank - Casual Shirt | Honey",
-          "brand": "Thenblank",
-          "brandUrl": "https://thenblank.com/products/casual-shirt-honey",
-          "material": "Fine Rayon Cotton (Serat Katun Diagonal)",
-          "color": "Honey",
-          "colorHex": "#D4A373",
-          "estimatedPrice": "Rp 189.000",
-          "imageUrl": "/products/prod_real_28.jpg",
-          "shopeeQuery": "thenblank casual shirt honey",
-          "shopeeUrl": "https://thenblank.com/products/casual-shirt-honey",
-          "isOfficialBrand": true
+          "name": "Cottonink Oversized Linen Tunic Blouse",
+          "material": "Linen Crinkle Breathable",
+          "color": "Sage Green Botanical",
+          "estimatedPrice": "Rp 145.000 - Rp 185.000",
+          "shopeeQuery": "cottonink tunik linen oversized sage green",
+          "shopeeUrl": "https://shopee.co.id/cottonink",
+          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
+          "brand": "Cottonink"
         },
         {
           "category": "bawahan",
-          "name": "Thenblank - Chino Pants | Sand",
-          "brand": "Thenblank",
-          "brandUrl": "https://thenblank.com/products/chino-pants-sand",
-          "material": "High Quality Cotton Drill",
-          "color": "Sand Khaki",
-          "colorHex": "#E6D7C3",
-          "estimatedPrice": "Rp 189.000",
-          "imageUrl": "/products/prod_real_30.jpg",
-          "shopeeQuery": "thenblank chino pants sand",
-          "shopeeUrl": "https://thenblank.com/products/chino-pants-sand",
-          "isOfficialBrand": true
+          "name": "Shop At Velvet Wide Leg Cotton Pants",
+          "material": "Katun Poplin Non-See-Through",
+          "color": "Broken White",
+          "estimatedPrice": "Rp 129.000 - Rp 169.000",
+          "shopeeQuery": "shopatvelvet wide leg pants broken white",
+          "shopeeUrl": "https://shopee.co.id/shopatvelvet",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
+          "brand": "Shop At Velvet"
         },
         {
           "category": "outer_hijab",
-          "name": "Lozy Hijab - Ten Shawl Milo (Tencel Curved Pashmina)",
-          "brand": "Lozy Hijab",
-          "brandUrl": "https://lozy.id/collections/tencel-collection",
-          "material": "100% Tencel Fiber (Ultra Cooling & Flowy)",
-          "color": "Milo Brown",
-          "colorHex": "#8D6E63",
-          "estimatedPrice": "Rp 179.000",
-          "imageUrl": "/products/prod_real_18.jpg",
-          "shopeeQuery": "lozy hijab ten shawl milo tencel",
-          "shopeeUrl": "https://lozy.id/collections/tencel-collection",
-          "isOfficialBrand": true
+          "name": "Lozy Hijab Nala Voal Square Segiempat",
+          "material": "Voal Ultrafine Dingin",
+          "color": "Warm Cream",
+          "estimatedPrice": "Rp 45.000 - Rp 65.000",
+          "shopeeQuery": "lozy hijab nala voal square cream",
+          "shopeeUrl": "https://shopee.co.id/lozyhijabofficial",
+          "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&auto=format&fit=crop&q=80",
+          "brand": "Lozy Hijab"
+        },
+        {
+          "category": "sepatu",
+          "name": "Clean White Canvas Minimalist Sneakers",
+          "material": "Canvas & Vulcanized Rubber",
+          "color": "Pure White",
+          "estimatedPrice": "Rp 110.000 - Rp 155.000",
+          "shopeeQuery": "sneakers canvas putih polos wanita low cut",
+          "shopeeUrl": "https://shopee.co.id",
+          "imageUrl": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80"
         }
       ]
     }
   },
   {
     "id": "look_real_h05",
-    "title": "Kami Idea Solene Tencel Tunic & Shopatvelvet Wide Pants",
-    "tag": "SEMI-FORMAL & SIDANG",
-    "category": "Office & Formal Modest",
-    "vibe": "Quiet Luxury Modest",
-    "skinToneRecommendation": "Semua Tone Kulit (Kuning Langsat & Sawo Matang)",
-    "priceRange": "Perkiraan Rp 986.216",
-    "image": "https://images.unsplash.com/photo-1551803091-e20673f15770?w=600&auto=format&fit=crop&q=80",
-    "likes": 1310,
+    "title": "Cottonink Jemima Navy & THENBLANK Chino Sand",
+    "tag": "CASUAL MODEST",
+    "category": "Campus & Hijab",
+    "vibe": "Smart Modest",
+    "skinToneRecommendation": "Sawo Matang & Kuning Langsat",
+    "priceRange": "Rp 255.000 - Rp 375.000",
+    "image": "/looks/look_hijab_navy_sand_chino.jpg",
+    "likes": 1390,
     "isGoldenSignature": true,
     "is_verified": true,
     "is_published": true,
-    "shopeeUrl": "https://kamiidea.com/products/solene-loose-tunic-beige",
+    "shopeeUrl": "https://shopee.co.id/cottonink",
     "outfit": {
       "id": "rec_real_h05",
-      "title": "Kami Idea Solene Tencel Tunic & Shopatvelvet Wide Pants",
-      "tagline": "Tunik serat Tencel 85% dengan bordir anggun berpadu celana wide pants katun tenun ringan.",
-      "overallVibe": "Quiet Luxury Modest",
-      "comfortRating": 5,
-      "affordabilityRating": 4.5,
-      "modestFriendly": true,
-      "isGoldenSignature": true,
-      "is_verified": true,
-      "is_published": true,
-      "skinToneMatch": "Perpaduan Beige dan Broken White menciptakan aura bersih profesional untuk sidang atau forum resmi.",
-      "whyItWorks": "Serat selulosa Tencel adalah bahan paling dingin di kulit, tidak menyebabkan keringat tertahan.",
-      "stylingTip": "Padukan dengan flat mules kulit dan tas tote berstruktur rapi.",
-      "heroImage": "https://images.unsplash.com/photo-1551803091-e20673f15770?w=600&auto=format&fit=crop&q=80",
-      "createdAt": "2026-10-29T00:00:00.000Z",
-      "colorPalette": [
-        {
-          "name": "Beige Tencel",
-          "hex": "#D8CBB5"
-        },
-        {
-          "name": "Pure White",
-          "hex": "#FFFFFF"
-        },
-        {
-          "name": "Tokyo Voile",
-          "hex": "#E9DAC1"
-        }
-      ],
-      "items": [
-        {
-          "category": "atasan",
-          "name": "Kami Idea - SOLENE LOOSE TUNIC BEIGE",
-          "brand": "Kami Idea",
-          "brandUrl": "https://kamiidea.com/products/solene-loose-tunic-beige",
-          "material": "85% Tencel, 15% Polyester",
-          "color": "Beige",
-          "colorHex": "#D8CBB5",
-          "estimatedPrice": "Rp 489.000",
-          "imageUrl": "/products/prod_real_26.jpg",
-          "shopeeQuery": "kami idea solene loose tunic beige",
-          "shopeeUrl": "https://kamiidea.com/products/solene-loose-tunic-beige",
-          "isOfficialBrand": true
-        },
-        {
-          "category": "bawahan",
-          "name": "Shopatvelvet - PT-01 White Wide Pants",
-          "brand": "Shopatvelvet",
-          "brandUrl": "https://shopatvelvet.com/",
-          "material": "Lightweight Woven Cotton Blend",
-          "color": "White",
-          "colorHex": "#FFFFFF",
-          "estimatedPrice": "Rp 102.216",
-          "imageUrl": "/products/prod_real_35.jpg",
-          "shopeeQuery": "shopatvelvet pt 01 white wide pants",
-          "shopeeUrl": "https://shopatvelvet.com/",
-          "isOfficialBrand": true
-        },
-        {
-          "category": "outer_hijab",
-          "name": "Buttonscarves - The Journey Square - Tokyo",
-          "brand": "Buttonscarves",
-          "brandUrl": "https://www.buttonscarves.com/collections/scarves",
-          "material": "Premium Voile with Lasercut",
-          "color": "Tokyo Motif",
-          "colorHex": "#E9DAC1",
-          "estimatedPrice": "Rp 395.000",
-          "imageUrl": "/products/prod_real_21.jpg",
-          "shopeeQuery": "buttonscarves the journey square tokyo",
-          "shopeeUrl": "https://www.buttonscarves.com/collections/scarves",
-          "isOfficialBrand": true
-        }
-      ]
-    }
-  },
-  {
-    "id": "look_real_h06",
-    "title": "Uniqlo Rayon Drape Blouse & Shopatvelvet PT-01",
-    "tag": "KANTOR & PRESENTASI",
-    "category": "Office & Hijab",
-    "vibe": "Clean Flowy Drape",
-    "skinToneRecommendation": "Sawo Matang & Kuning Langsat",
-    "priceRange": "Perkiraan Rp 600.216",
-    "image": "https://i.pinimg.com/736x/d0/e1/79/d0e179729344bf55f3b2454ae8f10098.jpg",
-    "likes": 1220,
-    "isGoldenSignature": true,
-    "is_verified": true,
-    "is_published": true,
-    "shopeeUrl": "https://www.uniqlo.com/id/id/products/E464798-000/00",
-    "outfit": {
-      "id": "rec_real_h06",
-      "title": "Uniqlo Rayon Drape Blouse & Shopatvelvet PT-01",
-      "tagline": "Tekstur rayon halus anti-lecek dengan lengan panjang penuh yang aman tanpa perlu inner manset.",
-      "overallVibe": "Clean Flowy Drape",
-      "comfortRating": 5,
-      "affordabilityRating": 4.8,
-      "modestFriendly": true,
-      "isGoldenSignature": true,
-      "is_verified": true,
-      "is_published": true,
-      "skinToneMatch": "Monokrom lembut dengan kontras warna netral membuat tampilan terlihat segar dan berwibawa.",
-      "whyItWorks": "Campuran rayon dan poliester daur ulang menghasilkan jatuhan kain yang rapi tanpa perlu sering disetrika.",
-      "stylingTip": "Kenakan hijab Haraa Voal lasercut dengan jarum semat di bawah dagu secara ringkas.",
-      "heroImage": "https://i.pinimg.com/736x/d0/e1/79/d0e179729344bf55f3b2454ae8f10098.jpg",
-      "createdAt": "2026-10-29T00:00:00.000Z",
-      "colorPalette": [
-        {
-          "name": "Soft White Rayon",
-          "hex": "#F8F9FA"
-        },
-        {
-          "name": "Cream Pants",
-          "hex": "#F1EAE0"
-        },
-        {
-          "name": "Dusty Beige",
-          "hex": "#D4C5B9"
-        }
-      ],
-      "items": [
-        {
-          "category": "atasan",
-          "name": "Uniqlo Blus Rayon Wanita (Kode Produk: 464798)",
-          "brand": "Uniqlo ID",
-          "brandUrl": "https://www.uniqlo.com/id/id/products/E464798-000/00",
-          "material": "76% Viskosa (Rayon), 24% Poliester Daur Ulang",
-          "color": "Soft White",
-          "colorHex": "#F8F9FA",
-          "estimatedPrice": "Rp 399.000",
-          "imageUrl": "/products/prod_real_01.jpg",
-          "shopeeQuery": "uniqlo blus rayon wanita 464798",
-          "shopeeUrl": "https://www.uniqlo.com/id/id/products/E464798-000/00",
-          "isOfficialBrand": true
-        },
-        {
-          "category": "bawahan",
-          "name": "Shopatvelvet - PT-01 White Wide Pants",
-          "brand": "Shopatvelvet",
-          "brandUrl": "https://shopatvelvet.com/",
-          "material": "Lightweight Woven Cotton Blend",
-          "color": "White",
-          "colorHex": "#FFFFFF",
-          "estimatedPrice": "Rp 102.216",
-          "imageUrl": "/products/prod_real_35.jpg",
-          "shopeeQuery": "shopatvelvet pt 01 white wide pants",
-          "shopeeUrl": "https://shopatvelvet.com/",
-          "isOfficialBrand": true
-        },
-        {
-          "category": "outer_hijab",
-          "name": "Lozy Hijab - Haraa Voal (Segiempat Lasercut)",
-          "brand": "Lozy Hijab",
-          "brandUrl": "https://lozy.id/collections/voal-square-hijab",
-          "material": "Voal Lasercut Breathable",
-          "color": "Dusty Beige",
-          "colorHex": "#D4C5B9",
-          "estimatedPrice": "Rp 99.000",
-          "imageUrl": "/products/prod_real_19.jpg",
-          "shopeeQuery": "lozy hijab haraa voal lasercut",
-          "shopeeUrl": "https://lozy.id/collections/voal-square-hijab",
-          "isOfficialBrand": true
-        }
-      ]
-    }
-  },
-  {
-    "id": "look_real_h07",
-    "title": "Ria Miranda Ecru Chaize Tunic & Thenblank Chino Sand",
-    "tag": "SPECIAL GATHERING",
-    "category": "Weekend & Modest",
-    "vibe": "Editorial Contemporary",
-    "skinToneRecommendation": "Sawo Matang & Kuning Langsat",
-    "priceRange": "Perkiraan Rp 1.459.000",
-    "image": "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=600&auto=format&fit=crop&q=80",
-    "likes": 1410,
-    "isGoldenSignature": true,
-    "is_verified": true,
-    "is_published": true,
-    "shopeeUrl": "https://www.zalora.co.id/p/riamiranda-ecru-chaize-sleeveless-tunic",
-    "outfit": {
-      "id": "rec_real_h07",
-      "title": "Ria Miranda Ecru Chaize Tunic & Thenblank Chino Sand",
-      "tagline": "Tunik vest Venoza Twill jatuh dan sejuk untuk layering santun di atas celana katun drill.",
-      "overallVibe": "Editorial Contemporary",
-      "comfortRating": 4.9,
-      "affordabilityRating": 4.3,
-      "modestFriendly": true,
-      "isGoldenSignature": true,
-      "is_verified": true,
-      "is_published": true,
-      "skinToneMatch": "Nuansa Ecru dan Palace Voile gold charm memberikan aura prestisius berkelas.",
-      "whyItWorks": "Venoza twill memiliki aliran sirkulasi udara bebas sehingga layering tidak terasa gerah.",
-      "stylingTip": "Padukan dengan inner kemeja putih tipis dan kitten heels senada.",
-      "heroImage": "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=600&auto=format&fit=crop&q=80",
-      "createdAt": "2026-10-29T00:00:00.000Z",
-      "colorPalette": [
-        {
-          "name": "Ecru Twill",
-          "hex": "#EAE6DF"
-        },
-        {
-          "name": "Sand Khaki",
-          "hex": "#E6D7C3"
-        },
-        {
-          "name": "Palace Rose",
-          "hex": "#D8BFD8"
-        }
-      ],
-      "items": [
-        {
-          "category": "atasan",
-          "name": "RiaMiranda Ecru Chaize Sleeveless Tunic",
-          "brand": "Ria Miranda",
-          "brandUrl": "https://www.zalora.co.id/p/riamiranda-ecru-chaize-sleeveless-tunic",
-          "material": "Premium Venoza Twill Flowy",
-          "color": "Ecru",
-          "colorHex": "#EAE6DF",
-          "estimatedPrice": "Rp 795.000",
-          "imageUrl": "/products/prod_real_27.jpg",
-          "shopeeQuery": "riamiranda ecru chaize sleeveless tunic",
-          "shopeeUrl": "https://www.zalora.co.id/p/riamiranda-ecru-chaize-sleeveless-tunic",
-          "isOfficialBrand": true
-        },
-        {
-          "category": "bawahan",
-          "name": "Thenblank - Chino Pants | Sand",
-          "brand": "Thenblank",
-          "brandUrl": "https://thenblank.com/products/chino-pants-sand",
-          "material": "High Quality Cotton Drill",
-          "color": "Sand Khaki",
-          "colorHex": "#E6D7C3",
-          "estimatedPrice": "Rp 189.000",
-          "imageUrl": "/products/prod_real_30.jpg",
-          "shopeeQuery": "thenblank chino pants sand",
-          "shopeeUrl": "https://thenblank.com/products/chino-pants-sand",
-          "isOfficialBrand": true
-        },
-        {
-          "category": "outer_hijab",
-          "name": "Buttonscarves - The Palace Voile Square Scarf",
-          "brand": "Buttonscarves",
-          "brandUrl": "https://www.buttonscarves.com/collections/scarves",
-          "material": "Premium Voile",
-          "color": "Elegance Pattern",
-          "colorHex": "#D8BFD8",
-          "estimatedPrice": "Rp 475.000",
-          "imageUrl": "/products/prod_real_22.jpg",
-          "shopeeQuery": "buttonscarves the palace voile square elegance",
-          "shopeeUrl": "https://www.buttonscarves.com/collections/scarves",
-          "isOfficialBrand": true
-        }
-      ]
-    }
-  },
-  {
-    "id": "look_real_h08",
-    "title": "Cottonink Nadra Embroidery & Jiniso 778 Relax",
-    "tag": "KAMPUS ART & DESAIN",
-    "category": "Campus & Hijab",
-    "vibe": "Artisan Modest",
-    "skinToneRecommendation": "Sawo Matang & Kuning Langsat",
-    "priceRange": "Perkiraan Rp 679.500",
-    "image": "https://i.pinimg.com/736x/8b/37/01/8b370169218458e48e093fd8140c898a.jpg",
-    "likes": 1040,
-    "isGoldenSignature": true,
-    "is_verified": true,
-    "is_published": true,
-    "shopeeUrl": "https://cottonink.co.id/products/off-white-embroidery-nadra",
-    "outfit": {
-      "id": "rec_real_h08",
-      "title": "Cottonink Nadra Embroidery & Jiniso 778 Relax",
-      "tagline": "Kemeja bordir rayon blend penutup panggul (73 cm) dengan kulot longgar berangin.",
-      "overallVibe": "Artisan Modest",
+      "title": "Cottonink Jemima Navy & THENBLANK Chino Sand",
+      "tagline": "Blouse high-low navy berbelahan samping dipadukan chino sand dan pashmina tencel yang teduh.",
+      "overallVibe": "Smart Modest",
       "comfortRating": 4.9,
       "affordabilityRating": 4.8,
       "modestFriendly": true,
       "isGoldenSignature": true,
       "is_verified": true,
       "is_published": true,
-      "skinToneMatch": "Off-white dengan denim klasik memberikan kontras lembut yang menyegarkan di kulit sawo matang.",
-      "whyItWorks": "Panjang kemeja 70–73 cm menutup panggul sempurna, aman saat duduk di kursi kuliah maupun berjalan aktif.",
-      "stylingTip": "Gunakan hijab Hi-Voal wangi Zaskia Mecca untuk sensasi harum segar seharian.",
-      "heroImage": "https://i.pinimg.com/736x/8b/37/01/8b370169218458e48e093fd8140c898a.jpg",
+      "skinToneMatch": "Kontras warna Navy Blue dan celana Sand menciptakan siluet jenjang dan profesional bagi kulit sawo matang.",
+      "whyItWorks": "Potongan high-low menutup pinggul dengan rapi tanpa kesan kaku berkat bahan rayon tencel yang jatuh.",
+      "stylingTip": "Kenakan tas tote kulit warna tan dan padukan dengan pashmina tencel sand yang dililit rapi ke belakang bahu.",
+      "heroImage": "/looks/look_hijab_navy_sand_chino.jpg",
       "createdAt": "2026-10-29T00:00:00.000Z",
       "colorPalette": [
         {
-          "name": "Off-White Embroidery",
-          "hex": "#FAF0E6"
+          "name": "Deep Navy Blue",
+          "hex": "#1C2D42"
         },
         {
-          "name": "Denim Indigo",
-          "hex": "#3B5998"
+          "name": "Chino Sand",
+          "hex": "#D6C7B2"
         },
         {
-          "name": "Blush Nude",
-          "hex": "#E8D8D0"
+          "name": "Tencel Beige",
+          "hex": "#E8DEC8"
         }
       ],
       "items": [
         {
           "category": "atasan",
-          "name": "Cottonink - Off-white Embroidery Nadra Shirt",
-          "brand": "Cottonink",
-          "brandUrl": "https://cottonink.co.id/products/off-white-embroidery-nadra",
-          "material": "Rayon Blend (Smooth Lightweight Fabric)",
-          "color": "Off-White",
-          "colorHex": "#FAF0E6",
-          "estimatedPrice": "Rp 429.000",
-          "imageUrl": "/products/prod_real_13.jpg",
-          "shopeeQuery": "cottonink off white embroidery nadra shirt",
-          "shopeeUrl": "https://cottonink.co.id/products/off-white-embroidery-nadra",
-          "isOfficialBrand": true
+          "name": "Cottonink Jemima High-Low Blouse Belahan Samping",
+          "material": "Rayon Tencel Flowy Dingin",
+          "color": "Deep Navy Blue",
+          "estimatedPrice": "Rp 145.000 - Rp 185.000",
+          "shopeeQuery": "cottonink jemima blouse navy lengan puff",
+          "shopeeUrl": "https://shopee.co.id/cottonink",
+          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
+          "brand": "Cottonink"
         },
         {
           "category": "bawahan",
-          "name": "JINISO - Kulot Highwaist Jeans 778 RELAX",
-          "brand": "Jiniso",
-          "brandUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
-          "material": "Non-Stretch Breathable Cotton Denim",
-          "color": "Indigo Denim",
-          "colorHex": "#3B5998",
-          "estimatedPrice": "Rp 175.500",
-          "imageUrl": "/products/prod_real_34.jpg",
-          "shopeeQuery": "jiniso kulot highwaist jeans 778 relax",
-          "shopeeUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
-          "isOfficialBrand": true
+          "name": "THENBLANK Chino Pants Sand / Khaki Drill",
+          "material": "Katun Drill Halus Non-Kaku",
+          "color": "Chino Sand Khaki",
+          "estimatedPrice": "Rp 145.000 - Rp 185.000",
+          "shopeeQuery": "thenblank chino pants sand wanita",
+          "shopeeUrl": "https://shopee.co.id/thenblank",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
+          "brand": "THENBLANK"
         },
         {
           "category": "outer_hijab",
-          "name": "ZM Zaskia Mecca - Fayola Hi-Voal Casual Hijab Wangi",
-          "brand": "Zaskia Mecca",
-          "brandUrl": "https://shopee.co.id/zaskiameccaofficial",
-          "material": "Premium Hi-Voal (Scented Technology)",
-          "color": "Blush Nude",
-          "colorHex": "#E8D8D0",
-          "estimatedPrice": "Rp 75.000",
-          "imageUrl": "/products/prod_real_24.jpg",
-          "shopeeQuery": "zaskia mecca fayola hi voal casual hijab wangi",
-          "shopeeUrl": "https://shopee.co.id/zaskiameccaofficial",
-          "isOfficialBrand": true
+          "name": "Lozy Hijab Ten Shawl Curved Tencel Pashmina",
+          "material": "Tencel Eco-Friendly Ringan",
+          "color": "Sand / Soft Milo",
+          "estimatedPrice": "Rp 49.000 - Rp 72.000",
+          "shopeeQuery": "lozy hijab ten shawl tencel sand",
+          "shopeeUrl": "https://shopee.co.id/lozyhijabofficial",
+          "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&auto=format&fit=crop&q=80",
+          "brand": "Lozy Hijab"
+        },
+        {
+          "category": "sepatu",
+          "name": "Pointed Block-Heel Mules Kulit Vegan Nude",
+          "material": "Vegan Nappa Leather 4cm Heel",
+          "color": "Cream Swatch",
+          "estimatedPrice": "Rp 135.000 - Rp 180.000",
+          "shopeeQuery": "mules pointed block heel cream wanita",
+          "shopeeUrl": "https://shopee.co.id",
+          "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
         }
       ]
     }
   },
   {
     "id": "look_real_w01",
-    "title": "Uniqlo Linen Blend Kerah Terbuka & Jiniso Baggy Kulot",
-    "tag": "KAFE & BRUNCH",
-    "category": "Weekend & Cafe",
-    "vibe": "Relaxed Summer Modern",
+    "title": "Mandarin Collar Linen Blouse & Pleated Sand Slacks",
+    "tag": "MINIMALIST CHIC",
+    "category": "Casual Wanita",
+    "vibe": "Warm Minimalist",
     "skinToneRecommendation": "Sawo Matang & Kuning Langsat",
-    "priceRange": "Perkiraan Rp 524.500",
-    "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80",
+    "priceRange": "Rp 210.000 - Rp 310.000",
+    "image": "/looks/look_cream_mandarin_linen.jpg",
     "likes": 1540,
     "isGoldenSignature": true,
     "is_verified": true,
     "is_published": true,
-    "shopeeUrl": "https://www.uniqlo.com/id/id/products/E483883-000/00",
+    "shopeeUrl": "https://shopee.co.id/thenblank",
     "outfit": {
       "id": "rec_real_w01",
-      "title": "Uniqlo Linen Blend Kerah Terbuka & Jiniso Baggy Kulot",
-      "tagline": "Kemeja kerah terbuka katun-linen sejuk dipadukan kulot denim rileks 90-an.",
-      "overallVibe": "Relaxed Summer Modern",
-      "comfortRating": 5,
+      "title": "Mandarin Collar Linen Blouse & Pleated Sand Slacks",
+      "tagline": "Blus linen kerah tegak mandarin warna off-white dipadukan celana bahan berlipit warna pasir.",
+      "overallVibe": "Warm Minimalist",
+      "comfortRating": 4.9,
       "affordabilityRating": 4.8,
       "modestFriendly": false,
       "isGoldenSignature": true,
       "is_verified": true,
       "is_published": true,
-      "skinToneMatch": "Nuansa Olive/Khaki dan Denim cerah memberi kontras estetik di kulit tropis.",
-      "whyItWorks": "Kerah terbuka memfasilitasi sirkulasi udara maksimal di dada saat cuaca panas 33°C.",
-      "stylingTip": "Lipat sedikit lengan kemeja dan padukan dengan kacamata tortoise-shell.",
-      "heroImage": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80",
+      "skinToneMatch": "Perpaduan warna netral hangat (Off-White & Sand) mempertegas kilau sawo matang yang eksotis dan bersih.",
+      "whyItWorks": "Serat linen campur katun memberikan tekstur natural tanpa lekas kusut di suhu hangat perkotaan.",
+      "stylingTip": "Masukkan ujung depan blus secara rapi (half-tuck) dan padukan dengan sandal slip-on berujung lancip.",
+      "heroImage": "/looks/look_cream_mandarin_linen.jpg",
       "createdAt": "2026-10-29T00:00:00.000Z",
       "colorPalette": [
         {
-          "name": "Olive Linen",
-          "hex": "#708238"
+          "name": "Creamy Off-White",
+          "hex": "#FAF6EE"
         },
         {
-          "name": "Denim Blue",
-          "hex": "#4A6FA5"
+          "name": "Pleated Sand",
+          "hex": "#D8C7B0"
+        },
+        {
+          "name": "Soft Almond",
+          "hex": "#EADDC9"
         }
       ],
       "items": [
         {
           "category": "atasan",
-          "name": "Uniqlo Kemeja Linen Blend Kerah Terbuka Lengan Pendek Wanita (Kode: 483883)",
-          "brand": "Uniqlo ID",
-          "brandUrl": "https://www.uniqlo.com/id/id/products/E483883-000/00",
-          "material": "Linen Rayon Blend (Viskosa & Lena)",
-          "color": "Olive / Sand",
-          "colorHex": "#708238",
-          "estimatedPrice": "Rp 349.000",
-          "imageUrl": "/products/prod_real_07.jpg",
-          "shopeeQuery": "uniqlo kemeja linen blend kerah terbuka lengan pendek 483883",
-          "shopeeUrl": "https://www.uniqlo.com/id/id/products/E483883-000/00",
-          "isOfficialBrand": true
+          "name": "Kemeja Kerah Mandarin Linen Blend Relaxed",
+          "material": "Katun Linen Campur",
+          "color": "Creamy Off-White",
+          "estimatedPrice": "Rp 125.000 - Rp 165.000",
+          "shopeeQuery": "blus kemeja kerah mandarin linen wanita off white",
+          "shopeeUrl": "https://shopee.co.id/thenblank",
+          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
+          "brand": "THENBLANK"
         },
         {
           "category": "bawahan",
-          "name": "JINISO - Kulot Highwaist Jeans 778 RELAX",
-          "brand": "Jiniso",
-          "brandUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
-          "material": "Non-Stretch Breathable Cotton Denim",
-          "color": "Vintage Blue",
-          "colorHex": "#4A6FA5",
-          "estimatedPrice": "Rp 175.500",
-          "imageUrl": "/products/prod_real_34.jpg",
-          "shopeeQuery": "jiniso kulot highwaist jeans 778 relax",
-          "shopeeUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
-          "isOfficialBrand": true
+          "name": "THENBLANK Wide Leg Pleated Slacks / Trousers",
+          "material": "Katun Twill Flowy Semi-Formal",
+          "color": "Sand Khaki",
+          "estimatedPrice": "Rp 145.000 - Rp 185.000",
+          "shopeeQuery": "thenblank wide leg slacks pleated sand trousers",
+          "shopeeUrl": "https://shopee.co.id/thenblank",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
+          "brand": "THENBLANK"
+        },
+        {
+          "category": "sepatu",
+          "name": "Minimalist Pointed-Toe Leather Slides",
+          "material": "Vegan Nappa Leather",
+          "color": "Almond Nude",
+          "estimatedPrice": "Rp 115.000 - Rp 155.000",
+          "shopeeQuery": "sandal slip on pointed flat mules nude wanita",
+          "shopeeUrl": "https://shopee.co.id",
+          "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
         }
       ]
     }
   },
   {
     "id": "look_real_w02",
-    "title": "Cottonink Black Fawnia Oversized & Shopatvelvet PT-01",
-    "tag": "MONOCHROME MINIMALIST",
-    "category": "Campus & Modern",
-    "vibe": "Clean Japanese Chic",
-    "skinToneRecommendation": "Semua Tone Kulit",
-    "priceRange": "Perkiraan Rp 431.216",
-    "image": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&auto=format&fit=crop&q=80",
-    "likes": 1390,
+    "title": "Cottonink Dusty Rose Linen & THENBLANK Sand Culottes",
+    "tag": "FEMININE TROPICAL",
+    "category": "Casual Wanita",
+    "vibe": "Soft Earthy",
+    "skinToneRecommendation": "Sawo Matang & Kuning Langsat (Warm Neutral)",
+    "priceRange": "Rp 220.000 - Rp 330.000",
+    "image": "/looks/look_dusty_rose_linen.jpg",
+    "likes": 1720,
     "isGoldenSignature": true,
     "is_verified": true,
     "is_published": true,
-    "shopeeUrl": "https://cottonink.co.id/products/black-fawnia",
+    "shopeeUrl": "https://shopee.co.id/cottonink",
     "outfit": {
       "id": "rec_real_w02",
-      "title": "Cottonink Black Fawnia Oversized & Shopatvelvet PT-01",
-      "tagline": "Perpaduan rayon lyocell hitam berpotongan high-low dengan wide pants putih tenun.",
-      "overallVibe": "Clean Japanese Chic",
-      "comfortRating": 4.9,
-      "affordabilityRating": 4.9,
+      "title": "Cottonink Dusty Rose Linen & THENBLANK Sand Culottes",
+      "tagline": "Kemeja linen santai dusty rose dipadukan celana kulot longgar berpinggang tinggi warna sand.",
+      "overallVibe": "Soft Earthy",
+      "comfortRating": 5,
+      "affordabilityRating": 4.8,
       "modestFriendly": false,
       "isGoldenSignature": true,
       "is_verified": true,
       "is_published": true,
-      "skinToneMatch": "Monokrom klasik kontras tinggi menciptakan garis siluet tajam dan modern.",
-      "whyItWorks": "Serat selulosa lyocell sangat menyerap keringat tanpa menempel di punggung.",
-      "stylingTip": "Setengah bagian depan dimasukkan (half-tuck) ke celana untuk siluet kaki jenjang.",
-      "heroImage": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&auto=format&fit=crop&q=80",
+      "skinToneMatch": "Warna Dusty Rose yang teredam memberi kesan manis tanpa membuat kulit sawo matang terlihat pucat.",
+      "whyItWorks": "Tekstur crinkle linen terasa sangat ringan di badan dan menyerap kelembapan udara tropis.",
+      "stylingTip": "Buka 1 kancing atas kemeja dan padukan dengan celana kulot longgar bervolume natural.",
+      "heroImage": "/looks/look_dusty_rose_linen.jpg",
       "createdAt": "2026-10-29T00:00:00.000Z",
       "colorPalette": [
         {
-          "name": "Onyx Black",
-          "hex": "#1C1C1C"
+          "name": "Dusty Rose Linen",
+          "hex": "#D99B9B"
         },
         {
-          "name": "Chalk White",
-          "hex": "#F8F8F8"
+          "name": "Chino Sand",
+          "hex": "#D8C7B0"
+        },
+        {
+          "name": "Warm Terracotta",
+          "hex": "#C87D65"
         }
       ],
       "items": [
         {
           "category": "atasan",
-          "name": "Cottonink - Black Fawnia Oversized Shirt",
-          "brand": "Cottonink",
-          "brandUrl": "https://cottonink.co.id/products/black-fawnia",
-          "material": "Soft & Breathable Rayon and Lyocell Blend",
-          "color": "Onyx Black",
-          "colorHex": "#1C1C1C",
-          "estimatedPrice": "Rp 329.000",
-          "imageUrl": "/products/prod_real_14.jpg",
-          "shopeeQuery": "cottonink black fawnia oversized shirt",
-          "shopeeUrl": "https://cottonink.co.id/products/black-fawnia",
-          "isOfficialBrand": true
+          "name": "Cottonink Relaxed Linen Crinkle Shirt",
+          "material": "100% Linen Euro Crinkle",
+          "color": "Dusty Rose Pink",
+          "estimatedPrice": "Rp 139.000 - Rp 179.000",
+          "shopeeQuery": "cottonink kemeja linen crinkle dusty rose pink",
+          "shopeeUrl": "https://shopee.co.id/cottonink",
+          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
+          "brand": "Cottonink"
         },
         {
           "category": "bawahan",
-          "name": "Shopatvelvet - PT-01 White Wide Pants",
-          "brand": "Shopatvelvet",
-          "brandUrl": "https://shopatvelvet.com/",
-          "material": "Lightweight Woven Cotton Blend",
-          "color": "White",
-          "colorHex": "#FFFFFF",
-          "estimatedPrice": "Rp 102.216",
-          "imageUrl": "/products/prod_real_35.jpg",
-          "shopeeQuery": "shopatvelvet pt 01 white wide pants",
-          "shopeeUrl": "https://shopatvelvet.com/",
-          "isOfficialBrand": true
+          "name": "THENBLANK Chino Pants / Wide Culottes Sand",
+          "material": "Katun Drill Ringan",
+          "color": "Chino Sand Khaki",
+          "estimatedPrice": "Rp 145.000 - Rp 185.000",
+          "shopeeQuery": "thenblank chino pants sand khaki wanita",
+          "shopeeUrl": "https://shopee.co.id/thenblank",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
+          "brand": "THENBLANK"
+        },
+        {
+          "category": "sepatu",
+          "name": "Minimalist Strap Slides Flat Sandals",
+          "material": "Vegan Leather",
+          "color": "Nude Peach",
+          "estimatedPrice": "Rp 105.000 - Rp 145.000",
+          "shopeeQuery": "sandal strap slides teplek wanita nude",
+          "shopeeUrl": "https://shopee.co.id",
+          "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
         }
       ]
     }
   },
   {
     "id": "look_real_w03",
-    "title": "Uniqlo Blus Linen Volume Pendek & Thenblank Chino Sand",
-    "tag": "WORK FROM CAFE",
-    "category": "Weekend & Cafe",
-    "vibe": "Warm Neutral Tones",
-    "skinToneRecommendation": "Sawo Matang & Kuning Langsat",
-    "priceRange": "Perkiraan Rp 588.000",
-    "image": "https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=600&auto=format&fit=crop&q=80",
-    "likes": 1120,
+    "title": "Shop At Velvet Coral Summer Wrap Dress & Sun Hat",
+    "tag": "RESORT VACATION",
+    "category": "Casual Wanita",
+    "vibe": "Tropical Resort",
+    "skinToneRecommendation": "Sawo Matang & Kuning Langsat (Warm Spring/Autumn)",
+    "priceRange": "Rp 235.000 - Rp 340.000",
+    "image": "/looks/look_coral_summer_dress.jpg",
+    "likes": 1980,
     "isGoldenSignature": true,
     "is_verified": true,
     "is_published": true,
-    "shopeeUrl": "https://www.uniqlo.com/id/id/products/E475655-000/00",
+    "shopeeUrl": "https://shopee.co.id/shopatvelvet",
     "outfit": {
       "id": "rec_real_w03",
-      "title": "Uniqlo Blus Linen Volume Pendek & Thenblank Chino Sand",
-      "tagline": "Lengan raglan bervolume yang membebaskan ketiak berpadu celana chino katun drill halus.",
-      "overallVibe": "Warm Neutral Tones",
+      "title": "Shop At Velvet Coral Summer Wrap Dress & Sun Hat",
+      "tagline": "Wrap dress rayon warna coral terracotta satu kesatuan dengan topi jerami dan sandal tali minimalis.",
+      "overallVibe": "Tropical Resort",
       "comfortRating": 5,
       "affordabilityRating": 4.7,
       "modestFriendly": false,
       "isGoldenSignature": true,
       "is_verified": true,
       "is_published": true,
-      "skinToneMatch": "Perpaduan warna Oat Cream dan Sand Khaki sangat ramah untuk warm undertone.",
-      "whyItWorks": "Potongan raglan volume menjamin udara mengalir bebas tanpa membasahi ketiak.",
-      "stylingTip": "Lengkapi dengan tas rotan / canvas tote bag untuk tampilan santai estetis.",
-      "heroImage": "https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=600&auto=format&fit=crop&q=80",
+      "skinToneMatch": "Rona coral terracotta menyala cantik di kulit sawo matang Indonesia saat terpapar sinar matahari tropis.",
+      "whyItWorks": "Potongan wrap dress membingkai siluet pinggang secara fleksibel tanpa terasa sesak saat berlibur.",
+      "stylingTip": "Padukan dengan topi pantai anyaman jerami (straw hat) dan tote bag kanvas kasual.",
+      "heroImage": "/looks/look_coral_summer_dress.jpg",
       "createdAt": "2026-10-29T00:00:00.000Z",
       "colorPalette": [
         {
-          "name": "Oat Cream",
-          "hex": "#E8DFD1"
+          "name": "Warm Coral",
+          "hex": "#E2725B"
         },
         {
-          "name": "Sand Khaki",
-          "hex": "#E6D7C3"
+          "name": "Straw Tan",
+          "hex": "#D4B996"
+        },
+        {
+          "name": "Midnight Black",
+          "hex": "#1F2022"
         }
       ],
       "items": [
         {
           "category": "atasan",
-          "name": "Uniqlo Blus Linen Blend Lengan Volume Pendek (Kode Produk: 475655)",
-          "brand": "Uniqlo ID",
-          "brandUrl": "https://www.uniqlo.com/id/id/products/E475655-000/00",
-          "material": "62% Viskosa (Rayon), 33% Lena (Linen), 5% Nilon",
-          "color": "Oat Cream",
-          "colorHex": "#E8DFD1",
-          "estimatedPrice": "Rp 399.000",
-          "imageUrl": "/products/prod_real_06.jpg",
-          "shopeeQuery": "uniqlo blus linen blend lengan volume pendek 475655",
-          "shopeeUrl": "https://www.uniqlo.com/id/id/products/E475655-000/00",
-          "isOfficialBrand": true
+          "name": "Shop At Velvet Coral Rayon Midi Wrap Dress",
+          "material": "Rayon Twill Dingin Ekstra Halus",
+          "color": "Coral Terracotta",
+          "estimatedPrice": "Rp 175.000 - Rp 225.000",
+          "shopeeQuery": "shopatvelvet rayon midi wrap dress coral terracotta",
+          "shopeeUrl": "https://shopee.co.id/shopatvelvet",
+          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
+          "brand": "Shop At Velvet"
         },
         {
-          "category": "bawahan",
-          "name": "Thenblank - Chino Pants | Sand",
-          "brand": "Thenblank",
-          "brandUrl": "https://thenblank.com/products/chino-pants-sand",
-          "material": "High Quality Cotton Drill",
-          "color": "Sand Khaki",
-          "colorHex": "#E6D7C3",
-          "estimatedPrice": "Rp 189.000",
-          "imageUrl": "/products/prod_real_30.jpg",
-          "shopeeQuery": "thenblank chino pants sand",
-          "shopeeUrl": "https://thenblank.com/products/chino-pants-sand",
-          "isOfficialBrand": true
+          "category": "sepatu",
+          "name": "Minimalist Ankle Strap Flat Sandals",
+          "material": "Kulit Sintetis Vegan",
+          "color": "Classic Black",
+          "estimatedPrice": "Rp 95.000 - Rp 135.000",
+          "shopeeQuery": "sandal tali flat ankle strap hitam wanita minimalis",
+          "shopeeUrl": "https://shopee.co.id",
+          "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
         }
       ]
     }
   },
   {
     "id": "look_real_w04",
-    "title": "Cottonink Off-white Weekend Blouse & Jiniso Kulot",
-    "tag": "WEEKEND GETAWAY",
-    "category": "Weekend & Cafe",
-    "vibe": "Breezy Resort Casual",
-    "skinToneRecommendation": "Sawo Matang & Kuning Langsat",
-    "priceRange": "Perkiraan Rp 404.500",
-    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&auto=format&fit=crop&q=80",
-    "likes": 1280,
+    "title": "Noir Avant-Garde Ruffle Dress & Leather Boots",
+    "tag": "AVANT-GARDE EDITORIAL",
+    "category": "Casual Wanita",
+    "vibe": "Edgy High-Fashion",
+    "skinToneRecommendation": "Semua Skin Tone (Neutral Bold)",
+    "priceRange": "Rp 320.000 - Rp 480.000",
+    "image": "/looks/look_black_ruffle_dress.jpg",
+    "likes": 2150,
     "isGoldenSignature": true,
     "is_verified": true,
     "is_published": true,
-    "shopeeUrl": "https://cottonink.co.id/products/off-white-weekend-blouse",
+    "shopeeUrl": "https://shopee.co.id/shopatvelvet",
     "outfit": {
       "id": "rec_real_w04",
-      "title": "Cottonink Off-white Weekend Blouse & Jiniso Kulot",
-      "tagline": "Kerah tegak dengan lingkar dada ekstra longgar (110–130 cm) untuk liburan akhir pekan.",
-      "overallVibe": "Breezy Resort Casual",
-      "comfortRating": 5,
-      "affordabilityRating": 5,
+      "title": "Noir Avant-Garde Ruffle Dress & Leather Boots",
+      "tagline": "Gaun mantel hitam aksen ruffler dramatis dengan fedora wide-brim dan sepatu bot kulit tegas.",
+      "overallVibe": "Edgy High-Fashion",
+      "comfortRating": 4.7,
+      "affordabilityRating": 4.5,
       "modestFriendly": false,
       "isGoldenSignature": true,
       "is_verified": true,
       "is_published": true,
-      "skinToneMatch": "Off-white cerah memantulkan sinar matahari tropis, menjaga kulit tetap sejuk.",
-      "whyItWorks": "Bahan Rayon Lyocell memberikan rasa dingin langsung saat pertama kali menyentuh kulit.",
-      "stylingTip": "Padukan dengan sandal selop kulit cokelat dan tas jinjing rajut.",
-      "heroImage": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&auto=format&fit=crop&q=80",
+      "skinToneMatch": "Monokrom hitam pekat (Noir) memberikan kontras tajam yang mempertegas garis wajah dan postur.",
+      "whyItWorks": "Detail ruffle berstruktur memberi volume artistik yang stand-out di acara pameran, konser, atau art gallery.",
+      "stylingTip": "Kenakan topi fedora bertepi lebar dan lipstik rona berry untuk melengkapi aura editorial.",
+      "heroImage": "/looks/look_black_ruffle_dress.jpg",
       "createdAt": "2026-10-29T00:00:00.000Z",
       "colorPalette": [
         {
-          "name": "Off-White",
-          "hex": "#FAF9F6"
+          "name": "Pitch Black",
+          "hex": "#0F1111"
         },
         {
-          "name": "Vintage Denim",
-          "hex": "#5B7C99"
+          "name": "Charcoal Shadow",
+          "hex": "#2B2D2F"
+        },
+        {
+          "name": "Ivory Accent",
+          "hex": "#F5F5F0"
         }
       ],
       "items": [
         {
           "category": "atasan",
-          "name": "Cottonink - Off-white Weekend Blouse",
-          "brand": "Cottonink",
-          "brandUrl": "https://cottonink.co.id/products/off-white-weekend-blouse",
-          "material": "Rayon Lyocell (Light Weight)",
-          "color": "Off-White",
-          "colorHex": "#FAF9F6",
-          "estimatedPrice": "Rp 229.000",
-          "imageUrl": "/products/prod_real_15.jpg",
-          "shopeeQuery": "cottonink off white weekend blouse",
-          "shopeeUrl": "https://cottonink.co.id/products/off-white-weekend-blouse",
-          "isOfficialBrand": true
+          "name": "Noir Avant-Garde Structured Ruffle Coat Dress",
+          "material": "Katun Poplin Berstruktur Tebal",
+          "color": "Deep Noir Black",
+          "estimatedPrice": "Rp 220.000 - Rp 295.000",
+          "shopeeQuery": "ruffle blazer coat dress hitam wanita",
+          "shopeeUrl": "https://shopee.co.id/shopatvelvet",
+          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
+          "brand": "Shop At Velvet"
         },
         {
-          "category": "bawahan",
-          "name": "JINISO - Kulot Highwaist Jeans 778 RELAX",
-          "brand": "Jiniso",
-          "brandUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
-          "material": "Non-Stretch Breathable Cotton Denim",
-          "color": "Vintage Denim",
-          "colorHex": "#5B7C99",
-          "estimatedPrice": "Rp 175.500",
-          "imageUrl": "/products/prod_real_34.jpg",
-          "shopeeQuery": "jiniso kulot highwaist jeans 778 relax",
-          "shopeeUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
-          "isOfficialBrand": true
+          "category": "sepatu",
+          "name": "Black Leather Heeled Ankle Chelsea Boots",
+          "material": "Vegan Nappa Leather 5cm Block Heel",
+          "color": "Jet Black",
+          "estimatedPrice": "Rp 175.000 - Rp 245.000",
+          "shopeeQuery": "chelsea boots heels 5cm hitam wanita kulit",
+          "shopeeUrl": "https://shopee.co.id",
+          "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
         }
       ]
     }
   },
   {
     "id": "look_real_w05",
-    "title": "Uniqlo Blus Rayon Skipper & Thenblank Chino Sand",
-    "tag": "SCBD SMART CASUAL",
-    "category": "Office & Semi-Formal",
-    "vibe": "Effortless Tailored",
+    "title": "Cottonink Boxy Linen Shirt & Jiniso 778 RELAX Denim",
+    "tag": "STREET CASUAL",
+    "category": "Casual Wanita",
+    "vibe": "Urban Effortless",
     "skinToneRecommendation": "Sawo Matang & Kuning Langsat",
-    "priceRange": "Perkiraan Rp 588.000",
-    "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=80",
-    "likes": 1470,
+    "priceRange": "Rp 240.000 - Rp 350.000",
+    "image": "/looks/look_wanita_offwhite_denim.jpg",
+    "likes": 1890,
     "isGoldenSignature": true,
     "is_verified": true,
     "is_published": true,
-    "shopeeUrl": "https://www.uniqlo.com/id/id/products/E489228-000/00",
+    "shopeeUrl": "https://shopee.co.id/cottonink",
     "outfit": {
       "id": "rec_real_w05",
-      "title": "Uniqlo Blus Rayon Skipper & Thenblank Chino Sand",
-      "tagline": "Kerah skipper dengan bukaan V halus memberi sirkulasi udara ekstra di area leher.",
-      "overallVibe": "Effortless Tailored",
+      "title": "Cottonink Boxy Linen Shirt & Jiniso 778 RELAX Denim",
+      "tagline": "Kemeja boxy linen putih gading dipadukan celana jeans kulot longgar berpinggang tinggi dan penny loafers cokelat.",
+      "overallVibe": "Urban Effortless",
       "comfortRating": 4.9,
       "affordabilityRating": 4.8,
       "modestFriendly": false,
       "isGoldenSignature": true,
       "is_verified": true,
       "is_published": true,
-      "skinToneMatch": "Bukaan leher V skipper memperpanjang siluet leher dan memberi rona cerah pada wajah.",
-      "whyItWorks": "Tekstur rayon jatuh bebas (drape), tidak mudah lecek saat duduk berjam-jam saat meeting.",
-      "stylingTip": "Masukkan ke dalam celana chino dengan ikat pinggang kulit tipis cokelat tua.",
-      "heroImage": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=80",
+      "skinToneMatch": "Perpaduan klasik kemeja putih dan denim biru terang selalu timeless di kulit tropis nusantara.",
+      "whyItWorks": "Potongan boxy memberi ruang gerak leluasa sementara high-waist denim memperpanjang proporsi kaki.",
+      "stylingTip": "Gunakan ikat pinggang kulit cokelat tua ramping dan gulung ujung celana jika menyukai siluet crop.",
+      "heroImage": "/looks/look_wanita_offwhite_denim.jpg",
       "createdAt": "2026-10-29T00:00:00.000Z",
       "colorPalette": [
         {
-          "name": "Skipper White",
-          "hex": "#FFFFFF"
+          "name": "Creamy Ivory",
+          "hex": "#F8F5EE"
         },
         {
-          "name": "Sand Khaki",
-          "hex": "#E6D7C3"
+          "name": "Vintage Light Denim",
+          "hex": "#5C82A6"
+        },
+        {
+          "name": "Rich Cognac Brown",
+          "hex": "#7B4B27"
         }
       ],
       "items": [
         {
           "category": "atasan",
-          "name": "Uniqlo Blus Rayon Kerah Skipper Lengan 3/4",
-          "brand": "Uniqlo ID",
-          "brandUrl": "https://www.uniqlo.com/id/id/products/E489228-000/00",
-          "material": "76% Viskosa (Rayon), 24% Poliester",
-          "color": "White",
-          "colorHex": "#FFFFFF",
-          "estimatedPrice": "Rp 399.000",
-          "imageUrl": "/products/prod_real_02.jpg",
-          "shopeeQuery": "uniqlo blus rayon kerah skipper lengan 3/4",
-          "shopeeUrl": "https://www.uniqlo.com/id/id/products/E489228-000/00",
-          "isOfficialBrand": true
+          "name": "Cottonink Boxy Short-Sleeve Linen Shirt",
+          "material": "Katun Linen Breathable",
+          "color": "Creamy Ivory / Off-White",
+          "estimatedPrice": "Rp 129.000 - Rp 169.000",
+          "shopeeQuery": "cottonink boxy short sleeve linen shirt off white",
+          "shopeeUrl": "https://shopee.co.id/cottonink",
+          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
+          "brand": "Cottonink"
         },
         {
           "category": "bawahan",
-          "name": "Thenblank - Chino Pants | Sand",
-          "brand": "Thenblank",
-          "brandUrl": "https://thenblank.com/products/chino-pants-sand",
-          "material": "High Quality Cotton Drill",
-          "color": "Sand Khaki",
-          "colorHex": "#E6D7C3",
-          "estimatedPrice": "Rp 189.000",
-          "imageUrl": "/products/prod_real_30.jpg",
-          "shopeeQuery": "thenblank chino pants sand",
-          "shopeeUrl": "https://thenblank.com/products/chino-pants-sand",
-          "isOfficialBrand": true
-        }
-      ]
-    }
-  },
-  {
-    "id": "look_real_w06",
-    "title": "Uniqlo Rayon Bergaris & Shopatvelvet PT-01",
-    "tag": "PRESENTASI KAMPUS",
-    "category": "Campus & Presentation",
-    "vibe": "Subtle Pinstripe Chic",
-    "skinToneRecommendation": "Sawo Matang & Kuning Langsat",
-    "priceRange": "Perkiraan Rp 501.216",
-    "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80",
-    "likes": 1190,
-    "isGoldenSignature": true,
-    "is_verified": true,
-    "is_published": true,
-    "shopeeUrl": "https://www.uniqlo.com/id/id/products/E475647-000/01",
-    "outfit": {
-      "id": "rec_real_w06",
-      "title": "Uniqlo Rayon Bergaris & Shopatvelvet PT-01",
-      "tagline": "Garis vertikal halus yang menyamarkan lekuk tubuh berpadu celana lebar katun tenun.",
-      "overallVibe": "Subtle Pinstripe Chic",
-      "comfortRating": 5,
-      "affordabilityRating": 4.8,
-      "modestFriendly": false,
-      "isGoldenSignature": true,
-      "is_verified": true,
-      "is_published": true,
-      "skinToneMatch": "Garis biru lembut dan putih memberi ilusi visual tubuh lebih tinggi dan ramping.",
-      "whyItWorks": "Rayon katun berpori sangat adem untuk aktivitas bolak-balik ruang kelas ber-AC dan koridor kampus.",
-      "stylingTip": "Gulung 1 kali pergelangan tangan kemeja untuk memperlihatkan jam tangan minimalis.",
-      "heroImage": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80",
-      "createdAt": "2026-10-29T00:00:00.000Z",
-      "colorPalette": [
-        {
-          "name": "Pinstripe Blue",
-          "hex": "#7D9EC0"
+          "name": "JINISO 778 RELAX Highwaist Vintage Wide Denim",
+          "material": "Denim Katun Non-Stretch 12oz",
+          "color": "Vintage Light Blue",
+          "estimatedPrice": "Rp 155.000 - Rp 189.000",
+          "shopeeQuery": "jiniso 778 relax kulot jeans vintage light blue",
+          "shopeeUrl": "https://shopee.co.id/jiniso.id",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
+          "brand": "JINISO"
         },
         {
-          "name": "Clean White",
-          "hex": "#FFFFFF"
-        }
-      ],
-      "items": [
-        {
-          "category": "atasan",
-          "name": "Uniqlo Blus Rayon (Garis) Lengan Panjang",
-          "brand": "Uniqlo ID",
-          "brandUrl": "https://www.uniqlo.com/id/id/products/E475647-000/01",
-          "material": "76% Viskosa (Rayon), 24% Poliester",
-          "color": "Blue Stripe",
-          "colorHex": "#7D9EC0",
-          "estimatedPrice": "Rp 399.000",
-          "imageUrl": "/products/prod_real_03.jpg",
-          "shopeeQuery": "uniqlo blus rayon garis lengan panjang",
-          "shopeeUrl": "https://www.uniqlo.com/id/id/products/E475647-000/01",
-          "isOfficialBrand": true
-        },
-        {
-          "category": "bawahan",
-          "name": "Shopatvelvet - PT-01 White Wide Pants",
-          "brand": "Shopatvelvet",
-          "brandUrl": "https://shopatvelvet.com/",
-          "material": "Lightweight Woven Cotton Blend",
-          "color": "White",
-          "colorHex": "#FFFFFF",
-          "estimatedPrice": "Rp 102.216",
-          "imageUrl": "/products/prod_real_35.jpg",
-          "shopeeQuery": "shopatvelvet pt 01 white wide pants",
-          "shopeeUrl": "https://shopatvelvet.com/",
-          "isOfficialBrand": true
+          "category": "sepatu",
+          "name": "Classic Leather Penny Loafers Wanita",
+          "material": "Vegan Leather Halus",
+          "color": "Rich Cognac Dark Brown",
+          "estimatedPrice": "Rp 135.000 - Rp 185.000",
+          "shopeeQuery": "sepatu penny loafers kulit cokelat wanita",
+          "shopeeUrl": "https://shopee.co.id",
+          "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
         }
       ]
     }
   },
   {
     "id": "look_real_p01",
-    "title": "Erigo Rayon Lavrenti White & Thenblank Chino Sand",
-    "tag": "SUMMER RESORT",
-    "category": "Pria & Weekend",
-    "vibe": "Clean Coastal Casual",
+    "title": "Erigo Rayon Lavrenti White & THENBLANK Chino Sand",
+    "tag": "MENSWEAR",
+    "category": "Pria & Menswear",
+    "vibe": "Tropical Resort",
     "skinToneRecommendation": "Sawo Matang & Kuning Langsat",
-    "priceRange": "Perkiraan Rp 307.000",
-    "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=80",
-    "likes": 1610,
+    "priceRange": "Rp 235.000 - Rp 345.000",
+    "image": "/looks/look_pria_white_resort_chino.jpg",
+    "likes": 1640,
     "isGoldenSignature": true,
     "is_verified": true,
     "is_published": true,
-    "shopeeUrl": "https://erigostore.co.id/products/erigo-short-shirt-rayon-lavrenti-white",
+    "shopeeUrl": "https://shopee.co.id/erigostore",
     "outfit": {
       "id": "rec_real_p01",
-      "title": "Erigo Rayon Lavrenti White & Thenblank Chino Sand",
-      "tagline": "Kemeja rayon uniseks ringan 100% adem dipadukan celana chino katun drill reguler.",
-      "overallVibe": "Clean Coastal Casual",
-      "comfortRating": 5,
-      "affordabilityRating": 5,
-      "modestFriendly": false,
-      "isGoldenSignature": true,
-      "is_verified": true,
-      "is_published": true,
-      "skinToneMatch": "Putih bersih dan khaki pasir membuat kulit sawo matang terlihat glowing sehat.",
-      "whyItWorks": "100% Rayon adalah salah satu bahan paling dingin saat matahari Jakarta sedang terik-teriknya.",
-      "stylingTip": "Biarkan 1 kancing atas terbuka dan padukan dengan sneakers kanvas putih bersih.",
-      "heroImage": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=80",
-      "createdAt": "2026-10-29T00:00:00.000Z",
-      "colorPalette": [
-        {
-          "name": "Lavrenti White",
-          "hex": "#FFFFFF"
-        },
-        {
-          "name": "Sand Drill",
-          "hex": "#E6D7C3"
-        }
-      ],
-      "items": [
-        {
-          "category": "atasan",
-          "name": "Erigo Short Shirt Rayon Lavrenti White Unisex",
-          "brand": "Erigo",
-          "brandUrl": "https://erigostore.co.id/products/erigo-short-shirt-rayon-lavrenti-white",
-          "material": "100% Rayon (Ultra Lightweight & Cooling)",
-          "color": "Lavrenti White",
-          "colorHex": "#FFFFFF",
-          "estimatedPrice": "Rp 118.000",
-          "imageUrl": "/products/prod_real_31.jpg",
-          "shopeeQuery": "erigo short shirt rayon lavrenti white unisex",
-          "shopeeUrl": "https://erigostore.co.id/products/erigo-short-shirt-rayon-lavrenti-white",
-          "isOfficialBrand": true
-        },
-        {
-          "category": "bawahan",
-          "name": "Thenblank - Chino Pants | Sand",
-          "brand": "Thenblank",
-          "brandUrl": "https://thenblank.com/products/chino-pants-sand",
-          "material": "High Quality Cotton Drill",
-          "color": "Sand Khaki",
-          "colorHex": "#E6D7C3",
-          "estimatedPrice": "Rp 189.000",
-          "imageUrl": "/products/prod_real_30.jpg",
-          "shopeeQuery": "thenblank chino pants sand",
-          "shopeeUrl": "https://thenblank.com/products/chino-pants-sand",
-          "isOfficialBrand": true
-        }
-      ]
-    }
-  },
-  {
-    "id": "look_real_p02",
-    "title": "Erigo Rayon Jazlyn Black & Jiniso Denim Relax",
-    "tag": "SKENA JAKARTA",
-    "category": "Pria & Casual",
-    "vibe": "All-Black Urban Minimalist",
-    "skinToneRecommendation": "Semua Tone Kulit",
-    "priceRange": "Perkiraan Rp 293.500",
-    "image": "https://images.unsplash.com/photo-1488161628813-04466f872be2?w=600&auto=format&fit=crop&q=80",
-    "likes": 1340,
-    "isGoldenSignature": true,
-    "is_verified": true,
-    "is_published": true,
-    "shopeeUrl": "https://erigostore.co.id/products/erigo-short-shirt-rayon-jazlyn-black",
-    "outfit": {
-      "id": "rec_real_p02",
-      "title": "Erigo Rayon Jazlyn Black & Jiniso Denim Relax",
-      "tagline": "Kemeja rayon hitam kancing senada dengan potongan rileks berpadu celana baggy denim longgar.",
-      "overallVibe": "All-Black Urban Minimalist",
-      "comfortRating": 4.9,
-      "affordabilityRating": 5,
-      "modestFriendly": false,
-      "isGoldenSignature": true,
-      "is_verified": true,
-      "is_published": true,
-      "skinToneMatch": "Nuansa gelap memberikan kesan tegas, proporsional, dan berkarakter kuat.",
-      "whyItWorks": "Meskipun berwarna hitam, serat 100% rayon melepaskan panas tubuh dengan sangat efisien.",
-      "stylingTip": "Padukan dengan sling bag nylon hitam dan sepatu boots / sneakers chunky.",
-      "heroImage": "https://images.unsplash.com/photo-1488161628813-04466f872be2?w=600&auto=format&fit=crop&q=80",
-      "createdAt": "2026-10-29T00:00:00.000Z",
-      "colorPalette": [
-        {
-          "name": "Jazlyn Black",
-          "hex": "#111111"
-        },
-        {
-          "name": "Vintage Denim",
-          "hex": "#3B4D61"
-        }
-      ],
-      "items": [
-        {
-          "category": "atasan",
-          "name": "Erigo Short Shirt Rayon Jazlyn Black Unisex",
-          "brand": "Erigo",
-          "brandUrl": "https://erigostore.co.id/products/erigo-short-shirt-rayon-jazlyn-black",
-          "material": "100% Rayon",
-          "color": "Jazlyn Black",
-          "colorHex": "#111111",
-          "estimatedPrice": "Rp 118.000",
-          "imageUrl": "/products/prod_real_32.jpg",
-          "shopeeQuery": "erigo short shirt rayon jazlyn black unisex",
-          "shopeeUrl": "https://erigostore.co.id/products/erigo-short-shirt-rayon-jazlyn-black",
-          "isOfficialBrand": true
-        },
-        {
-          "category": "bawahan",
-          "name": "JINISO - Kulot Highwaist Jeans 778 RELAX",
-          "brand": "Jiniso",
-          "brandUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
-          "material": "Non-Stretch Breathable Cotton Denim",
-          "color": "Relaxed Denim",
-          "colorHex": "#3B4D61",
-          "estimatedPrice": "Rp 175.500",
-          "imageUrl": "/products/prod_real_34.jpg",
-          "shopeeQuery": "jiniso kulot highwaist jeans 778 relax",
-          "shopeeUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
-          "isOfficialBrand": true
-        }
-      ]
-    }
-  },
-  {
-    "id": "look_real_p03",
-    "title": "Uniqlo Katun Linen Shacket & Thenblank Chino Sand",
-    "tag": "KREATIF AGENCY",
-    "category": "Pria & Smart Casual",
-    "vibe": "Layered Smart Casual",
-    "skinToneRecommendation": "Sawo Matang & Kuning Langsat",
-    "priceRange": "Perkiraan Rp 588.000",
-    "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
-    "likes": 1520,
-    "isGoldenSignature": true,
-    "is_verified": true,
-    "is_published": true,
-    "shopeeUrl": "https://www.uniqlo.com/id/id/products/E482483-000/01",
-    "outfit": {
-      "id": "rec_real_p03",
-      "title": "Uniqlo Katun Linen Shacket & Thenblank Chino Sand",
-      "tagline": "Siluet boxy rileks dari katun-linen bernapas, berfungsi ganda sebagai kemeja maupun jaket ringan.",
-      "overallVibe": "Layered Smart Casual",
-      "comfortRating": 4.9,
-      "affordabilityRating": 4.7,
-      "modestFriendly": false,
-      "isGoldenSignature": true,
-      "is_verified": true,
-      "is_published": true,
-      "skinToneMatch": "Earthy beige dan warm sand memperkuat kesan hangat dan ramah pada pria berkulit sawo matang.",
-      "whyItWorks": "Tenunan katun-linen memberikan struktur pada tubuh tanpa menjebak panas tubuh.",
-      "stylingTip": "Pakai kaos polos putih di dalam dan biarkan kemeja jaket tidak dikancingkan.",
-      "heroImage": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
-      "createdAt": "2026-10-29T00:00:00.000Z",
-      "colorPalette": [
-        {
-          "name": "Linen Sand",
-          "hex": "#C2B280"
-        },
-        {
-          "name": "Sand Khaki",
-          "hex": "#E6D7C3"
-        }
-      ],
-      "items": [
-        {
-          "category": "atasan",
-          "name": "Uniqlo Jaket Kemeja Katun Linen Lengan Panjang",
-          "brand": "Uniqlo ID",
-          "brandUrl": "https://www.uniqlo.com/id/id/products/E482483-000/01",
-          "material": "Cotton Linen Blend",
-          "color": "Beige Khaki",
-          "colorHex": "#C2B280",
-          "estimatedPrice": "Rp 399.000",
-          "imageUrl": "/products/prod_real_09.jpg",
-          "shopeeQuery": "uniqlo jaket kemeja katun linen lengan panjang",
-          "shopeeUrl": "https://www.uniqlo.com/id/id/products/E482483-000/01",
-          "isOfficialBrand": true
-        },
-        {
-          "category": "bawahan",
-          "name": "Thenblank - Chino Pants | Sand",
-          "brand": "Thenblank",
-          "brandUrl": "https://thenblank.com/products/chino-pants-sand",
-          "material": "High Quality Cotton Drill",
-          "color": "Sand Khaki",
-          "colorHex": "#E6D7C3",
-          "estimatedPrice": "Rp 189.000",
-          "imageUrl": "/products/prod_real_30.jpg",
-          "shopeeQuery": "thenblank chino pants sand",
-          "shopeeUrl": "https://thenblank.com/products/chino-pants-sand",
-          "isOfficialBrand": true
-        }
-      ]
-    }
-  },
-  {
-    "id": "look_real_p04",
-    "title": "Uniqlo Katun Linen Pendek Uniseks & Jiniso Relax",
-    "tag": "KULIAH SANTAI",
-    "category": "Pria & Casual",
-    "vibe": "Breezy Everyday Comfort",
-    "skinToneRecommendation": "Sawo Matang & Kuning Langsat",
-    "priceRange": "Perkiraan Rp 574.500",
-    "image": "https://i.pinimg.com/736x/18/eb/9c/18eb9ca35a782410a768e9e1bb34a81e.jpg",
-    "likes": 1250,
-    "isGoldenSignature": true,
-    "is_verified": true,
-    "is_published": true,
-    "shopeeUrl": "https://www.uniqlo.com/id/id/products/E482483-000/01",
-    "outfit": {
-      "id": "rec_real_p04",
-      "title": "Uniqlo Katun Linen Pendek Uniseks & Jiniso Relax",
-      "tagline": "Potongan uniseks longgar di bahu dan dada untuk sirkulasi udara optimal di cuaca lembap kampus.",
-      "overallVibe": "Breezy Everyday Comfort",
+      "title": "Erigo Rayon Lavrenti White & THENBLANK Chino Sand",
+      "tagline": "Kemeja resort kerah terbuka santai di atas kaus dalam putih dan celana chino katun semata kaki.",
+      "overallVibe": "Tropical Resort",
       "comfortRating": 5,
       "affordabilityRating": 4.8,
       "modestFriendly": false,
       "isGoldenSignature": true,
       "is_verified": true,
       "is_published": true,
-      "skinToneMatch": "Warna netral memancarkan kesan santai namun tetap rapi untuk masuk ke perpustakaan atau kelas.",
-      "whyItWorks": "Kombinasi katun halus dan serat linen alami membuang rasa lengket akibat keringat.",
-      "stylingTip": "Kenakan sandal kulit strap ganda atau slip-on kanvas santai.",
-      "heroImage": "https://i.pinimg.com/736x/18/eb/9c/18eb9ca35a782410a768e9e1bb34a81e.jpg",
+      "skinToneMatch": "Perpaduan kemeja resort putih dan celana chino warna pasir (sand) memberi kesan maskulin tropis yang segar.",
+      "whyItWorks": "Kain rayon adem berpotongan camp-collar memberikan aliran udara maksimal di terik cuaca 33°C.",
+      "stylingTip": "Biarkan kemeja terbuka sebagian dan kenakan sneakers putih minimalis tanpa kaus kaki terlihat (no-show socks).",
+      "heroImage": "/looks/look_pria_white_resort_chino.jpg",
       "createdAt": "2026-10-29T00:00:00.000Z",
       "colorPalette": [
         {
-          "name": "Natural Linen",
-          "hex": "#DCD7D0"
+          "name": "Resort Crisp White",
+          "hex": "#FAFAFA"
         },
         {
-          "name": "Denim Blue",
-          "hex": "#4A6FA5"
+          "name": "Chino Sand Khaki",
+          "hex": "#D6C7B2"
+        },
+        {
+          "name": "Pure Sneaker White",
+          "hex": "#FFFFFF"
         }
       ],
       "items": [
         {
           "category": "atasan",
-          "name": "Uniqlo Kemeja Katun Linen | Lengan Pendek Uniseks",
-          "brand": "Uniqlo ID",
-          "brandUrl": "https://www.uniqlo.com/id/id/products/E482483-000/01",
-          "material": "Cotton Linen Blend",
-          "color": "Natural Linen",
-          "colorHex": "#DCD7D0",
-          "estimatedPrice": "Rp 399.000",
-          "imageUrl": "/products/prod_real_10.jpg",
-          "shopeeQuery": "uniqlo kemeja katun linen lengan pendek uniseks",
-          "shopeeUrl": "https://www.uniqlo.com/id/id/products/E482483-000/01",
-          "isOfficialBrand": true
+          "name": "Erigo Rayon Lavrenti Short-Sleeve Resort Shirt",
+          "material": "100% Rayon Dingin Lembut",
+          "color": "Crisp White",
+          "estimatedPrice": "Rp 119.000 - Rp 159.000",
+          "shopeeQuery": "erigo kemeja rayon lavrenti white resort",
+          "shopeeUrl": "https://shopee.co.id/erigostore",
+          "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
+          "brand": "Erigo"
         },
         {
           "category": "bawahan",
-          "name": "JINISO - Kulot Highwaist Jeans 778 RELAX",
-          "brand": "Jiniso",
-          "brandUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
-          "material": "Non-Stretch Breathable Cotton Denim",
-          "color": "Relax Denim",
-          "colorHex": "#4A6FA5",
-          "estimatedPrice": "Rp 175.500",
-          "imageUrl": "/products/prod_real_34.jpg",
-          "shopeeQuery": "jiniso kulot highwaist jeans 778 relax",
-          "shopeeUrl": "https://jiniso.id/products/kulot-highwaist-jeans-778-relax",
-          "isOfficialBrand": true
+          "name": "THENBLANK Ankle Chino Pants Sand / Khaki Drill",
+          "material": "Katun Drill Twill Non-Stretch",
+          "color": "Chino Sand Khaki",
+          "estimatedPrice": "Rp 145.000 - Rp 185.000",
+          "shopeeQuery": "thenblank chino pants sand pria ankle fit",
+          "shopeeUrl": "https://shopee.co.id/thenblank",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
+          "brand": "THENBLANK"
+        },
+        {
+          "category": "sepatu",
+          "name": "Minimalist Leather Court Low-Top Sneakers",
+          "material": "Kulit Vegan & Sol Karet",
+          "color": "Pure White",
+          "estimatedPrice": "Rp 140.000 - Rp 195.000",
+          "shopeeQuery": "sepatu sneakers court putih pria kulit minimalis",
+          "shopeeUrl": "https://shopee.co.id",
+          "imageUrl": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80"
+        }
+      ]
+    }
+  },
+  {
+    "id": "look_real_p02",
+    "title": "Urban Charcoal Harrington & The Executive Caramel Chinos",
+    "tag": "MENSWEAR",
+    "category": "Pria & Menswear",
+    "vibe": "Urban Street",
+    "skinToneRecommendation": "Sawo Matang & Kuning Langsat",
+    "priceRange": "Rp 275.000 - Rp 410.000",
+    "image": "/looks/look_pria_charcoal_caramel.jpg",
+    "likes": 1480,
+    "isGoldenSignature": true,
+    "is_verified": true,
+    "is_published": true,
+    "shopeeUrl": "https://shopee.co.id/theexecutiveofficial",
+    "outfit": {
+      "id": "rec_real_p02",
+      "title": "Urban Charcoal Harrington & The Executive Caramel Chinos",
+      "tagline": "Jaket Harrington abu-abu gelap dengan celana chino karamel hangat dan sneakers putih kasual.",
+      "overallVibe": "Urban Street",
+      "comfortRating": 4.8,
+      "affordabilityRating": 4.7,
+      "modestFriendly": false,
+      "isGoldenSignature": true,
+      "is_verified": true,
+      "is_published": true,
+      "skinToneMatch": "Kombinasi kontras warna Charcoal dan Caramel Chino mengangkat ketegasan karakter kulit sawo matang pria.",
+      "whyItWorks": "Bahan katun kanvas ringan menjaga postur jaket tetap tegak tanpa menimbulkan rasa gerah.",
+      "stylingTip": "Buka risleting jaket separuh dan padukan dengan jam tangan bertali kulit cokelat vintage.",
+      "heroImage": "/looks/look_pria_charcoal_caramel.jpg",
+      "createdAt": "2026-10-29T00:00:00.000Z",
+      "colorPalette": [
+        {
+          "name": "Dark Charcoal",
+          "hex": "#2E3138"
+        },
+        {
+          "name": "Warm Caramel",
+          "hex": "#A86F3E"
+        },
+        {
+          "name": "Clean White",
+          "hex": "#F8F8F8"
+        }
+      ],
+      "items": [
+        {
+          "category": "outer_hijab",
+          "name": "Casual Lightweight Harrington Zip Jacket",
+          "material": "Katun Kanvas Tipis Berpori",
+          "color": "Dark Charcoal Grey",
+          "estimatedPrice": "Rp 165.000 - Rp 220.000",
+          "shopeeQuery": "harrington jacket pria charcoal grey kanvas",
+          "shopeeUrl": "https://shopee.co.id/theexecutiveofficial",
+          "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
+          "brand": "The Executive"
+        },
+        {
+          "category": "bawahan",
+          "name": "The Executive Tailored Chino Pants Caramel Tan",
+          "material": "Katun Twill Stretch Nyaman",
+          "color": "Warm Caramel Tan",
+          "estimatedPrice": "Rp 155.000 - Rp 195.000",
+          "shopeeQuery": "the executive chino pants ankle caramel tan pria",
+          "shopeeUrl": "https://shopee.co.id/theexecutiveofficial",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
+          "brand": "The Executive"
+        },
+        {
+          "category": "sepatu",
+          "name": "Minimalist Leather Low-Top Court Sneakers",
+          "material": "Kulit Vegan Halus",
+          "color": "Clean White",
+          "estimatedPrice": "Rp 140.000 - Rp 195.000",
+          "shopeeQuery": "sepatu sneakers court putih pria kulit minimalis",
+          "shopeeUrl": "https://shopee.co.id",
+          "imageUrl": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80"
+        }
+      ]
+    }
+  },
+  {
+    "id": "look_real_p03",
+    "title": "The Executive Camel Knit Blazer & Jiniso Denim Relax",
+    "tag": "MENSWEAR",
+    "category": "Pria & Menswear",
+    "vibe": "Smart Casual",
+    "skinToneRecommendation": "Sawo Matang & Kuning Langsat (Warm Undertone)",
+    "priceRange": "Rp 310.000 - Rp 450.000",
+    "image": "/looks/look_pria_camel_blazer.jpg",
+    "likes": 1920,
+    "isGoldenSignature": true,
+    "is_verified": true,
+    "is_published": true,
+    "shopeeUrl": "https://shopee.co.id/theexecutiveofficial",
+    "outfit": {
+      "id": "rec_real_p03",
+      "title": "The Executive Camel Knit Blazer & Jiniso Denim Relax",
+      "tagline": "Blazer rajut kasual warna camel di atas kaus putih crewneck dan celana jeans denim santai.",
+      "overallVibe": "Smart Casual",
+      "comfortRating": 4.9,
+      "affordabilityRating": 4.6,
+      "modestFriendly": false,
+      "isGoldenSignature": true,
+      "is_verified": true,
+      "is_published": true,
+      "skinToneMatch": "Warna Camel Tan adalah salah satu warna terbaik untuk menonjolkan kehangatan rona kulit sawo matang pria.",
+      "whyItWorks": "Blazer tanpa furing tebal memberi kesan profesional instan saat presentasi tanpa rasa panas.",
+      "stylingTip": "Padukan dengan retro high-top canvas sneakers untuk transisi mulus dari meeting kantor ke nongkrong sore.",
+      "heroImage": "/looks/look_pria_camel_blazer.jpg",
+      "createdAt": "2026-10-29T00:00:00.000Z",
+      "colorPalette": [
+        {
+          "name": "Camel Tan",
+          "hex": "#B88653"
+        },
+        {
+          "name": "Pure White Tee",
+          "hex": "#FBFBFA"
+        },
+        {
+          "name": "Light Washed Denim",
+          "hex": "#5C85A8"
+        }
+      ],
+      "items": [
+        {
+          "category": "outer_hijab",
+          "name": "The Executive Casual Unstructured Knit Blazer",
+          "material": "Katun Rajut Ringan Tanpa Furing",
+          "color": "Camel Tan",
+          "estimatedPrice": "Rp 195.000 - Rp 265.000",
+          "shopeeQuery": "the executive blazer rajut knit casual camel pria",
+          "shopeeUrl": "https://shopee.co.id/theexecutiveofficial",
+          "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
+          "brand": "The Executive"
+        },
+        {
+          "category": "atasan",
+          "name": "Heavyweight 20s Boxy Crewneck Basic T-Shirt",
+          "material": "100% Katun Combed 20s Tebal",
+          "color": "Pure White",
+          "estimatedPrice": "Rp 79.000 - Rp 99.000",
+          "shopeeQuery": "erigo heavyweight 20s boxy t-shirt white polos",
+          "shopeeUrl": "https://shopee.co.id/erigostore",
+          "imageUrl": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80",
+          "brand": "Erigo"
+        },
+        {
+          "category": "bawahan",
+          "name": "JINISO Loose Jeans 90s Vintage Wash Denim",
+          "material": "Denim Katun Non-Stretch 12oz",
+          "color": "Light Washed Blue",
+          "estimatedPrice": "Rp 155.000 - Rp 189.000",
+          "shopeeQuery": "jiniso loose jeans 90s light washed denim",
+          "shopeeUrl": "https://shopee.co.id/jiniso.id",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
+          "brand": "JINISO"
+        },
+        {
+          "category": "sepatu",
+          "name": "Retro Canvas High-Top Sneakers Classic",
+          "material": "Canvas & Vulc Rubber",
+          "color": "Off-White / Black Piping",
+          "estimatedPrice": "Rp 125.000 - Rp 175.000",
+          "shopeeQuery": "sneakers canvas high top retro off white",
+          "shopeeUrl": "https://shopee.co.id",
+          "imageUrl": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80"
+        }
+      ]
+    }
+  },
+  {
+    "id": "look_real_p04",
+    "title": "Minimalist Beige Knit Vest & Black Wide Trousers",
+    "tag": "MENSWEAR",
+    "category": "Pria & Menswear",
+    "vibe": "Korean Minimalist",
+    "skinToneRecommendation": "Sawo Matang & Kuning Langsat",
+    "priceRange": "Rp 245.000 - Rp 360.000",
+    "image": "/looks/look_pria_beige_vest.jpg",
+    "likes": 1760,
+    "isGoldenSignature": true,
+    "is_verified": true,
+    "is_published": true,
+    "shopeeUrl": "https://shopee.co.id/erigostore",
+    "outfit": {
+      "id": "rec_real_p04",
+      "title": "Minimalist Beige Knit Vest & Black Wide Trousers",
+      "tagline": "Rompi rajut V-neck krem di atas kemeja poplin putih lengan pendek dengan celana bahan lebar warna hitam.",
+      "overallVibe": "Korean Minimalist",
+      "comfortRating": 4.9,
+      "affordabilityRating": 4.8,
+      "modestFriendly": false,
+      "isGoldenSignature": true,
+      "is_verified": true,
+      "is_published": true,
+      "skinToneMatch": "Gradasi warna oat krem dan celana hitam memberi kontras estetik yang bersih ala gaya K-minimalist.",
+      "whyItWorks": "Rompi rajut katun berpori memberi layering gaya tanpa menahan panas tubuh.",
+      "stylingTip": "Biarkan lengan kemeja jatuh bebas di siku dan kenakan sepatu kulit santai berujung bulat.",
+      "heroImage": "/looks/look_pria_beige_vest.jpg",
+      "createdAt": "2026-10-29T00:00:00.000Z",
+      "colorPalette": [
+        {
+          "name": "Oat Beige",
+          "hex": "#D8CDBD"
+        },
+        {
+          "name": "Crisp Poplin White",
+          "hex": "#FAFAFA"
+        },
+        {
+          "name": "Jet Black Trousers",
+          "hex": "#1A1A1A"
+        }
+      ],
+      "items": [
+        {
+          "category": "outer_hijab",
+          "name": "V-Neck Minimalist Cotton Knit Vest Rompi Pria",
+          "material": "Katun Rajut Lembut Berpori",
+          "color": "Oat Beige Krem",
+          "estimatedPrice": "Rp 115.000 - Rp 155.000",
+          "shopeeQuery": "rompi rajut v-neck knit vest beige pria",
+          "shopeeUrl": "https://shopee.co.id/erigostore",
+          "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
+          "brand": "Erigo"
+        },
+        {
+          "category": "atasan",
+          "name": "Relaxed Short-Sleeve Poplin Camp Shirt",
+          "material": "Katun Poplin Ringan 100%",
+          "color": "Crisp White",
+          "estimatedPrice": "Rp 110.000 - Rp 145.000",
+          "shopeeQuery": "thenblank kemeja putih lengan pendek poplin pria",
+          "shopeeUrl": "https://shopee.co.id/thenblank",
+          "imageUrl": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80",
+          "brand": "THENBLANK"
+        },
+        {
+          "category": "bawahan",
+          "name": "THENBLANK Wide Leg Relaxed Slacks Trousers",
+          "material": "Katun Twill Flowy Semi-Formal",
+          "color": "Jet Black",
+          "estimatedPrice": "Rp 145.000 - Rp 185.000",
+          "shopeeQuery": "thenblank wide leg slacks hitam pria",
+          "shopeeUrl": "https://shopee.co.id/thenblank",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
+          "brand": "THENBLANK"
+        },
+        {
+          "category": "sepatu",
+          "name": "Low-Top Retro Leather Court Sneakers",
+          "material": "Kulit Vegan & Sol Karet Mentah",
+          "color": "White / Gum Sole",
+          "estimatedPrice": "Rp 135.000 - Rp 185.000",
+          "shopeeQuery": "sepatu sneakers court putih sol karet mentah pria",
+          "shopeeUrl": "https://shopee.co.id",
+          "imageUrl": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80"
         }
       ]
     }
   },
   {
     "id": "look_real_p05",
-    "title": "Uniqlo AIRism UV Long Sleeve & Thenblank Chino Sand",
-    "tag": "COMMUTER SUN PROTECTION",
-    "category": "Pria & Daily",
-    "vibe": "Functional Minimalist",
-    "skinToneRecommendation": "Semua Tone Kulit",
-    "priceRange": "Perkiraan Rp 388.000",
-    "image": "https://i.pinimg.com/736x/8b/37/01/8b370169218458e48e093fd8140c898a.jpg",
-    "likes": 1490,
+    "title": "The Executive Navy Tailored Suit & Oxford Leather",
+    "tag": "MENSWEAR",
+    "category": "Pria & Menswear",
+    "vibe": "Sharp Executive",
+    "skinToneRecommendation": "Semua Skin Tone (Classic Formal)",
+    "priceRange": "Rp 450.000 - Rp 680.000",
+    "image": "/looks/look_pria_navy_suit.jpg",
+    "likes": 2310,
     "isGoldenSignature": true,
     "is_verified": true,
     "is_published": true,
-    "shopeeUrl": "https://www.uniqlo.com/id/id/products/E456261-000/00",
+    "shopeeUrl": "https://shopee.co.id/theexecutiveofficial",
     "outfit": {
       "id": "rec_real_p05",
-      "title": "Uniqlo AIRism UV Long Sleeve & Thenblank Chino Sand",
-      "tagline": "Teknologi AIRism pendingin instan dan proteksi UV untuk mobilitas aktif outdoor dan komuter.",
-      "overallVibe": "Functional Minimalist",
-      "comfortRating": 5,
-      "affordabilityRating": 4.9,
+      "title": "The Executive Navy Tailored Suit & Oxford Leather",
+      "tagline": "Jas setelan navy berpotongan presisi dengan kemeja putih poplin, celana senada, dan sepatu oxford kulit.",
+      "overallVibe": "Sharp Executive",
+      "comfortRating": 4.8,
+      "affordabilityRating": 4.4,
       "modestFriendly": false,
       "isGoldenSignature": true,
       "is_verified": true,
       "is_published": true,
-      "skinToneMatch": "Tone hitam atau abu-abu gelap dengan celana chino sand memberikan siluet atletis proporsional.",
-      "whyItWorks": "Fitur AIRism deodorizing anti-bau dan pendinginan cepat saat terkena hembusan angin jalanan.",
-      "stylingTip": "Gulung celana chino 1 lipatan di mata kaki dan padukan dengan sneakers lari harian.",
-      "heroImage": "https://i.pinimg.com/736x/8b/37/01/8b370169218458e48e093fd8140c898a.jpg",
+      "skinToneMatch": "Deep Navy adalah warna setelan formal terbaik di Asia yang memberi aura wibawa tinggi tanpa kesan kaku.",
+      "whyItWorks": "Bahan katun wool-blend tropis memberikan drape tegas sekaligus menjaga suhu tubuh tetap nyaman di ruang ber-AC.",
+      "stylingTip": "Selipkan saputangan saku (pocket square) sutra merah marun / burgundy untuk aksen luxury yang berselera.",
+      "heroImage": "/looks/look_pria_navy_suit.jpg",
       "createdAt": "2026-10-29T00:00:00.000Z",
       "colorPalette": [
         {
-          "name": "Dark Grey AIRism",
-          "hex": "#2B2B2B"
+          "name": "Deep Navy",
+          "hex": "#16233B"
         },
         {
-          "name": "Sand Khaki",
-          "hex": "#E6D7C3"
+          "name": "Crisp Shirt White",
+          "hex": "#FFFFFF"
+        },
+        {
+          "name": "Burgundy Accent",
+          "hex": "#6E1A24"
         }
       ],
       "items": [
         {
+          "category": "outer_hijab",
+          "name": "The Executive Tailored Slim Fit Suit Jacket",
+          "material": "Katun Wool-Blend Breathable Tropis",
+          "color": "Deep Navy",
+          "estimatedPrice": "Rp 285.000 - Rp 395.000",
+          "shopeeQuery": "the executive jas setelan slim fit deep navy pria",
+          "shopeeUrl": "https://shopee.co.id/theexecutiveofficial",
+          "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
+          "brand": "The Executive"
+        },
+        {
           "category": "atasan",
-          "name": "Uniqlo AIRism T-Shirt Proteksi Sinar UV Kerah Bulat | Lengan Panjang",
-          "brand": "Uniqlo ID",
-          "brandUrl": "https://www.uniqlo.com/id/id/products/E456261-000/00",
-          "material": "AIRism (Poliester, Elastan, Kupro dengan UV Protection)",
-          "color": "Dark Grey",
-          "colorHex": "#2B2B2B",
-          "estimatedPrice": "Rp 199.000",
-          "imageUrl": "/products/prod_real_33.jpg",
-          "shopeeQuery": "uniqlo airism t-shirt proteksi uv lengan panjang 456261",
-          "shopeeUrl": "https://www.uniqlo.com/id/id/products/E456261-000/00",
-          "isOfficialBrand": true
+          "name": "The Executive Formal Easy-Care Poplin Shirt",
+          "material": "Katun Poplin Anti-Kusut",
+          "color": "Crisp Formal White",
+          "estimatedPrice": "Rp 135.000 - Rp 175.000",
+          "shopeeQuery": "the executive kemeja formal putih lengan panjang pria",
+          "shopeeUrl": "https://shopee.co.id/theexecutiveofficial",
+          "imageUrl": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80",
+          "brand": "The Executive"
         },
         {
           "category": "bawahan",
-          "name": "Thenblank - Chino Pants | Sand",
-          "brand": "Thenblank",
-          "brandUrl": "https://thenblank.com/products/chino-pants-sand",
-          "material": "High Quality Cotton Drill",
-          "color": "Sand Khaki",
-          "colorHex": "#E6D7C3",
-          "estimatedPrice": "Rp 189.000",
-          "imageUrl": "/products/prod_real_30.jpg",
-          "shopeeQuery": "thenblank chino pants sand",
-          "shopeeUrl": "https://thenblank.com/products/chino-pants-sand",
-          "isOfficialBrand": true
+          "name": "The Executive Matching Navy Tailored Trousers",
+          "material": "Katun Wool-Blend Tropis Senada",
+          "color": "Deep Navy",
+          "estimatedPrice": "Rp 165.000 - Rp 215.000",
+          "shopeeQuery": "the executive celana bahan navy tailored trousers pria",
+          "shopeeUrl": "https://shopee.co.id/theexecutiveofficial",
+          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
+          "brand": "The Executive"
+        },
+        {
+          "category": "sepatu",
+          "name": "Classic Leather Oxford Dress Shoes Pria",
+          "material": "Kulit Vegan Halus Mengkilap",
+          "color": "Dark Espresso Brown",
+          "estimatedPrice": "Rp 185.000 - Rp 265.000",
+          "shopeeQuery": "sepatu pantofel oxford kulit formal pria dark brown",
+          "shopeeUrl": "https://shopee.co.id",
+          "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
         }
       ]
     }
