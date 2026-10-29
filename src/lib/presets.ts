@@ -1808,9 +1808,9 @@ const SIGNATURE_WANITA_IDS = new Set([
 ]);
 
 export function getLookGender(look: TrendingLook): "PRIA" | "HIJAB" | "WANITA" {
-  if (SIGNATURE_PRIA_IDS.has(look.id)) return "PRIA";
-  if (SIGNATURE_HIJAB_IDS.has(look.id)) return "HIJAB";
-  if (SIGNATURE_WANITA_IDS.has(look.id)) return "WANITA";
+  if (look.id.startsWith("demo_p_") || SIGNATURE_PRIA_IDS.has(look.id)) return "PRIA";
+  if (look.id.startsWith("demo_h_") || SIGNATURE_HIJAB_IDS.has(look.id)) return "HIJAB";
+  if (look.id.startsWith("demo_w_") || SIGNATURE_WANITA_IDS.has(look.id)) return "WANITA";
 
   if (look.tag === "MENSWEAR" || look.outfit?.id?.startsWith("pa_male") || look.outfit?.id?.startsWith("synthesized_male")) return "PRIA";
   if (look.tag === "MODEST CAPSULE" || look.outfit?.id?.startsWith("pa_hijab") || look.outfit?.id?.startsWith("synthesized_hijab")) return "HIJAB";
