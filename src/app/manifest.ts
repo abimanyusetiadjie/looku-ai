@@ -33,8 +33,8 @@ export default function manifest(): MetadataRoute.Manifest {
       },
       {
         name: "Trending Lookbook",
-        url: "/#trending",
-        description: "Lihat inspirasi gaya harian terpopuler",
+        url: "/lookbook",
+        description: "Lihat 300+ inspirasi gaya harian terpopuler",
       },
       {
         name: "Profil & Lemari",
