@@ -1810,12 +1810,14 @@ const SIGNATURE_WANITA_IDS = new Set([
 ]);
 
 export function getLookGender(look: TrendingLook): "PRIA" | "HIJAB" | "WANITA" {
-  if (look.id.startsWith("demo_p_") || SIGNATURE_PRIA_IDS.has(look.id)) return "PRIA";
-  if (look.id.startsWith("demo_h_") || SIGNATURE_HIJAB_IDS.has(look.id)) return "HIJAB";
-  if (look.id.startsWith("demo_w_") || SIGNATURE_WANITA_IDS.has(look.id)) return "WANITA";
+  if (!look) return "WANITA";
+  const id = look.id || "";
+  if (id.startsWith("look_real_p") || id.startsWith("demo_p_") || SIGNATURE_PRIA_IDS.has(id)) return "PRIA";
+  if (id.startsWith("look_real_h") || id.startsWith("demo_h_") || SIGNATURE_HIJAB_IDS.has(id)) return "HIJAB";
+  if (id.startsWith("look_real_w") || id.startsWith("demo_w_") || SIGNATURE_WANITA_IDS.has(id)) return "WANITA";
 
-  if (look.tag === "MENSWEAR" || look.outfit?.id?.startsWith("pa_male") || look.outfit?.id?.startsWith("synthesized_male")) return "PRIA";
-  if (look.tag === "MODEST CAPSULE" || look.outfit?.id?.startsWith("pa_hijab") || look.outfit?.id?.startsWith("synthesized_hijab")) return "HIJAB";
+  if (look.tag === "MENSWEAR" || look.outfit?.id?.startsWith("pa_male") || look.outfit?.id?.startsWith("synthesized_male") || look.category?.toLowerCase().includes("pria")) return "PRIA";
+  if (look.tag === "MODEST CAPSULE" || look.tag?.includes("HIJAB") || look.outfit?.id?.startsWith("pa_hijab") || look.outfit?.id?.startsWith("synthesized_hijab") || look.category?.toLowerCase().includes("hijab")) return "HIJAB";
   return "WANITA";
 }
 
@@ -1825,18 +1827,18 @@ export function getLookHeight(look: TrendingLook): {
   label: string;
 } {
   const gender = getLookGender(look);
+  const id = look?.id || "default";
   if (gender === "PRIA") {
-    const hash = (look.id.charCodeAt(0) + look.id.charCodeAt(look.id.length - 1)) % 7;
-    const cm = 172 + hash; // 172-178 cm
+    const hash = (id.charCodeAt(0) + id.charCodeAt(Math.max(0, id.length - 1))) % 7;
+    const cm = 172 + (isNaN(hash) ? 3 : hash);
     return { cm, range: "tall", label: `${cm} cm` };
   } else {
-    const hash = (look.id.charCodeAt(0) + look.id.charCodeAt(look.id.length - 1)) % 15;
-    const cm = 154 + hash; // 154-168 cm
+    const hash = (id.charCodeAt(0) + id.charCodeAt(Math.max(0, id.length - 1))) % 15;
+    const cm = 154 + (isNaN(hash) ? 4 : hash);
     const range = cm < 158 ? "petite" : cm <= 165 ? "standard" : "tall";
     return { cm, range, label: `${cm} cm` };
   }
 }
-
 export interface ResolvedStudioLook {
   lookId: string;
   title: string;

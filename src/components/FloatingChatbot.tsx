@@ -22,8 +22,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import LiveCameraModal from "./LiveCameraModal";
 import { useWeather } from "@/hooks/useWeather";
-import { OOTDRecommendation, OutfitItem } from "@/lib/types";
-import { ChatOutfitCard } from "@/app/api/chat/route";
+import { OOTDRecommendation, OutfitItem, ChatOutfitCard } from "@/lib/types";
 import { trackAffiliateClick } from "@/lib/affiliate";
 
 interface Message {
@@ -41,52 +40,69 @@ const DEFAULT_WELCOME_MSG: Message = {
   sender: "stylist",
   text: "Selamat datang di Look.u Concierge. Saya asisten gaya pribadi kamu untuk iklim tropis Indonesia.\n\nTanyakan kurasi pakaian adem berdasarkan cuaca, acara harian, atau unggah foto selfie/baju untuk analisis undertone seketika.",
   outfitMatch: {
-    id: "welcome_look",
-    presetKey: "kuliah_hijab_panas_hemat",
-    title: "Casual Campus Chiffon",
-    subtitle: "BESTSELLER · EARTHY MINIMALIST",
-    tagline: "Kombinasi katun linen berpori sejuk dan kulot santun.",
-    fabricNote: "Katun Linen Crinkle · Anti-Kusut",
-    image: "https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?w=900&auto=format&fit=crop&q=85",
+    id: "look_real_h04",
+    presetKey: "look_real_h04",
+    title: "Cottonink Sage Linen & Shop At Velvet Culottes",
+    subtitle: "SIGNATURE LOOK · EARTHY MINIMALIST",
+    tagline: "Kemeja linen sage green dengan kulot katun tenun broken white yang adem dan santun.",
+    fabricNote: "Linen Euro Premium & Katun Tenun",
+    image: "/looks/look_hijab_sage_white_pants.jpg",
     swatches: [
-      { name: "Cream Oat", hex: "#F5EBE0" },
-      { name: "Sage Green", hex: "#84A98C" },
-      { name: "Broken White", hex: "#FAEDCD" },
+      { name: "Sage Olive", hex: "#7A8471" },
+      { name: "Broken White", hex: "#FAF8F5" },
+      { name: "Nude Taupe", hex: "#B8A99A" },
     ],
-    priceRange: "Rp 180rb - 260rb",
+    priceRange: "Rp 230.000 - Rp 340.000",
     climateBadge: "AIRY TROPICAL · OPTIMAL 33°C",
-    studioParam: "kuliah_hijab_panas_hemat",
-    itemsSummary: "Kemeja Linen Crinkle + Pashmina Ceruty + Kulot Flowy",
+    studioParam: "look_real_h04",
+    itemsSummary: "Kemeja Linen Sage + Kulot Tenun Broken White + Voal Nude",
     items: [
       {
         category: "atasan",
-        name: "Kemeja Linen Oversized Drop Shoulder",
-        material: "Katun Linen Crinkle (Adem & Anti-Kusut)",
-        color: "Sage Green",
-        colorHex: "#84A98C",
-        estimatedPrice: "Rp 65.000 - 89.000",
-        shopeeQuery: "kemeja linen oversized wanita crinkle",
-        tokopediaQuery: "kemeja linen wanita oversized",
-      },
-      {
-        category: "outer_hijab",
-        name: "Pashmina Ceruty Baby Doll",
-        material: "Ceruty Baby Doll Premium",
-        color: "Cream Sand",
-        colorHex: "#F5EBE0",
-        estimatedPrice: "Rp 25.000 - 38.000",
-        shopeeQuery: "pashmina ceruty baby doll premium",
-        tokopediaQuery: "pashmina ceruty baby doll",
+        name: "Kemeja Linen Oversized Drop Shoulder (Sage Green)",
+        material: "100% Linen Euro Premium",
+        color: "Sage Olive Green",
+        colorHex: "#7A8471",
+        estimatedPrice: "Rp 139.000 - Rp 179.000",
+        shopeeQuery: "cottonink kemeja linen sage green oversized",
+        tokopediaQuery: "kemeja linen sage green wanita",
+        shopeeUrl: "https://shopee.co.id/cottonink",
+        brand: "Cottonink",
       },
       {
         category: "bawahan",
-        name: "Highwaist Loose Kulot Pants",
-        material: "Poli-Cotton Flowy",
+        name: "Wide Pants Katun Tenun Breathable (Broken White)",
+        material: "Katun Tenun Berpori Mikro",
         color: "Broken White",
-        colorHex: "#FAEDCD",
-        estimatedPrice: "Rp 68.000 - 95.000",
-        shopeeQuery: "celana kulot highwaist loose wanita",
-        tokopediaQuery: "kulot highwaist flowy wanita",
+        colorHex: "#FAF8F5",
+        estimatedPrice: "Rp 145.000 - Rp 185.000",
+        shopeeQuery: "shop at velvet wide pants broken white",
+        tokopediaQuery: "celana kulot putih shop at velvet",
+        shopeeUrl: "https://shopee.co.id/shopatvelvet",
+        brand: "Shop At Velvet",
+      },
+      {
+        category: "outer_hijab",
+        name: "Nala Voal Square Lasercut (Nude Sand)",
+        material: "Ultrafine Voal Breathable",
+        color: "Nude Sand Taupe",
+        colorHex: "#B8A99A",
+        estimatedPrice: "Rp 45.000 - Rp 65.000",
+        shopeeQuery: "lozy hijab nala voal square nude sand",
+        tokopediaQuery: "lozy hijab nala voal square",
+        shopeeUrl: "https://shopee.co.id/lozyhijabofficial",
+        brand: "Lozy Hijab",
+      },
+      {
+        category: "sepatu",
+        name: "Pointed Mules Loafers Kulit (Ivory Cream)",
+        material: "Vegan Leather Breathable",
+        color: "Ivory Cream",
+        colorHex: "#F2EBE1",
+        estimatedPrice: "Rp 120.000 - Rp 160.000",
+        shopeeQuery: "pointed mules loafers kulit ivory cream wanita",
+        tokopediaQuery: "pointed mules cream wanita",
+        shopeeUrl: "https://shopee.co.id",
       },
     ],
   },
@@ -147,7 +163,20 @@ export default function FloatingChatbot() {
 
   const [messages, setMessages] = useState<Message[]>([DEFAULT_WELCOME_MSG]);
 
-  // Load chat messages from localStorage on mount
+  // Open chat from external triggers (event or ?chat=true)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const p = new URLSearchParams(window.location.search);
+      if (p.get("chat") === "true") {
+        setIsOpen(true);
+      }
+      const handleOpen = () => setIsOpen(true);
+      window.addEventListener("looku_open_chat", handleOpen);
+      return () => window.removeEventListener("looku_open_chat", handleOpen);
+    }
+  }, []);
+
+  // Load chat messages from localStorage on mount with robust sanitization
   useEffect(() => {
     if (typeof window !== "undefined") {
       try {
@@ -155,11 +184,35 @@ export default function FloatingChatbot() {
         if (stored) {
           const parsed = JSON.parse(stored);
           if (Array.isArray(parsed) && parsed.length > 0) {
-            setMessages(parsed);
+            const sanitized: Message[] = parsed.map((m: any, idx: number) => ({
+              id: m.id || `msg_${idx}_${Date.now()}`,
+              sender: m.sender === "user" ? "user" : "stylist",
+              text: m.text || "",
+              userImage: typeof m.userImage === "string" ? m.userImage : undefined,
+              timestamp: m.timestamp || "Baru saja",
+              followUps: Array.isArray(m.followUps) ? m.followUps : undefined,
+              outfitMatch: m.outfitMatch ? {
+                id: m.outfitMatch.id || `look_${idx}`,
+                presetKey: m.outfitMatch.presetKey || m.outfitMatch.id || "look_real_h04",
+                title: m.outfitMatch.title || "Setelan Tropis",
+                subtitle: m.outfitMatch.subtitle || "LOOK.U EDITORIAL",
+                tagline: m.outfitMatch.tagline || "",
+                fabricNote: m.outfitMatch.fabricNote || "Linen & Katun Rayon",
+                image: m.outfitMatch.image || "/looks/look_hijab_sage_white_pants.jpg",
+                swatches: Array.isArray(m.outfitMatch.swatches) ? m.outfitMatch.swatches : [],
+                priceRange: m.outfitMatch.priceRange || "Rp 210.000 - Rp 350.000",
+                climateBadge: m.outfitMatch.climateBadge || "AIRY TROPICAL · OPTIMAL 33°C",
+                studioParam: m.outfitMatch.studioParam || m.outfitMatch.id || "look_real_h04",
+                itemsSummary: m.outfitMatch.itemsSummary || m.outfitMatch.title || "",
+                items: Array.isArray(m.outfitMatch.items) ? m.outfitMatch.items : [],
+              } : undefined,
+            }));
+            setMessages(sanitized);
           }
         }
       } catch (e) {
         console.error("Error reading chat storage:", e);
+        try { localStorage.removeItem("looku_chat_messages_v2"); } catch {}
       }
     }
   }, []);
@@ -400,7 +453,7 @@ export default function FloatingChatbot() {
                 whileTap={{ scale: 0.92 }}
                 onClick={() => setIsOpen(true)}
                 aria-label="Buka AI Stylist Concierge"
-                className={`sm:hidden ${pathname === "/" ? "hidden" : "flex"} w-12 h-12 bg-[#181A18] text-white shadow-2xl items-center justify-center relative active:scale-95 transition-transform border border-white/25 rounded-full`}
+                className="sm:hidden flex w-12 h-12 bg-[#181A18] text-white shadow-2xl items-center justify-center relative active:scale-95 transition-transform border border-white/25 rounded-full cursor-pointer"
               >
                 <Sparkles className="w-5 h-5 text-cream-200" />
                 <span className="absolute top-1 right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-[#181A18] animate-pulse" />
@@ -532,7 +585,7 @@ export default function FloatingChatbot() {
                     <div key={m.id} className="flex flex-col items-end">
                       {m.userImage && (
                         <div className="relative w-36 aspect-[4/5] bg-[#E5E0D8] overflow-hidden mb-1.5 border border-[#181A18]/30 shadow-xs rounded-none">
-                          <Image src={m.userImage} alt="Uploaded" fill className="object-cover" />
+                          <img src={m.userImage} alt="Uploaded" className="w-full h-full object-cover" />
                         </div>
                       )}
                       <div className="max-w-[82%] bg-[#181A18] text-[#FAF8F5] px-4 py-3 text-xs leading-relaxed rounded-none shadow-sm">
@@ -568,11 +621,14 @@ export default function FloatingChatbot() {
                         <div className="grid grid-cols-12">
                           {/* Thumbnail Rasio 4:5 di Kiri */}
                           <div className="col-span-5 relative aspect-[4/5] bg-[#EFECE6] overflow-hidden">
-                            <Image
-                              src={m.outfitMatch.image}
-                              alt={m.outfitMatch.title}
-                              fill
-                              className="object-cover"
+                            <img
+                              src={m.outfitMatch.image || "/fallback-garment.svg"}
+                              alt={m.outfitMatch.title || "Look"}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                e.currentTarget.onerror = null;
+                                e.currentTarget.src = "/fallback-garment.svg";
+                              }}
                             />
                             <span className="absolute top-1.5 left-1.5 bg-[#181A18]/90 text-[#FAF8F5] px-1.5 py-0.5 text-[8px] font-mono font-bold uppercase tracking-wider">
                               {m.outfitMatch.climateBadge}
@@ -595,7 +651,7 @@ export default function FloatingChatbot() {
                               {/* 3 Dot Swatches */}
                               <div className="flex items-center gap-1.5 mt-2">
                                 <span className="text-[9px] uppercase text-[#181A18]/50 font-mono">Palet:</span>
-                                {m.outfitMatch.swatches.slice(0, 3).map((warna, idx) => (
+                                {(m.outfitMatch.swatches || []).slice(0, 3).map((warna, idx) => (
                                   <span
                                     key={idx}
                                     className="w-2.5 h-2.5 rounded-full border border-[#181A18]/25 shadow-2xs"
@@ -626,7 +682,7 @@ export default function FloatingChatbot() {
                           <div className="p-3 bg-[#FAF8F5] border-t border-[#181A18]/10 space-y-2">
                             <div className="flex items-center justify-between">
                               <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#181A18]">
-                                Rincian Komponen ({m.outfitMatch.items.length}):
+                                Rincian Komponen ({(m.outfitMatch.items || []).length}):
                               </span>
                               <button
                                 type="button"
@@ -638,7 +694,7 @@ export default function FloatingChatbot() {
                             </div>
 
                             <div className="space-y-1.5">
-                              {m.outfitMatch.items.map((item, idx) => (
+                              {(m.outfitMatch.items || []).map((item, idx) => (
                                 <div key={idx} className="p-2 bg-white border border-[#181A18]/10 flex items-center justify-between text-[10px]">
                                   <div className="pr-2">
                                     <span className="font-bold text-[#181A18] block truncate max-w-[170px]">{item.name}</span>
@@ -756,7 +812,7 @@ export default function FloatingChatbot() {
                   <div className="px-3 py-1.5 bg-white border border-[#181A18]/20 flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <div className="relative w-8 h-8 rounded-none overflow-hidden border border-[#181A18]">
-                        <Image src={selectedImage} alt="Preview" fill className="object-cover" />
+                        <img src={selectedImage} alt="Preview" className="w-full h-full object-cover" />
                       </div>
                       <span className="text-[10px] font-mono text-[#181A18] font-bold uppercase tracking-wider">
                         Foto Siap Dianalisis ✨

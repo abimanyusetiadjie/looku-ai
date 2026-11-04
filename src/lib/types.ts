@@ -143,3 +143,19 @@ export interface WaitlistEntry {
   skinTone?: SkinToneType;
   createdAt: string;
 }
+
+export interface ChatOutfitCard {
+  id: string;
+  presetKey: string;
+  title: string;
+  subtitle: string;
+  tagline: string;
+  fabricNote: string;
+  image: string;
+  swatches: { name: string; hex: string }[];
+  priceRange: string;
+  climateBadge: string;
+  studioParam: string;
+  itemsSummary: string;
+  items: OutfitItem[];
+}
