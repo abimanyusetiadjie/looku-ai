@@ -54,7 +54,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 149.000 - Rp 189.000",
           "shopeeQuery": "kemeja linen putih wanita oversized",
           "shopeeUrl": "https://shopee.co.id/cottonink",
-          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
           "brand": "Uniqlo / Cottonink"
         },
         {
@@ -65,7 +64,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 155.000 - Rp 189.000",
           "shopeeQuery": "jiniso 778 relax loose jeans 90s light blue",
           "shopeeUrl": "https://shopee.co.id/jiniso.id",
-          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
           "brand": "JINISO"
         },
         {
@@ -76,7 +74,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 45.000 - Rp 65.000",
           "shopeeQuery": "lozy hijab nala voal square taupe",
           "shopeeUrl": "https://shopee.co.id/lozyhijabofficial",
-          "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&auto=format&fit=crop&q=80",
           "brand": "Lozy Hijab"
         },
         {
@@ -86,8 +83,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Clean White",
           "estimatedPrice": "Rp 135.000 - Rp 195.000",
           "shopeeQuery": "sepatu sneakers court putih wanita minimalis",
-          "shopeeUrl": "https://shopee.co.id",
-          "imageUrl": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80"
+          "shopeeUrl": "https://shopee.co.id"
         }
       ]
     }
@@ -145,7 +141,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 139.000 - Rp 179.000",
           "shopeeQuery": "cottonink thami kemeja aksen tali mustard yellow",
           "shopeeUrl": "https://shopee.co.id/cottonink",
-          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
           "brand": "Cottonink"
         },
         {
@@ -156,7 +151,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 145.000 - Rp 185.000",
           "shopeeQuery": "thenblank chino pants sand khaki wanita",
           "shopeeUrl": "https://shopee.co.id/thenblank",
-          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
           "brand": "THENBLANK"
         },
         {
@@ -167,7 +161,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 45.000 - Rp 65.000",
           "shopeeQuery": "lozy hijab nala voal square cream",
           "shopeeUrl": "https://shopee.co.id/lozyhijabofficial",
-          "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&auto=format&fit=crop&q=80",
           "brand": "Lozy Hijab"
         },
         {
@@ -177,8 +170,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Nude Cream",
           "estimatedPrice": "Rp 125.000 - Rp 165.000",
           "shopeeQuery": "mules pointed block heel cream wanita",
-          "shopeeUrl": "https://shopee.co.id",
-          "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
+          "shopeeUrl": "https://shopee.co.id"
         }
       ]
     }
@@ -229,14 +221,13 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
       ],
       "items": [
         {
-          "category": "outer_hijab",
-          "name": "Flowy Drape Trench Tunik Panjang Lengan Trompet",
+          "category": "atasan",
+          "name": "Flowy Drape Trench Tunik Panjang & White Inner",
           "material": "Tencel Modal Drape Dingin",
-          "color": "Powder Sky Blue",
+          "color": "Powder Sky Blue & White",
           "estimatedPrice": "Rp 185.000 - Rp 245.000",
           "shopeeQuery": "outer trench coat drape flowy powder blue hijab",
           "shopeeUrl": "https://shopee.co.id/thenblank",
-          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
           "brand": "THENBLANK"
         },
         {
@@ -247,7 +238,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 135.000 - Rp 175.000",
           "shopeeQuery": "shopatvelvet pleated flowy wide culottes broken white",
           "shopeeUrl": "https://shopee.co.id/shopatvelvet",
-          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
           "brand": "Shop At Velvet"
         },
         {
@@ -258,7 +248,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 39.000 - Rp 59.000",
           "shopeeQuery": "pashmina ceruty babydoll silver grey ice",
           "shopeeUrl": "https://shopee.co.id/lozyhijabofficial",
-          "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&auto=format&fit=crop&q=80",
           "brand": "Lozy Hijab"
         },
         {
@@ -268,8 +257,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Crisp White",
           "estimatedPrice": "Rp 165.000 - Rp 235.000",
           "shopeeQuery": "ankle boots pointed block heel putih wanita",
-          "shopeeUrl": "https://shopee.co.id",
-          "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
+          "shopeeUrl": "https://shopee.co.id"
         }
       ]
     }
@@ -327,7 +315,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 145.000 - Rp 185.000",
           "shopeeQuery": "cottonink tunik linen oversized sage green",
           "shopeeUrl": "https://shopee.co.id/cottonink",
-          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
           "brand": "Cottonink"
         },
         {
@@ -338,7 +325,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 129.000 - Rp 169.000",
           "shopeeQuery": "shopatvelvet wide leg pants broken white",
           "shopeeUrl": "https://shopee.co.id/shopatvelvet",
-          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
           "brand": "Shop At Velvet"
         },
         {
@@ -349,7 +335,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 45.000 - Rp 65.000",
           "shopeeQuery": "lozy hijab nala voal square cream",
           "shopeeUrl": "https://shopee.co.id/lozyhijabofficial",
-          "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&auto=format&fit=crop&q=80",
           "brand": "Lozy Hijab"
         },
         {
@@ -359,8 +344,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Pure White",
           "estimatedPrice": "Rp 110.000 - Rp 155.000",
           "shopeeQuery": "sneakers canvas putih polos wanita low cut",
-          "shopeeUrl": "https://shopee.co.id",
-          "imageUrl": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80"
+          "shopeeUrl": "https://shopee.co.id"
         }
       ]
     }
@@ -418,7 +402,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 145.000 - Rp 185.000",
           "shopeeQuery": "cottonink jemima blouse navy lengan puff",
           "shopeeUrl": "https://shopee.co.id/cottonink",
-          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
           "brand": "Cottonink"
         },
         {
@@ -429,7 +412,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 145.000 - Rp 185.000",
           "shopeeQuery": "thenblank chino pants sand wanita",
           "shopeeUrl": "https://shopee.co.id/thenblank",
-          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
           "brand": "THENBLANK"
         },
         {
@@ -440,7 +422,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 49.000 - Rp 72.000",
           "shopeeQuery": "lozy hijab ten shawl tencel sand",
           "shopeeUrl": "https://shopee.co.id/lozyhijabofficial",
-          "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&auto=format&fit=crop&q=80",
           "brand": "Lozy Hijab"
         },
         {
@@ -450,8 +431,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Cream Swatch",
           "estimatedPrice": "Rp 135.000 - Rp 180.000",
           "shopeeQuery": "mules pointed block heel cream wanita",
-          "shopeeUrl": "https://shopee.co.id",
-          "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
+          "shopeeUrl": "https://shopee.co.id"
         }
       ]
     }
@@ -509,7 +489,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 125.000 - Rp 165.000",
           "shopeeQuery": "blus kemeja kerah mandarin linen wanita off white",
           "shopeeUrl": "https://shopee.co.id/thenblank",
-          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
           "brand": "THENBLANK"
         },
         {
@@ -520,7 +499,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 145.000 - Rp 185.000",
           "shopeeQuery": "thenblank wide leg slacks pleated sand trousers",
           "shopeeUrl": "https://shopee.co.id/thenblank",
-          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
           "brand": "THENBLANK"
         },
         {
@@ -530,8 +508,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Almond Nude",
           "estimatedPrice": "Rp 115.000 - Rp 155.000",
           "shopeeQuery": "sandal slip on pointed flat mules nude wanita",
-          "shopeeUrl": "https://shopee.co.id",
-          "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
+          "shopeeUrl": "https://shopee.co.id"
         }
       ]
     }
@@ -589,7 +566,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 139.000 - Rp 179.000",
           "shopeeQuery": "cottonink kemeja linen crinkle dusty rose pink",
           "shopeeUrl": "https://shopee.co.id/cottonink",
-          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
           "brand": "Cottonink"
         },
         {
@@ -600,7 +576,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 145.000 - Rp 185.000",
           "shopeeQuery": "thenblank chino pants sand khaki wanita",
           "shopeeUrl": "https://shopee.co.id/thenblank",
-          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
           "brand": "THENBLANK"
         },
         {
@@ -610,15 +585,14 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Nude Peach",
           "estimatedPrice": "Rp 105.000 - Rp 145.000",
           "shopeeQuery": "sandal strap slides teplek wanita nude",
-          "shopeeUrl": "https://shopee.co.id",
-          "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
+          "shopeeUrl": "https://shopee.co.id"
         }
       ]
     }
   },
   {
     "id": "look_real_w03",
-    "title": "Shop At Velvet Coral Summer Wrap Dress & Sun Hat",
+    "title": "Shop At Velvet Coral Wrap Blouse & White Linen Culottes",
     "tag": "RESORT VACATION",
     "category": "Casual Wanita",
     "vibe": "Tropical Resort",
@@ -632,8 +606,8 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
     "shopeeUrl": "https://shopee.co.id/shopatvelvet",
     "outfit": {
       "id": "rec_real_w03",
-      "title": "Shop At Velvet Coral Summer Wrap Dress & Sun Hat",
-      "tagline": "Wrap dress rayon warna coral terracotta satu kesatuan dengan topi jerami dan sandal tali minimalis.",
+      "title": "Shop At Velvet Coral Wrap Blouse & White Linen Culottes",
+      "tagline": "Blus ikat pinggang linen warna coral terracotta dipadukan celana kulot lebar broken white dan sandal tali hitam.",
       "overallVibe": "Tropical Resort",
       "comfortRating": 5,
       "affordabilityRating": 4.7,
@@ -648,12 +622,12 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
       "createdAt": "2026-10-29T00:00:00.000Z",
       "colorPalette": [
         {
-          "name": "Warm Coral",
+          "name": "Terracotta Coral",
           "hex": "#E2725B"
         },
         {
-          "name": "Straw Tan",
-          "hex": "#D4B996"
+          "name": "Broken White Linen",
+          "hex": "#F7F5F0"
         },
         {
           "name": "Midnight Black",
@@ -663,13 +637,22 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
       "items": [
         {
           "category": "atasan",
-          "name": "Shop At Velvet Coral Rayon Midi Wrap Dress",
-          "material": "Rayon Twill Dingin Ekstra Halus",
+          "name": "Shop At Velvet Terracotta Linen Wrap Tie Blouse",
+          "material": "Linen Rayon Twill Dingin",
           "color": "Coral Terracotta",
-          "estimatedPrice": "Rp 175.000 - Rp 225.000",
-          "shopeeQuery": "shopatvelvet rayon midi wrap dress coral terracotta",
+          "estimatedPrice": "Rp 145.000 - Rp 189.000",
+          "shopeeQuery": "blouse wrap ikat pinggang linen terracotta wanita",
           "shopeeUrl": "https://shopee.co.id/shopatvelvet",
-          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
+          "brand": "Shop At Velvet"
+        },
+        {
+          "category": "bawahan",
+          "name": "Shop At Velvet Wide Leg Pure Linen Culottes",
+          "material": "100% Linen Euro Breathable",
+          "color": "Broken White",
+          "estimatedPrice": "Rp 149.000 - Rp 189.000",
+          "shopeeQuery": "celana kulot linen lebar putih broken white wanita",
+          "shopeeUrl": "https://shopee.co.id/shopatvelvet",
           "brand": "Shop At Velvet"
         },
         {
@@ -679,18 +662,17 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Classic Black",
           "estimatedPrice": "Rp 95.000 - Rp 135.000",
           "shopeeQuery": "sandal tali flat ankle strap hitam wanita minimalis",
-          "shopeeUrl": "https://shopee.co.id",
-          "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
+          "shopeeUrl": "https://shopee.co.id"
         }
       ]
     }
   },
   {
     "id": "look_real_w04",
-    "title": "Noir Avant-Garde Ruffle Dress & Leather Boots",
-    "tag": "AVANT-GARDE EDITORIAL",
+    "title": "Cottonink Black Fawnia Oversized & Ivory Wide Trousers",
+    "tag": "MONOCHROME GALLERY",
     "category": "Casual Wanita",
-    "vibe": "Edgy High-Fashion",
+    "vibe": "Smart Monochrome",
     "skinToneRecommendation": "Semua Skin Tone (Neutral Bold)",
     "priceRange": "Rp 320.000 - Rp 480.000",
     "image": "/looks/look_black_ruffle_dress.jpg",
@@ -701,9 +683,9 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
     "shopeeUrl": "https://shopee.co.id/shopatvelvet",
     "outfit": {
       "id": "rec_real_w04",
-      "title": "Noir Avant-Garde Ruffle Dress & Leather Boots",
-      "tagline": "Gaun mantel hitam aksen ruffler dramatis dengan fedora wide-brim dan sepatu bot kulit tegas.",
-      "overallVibe": "Edgy High-Fashion",
+      "title": "Cottonink Black Fawnia Oversized & Ivory Wide Trousers",
+      "tagline": "Kemeja oversized hitam pekat half-tuck dengan celana bahan lebar putih gading (ivory) dan sepatu bot kulit hitam.",
+      "overallVibe": "Smart Monochrome",
       "comfortRating": 4.7,
       "affordabilityRating": 4.5,
       "modestFriendly": false,
@@ -721,35 +703,43 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "hex": "#0F1111"
         },
         {
-          "name": "Charcoal Shadow",
-          "hex": "#2B2D2F"
+          "name": "Creamy Ivory",
+          "hex": "#F5F3EB"
         },
         {
-          "name": "Ivory Accent",
-          "hex": "#F5F5F0"
+          "name": "Jet Black Leather",
+          "hex": "#1C1D1F"
         }
       ],
       "items": [
         {
           "category": "atasan",
-          "name": "Noir Avant-Garde Structured Ruffle Coat Dress",
-          "material": "Katun Poplin Berstruktur Tebal",
-          "color": "Deep Noir Black",
-          "estimatedPrice": "Rp 220.000 - Rp 295.000",
-          "shopeeQuery": "ruffle blazer coat dress hitam wanita",
+          "name": "Cottonink Fawnia Oversized Button-Down Shirt",
+          "material": "Katun Rayon Poplin Adem",
+          "color": "Jet Black",
+          "estimatedPrice": "Rp 149.000 - Rp 189.000",
+          "shopeeQuery": "cottonink fawnia kemeja oversized hitam wanita",
+          "shopeeUrl": "https://shopee.co.id/cottonink",
+          "brand": "Cottonink"
+        },
+        {
+          "category": "bawahan",
+          "name": "Shop At Velvet High-Waist Tailored Wide Trousers",
+          "material": "Katun Twill Semi-Formal",
+          "color": "Creamy Ivory / Broken White",
+          "estimatedPrice": "Rp 155.000 - Rp 195.000",
+          "shopeeQuery": "celana bahan kulot lebar ivory broken white wanita",
           "shopeeUrl": "https://shopee.co.id/shopatvelvet",
-          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
           "brand": "Shop At Velvet"
         },
         {
           "category": "sepatu",
           "name": "Black Leather Heeled Ankle Chelsea Boots",
-          "material": "Vegan Nappa Leather 5cm Block Heel",
+          "material": "Vegan Nappa Leather 4cm Heel",
           "color": "Jet Black",
           "estimatedPrice": "Rp 175.000 - Rp 245.000",
-          "shopeeQuery": "chelsea boots heels 5cm hitam wanita kulit",
-          "shopeeUrl": "https://shopee.co.id",
-          "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
+          "shopeeQuery": "chelsea ankle boots hitam wanita kulit",
+          "shopeeUrl": "https://shopee.co.id"
         }
       ]
     }
@@ -807,7 +797,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 129.000 - Rp 169.000",
           "shopeeQuery": "cottonink boxy short sleeve linen shirt off white",
           "shopeeUrl": "https://shopee.co.id/cottonink",
-          "imageUrl": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=80",
           "brand": "Cottonink"
         },
         {
@@ -818,7 +807,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 155.000 - Rp 189.000",
           "shopeeQuery": "jiniso 778 relax kulot jeans vintage light blue",
           "shopeeUrl": "https://shopee.co.id/jiniso.id",
-          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
           "brand": "JINISO"
         },
         {
@@ -828,8 +816,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Rich Cognac Dark Brown",
           "estimatedPrice": "Rp 135.000 - Rp 185.000",
           "shopeeQuery": "sepatu penny loafers kulit cokelat wanita",
-          "shopeeUrl": "https://shopee.co.id",
-          "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
+          "shopeeUrl": "https://shopee.co.id"
         }
       ]
     }
@@ -887,7 +874,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 119.000 - Rp 159.000",
           "shopeeQuery": "erigo kemeja rayon lavrenti white resort",
           "shopeeUrl": "https://shopee.co.id/erigostore",
-          "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
           "brand": "Erigo"
         },
         {
@@ -898,7 +884,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 145.000 - Rp 185.000",
           "shopeeQuery": "thenblank chino pants sand pria ankle fit",
           "shopeeUrl": "https://shopee.co.id/thenblank",
-          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
           "brand": "THENBLANK"
         },
         {
@@ -908,8 +893,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Pure White",
           "estimatedPrice": "Rp 140.000 - Rp 195.000",
           "shopeeQuery": "sepatu sneakers court putih pria kulit minimalis",
-          "shopeeUrl": "https://shopee.co.id",
-          "imageUrl": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80"
+          "shopeeUrl": "https://shopee.co.id"
         }
       ]
     }
@@ -967,7 +951,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 165.000 - Rp 220.000",
           "shopeeQuery": "harrington jacket pria charcoal grey kanvas",
           "shopeeUrl": "https://shopee.co.id/theexecutiveofficial",
-          "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
           "brand": "The Executive"
         },
         {
@@ -978,7 +961,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 155.000 - Rp 195.000",
           "shopeeQuery": "the executive chino pants ankle caramel tan pria",
           "shopeeUrl": "https://shopee.co.id/theexecutiveofficial",
-          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
           "brand": "The Executive"
         },
         {
@@ -988,8 +970,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Clean White",
           "estimatedPrice": "Rp 140.000 - Rp 195.000",
           "shopeeQuery": "sepatu sneakers court putih pria kulit minimalis",
-          "shopeeUrl": "https://shopee.co.id",
-          "imageUrl": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80"
+          "shopeeUrl": "https://shopee.co.id"
         }
       ]
     }
@@ -1047,7 +1028,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 195.000 - Rp 265.000",
           "shopeeQuery": "the executive blazer rajut knit casual camel pria",
           "shopeeUrl": "https://shopee.co.id/theexecutiveofficial",
-          "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
           "brand": "The Executive"
         },
         {
@@ -1058,7 +1038,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 79.000 - Rp 99.000",
           "shopeeQuery": "erigo heavyweight 20s boxy t-shirt white polos",
           "shopeeUrl": "https://shopee.co.id/erigostore",
-          "imageUrl": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80",
           "brand": "Erigo"
         },
         {
@@ -1069,7 +1048,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 155.000 - Rp 189.000",
           "shopeeQuery": "jiniso loose jeans 90s light washed denim",
           "shopeeUrl": "https://shopee.co.id/jiniso.id",
-          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
           "brand": "JINISO"
         },
         {
@@ -1079,8 +1057,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Off-White / Black Piping",
           "estimatedPrice": "Rp 125.000 - Rp 175.000",
           "shopeeQuery": "sneakers canvas high top retro off white",
-          "shopeeUrl": "https://shopee.co.id",
-          "imageUrl": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80"
+          "shopeeUrl": "https://shopee.co.id"
         }
       ]
     }
@@ -1138,7 +1115,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 115.000 - Rp 155.000",
           "shopeeQuery": "rompi rajut v-neck knit vest beige pria",
           "shopeeUrl": "https://shopee.co.id/erigostore",
-          "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
           "brand": "Erigo"
         },
         {
@@ -1149,7 +1125,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 110.000 - Rp 145.000",
           "shopeeQuery": "thenblank kemeja putih lengan pendek poplin pria",
           "shopeeUrl": "https://shopee.co.id/thenblank",
-          "imageUrl": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80",
           "brand": "THENBLANK"
         },
         {
@@ -1160,7 +1135,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 145.000 - Rp 185.000",
           "shopeeQuery": "thenblank wide leg slacks hitam pria",
           "shopeeUrl": "https://shopee.co.id/thenblank",
-          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
           "brand": "THENBLANK"
         },
         {
@@ -1170,8 +1144,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "White / Gum Sole",
           "estimatedPrice": "Rp 135.000 - Rp 185.000",
           "shopeeQuery": "sepatu sneakers court putih sol karet mentah pria",
-          "shopeeUrl": "https://shopee.co.id",
-          "imageUrl": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80"
+          "shopeeUrl": "https://shopee.co.id"
         }
       ]
     }
@@ -1229,7 +1202,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 285.000 - Rp 395.000",
           "shopeeQuery": "the executive jas setelan slim fit deep navy pria",
           "shopeeUrl": "https://shopee.co.id/theexecutiveofficial",
-          "imageUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
           "brand": "The Executive"
         },
         {
@@ -1240,7 +1212,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 135.000 - Rp 175.000",
           "shopeeQuery": "the executive kemeja formal putih lengan panjang pria",
           "shopeeUrl": "https://shopee.co.id/theexecutiveofficial",
-          "imageUrl": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80",
           "brand": "The Executive"
         },
         {
@@ -1251,7 +1222,6 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 165.000 - Rp 215.000",
           "shopeeQuery": "the executive celana bahan navy tailored trousers pria",
           "shopeeUrl": "https://shopee.co.id/theexecutiveofficial",
-          "imageUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
           "brand": "The Executive"
         },
         {
@@ -1261,8 +1231,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "color": "Dark Espresso Brown",
           "estimatedPrice": "Rp 185.000 - Rp 265.000",
           "shopeeQuery": "sepatu pantofel oxford kulit formal pria dark brown",
-          "shopeeUrl": "https://shopee.co.id",
-          "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
+          "shopeeUrl": "https://shopee.co.id"
         }
       ]
     }

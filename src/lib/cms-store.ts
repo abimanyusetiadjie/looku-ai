@@ -175,7 +175,7 @@ export function getAllAdminLookbook(): TrendingLook[] {
   }
 
   try {
-    const DATASET_VERSION_KEY = "looku_dataset_v36_harmonized_15";
+    const DATASET_VERSION_KEY = "looku_dataset_v37_fullbody_editorial";
     const currentVer = localStorage.getItem("looku_dataset_version");
     if (currentVer !== DATASET_VERSION_KEY) {
       localStorage.removeItem("looku_custom_lookbook");
