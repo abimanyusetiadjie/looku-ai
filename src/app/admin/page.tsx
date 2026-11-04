@@ -220,6 +220,144 @@ export default function AdminCMSPage() {
   // ==========================================
   // LOOKBOOK CURATION ACTIONS (CRUD & SHOPEE)
   // ==========================================
+  // ==========================================
+  // AUTO-SYNTHESIZE OUTFIT FROM CATALOG
+  // ==========================================
+  const handleAutoSynthesizeFromCatalog = () => {
+    const tops = catalog.filter((c) => c.category === "atasan");
+    const bottoms = catalog.filter((c) => c.category === "bawahan");
+    const outers = catalog.filter((c) => c.category === "outer_hijab");
+
+    if (tops.length === 0 || bottoms.length === 0) {
+      addToast({
+        title: "Katalog Belum Siap",
+        description: "Pastikan katalog busana memiliki item atasan dan bawahan terlebih dahulu.",
+        type: "error",
+      });
+      return;
+    }
+
+    const randomTop = tops[Math.floor(Math.random() * tops.length)];
+    const randomBottom = bottoms[Math.floor(Math.random() * bottoms.length)];
+    const randomOuter = outers.length > 0 ? outers[Math.floor(Math.random() * outers.length)] : null;
+
+    const isHijab = (randomOuter?.name || "").toLowerCase().includes("voal") || (randomOuter?.name || "").toLowerCase().includes("hijab") || (randomOuter?.name || "").toLowerCase().includes("pashmina");
+    const isPria = (randomTop.name || "").toLowerCase().includes("pria") || (randomTop.brand || "").toLowerCase().includes("erigo") || (randomTop.name || "").toLowerCase().includes("lavrenti") || (randomTop.name || "").toLowerCase().includes("jazlyn");
+
+    const heroImages = isPria 
+      ? ["/looks/look_pria_white_resort_chino.jpg", "/looks/look_pria_charcoal_caramel.jpg", "/looks/look_pria_camel_blazer.jpg", "/looks/look_pria_beige_vest.jpg", "/looks/look_pria_navy_suit.jpg"]
+      : isHijab
+      ? ["/looks/look_hijab_white_linen_denim.jpg", "/looks/look_hijab_mustard_chino.jpg", "/looks/look_hijab_navy_sand_chino.jpg", "/looks/look_hijab_sage_white_pants.jpg", "/looks/look_powder_blue_hijab.jpg"]
+      : ["/looks/look_cream_mandarin_linen.jpg", "/looks/look_dusty_rose_linen.jpg", "/looks/look_coral_summer_dress.jpg", "/looks/look_black_ruffle_dress.jpg", "/looks/look_wanita_offwhite_denim.jpg"];
+
+    const selectedImage = heroImages[Math.floor(Math.random() * heroImages.length)];
+    const topClean = randomTop.name.split("-").pop()?.trim().replace(/\(.*?\)/g, "").trim() || randomTop.name;
+    const btmClean = randomBottom.name.split("-").pop()?.trim().replace(/\(.*?\)/g, "").trim() || randomBottom.name;
+
+    const topPrice = randomTop.marketValidation?.estimatedPrice || randomTop.price || 150000;
+    const btmPrice = randomBottom.marketValidation?.estimatedPrice || randomBottom.price || 150000;
+    const outPrice = randomOuter ? (randomOuter.marketValidation?.estimatedPrice || randomOuter.price || 75000) : 0;
+    const shoePrice = 149000;
+    const total = topPrice + btmPrice + outPrice + shoePrice;
+
+    const newId = `custom_look_${Date.now()}`;
+    const lookTitle = `${randomTop.brand || "Lokal"} & ${randomBottom.brand || "Katalog"}: ${topClean} & ${btmClean}`;
+
+    const synthesizedLook: TrendingLook = {
+      id: newId,
+      title: lookTitle,
+      tag: isPria ? "MENSWEAR" : isHijab ? "HIJAB CASUAL" : "CASUAL CHIC",
+      category: isPria ? "Pria & Menswear" : isHijab ? "Campus & Hijab" : "Wanita & Casual",
+      vibe: "Earthy Minimalist",
+      image: selectedImage,
+      skinToneRecommendation: "Sawo Matang & Kuning Langsat (Warm Autumn)",
+      priceRange: `Rp ${total.toLocaleString("id-ID")} / Set`,
+      shopeeUrl: randomTop.brandUrl || randomBottom.brandUrl || "https://shopee.co.id",
+      isGoldenSignature: true,
+      is_verified: true,
+      is_published: true,
+      likes: Math.floor(1000 + Math.random() * 1500),
+      likesCount: Math.floor(1000 + Math.random() * 1500),
+      outfit: {
+        id: `rec_${newId}`,
+        title: lookTitle,
+        tagline: `Kombinasi ${randomTop.material || "katun lembut"} dan ${randomBottom.material || "kain berpori"} yang nyaman untuk cuaca 33°C.`,
+        overallVibe: "Earthy Minimalist",
+        comfortRating: 5.0,
+        affordabilityRating: 4.8,
+        modestFriendly: isHijab,
+        skinToneMatch: "Perpaduan warna netral selaras dengan rona hangat kulit Indonesia.",
+        whyItWorks: "Serat kain alami berpori mikro menyerap keringat seketika, adem di cuaca kampus & kantor 33°C.",
+        stylingTip: "Padukan aksesoris sederhana dan alas kaki berpori untuk menunjang aktivitas seharian.",
+        heroImage: selectedImage,
+        createdAt: new Date().toISOString(),
+        colorPalette: [
+          { name: randomTop.colorName || "Top Tone", hex: randomTop.colorHex || "#D5C7B7" },
+          { name: randomBottom.colorName || "Bottom Tone", hex: randomBottom.colorHex || "#C2B69D" },
+          { name: "Neutral Accent", hex: "#FAF8F5" },
+        ],
+        items: [
+          {
+            category: "atasan",
+            name: randomTop.name,
+            material: randomTop.material || "Katun Rayon Berpori",
+            color: randomTop.colorName || "Netral",
+            colorHex: randomTop.colorHex || "#D5C7B7",
+            estimatedPrice: `Rp ${topPrice.toLocaleString("id-ID")}`,
+            shopeeQuery: `${randomTop.brand || ""} ${randomTop.name}`,
+            shopeeUrl: randomTop.brandUrl || "https://shopee.co.id",
+            imageUrl: randomTop.imageUrl || `/products/${randomTop.id}.jpg`,
+            brand: randomTop.brand || "Brand Resmi",
+          },
+          {
+            category: "bawahan",
+            name: randomBottom.name,
+            material: randomBottom.material || "Katun Drill Flowy",
+            color: randomBottom.colorName || "Netral",
+            colorHex: randomBottom.colorHex || "#C2B69D",
+            estimatedPrice: `Rp ${btmPrice.toLocaleString("id-ID")}`,
+            shopeeQuery: `${randomBottom.brand || ""} ${randomBottom.name}`,
+            shopeeUrl: randomBottom.brandUrl || "https://shopee.co.id",
+            imageUrl: randomBottom.imageUrl || `/products/${randomBottom.id}.jpg`,
+            brand: randomBottom.brand || "Brand Resmi",
+          },
+          {
+            category: "outer_hijab",
+            name: randomOuter ? randomOuter.name : "Voal Square Lasercut Muted Nude",
+            material: randomOuter ? randomOuter.material : "Premium Voile Breathable",
+            color: randomOuter ? randomOuter.colorName : "Muted Sand",
+            colorHex: randomOuter ? randomOuter.colorHex : "#D7CABC",
+            estimatedPrice: `Rp ${(randomOuter ? outPrice : 69000).toLocaleString("id-ID")}`,
+            shopeeQuery: randomOuter ? `${randomOuter.brand || ""} ${randomOuter.name}` : "voal square lasercut nude sand",
+            shopeeUrl: randomOuter ? randomOuter.brandUrl : "https://shopee.co.id",
+            imageUrl: randomOuter ? (randomOuter.imageUrl || `/products/${randomOuter.id}.jpg`) : "/products/prod_real_16.jpg",
+            brand: randomOuter ? (randomOuter.brand || "Lozy Hijab") : "Lozy Hijab",
+          },
+          {
+            category: "sepatu",
+            name: isPria ? "Minimalist Court Sneaker Sol Karet Pria" : "Pointed Mules Loafers Kulit Ivory Cream",
+            material: "Vegan Leather Breathable & Rubber Sole",
+            color: isPria ? "Clean White" : "Ivory Cream",
+            colorHex: isPria ? "#FFFFFF" : "#F5EBE0",
+            estimatedPrice: "Rp 149.000",
+            shopeeQuery: isPria ? "sepatu sneakers court putih pria" : "pointed mules cream wanita",
+            shopeeUrl: "https://shopee.co.id",
+            imageUrl: "/fallback-garment.svg",
+            brand: "Local Footwear",
+          },
+        ],
+      },
+    };
+
+    setEditingLook(synthesizedLook);
+    setIsLookModalOpen(true);
+    addToast({
+      title: "⚡ Setelan Berhasil Dirakit!",
+      description: `Komponen pakaian diambil langsung dari ${randomTop.brand || "Katalog"} & ${randomBottom.brand || "Katalog"}.`,
+      type: "curate",
+    });
+  };
+
   const handleOpenNewLook = () => {
     const newId = `custom_look_${Date.now()}`;
     setEditingLook({
@@ -1219,6 +1357,14 @@ export default function AdminCMSPage() {
                 >
                   <Download className="w-4 h-4 text-charcoal-900" />
                   <span>Ekspor CSV</span>
+                </button>
+                <button
+                  onClick={handleAutoSynthesizeFromCatalog}
+                  className="py-2.5 px-4 rounded-xl bg-[#181A18] hover:bg-charcoal-800 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer"
+                  title="Rakit setelan OOTD otomatis secara instan dari katalog busana yang ada"
+                >
+                  <Sparkles className="w-4 h-4 text-amber-400" />
+                  <span>⚡ Auto-Synthesize dari Katalog</span>
                 </button>
                 <button
                   onClick={handleOpenNewLook}
