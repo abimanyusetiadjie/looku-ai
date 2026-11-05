@@ -68,7 +68,7 @@ const BENTO_GALLERY: BentoItem[] = [
     title: "Sawo Matang Warm Spectrum",
     subtitle: "Harmoni earth-tone hangat yang memancarkan kilau alami kulit Nusantara.",
     tag: "UNDERTONE HARMONY",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=85",
+    image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&auto=format&fit=crop&q=85",
     href: "/lookbook?tone=sawo_matang",
     className: "sm:col-span-6 lg:col-span-4 min-h-[320px] lg:min-h-[380px]",
     aspectClass: "aspect-[4/5] sm:aspect-auto",
@@ -116,31 +116,31 @@ export default function AtelierBentoGrid({ onOpenQuiz }: { onOpenQuiz?: () => vo
         </div>
 
         {/* ============================================================ */}
-        {/* FULL-IMAGE BENTO GRID: Pure Editorial Mosaic (Zero AI Slop)  */}
+        {/* FULL-IMAGE BENTO GRID: Tactile Curved Corners (Rounded-3xl)  */}
         {/* ============================================================ */}
-        <div className="grid grid-cols-1 sm:grid-cols-12 gap-3.5 sm:gap-4 lg:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-5 lg:gap-6">
           {BENTO_GALLERY.map((item) => (
             <Link
               key={item.id}
               href={item.href}
-              className={`group relative overflow-hidden bg-[#EFECE6] flex flex-col justify-between ${item.className} ${item.aspectClass || ""}`}
+              className={`group relative overflow-hidden bg-[#EFECE6] rounded-2xl sm:rounded-3xl lg:rounded-[26px] shadow-xs hover:shadow-2xl transition-all duration-700 flex flex-col justify-between ${item.className} ${item.aspectClass || ""}`}
             >
-              {/* 1. Full-Bleed Photograph */}
+              {/* 1. Full-Bleed Photograph with Smooth Curves */}
               <div className="absolute inset-0 z-0">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover object-center group-hover:scale-[1.035] transition-transform duration-1000 ease-out"
+                  className="object-cover object-center group-hover:scale-[1.04] transition-transform duration-1000 ease-out"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                 />
                 {/* 2. Soft Cinema Vignette Overlay (Top & Bottom only for Legibility) */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/35 opacity-90 group-hover:opacity-95 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/35 opacity-90 group-hover:opacity-95 transition-opacity duration-500" />
               </div>
 
-              {/* 3. Top Tag & Number */}
-              <div className="relative z-10 p-5 sm:p-6 flex items-center justify-between text-white/90">
-                <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] font-medium px-2 py-1 bg-black/30 backdrop-blur-md border border-white/15">
+              {/* 3. Top Tag & Number with Rounded Capsule */}
+              <div className="relative z-10 p-5 sm:p-7 flex items-center justify-between text-white/90">
+                <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] font-medium px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 rounded-full shadow-xs">
                   {item.tag}
                 </span>
                 <span className="text-[11px] font-mono tracking-widest text-[#D4A373] font-semibold">
@@ -148,8 +148,8 @@ export default function AtelierBentoGrid({ onOpenQuiz }: { onOpenQuiz?: () => vo
                 </span>
               </div>
 
-              {/* 4. Bottom Editorial Typography & Discreet Arrow */}
-              <div className="relative z-10 p-5 sm:p-6 sm:pt-0">
+              {/* 4. Bottom Editorial Typography & Tactile Button */}
+              <div className="relative z-10 p-5 sm:p-7 sm:pt-0">
                 <div className="flex items-end justify-between gap-4">
                   <div>
                     <h3 className="font-serif text-lg sm:text-xl lg:text-2xl text-white font-normal leading-snug group-hover:text-[#FAF6EE] transition-colors">
@@ -161,7 +161,7 @@ export default function AtelierBentoGrid({ onOpenQuiz }: { onOpenQuiz?: () => vo
                   </div>
 
                   {/* Discreet Circle Arrow on Hover */}
-                  <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shrink-0 group-hover:bg-[#FAF8F5] group-hover:text-[#181A18] transition-all duration-300">
+                  <div className="w-9 h-9 rounded-full bg-white/25 backdrop-blur-md border border-white/35 text-white flex items-center justify-center shrink-0 group-hover:bg-[#FAF8F5] group-hover:text-[#181A18] group-hover:scale-105 transition-all duration-300 shadow-sm">
                     <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform duration-300" />
                   </div>
                 </div>
