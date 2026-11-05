@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { OOTDRecommendation, OutfitItem } from "@/lib/types";
+import { getStudioCatalogPool, StudioCatalogItem } from "@/lib/studio-catalog";
 import { PRESET_OOTD_COLLECTION, resolveLookForStudio } from "@/lib/presets";
 import {
   resolveSmartItemVisual,
@@ -1014,6 +1015,47 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
   const [isDetailsDrawerOpen, setIsDetailsDrawerOpen] = useState(false);
   const [feedbackToast, setFeedbackToast] = useState<string | null>(null);
   const [isShuffling, setIsShuffling] = useState(false);
+  const [canvasMode, setCanvasMode] = useState<"editorial" | "modular">("editorial");
+  const [pickerSlot, setPickerSlot] = useState<"top" | "bottom" | "outer" | "shoes" | null>(null);
+  const [pickerSearch, setPickerSearch] = useState<string>("");
+
+  const handleSelectCatalogItem = (catItem: StudioCatalogItem, slotKey: "top" | "bottom" | "outer" | "shoes") => {
+    const pinNumbers = { outer: 1, top: 2, bottom: 3, shoes: 4 };
+    const updatedItem: StudioItem = {
+      id: catItem.id,
+      category: slotKey,
+      categoryLabel: catItem.categoryLabel,
+      categoryOrder: pinNumbers[slotKey],
+      pinNumber: pinNumbers[slotKey],
+      brand: catItem.brand,
+      dupeBrand: catItem.brand,
+      officialUrl: catItem.officialUrl,
+      officialPriceStr: catItem.officialPriceStr,
+      name: catItem.name,
+      material: catItem.material,
+      breathability: catItem.breathability,
+      colorName: catItem.colorName,
+      colorHex: catItem.colorHex,
+      price: catItem.price,
+      priceStr: catItem.priceStr,
+      imageUrl: catItem.imageUrl,
+      shopeeQuery: catItem.name,
+      tokopediaQuery: catItem.name,
+      note: catItem.note,
+      gender: catItem.gender,
+      modest: catItem.modest,
+      isHijab: catItem.isHijab,
+      suitableWeather: ["hot", "ac", "rainy", "mild"],
+    };
+
+    setActiveSlots((prev) => ({
+      ...prev,
+      [slotKey]: updatedItem,
+    }));
+    setPickerSlot(null);
+    setPickerSearch("");
+    triggerToast(`✨ ${catItem.name} (${catItem.brand}) berhasil dipadukan!`);
+  };
 
   // Sinkronisasi Deep-Link dari Hero/Lookbook (?vibe=... atau ?look=...) & LocalStorage
   useEffect(() => {
@@ -1644,8 +1686,157 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
               </button>
             </div>
 
-            {/* POINT 2: HERO OOTD DENGAN SHOPPABLE INTERACTIVE PINS */}
+            {/* PENGALIH TAMPILAN: MODEL EDITORIAL VS KANVAS MODULAR MIX & MATCH */}
             <div className="px-4">
+              <div className="p-1 bg-neutral-100 rounded-xl border border-neutral-200 flex items-center justify-between text-xs">
+                <button
+                  type="button"
+                  onClick={() => setCanvasMode("editorial")}
+                  className={`flex-1 py-1.5 px-3 rounded-lg font-semibold flex items-center justify-center gap-1.5 transition-all ${
+                    canvasMode === "editorial"
+                      ? "bg-white text-neutral-900 shadow-xs"
+                      : "text-neutral-500 hover:text-neutral-900"
+                  }`}
+                >
+                  <span>👤 Model Editorial</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCanvasMode("modular")}
+                  className={`flex-1 py-1.5 px-3 rounded-lg font-semibold flex items-center justify-center gap-1.5 transition-all ${
+                    canvasMode === "modular"
+                      ? "bg-white text-neutral-900 shadow-xs"
+                      : "text-neutral-500 hover:text-neutral-900"
+                  }`}
+                >
+                  <span>🗂️ Kanvas Modular (Mix & Match)</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-terracotta-500 animate-pulse" />
+                </button>
+              </div>
+            </div>
+
+            {/* POINT 2: CANVAS AREA (EDITORIAL ATAU MODULAR) */}
+            <div className="px-4">
+              {canvasMode === "modular" ? (
+                /* KANVAS MODULAR 4-SLOT: REAL PACKSHOT MIX & MATCH */
+                <div className="bg-[#FAF8F5] border border-sand-300 rounded-2xl p-3.5 sm:p-4 shadow-sm space-y-3">
+                  <div className="flex items-center justify-between pb-2 border-b border-sand-200">
+                    <div>
+                      <span className="text-[10px] font-mono tracking-wider uppercase text-terracotta-600 font-bold block">
+                        MODULAR COMBINATORIAL STUDIO
+                      </span>
+                      <h3 className="text-sm font-serif font-bold text-charcoal-900">
+                        Kanvas Padu-Padan 4 Komponen
+                      </h3>
+                    </div>
+                    <span className="text-[11px] font-mono bg-white px-2.5 py-1 rounded-full border border-sand-300 text-charcoal-800 font-semibold shadow-2xs">
+                      Total: {totalDupePriceStr}
+                    </span>
+                  </div>
+
+                  {/* 4 Modular Garment Slots */}
+                  <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+                    {slotEntries.map(({ key, item }) => {
+                      const isLocked = lockedSlots[key];
+                      const slotLabel =
+                        key === "outer"
+                          ? genderMode === "hijab" ? "Hijab Modest" : "Outerwear"
+                          : key === "top"
+                          ? "Atasan (Top)"
+                          : key === "bottom"
+                          ? "Bawahan (Bottom)"
+                          : "Sepatu (Shoes)";
+
+                      return (
+                        <div
+                          key={key}
+                          onClick={() => setPickerSlot(key)}
+                          className="group relative bg-white border border-sand-300 hover:border-charcoal-900 rounded-xl p-2.5 transition-all cursor-pointer shadow-2xs hover:shadow-xs flex flex-col justify-between"
+                        >
+                          <div className="flex items-center justify-between text-[9px] font-mono pb-1.5 border-b border-sand-100">
+                            <span className="font-bold text-charcoal-700 uppercase">
+                              #{item.pinNumber} {slotLabel}
+                            </span>
+                            <span
+                              className="w-2.5 h-2.5 rounded-full border border-black/15 shrink-0"
+                              style={{ backgroundColor: item.colorHex }}
+                              title={item.colorName}
+                            />
+                          </div>
+
+                          {/* Garment Packshot */}
+                          <div className="relative w-full aspect-[4/4] bg-[#F7F4EE] rounded-lg my-2 overflow-hidden flex items-center justify-center p-1">
+                            <img
+                              src={item.imageUrl}
+                              alt={item.name}
+                              className="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-200"
+                              onError={(e) => {
+                                (e.target as HTMLImageElement).src = "/fallback-garment.svg";
+                              }}
+                            />
+                            {isLocked && (
+                              <span className="absolute top-1.5 right-1.5 p-1 bg-charcoal-900/80 text-white rounded-md">
+                                <Lock className="w-2.5 h-2.5" />
+                              </span>
+                            )}
+                          </div>
+
+                          {/* Item Meta */}
+                          <div className="space-y-0.5">
+                            <span className="text-[9px] font-mono font-bold text-terracotta-600 uppercase block">
+                              {item.brand}
+                            </span>
+                            <p className="text-[11px] font-semibold text-charcoal-900 line-clamp-1 group-hover:text-terracotta-600 transition-colors">
+                              {item.name}
+                            </p>
+                            <p className="text-[10px] font-mono text-charcoal-600">
+                              {item.priceStr}
+                            </p>
+                          </div>
+
+                          {/* Quick Swap & Browse Button */}
+                          <div className="mt-2 pt-1.5 border-t border-sand-100 flex items-center justify-between">
+                            <span className="text-[9px] font-sans text-terracotta-700 font-semibold flex items-center gap-1 group-hover:underline">
+                              Ganti Koleksi ↗
+                            </span>
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                toggleSlotLock(key);
+                              }}
+                              className="p-1 rounded hover:bg-sand-100 text-charcoal-600"
+                              title={isLocked ? "Buka Kunci" : "Kunci Slot"}
+                            >
+                              {isLocked ? <Lock className="w-2.5 h-2.5" /> : <Unlock className="w-2.5 h-2.5" />}
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Modular Canvas Quick Bar */}
+                  <div className="pt-2 flex items-center justify-between text-xs">
+                    <button
+                      type="button"
+                      onClick={handleShuffleUnlocked}
+                      className="px-3 py-1.5 bg-white border border-sand-300 hover:border-charcoal-900 rounded-lg font-medium text-charcoal-800 flex items-center gap-1.5 shadow-2xs transition-all"
+                    >
+                      <RotateCw className="w-3 h-3" />
+                      <span>Acak Slot Terbuka</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleSaveToWardrobe}
+                      className="px-3.5 py-1.5 bg-charcoal-900 hover:bg-black text-white rounded-lg font-semibold flex items-center gap-1.5 shadow-2xs transition-all"
+                    >
+                      <Bookmark className="w-3 h-3" />
+                      <span>Simpan Setelan</span>
+                    </button>
+                  </div>
+                </div>
+              ) : (
               <div className="relative w-full aspect-[4/5] bg-neutral-100 overflow-hidden rounded-xl shadow-xs border border-neutral-200/70">
                 <img
                   src={getOptimizedImageUrl(activeHeroImage, "hero")}
@@ -1749,21 +1940,35 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                   );
                 })}
               </div>
+              )}
 
               {/* POINT 3: MODEL SPEC & RELATABILITY TAG (Ala StyleHint) */}
-              <div className="mt-2.5 px-3 py-2 bg-neutral-50 border border-neutral-200/70 rounded-lg flex items-center justify-between text-[10px] text-neutral-600 font-mono">
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold text-neutral-800">
-                    {customModelSpec?.height || currentVibeObj.modelSpec.height}
+              <div className="mt-2.5 px-3.5 py-3 bg-[#FAF9F6] border border-neutral-200/80 rounded-xl space-y-2">
+                <div className="flex flex-wrap items-center justify-between gap-1.5 text-xs">
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white border border-neutral-200 text-[11px] font-semibold text-neutral-900 shadow-2xs whitespace-nowrap">
+                      <span className="text-[9px] text-neutral-400 font-medium uppercase">TB</span>
+                      <span>{customModelSpec?.height || currentVibeObj.modelSpec.height}</span>
+                    </span>
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-white border border-neutral-200 text-[11px] font-medium text-neutral-800 shadow-2xs whitespace-nowrap">
+                      {String(customModelSpec?.size || currentVibeObj.modelSpec.size).toLowerCase().startsWith("size")
+                        ? (customModelSpec?.size || currentVibeObj.modelSpec.size)
+                        : `Size ${customModelSpec?.size || currentVibeObj.modelSpec.size}`}
+                    </span>
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-neutral-200/70 text-[10px] font-medium text-neutral-700 whitespace-nowrap">
+                      {customModelSpec?.silhouette || currentVibeObj.modelSpec.silhouette}
+                    </span>
+                  </div>
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-[10px] font-medium border border-emerald-200/60 whitespace-nowrap">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
+                    Sirkulasi Udara Optimal
                   </span>
-                  <span>•</span>
-                  <span>Size {customModelSpec?.size || currentVibeObj.modelSpec.size}</span>
-                  <span>•</span>
-                  <span>{customModelSpec?.silhouette || currentVibeObj.modelSpec.silhouette}</span>
                 </div>
-                <span className="text-neutral-500 font-medium">
-                  Sirkulasi Udara Optimal · Serat Bernapas
-                </span>
+                {currentVibeObj.tagline && (
+                  <p className="text-[11px] text-neutral-600 leading-relaxed font-sans pt-1 border-t border-neutral-200/60">
+                    {currentVibeObj.tagline}
+                  </p>
+                )}
               </div>
             </div>
 
@@ -2195,21 +2400,59 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                 })}
               </div>
 
-              {/* MODEL SPECS CARD DESKTOP */}
-              <div className="p-3.5 bg-neutral-50 border border-neutral-200/80 rounded-xl space-y-2">
-                <div className="flex items-center justify-between text-xs font-mono text-neutral-700">
-                  <div className="flex items-center gap-2">
-                    <span className="font-bold text-neutral-900">{customModelSpec?.height || currentVibeObj.modelSpec.height}</span>
-                    <span>•</span>
-                    <span>Size {customModelSpec?.size || currentVibeObj.modelSpec.size}</span>
-                    <span>•</span>
-                    <span>{customModelSpec?.silhouette || currentVibeObj.modelSpec.silhouette}</span>
+              {/* MODEL SPECS & FORMULA CARD DESKTOP */}
+              <div className="p-4 bg-[#FAF9F6] border border-neutral-200/90 rounded-2xl space-y-3.5 shadow-2xs">
+                {/* Row 1: Model Specs Chips & Climate Badge */}
+                <div className="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-neutral-200/70">
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    {/* Height Badge */}
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white border border-neutral-200/90 text-xs font-semibold text-neutral-900 shadow-2xs whitespace-nowrap">
+                      <span className="text-[10px] text-neutral-400 font-medium uppercase tracking-wider">TB</span>
+                      <span>{customModelSpec?.height || currentVibeObj.modelSpec.height}</span>
+                    </span>
+
+                    {/* Size Badge */}
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-lg bg-white border border-neutral-200/90 text-xs font-medium text-neutral-800 shadow-2xs whitespace-nowrap">
+                      {String(customModelSpec?.size || currentVibeObj.modelSpec.size).toLowerCase().startsWith("size")
+                        ? (customModelSpec?.size || currentVibeObj.modelSpec.size)
+                        : `Size ${customModelSpec?.size || currentVibeObj.modelSpec.size}`}
+                    </span>
+
+                    {/* Silhouette Badge */}
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-lg bg-neutral-200/70 text-[11px] font-medium text-neutral-700 whitespace-nowrap">
+                      {customModelSpec?.silhouette || currentVibeObj.modelSpec.silhouette}
+                    </span>
                   </div>
-                  <span className="text-neutral-500 font-medium">Sirkulasi Udara Optimal · Serat Bernapas</span>
+
+                  {/* Climate Feature Tag */}
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-[11px] font-medium border border-emerald-200/60 whitespace-nowrap">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
+                    Sirkulasi Udara Optimal
+                  </span>
                 </div>
-                <p className="text-xs text-neutral-600 leading-relaxed font-sans">
-                  {customLookTitle ? `Formula: ${customLookTitle}. ${currentVibeObj.tagline}` : currentVibeObj.tagline}
-                </p>
+
+                {/* Row 2: Look Formula & Stylist Note */}
+                <div className="space-y-1">
+                  {customLookTitle ? (
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="px-1.5 py-0.5 text-[9px] font-mono tracking-wider uppercase font-bold bg-neutral-900 text-white rounded">
+                          FORMULA OOTD
+                        </span>
+                        <span className="text-xs font-bold text-neutral-900 truncate">
+                          {customLookTitle}
+                        </span>
+                      </div>
+                      <p className="text-xs text-neutral-600 leading-relaxed font-sans">
+                        {currentVibeObj.tagline}
+                      </p>
+                    </div>
+                  ) : (
+                    <p className="text-xs text-neutral-700 leading-relaxed font-sans">
+                      {currentVibeObj.tagline}
+                    </p>
+                  )}
+                </div>
               </div>
 
               {/* Action Buttons Desktop */}
@@ -2218,7 +2461,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                   type="button"
                   onClick={handleShuffleUnlocked}
                   disabled={isShuffling}
-                  className="flex-1 h-12 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium rounded-xl flex items-center justify-center gap-2 transition-all shadow-sm"
+                  className="flex-1 h-11 bg-neutral-900 hover:bg-neutral-800 active:scale-[0.99] text-white text-xs font-medium rounded-xl flex items-center justify-center gap-2 transition-all shadow-xs"
                 >
                   <RotateCw className={`w-3.5 h-3.5 ${isShuffling ? "animate-spin" : ""}`} />
                   <span>Acak Kombinasi</span>
@@ -2227,7 +2470,8 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                 <button
                   type="button"
                   onClick={handleSaveToWardrobe}
-                  className="h-12 px-5 bg-white border border-neutral-200 hover:border-neutral-400 text-neutral-800 text-xs font-medium rounded-xl flex items-center justify-center gap-1.5 transition-colors"
+                  className="h-11 px-4 bg-white border border-neutral-200 hover:border-neutral-400 hover:bg-neutral-50 active:scale-[0.99] text-neutral-800 text-xs font-medium rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-2xs"
+                  title="Simpan ke Lemari"
                 >
                   <Bookmark className="w-3.5 h-3.5" />
                   <span>Simpan</span>
@@ -2236,7 +2480,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                 <button
                   type="button"
                   onClick={() => setIsDetailsDrawerOpen(true)}
-                  className="h-12 px-5 bg-neutral-100 hover:bg-neutral-200 text-neutral-900 text-xs font-medium rounded-xl flex items-center justify-center gap-1.5 transition-colors"
+                  className="h-11 px-4 bg-neutral-100 hover:bg-neutral-200 active:scale-[0.99] text-neutral-900 text-xs font-medium rounded-xl flex items-center justify-center gap-1.5 transition-all"
                 >
                   <ShoppingBag className="w-3.5 h-3.5" />
                   <span>Belanja (4)</span>

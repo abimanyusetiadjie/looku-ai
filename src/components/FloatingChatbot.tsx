@@ -739,9 +739,9 @@ export default function FloatingChatbot() {
                       </div>
                     )}
 
-                    {/* Follow-up Action Chips */}
+                    {/* Follow-up Action Chips & Interactive Mix-and-Match */}
                     {m.outfitMatch && (
-                      <div className="flex flex-wrap gap-1.5 pt-1">
+                      <div className="flex flex-wrap gap-1.5 pt-1.5">
                         <button
                           type="button"
                           onClick={() => setExpandedOutfitId(prev => prev === m.outfitMatch?.id ? null : m.outfitMatch!.id)}
@@ -751,17 +751,27 @@ export default function FloatingChatbot() {
                         </button>
                         <button
                           type="button"
-                          onClick={() => handleSendMessage("Cari paduan warna yang lebih gelap / bold")}
-                          className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider border border-[#181A18]/20 bg-[#FAF8F5] hover:bg-[#181A18] hover:text-[#FAF8F5] transition rounded-none"
+                          onClick={() => handleSendMessage(`Tolong rekomendasikan alternatif bawahan (celana/kulot) yang lebih adem untuk dipadukan dengan setelan ${m.outfitMatch?.title} ini!`)}
+                          className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider border border-terracotta-500/40 bg-orange-50/70 hover:bg-terracotta-600 hover:text-white transition rounded-none text-terracotta-700 flex items-center gap-1"
+                          title="Ganti bawahan outfit ini"
                         >
-                          Palet Lebih Gelap
+                          <span>🔄 Ganti Bawahan</span>
                         </button>
                         <button
                           type="button"
-                          onClick={() => handleSendMessage("Rekomendasi versi lebih formal untuk acara")}
-                          className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider border border-[#181A18]/20 bg-[#FAF8F5] hover:bg-[#181A18] hover:text-[#FAF8F5] transition rounded-none"
+                          onClick={() => handleSendMessage(`Tolong carikan atasan alternatif (kemeja/blus) yang cocok dipadukan dengan bawahan setelan ${m.outfitMatch?.title} ini!`)}
+                          className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider border border-[#181A18]/20 bg-[#FAF8F5] hover:bg-[#181A18] hover:text-[#FAF8F5] transition rounded-none flex items-center gap-1"
+                          title="Ganti atasan outfit ini"
                         >
-                          Versi Formal
+                          <span>🔄 Ganti Atasan</span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleLoadOutfitToStudio(m.outfitMatch!)}
+                          className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider bg-neutral-900 text-white hover:bg-black transition rounded-none flex items-center gap-1"
+                          title="Buka langsung di Studio Mix and Match"
+                        >
+                          <span>🎨 Racik di Studio ↗</span>
                         </button>
                       </div>
                     )}
