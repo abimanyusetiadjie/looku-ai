@@ -684,7 +684,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                   className="group flex flex-col bg-transparent cursor-pointer select-none"
                 >
                   {/* Kanvas Foto 4:5 Latar Warm Stone (#EFECE6) - Full Bleed 100% Satu Kesatuan */}
-                  <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#EFECE6]">
+                  <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#EFECE6] rounded-xl shadow-2xs">
                     <ShopTheLookHotspotCanvas
                       image={look.image}
                       title={look.title}

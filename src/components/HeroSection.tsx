@@ -274,7 +274,7 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
             },
             {
               id: "trop-2",
-              img: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600",
+              img: "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/460311/item/idgoods_30_460311_3x4.jpg?width=600",
               title: "Wide-Leg Flowy Pants",
               climateBadge: "31–35°C · AIRY",
               swatches: ["#FAF6EE", "#D4A373", "#242724"],
@@ -286,7 +286,7 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
             },
             {
               id: "trop-3",
-              img: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600",
+              img: "/looks/look_powder_blue_hijab.jpg",
               title: "Voal Paris Square Hijab",
               climateBadge: "31–35°C · AIRY",
               swatches: ["#FDFBF7", "#91AF90", "#DECBA6"],
@@ -315,7 +315,7 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
               className="group flex flex-col bg-transparent cursor-pointer select-none"
             >
               {/* 1. Foto Rasio 4:5 Bleed */}
-              <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#EFECE6]">
+              <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#EFECE6] rounded-xl shadow-2xs">
                 <Image
                   src={item.img}
                   alt={item.title}

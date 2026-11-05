@@ -68,7 +68,7 @@ const OUTFIT_HERO_LIST: MobileOutfit[] = [
     suhu: "33°C Tropis Siang Hari",
     sirkulasiUdara: "Sirkulasi Udara Maksimal",
     alasanCocok: "Kombinasi serat linen alami dan voal paris berpori mikro melepas panas tubuh seketika tanpa menerawang, sangat santun untuk hijab kampus maupun semi-formal.",
-    gambar: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600&auto=format&fit=crop&q=75",
+    gambar: "/looks/look_powder_blue_hijab.jpg",
     paletWarna: [
       { nama: "Krem Oat", hex: "#FAF6EE" },
       { nama: "Sage Green", hex: "#84A98C" },
@@ -292,7 +292,7 @@ const TROPICAL_EDIT_LIST = [
     undertoneTag: "Warm Autumn",
     fabricNote: "Rayon Twill · Potongan Loose",
     studioParam: "santai_weekend_kafe",
-    gambar: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&auto=format&fit=crop&q=75",
+    gambar: "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/460311/item/idgoods_30_460311_3x4.jpg?width=600",
   },
   {
     id: "trop-3",
@@ -304,7 +304,7 @@ const TROPICAL_EDIT_LIST = [
     undertoneTag: "Semua Tone",
     fabricNote: "Voal Ultrafine · Sangat Ringan",
     studioParam: "kuliah_hijab_panas_hemat",
-    gambar: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600&auto=format&fit=crop&q=75",
+    gambar: "/looks/look_powder_blue_hijab.jpg",
   },
   {
     id: "trop-4",
@@ -911,7 +911,7 @@ export default function LookUMobileView({
                   className="group flex flex-col bg-transparent active:scale-[0.98] transition-transform cursor-pointer select-none"
                 >
                   {/* 1. Foto Rasio Mutlak 4:5 Bleed */}
-                  <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#EFECE6]">
+                  <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#EFECE6] rounded-xl shadow-2xs">
                     <Image
                       src={item.gambar}
                       alt={item.judul}
