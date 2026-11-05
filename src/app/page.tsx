@@ -42,7 +42,7 @@ const PersonalColorQuizModal = dynamic(() => import("@/components/PersonalColorQ
 const InfluencerCloneModal = dynamic(() => import("@/components/InfluencerCloneModal"), { ssr: false });
 const FashionCatalogModal = dynamic(() => import("@/components/FashionCatalogModal"), { ssr: false });
 const DailyReminderBanner = dynamic(() => import("@/components/DailyReminderBanner"), { ssr: false });
-const FeaturesSection = dynamic(() => import("@/components/FeaturesSection"), { ssr: false });
+const AtelierBentoGrid = dynamic(() => import("@/components/AtelierBentoGrid"), { ssr: false });
 const FAQSection = dynamic(() => import("@/components/FAQSection"), { ssr: false });
 const PWAInstallBanner = dynamic(() => import("@/components/PWAInstallBanner"), { ssr: false });
 
@@ -204,45 +204,11 @@ export default function HomePage() {
       <BrandMarquee />
 
       
-        {/* 4. Editorial 3-Grid: Curated for Tropics */}
-        <section className="py-24 sm:py-32 bg-white">
-           <div className="max-w-[1200px] mx-auto px-8 text-center">
-              <h2 className="font-serif text-4xl sm:text-5xl text-charcoal-900 tracking-tight">
-                 CURATED FOR TROPICS
-              </h2>
-              <p className="font-sans text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold text-charcoal-900/60 mt-4">
-                 THREE ESSENTIALS FOR JAKARTA 33°C
-              </p>
+        {/* 4. Atelier Bento Grid: The LookU Style Matrix */}
+        <AtelierBentoGrid onOpenQuiz={() => setIsQuizOpen(true)} />
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16">
-                 {/* Item 1 */}
-                 <div className="flex flex-col items-center">
-                    <div className="w-full aspect-[4/5] border border-charcoal-900/60 overflow-hidden bg-sand-100">
-                       <img src="https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=600&q=75&auto=format&fit=crop" alt="Linen Crinkle Silhouette" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" />
-                    </div>
-                    <span className="mt-6 font-sans text-[10px] sm:text-xs uppercase tracking-widest font-bold text-charcoal-900">LINEN CRINKLE</span>
-                 </div>
-                 {/* Item 2 */}
-                 <div className="flex flex-col items-center">
-                    <div className="w-full aspect-[4/5] border border-charcoal-900/60 overflow-hidden bg-sand-100">
-                       <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=75&auto=format&fit=crop" alt="Fabric Texture" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" />
-                    </div>
-                    <span className="mt-6 font-sans text-[10px] sm:text-xs uppercase tracking-widest font-bold text-charcoal-900">ADEM & MODEST</span>
-                 </div>
-                 {/* Item 3 */}
-                 <div className="flex flex-col items-center">
-                    <div className="w-full aspect-[4/5] border border-charcoal-900/60 overflow-hidden bg-sand-100">
-                       <img src="https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600&q=75&auto=format&fit=crop" alt="Stylish Modest" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" />
-                    </div>
-                    <span className="mt-6 font-sans text-[10px] sm:text-xs uppercase tracking-widest font-bold text-charcoal-900">STYLISH TANPA GERAH</span>
-                 </div>
-              </div>
-           </div>
-        </section>
-
-        {/* 6. Features & FAQ */}
-        <div className="bg-white py-12">
-          <FeaturesSection />
+        {/* 5. Inquiries & Clarification FAQ */}
+        <div className="bg-white border-t border-[#181A18]/10">
           <FAQSection />
         </div>
 
