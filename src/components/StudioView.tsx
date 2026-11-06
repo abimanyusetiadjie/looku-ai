@@ -965,6 +965,16 @@ interface StudioViewProps {
   onSaveOutfit?: (outfit: OOTDRecommendation) => void;
 }
 
+function normalizeSkinToneId(rawId: string | null): string {
+  if (!rawId) return "sawo-matang";
+  const key = rawId.toLowerCase().replace(/_/g, "-");
+  if (key.includes("sawo") || key === "medium") return "sawo-matang";
+  if (key.includes("kuning") || key.includes("light")) return "kuning-langsat";
+  if (key.includes("putih") || key.includes("fair") || key.includes("porcelain")) return "putih-gading";
+  if (key.includes("tan") || key.includes("eksotis") || key.includes("deep") || key.includes("dark")) return "tan-eksotis";
+  return "sawo-matang";
+}
+
 export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewProps) {
   const [activeTab, setActiveTab] = useState<"mixer" | "colorlab">("mixer");
   const [selectedVibeId, setSelectedVibeId] = useState<string>("earthy_hijab");
@@ -982,6 +992,43 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
   const [genderMode, setGenderMode] = useState<"hijab" | "nonhijab" | "pria">("hijab");
   const [weatherMode, setWeatherMode] = useState<"hot" | "ac" | "rainy" | "mild">("hot");
   const [selectedSkinToneId, setSelectedSkinToneId] = useState<string>("sawo-matang");
+
+  // Sinkronisasi rona kulit pengguna secara live dari localStorage / event
+  useEffect(() => {
+    const syncTone = () => {
+      if (typeof window !== "undefined") {
+        try {
+          const stored = localStorage.getItem("looku_personal_color");
+          if (stored) {
+            setSelectedSkinToneId(normalizeSkinToneId(stored));
+          }
+        } catch (e) {
+          console.warn("Failed to sync tone", e);
+        }
+      }
+    };
+    syncTone();
+    window.addEventListener("looku_personal_color_updated", syncTone);
+    window.addEventListener("storage", syncTone);
+    return () => {
+      window.removeEventListener("looku_personal_color_updated", syncTone);
+      window.removeEventListener("storage", syncTone);
+    };
+  }, []);
+
+  const handleSelectStudioSkinTone = (toneId: string, toneName: string) => {
+    setSelectedSkinToneId(toneId);
+    if (typeof window !== "undefined") {
+      try {
+        localStorage.setItem("looku_personal_color", toneId);
+        window.dispatchEvent(new Event("looku_personal_color_updated"));
+        window.dispatchEvent(new Event("storage"));
+      } catch (e) {
+        console.warn("Failed to save tone", e);
+      }
+    }
+    triggerToast(`Undertone: ${toneName}`);
+  };
 
   // State Hotspot Interaktif (Point 2: Shoppable Pins)
   const [activeHotspot, setActiveHotspot] = useState<"top" | "bottom" | "outer" | "shoes" | null>(null);
@@ -2077,10 +2124,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                   <button
                     key={tone.id}
                     type="button"
-                    onClick={() => {
-                      setSelectedSkinToneId(tone.id);
-                      triggerToast(`Undertone: ${tone.nama}`);
-                    }}
+                    onClick={() => handleSelectStudioSkinTone(tone.id, tone.nama)}
                     className={`p-3 rounded-xl border text-left transition-all ${
                       isActive
                         ? "border-neutral-900 ring-2 ring-neutral-900 bg-neutral-50"
@@ -2616,10 +2660,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                     <button
                       key={tone.id}
                       type="button"
-                      onClick={() => {
-                        setSelectedSkinToneId(tone.id);
-                        triggerToast(`Undertone: ${tone.nama}`);
-                      }}
+                      onClick={() => handleSelectStudioSkinTone(tone.id, tone.nama)}
                       className={`p-3.5 rounded-xl border text-left transition-all ${
                         isActive
                           ? "border-neutral-900 ring-2 ring-neutral-900 bg-neutral-50 shadow-xs"

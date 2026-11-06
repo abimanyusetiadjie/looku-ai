@@ -352,6 +352,8 @@ export default function PersonalColorQuizModal({
       try {
         localStorage.setItem("looku_personal_color", summary.skinToneId);
         localStorage.setItem("looku_quiz_summary", JSON.stringify(summary));
+        window.dispatchEvent(new Event("looku_personal_color_updated"));
+        window.dispatchEvent(new Event("storage"));
       } catch {}
     }
     onApplyResult(summary.skinToneId, summary);

@@ -323,6 +323,13 @@ const TROPICAL_EDIT_LIST = [
 // Swatch Warna Kulit Nusantara untuk Gamifikasi Personal Color
 const SKIN_TONES = [
   {
+    id: "putih-gading",
+    nama: "Putih Gading",
+    subnama: "Cool Summer",
+    hex: "#F5D6C6",
+    rekomendasiWarna: "Broken White, Navy, & Pastel Lembut",
+  },
+  {
     id: "kuning-langsat",
     nama: "Kuning Langsat",
     subnama: "Warm Spring",
@@ -372,12 +379,19 @@ export default function LookUMobileView({
         const map: Record<string, { label: string; hex: string; undertone: string }> = {
           fair: { label: "Putih Gading", hex: "#F7E6D8", undertone: "Cool" },
           fair_porcelain: { label: "Putih Gading", hex: "#F7E6D8", undertone: "Cool" },
+          "putih-gading": { label: "Putih Gading", hex: "#F7E6D8", undertone: "Cool" },
+          putih_gading: { label: "Putih Gading", hex: "#F7E6D8", undertone: "Cool" },
           light: { label: "Kuning Langsat", hex: "#EAD0B3", undertone: "Neutral" },
           light_medium: { label: "Kuning Langsat", hex: "#EAD0B3", undertone: "Neutral" },
+          "kuning-langsat": { label: "Kuning Langsat", hex: "#EAD0B3", undertone: "Neutral" },
+          kuning_langsat: { label: "Kuning Langsat", hex: "#EAD0B3", undertone: "Neutral" },
           medium: { label: "Sawo Matang", hex: "#C78E5F", undertone: "Warm" },
           sawo_matang: { label: "Sawo Matang", hex: "#C78E5F", undertone: "Warm" },
+          "sawo-matang": { label: "Sawo Matang", hex: "#C78E5F", undertone: "Warm" },
           tan: { label: "Eksotis", hex: "#9E6738", undertone: "Warm" },
           tan_exotic: { label: "Eksotis", hex: "#9E6738", undertone: "Warm" },
+          "tan-eksotis": { label: "Eksotis", hex: "#9E6738", undertone: "Warm" },
+          tan_eksotis: { label: "Eksotis", hex: "#9E6738", undertone: "Warm" },
           deep: { label: "Bronze", hex: "#5D3B22", undertone: "Deep" },
           dark_ebony: { label: "Bronze", hex: "#5D3B22", undertone: "Deep" },
         };
@@ -487,6 +501,8 @@ export default function LookUMobileView({
         triggerNotification("✨ Berhasil disimpan ke Lemari Digital!");
       }
       window.dispatchEvent(new Event("storage"));
+      window.dispatchEvent(new Event("looku_saved_updated"));
+      window.dispatchEvent(new Event("looku_profile_updated"));
     } catch {
       triggerNotification("Berhasil diperbarui.");
     }
@@ -496,6 +512,8 @@ export default function LookUMobileView({
     setSelectedSkinTone(tone.id);
     if (typeof window !== "undefined") {
       localStorage.setItem("looku_personal_color", tone.id);
+      window.dispatchEvent(new Event("looku_personal_color_updated"));
+      window.dispatchEvent(new Event("storage"));
     }
     triggerNotification(`Warna kulit ${tone.nama} aktif! Palet cocok: ${tone.rekomendasiWarna}`);
   };

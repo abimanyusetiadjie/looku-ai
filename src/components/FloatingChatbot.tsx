@@ -137,28 +137,43 @@ export default function FloatingChatbot() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const recognitionRef = useRef<any>(null);
 
-  // Sync user context on mount
+  // Sync user context on mount and listen to updates
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      try {
-        const storedTone = localStorage.getItem("looku_personal_color");
-        if (storedTone) {
-          const toneMap: Record<string, string> = {
-            "sawo-matang": "Warm Autumn (Sawo Matang)",
-            "kuning-langsat": "Warm Spring (Kuning Langsat)",
-            "tan-eksotis": "Deep Autumn (Tan Eksotis)",
-            fair: "Cool Summer (Putih Gading)",
-            light: "Warm Spring",
-            medium: "Warm Autumn",
-            tan: "Deep Autumn",
-            deep: "Deep Winter",
-          };
-          setUserSkinTone(toneMap[storedTone] || storedTone);
+    const syncUserContext = () => {
+      if (typeof window !== "undefined") {
+        try {
+          const storedTone = localStorage.getItem("looku_personal_color");
+          if (storedTone) {
+            const toneMap: Record<string, string> = {
+              "sawo-matang": "Warm Autumn (Sawo Matang)",
+              sawo_matang: "Warm Autumn (Sawo Matang)",
+              medium: "Warm Autumn (Sawo Matang)",
+              "kuning-langsat": "Warm Spring (Kuning Langsat)",
+              kuning_langsat: "Warm Spring (Kuning Langsat)",
+              light: "Warm Spring (Kuning Langsat)",
+              "putih-gading": "Cool Summer (Putih Gading)",
+              putih_gading: "Cool Summer (Putih Gading)",
+              fair: "Cool Summer (Putih Gading)",
+              "tan-eksotis": "Deep Autumn (Tan Eksotis)",
+              tan_eksotis: "Deep Autumn (Tan Eksotis)",
+              tan: "Deep Autumn (Tan Eksotis)",
+              deep: "Deep Winter",
+            };
+            setUserSkinTone(toneMap[storedTone] || storedTone);
+          }
+        } catch (e) {
+          console.error("Error reading context:", e);
         }
-      } catch (e) {
-        console.error("Error reading context:", e);
       }
-    }
+    };
+
+    syncUserContext();
+    window.addEventListener("looku_personal_color_updated", syncUserContext);
+    window.addEventListener("storage", syncUserContext);
+    return () => {
+      window.removeEventListener("looku_personal_color_updated", syncUserContext);
+      window.removeEventListener("storage", syncUserContext);
+    };
   }, []);
 
   const [messages, setMessages] = useState<Message[]>([DEFAULT_WELCOME_MSG]);
@@ -493,7 +508,7 @@ export default function FloatingChatbot() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 30 }}
             transition={{ type: "spring", damping: 28, stiffness: 320 }}
-            className="fixed inset-0 sm:inset-auto sm:bottom-8 sm:right-8 z-50 w-full sm:w-[440px] h-[100dvh] sm:h-[650px] sm:max-h-[92vh] bg-[#FAF8F5] text-[#181A18] flex flex-col overflow-hidden shadow-2xl sm:border sm:border-[#181A18]/20 select-none rounded-none"
+            className="fixed inset-0 sm:inset-auto sm:bottom-8 sm:right-8 z-50 w-full sm:w-[440px] h-[100dvh] sm:h-[650px] sm:max-h-[92vh] bg-[#FAF8F5] text-[#181A18] flex flex-col overflow-hidden shadow-2xl sm:border sm:border-[#181A18]/20 select-none sm:rounded-2xl sm:shadow-2xl"
           >
             {/* Header Concierge (h-14 shrink-0) */}
             <header className="h-14 shrink-0 px-4 bg-[#FAF8F5] border-b border-[#181A18]/10 flex items-center justify-between">
@@ -524,7 +539,7 @@ export default function FloatingChatbot() {
                   type="button"
                   onClick={handleClearChat}
                   title="Reset percakapan"
-                  className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 border border-[#181A18]/20 text-[#181A18] hover:bg-[#181A18] hover:text-[#FAF8F5] transition rounded-none"
+                  className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 border border-[#181A18]/20 text-[#181A18] hover:bg-[#181A18] hover:text-[#FAF8F5] transition rounded-full"
                 >
                   Reset
                 </button>
@@ -579,11 +594,11 @@ export default function FloatingChatbot() {
                   return (
                     <div key={m.id} className="flex flex-col items-end">
                       {m.userImage && (
-                        <div className="relative w-36 aspect-[4/5] bg-[#E5E0D8] overflow-hidden mb-1.5 border border-[#181A18]/30 shadow-xs rounded-none">
+                        <div className="relative w-36 aspect-[4/5] bg-[#E5E0D8] overflow-hidden mb-1.5 border border-[#181A18]/20 shadow-xs rounded-xl">
                           <img src={m.userImage} alt="Uploaded" className="w-full h-full object-cover" />
                         </div>
                       )}
-                      <div className="max-w-[82%] bg-[#181A18] text-[#FAF8F5] px-4 py-3 text-xs leading-relaxed rounded-none shadow-sm">
+                      <div className="max-w-[82%] bg-[#181A18] text-[#FAF8F5] px-4 py-3 text-xs leading-relaxed rounded-2xl rounded-tr-xs shadow-xs">
                         {m.text}
                       </div>
                       <span className="text-[9px] font-mono text-[#181A18]/40 mt-1 uppercase tracking-wider">
@@ -612,7 +627,7 @@ export default function FloatingChatbot() {
                     {/* EMBEDDED RICH OUTFIT CARD (Menarik dari 22 Presets & Catalog) */}
                     {/* ============================================================ */}
                     {m.outfitMatch && (
-                      <div className="w-full max-w-sm bg-white border border-[#181A18]/15 rounded-none overflow-hidden shadow-xs mt-1">
+                      <div className="w-full max-w-sm bg-white border border-[#181A18]/15 rounded-xl overflow-hidden shadow-xs mt-1">
                         <div className="grid grid-cols-12">
                           {/* Thumbnail Rasio 4:5 di Kiri */}
                           <div className="col-span-5 relative aspect-[4/5] bg-[#EFECE6] overflow-hidden">
@@ -717,14 +732,14 @@ export default function FloatingChatbot() {
                               <button
                                 type="button"
                                 onClick={() => handleSaveOutfitToWardrobe(m.outfitMatch!)}
-                                className="flex-1 py-1.5 bg-[#181A18] text-[#FAF8F5] text-[10px] font-bold uppercase tracking-wider hover:bg-terracotta-600 transition-colors rounded-none"
+                                className="flex-1 py-1.5 bg-[#181A18] text-[#FAF8F5] text-[10px] font-bold uppercase tracking-wider hover:bg-terracotta-600 transition-colors rounded-xl"
                               >
                                 Simpan ke Lemari
                               </button>
                               <button
                                 type="button"
                                 onClick={() => handleLoadOutfitToStudio(m.outfitMatch!)}
-                                className="flex-1 py-1.5 border border-[#181A18] text-[#181A18] text-[10px] font-bold uppercase tracking-wider hover:bg-[#181A18]/5 transition-colors rounded-none"
+                                className="flex-1 py-1.5 border border-[#181A18] text-[#181A18] text-[10px] font-bold uppercase tracking-wider hover:bg-[#181A18]/5 transition-colors rounded-xl"
                               >
                                 Buka di Studio ↗
                               </button>
@@ -740,14 +755,14 @@ export default function FloatingChatbot() {
                         <button
                           type="button"
                           onClick={() => setExpandedOutfitId(prev => prev === m.outfitMatch?.id ? null : m.outfitMatch!.id)}
-                          className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider border border-[#181A18]/20 bg-[#FAF8F5] hover:bg-[#181A18] hover:text-[#FAF8F5] transition rounded-none"
+                          className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider border border-[#181A18]/20 bg-[#FAF8F5] hover:bg-[#181A18] hover:text-[#FAF8F5] transition rounded-full"
                         >
                           {expandedOutfitId === m.outfitMatch.id ? "Sembunyikan Item" : "Lihat Komponen Pakaian"}
                         </button>
                         <button
                           type="button"
                           onClick={() => handleSendMessage(`Tolong rekomendasikan alternatif bawahan (celana/kulot) yang lebih adem untuk dipadukan dengan setelan ${m.outfitMatch?.title} ini!`)}
-                          className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider border border-terracotta-500/40 bg-orange-50/70 hover:bg-terracotta-600 hover:text-white transition rounded-none text-terracotta-700 flex items-center gap-1"
+                          className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider border border-terracotta-500/40 bg-orange-50/70 hover:bg-terracotta-600 hover:text-white transition rounded-full text-terracotta-700 flex items-center gap-1"
                           title="Ganti bawahan outfit ini"
                         >
                           <span>🔄 Ganti Bawahan</span>
@@ -755,7 +770,7 @@ export default function FloatingChatbot() {
                         <button
                           type="button"
                           onClick={() => handleSendMessage(`Tolong carikan atasan alternatif (kemeja/blus) yang cocok dipadukan dengan bawahan setelan ${m.outfitMatch?.title} ini!`)}
-                          className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider border border-[#181A18]/20 bg-[#FAF8F5] hover:bg-[#181A18] hover:text-[#FAF8F5] transition rounded-none flex items-center gap-1"
+                          className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider border border-[#181A18]/20 bg-[#FAF8F5] hover:bg-[#181A18] hover:text-[#FAF8F5] transition rounded-full flex items-center gap-1"
                           title="Ganti atasan outfit ini"
                         >
                           <span>🔄 Ganti Atasan</span>
@@ -763,7 +778,7 @@ export default function FloatingChatbot() {
                         <button
                           type="button"
                           onClick={() => handleLoadOutfitToStudio(m.outfitMatch!)}
-                          className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider bg-neutral-900 text-white hover:bg-black transition rounded-none flex items-center gap-1"
+                          className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider bg-neutral-900 text-white hover:bg-black transition rounded-full flex items-center gap-1"
                           title="Buka langsung di Studio Mix and Match"
                         >
                           <span>🎨 Racik di Studio ↗</span>
@@ -779,7 +794,7 @@ export default function FloatingChatbot() {
               })}
 
               {loading && (
-                <div className="flex items-center gap-2 p-3 bg-white border border-[#181A18]/15 rounded-none max-w-[80%] text-[#181A18]/70 shadow-xs">
+                <div className="flex items-center gap-2 p-3 bg-white border border-[#181A18]/15 rounded-2xl rounded-tl-xs max-w-[80%] text-[#181A18]/70 shadow-xs">
                   <div className="w-1.5 h-1.5 bg-[#181A18] animate-bounce" />
                   <div className="w-1.5 h-1.5 bg-[#181A18] animate-bounce [animation-delay:0.2s]" />
                   <div className="w-1.5 h-1.5 bg-[#181A18] animate-bounce [animation-delay:0.4s]" />
@@ -805,7 +820,7 @@ export default function FloatingChatbot() {
                       key={idx}
                       type="button"
                       onClick={() => handleSendMessage(chip)}
-                      className="shrink-0 px-2.5 py-1 bg-[#EFECE6] text-[#181A18] text-[10px] font-semibold uppercase tracking-wider hover:bg-[#181A18] hover:text-[#FAF8F5] transition rounded-none border border-transparent hover:border-[#181A18]"
+                      className="shrink-0 px-2.5 py-1 bg-[#EFECE6] text-[#181A18] text-[10px] font-semibold uppercase tracking-wider hover:bg-[#181A18] hover:text-[#FAF8F5] transition rounded-full border border-transparent hover:border-[#181A18]"
                     >
                       {chip}
                     </button>
@@ -814,9 +829,9 @@ export default function FloatingChatbot() {
 
                 {/* Attached Image Preview Strip */}
                 {selectedImage && (
-                  <div className="px-3 py-1.5 bg-white border border-[#181A18]/20 flex items-center justify-between">
+                  <div className="px-3 py-1.5 bg-white border border-[#181A18]/20 rounded-xl flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <div className="relative w-8 h-8 rounded-none overflow-hidden border border-[#181A18]">
+                      <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-[#181A18]/30">
                         <img src={selectedImage} alt="Preview" className="w-full h-full object-cover" />
                       </div>
                       <span className="text-[10px] font-mono text-[#181A18] font-bold uppercase tracking-wider">
@@ -840,7 +855,7 @@ export default function FloatingChatbot() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
-                      className="p-2.5 bg-white border border-[#181A18]/20 shadow-md flex flex-col gap-2 rounded-none"
+                      className="p-2.5 bg-white border border-[#181A18]/20 shadow-md flex flex-col gap-2 rounded-xl"
                     >
                       <div className="grid grid-cols-2 gap-2">
                         <button
@@ -849,7 +864,7 @@ export default function FloatingChatbot() {
                             setShowPhotoOptions(false);
                             setIsLiveCameraOpen(true);
                           }}
-                          className="p-2.5 bg-[#FAF8F5] hover:bg-[#EFECE6] border border-[#181A18]/15 text-[#181A18] flex items-center gap-2 transition-colors text-left rounded-none"
+                          className="p-2.5 bg-[#FAF8F5] hover:bg-[#EFECE6] border border-[#181A18]/15 text-[#181A18] flex items-center gap-2 transition-colors text-left rounded-lg"
                         >
                           <div className="w-7 h-7 bg-[#181A18] text-white flex items-center justify-center shrink-0">
                             <Camera className="w-4 h-4 text-cream-200" />
@@ -866,7 +881,7 @@ export default function FloatingChatbot() {
                             setShowPhotoOptions(false);
                             fileInputRef.current?.click();
                           }}
-                          className="p-2.5 bg-[#FAF8F5] hover:bg-[#EFECE6] border border-[#181A18]/15 text-[#181A18] flex items-center gap-2 transition-colors text-left rounded-none"
+                          className="p-2.5 bg-[#FAF8F5] hover:bg-[#EFECE6] border border-[#181A18]/15 text-[#181A18] flex items-center gap-2 transition-colors text-left rounded-lg"
                         >
                           <div className="w-7 h-7 bg-[#181A18] text-white flex items-center justify-center shrink-0">
                             <ImagePlus className="w-4 h-4 text-cream-200" />
@@ -907,7 +922,7 @@ export default function FloatingChatbot() {
                     type="button"
                     onClick={() => setShowPhotoOptions(!showPhotoOptions)}
                     disabled={loading}
-                    className={`h-11 w-11 flex items-center justify-center border transition-all shrink-0 rounded-none ${
+                    className={`h-11 w-11 flex items-center justify-center border transition-all shrink-0 rounded-xl ${
                       showPhotoOptions
                         ? "bg-[#181A18] text-white border-[#181A18]"
                         : "bg-white hover:bg-[#EFECE6] text-[#181A18] border-[#181A18]/25"
@@ -924,7 +939,7 @@ export default function FloatingChatbot() {
                     value={inputMessage}
                     onChange={(e) => setInputMessage(e.target.value)}
                     disabled={loading}
-                    className="flex-1 h-11 px-3.5 bg-white border border-[#181A18]/25 text-xs text-[#181A18] placeholder:text-[#181A18]/40 focus:outline-none focus:border-[#181A18] rounded-none"
+                    className="flex-1 h-11 px-3.5 bg-white border border-[#181A18]/25 text-xs text-[#181A18] placeholder:text-[#181A18]/40 focus:outline-none focus:border-[#181A18] rounded-xl"
                   />
 
                   {/* Mic Voice Button */}
@@ -932,7 +947,7 @@ export default function FloatingChatbot() {
                     type="button"
                     onClick={handleToggleVoice}
                     disabled={loading}
-                    className={`h-11 w-11 flex items-center justify-center border transition-all shrink-0 rounded-none ${
+                    className={`h-11 w-11 flex items-center justify-center border transition-all shrink-0 rounded-xl ${
                       isListening
                         ? "bg-rose-600 text-white border-rose-600 animate-pulse"
                         : "bg-white hover:bg-[#EFECE6] text-[#181A18] border-[#181A18]/25"
@@ -950,7 +965,7 @@ export default function FloatingChatbot() {
                   <button
                     type="submit"
                     disabled={(!inputMessage.trim() && !selectedImage) || loading}
-                    className="h-11 px-4 sm:px-5 bg-[#181A18] text-[#FAF8F5] text-[11px] font-bold uppercase tracking-widest shrink-0 rounded-none hover:bg-terracotta-600 active:opacity-90 transition-colors disabled:opacity-40"
+                    className="h-11 px-4 sm:px-5 bg-[#181A18] text-[#FAF8F5] text-[11px] font-bold uppercase tracking-widest shrink-0 rounded-xl hover:bg-terracotta-600 active:opacity-90 transition-colors disabled:opacity-40"
                   >
                     Kirim
                   </button>
