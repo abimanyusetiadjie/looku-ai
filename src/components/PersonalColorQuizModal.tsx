@@ -378,7 +378,7 @@ export default function PersonalColorQuizModal({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 60 }}
           transition={{ type: "spring", damping: 26, stiffness: 290 }}
-          className="relative w-full max-w-md sm:max-w-lg bg-[#FAF8F5] rounded-t-3xl sm:rounded-3xl shadow-2xl border border-[#E8DFD1] overflow-hidden flex flex-col h-[92dvh] sm:h-auto sm:max-h-[90vh]"
+          className="relative w-full max-w-md sm:max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl bg-[#FAF8F5] rounded-t-3xl sm:rounded-3xl shadow-2xl border border-[#E8DFD1] overflow-hidden flex flex-col h-[92dvh] sm:h-auto sm:max-h-[88vh]"
         >
           {/* Mobile Pull Handle */}
           <div className="sm:hidden w-full flex justify-center pt-2.5 pb-1 shrink-0">
@@ -386,17 +386,17 @@ export default function PersonalColorQuizModal({
           </div>
 
           {/* Top Header + Colorblind Mode Toggle */}
-          <div className="px-4 sm:px-6 py-3 border-b border-[#E8DFD1] bg-white shrink-0 space-y-2">
+          <div className="px-5 sm:px-8 py-3.5 sm:py-4 border-b border-[#E8DFD1] bg-white shrink-0 space-y-2.5">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-xl bg-terracotta-50 border border-terracotta-200 flex items-center justify-center text-terracotta-600">
-                  <Sparkles className="w-4 h-4" />
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-terracotta-50 border border-terracotta-200 flex items-center justify-center text-terracotta-600 shrink-0">
+                  <Sparkles className="w-5 h-5" />
                 </div>
                 <div>
-                  <h2 className="font-serif font-bold text-base sm:text-lg text-[#181A18] leading-tight">
+                  <h2 className="font-serif font-bold text-lg sm:text-2xl text-[#181A18] leading-tight">
                     Diagnosa Warna &amp; Bahan Tropis
                   </h2>
-                  <p className="text-[10px] font-mono text-sand-500 uppercase tracking-wider">
+                  <p className="text-xs sm:text-sm font-mono text-sand-500 uppercase tracking-wider mt-0.5">
                     Domisili • Rona Nusantara • 3 Warna Favorit
                   </p>
                 </div>
@@ -404,20 +404,20 @@ export default function PersonalColorQuizModal({
 
               <button
                 onClick={onClose}
-                className="p-2 -mr-1 min-w-[40px] min-h-[40px] flex items-center justify-center text-[#181A18]/60 hover:text-[#181A18] hover:bg-sand-100 rounded-full transition-colors"
+                className="p-2 -mr-1 min-w-[44px] min-h-[44px] flex items-center justify-center text-[#181A18]/60 hover:text-[#181A18] hover:bg-sand-100 rounded-full transition-colors"
                 aria-label="Tutup Kuis"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
             </div>
 
             {/* Baris Progress & Tombol Aksesibilitas Buta Warna */}
-            <div className="flex items-center justify-between gap-3 pt-1">
-              <div className="flex items-center gap-1.5 flex-1">
+            <div className="flex items-center justify-between gap-4 pt-1">
+              <div className="flex items-center gap-2 flex-1">
                 {[0, 1, 2, 3].map((idx) => (
                   <div
                     key={idx}
-                    className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${
+                    className={`h-2 flex-1 rounded-full transition-all duration-300 ${
                       idx <= step ? "bg-terracotta-500" : "bg-[#E8DFD1]"
                     }`}
                   />
@@ -427,21 +427,21 @@ export default function PersonalColorQuizModal({
               <button
                 type="button"
                 onClick={() => setColorblindMode(!colorblindMode)}
-                className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-bold flex items-center gap-1 border transition-all shrink-0 ${
+                className={`px-3 py-1.5 rounded-full text-xs font-mono font-bold flex items-center gap-1.5 border transition-all shrink-0 ${
                   colorblindMode
                     ? "bg-[#181A18] text-white border-[#181A18]"
                     : "bg-sand-100 text-charcoal-900 border-sand-300 hover:bg-sand-200"
                 }`}
                 title="Aktifkan panduan teks deskriptif bagi pengguna buta warna"
               >
-                <Eye className="w-3 h-3" />
-                <span>{colorblindMode ? "Mode Buta Warna: ON" : "Bantu Buta Warna"}</span>
+                <Eye className="w-3.5 h-3.5" />
+                <span>{colorblindMode ? "Mode Buta Warna: Aktif" : "Bantu Buta Warna"}</span>
               </button>
             </div>
           </div>
 
           {/* Scrollable Body Content */}
-          <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4 space-y-4">
+          <div className="flex-1 overflow-y-auto px-5 sm:px-8 py-5 sm:py-6 space-y-6">
             {/* ============================================================ */}
             {/* LANGKAH 1: ZONA DOMISILI & IKLIM HARIAN                      */}
             {/* ============================================================ */}
@@ -450,21 +450,21 @@ export default function PersonalColorQuizModal({
                 key="step0"
                 initial={{ opacity: 0, x: 15 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="space-y-3.5"
+                className="space-y-4 sm:space-y-6"
               >
-                <div className="space-y-1">
-                  <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase tracking-wider text-terracotta-600 bg-terracotta-50 px-2.5 py-0.5 rounded-full border border-terracotta-200">
-                    <MapPin className="w-3 h-3" /> Langkah 1 dari 3 • Geografis &amp; Suhu
+                <div className="space-y-1.5">
+                  <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-terracotta-600 bg-terracotta-50 px-3 py-1 rounded-full border border-terracotta-200">
+                    <MapPin className="w-3.5 h-3.5" /> Langkah 1 dari 3 • Geografis &amp; Suhu
                   </span>
-                  <h3 className="font-serif font-bold text-lg sm:text-xl text-[#181A18]">
+                  <h3 className="font-serif font-bold text-xl sm:text-2xl lg:text-3xl text-[#181A18]">
                     Di mana zona domisili &amp; cuaca harianmu?
                   </h3>
-                  <p className="text-xs text-sand-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm md:text-base text-sand-700 leading-relaxed max-w-2xl">
                     Tempat tinggal menentukan jenis serat kain terbaik agar pakaianmu adem dan tidak salah bahan.
                   </p>
                 </div>
 
-                <div className="space-y-2.5">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 lg:gap-5">
                   {DOMICILE_OPTIONS.map((opt) => {
                     const isSelected = selectedDomicile === opt.id;
                     return (
@@ -472,32 +472,37 @@ export default function PersonalColorQuizModal({
                         key={opt.id}
                         type="button"
                         onClick={() => setSelectedDomicile(opt.id)}
-                        className={`w-full text-left p-3.5 sm:p-4 rounded-2xl border-2 transition-all space-y-1.5 ${
+                        className={`w-full text-left p-4 sm:p-5 rounded-2xl border-2 transition-all flex flex-col justify-between space-y-3 cursor-pointer ${
                           isSelected
-                            ? "border-[#181A18] bg-white shadow-md ring-1 ring-[#181A18]/10"
+                            ? "border-[#181A18] bg-white shadow-lg ring-2 ring-[#181A18]/15"
                             : "border-[#E8DFD1] bg-white/70 hover:bg-white hover:border-sand-400"
                         }`}
                       >
-                        <div className="flex items-center justify-between gap-2">
-                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-terracotta-600 bg-terracotta-50 px-2 py-0.5 rounded-md">
-                            {opt.badge}
-                          </span>
-                          <div
-                            className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 ${
-                              isSelected
-                                ? "bg-[#181A18] border-[#181A18] text-white"
-                                : "border-sand-300 bg-sand-50"
-                            }`}
-                          >
-                            {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
+                        <div className="space-y-2.5">
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-terracotta-600 bg-terracotta-50 px-2.5 py-1 rounded-md">
+                              {opt.badge}
+                            </span>
+                            <div
+                              className={`w-6 h-6 rounded-full border flex items-center justify-center shrink-0 ${
+                                isSelected
+                                  ? "bg-[#181A18] border-[#181A18] text-white"
+                                  : "border-sand-300 bg-sand-50"
+                              }`}
+                            >
+                              {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
+                            </div>
                           </div>
+
+                          <div className="font-bold text-base sm:text-lg text-[#181A18] leading-snug">
+                            {opt.title}
+                          </div>
+                          <p className="text-xs sm:text-[13px] text-sand-700 leading-relaxed">
+                            <b>Wilayah:</b> {opt.regions}
+                          </p>
                         </div>
 
-                        <div className="font-bold text-sm text-[#181A18]">{opt.title}</div>
-                        <p className="text-[11px] text-sand-600 leading-snug">
-                          <b>Wilayah:</b> {opt.regions}
-                        </p>
-                        <div className="pt-1 text-[11px] text-emerald-800 bg-emerald-50/80 border border-emerald-200/80 px-2.5 py-1.5 rounded-xl font-medium">
+                        <div className="pt-2 text-xs sm:text-[13px] text-emerald-900 bg-emerald-50 border border-emerald-200/90 p-3 rounded-xl font-medium leading-relaxed">
                           🧵 {opt.fabricFocus}
                         </div>
                       </button>
@@ -515,21 +520,21 @@ export default function PersonalColorQuizModal({
                 key="step1"
                 initial={{ opacity: 0, x: 15 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="space-y-3.5"
+                className="space-y-4 sm:space-y-6"
               >
-                <div className="space-y-1">
-                  <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase tracking-wider text-terracotta-600 bg-terracotta-50 px-2.5 py-0.5 rounded-full border border-terracotta-200">
-                    <Sun className="w-3 h-3" /> Langkah 2 dari 3 • Rona Alami Nusantara
+                <div className="space-y-1.5">
+                  <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-terracotta-600 bg-terracotta-50 px-3 py-1 rounded-full border border-terracotta-200">
+                    <Sun className="w-3.5 h-3.5" /> Langkah 2 dari 3 • Rona Alami Nusantara
                   </span>
-                  <h3 className="font-serif font-bold text-lg sm:text-xl text-[#181A18]">
+                  <h3 className="font-serif font-bold text-xl sm:text-2xl lg:text-3xl text-[#181A18]">
                     Pilih karakteristik rona kulit / keturunan daerahmu:
                   </h3>
-                  <p className="text-xs text-sand-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm md:text-base text-sand-700 leading-relaxed max-w-2xl">
                     Tidak perlu menebak warna urat nadi! Gunakan panduan wilayah Nusantara atau reaksi kulitmu terhadap matahari.
                   </p>
                 </div>
 
-                <div className="space-y-2.5">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 lg:gap-5">
                   {HERITAGE_SKIN_OPTIONS.map((opt) => {
                     const isSelected = selectedSkin === opt.id;
                     return (
@@ -537,46 +542,50 @@ export default function PersonalColorQuizModal({
                         key={opt.id}
                         type="button"
                         onClick={() => setSelectedSkin(opt.id)}
-                        className={`w-full text-left p-3.5 sm:p-4 rounded-2xl border-2 transition-all space-y-2 ${
+                        className={`w-full text-left p-4 sm:p-5 rounded-2xl border-2 transition-all flex flex-col justify-between space-y-3 cursor-pointer ${
                           isSelected
-                            ? "border-[#181A18] bg-white shadow-md ring-1 ring-[#181A18]/10"
+                            ? "border-[#181A18] bg-white shadow-lg ring-2 ring-[#181A18]/15"
                             : "border-[#E8DFD1] bg-white/70 hover:bg-white hover:border-sand-400"
                         }`}
                       >
-                        <div className="flex items-center justify-between gap-2">
-                          <div className="flex items-center gap-2.5">
-                            <span
-                              className="w-7 h-7 rounded-full border-2 border-white shadow-sm shrink-0"
-                              style={{ backgroundColor: opt.hexPreview }}
-                            />
-                            <div>
-                              <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-sand-500 block">
-                                {opt.badge}
-                              </span>
-                              <span className="font-bold text-sm text-[#181A18]">{opt.title}</span>
+                        <div className="space-y-3">
+                          <div className="flex items-center justify-between gap-2">
+                            <div className="flex items-center gap-3">
+                              <span
+                                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-white shadow-md shrink-0"
+                                style={{ backgroundColor: opt.hexPreview }}
+                              />
+                              <div>
+                                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sand-500 block">
+                                  {opt.badge}
+                                </span>
+                                <span className="font-bold text-base sm:text-lg text-[#181A18] leading-tight block">
+                                  {opt.title}
+                                </span>
+                              </div>
+                            </div>
+
+                            <div
+                              className={`w-6 h-6 rounded-full border flex items-center justify-center shrink-0 ${
+                                isSelected
+                                  ? "bg-[#181A18] border-[#181A18] text-white"
+                                  : "border-sand-300 bg-sand-50"
+                              }`}
+                            >
+                              {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
                             </div>
                           </div>
 
-                          <div
-                            className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 ${
-                              isSelected
-                                ? "bg-[#181A18] border-[#181A18] text-white"
-                                : "border-sand-300 bg-sand-50"
-                            }`}
-                          >
-                            {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
-                          </div>
+                          <p className="text-xs sm:text-[13px] text-charcoal-800 leading-relaxed">
+                            🌏 <b>Referensi:</b> {opt.heritageRef}
+                          </p>
                         </div>
 
-                        <p className="text-[11px] text-charcoal-800 leading-snug">
-                          🌏 <b>Referensi Daerah/Keturunan:</b> {opt.heritageRef}
-                        </p>
-
                         <div
-                          className={`p-2 rounded-xl text-[11px] leading-snug border ${
+                          className={`p-3 rounded-xl text-xs sm:text-[13px] leading-relaxed border ${
                             colorblindMode
                               ? "bg-amber-50 border-amber-300 text-amber-950 font-semibold"
-                              : "bg-sand-50 border-sand-200 text-sand-600"
+                              : "bg-sand-50 border-sand-200 text-sand-700"
                           }`}
                         >
                           👁️ {opt.colorblindCue}
@@ -596,28 +605,28 @@ export default function PersonalColorQuizModal({
                 key="step2"
                 initial={{ opacity: 0, x: 15 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="space-y-3.5"
+                className="space-y-4 sm:space-y-6"
               >
-                <div className="space-y-1">
+                <div className="space-y-1.5">
                   <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase tracking-wider text-terracotta-600 bg-terracotta-50 px-2.5 py-0.5 rounded-full border border-terracotta-200">
-                      <Palette className="w-3 h-3" /> Langkah 3 dari 3 • Comfort Palette
+                    <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-terracotta-600 bg-terracotta-50 px-3 py-1 rounded-full border border-terracotta-200">
+                      <Palette className="w-3.5 h-3.5" /> Langkah 3 dari 3 • Comfort Palette
                     </span>
-                    <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#181A18] text-white">
-                      Terpilih: {selectedFavColors.length} / 3
+                    <span className="text-xs sm:text-sm font-mono font-bold px-3 py-1 rounded-full bg-[#181A18] text-white">
+                      Terpilih: {selectedFavColors.length} / 3 Warna
                     </span>
                   </div>
 
-                  <h3 className="font-serif font-bold text-lg sm:text-xl text-[#181A18]">
+                  <h3 className="font-serif font-bold text-xl sm:text-2xl lg:text-3xl text-[#181A18]">
                     Pilih 3 warna baju yang paling kamu sukai:
                   </h3>
-                  <p className="text-xs text-sand-600 leading-relaxed">
-                    Dari 3 warna favoritmu, sistem akan membaca karakter berpakaianmu sekaligus memasangkannya dengan warna penyeimbang kulit.
+                  <p className="text-xs sm:text-sm md:text-base text-sand-700 leading-relaxed max-w-2xl">
+                    Dari 3 warna favoritmu, sistem akan membaca karakter gayamu sekaligus memasangkannya dengan warna penyeimbang kulit.
                   </p>
                 </div>
 
-                {/* Grid 2 Kolom Mobile-Friendly */}
-                <div className="grid grid-cols-2 gap-2.5">
+                {/* 4 Kolom di Desktop (2 Kolom di Mobile) */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 lg:gap-4">
                   {FAVORITE_COLOR_CHOICES.map((color) => {
                     const isPicked = selectedFavColors.includes(color.id);
                     const pickIndex = selectedFavColors.indexOf(color.id) + 1;
@@ -626,15 +635,15 @@ export default function PersonalColorQuizModal({
                         key={color.id}
                         type="button"
                         onClick={() => toggleFavColor(color.id)}
-                        className={`p-3 rounded-2xl border-2 text-left transition-all flex flex-col justify-between space-y-2 ${
+                        className={`p-3.5 sm:p-4 rounded-2xl border-2 text-left transition-all flex flex-col justify-between space-y-2.5 cursor-pointer ${
                           isPicked
-                            ? "border-[#181A18] bg-white shadow-md ring-1 ring-[#181A18]/10"
-                            : "border-[#E8DFD1] bg-white/70 hover:bg-white"
+                            ? "border-[#181A18] bg-white shadow-lg ring-2 ring-[#181A18]/15"
+                            : "border-[#E8DFD1] bg-white/70 hover:bg-white hover:border-sand-400"
                         }`}
                       >
                         <div className="flex items-center justify-between gap-2">
                           <span
-                            className="w-8 h-8 rounded-xl border border-black/15 shadow-xs shrink-0 flex items-center justify-center font-mono text-[10px] font-bold"
+                            className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl border border-black/15 shadow-xs shrink-0 flex items-center justify-center font-mono text-xs font-bold"
                             style={{
                               backgroundColor: color.hex,
                               color:
@@ -647,7 +656,7 @@ export default function PersonalColorQuizModal({
                           </span>
 
                           {isPicked ? (
-                            <span className="px-2 py-0.5 rounded-full bg-[#181A18] text-white font-mono text-[10px] font-bold">
+                            <span className="px-2.5 py-0.5 rounded-full bg-[#181A18] text-white font-mono text-xs font-bold">
                               #{pickIndex} ✓
                             </span>
                           ) : (
@@ -656,13 +665,13 @@ export default function PersonalColorQuizModal({
                         </div>
 
                         <div>
-                          <div className="font-bold text-xs text-[#181A18] leading-snug">
+                          <div className="font-bold text-sm sm:text-base text-[#181A18] leading-tight">
                             {color.name}
                           </div>
-                          <div className="text-[9px] font-mono font-bold text-terracotta-600 uppercase mt-0.5">
+                          <div className="text-[10px] sm:text-xs font-mono font-bold text-terracotta-600 uppercase mt-0.5">
                             {color.codeLabel}
                           </div>
-                          <p className="text-[10px] text-sand-600 mt-1 line-clamp-2 leading-tight">
+                          <p className="text-xs text-sand-600 mt-1 line-clamp-2 leading-relaxed">
                             Kesan: {color.psychMeaning}
                           </p>
                         </div>
@@ -681,155 +690,158 @@ export default function PersonalColorQuizModal({
                 key="step3"
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="space-y-4"
+                className="space-y-5"
               >
-                {/* 1. Header Karakter Gaya Berpakaian */}
-                <div className="p-4 rounded-2xl bg-white border border-[#E8DFD1] shadow-xs space-y-2">
-                  <div className="flex flex-wrap items-center justify-between gap-1.5">
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-terracotta-50 text-terracotta-700 border border-terracotta-200">
-                      KARAKTER GAYA BERPAKAIANMU
-                    </span>
-                    <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                      ✓ {summary.skinProfileName}
-                    </span>
-                  </div>
-
-                  <h3 className="font-serif font-bold text-xl text-[#181A18]">
-                    {summary.personaTitle}
-                  </h3>
-                  <p className="text-xs text-charcoal-800/80 leading-relaxed">
-                    {summary.personaDesc}
-                  </p>
-                </div>
-
-                {/* 2. Simulasi Draping & Harmoni 3 Warna Favorit + Penyeimbang */}
-                <div className="p-4 rounded-2xl bg-white border border-[#E8DFD1] shadow-xs space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-charcoal-900">
-                      🎨 PALET KOMBINASI BAJUMU (TAP UNTUK DETAIL POSISI)
-                    </span>
-                  </div>
-
-                  {/* Preview Drape Bar */}
-                  {activeDrapeItem && (
-                    <div
-                      className="p-3 rounded-xl border border-black/10 transition-all duration-300 flex items-center justify-between gap-3"
-                      style={{ backgroundColor: activeDrapeItem.hex }}
-                    >
-                      <div className="bg-white/95 backdrop-blur-xs px-3 py-2 rounded-lg border border-black/10 shadow-2xs w-full space-y-0.5">
-                        <div className="flex items-center justify-between">
-                          <span className="font-bold text-xs text-[#181A18]">
-                            {activeDrapeItem.name}
-                          </span>
-                          <span className="font-mono text-[10px] font-bold text-sand-600">
-                            {activeDrapeItem.hex}
-                          </span>
-                        </div>
-                        <p className="text-[11px] text-charcoal-800 leading-snug">
-                          👕 <b>Saran Posisi:</b> {activeDrapeItem.role}
-                        </p>
+                {/* 2 Kolom di Desktop: Kiri = Karakter & Draping, Kanan = Bahan & Aturan */}
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-5 lg:gap-6">
+                  
+                  {/* Kolom Kiri: 5 Kolom */}
+                  <div className="md:col-span-5 space-y-4">
+                    {/* 1. Header Karakter Gaya Berpakaian */}
+                    <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E8DFD1] shadow-xs space-y-2.5">
+                      <div className="flex flex-wrap items-center justify-between gap-1.5">
+                        <span className="text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-terracotta-50 text-terracotta-700 border border-terracotta-200">
+                          KARAKTER GAYA
+                        </span>
+                        <span className="text-xs font-mono font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                          ✓ {summary.skinProfileName}
+                        </span>
                       </div>
+
+                      <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#181A18]">
+                        {summary.personaTitle}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-charcoal-800/80 leading-relaxed">
+                        {summary.personaDesc}
+                      </p>
                     </div>
-                  )}
 
-                  {/* 3 Warna Favorit Pilihan User */}
-                  <div className="space-y-1.5">
-                    <span className="text-[10px] font-mono font-bold text-sand-600 uppercase">
-                      3 Warna Kesukaanmu (Comfort Zone):
-                    </span>
-                    <div className="grid grid-cols-3 gap-2">
-                      {summary.favoriteColors.map((c) => (
-                        <button
-                          key={c.id}
-                          type="button"
-                          onClick={() => setActiveDrapeHex(c.hex)}
-                          className={`p-2 rounded-xl border text-left transition-all flex items-center gap-2 ${
-                            activeDrapeItem?.hex === c.hex
-                              ? "border-[#181A18] bg-sand-50 font-bold"
-                              : "border-sand-200 bg-white"
-                          }`}
-                        >
-                          <span
-                            className="w-5 h-5 rounded-full border border-black/15 shrink-0"
-                            style={{ backgroundColor: c.hex }}
-                          />
-                          <span className="text-[11px] text-[#181A18] truncate">{c.name.split(" ")[0]}</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* 2 Warna Penyeimbang Kulit Nusantara */}
-                  <div className="space-y-1.5 pt-1">
-                    <span className="text-[10px] font-mono font-bold text-terracotta-600 uppercase">
-                      +2 Warna Penyeimbang Rona {summary.skinProfileName.split(" ")[0]}:
-                    </span>
-                    <div className="grid grid-cols-2 gap-2">
-                      {summary.balancingColors.map((c, idx) => (
-                        <button
-                          key={idx}
-                          type="button"
-                          onClick={() => setActiveDrapeHex(c.hex)}
-                          className={`p-2 rounded-xl border text-left transition-all flex items-center gap-2 ${
-                            activeDrapeItem?.hex === c.hex
-                              ? "border-[#181A18] bg-sand-50 font-bold"
-                              : "border-sand-200 bg-white"
-                          }`}
-                        >
-                          <span
-                            className="w-5 h-5 rounded-full border border-black/15 shrink-0"
-                            style={{ backgroundColor: c.hex }}
-                          />
-                          <span className="text-[11px] text-[#181A18] truncate">{c.name}</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Aturan Pakai Tropis */}
-                  <div className="p-2.5 rounded-xl bg-amber-50/90 border border-amber-200 text-[11px] text-amber-950 leading-snug">
-                    💡 {summary.stylingRule}
-                  </div>
-                </div>
-
-                {/* 3. Rekomendasi Bahan Kain Berkualitas Sesuai Domisili */}
-                <div className="p-4 rounded-2xl bg-white border border-[#E8DFD1] shadow-xs space-y-2.5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-800 flex items-center gap-1">
-                      <Shirt className="w-3.5 h-3.5" /> REKOMENDASI BAHAN KAIN ({summary.domicileLabel})
-                    </span>
-                  </div>
-
-                  <div className="space-y-2">
-                    {summary.recommendedFabrics.map((fab, i) => (
+                    {/* Preview Draping Bar */}
+                    {activeDrapeItem && (
                       <div
-                        key={i}
-                        className="p-2.5 rounded-xl bg-sand-50/80 border border-sand-200 space-y-0.5"
+                        className="p-4 rounded-2xl border border-black/10 transition-all duration-300 flex items-center justify-between gap-3 shadow-xs"
+                        style={{ backgroundColor: activeDrapeItem.hex }}
                       >
-                        <div className="flex items-center justify-between gap-2">
-                          <span className="font-bold text-xs text-[#181A18]">{fab.name}</span>
-                          <span className="text-[9px] font-mono font-bold text-terracotta-600 bg-white px-2 py-0.5 rounded border border-sand-200 shrink-0">
-                            {fab.brands}
-                          </span>
+                        <div className="bg-white/95 backdrop-blur-xs p-3.5 rounded-xl border border-black/10 shadow-2xs w-full space-y-1">
+                          <div className="flex items-center justify-between">
+                            <span className="font-bold text-sm text-[#181A18]">
+                              {activeDrapeItem.name}
+                            </span>
+                            <span className="font-mono text-xs font-bold text-sand-600">
+                              {activeDrapeItem.hex}
+                            </span>
+                          </div>
+                          <p className="text-xs text-charcoal-800 leading-snug">
+                            👕 <b>Saran Posisi:</b> {activeDrapeItem.role}
+                          </p>
                         </div>
-                        <p className="text-[11px] text-sand-600 leading-snug">{fab.reason}</p>
                       </div>
-                    ))}
+                    )}
+
+                    {/* Swatches Selector */}
+                    <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E8DFD1] shadow-xs space-y-3">
+                      <div className="space-y-1.5">
+                        <span className="text-xs font-mono font-bold text-sand-600 uppercase block">
+                          3 Warna Pilihanmu (Tap untuk Coba Draping):
+                        </span>
+                        <div className="grid grid-cols-3 gap-2">
+                          {summary.favoriteColors.map((c) => (
+                            <button
+                              key={c.id}
+                              type="button"
+                              onClick={() => setActiveDrapeHex(c.hex)}
+                              className={`p-2 sm:p-2.5 rounded-xl border text-left transition-all flex items-center gap-2 cursor-pointer ${
+                                activeDrapeItem?.hex === c.hex
+                                  ? "border-[#181A18] bg-sand-50 font-bold ring-1 ring-[#181A18]"
+                                  : "border-sand-200 bg-white hover:border-sand-300"
+                              }`}
+                            >
+                              <span
+                                className="w-5 h-5 rounded-full border border-black/15 shrink-0"
+                                style={{ backgroundColor: c.hex }}
+                              />
+                              <span className="text-xs text-[#181A18] truncate">{c.name.split(" ")[0]}</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="space-y-1.5 pt-2 border-t border-sand-100">
+                        <span className="text-xs font-mono font-bold text-terracotta-600 uppercase block">
+                          +2 Warna Penyeimbang Kulit:
+                        </span>
+                        <div className="grid grid-cols-2 gap-2">
+                          {summary.balancingColors.map((c, idx) => (
+                            <button
+                              key={idx}
+                              type="button"
+                              onClick={() => setActiveDrapeHex(c.hex)}
+                              className={`p-2 sm:p-2.5 rounded-xl border text-left transition-all flex items-center gap-2 cursor-pointer ${
+                                activeDrapeItem?.hex === c.hex
+                                  ? "border-[#181A18] bg-sand-50 font-bold ring-1 ring-[#181A18]"
+                                  : "border-sand-200 bg-white hover:border-sand-300"
+                              }`}
+                            >
+                              <span
+                                className="w-5 h-5 rounded-full border border-black/15 shrink-0"
+                                style={{ backgroundColor: c.hex }}
+                              />
+                              <span className="text-xs text-[#181A18] truncate">{c.name}</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
+
+                  {/* Kolom Kanan: 7 Kolom */}
+                  <div className="md:col-span-7 space-y-4">
+                    {/* Rekomendasi Bahan Kain Berkualitas Sesuai Domisili */}
+                    <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E8DFD1] shadow-xs space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-emerald-800 flex items-center gap-1.5">
+                          <Shirt className="w-4 h-4" /> REKOMENDASI BAHAN KAIN BERKUALITAS ({summary.domicileLabel})
+                        </span>
+                      </div>
+
+                      <div className="space-y-2.5">
+                        {summary.recommendedFabrics.map((fab, i) => (
+                          <div
+                            key={i}
+                            className="p-3 sm:p-3.5 rounded-xl bg-sand-50/80 border border-sand-200 space-y-1"
+                          >
+                            <div className="flex items-center justify-between gap-2">
+                              <span className="font-bold text-xs sm:text-sm text-[#181A18]">{fab.name}</span>
+                              <span className="text-[10px] font-mono font-bold text-terracotta-600 bg-white px-2.5 py-0.5 rounded border border-sand-200 shrink-0">
+                                {fab.brands}
+                              </span>
+                            </div>
+                            <p className="text-xs sm:text-[13px] text-sand-700 leading-relaxed">{fab.reason}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Aturan Pakai Tropis */}
+                    <div className="p-3.5 sm:p-4 rounded-2xl bg-amber-50/90 border border-amber-200 text-xs sm:text-sm text-amber-950 leading-relaxed">
+                      💡 <b>Aturan Pakai Tropis:</b> {summary.stylingRule}
+                    </div>
+                  </div>
+
                 </div>
               </motion.div>
             )}
           </div>
 
-          {/* Sticky Bottom Navigation Bar (Sangat Ergonomis untuk Jempol Mobile) */}
-          <div className="px-4 sm:px-6 py-3.5 bg-white border-t border-[#E8DFD1] shrink-0 pb-[max(0.875rem,env(safe-area-inset-bottom,0px))]">
+          {/* Sticky Bottom Navigation Bar */}
+          <div className="px-5 sm:px-8 py-4 sm:py-5 bg-white border-t border-[#E8DFD1] shrink-0 pb-[max(1rem,env(safe-area-inset-bottom,0px))]">
             {step < 3 ? (
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center justify-end gap-3">
                 {step > 0 && (
                   <button
                     type="button"
                     onClick={() => setStep((s) => (s - 1) as 0 | 1 | 2 | 3)}
-                    className="py-3 px-4 rounded-2xl bg-sand-100 hover:bg-sand-200 text-[#181A18] font-bold text-xs flex items-center gap-1.5 transition-colors min-h-[46px]"
+                    className="py-3.5 px-6 rounded-2xl bg-sand-100 hover:bg-sand-200 text-[#181A18] font-bold text-xs sm:text-sm flex items-center gap-2 transition-colors min-h-[48px] cursor-pointer"
                   >
                     <ArrowLeft className="w-4 h-4" />
                     <span>Kembali</span>
@@ -839,7 +851,7 @@ export default function PersonalColorQuizModal({
                 <button
                   type="button"
                   onClick={() => setStep((s) => (s + 1) as 0 | 1 | 2 | 3)}
-                  className="flex-1 py-3.5 px-5 rounded-2xl bg-[#181A18] hover:bg-terracotta-600 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md min-h-[46px]"
+                  className="py-3.5 px-8 rounded-2xl bg-[#181A18] hover:bg-terracotta-600 text-white font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 transition-all shadow-md min-h-[48px] cursor-pointer"
                 >
                   <span>
                     {step === 2
@@ -850,23 +862,23 @@ export default function PersonalColorQuizModal({
                 </button>
               </div>
             ) : (
-              <div className="space-y-2">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
                 <button
                   type="button"
-                  onClick={handleFinishAndApply}
-                  className="w-full py-3.5 px-5 rounded-2xl bg-[#181A18] hover:bg-terracotta-600 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md min-h-[48px]"
+                  onClick={() => setStep(0)}
+                  className="text-xs sm:text-sm font-semibold text-sand-500 hover:text-[#181A18] transition-colors py-2 cursor-pointer"
                 >
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  <span>Terapkan Karakter &amp; Bahan Ini ke Aplikasi</span>
-                  <ArrowRight className="w-4 h-4" />
+                  ↺ Ulangi Diagnosa dari Awal
                 </button>
 
                 <button
                   type="button"
-                  onClick={() => setStep(0)}
-                  className="w-full py-1.5 text-[11px] font-semibold text-sand-500 hover:text-[#181A18] transition-colors"
+                  onClick={handleFinishAndApply}
+                  className="w-full sm:w-auto py-3.5 px-8 rounded-2xl bg-[#181A18] hover:bg-terracotta-600 text-white font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 transition-all shadow-md min-h-[48px] cursor-pointer"
                 >
-                  Ulangi Diagnosa dari Awal
+                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                  <span>Terapkan Karakter &amp; Bahan Ini ke Aplikasi</span>
+                  <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             )}
