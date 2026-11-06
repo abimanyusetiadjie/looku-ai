@@ -31,29 +31,32 @@ export default function SplashScreen() {
             filter: "blur(15px)" // Efek memudar sinematik
           }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }} 
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-charcoal-900" // Background Hitam Arang Mewah
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#FAF8F5]" // Background Warm Editorial Cream Sesuai Identitas Aplikasi
         >
+          {/* Subtle Ambient Radial Warmth */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.85)_0%,_rgba(250,248,245,1)_70%)] pointer-events-none" />
+
           {/* Elemen Tengah (Logo + Subtitle) */}
-          <div className="flex flex-col items-center justify-center">
-            {/* Logo Look.u High-End Serif dengan teks Off-White */}
+          <div className="relative z-10 flex flex-col items-center justify-center">
+            {/* Logo Look.u High-End Serif dengan teks Charcoal #181A18 & Terracotta Dot */}
             <motion.h1
-              initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+              initial={{ opacity: 0, scale: 0.96, filter: "blur(8px)" }}
               animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-              transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-              className="font-serif text-sand-50 text-6xl md:text-7xl font-medium tracking-[0.05em]"
+              transition={{ duration: 1, ease: "easeOut", delay: 0.15 }}
+              className="font-serif text-[#181A18] text-6xl md:text-7xl font-medium tracking-[0.04em] select-none"
               style={{
                 fontFamily: "var(--font-playfair), serif",
               }}
             >
-              Look<span className="text-terracotta-500 font-bold">.</span>u
+              Look<span className="text-[#C86D51] font-bold">.</span>u
             </motion.h1>
 
             {/* Subtitle / Tagline */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeOut", delay: 0.8 }}
-              className="mt-4 text-[9px] md:text-[10px] font-sans text-sand-100/60 font-bold tracking-[0.4em] uppercase"
+              transition={{ duration: 0.9, ease: "easeOut", delay: 0.5 }}
+              className="mt-3.5 text-[10px] md:text-[11px] font-sans text-[#736B63] font-bold tracking-[0.38em] uppercase select-none"
             >
               Tropical AI Stylist
             </motion.div>
@@ -63,14 +66,14 @@ export default function SplashScreen() {
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-            className="absolute bottom-16 w-48 h-[2px] bg-white/10 rounded-full overflow-hidden shadow-sm"
+            transition={{ delay: 0.4, duration: 0.4 }}
+            className="absolute bottom-16 w-44 h-[2.5px] bg-[#E8DFD1] rounded-full overflow-hidden shadow-2xs"
           >
             <motion.div
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
-              transition={{ duration: 2, ease: "easeInOut", delay: 0.6 }} // Bergerak elegan selama 2 detik
-              className="h-full bg-gradient-to-r from-sand-300 to-terracotta-400"
+              transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+              className="h-full bg-gradient-to-r from-[#C86D51] via-[#8C5A3C] to-[#181A18]"
             />
           </motion.div>
         </motion.div>
