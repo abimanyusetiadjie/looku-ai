@@ -1619,28 +1619,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
             </button>
           </div>
 
-          {/* 6 Skena Vibe Filter Rail */}
-          {activeTab === "mixer" && (
-            <div className="border-t border-neutral-100 px-3 py-2 flex items-center gap-2 overflow-x-auto no-scrollbar bg-neutral-50/50">
-              {SKENA_VIBES.map((vibe) => {
-                const isSelected = selectedVibeId === vibe.id && !customLookTitle;
-                return (
-                  <button
-                    key={vibe.id}
-                    type="button"
-                    onClick={() => handleSelectSkenaVibe(vibe)}
-                    className={`shrink-0 px-3 py-1.5 rounded-full text-[11px] tracking-wide transition-all ${
-                      isSelected
-                        ? "bg-neutral-900 text-white font-medium"
-                        : "bg-white text-neutral-600 border border-neutral-200/80 hover:border-neutral-400"
-                    }`}
-                  >
-                    {vibe.shortLabel}
-                  </button>
-                );
-              })}
-            </div>
-          )}
+
         </header>
 
         {activeTab === "mixer" ? (
@@ -2255,29 +2234,15 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
           </div>
         </div>
 
-        {/* Preset Skena Filter Bar */}
-        <div className="py-4 border-b border-neutral-100 flex items-center justify-between gap-4 flex-wrap">
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-400 mr-1 font-semibold">
-              PRESET:
+        {/* Studio Mix & Match Action Toolbar */}
+        <div className="py-3.5 border-b border-neutral-100 flex items-center justify-between gap-4 flex-wrap">
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-400 font-semibold">
+              STUDIO:
             </span>
-            {SKENA_VIBES.map((vibe) => {
-              const isSelected = selectedVibeId === vibe.id && !customLookTitle;
-              return (
-                <button
-                  key={vibe.id}
-                  type="button"
-                  onClick={() => handleSelectSkenaVibe(vibe)}
-                  className={`px-3.5 py-1.5 text-xs rounded-full transition-all border ${
-                    isSelected
-                      ? "bg-neutral-900 text-white border-neutral-900 font-medium"
-                      : "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-400"
-                  }`}
-                >
-                  {vibe.label}
-                </button>
-              );
-            })}
+            <span className="text-xs font-medium text-neutral-700 bg-[#FAF8F5] border border-sand-300 px-3 py-1 rounded-full">
+              Kanvas Mix &amp; Match Modular
+            </span>
           </div>
 
           <div className="flex items-center gap-2 text-xs font-medium">
