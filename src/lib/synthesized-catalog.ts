@@ -25812,7 +25812,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/a8/c4/4f/a8c44f05e464b0804848da91c97620e7.png",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -25885,7 +25885,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/5e/cd/90/5ecd903fcca25d3ec74dcf3f214e9aa9.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -25958,7 +25958,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/50/59/ad/5059ada8cba6070b081c2450ff0448d3.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -26031,7 +26031,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/db/ba/3b/dbba3bdcc12273d1e558aa08850e4870.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -26104,7 +26104,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/6d/f2/26/6df226c5373cebfd0cb663696396a258.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -26177,7 +26177,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/af/fc/a2/affca29b58d613a940210b40c87080d4.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -26250,7 +26250,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/8f/56/a5/8f56a5355247bde4ff5086b38e6b7bb1.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -26323,7 +26323,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/e7/a5/b0/e7a5b026fee6e02c896ca0e00ec66044.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -26396,7 +26396,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/85/9b/ed/859beda90f4a135992bc02eb5efdef8d.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -26469,7 +26469,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/f5/0b/d6/f50bd6fe8b14a3f1b3b1aa6d4dca99b5.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -26542,7 +26542,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/ba/08/f8/ba08f88540b89fb835db9358b9d834c7.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -26615,7 +26615,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/d4/8f/47/d48f473fe35b51b00abb2e768f6834e0.png",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -26688,7 +26688,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/11/32/d8/1132d81746a3143c8166184a39475fb2.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -26761,7 +26761,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/44/20/5b/44205b7ca29f8169e675e8cff3c4a4ce.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -26834,7 +26834,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/94/e0/fc/94e0fc0c07aba373a1e9feeee834c53a.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -26907,7 +26907,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/bd/cc/8f/bdcc8ff4ecde3efbe47e9aad4fe1cbd2.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -26980,7 +26980,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/6c/4a/95/6c4a95bdd9c1b3163922743ffc405b5f.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -27053,7 +27053,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/81/e9/4f/81e94f2c1e0bc403cab7b2f8deaff710.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -27126,7 +27126,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/98/30/0e/98300e33a59ebd497e4b6874ba128057.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -27199,7 +27199,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/45/82/3d/45823d99ceebf8d29423ebcfabd3efba.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -27272,7 +27272,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/05/d7/44/05d744d71dee1cc4b6aab3e6b55e9010.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -27345,7 +27345,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/26/b0/e1/26b0e1816c60e5a8b744f0073d66d383.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -27418,7 +27418,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/9b/53/8c/9b538cffb4b57ad100131c2001129689.png",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -27491,7 +27491,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/e5/d1/50/e5d150e138918e0b0c837a1eab9b76ad.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -27564,7 +27564,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/4a/d8/6b/4ad86bcb2837d8ba832dfa471ee82ad8.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -27637,7 +27637,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/e5/18/9d/e5189d254ff76ee94a93bd72a332c0c8.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -27710,7 +27710,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/d0/72/d4/d072d4847af4aeee32207fc119b73bc5.png",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -27783,7 +27783,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/90/ca/82/90ca82f6549267939a3ad73e325665e7.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -27856,7 +27856,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/e6/67/d6/e667d678586bab37af3948c18ab67147.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -27929,7 +27929,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/38/d3/5f/38d35f3031b54715779f1f93de9225f5.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -28002,7 +28002,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/48/c2/78/48c2782708ceff098af1a3121fec5b7c.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -28075,7 +28075,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/17/4d/99/174d99acf47fd0c01bc7889cacd68aef.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -28148,7 +28148,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/fe/5b/48/fe5b48e96f9b46812cb86c83deef80b6.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -28221,7 +28221,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/8d/a8/4e/8da84e5be601c6a2151d048df729b623.png",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -28294,7 +28294,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/20/3c/f7/203cf7338d8e5ccab4941b558e84d6a1.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -28367,7 +28367,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/a2/01/88/a20188efbda941dc02ba846bae3b17a9.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -28440,7 +28440,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/4c/10/21/4c1021f4accc43db4b2ad5f58092ea02.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -28513,7 +28513,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/83/84/64/83846421a93cc2bbbd6f41973260cd4d.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -28586,7 +28586,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/09/15/d8/0915d82bcc08a094ad75baa338ad9d31.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -28659,7 +28659,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/ec/c2/f3/ecc2f3cdb00ab24c8df980e122bd7197.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -28732,7 +28732,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/a2/bd/4f/a2bd4fdd0277befd3c6fec72fbf20d36.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -28805,7 +28805,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/62/bc/74/62bc74229c5ea48d7a6d129024a317d1.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -28878,7 +28878,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/cd/eb/c8/cdebc807fd1bb68e557337b9b2fb12d1.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -28951,7 +28951,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/b4/3e/65/b43e650e697eed5eae59e29eb5380186.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -29024,7 +29024,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/5d/08/22/5d08225a159fb407cbbb0ee6a044dca0.jpg",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -29097,7 +29097,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/ab/97/9d/ab979d0de176326ad671e755f269cda7.png",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -29170,7 +29170,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
         "imageUrl": "https://i.pinimg.com/736x/b2/a1/68/b2a168f6a4bbbe4e1b7afa8fdd1fa832.png",
         "brand": "LOKAL_HERITAGE",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       },
       {
@@ -29285,7 +29285,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/54/2c/ad/542cadb7970189fddff971caf303b24b.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -29373,7 +29373,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/f1/ff/32/f1ff32036ab3216cbb743dffcbadda35.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -29461,7 +29461,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/88/ed/bf/88edbfa266f871448d2a7f971e8fa6c6.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -29549,7 +29549,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/2e/a8/57/2ea857022cc60dc6ced0e2390291fef8.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -29637,7 +29637,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ca/35/f1/ca35f19aa0490281a66b72c7dfcdda80.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -29725,7 +29725,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/93/46/0a/93460a4d3fa3dd0c257a48ab0a96a179.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -29813,7 +29813,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/d8/fc/05/d8fc05b1d2ea3069595aeada5e5347f8.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -29901,7 +29901,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/29/2e/ce/292ecee6b459e5a99d9e5994e0fb3717.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -29989,7 +29989,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/c8/16/df/c816dfd8ad06cc7f52bdd9741e50be97.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -30077,7 +30077,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/8d/25/59/8d2559771186626e757dc812fc8b535d.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -30165,7 +30165,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/21/83/2b/21832b3a34ba0f488ec83acef7e30b94.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -30253,7 +30253,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/1a/3b/e0/1a3be09fecbb4c4f050e09f1dfd31093.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -30341,7 +30341,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/43/ac/91/43ac913ed7b10cc37ab7694480631bb7.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -30429,7 +30429,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/d2/33/9e/d2339e602a0ff2fe328d09222eb79843.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -30517,7 +30517,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/de/71/96/de71962eba1b2c9496161af406c60ca6.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -30605,7 +30605,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/95/2a/f7/952af7052f1f70e48b8574280fdb0af2.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -30693,7 +30693,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/9f/cc/be/9fccbe9528fa633c7e8416bf7effc817.heic",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -30781,7 +30781,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/52/7c/8c/527c8caee61d34709fbcf37fb1236420.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -30869,7 +30869,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a2/a7/85/a2a7859f75dc6f5e3e6b5dcc0c9f2746.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -30957,7 +30957,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/c1/38/27/c1382706b0b7e0c8cfb980a7f2c5a949.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -31045,7 +31045,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/02/4f/f5/024ff57abeb5caa56982452e6db0982d.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -31133,7 +31133,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/96/d3/65/96d3657abd9efbb8c514939d30b638fb.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -31221,7 +31221,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/4a/79/c7/4a79c78c8adc50cb551cbcc426059044.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -31309,7 +31309,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/3b/45/f2/3b45f2eae8c3ff84a2751d150618069a.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -31397,7 +31397,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/b7/61/68/b76168c865937e2ecdc571d50cffe7fd.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -31485,7 +31485,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/3c/84/18/3c8418cdb34ebd5e6a04728e42f6be75.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -31573,7 +31573,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/26/4b/44/264b44b3f08e6c08b53cc13fb1ac81de.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -31661,7 +31661,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/dd/9d/70/dd9d707237cfa3c5bb8b02585c0b0cb2.webp",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -31749,7 +31749,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/6f/6a/b9/6f6ab96c9d8e6c3d12e0f1a31556715d.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -31837,7 +31837,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/55/ab/6e/55ab6eda2a99ed0373d4b2d98e42db7f.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -31925,7 +31925,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/34/de/24/34de24eb27881beb9e7f6d397b8b4d4c.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -32013,7 +32013,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/bb/d4/90/bbd490a108a6849aa17515007d884220.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -32101,7 +32101,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a5/d7/c1/a5d7c1652282be0c783651ca401222a3.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -32189,7 +32189,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ec/f7/65/ecf765b26542478c61762521eb4207c4.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -32277,7 +32277,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/95/15/c8/9515c84d6934972990f7e7e992e5acc6.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -32365,7 +32365,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/1a/2d/82/1a2d82f4b45ac45c1b9b5218d804167f.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -32453,7 +32453,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/1a/d2/57/1ad257a0e7e34618868127250465f7ff.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -32541,7 +32541,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/b7/5e/84/b75e8426247ef5a8b0e2258c6b6ee1b9.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -32629,7 +32629,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/b1/0c/db/b10cdb46ce3332d707a72ae86f709e5d.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -32717,7 +32717,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/d8/0b/3f/d80b3fcf91ec46718f7952a6b286a9dd.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -32805,7 +32805,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/cd/8a/27/cd8a27b81c6c4f3f1d2b69e064262b6c.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -32893,7 +32893,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/fb/4a/c7/fb4ac7bea852630d7e8ef9b4f75ae153.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -32981,7 +32981,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/cb/96/c6/cb96c6a51808ed6186a2d32d41982df0.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -33069,7 +33069,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/30/e3/71/30e37100b18eeab6885976067fa0a068.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -33157,7 +33157,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/80/01/4d/80014d94845691881933d971e63c1b58.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -33245,7 +33245,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a6/a6/fb/a6a6fbc248694d1795d2c3223d41b720.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -33333,7 +33333,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/e0/1b/76/e01b763f819d7221e0217ca87d47f8d4.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -33421,7 +33421,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/31/aa/4b/31aa4b0d58897b4097308edf0eca58c2.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -33509,7 +33509,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/c1/27/ad/c127adbe9d7d460d1438d17dff81d83b.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -33597,7 +33597,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/b0/44/22/b0442254248cbf9bfc061dd3cf14ba9e.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -33685,7 +33685,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/8b/ae/73/8bae73d838a7291230581053b3d34599.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -33773,7 +33773,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/e8/3b/3a/e83b3abdadefc3644e63b43eeb83b74d.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -33861,7 +33861,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/7f/ab/df/7fabdf26246e5db02f7df1ce51c722d5.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -33949,7 +33949,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/1b/3d/24/1b3d240b29e3ea29a9f1d8fdcb0fa1dc.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -34037,7 +34037,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/73/2b/97/732b9765f65e63ebf02595822e3524d3.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -34125,7 +34125,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/d8/89/60/d889609b8796c3655179ad8fd914b051.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -34213,7 +34213,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/28/29/bf/2829bf6eb5ebf130eef597e1fd2e3acd.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -34301,7 +34301,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/c4/2f/05/c42f05e39b78ceec66a236bfc85769f1.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -34389,7 +34389,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/83/10/84/83108432211bcf98da5f1e090a25b013.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -34477,7 +34477,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/81/91/a3/8191a34044bfbf7f080b21ac3275a79c.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -34565,7 +34565,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/0d/1b/72/0d1b727ab688eaf0e526df172632e5c2.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -34653,7 +34653,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/5e/39/4f/5e394fcd7250a3fe4f795b880de29159.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -34741,7 +34741,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/4f/ad/f1/4fadf1bea8e0c76123741cda24394274.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -34829,7 +34829,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/04/70/65/0470654cf28342dd355e6385e66aedb2.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -34917,7 +34917,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/c4/c7/50/c4c7508ffa61c9a4243acfbd789cd672.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -35005,7 +35005,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/c3/0b/31/c30b31e6e2c7c85c4efad55eaca1413e.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -35093,7 +35093,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/6c/85/18/6c8518bd662c4f4785dbfde00694aedb.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -35181,7 +35181,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/97/6e/6d/976e6dda45bf67982216b08c68b6c0c5.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -35269,7 +35269,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/d1/fd/44/d1fd449b37b08896b17c8608480f2667.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -35357,7 +35357,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/e4/b4/1f/e4b41ff68751adfb6e80a466b719f1d1.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -35445,7 +35445,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/0e/5f/1f/0e5f1f093bf2c6720839a0234fc6325f.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -35533,7 +35533,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/6f/f7/2b/6ff72bf3f38fe1eab3d309b56edad93a.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -35621,7 +35621,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/6a/72/5a/6a725a6774fcc6d8e25b2ef4e04b0495.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -35709,7 +35709,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/bc/9c/ff/bc9cff07d00d9a6ea2d07f1b674b80fd.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -35797,7 +35797,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/79/bd/09/79bd0955384d1686f35999a095735438.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -35885,7 +35885,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/bd/e2/4d/bde24d58221200d43c5cc5fa5cd4e84d.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -35973,7 +35973,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/81/f8/cd/81f8cd32bd14105bc8f4728f1980d9fa.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -36061,7 +36061,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a5/11/5f/a5115ff063a3e9508497fd40dd426507.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -36149,7 +36149,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/0b/38/f6/0b38f698c2c3fe4b5e2f5ef7366359fb.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -36237,7 +36237,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/3f/59/cb/3f59cb653722bba1e23b16a1c7ea2fde.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -36325,7 +36325,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ee/17/59/ee1759bf7dc5b517c938bcda362f8250.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -36413,7 +36413,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/e1/90/1b/e1901baecbafdd2238ba94c60c5fc508.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -36501,7 +36501,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/10/c4/e4/10c4e4ca00a14173eb314cb25b983723.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -36589,7 +36589,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/71/56/03/71560388caaa8f09cf0d75feabedcd65.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -36677,7 +36677,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/7a/f2/d0/7af2d02b6de949499b79acb6aec0fa1e.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -36765,7 +36765,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/36/e2/12/36e21275c4536993d907248238119629.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -36853,7 +36853,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/87/52/64/875264d6ff25bbccd6b733abc9b906f7.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -36941,7 +36941,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/15/ef/8e/15ef8ed585ea661320f944d89116cc3a.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -37029,7 +37029,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/94/26/b1/9426b16e221b32d1cef307fc21c41006.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -37117,7 +37117,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/08/6c/3e/086c3eccf1262180eef73ff108f185e1.heic",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -37205,7 +37205,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/c2/e9/8f/c2e98f0502eb66c57054448094eb93c0.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -37293,7 +37293,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/89/73/b0/8973b07ed739ff560439b62fba250fa1.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -37381,7 +37381,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/28/cf/0f/28cf0f620004d84d1f4c8d49667da46c.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -37469,7 +37469,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/0b/61/d8/0b61d811c3afb5b286c07e92d6cb5b55.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -37557,7 +37557,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/17/71/e5/1771e56654fcabb2adb6936b7281e296.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -37645,7 +37645,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/3a/eb/60/3aeb60df030821c719f62733c3cf5d4c.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -37733,7 +37733,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/f6/df/f2/f6dff2bec29d80d3259f25f99a64fb63.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -37821,7 +37821,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ae/ca/78/aeca7832814d5daa62dcbba9ee65f8f7.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -37909,7 +37909,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/76/94/01/76940169cc9e5360d6cdb367354826f5.webp",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -37997,7 +37997,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/57/4d/47/574d4794e5fde27ba28c2689ae1cf9e5.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -38085,7 +38085,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a1/9b/f3/a19bf316a4f096ff9fd0ae99ca9cfdcb.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -38173,7 +38173,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/e6/7c/90/e67c90146a372d6c1d448f83a7858d27.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -38261,7 +38261,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/0d/29/d4/0d29d4232bd44ba72b60d19c01146717.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -38349,7 +38349,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/b9/eb/a1/b9eba1020e3cff27c73dea98036daae1.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -38437,7 +38437,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ac/b3/5b/acb35bb8b90c26a0fbd1ae503c22362e.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -38525,7 +38525,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/de/2e/b3/de2eb3ef344c28a36ed3f15a15c888a7.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -38613,7 +38613,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/22/49/32/22493275ad9b0132d65280c7e3049265.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -38701,7 +38701,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/89/49/22/8949229425a3104028fe095fae515f70.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -38789,7 +38789,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/44/f7/34/44f7340d0b33822da82eb76a030b38d6.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -38877,7 +38877,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/2f/11/e1/2f11e1e67dd7f054d1880864ddc953f3.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -38965,7 +38965,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ee/22/69/ee226955b0a869915fdc52c5a50b785e.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -39053,7 +39053,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/42/3b/50/423b50189efe82819dcc527a6bc64ff8.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -39141,7 +39141,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/83/66/ad/8366ad26cab2c31aa4b52ab42e7dbbdf.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -39229,7 +39229,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/c3/38/12/c3381226ec118e2bc07cba604b444935.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -39317,7 +39317,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/e6/a1/88/e6a188b010c0ce5225a56c3101e4e061.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -39405,7 +39405,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/9d/fe/83/9dfe835204f2090ce6a8a4290562ba2f.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -39493,7 +39493,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/90/c3/4b/90c34b49f69ba0f555786e626cba5d6f.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -39581,7 +39581,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/05/4d/fb/054dfbb5a33ff576fe15839035ff4fe4.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -39669,7 +39669,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/d6/1c/7b/d61c7bb4dbe95eff7f2ee47d0b868d2f.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -39757,7 +39757,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/0b/86/ca/0b86ca164616be9f4e58e56c4a35ca28.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -39845,7 +39845,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/2e/22/f4/2e22f401563f3702b35b8757ce6c6af0.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -39933,7 +39933,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a6/fd/b6/a6fdb623ec03421dccc73d30bd48796c.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -40021,7 +40021,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/69/1f/a6/691fa656f57853133820be12665eed20.heic",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -40109,7 +40109,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/67/81/f8/6781f8bd411344099a3f2b8e0b59ee43.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -40197,7 +40197,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/6a/66/76/6a6676e4fd79e9186552b1178c26d9c2.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -40285,7 +40285,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/22/0d/78/220d784695706ec8e8d00e22a7dba45f.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -40373,7 +40373,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/55/4e/6d/554e6d980fb3d36dd2a106511d0369fc.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -40461,7 +40461,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/88/00/14/880014bae2792f07d4c9b3bb0561f6d2.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -40549,7 +40549,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/dc/0c/5a/dc0c5a9ea8879a5aabe0f0be4483cd5d.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -40637,7 +40637,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/cf/d3/22/cfd322bf438ae57076ed007d251c04ce.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -40725,7 +40725,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/11/27/84/1127840f95fe1630fcf763cc19cc9428.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -40813,7 +40813,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/15/b3/9b/15b39b6867218af1798523cb84bab53b.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -40901,7 +40901,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/60/ba/4e/60ba4ec24d0454fe4903067b2b9e568b.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -40989,7 +40989,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/43/ab/85/43ab8529d1712bd056bb8958d2014833.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -41077,7 +41077,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/b3/d7/9a/b3d79a38f1f02e759f0f728d2d46f541.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -41165,7 +41165,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/4e/5e/38/4e5e3806b693a025531fc33e6ab5cc96.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -41253,7 +41253,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a4/45/ea/a445ea231c9de8d47dccf04878cfd935.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -41341,7 +41341,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/8c/13/4c/8c134c80c02210fb23a11432d9e26758.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -41429,7 +41429,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/e3/38/ee/e338ee7a3782ec769df926e9872ca193.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -41517,7 +41517,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/b9/e3/90/b9e39093eed5c8061a3edd8c7ed6ff2d.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -41605,7 +41605,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/fd/fc/fd/fdfcfd539211c56809dbf62677aea09f.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -41693,7 +41693,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/3a/4a/09/3a4a09f7200ffa55eb4198099d5a1059.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -41781,7 +41781,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/68/6f/20/686f20a909880cb62ca1055ccfbcfafa.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -41869,7 +41869,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/7a/52/fa/7a52fa0fcc37c101d720ba4b91b6046e.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -41957,7 +41957,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/54/d2/86/54d286b0b8dbac2d2621384342858722.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -42045,7 +42045,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/4b/ef/a9/4befa946996afac06c743f0b20be9e9e.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -42133,7 +42133,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/8d/32/22/8d3222e8bb4bbe45b4954a811ab725a1.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -42221,7 +42221,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/20/93/6b/20936b3e3bd28a31645d0fb439bfa5d7.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -42309,7 +42309,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/80/58/cc/8058cc67895d43419b60d9f117b1c304.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -42397,7 +42397,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/5f/f5/84/5ff584530b70d30f5f6fb775ceb2ed9f.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -42485,7 +42485,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/0d/e9/fe/0de9fea2f4bcf070cdbe0ab1656773ce.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -42573,7 +42573,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/c0/2e/5a/c02e5ac68430d2a9de8b1a1b18a227aa.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -42661,7 +42661,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/dd/3e/78/dd3e78fa64b030259c7665fd7791b997.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -42749,7 +42749,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/e9/27/7c/e9277c64391e7d12e7d23f8b063b0c89.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -42837,7 +42837,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/58/8f/18/588f180c32a91bdc65f33ad1034c640e.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -42925,7 +42925,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/1e/eb/dd/1eebdd3250c1739569d8eb80ed9bf220.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -43013,7 +43013,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/3c/9c/d7/3c9cd7ce6ed7158cc75cbe999b745984.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -43101,7 +43101,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/fc/61/d7/fc61d77292c38ffebd128e7df41c6572.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -43189,7 +43189,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/e6/41/0a/e6410ab387686cef3739031db7a6f87f.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -43277,7 +43277,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/de/ac/ad/deacad9638a24d56071c7bdab8db3da0.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -43365,7 +43365,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/98/63/a6/9863a6dac836c65a6690fc3fe2356d62.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -43453,7 +43453,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a7/ee/8c/a7ee8cd8d4f1e3e687f3371846430ea6.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -43541,7 +43541,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/36/a5/7a/36a57a43882bb7547d6f8163e4d5b493.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -43629,7 +43629,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/6e/f6/f2/6ef6f21a0564405c037b2663d9aa2d8d.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -43717,7 +43717,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/4e/6a/e3/4e6ae3165366332958828e01ca327c81.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -43805,7 +43805,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/d9/21/99/d92199bd0c6e4e42123e339648980aef.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -43893,7 +43893,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/01/7a/46/017a461abf877100553b4ff4e4a2854e.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -43981,7 +43981,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/81/2f/da/812fdafa51255be94f4eb8820e439034.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -44069,7 +44069,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ff/5a/96/ff5a96f3b29dc08920dc9494558096eb.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -44157,7 +44157,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ba/8c/0c/ba8c0cf12f612b6a21cdcbfcbca1e8d8.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -44245,7 +44245,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/de/86/b3/de86b39252c412151c27248f833872fc.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -44333,7 +44333,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a8/31/14/a83114e5c852552db3540318b999ef64.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -44421,7 +44421,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/5e/f6/1b/5ef61b061816d5d023ec2bfe61676ec4.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -44509,7 +44509,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/81/7f/86/817f86174630e73a8ff86e2c07ecbdd0.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -44597,7 +44597,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/18/ae/7a/18ae7a8fee6070c60c1cc6a68c606046.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -44685,7 +44685,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/6f/0a/35/6f0a35dbcefa334cd487017d9d2a89fc.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -44773,7 +44773,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/53/fe/cb/53fecbba65588445fecb6658b8e8a3f9.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -44861,7 +44861,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/68/f6/e0/68f6e036449957cc2b8f961d7eb30550.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -44949,7 +44949,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/46/d3/02/46d302b5e33cededc523509a198ce033.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -45037,7 +45037,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/22/92/d8/2292d80d6b06bcf8bae6b68a2dff7425.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -45125,7 +45125,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ad/f9/a2/adf9a210f949aba68820662d1325fc36.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -45213,7 +45213,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/d0/f3/80/d0f38088738bf0817bad4b1de0727fbc.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -45301,7 +45301,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/e7/13/38/e713382c3203c5c32cca61e4cc2219f9.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -45389,7 +45389,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/7b/56/9c/7b569c635d664e17c3790fffa52d564f.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -45477,7 +45477,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/d2/6f/3a/d26f3a645f2a040814e2f9b8b0cd01f9.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -45565,7 +45565,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/01/91/2c/01912c003fa00174bed978bebf555312.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -45653,7 +45653,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/b3/f0/b4/b3f0b49bd6d0d785c108c85da4a28e8c.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -45741,7 +45741,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/43/ff/d6/43ffd6056109b0cf39c1ec56606ad3c2.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -45829,7 +45829,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/64/0b/ca/640bca59918b5b9779d573f8b372d17f.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -45917,7 +45917,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/3b/35/b4/3b35b4a261cecb1f8045d47b20e438df.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -46005,7 +46005,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/8f/3f/34/8f3f3412eb6586d55af5b39c90da42fc.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -46093,7 +46093,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/93/64/63/93646326c346e2fcd533f723ddd96ae1.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -46181,7 +46181,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/3f/74/56/3f745637bde83a4b9275fe5d5f2470eb.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -46269,7 +46269,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/20/1b/9d/201b9d29d2cb35f048f65ec8191ba931.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -46357,7 +46357,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/07/ce/1f/07ce1f339eb48496cdffa217cf4d430c.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -46445,7 +46445,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/96/4d/ac/964dac281d1abf8f21034093f9b3f1e7.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -46533,7 +46533,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ac/f5/df/acf5dfe61c24edc98cac26183b1c9d9d.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -46621,7 +46621,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/b9/56/71/b95671ec80edf0a53ab73a29fc3a5070.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -46709,7 +46709,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/be/84/74/be8474c768f54b8fb6d451ac7f5c4a4f.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -46797,7 +46797,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a7/59/e6/a759e69cb3eaba04e8d849a10c60009c.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -46885,7 +46885,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/df/84/13/df84138c9ef455839d8c8b02bd945be6.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -46973,7 +46973,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/84/f9/cf/84f9cf5e287e0751b71d49ab4c3776fe.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -47061,7 +47061,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/4b/38/21/4b382192ab671cde81e025e49d305b2e.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -47149,7 +47149,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/37/d8/98/37d89888dcec205e0b9cb6c28520887a.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -47237,7 +47237,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/9b/11/e6/9b11e6c71eddecaa43abb244727c946f.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -47325,7 +47325,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/6d/7f/82/6d7f8220ad936e5052d9a4c858c59279.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -47413,7 +47413,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/e0/2a/99/e02a99a0eeac30b8154eb01cbef512e0.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -47501,7 +47501,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a3/b3/c9/a3b3c946e35a79a092064841af1e7ddd.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -47589,7 +47589,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/74/86/2b/74862ba9353fe1a73561bf8f2ae2ed8d.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -47677,7 +47677,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/95/d1/aa/95d1aafe08add19337fd0e48a8cf0921.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -47765,7 +47765,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a5/ba/6e/a5ba6ee32c9a1e85bee226833d594461.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -47853,7 +47853,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/68/83/73/68837344a29db9db5cbf0c8d44645cc2.webp",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -47941,7 +47941,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/f0/25/13/f0251330d59c86485bb7da6a3843f5c1.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -48029,7 +48029,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/70/94/03/709403c2a1d600a5bed203fa75a26ff1.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -48117,7 +48117,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/94/f0/dc/94f0dc98a68990184877e29785db5322.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -48205,7 +48205,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/da/9d/7d/da9d7dcb81d86fd28a1a0d5e1579eb7f.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -48293,7 +48293,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/19/15/ed/1915ed6b71f2068c78d194aa731500ac.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -48381,7 +48381,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/97/a9/c0/97a9c0c606fdfddd47ca087d6e5099b5.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -48469,7 +48469,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a4/94/4d/a4944d35a4e2bd1b2970e21a01ba9212.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -48557,7 +48557,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ff/c8/20/ffc8207abf83e68284a04177420da4a3.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -48645,7 +48645,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/05/20/44/0520443ac728db5074107c1378ba5855.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -48733,7 +48733,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/4b/61/84/4b618422f569a9044f268de7c342250d.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -48821,7 +48821,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a2/b2/f7/a2b2f7dad8b0e479f6114e9c80302ca5.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -48909,7 +48909,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a7/11/84/a71184e7296495b89ca9251d2252c1e3.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -48997,7 +48997,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/0e/db/b4/0edbb44cd156765b53aca5ba1a0074d6.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -49085,7 +49085,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/f9/4b/49/f94b495e18d952bc12080464cc107f31.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -49173,7 +49173,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/9e/1b/5f/9e1b5f3076bc48ec435da09e6c60a10b.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -49261,7 +49261,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/8e/bf/4b/8ebf4b0539912a58db6ac7a913d9b959.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -49349,7 +49349,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/b0/42/bf/b042bf58a9316f6e4942be4b70e83d16.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -49437,7 +49437,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a0/03/5e/a0035ef7da91f37c01455bf9db77541c.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -49525,7 +49525,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/78/38/c9/7838c934864f821c09802613d3f04f61.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -49613,7 +49613,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/7f/fb/a8/7ffba844b3b49eec57ef06afbe451be8.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -49701,7 +49701,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ec/8e/9a/ec8e9a62a5e2c93f816e014604e5101f.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -49789,7 +49789,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/e4/ed/95/e4ed9522dcc79622b0fd81b45b98a064.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -49877,7 +49877,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/39/10/1c/39101c5c2db304fad43ab42be24685ca.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -49965,7 +49965,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/89/83/62/898362417548b0d779e025891bb579b4.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -50053,7 +50053,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/82/33/0d/82330df5806bf2509f82ddbbc0c6bcad.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -50141,7 +50141,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/b1/5e/d1/b15ed152faa61553d370b71110358588.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -50229,7 +50229,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/3e/3d/32/3e3d3246a6761b027e5b780b24b64bf6.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -50317,7 +50317,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/1d/aa/8f/1daa8ff7eb783f15188d25271a61bc43.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -50405,7 +50405,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/01/4e/90/014e900ab8ddf1f51596754d43846443.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -50493,7 +50493,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/93/66/36/936636d290fd241329e75fbabb19f8a9.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -50581,7 +50581,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/7f/39/e2/7f39e21c6b870ec55ae7a7aba9f62c03.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -50669,7 +50669,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/37/82/6d/37826d75b09612d0a8cf27ded34fbb18.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -50757,7 +50757,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/0c/b4/fd/0cb4fde5688f3a3680839940e380249d.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -50845,7 +50845,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/74/06/81/740681177d2a279a0aa42184dde2b844.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -50933,7 +50933,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/c4/f7/35/c4f7359e455d8b2f33fe4a25596b5fe3.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -51021,7 +51021,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/46/99/56/46995629775aeb62da9d6abf5fd31f0f.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -51109,7 +51109,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ec/8d/f3/ec8df3e7a1c1f9318105063fca38b17b.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -51197,7 +51197,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/3e/ec/7a/3eec7a3af2e605470cd84cdb6c4ddf0f.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -51285,7 +51285,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/c3/6d/8e/c36d8e2940d740f8eb6115a71c0300e7.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -51373,7 +51373,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/b7/5b/2f/b75b2f2d7cbda39c084997a2e9165a4b.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -51461,7 +51461,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/38/fe/40/38fe40d4498d59997626f7ffd4a11942.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -51549,7 +51549,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/c6/36/ee/c636eee0ba82ec42182e1a93d8cabdbd.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -51637,7 +51637,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/1c/e7/12/1ce7122e741ea48b3edd0b7172cfb09e.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -51725,7 +51725,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/f2/15/8a/f2158aa4ac0b169ac83c6810f46df404.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -51813,7 +51813,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/33/a4/78/33a47821713c1140c6ba290d9c5bfe02.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -51901,7 +51901,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/30/cb/1d/30cb1d408cf98d0f524d33116e4c9f48.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -51989,7 +51989,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/0a/48/02/0a4802ec964085b53652f3aafa61368b.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -52077,7 +52077,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/1d/d9/7d/1dd97d33b2fc901f15b64bae650ad322.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -52165,7 +52165,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/91/f0/f3/91f0f3cce1be726bd8eca7cdc7e7bd3b.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -52253,7 +52253,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/c9/8d/15/c98d151b0566f8669bf851d136173900.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -52341,7 +52341,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/8f/b0/81/8fb0814ba7e43213215f62ade2301187.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -52429,7 +52429,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/15/a9/5c/15a95c81be48bc99947d2b4685742457.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -52517,7 +52517,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/d4/0f/11/d40f1128e7dc3848afb115810f4fbece.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -52605,7 +52605,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a2/c7/0e/a2c70e229d5da2cd59b8260237ccceab.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -52693,7 +52693,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/26/fa/3f/26fa3f2fed24bfd460cb6f26119356f7.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -52781,7 +52781,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/d3/92/de/d392def01116b998e9c977d5ebd2e8e8.webp",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -52869,7 +52869,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/05/6f/4a/056f4ae9be31126e0ce0b5f87b682064.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -52957,7 +52957,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ba/fc/52/bafc52e9e88bf4403e6a834129ee8eb8.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -53045,7 +53045,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/d0/00/ea/d000ea17fa0ec5de6a5c71c9b07f7e1c.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -53133,7 +53133,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/e6/86/b1/e686b1d67b8a6c07f6c4666f7344c54e.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -53221,7 +53221,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/55/c4/47/55c447ce911bc3074c4ba1211d937e8f.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -53309,7 +53309,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ee/86/85/ee86855d1a1cf7471d2ba29cf76fd712.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -53397,7 +53397,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/3b/42/00/3b42008617f5eb23a846754712663e6f.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -53485,7 +53485,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/15/cf/2c/15cf2ce32553c839531343729fae5166.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -53573,7 +53573,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/2d/e1/c7/2de1c73fe3209dcdf0158b29a0048d7e.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -53661,7 +53661,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/1b/08/6f/1b086fe2ff0dba231c4b13ec6907ed50.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -53749,7 +53749,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/d9/03/87/d90387588271fd40b09020bf93402172.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -53837,7 +53837,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/c8/a2/3f/c8a23fe0f83aa7077ba69c8a981f8871.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -53925,7 +53925,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/c8/b6/95/c8b695223f74881ac199f9afe238e688.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -54013,7 +54013,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/89/d3/0c/89d30c910a2aa94a00efc2a4be0be314.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -54101,7 +54101,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/56/70/ad/5670ad7fee1c2f0026a62c5e2d85bc94.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -54189,7 +54189,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ba/cc/9e/bacc9e423f09185fa0dccd0901ceb0bc.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -54277,7 +54277,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/51/e8/d5/51e8d5e6c0d98a5619d992a16f7b6c68.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -54365,7 +54365,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/aa/da/6c/aada6c610da7436351ca9b7a1b494b2d.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -54453,7 +54453,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ee/26/35/ee2635626f171cd9e2fdfa0b7f17cfbc.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -54541,7 +54541,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/1d/2b/2d/1d2b2d9c154a884fa1abf61431f148d7.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -54629,7 +54629,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/0a/00/8a/0a008a4e80ab40bedf34c6ea50f5e647.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -54717,7 +54717,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/9e/7f/f6/9e7ff6c3393bb13b9e88fb3b05053c8c.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -54805,7 +54805,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/87/46/78/8746781ef4681e428a0140d443e8a774.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -54893,7 +54893,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/72/fc/23/72fc234c868c469586a9009926e9f070.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -54981,7 +54981,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/20/8d/4b/208d4bcd33dfd8120de375b12a633556.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -55069,7 +55069,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/19/d1/57/19d1576b483c9d21b16c48511568bf22.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -55157,7 +55157,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/e0/54/5a/e0545a030aa01e13d3989564579e58cf.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -55245,7 +55245,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/51/80/bd/5180bded5b7ffb64f8ddeb4fe8eb0f73.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -55333,7 +55333,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/1d/cd/c4/1dcdc4be0a873705ad588c0ea7981f37.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -55421,7 +55421,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/70/3b/0e/703b0e8b338c39e03d9b6bcc61f11ceb.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -55509,7 +55509,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/57/2c/6c/572c6c01b2b44b3c8edeb2cb7aa91b77.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -55597,7 +55597,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/7d/b0/50/7db0500a7499cc2333b362a5db1f51c7.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -55685,7 +55685,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/0f/fa/49/0ffa492aa5ba9aa1b239a6d567ed006a.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -55773,7 +55773,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/70/3e/fb/703efb1ef6cdc53cf2f15971cf02b6c9.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -55861,7 +55861,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ac/92/88/ac928808cf7372e46b2225c8a50dd917.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -55949,7 +55949,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/27/79/9f/27799f066861309e25c6ce6855b0a692.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -56037,7 +56037,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/eb/cf/e6/ebcfe69f082347199c52bd5f5acd5593.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -56125,7 +56125,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/40/6e/8d/406e8d8e6728c508a53f95e5c5903332.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -56213,7 +56213,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/8f/92/01/8f9201991e3dce832ac990f3f05b2584.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -56301,7 +56301,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/5a/a1/6e/5aa16e4406d9d4497278909b6e51ce50.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -56389,7 +56389,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/52/d2/8b/52d28bf232730c5469fbb2933a0702da.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -56477,7 +56477,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/15/e0/cc/15e0cc3c5bcd13b7b4a17cca733ab153.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -56565,7 +56565,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/75/ae/82/75ae824debef4b7380b1dce432e85c52.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -56653,7 +56653,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/82/c6/bd/82c6bd1144d92f975ed5435b6e9aed26.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -56741,7 +56741,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/cc/f5/18/ccf518d9ef8f40e41184564a66bed4f9.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -56829,7 +56829,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/b2/b6/fd/b2b6fdfbc4f5e438690cdedd98b3de79.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -56917,7 +56917,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/0e/27/e9/0e27e920de408662582fdf3c7d4ec306.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -57005,7 +57005,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/64/6e/2d/646e2d7d0944f7cfb2b9c36d719b926b.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -57093,7 +57093,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ad/21/a8/ad21a824c275581da45f2f69f86178a6.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -57181,7 +57181,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/65/75/d6/6575d6506c5092f47d8f4633566d8d57.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -57269,7 +57269,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/91/46/85/91468513d26a79e6a0b5042ccd450b6d.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -57357,7 +57357,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/34/b4/c8/34b4c8f262c59cf5f8b188b39aae9f71.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -57445,7 +57445,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/42/d8/b0/42d8b0e7c719dcde08a7257637b187ec.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -57533,7 +57533,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/57/f3/4c/57f34ce110f1d0800bf9030161cc1833.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -57621,7 +57621,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/62/0d/aa/620daac13e68781879924cd00236a520.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -57709,7 +57709,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/7c/ab/ba/7cabba73bb7a8815f57f3bd628338507.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -57797,7 +57797,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/25/88/05/25880503c524c60bd458754e519f4b8b.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -57885,7 +57885,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/85/6d/dc/856ddca7c875c6a02a2cc31375922783.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -57973,7 +57973,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/77/3c/d7/773cd70abd9492f6bec99bd9e25799c6.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -58061,7 +58061,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/88/a1/d9/88a1d9382bf312636459c452dc2db20c.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -58149,7 +58149,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/c3/7e/dd/c37edd01e2185712d3e79069f8a3732e.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -58237,7 +58237,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/61/ec/ee/61ecee05fd973bad368e8e4e4bf5a3a6.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -58325,7 +58325,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/36/23/f1/3623f15c7a108ee7196a86e834d35349.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -58413,7 +58413,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/41/12/98/4112985ac126352cfa805630a8844fe6.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -58501,7 +58501,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/1e/7e/2d/1e7e2dae8b2d1bb0b46442cc3ebab63e.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -58589,7 +58589,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/9e/53/2d/9e532defc23963e876d1fe9db81c164c.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -58677,7 +58677,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ae/19/76/ae1976d006faed8381809572050b5794.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -58765,7 +58765,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/68/63/ef/6863ef85a3d35b701a7e98eb9fb2ef22.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -58853,7 +58853,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/cb/4c/cc/cb4ccc9b5d1a3410fe3765a3ca541cc2.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -58941,7 +58941,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/be/ad/88/bead88a726cac95742def8ed62f92447.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -59029,7 +59029,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/95/9c/4d/959c4da947fa75ada49e1b899637632f.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -59117,7 +59117,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/56/35/3d/56353dd317485a1b2ce6eb5aa3e4771d.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -59205,7 +59205,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/7e/52/ce/7e52ce24aaf5c0d5170f0306e2f05470.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -59293,7 +59293,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/06/57/82/0657828fba2075a2d2aaef9a678b48ea.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -59381,7 +59381,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/99/b6/a6/99b6a6fe56c88e46a94d3b81a74db28b.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -59469,7 +59469,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/df/90/b7/df90b7948c69ac631d54e5f02ae58912.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -59557,7 +59557,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/96/c3/a0/96c3a0be3e48a9eeccc2981b5cf8e52f.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -59645,7 +59645,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/1c/54/51/1c5451d865cf24e63e637b6c7bda0a8c.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -59733,7 +59733,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ba/6b/8d/ba6b8d18dc05be770e3ead17c7635142.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -59821,7 +59821,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/62/8e/db/628edb6a391e09fe83db436022784c64.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -59909,7 +59909,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/dc/6e/fc/dc6efca187df91658937777b500f6ea0.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -59997,7 +59997,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/d3/d8/0f/d3d80f86382b3bab488ec909ab3a1d44.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -60085,7 +60085,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/d7/3c/5e/d73c5e53db4c8632e920315766cfd26b.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -60173,7 +60173,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/fc/04/6c/fc046c487299a8bfed98d235e6599bdf.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -60261,7 +60261,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/52/08/29/5208296243478859a492660cba7f6a01.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -60349,7 +60349,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ab/67/d3/ab67d3c0578c3e7aac6dc8510c8b3393.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -60437,7 +60437,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/31/51/7c/31517c73a9cd73f4ebe62c11306c53b6.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -60525,7 +60525,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/fc/e4/02/fce4029e0d4cfd856d48c742345f89a4.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -60613,7 +60613,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/db/b4/5b/dbb45be1879e51c145ae0856a097b693.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -60701,7 +60701,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/24/75/2a/24752a02f625b4afb240d72012c1dc20.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -60789,7 +60789,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/10/9c/86/109c86051429d4f441b77a63a6c61391.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -60877,7 +60877,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/10/96/4c/10964c7c83b98fd594bc62b04b163335.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -60965,7 +60965,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/9a/ed/0b/9aed0bc2a05adb90a08be74b16695c1e.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -61053,7 +61053,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ee/7c/4f/ee7c4f11a32dcf03dbe3e60fab22d833.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -61141,7 +61141,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/79/a0/c7/79a0c7350e495060357ae15162a05435.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -61229,7 +61229,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/06/13/e5/0613e53357908b1223eb016ee3bcb28d.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -61317,7 +61317,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/06/68/87/066887b66919dda918d1aded472f5d62.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -61405,7 +61405,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/da/40/bd/da40bd69cdab17656788c253f4df6fc0.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -61493,7 +61493,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/1a/a3/e6/1aa3e637f09dd12f4c3e15b5716031d7.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -61581,7 +61581,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/31/42/2c/31422cd5050fd37ca96b2f8a360e57bb.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -61669,7 +61669,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/79/3a/36/793a362e168df81f07756ec3b1eb8a68.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -61757,7 +61757,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/42/b4/4a/42b44a0737077e1f4b1f220b34d5426c.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -61845,7 +61845,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/d3/6a/fd/d36afd135c8bf21624c98fdfdf369ffa.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -61933,7 +61933,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/b5/76/59/b57659a13f669f0c64e321a8f4396cd0.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -62021,7 +62021,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/75/30/d1/7530d11118eca339d75da62b2bde15cc.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -62109,7 +62109,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/e1/63/b5/e163b58917de80441ccbe7a12fafa689.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -62197,7 +62197,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/2b/cb/04/2bcb04836145dd5715158bcea73e7104.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -62285,7 +62285,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/2b/99/e4/2b99e48964c8ce278bbd69abaceeb8a5.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -62373,7 +62373,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ab/f6/e7/abf6e76d8044141ea70921fc4ae52d1d.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -62461,7 +62461,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/11/03/07/110307487c0fccb34b8b138685855350.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -62549,7 +62549,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/e0/78/4b/e0784b81164b0d2dc7f45d4be960cfd6.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -62637,7 +62637,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/df/98/f6/df98f67ef2c0eccc634b2dfdc380ffd8.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -62725,7 +62725,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/7f/a7/bb/7fa7bbdc529a6e76a63916f61cb2c45e.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -62813,7 +62813,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/6c/08/02/6c0802a9d9df7805702785608aa77fa9.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -62901,7 +62901,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ae/8f/60/ae8f60fa9ee3a3448ede5ec086755274.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -62989,7 +62989,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/fc/c8/ac/fcc8acae4a2971e878b4e87130821ba7.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -63077,7 +63077,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/2f/38/af/2f38afbf28e5fd9da14d1757a8e8be50.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -63165,7 +63165,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/91/af/4a/91af4af46312731a4e1ca3242cd470f4.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -63253,7 +63253,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/2b/39/55/2b395577adb6ab282fdeba5357776674.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -63341,7 +63341,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/29/6d/9d/296d9dd7c03add582c9dbdd263dc9921.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -63429,7 +63429,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a6/e7/cc/a6e7cc3cf4e831599a52a47e0e4f0986.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -63517,7 +63517,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/9e/17/30/9e17308f329243bab8276700379d1766.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -63605,7 +63605,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/fd/71/14/fd71141c1cbd04e0b8749931248d2808.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -63693,7 +63693,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/92/8f/9e/928f9ec7ccd193521d6f94179d60d5e9.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -63781,7 +63781,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/75/7a/33/757a33ac457e18dce32b890a9229674d.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -63869,7 +63869,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/d3/ad/58/d3ad58ac27a9bf474e32754c5dcaf22b.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -63957,7 +63957,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/47/33/16/47331686c48f92123d794e186c532992.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -64045,7 +64045,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ba/70/eb/ba70eb74ae22bc11f1bc626cf785d151.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -64133,7 +64133,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/af/54/26/af5426c2713dcf2f362a86629ced539e.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -64221,7 +64221,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/33/1c/fc/331cfc23f142abeef2e8b86708235e65.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -64309,7 +64309,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/c5/7f/8b/c57f8bda29789a157a6a74adff3710cc.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -64397,7 +64397,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/39/11/33/3911336f452f3d796ded914d1c72be88.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -64485,7 +64485,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/50/85/22/508522a782c179f9f347aaae4e6d6f93.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -64573,7 +64573,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/1d/13/75/1d13751205ddf940de301bc531d4a963.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -64661,7 +64661,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/44/05/bd/4405bd61be6f6e12a076786f2aeea677.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -64749,7 +64749,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a3/f0/47/a3f0473ac1c92b0d80cdfcf6474e061a.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -64837,7 +64837,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/f5/1a/f4/f51af4a7b787129bdfc68c52fe5a9783.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -64925,7 +64925,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/4d/42/01/4d42019b2d1944fdbe94840e6a316d4a.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -65013,7 +65013,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/2e/ea/2b/2eea2b3659c279e55decc17a777caf3e.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -65101,7 +65101,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/9d/08/56/9d08569da0754f8b04d5544ff17d6b7d.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -65189,7 +65189,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/f3/82/91/f38291baf59b95446312d0bd8f944160.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -65277,7 +65277,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/e9/a5/88/e9a588ee095bacb379a50630cf861dcc.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -65365,7 +65365,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/4a/91/5f/4a915f8072aa99bef8e70936b1c95acf.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -65453,7 +65453,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/fc/5e/57/fc5e57e96277a49ce9db2b0666206279.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -65541,7 +65541,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ad/db/b5/addbb54717a44adf6e766f25e1394fe9.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -65629,7 +65629,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/a7/fc/5e/a7fc5e979c37b25523e6964e679e5ad2.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -65717,7 +65717,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/56/63/c0/5663c00e908c2304496f9cdab83a43e0.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -65805,7 +65805,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/24/ea/bd/24eabd8233d9ea5b5f3f38cd29e0403f.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -65893,7 +65893,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/4d/ec/9c/4dec9c4dd355ed399096d2cdd8e7870a.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -65981,7 +65981,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/90/ee/7e/90ee7e384528885409ab878dcfcadfb9.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -66069,7 +66069,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/40/ca/e2/40cae2f59a77f97e924bcd5c686d49b7.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -66157,7 +66157,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/46/24/82/462482022ee238e08191a73d6efd5a79.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -66245,7 +66245,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/68/87/96/688796f0b09f607535f6204f78279e58.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -66333,7 +66333,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/04/33/a2/0433a28ffbcbc0aedd6874827b468337.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -66421,7 +66421,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/13/d4/cd/13d4cded2a91f7c4ae220e5a3e52c634.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -66509,7 +66509,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/05/64/52/05645220102859cee6e7425b60b6a226.png",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -66597,7 +66597,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/de/54/fd/de54fd08206b90f9ae5b136abccbf7b0.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -66685,7 +66685,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/ac/1a/f4/ac1af4cc95ee84a2d894f824d90960c5.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -66773,7 +66773,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/4c/6e/68/4c6e680d29add1dfb9b83182e0491f95.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -66861,7 +66861,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/40/91/4b/40914be285a76b5dedb9111008726e87.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -66949,7 +66949,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/f1/dd/33/f1dd33758d1b7963d6e3d92d76b064d7.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -67037,7 +67037,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/54/aa/2e/54aa2e2d69e83fdc025f403cad0c1847.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -67125,7 +67125,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/26/e3/24/26e3241743a58f436479cecd323c0918.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -67213,7 +67213,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/92/9e/e3/929ee36784f9d1ed81537da7fd7cd7ca.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -67301,7 +67301,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/09/fa/71/09fa7148c76b9ed7f269f2fecf963e44.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -67389,7 +67389,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/03/1e/da/031edaafbe7ae00d26028dbc389374f4.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -67477,7 +67477,7 @@ export const EXTENDED_OOTD_CATALOG: Record<string, OOTDRecommendation> = {
         "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
         "imageUrl": "https://i.pinimg.com/736x/db/d3/83/dbd383367fe997039a31b01e411d88a3.jpg",
         "brand": "LOKAL_MODEST",
-        "brandUrl": "https://zalora.co.id/",
+        "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
         "isOfficialBrand": true
       }
     ],
@@ -109233,7 +109233,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/a8/c4/4f/a8c44f05e464b0804848da91c97620e7.png",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -109317,7 +109317,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/5e/cd/90/5ecd903fcca25d3ec74dcf3f214e9aa9.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -109401,7 +109401,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/50/59/ad/5059ada8cba6070b081c2450ff0448d3.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -109485,7 +109485,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/db/ba/3b/dbba3bdcc12273d1e558aa08850e4870.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -109569,7 +109569,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/6d/f2/26/6df226c5373cebfd0cb663696396a258.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -109653,7 +109653,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/af/fc/a2/affca29b58d613a940210b40c87080d4.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -109737,7 +109737,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/8f/56/a5/8f56a5355247bde4ff5086b38e6b7bb1.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -109821,7 +109821,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/e7/a5/b0/e7a5b026fee6e02c896ca0e00ec66044.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -109905,7 +109905,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/85/9b/ed/859beda90f4a135992bc02eb5efdef8d.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -109989,7 +109989,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/f5/0b/d6/f50bd6fe8b14a3f1b3b1aa6d4dca99b5.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -110073,7 +110073,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/ba/08/f8/ba08f88540b89fb835db9358b9d834c7.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -110157,7 +110157,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/d4/8f/47/d48f473fe35b51b00abb2e768f6834e0.png",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -110241,7 +110241,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/11/32/d8/1132d81746a3143c8166184a39475fb2.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -110325,7 +110325,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/44/20/5b/44205b7ca29f8169e675e8cff3c4a4ce.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -110409,7 +110409,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/94/e0/fc/94e0fc0c07aba373a1e9feeee834c53a.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -110493,7 +110493,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/bd/cc/8f/bdcc8ff4ecde3efbe47e9aad4fe1cbd2.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -110577,7 +110577,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/6c/4a/95/6c4a95bdd9c1b3163922743ffc405b5f.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -110661,7 +110661,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/81/e9/4f/81e94f2c1e0bc403cab7b2f8deaff710.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -110745,7 +110745,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/98/30/0e/98300e33a59ebd497e4b6874ba128057.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -110829,7 +110829,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/45/82/3d/45823d99ceebf8d29423ebcfabd3efba.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -110913,7 +110913,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/05/d7/44/05d744d71dee1cc4b6aab3e6b55e9010.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -110997,7 +110997,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/26/b0/e1/26b0e1816c60e5a8b744f0073d66d383.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -111081,7 +111081,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/9b/53/8c/9b538cffb4b57ad100131c2001129689.png",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -111165,7 +111165,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/e5/d1/50/e5d150e138918e0b0c837a1eab9b76ad.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -111249,7 +111249,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/4a/d8/6b/4ad86bcb2837d8ba832dfa471ee82ad8.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -111333,7 +111333,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/e5/18/9d/e5189d254ff76ee94a93bd72a332c0c8.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -111417,7 +111417,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/d0/72/d4/d072d4847af4aeee32207fc119b73bc5.png",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -111501,7 +111501,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/90/ca/82/90ca82f6549267939a3ad73e325665e7.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -111585,7 +111585,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/e6/67/d6/e667d678586bab37af3948c18ab67147.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -111669,7 +111669,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/38/d3/5f/38d35f3031b54715779f1f93de9225f5.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -111753,7 +111753,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/48/c2/78/48c2782708ceff098af1a3121fec5b7c.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -111837,7 +111837,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/17/4d/99/174d99acf47fd0c01bc7889cacd68aef.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -111921,7 +111921,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/fe/5b/48/fe5b48e96f9b46812cb86c83deef80b6.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -112005,7 +112005,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/8d/a8/4e/8da84e5be601c6a2151d048df729b623.png",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -112089,7 +112089,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/20/3c/f7/203cf7338d8e5ccab4941b558e84d6a1.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -112173,7 +112173,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/a2/01/88/a20188efbda941dc02ba846bae3b17a9.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -112257,7 +112257,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/4c/10/21/4c1021f4accc43db4b2ad5f58092ea02.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -112341,7 +112341,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/83/84/64/83846421a93cc2bbbd6f41973260cd4d.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -112425,7 +112425,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/09/15/d8/0915d82bcc08a094ad75baa338ad9d31.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -112509,7 +112509,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/ec/c2/f3/ecc2f3cdb00ab24c8df980e122bd7197.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -112593,7 +112593,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/a2/bd/4f/a2bd4fdd0277befd3c6fec72fbf20d36.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -112677,7 +112677,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/62/bc/74/62bc74229c5ea48d7a6d129024a317d1.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -112761,7 +112761,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/cd/eb/c8/cdebc807fd1bb68e557337b9b2fb12d1.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -112845,7 +112845,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/b4/3e/65/b43e650e697eed5eae59e29eb5380186.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -112929,7 +112929,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/5d/08/22/5d08225a159fb407cbbb0ee6a044dca0.jpg",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -113013,7 +113013,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/ab/97/9d/ab979d0de176326ad671e755f269cda7.png",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -113097,7 +113097,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Batik Pria Modern Slimfit Katun Primis",
           "imageUrl": "https://i.pinimg.com/736x/b2/a1/68/b2a168f6a4bbbe4e1b7afa8fdd1fa832.png",
           "brand": "LOKAL_HERITAGE",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         },
         {
@@ -113223,7 +113223,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/54/2c/ad/542cadb7970189fddff971caf303b24b.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -113322,7 +113322,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/f1/ff/32/f1ff32036ab3216cbb743dffcbadda35.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -113421,7 +113421,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/88/ed/bf/88edbfa266f871448d2a7f971e8fa6c6.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -113520,7 +113520,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/2e/a8/57/2ea857022cc60dc6ced0e2390291fef8.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -113619,7 +113619,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ca/35/f1/ca35f19aa0490281a66b72c7dfcdda80.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -113718,7 +113718,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/93/46/0a/93460a4d3fa3dd0c257a48ab0a96a179.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -113817,7 +113817,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/d8/fc/05/d8fc05b1d2ea3069595aeada5e5347f8.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -113916,7 +113916,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/29/2e/ce/292ecee6b459e5a99d9e5994e0fb3717.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -114015,7 +114015,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/c8/16/df/c816dfd8ad06cc7f52bdd9741e50be97.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -114114,7 +114114,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/8d/25/59/8d2559771186626e757dc812fc8b535d.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -114213,7 +114213,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/21/83/2b/21832b3a34ba0f488ec83acef7e30b94.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -114312,7 +114312,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/1a/3b/e0/1a3be09fecbb4c4f050e09f1dfd31093.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -114411,7 +114411,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/43/ac/91/43ac913ed7b10cc37ab7694480631bb7.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -114510,7 +114510,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/d2/33/9e/d2339e602a0ff2fe328d09222eb79843.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -114609,7 +114609,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/de/71/96/de71962eba1b2c9496161af406c60ca6.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -114708,7 +114708,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/95/2a/f7/952af7052f1f70e48b8574280fdb0af2.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -114807,7 +114807,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/9f/cc/be/9fccbe9528fa633c7e8416bf7effc817.heic",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -114906,7 +114906,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/52/7c/8c/527c8caee61d34709fbcf37fb1236420.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -115005,7 +115005,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a2/a7/85/a2a7859f75dc6f5e3e6b5dcc0c9f2746.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -115104,7 +115104,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/c1/38/27/c1382706b0b7e0c8cfb980a7f2c5a949.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -115203,7 +115203,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/02/4f/f5/024ff57abeb5caa56982452e6db0982d.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -115302,7 +115302,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/96/d3/65/96d3657abd9efbb8c514939d30b638fb.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -115401,7 +115401,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/4a/79/c7/4a79c78c8adc50cb551cbcc426059044.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -115500,7 +115500,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/3b/45/f2/3b45f2eae8c3ff84a2751d150618069a.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -115599,7 +115599,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/b7/61/68/b76168c865937e2ecdc571d50cffe7fd.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -115698,7 +115698,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/3c/84/18/3c8418cdb34ebd5e6a04728e42f6be75.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -115797,7 +115797,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/26/4b/44/264b44b3f08e6c08b53cc13fb1ac81de.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -115896,7 +115896,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/dd/9d/70/dd9d707237cfa3c5bb8b02585c0b0cb2.webp",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -115995,7 +115995,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/6f/6a/b9/6f6ab96c9d8e6c3d12e0f1a31556715d.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -116094,7 +116094,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/55/ab/6e/55ab6eda2a99ed0373d4b2d98e42db7f.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -116193,7 +116193,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/34/de/24/34de24eb27881beb9e7f6d397b8b4d4c.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -116292,7 +116292,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/bb/d4/90/bbd490a108a6849aa17515007d884220.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -116391,7 +116391,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a5/d7/c1/a5d7c1652282be0c783651ca401222a3.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -116490,7 +116490,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ec/f7/65/ecf765b26542478c61762521eb4207c4.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -116589,7 +116589,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/95/15/c8/9515c84d6934972990f7e7e992e5acc6.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -116688,7 +116688,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/1a/2d/82/1a2d82f4b45ac45c1b9b5218d804167f.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -116787,7 +116787,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/1a/d2/57/1ad257a0e7e34618868127250465f7ff.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -116886,7 +116886,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/b7/5e/84/b75e8426247ef5a8b0e2258c6b6ee1b9.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -116985,7 +116985,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/b1/0c/db/b10cdb46ce3332d707a72ae86f709e5d.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -117084,7 +117084,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/d8/0b/3f/d80b3fcf91ec46718f7952a6b286a9dd.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -117183,7 +117183,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/cd/8a/27/cd8a27b81c6c4f3f1d2b69e064262b6c.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -117282,7 +117282,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/fb/4a/c7/fb4ac7bea852630d7e8ef9b4f75ae153.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -117381,7 +117381,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/cb/96/c6/cb96c6a51808ed6186a2d32d41982df0.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -117480,7 +117480,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/30/e3/71/30e37100b18eeab6885976067fa0a068.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -117579,7 +117579,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/80/01/4d/80014d94845691881933d971e63c1b58.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -117678,7 +117678,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a6/a6/fb/a6a6fbc248694d1795d2c3223d41b720.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -117777,7 +117777,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/e0/1b/76/e01b763f819d7221e0217ca87d47f8d4.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -117876,7 +117876,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/31/aa/4b/31aa4b0d58897b4097308edf0eca58c2.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -117975,7 +117975,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/c1/27/ad/c127adbe9d7d460d1438d17dff81d83b.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -118074,7 +118074,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/b0/44/22/b0442254248cbf9bfc061dd3cf14ba9e.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -118173,7 +118173,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/8b/ae/73/8bae73d838a7291230581053b3d34599.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -118272,7 +118272,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/e8/3b/3a/e83b3abdadefc3644e63b43eeb83b74d.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -118371,7 +118371,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/7f/ab/df/7fabdf26246e5db02f7df1ce51c722d5.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -118470,7 +118470,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/1b/3d/24/1b3d240b29e3ea29a9f1d8fdcb0fa1dc.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -118569,7 +118569,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/73/2b/97/732b9765f65e63ebf02595822e3524d3.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -118668,7 +118668,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/d8/89/60/d889609b8796c3655179ad8fd914b051.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -118767,7 +118767,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/28/29/bf/2829bf6eb5ebf130eef597e1fd2e3acd.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -118866,7 +118866,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/c4/2f/05/c42f05e39b78ceec66a236bfc85769f1.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -118965,7 +118965,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/83/10/84/83108432211bcf98da5f1e090a25b013.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -119064,7 +119064,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/81/91/a3/8191a34044bfbf7f080b21ac3275a79c.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -119163,7 +119163,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/0d/1b/72/0d1b727ab688eaf0e526df172632e5c2.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -119262,7 +119262,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/5e/39/4f/5e394fcd7250a3fe4f795b880de29159.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -119361,7 +119361,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/4f/ad/f1/4fadf1bea8e0c76123741cda24394274.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -119460,7 +119460,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/04/70/65/0470654cf28342dd355e6385e66aedb2.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -119559,7 +119559,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/c4/c7/50/c4c7508ffa61c9a4243acfbd789cd672.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -119658,7 +119658,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/c3/0b/31/c30b31e6e2c7c85c4efad55eaca1413e.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -119757,7 +119757,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/6c/85/18/6c8518bd662c4f4785dbfde00694aedb.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -119856,7 +119856,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/97/6e/6d/976e6dda45bf67982216b08c68b6c0c5.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -119955,7 +119955,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/d1/fd/44/d1fd449b37b08896b17c8608480f2667.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -120054,7 +120054,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/e4/b4/1f/e4b41ff68751adfb6e80a466b719f1d1.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -120153,7 +120153,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/0e/5f/1f/0e5f1f093bf2c6720839a0234fc6325f.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -120252,7 +120252,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/6f/f7/2b/6ff72bf3f38fe1eab3d309b56edad93a.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -120351,7 +120351,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/6a/72/5a/6a725a6774fcc6d8e25b2ef4e04b0495.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -120450,7 +120450,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/bc/9c/ff/bc9cff07d00d9a6ea2d07f1b674b80fd.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -120549,7 +120549,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/79/bd/09/79bd0955384d1686f35999a095735438.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -120648,7 +120648,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/bd/e2/4d/bde24d58221200d43c5cc5fa5cd4e84d.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -120747,7 +120747,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/81/f8/cd/81f8cd32bd14105bc8f4728f1980d9fa.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -120846,7 +120846,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a5/11/5f/a5115ff063a3e9508497fd40dd426507.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -120945,7 +120945,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/0b/38/f6/0b38f698c2c3fe4b5e2f5ef7366359fb.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -121044,7 +121044,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/3f/59/cb/3f59cb653722bba1e23b16a1c7ea2fde.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -121143,7 +121143,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ee/17/59/ee1759bf7dc5b517c938bcda362f8250.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -121242,7 +121242,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/e1/90/1b/e1901baecbafdd2238ba94c60c5fc508.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -121341,7 +121341,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/10/c4/e4/10c4e4ca00a14173eb314cb25b983723.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -121440,7 +121440,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/71/56/03/71560388caaa8f09cf0d75feabedcd65.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -121539,7 +121539,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/7a/f2/d0/7af2d02b6de949499b79acb6aec0fa1e.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -121638,7 +121638,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/36/e2/12/36e21275c4536993d907248238119629.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -121737,7 +121737,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/87/52/64/875264d6ff25bbccd6b733abc9b906f7.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -121836,7 +121836,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/15/ef/8e/15ef8ed585ea661320f944d89116cc3a.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -121935,7 +121935,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/94/26/b1/9426b16e221b32d1cef307fc21c41006.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -122034,7 +122034,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/08/6c/3e/086c3eccf1262180eef73ff108f185e1.heic",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -122133,7 +122133,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/c2/e9/8f/c2e98f0502eb66c57054448094eb93c0.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -122232,7 +122232,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/89/73/b0/8973b07ed739ff560439b62fba250fa1.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -122331,7 +122331,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/28/cf/0f/28cf0f620004d84d1f4c8d49667da46c.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -122430,7 +122430,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/0b/61/d8/0b61d811c3afb5b286c07e92d6cb5b55.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -122529,7 +122529,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/17/71/e5/1771e56654fcabb2adb6936b7281e296.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -122628,7 +122628,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/3a/eb/60/3aeb60df030821c719f62733c3cf5d4c.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -122727,7 +122727,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/f6/df/f2/f6dff2bec29d80d3259f25f99a64fb63.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -122826,7 +122826,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ae/ca/78/aeca7832814d5daa62dcbba9ee65f8f7.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -122925,7 +122925,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/76/94/01/76940169cc9e5360d6cdb367354826f5.webp",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -123024,7 +123024,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/57/4d/47/574d4794e5fde27ba28c2689ae1cf9e5.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -123123,7 +123123,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a1/9b/f3/a19bf316a4f096ff9fd0ae99ca9cfdcb.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -123222,7 +123222,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/e6/7c/90/e67c90146a372d6c1d448f83a7858d27.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -123321,7 +123321,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/0d/29/d4/0d29d4232bd44ba72b60d19c01146717.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -123420,7 +123420,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/b9/eb/a1/b9eba1020e3cff27c73dea98036daae1.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -123519,7 +123519,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ac/b3/5b/acb35bb8b90c26a0fbd1ae503c22362e.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -123618,7 +123618,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/de/2e/b3/de2eb3ef344c28a36ed3f15a15c888a7.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -123717,7 +123717,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/22/49/32/22493275ad9b0132d65280c7e3049265.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -123816,7 +123816,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/89/49/22/8949229425a3104028fe095fae515f70.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -123915,7 +123915,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/44/f7/34/44f7340d0b33822da82eb76a030b38d6.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -124014,7 +124014,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/2f/11/e1/2f11e1e67dd7f054d1880864ddc953f3.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -124113,7 +124113,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ee/22/69/ee226955b0a869915fdc52c5a50b785e.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -124212,7 +124212,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/42/3b/50/423b50189efe82819dcc527a6bc64ff8.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -124311,7 +124311,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/83/66/ad/8366ad26cab2c31aa4b52ab42e7dbbdf.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -124410,7 +124410,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/c3/38/12/c3381226ec118e2bc07cba604b444935.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -124509,7 +124509,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/e6/a1/88/e6a188b010c0ce5225a56c3101e4e061.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -124608,7 +124608,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/9d/fe/83/9dfe835204f2090ce6a8a4290562ba2f.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -124707,7 +124707,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/90/c3/4b/90c34b49f69ba0f555786e626cba5d6f.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -124806,7 +124806,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/05/4d/fb/054dfbb5a33ff576fe15839035ff4fe4.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -124905,7 +124905,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/d6/1c/7b/d61c7bb4dbe95eff7f2ee47d0b868d2f.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -125004,7 +125004,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/0b/86/ca/0b86ca164616be9f4e58e56c4a35ca28.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -125103,7 +125103,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/2e/22/f4/2e22f401563f3702b35b8757ce6c6af0.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -125202,7 +125202,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a6/fd/b6/a6fdb623ec03421dccc73d30bd48796c.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -125301,7 +125301,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/69/1f/a6/691fa656f57853133820be12665eed20.heic",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -125400,7 +125400,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/67/81/f8/6781f8bd411344099a3f2b8e0b59ee43.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -125499,7 +125499,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/6a/66/76/6a6676e4fd79e9186552b1178c26d9c2.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -125598,7 +125598,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/22/0d/78/220d784695706ec8e8d00e22a7dba45f.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -125697,7 +125697,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/55/4e/6d/554e6d980fb3d36dd2a106511d0369fc.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -125796,7 +125796,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/88/00/14/880014bae2792f07d4c9b3bb0561f6d2.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -125895,7 +125895,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/dc/0c/5a/dc0c5a9ea8879a5aabe0f0be4483cd5d.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -125994,7 +125994,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/cf/d3/22/cfd322bf438ae57076ed007d251c04ce.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -126093,7 +126093,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/11/27/84/1127840f95fe1630fcf763cc19cc9428.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -126192,7 +126192,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/15/b3/9b/15b39b6867218af1798523cb84bab53b.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -126291,7 +126291,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/60/ba/4e/60ba4ec24d0454fe4903067b2b9e568b.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -126390,7 +126390,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/43/ab/85/43ab8529d1712bd056bb8958d2014833.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -126489,7 +126489,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/b3/d7/9a/b3d79a38f1f02e759f0f728d2d46f541.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -126588,7 +126588,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/4e/5e/38/4e5e3806b693a025531fc33e6ab5cc96.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -126687,7 +126687,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a4/45/ea/a445ea231c9de8d47dccf04878cfd935.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -126786,7 +126786,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/8c/13/4c/8c134c80c02210fb23a11432d9e26758.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -126885,7 +126885,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/e3/38/ee/e338ee7a3782ec769df926e9872ca193.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -126984,7 +126984,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/b9/e3/90/b9e39093eed5c8061a3edd8c7ed6ff2d.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -127083,7 +127083,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/fd/fc/fd/fdfcfd539211c56809dbf62677aea09f.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -127182,7 +127182,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/3a/4a/09/3a4a09f7200ffa55eb4198099d5a1059.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -127281,7 +127281,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/68/6f/20/686f20a909880cb62ca1055ccfbcfafa.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -127380,7 +127380,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/7a/52/fa/7a52fa0fcc37c101d720ba4b91b6046e.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -127479,7 +127479,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/54/d2/86/54d286b0b8dbac2d2621384342858722.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -127578,7 +127578,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/4b/ef/a9/4befa946996afac06c743f0b20be9e9e.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -127677,7 +127677,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/8d/32/22/8d3222e8bb4bbe45b4954a811ab725a1.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -127776,7 +127776,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/20/93/6b/20936b3e3bd28a31645d0fb439bfa5d7.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -127875,7 +127875,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/80/58/cc/8058cc67895d43419b60d9f117b1c304.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -127974,7 +127974,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/5f/f5/84/5ff584530b70d30f5f6fb775ceb2ed9f.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -128073,7 +128073,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/0d/e9/fe/0de9fea2f4bcf070cdbe0ab1656773ce.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -128172,7 +128172,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/c0/2e/5a/c02e5ac68430d2a9de8b1a1b18a227aa.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -128271,7 +128271,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/dd/3e/78/dd3e78fa64b030259c7665fd7791b997.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -128370,7 +128370,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/e9/27/7c/e9277c64391e7d12e7d23f8b063b0c89.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -128469,7 +128469,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/58/8f/18/588f180c32a91bdc65f33ad1034c640e.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -128568,7 +128568,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/1e/eb/dd/1eebdd3250c1739569d8eb80ed9bf220.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -128667,7 +128667,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/3c/9c/d7/3c9cd7ce6ed7158cc75cbe999b745984.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -128766,7 +128766,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/fc/61/d7/fc61d77292c38ffebd128e7df41c6572.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -128865,7 +128865,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/e6/41/0a/e6410ab387686cef3739031db7a6f87f.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -128964,7 +128964,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/de/ac/ad/deacad9638a24d56071c7bdab8db3da0.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -129063,7 +129063,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/98/63/a6/9863a6dac836c65a6690fc3fe2356d62.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -129162,7 +129162,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a7/ee/8c/a7ee8cd8d4f1e3e687f3371846430ea6.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -129261,7 +129261,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/36/a5/7a/36a57a43882bb7547d6f8163e4d5b493.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -129360,7 +129360,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/6e/f6/f2/6ef6f21a0564405c037b2663d9aa2d8d.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -129459,7 +129459,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/4e/6a/e3/4e6ae3165366332958828e01ca327c81.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -129558,7 +129558,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/d9/21/99/d92199bd0c6e4e42123e339648980aef.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -129657,7 +129657,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/01/7a/46/017a461abf877100553b4ff4e4a2854e.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -129756,7 +129756,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/81/2f/da/812fdafa51255be94f4eb8820e439034.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -129855,7 +129855,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ff/5a/96/ff5a96f3b29dc08920dc9494558096eb.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -129954,7 +129954,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ba/8c/0c/ba8c0cf12f612b6a21cdcbfcbca1e8d8.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -130053,7 +130053,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/de/86/b3/de86b39252c412151c27248f833872fc.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -130152,7 +130152,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a8/31/14/a83114e5c852552db3540318b999ef64.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -130251,7 +130251,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/5e/f6/1b/5ef61b061816d5d023ec2bfe61676ec4.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -130350,7 +130350,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/81/7f/86/817f86174630e73a8ff86e2c07ecbdd0.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -130449,7 +130449,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/18/ae/7a/18ae7a8fee6070c60c1cc6a68c606046.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -130548,7 +130548,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/6f/0a/35/6f0a35dbcefa334cd487017d9d2a89fc.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -130647,7 +130647,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/53/fe/cb/53fecbba65588445fecb6658b8e8a3f9.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -130746,7 +130746,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/68/f6/e0/68f6e036449957cc2b8f961d7eb30550.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -130845,7 +130845,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/46/d3/02/46d302b5e33cededc523509a198ce033.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -130944,7 +130944,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/22/92/d8/2292d80d6b06bcf8bae6b68a2dff7425.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -131043,7 +131043,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ad/f9/a2/adf9a210f949aba68820662d1325fc36.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -131142,7 +131142,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/d0/f3/80/d0f38088738bf0817bad4b1de0727fbc.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -131241,7 +131241,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/e7/13/38/e713382c3203c5c32cca61e4cc2219f9.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -131340,7 +131340,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/7b/56/9c/7b569c635d664e17c3790fffa52d564f.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -131439,7 +131439,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/d2/6f/3a/d26f3a645f2a040814e2f9b8b0cd01f9.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -131538,7 +131538,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/01/91/2c/01912c003fa00174bed978bebf555312.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -131637,7 +131637,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/b3/f0/b4/b3f0b49bd6d0d785c108c85da4a28e8c.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -131736,7 +131736,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/43/ff/d6/43ffd6056109b0cf39c1ec56606ad3c2.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -131835,7 +131835,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/64/0b/ca/640bca59918b5b9779d573f8b372d17f.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -131934,7 +131934,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/3b/35/b4/3b35b4a261cecb1f8045d47b20e438df.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -132033,7 +132033,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/8f/3f/34/8f3f3412eb6586d55af5b39c90da42fc.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -132132,7 +132132,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/93/64/63/93646326c346e2fcd533f723ddd96ae1.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -132231,7 +132231,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/3f/74/56/3f745637bde83a4b9275fe5d5f2470eb.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -132330,7 +132330,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/20/1b/9d/201b9d29d2cb35f048f65ec8191ba931.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -132429,7 +132429,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/07/ce/1f/07ce1f339eb48496cdffa217cf4d430c.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -132528,7 +132528,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/96/4d/ac/964dac281d1abf8f21034093f9b3f1e7.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -132627,7 +132627,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ac/f5/df/acf5dfe61c24edc98cac26183b1c9d9d.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -132726,7 +132726,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/b9/56/71/b95671ec80edf0a53ab73a29fc3a5070.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -132825,7 +132825,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/be/84/74/be8474c768f54b8fb6d451ac7f5c4a4f.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -132924,7 +132924,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a7/59/e6/a759e69cb3eaba04e8d849a10c60009c.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -133023,7 +133023,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/df/84/13/df84138c9ef455839d8c8b02bd945be6.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -133122,7 +133122,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/84/f9/cf/84f9cf5e287e0751b71d49ab4c3776fe.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -133221,7 +133221,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/4b/38/21/4b382192ab671cde81e025e49d305b2e.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -133320,7 +133320,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/37/d8/98/37d89888dcec205e0b9cb6c28520887a.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -133419,7 +133419,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/9b/11/e6/9b11e6c71eddecaa43abb244727c946f.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -133518,7 +133518,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/6d/7f/82/6d7f8220ad936e5052d9a4c858c59279.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -133617,7 +133617,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/e0/2a/99/e02a99a0eeac30b8154eb01cbef512e0.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -133716,7 +133716,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a3/b3/c9/a3b3c946e35a79a092064841af1e7ddd.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -133815,7 +133815,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/74/86/2b/74862ba9353fe1a73561bf8f2ae2ed8d.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -133914,7 +133914,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/95/d1/aa/95d1aafe08add19337fd0e48a8cf0921.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -134013,7 +134013,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a5/ba/6e/a5ba6ee32c9a1e85bee226833d594461.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -134112,7 +134112,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/68/83/73/68837344a29db9db5cbf0c8d44645cc2.webp",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -134211,7 +134211,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/f0/25/13/f0251330d59c86485bb7da6a3843f5c1.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -134310,7 +134310,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/70/94/03/709403c2a1d600a5bed203fa75a26ff1.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -134409,7 +134409,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/94/f0/dc/94f0dc98a68990184877e29785db5322.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -134508,7 +134508,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/da/9d/7d/da9d7dcb81d86fd28a1a0d5e1579eb7f.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -134607,7 +134607,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/19/15/ed/1915ed6b71f2068c78d194aa731500ac.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -134706,7 +134706,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/97/a9/c0/97a9c0c606fdfddd47ca087d6e5099b5.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -134805,7 +134805,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a4/94/4d/a4944d35a4e2bd1b2970e21a01ba9212.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -134904,7 +134904,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ff/c8/20/ffc8207abf83e68284a04177420da4a3.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -135003,7 +135003,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/05/20/44/0520443ac728db5074107c1378ba5855.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -135102,7 +135102,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/4b/61/84/4b618422f569a9044f268de7c342250d.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -135201,7 +135201,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a2/b2/f7/a2b2f7dad8b0e479f6114e9c80302ca5.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -135300,7 +135300,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a7/11/84/a71184e7296495b89ca9251d2252c1e3.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -135399,7 +135399,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/0e/db/b4/0edbb44cd156765b53aca5ba1a0074d6.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -135498,7 +135498,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/f9/4b/49/f94b495e18d952bc12080464cc107f31.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -135597,7 +135597,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/9e/1b/5f/9e1b5f3076bc48ec435da09e6c60a10b.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -135696,7 +135696,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/8e/bf/4b/8ebf4b0539912a58db6ac7a913d9b959.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -135795,7 +135795,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/b0/42/bf/b042bf58a9316f6e4942be4b70e83d16.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -135894,7 +135894,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a0/03/5e/a0035ef7da91f37c01455bf9db77541c.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -135993,7 +135993,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/78/38/c9/7838c934864f821c09802613d3f04f61.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -136092,7 +136092,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/7f/fb/a8/7ffba844b3b49eec57ef06afbe451be8.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -136191,7 +136191,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ec/8e/9a/ec8e9a62a5e2c93f816e014604e5101f.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -136290,7 +136290,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/e4/ed/95/e4ed9522dcc79622b0fd81b45b98a064.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -136389,7 +136389,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/39/10/1c/39101c5c2db304fad43ab42be24685ca.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -136488,7 +136488,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/89/83/62/898362417548b0d779e025891bb579b4.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -136587,7 +136587,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/82/33/0d/82330df5806bf2509f82ddbbc0c6bcad.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -136686,7 +136686,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/b1/5e/d1/b15ed152faa61553d370b71110358588.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -136785,7 +136785,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/3e/3d/32/3e3d3246a6761b027e5b780b24b64bf6.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -136884,7 +136884,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/1d/aa/8f/1daa8ff7eb783f15188d25271a61bc43.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -136983,7 +136983,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/01/4e/90/014e900ab8ddf1f51596754d43846443.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -137082,7 +137082,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/93/66/36/936636d290fd241329e75fbabb19f8a9.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -137181,7 +137181,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/7f/39/e2/7f39e21c6b870ec55ae7a7aba9f62c03.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -137280,7 +137280,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/37/82/6d/37826d75b09612d0a8cf27ded34fbb18.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -137379,7 +137379,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/0c/b4/fd/0cb4fde5688f3a3680839940e380249d.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -137478,7 +137478,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/74/06/81/740681177d2a279a0aa42184dde2b844.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -137577,7 +137577,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/c4/f7/35/c4f7359e455d8b2f33fe4a25596b5fe3.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -137676,7 +137676,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/46/99/56/46995629775aeb62da9d6abf5fd31f0f.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -137775,7 +137775,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ec/8d/f3/ec8df3e7a1c1f9318105063fca38b17b.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -137874,7 +137874,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/3e/ec/7a/3eec7a3af2e605470cd84cdb6c4ddf0f.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -137973,7 +137973,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/c3/6d/8e/c36d8e2940d740f8eb6115a71c0300e7.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -138072,7 +138072,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/b7/5b/2f/b75b2f2d7cbda39c084997a2e9165a4b.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -138171,7 +138171,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/38/fe/40/38fe40d4498d59997626f7ffd4a11942.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -138270,7 +138270,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/c6/36/ee/c636eee0ba82ec42182e1a93d8cabdbd.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -138369,7 +138369,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/1c/e7/12/1ce7122e741ea48b3edd0b7172cfb09e.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -138468,7 +138468,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/f2/15/8a/f2158aa4ac0b169ac83c6810f46df404.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -138567,7 +138567,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/33/a4/78/33a47821713c1140c6ba290d9c5bfe02.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -138666,7 +138666,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/30/cb/1d/30cb1d408cf98d0f524d33116e4c9f48.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -138765,7 +138765,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/0a/48/02/0a4802ec964085b53652f3aafa61368b.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -138864,7 +138864,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/1d/d9/7d/1dd97d33b2fc901f15b64bae650ad322.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -138963,7 +138963,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/91/f0/f3/91f0f3cce1be726bd8eca7cdc7e7bd3b.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -139062,7 +139062,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/c9/8d/15/c98d151b0566f8669bf851d136173900.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -139161,7 +139161,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/8f/b0/81/8fb0814ba7e43213215f62ade2301187.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -139260,7 +139260,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/15/a9/5c/15a95c81be48bc99947d2b4685742457.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -139359,7 +139359,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/d4/0f/11/d40f1128e7dc3848afb115810f4fbece.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -139458,7 +139458,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a2/c7/0e/a2c70e229d5da2cd59b8260237ccceab.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -139557,7 +139557,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/26/fa/3f/26fa3f2fed24bfd460cb6f26119356f7.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -139656,7 +139656,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/d3/92/de/d392def01116b998e9c977d5ebd2e8e8.webp",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -139755,7 +139755,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/05/6f/4a/056f4ae9be31126e0ce0b5f87b682064.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -139854,7 +139854,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ba/fc/52/bafc52e9e88bf4403e6a834129ee8eb8.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -139953,7 +139953,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/d0/00/ea/d000ea17fa0ec5de6a5c71c9b07f7e1c.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -140052,7 +140052,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/e6/86/b1/e686b1d67b8a6c07f6c4666f7344c54e.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -140151,7 +140151,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/55/c4/47/55c447ce911bc3074c4ba1211d937e8f.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -140250,7 +140250,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ee/86/85/ee86855d1a1cf7471d2ba29cf76fd712.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -140349,7 +140349,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/3b/42/00/3b42008617f5eb23a846754712663e6f.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -140448,7 +140448,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/15/cf/2c/15cf2ce32553c839531343729fae5166.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -140547,7 +140547,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/2d/e1/c7/2de1c73fe3209dcdf0158b29a0048d7e.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -140646,7 +140646,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/1b/08/6f/1b086fe2ff0dba231c4b13ec6907ed50.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -140745,7 +140745,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/d9/03/87/d90387588271fd40b09020bf93402172.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -140844,7 +140844,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/c8/a2/3f/c8a23fe0f83aa7077ba69c8a981f8871.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -140943,7 +140943,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/c8/b6/95/c8b695223f74881ac199f9afe238e688.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -141042,7 +141042,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/89/d3/0c/89d30c910a2aa94a00efc2a4be0be314.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -141141,7 +141141,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/56/70/ad/5670ad7fee1c2f0026a62c5e2d85bc94.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -141240,7 +141240,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ba/cc/9e/bacc9e423f09185fa0dccd0901ceb0bc.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -141339,7 +141339,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/51/e8/d5/51e8d5e6c0d98a5619d992a16f7b6c68.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -141438,7 +141438,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/aa/da/6c/aada6c610da7436351ca9b7a1b494b2d.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -141537,7 +141537,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ee/26/35/ee2635626f171cd9e2fdfa0b7f17cfbc.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -141636,7 +141636,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/1d/2b/2d/1d2b2d9c154a884fa1abf61431f148d7.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -141735,7 +141735,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/0a/00/8a/0a008a4e80ab40bedf34c6ea50f5e647.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -141834,7 +141834,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/9e/7f/f6/9e7ff6c3393bb13b9e88fb3b05053c8c.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -141933,7 +141933,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/87/46/78/8746781ef4681e428a0140d443e8a774.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -142032,7 +142032,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/72/fc/23/72fc234c868c469586a9009926e9f070.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -142131,7 +142131,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/20/8d/4b/208d4bcd33dfd8120de375b12a633556.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -142230,7 +142230,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/19/d1/57/19d1576b483c9d21b16c48511568bf22.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -142329,7 +142329,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/e0/54/5a/e0545a030aa01e13d3989564579e58cf.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -142428,7 +142428,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/51/80/bd/5180bded5b7ffb64f8ddeb4fe8eb0f73.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -142527,7 +142527,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/1d/cd/c4/1dcdc4be0a873705ad588c0ea7981f37.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -142626,7 +142626,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/70/3b/0e/703b0e8b338c39e03d9b6bcc61f11ceb.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -142725,7 +142725,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/57/2c/6c/572c6c01b2b44b3c8edeb2cb7aa91b77.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -142824,7 +142824,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/7d/b0/50/7db0500a7499cc2333b362a5db1f51c7.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -142923,7 +142923,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/0f/fa/49/0ffa492aa5ba9aa1b239a6d567ed006a.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -143022,7 +143022,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/70/3e/fb/703efb1ef6cdc53cf2f15971cf02b6c9.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -143121,7 +143121,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ac/92/88/ac928808cf7372e46b2225c8a50dd917.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -143220,7 +143220,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/27/79/9f/27799f066861309e25c6ce6855b0a692.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -143319,7 +143319,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/eb/cf/e6/ebcfe69f082347199c52bd5f5acd5593.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -143418,7 +143418,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/40/6e/8d/406e8d8e6728c508a53f95e5c5903332.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -143517,7 +143517,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/8f/92/01/8f9201991e3dce832ac990f3f05b2584.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -143616,7 +143616,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/5a/a1/6e/5aa16e4406d9d4497278909b6e51ce50.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -143715,7 +143715,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/52/d2/8b/52d28bf232730c5469fbb2933a0702da.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -143814,7 +143814,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/15/e0/cc/15e0cc3c5bcd13b7b4a17cca733ab153.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -143913,7 +143913,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/75/ae/82/75ae824debef4b7380b1dce432e85c52.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -144012,7 +144012,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/82/c6/bd/82c6bd1144d92f975ed5435b6e9aed26.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -144111,7 +144111,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/cc/f5/18/ccf518d9ef8f40e41184564a66bed4f9.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -144210,7 +144210,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/b2/b6/fd/b2b6fdfbc4f5e438690cdedd98b3de79.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -144309,7 +144309,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/0e/27/e9/0e27e920de408662582fdf3c7d4ec306.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -144408,7 +144408,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/64/6e/2d/646e2d7d0944f7cfb2b9c36d719b926b.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -144507,7 +144507,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ad/21/a8/ad21a824c275581da45f2f69f86178a6.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -144606,7 +144606,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/65/75/d6/6575d6506c5092f47d8f4633566d8d57.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -144705,7 +144705,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/91/46/85/91468513d26a79e6a0b5042ccd450b6d.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -144804,7 +144804,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/34/b4/c8/34b4c8f262c59cf5f8b188b39aae9f71.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -144903,7 +144903,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/42/d8/b0/42d8b0e7c719dcde08a7257637b187ec.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -145002,7 +145002,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/57/f3/4c/57f34ce110f1d0800bf9030161cc1833.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -145101,7 +145101,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/62/0d/aa/620daac13e68781879924cd00236a520.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -145200,7 +145200,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/7c/ab/ba/7cabba73bb7a8815f57f3bd628338507.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -145299,7 +145299,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/25/88/05/25880503c524c60bd458754e519f4b8b.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -145398,7 +145398,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/85/6d/dc/856ddca7c875c6a02a2cc31375922783.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -145497,7 +145497,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/77/3c/d7/773cd70abd9492f6bec99bd9e25799c6.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -145596,7 +145596,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/88/a1/d9/88a1d9382bf312636459c452dc2db20c.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -145695,7 +145695,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/c3/7e/dd/c37edd01e2185712d3e79069f8a3732e.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -145794,7 +145794,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/61/ec/ee/61ecee05fd973bad368e8e4e4bf5a3a6.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -145893,7 +145893,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/36/23/f1/3623f15c7a108ee7196a86e834d35349.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -145992,7 +145992,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/41/12/98/4112985ac126352cfa805630a8844fe6.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -146091,7 +146091,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/1e/7e/2d/1e7e2dae8b2d1bb0b46442cc3ebab63e.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -146190,7 +146190,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/9e/53/2d/9e532defc23963e876d1fe9db81c164c.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -146289,7 +146289,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ae/19/76/ae1976d006faed8381809572050b5794.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -146388,7 +146388,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/68/63/ef/6863ef85a3d35b701a7e98eb9fb2ef22.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -146487,7 +146487,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/cb/4c/cc/cb4ccc9b5d1a3410fe3765a3ca541cc2.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -146586,7 +146586,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/be/ad/88/bead88a726cac95742def8ed62f92447.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -146685,7 +146685,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/95/9c/4d/959c4da947fa75ada49e1b899637632f.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -146784,7 +146784,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/56/35/3d/56353dd317485a1b2ce6eb5aa3e4771d.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -146883,7 +146883,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/7e/52/ce/7e52ce24aaf5c0d5170f0306e2f05470.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -146982,7 +146982,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/06/57/82/0657828fba2075a2d2aaef9a678b48ea.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -147081,7 +147081,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/99/b6/a6/99b6a6fe56c88e46a94d3b81a74db28b.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -147180,7 +147180,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/df/90/b7/df90b7948c69ac631d54e5f02ae58912.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -147279,7 +147279,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/96/c3/a0/96c3a0be3e48a9eeccc2981b5cf8e52f.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -147378,7 +147378,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/1c/54/51/1c5451d865cf24e63e637b6c7bda0a8c.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -147477,7 +147477,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ba/6b/8d/ba6b8d18dc05be770e3ead17c7635142.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -147576,7 +147576,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/62/8e/db/628edb6a391e09fe83db436022784c64.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -147675,7 +147675,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/dc/6e/fc/dc6efca187df91658937777b500f6ea0.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -147774,7 +147774,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/d3/d8/0f/d3d80f86382b3bab488ec909ab3a1d44.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -147873,7 +147873,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/d7/3c/5e/d73c5e53db4c8632e920315766cfd26b.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -147972,7 +147972,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/fc/04/6c/fc046c487299a8bfed98d235e6599bdf.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -148071,7 +148071,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/52/08/29/5208296243478859a492660cba7f6a01.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -148170,7 +148170,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ab/67/d3/ab67d3c0578c3e7aac6dc8510c8b3393.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -148269,7 +148269,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/31/51/7c/31517c73a9cd73f4ebe62c11306c53b6.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -148368,7 +148368,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/fc/e4/02/fce4029e0d4cfd856d48c742345f89a4.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -148467,7 +148467,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/db/b4/5b/dbb45be1879e51c145ae0856a097b693.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -148566,7 +148566,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/24/75/2a/24752a02f625b4afb240d72012c1dc20.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -148665,7 +148665,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/10/9c/86/109c86051429d4f441b77a63a6c61391.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -148764,7 +148764,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/10/96/4c/10964c7c83b98fd594bc62b04b163335.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -148863,7 +148863,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/9a/ed/0b/9aed0bc2a05adb90a08be74b16695c1e.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -148962,7 +148962,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ee/7c/4f/ee7c4f11a32dcf03dbe3e60fab22d833.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -149061,7 +149061,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/79/a0/c7/79a0c7350e495060357ae15162a05435.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -149160,7 +149160,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/06/13/e5/0613e53357908b1223eb016ee3bcb28d.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -149259,7 +149259,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/06/68/87/066887b66919dda918d1aded472f5d62.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -149358,7 +149358,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/da/40/bd/da40bd69cdab17656788c253f4df6fc0.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -149457,7 +149457,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/1a/a3/e6/1aa3e637f09dd12f4c3e15b5716031d7.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -149556,7 +149556,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/31/42/2c/31422cd5050fd37ca96b2f8a360e57bb.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -149655,7 +149655,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/79/3a/36/793a362e168df81f07756ec3b1eb8a68.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -149754,7 +149754,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/42/b4/4a/42b44a0737077e1f4b1f220b34d5426c.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -149853,7 +149853,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/d3/6a/fd/d36afd135c8bf21624c98fdfdf369ffa.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -149952,7 +149952,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/b5/76/59/b57659a13f669f0c64e321a8f4396cd0.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -150051,7 +150051,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/75/30/d1/7530d11118eca339d75da62b2bde15cc.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -150150,7 +150150,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/e1/63/b5/e163b58917de80441ccbe7a12fafa689.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -150249,7 +150249,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/2b/cb/04/2bcb04836145dd5715158bcea73e7104.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -150348,7 +150348,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/2b/99/e4/2b99e48964c8ce278bbd69abaceeb8a5.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -150447,7 +150447,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ab/f6/e7/abf6e76d8044141ea70921fc4ae52d1d.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -150546,7 +150546,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/11/03/07/110307487c0fccb34b8b138685855350.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -150645,7 +150645,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/e0/78/4b/e0784b81164b0d2dc7f45d4be960cfd6.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -150744,7 +150744,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/df/98/f6/df98f67ef2c0eccc634b2dfdc380ffd8.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -150843,7 +150843,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/7f/a7/bb/7fa7bbdc529a6e76a63916f61cb2c45e.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -150942,7 +150942,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/6c/08/02/6c0802a9d9df7805702785608aa77fa9.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -151041,7 +151041,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ae/8f/60/ae8f60fa9ee3a3448ede5ec086755274.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -151140,7 +151140,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/fc/c8/ac/fcc8acae4a2971e878b4e87130821ba7.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -151239,7 +151239,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/2f/38/af/2f38afbf28e5fd9da14d1757a8e8be50.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -151338,7 +151338,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/91/af/4a/91af4af46312731a4e1ca3242cd470f4.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -151437,7 +151437,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/2b/39/55/2b395577adb6ab282fdeba5357776674.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -151536,7 +151536,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/29/6d/9d/296d9dd7c03add582c9dbdd263dc9921.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -151635,7 +151635,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a6/e7/cc/a6e7cc3cf4e831599a52a47e0e4f0986.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -151734,7 +151734,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/9e/17/30/9e17308f329243bab8276700379d1766.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -151833,7 +151833,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/fd/71/14/fd71141c1cbd04e0b8749931248d2808.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -151932,7 +151932,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/92/8f/9e/928f9ec7ccd193521d6f94179d60d5e9.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -152031,7 +152031,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/75/7a/33/757a33ac457e18dce32b890a9229674d.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -152130,7 +152130,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/d3/ad/58/d3ad58ac27a9bf474e32754c5dcaf22b.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -152229,7 +152229,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/47/33/16/47331686c48f92123d794e186c532992.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -152328,7 +152328,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ba/70/eb/ba70eb74ae22bc11f1bc626cf785d151.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -152427,7 +152427,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/af/54/26/af5426c2713dcf2f362a86629ced539e.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -152526,7 +152526,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/33/1c/fc/331cfc23f142abeef2e8b86708235e65.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -152625,7 +152625,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/c5/7f/8b/c57f8bda29789a157a6a74adff3710cc.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -152724,7 +152724,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/39/11/33/3911336f452f3d796ded914d1c72be88.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -152823,7 +152823,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/50/85/22/508522a782c179f9f347aaae4e6d6f93.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -152922,7 +152922,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/1d/13/75/1d13751205ddf940de301bc531d4a963.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -153021,7 +153021,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/44/05/bd/4405bd61be6f6e12a076786f2aeea677.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -153120,7 +153120,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a3/f0/47/a3f0473ac1c92b0d80cdfcf6474e061a.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -153219,7 +153219,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/f5/1a/f4/f51af4a7b787129bdfc68c52fe5a9783.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -153318,7 +153318,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/4d/42/01/4d42019b2d1944fdbe94840e6a316d4a.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -153417,7 +153417,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/2e/ea/2b/2eea2b3659c279e55decc17a777caf3e.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -153516,7 +153516,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/9d/08/56/9d08569da0754f8b04d5544ff17d6b7d.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -153615,7 +153615,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/f3/82/91/f38291baf59b95446312d0bd8f944160.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -153714,7 +153714,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/e9/a5/88/e9a588ee095bacb379a50630cf861dcc.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -153813,7 +153813,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/4a/91/5f/4a915f8072aa99bef8e70936b1c95acf.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -153912,7 +153912,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/fc/5e/57/fc5e57e96277a49ce9db2b0666206279.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -154011,7 +154011,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ad/db/b5/addbb54717a44adf6e766f25e1394fe9.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -154110,7 +154110,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/a7/fc/5e/a7fc5e979c37b25523e6964e679e5ad2.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -154209,7 +154209,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/56/63/c0/5663c00e908c2304496f9cdab83a43e0.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -154308,7 +154308,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/24/ea/bd/24eabd8233d9ea5b5f3f38cd29e0403f.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -154407,7 +154407,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/4d/ec/9c/4dec9c4dd355ed399096d2cdd8e7870a.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -154506,7 +154506,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/90/ee/7e/90ee7e384528885409ab878dcfcadfb9.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -154605,7 +154605,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/40/ca/e2/40cae2f59a77f97e924bcd5c686d49b7.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -154704,7 +154704,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/46/24/82/462482022ee238e08191a73d6efd5a79.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -154803,7 +154803,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/68/87/96/688796f0b09f607535f6204f78279e58.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -154902,7 +154902,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/04/33/a2/0433a28ffbcbc0aedd6874827b468337.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -155001,7 +155001,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/13/d4/cd/13d4cded2a91f7c4ae220e5a3e52c634.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -155100,7 +155100,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/05/64/52/05645220102859cee6e7425b60b6a226.png",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -155199,7 +155199,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/de/54/fd/de54fd08206b90f9ae5b136abccbf7b0.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -155298,7 +155298,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/ac/1a/f4/ac1af4cc95ee84a2d894f824d90960c5.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -155397,7 +155397,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/4c/6e/68/4c6e680d29add1dfb9b83182e0491f95.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -155496,7 +155496,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/40/91/4b/40914be285a76b5dedb9111008726e87.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -155595,7 +155595,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/f1/dd/33/f1dd33758d1b7963d6e3d92d76b064d7.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -155694,7 +155694,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/54/aa/2e/54aa2e2d69e83fdc025f403cad0c1847.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -155793,7 +155793,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/26/e3/24/26e3241743a58f436479cecd323c0918.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -155892,7 +155892,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/92/9e/e3/929ee36784f9d1ed81537da7fd7cd7ca.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -155991,7 +155991,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/09/fa/71/09fa7148c76b9ed7f269f2fecf963e44.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -156090,7 +156090,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/03/1e/da/031edaafbe7ae00d26028dbc389374f4.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],
@@ -156189,7 +156189,7 @@ export const EXTENDED_TRENDING_LOOKS: TrendingLook[] = [
           "tokopediaQuery": "Jilbab Segiempat Voal Miracle Lasercut",
           "imageUrl": "https://i.pinimg.com/736x/db/d3/83/dbd383367fe997039a31b01e411d88a3.jpg",
           "brand": "LOKAL_MODEST",
-          "brandUrl": "https://zalora.co.id/",
+          "brandUrl": "https://shopee.co.id/search?keyword=OOTD%20Fashion%20Indonesia",
           "isOfficialBrand": true
         }
       ],

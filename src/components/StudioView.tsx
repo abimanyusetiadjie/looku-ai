@@ -102,7 +102,7 @@ const TOP_POOL: StudioItem[] = [
     pinNumber: 2,
     brand: "COTTONINK",
     dupeBrand: "Shopatvelvet",
-    officialUrl: "https://www.zalora.co.id/search?q=Cottonink+Rayon+Blouse",
+    officialUrl: "https://shopee.co.id/search?keyword=Cottonink+Rayon+Blouse",
     officialPriceStr: "Rp 279.000",
     name: "Blus Rayon Flowy Dropped Shoulder",
     material: "100% Rayon Twill",
@@ -202,7 +202,7 @@ const TOP_POOL: StudioItem[] = [
     pinNumber: 2,
     brand: "ERIGO",
     dupeBrand: "Erigo",
-    officialUrl: "https://www.zalora.co.id/search?q=Erigo+Boxy+T-Shirt",
+    officialUrl: "https://shopee.co.id/search?keyword=Erigo+Boxy+T-Shirt",
     officialPriceStr: "Rp 150.000",
     name: "Boxy Graphic Vintage Cool-Touch Tee",
     material: "Cotton Combed 24s/30s Cool-Touch",
@@ -227,7 +227,7 @@ const TOP_POOL: StudioItem[] = [
     pinNumber: 2,
     brand: "THENBLANK",
     dupeBrand: "Shopatvelvet",
-    officialUrl: "https://www.zalora.co.id/search?q=Thenblank+Linen+Top",
+    officialUrl: "https://shopee.co.id/search?keyword=Thenblank+Linen+Top",
     officialPriceStr: "Rp 249.000",
     name: "Minimalist Square Neck Linen Top",
     material: "Soft Pure Crinkle Linen",
@@ -330,7 +330,7 @@ const BOTTOM_POOL: StudioItem[] = [
     pinNumber: 3,
     brand: "COTTONINK",
     dupeBrand: "Shopatvelvet",
-    officialUrl: "https://www.zalora.co.id/search?q=Cottonink+Satin+Midi+Skirt",
+    officialUrl: "https://shopee.co.id/search?keyword=Cottonink+Satin+Midi+Skirt",
     officialPriceStr: "Rp 329.000",
     name: "Bias Cut Satin Midi Skirt Silky Touch",
     material: "Airflow Matte Silk Rayon",
@@ -355,7 +355,7 @@ const BOTTOM_POOL: StudioItem[] = [
     pinNumber: 3,
     brand: "ERIGO",
     dupeBrand: "Erigo",
-    officialUrl: "https://www.zalora.co.id/search?q=Erigo+Loose+Denim+Chino",
+    officialUrl: "https://shopee.co.id/search?keyword=Erigo+Loose+Denim+Chino",
     officialPriceStr: "Rp 299.000",
     name: "Relaxed Baggy 90s Breathable Denim",
     material: "10oz Breathable Washed Cotton Denim",
@@ -383,7 +383,7 @@ const OUTER_POOL: StudioItem[] = [
     pinNumber: 1,
     brand: "KAMI.",
     dupeBrand: "Vanilla Hijab",
-    officialUrl: "https://www.zalora.co.id/search?q=Kami+Voal+Hijab",
+    officialUrl: "https://shopee.co.id/search?keyword=Kami+Voal+Hijab",
     officialPriceStr: "Rp 185.000",
     name: "Hijab Voal Miracle Ultrafine Laser Cut",
     material: "100% Voal Ultrafine",
@@ -409,7 +409,7 @@ const OUTER_POOL: StudioItem[] = [
     pinNumber: 1,
     brand: "LAFIYE",
     dupeBrand: "Vanilla Hijab",
-    officialUrl: "https://www.zalora.co.id/search?q=Pashmina+Hijab+Modest",
+    officialUrl: "https://shopee.co.id/search?keyword=Pashmina+Hijab+Modest",
     officialPriceStr: "Rp 129.000",
     name: "Pashmina Ceruty Baby Doll Silk Flowy",
     material: "Ceruty Babydoll Silk",
@@ -435,7 +435,7 @@ const OUTER_POOL: StudioItem[] = [
     pinNumber: 1,
     brand: "VANILLA HIJAB",
     dupeBrand: "Lafiye",
-    officialUrl: "https://www.zalora.co.id/search?q=Crinkle+Shawl+Hijab",
+    officialUrl: "https://shopee.co.id/search?keyword=Crinkle+Shawl+Hijab",
     officialPriceStr: "Rp 119.000",
     name: "Pashmina Crinkle Cotton Voile Tanpa Setrika",
     material: "100% Airy Crinkle Cotton Voile",
@@ -461,7 +461,7 @@ const OUTER_POOL: StudioItem[] = [
     pinNumber: 1,
     brand: "THENBLANK",
     dupeBrand: "This Is April",
-    officialUrl: "https://www.zalora.co.id/search?q=Thenblank+Linen+Blazer",
+    officialUrl: "https://shopee.co.id/search?keyword=Thenblank+Linen+Blazer",
     officialPriceStr: "Rp 379.000",
     name: "Tailored Semi-Relaxed Unlined Linen Blazer",
     material: "Linen Tencel Unlined",
@@ -857,11 +857,11 @@ const SKIN_TONES_DRAPE = [
 function buildSpecificOfficialSearchUrl(brand: string, itemName: string, rawUrl?: string): string {
   const q = encodeURIComponent(itemName);
   const b = (brand || "").toUpperCase();
-  if (rawUrl && rawUrl.includes("?")) return rawUrl;
+  if (rawUrl && !rawUrl.toLowerCase().includes("zalora") && rawUrl.startsWith("http")) return rawUrl;
   if (b.includes("UNIQLO")) return `https://www.uniqlo.com/id/id/search?q=${q}`;
   if (b.includes("ZARA")) return `https://www.zara.com/id/id/search?searchTerm=${q}`;
   if (b.includes("H&M") || b.includes("HM")) return `https://id.hm.com/id_id/search-results.html?q=${q}`;
-  return `https://www.zalora.co.id/search?q=${encodeURIComponent(`${brand} ${itemName}`.trim())}`;
+  return `https://shopee.co.id/search?keyword=${encodeURIComponent(`${brand} ${itemName}`.trim())}`;
 }
 
 function resolveAuthenticLocalDupeBrand(slotKey: "top" | "bottom" | "outer" | "shoes", itemName: string): string {
@@ -999,6 +999,14 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
     shoes: SHOES_POOL[0],
   });
 
+  // Dynamic slot display: jika formula OOTD hanya berisi 2 atau 3 item asli, tampilkan sesuai jumlah aslinya!
+  const [activeSlotKeys, setActiveSlotKeys] = useState<("outer" | "top" | "bottom" | "shoes")[]>([
+    "outer",
+    "top",
+    "bottom",
+    "shoes",
+  ]);
+
   // State Penguncian Slot
   const [lockedSlots, setLockedSlots] = useState<{
     top: boolean;
@@ -1079,12 +1087,20 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
         const outItem = outfit.items.find((i) => i.category === "outer_hijab");
         const shoItem = outfit.items.find((i) => i.category === "sepatu");
 
-        setActiveSlots({
-          top: outfitItemToStudioItem(topItem, "top", TOP_POOL[0], image),
-          bottom: outfitItemToStudioItem(botItem, "bottom", BOTTOM_POOL[0], image),
-          outer: outfitItemToStudioItem(outItem, "outer", OUTER_POOL[0], image),
-          shoes: outfitItemToStudioItem(shoItem, "shoes", SHOES_POOL[0], image),
-        });
+        const newActiveKeys: ("outer" | "top" | "bottom" | "shoes")[] = [];
+        if (outItem) newActiveKeys.push("outer");
+        if (topItem) newActiveKeys.push("top");
+        if (botItem) newActiveKeys.push("bottom");
+        if (shoItem) newActiveKeys.push("shoes");
+
+        setActiveSlotKeys(newActiveKeys.length > 0 ? newActiveKeys : ["top", "bottom"]);
+
+        setActiveSlots((prev) => ({
+          top: topItem ? outfitItemToStudioItem(topItem, "top", TOP_POOL[0], image) : prev.top,
+          bottom: botItem ? outfitItemToStudioItem(botItem, "bottom", BOTTOM_POOL[0], image) : prev.bottom,
+          outer: outItem ? outfitItemToStudioItem(outItem, "outer", OUTER_POOL[0], image) : prev.outer,
+          shoes: shoItem ? outfitItemToStudioItem(shoItem, "shoes", SHOES_POOL[0], image) : prev.shoes,
+        }));
       }
     };
 
@@ -1293,6 +1309,13 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
     const newOuter = OUTER_POOL.find((o) => o.id === vibe.outerId) || OUTER_POOL[0];
     const newShoes = SHOES_POOL.find((s) => s.id === vibe.shoesId) || SHOES_POOL[0];
 
+    const keys: ("outer" | "top" | "bottom" | "shoes")[] = [];
+    if (vibe.outerId) keys.push("outer");
+    keys.push("top");
+    keys.push("bottom");
+    if (vibe.shoesId) keys.push("shoes");
+    setActiveSlotKeys(keys.length > 0 ? keys : ["outer", "top", "bottom", "shoes"]);
+
     setActiveSlots({
       top: lockedSlots.top ? activeSlots.top : newTop,
       bottom: lockedSlots.bottom ? activeSlots.bottom : newBottom,
@@ -1385,73 +1408,24 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
       skinToneMatch: `Harmonisasi sempurna untuk kulit ${activeSkinTone.nama}`,
       whyItWorks: currentVibe.tagline,
       stylingTip: "Sirkulasi Udara Optimal · Serat Bernapas untuk cuaca tropis",
-      colorPalette: [
-        { name: activeSlots.top.colorName, hex: activeSlots.top.colorHex },
-        { name: activeSlots.bottom.colorName, hex: activeSlots.bottom.colorHex },
-        { name: activeSlots.outer.colorName, hex: activeSlots.outer.colorHex },
-        { name: activeSlots.shoes.colorName, hex: activeSlots.shoes.colorHex },
-      ],
-      flatlayImages: [activeHeroImage, activeSlots.top.imageUrl, activeSlots.bottom.imageUrl],
+      colorPalette: slotEntries.map(({ item }) => ({ name: item.colorName, hex: item.colorHex })),
+      flatlayImages: [activeHeroImage, ...slotEntries.map(({ item }) => item.imageUrl)],
       sweatStainResistance: "Optimal Anti-Stain",
       costPerWearSavings: totalDupePriceStr,
-      items: [
-        {
-          category: "atasan",
-          brand: activeSlots.top.brand,
-          brandUrl: activeSlots.top.officialUrl,
-          isOfficialBrand: true,
-          name: activeSlots.top.name,
-          material: activeSlots.top.material,
-          color: activeSlots.top.colorName,
-          colorHex: activeSlots.top.colorHex,
-          estimatedPrice: `${activeSlots.top.officialPriceStr} (Dupe ${activeSlots.top.dupeBrand}: ${activeSlots.top.priceStr})`,
-          shopeeQuery: activeSlots.top.shopeeQuery,
-          tokopediaQuery: activeSlots.top.tokopediaQuery,
-          imageUrl: activeSlots.top.imageUrl,
-        },
-        {
-          category: "bawahan",
-          brand: activeSlots.bottom.brand,
-          brandUrl: activeSlots.bottom.officialUrl,
-          isOfficialBrand: true,
-          name: activeSlots.bottom.name,
-          material: activeSlots.bottom.material,
-          color: activeSlots.bottom.colorName,
-          colorHex: activeSlots.bottom.colorHex,
-          estimatedPrice: `${activeSlots.bottom.officialPriceStr} (Dupe ${activeSlots.bottom.dupeBrand}: ${activeSlots.bottom.priceStr})`,
-          shopeeQuery: activeSlots.bottom.shopeeQuery,
-          tokopediaQuery: activeSlots.bottom.tokopediaQuery,
-          imageUrl: activeSlots.bottom.imageUrl,
-        },
-        {
-          category: "outer_hijab",
-          brand: activeSlots.outer.brand,
-          brandUrl: activeSlots.outer.officialUrl,
-          isOfficialBrand: true,
-          name: activeSlots.outer.name,
-          material: activeSlots.outer.material,
-          color: activeSlots.outer.colorName,
-          colorHex: activeSlots.outer.colorHex,
-          estimatedPrice: `${activeSlots.outer.officialPriceStr} (Dupe ${activeSlots.outer.dupeBrand}: ${activeSlots.outer.priceStr})`,
-          shopeeQuery: activeSlots.outer.shopeeQuery,
-          tokopediaQuery: activeSlots.outer.tokopediaQuery,
-          imageUrl: activeSlots.outer.imageUrl,
-        },
-        {
-          category: "sepatu",
-          brand: activeSlots.shoes.brand,
-          brandUrl: activeSlots.shoes.officialUrl,
-          isOfficialBrand: true,
-          name: activeSlots.shoes.name,
-          material: activeSlots.shoes.material,
-          color: activeSlots.shoes.colorName,
-          colorHex: activeSlots.shoes.colorHex,
-          estimatedPrice: `${activeSlots.shoes.officialPriceStr} (Dupe ${activeSlots.shoes.dupeBrand}: ${activeSlots.shoes.priceStr})`,
-          shopeeQuery: activeSlots.shoes.shopeeQuery,
-          tokopediaQuery: activeSlots.shoes.tokopediaQuery,
-          imageUrl: activeSlots.shoes.imageUrl,
-        },
-      ],
+      items: slotEntries.map(({ key, item }) => ({
+        category: (key === "outer" ? "outer_hijab" : key === "shoes" ? "sepatu" : key === "top" ? "atasan" : "bawahan") as any,
+        brand: item.brand,
+        brandUrl: item.officialUrl,
+        isOfficialBrand: true,
+        name: item.name,
+        material: item.material,
+        color: item.colorName,
+        colorHex: item.colorHex,
+        estimatedPrice: `${item.officialPriceStr} (Dupe ${item.dupeBrand}: ${item.priceStr})`,
+        shopeeQuery: item.shopeeQuery,
+        tokopediaQuery: item.tokopediaQuery,
+        imageUrl: item.imageUrl,
+      })),
       createdAt: new Date().toISOString(),
     };
 
@@ -1472,15 +1446,23 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
     }
   };
 
+  // Dynamic slot entries based on activeSlotKeys
+  const slotEntries: { key: "top" | "bottom" | "outer" | "shoes"; item: StudioItem }[] = activeSlotKeys.map(
+    (key, idx) => ({
+      key,
+      item: {
+        ...activeSlots[key],
+        pinNumber: idx + 1,
+      },
+    })
+  );
+
   // -------------------------------------------------------------
   // METRIK TELEMETRI
   // -------------------------------------------------------------
   const breathabilityScore = Math.round(
-    (activeSlots.top.breathability +
-      activeSlots.bottom.breathability +
-      activeSlots.outer.breathability +
-      activeSlots.shoes.breathability) /
-      4
+    activeSlotKeys.reduce((acc, k) => acc + activeSlots[k].breathability, 0) /
+      (activeSlotKeys.length || 1)
   );
 
   const skinMatchScore = Math.min(
@@ -1488,17 +1470,12 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
     Math.round(93 + ((activeSlots.top.breathability % 4) + (activeSlots.bottom.breathability % 3)))
   );
 
-  const totalDupePrice =
-    activeSlots.top.price +
-    activeSlots.bottom.price +
-    activeSlots.outer.price +
-    activeSlots.shoes.price;
+  const totalDupePrice = slotEntries.reduce((acc, curr) => acc + curr.item.price, 0);
 
-  const totalOfficialPrice =
-    (activeSlots.top.brand === "UNIQLO" ? 399000 : 279000) +
-    (activeSlots.bottom.brand === "UNIQLO" ? 499000 : 329000) +
-    (activeSlots.outer.brand === "UNIQLO" ? 399000 : 120000) +
-    (activeSlots.shoes.brand === "ZARA" ? 899000 : 499000);
+  const totalOfficialPrice = slotEntries.reduce((acc, curr) => {
+    const rawOfficial = parseInt((curr.item.officialPriceStr || "").replace(/\D/g, ""), 10);
+    return acc + (isNaN(rawOfficial) || rawOfficial === 0 ? curr.item.price * 2 : rawOfficial);
+  }, 0);
 
   const totalDupePriceStr = `Rp ${totalDupePrice.toLocaleString("id-ID")}`;
   const totalOfficialPriceStr = `Rp ${totalOfficialPrice.toLocaleString("id-ID")}`;
@@ -1525,13 +1502,6 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
       : genderMode === "nonhijab"
       ? "Women"
       : "Men";
-
-  const slotEntries: { key: "top" | "bottom" | "outer" | "shoes"; item: StudioItem }[] = [
-    { key: "outer", item: activeSlots.outer },
-    { key: "top", item: activeSlots.top },
-    { key: "bottom", item: activeSlots.bottom },
-    { key: "shoes", item: activeSlots.shoes },
-  ];
 
   return (
     <div className="relative w-full min-h-[100dvh] bg-white text-neutral-900 font-sans antialiased selection:bg-neutral-900 selection:text-white">
@@ -1866,7 +1836,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
 
                 {/* SHOPPABLE HOTSPOT PINS (4 TITIK INTERAKTIF) */}
                 {slotEntries.map(({ key, item }) => {
-                  const coords = currentVibeObj.pinCoords[key];
+                  const coords = currentVibeObj.pinCoords[key] || { top: "50%", left: "50%" };
                   const isActive = activeHotspot === key;
                   return (
                     <div
@@ -1924,12 +1894,13 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                                 <span>Ganti</span>
                               </button>
                               <a
-                                href={item.officialUrl}
+                                href={item.shopeeQuery ? `https://shopee.co.id/search?keyword=${encodeURIComponent(item.shopeeQuery)}` : (item.officialUrl && !item.officialUrl.includes("zalora") ? item.officialUrl : `https://shopee.co.id/search?keyword=${encodeURIComponent(`${item.brand} ${item.name}`)}`)}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="py-1 px-2 bg-neutral-900 text-white text-[9px] font-medium rounded text-center flex items-center justify-center gap-1"
+                                className="py-1 px-2 bg-[#EE4D2D] hover:bg-[#D73211] text-white text-[9px] font-medium rounded text-center flex items-center justify-center gap-1 transition-colors"
+                                title="Beli di Shopee"
                               >
-                                <span>Toko</span>
+                                <span>Shopee</span>
                                 <ExternalLink className="w-2.5 h-2.5" />
                               </a>
                             </div>
@@ -1977,7 +1948,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
               <div className="flex items-center justify-between">
                 <div>
                   <span className="text-[10px] font-mono tracking-[0.16em] uppercase text-neutral-400 font-semibold block">
-                    ITEMS WORN IN THIS LOOK (4)
+                    ITEMS WORN IN THIS LOOK ({slotEntries.length})
                   </span>
                   <span className="text-xs font-semibold text-neutral-900 block truncate max-w-[220px]">
                     {customLookTitle ? `Formula: ${customLookTitle}` : "Sentuh pin di foto atau pilih item di bawah"}
@@ -2187,7 +2158,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
               className="h-11 px-4 bg-neutral-100 hover:bg-neutral-200 text-neutral-900 text-xs font-medium rounded-lg flex items-center justify-center gap-1.5 transition-colors"
             >
               <ShoppingBag className="w-3.5 h-3.5" />
-              <span>Belanja</span>
+              <span>Belanja ({slotEntries.length})</span>
             </button>
           </div>
         </div>
@@ -2347,7 +2318,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
 
                 {/* SHOPPABLE HOTSPOT PINS DI DESKTOP */}
                 {slotEntries.map(({ key, item }) => {
-                  const coords = currentVibeObj.pinCoords[key];
+                  const coords = currentVibeObj.pinCoords[key] || { top: "50%", left: "50%" };
                   const isActive = activeHotspot === key;
                   return (
                     <div
@@ -2483,7 +2454,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                   className="h-11 px-4 bg-neutral-100 hover:bg-neutral-200 active:scale-[0.99] text-neutral-900 text-xs font-medium rounded-xl flex items-center justify-center gap-1.5 transition-all"
                 >
                   <ShoppingBag className="w-3.5 h-3.5" />
-                  <span>Belanja (4)</span>
+                  <span>Belanja ({slotEntries.length})</span>
                 </button>
               </div>
             </div>
@@ -2493,7 +2464,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
               <div className="flex items-center justify-between pb-1">
                 <div>
                   <span className="text-[10px] font-mono tracking-[0.16em] uppercase text-neutral-400 font-semibold block">
-                    GARMENT COMPONENTS (4)
+                    GARMENT COMPONENTS ({slotEntries.length})
                   </span>
                   <span className="text-xs text-neutral-600">
                     Klik pin pada foto atau sesuaikan item pakaian di bawah ini
@@ -2506,8 +2477,14 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                 </div>
               </div>
 
-              {/* 2x2 Grid of Elegant Clean Cards */}
-              <div className="grid grid-cols-2 gap-4">
+              {/* Grid of Clean Cards (2 item = 2 kolom, 3 item = 3 kolom, 4 item = 2x2) */}
+              <div className={`grid gap-4 ${
+                slotEntries.length === 2
+                  ? "grid-cols-2"
+                  : slotEntries.length === 3
+                  ? "grid-cols-1 lg:grid-cols-3"
+                  : "grid-cols-2"
+              }`}>
                 {slotEntries.map(({ key, item }) => {
                   const isLocked = lockedSlots[key];
                   const isHotspotActive = activeHotspot === key;
@@ -2601,12 +2578,13 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
 
                         <div className="flex items-center gap-1">
                           <a
-                            href={item.officialUrl}
+                            href={item.shopeeQuery ? `https://shopee.co.id/search?keyword=${encodeURIComponent(item.shopeeQuery)}` : (item.officialUrl && !item.officialUrl.includes("zalora") ? item.officialUrl : `https://shopee.co.id/search?keyword=${encodeURIComponent(`${item.brand} ${item.name}`)}`)}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="h-7 px-2 rounded bg-neutral-100 hover:bg-neutral-900 hover:text-white text-neutral-700 text-[9px] font-mono font-medium flex items-center justify-center transition-colors"
-                            title="Toko Resmi"
+                            className="h-7 px-2.5 rounded bg-[#EE4D2D] hover:bg-[#D73211] text-white text-[9px] font-mono font-medium flex items-center justify-center gap-1 transition-colors"
+                            title="Beli di Shopee"
                           >
+                            <span>Shopee</span>
                             <ExternalLink className="w-2.5 h-2.5" />
                           </a>
                         </div>

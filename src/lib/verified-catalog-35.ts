@@ -467,7 +467,7 @@ export const VERIFIED_PRODUCTS_35_RAW: VerifiedProductRecord[] = [
     "category": "Tunik",
     "material": "Premium Venoza Twill",
     "price_official": 795000,
-    "product_url": "https://www.zalora.co.id/p/riamiranda-ecru-chaize-sleeveless-tunic",
+    "product_url": "https://shopee.co.id/search?keyword=RiaMiranda%20Ecru%20Chaize%20Sleeveless%20Tunic",
     "image_url": "/products/prod_real_27.jpg",
     "suitable_for": [
       "Office",
@@ -651,7 +651,7 @@ export const VERIFIED_OUTFIT_ITEMS_35: OutfitItem[] = VERIFIED_PRODUCTS_35_RAW.m
     colorHex: ["#D5C7B7","#D5C7B7","#D5C7B7","#D5C7B7","#D5C7B7","#D5C7B7","#D5C7B7","#D5C7B7","#D5C7B7","#D5C7B7","#D5C7B7","#1B263B","#F8F9FA","#1E1E1E","#F8F9FA","#D5C7B7","#D5C7B7","#8D6E63","#D5C7B7","#E8D5D5","#D5C7B7","#D5C7B7","#D4A373","#D5C7B7","#D5C7B7","#E6D7C3","#D5C7B7","#D4A373","#E6D7C3","#E6D7C3","#F8F9FA","#1E1E1E","#D5C7B7","#D5C7B7","#F8F9FA"][idx],
     estimatedPrice: `Rp ${p.price_official.toLocaleString("id-ID")}`,
     shopeeQuery: p.product_name_original,
-    shopeeUrl: p.product_url,
+    shopeeUrl: p.product_url.includes("shopee.co.id") ? p.product_url : `https://shopee.co.id/search?keyword=${encodeURIComponent(`${p.brand} ${p.product_name_original}`)}`,
     imageUrl: p.image_url,
     brand: p.brand,
     brandUrl: p.product_url,

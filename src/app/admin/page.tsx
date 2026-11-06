@@ -2377,7 +2377,7 @@ export default function AdminCMSPage() {
                           onClick={handleAutoExtractImage}
                           disabled={isExtractingImage || !editingLook.image.trim()}
                           className="px-2.5 py-1 rounded-lg bg-sand-100 hover:bg-sand-200 border border-sand-300 text-[10px] font-mono font-bold text-charcoal-900 flex items-center gap-1 transition-colors disabled:opacity-40"
-                          title="Ekstrak gambar otomatis jika menempelkan link produk Uniqlo, Zalora, atau link Google"
+                          title="Ekstrak gambar otomatis jika menempelkan link produk Uniqlo, Shopee, atau link Google"
                         >
                           <Search className="w-3 h-3" />
                           <span>{isExtractingImage ? "Mengekstrak..." : "🔍 Ekstrak dari Link Web"}</span>

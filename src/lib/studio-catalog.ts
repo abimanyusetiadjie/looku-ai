@@ -76,7 +76,7 @@ export function getStudioCatalogPool(): Record<"top" | "bottom" | "outer" | "sho
           gender: isPria ? "male" : "female",
           modest: isHijab,
           isHijab: isHijabItem,
-          officialUrl: it.brandUrl || it.shopeeUrl || "https://shopee.co.id",
+          officialUrl: it.shopeeUrl || (it.brandUrl && !it.brandUrl.includes("zalora") ? it.brandUrl : `https://shopee.co.id/search?keyword=${encodeURIComponent(`${it.brand || ""} ${it.name}`.trim())}`),
           note: `Bahan ${it.material || "berpori mikro"} dengan sirkulasi udara optimal di iklim 33°C.`,
         });
       }
@@ -114,7 +114,7 @@ export function getStudioCatalogPool(): Record<"top" | "bottom" | "outer" | "sho
         gender: isMale ? "male" : "female",
         modest: p.suitable_for?.includes("Hijab Daily") || isHijabItem,
         isHijab: isHijabItem,
-        officialUrl: p.product_url,
+        officialUrl: (p.product_url && !p.product_url.includes("zalora") ? p.product_url : `https://shopee.co.id/search?keyword=${encodeURIComponent(`${p.brand} ${p.product_name_original}`.trim())}`),
         note: p.notes,
       });
     }

@@ -445,7 +445,7 @@ export default function OutfitCard({ outfit, onRegenerate, onOpenSavedDrawer, on
                         </div>
                       ) : (
                         <div className="pt-1">
-                          {item.brandUrl ? (
+                          {item.brandUrl && !item.brandUrl.includes("zalora") && !item.brandUrl.includes("shopee.co.id") ? (
                             <div className="space-y-1.5">
                               <a
                                 href={item.brandUrl}
