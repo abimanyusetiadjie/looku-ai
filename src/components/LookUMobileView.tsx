@@ -683,7 +683,7 @@ export default function LookUMobileView({
 
             {/* Kanvas Foto Editorial Living Lookbook (Rasio Terkunci, Auto-Play Track, Micro-Zoom) */}
             <div 
-              onClick={() => handleOpenOutfitDetails(heroOutfit)}
+              onClick={() => router.push("/lookbook")}
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
               onMouseEnter={() => setIsPaused(true)}
@@ -907,7 +907,7 @@ export default function LookUMobileView({
               {TROPICAL_EDIT_LIST.map((item) => (
                 <div
                   key={item.id}
-                  onClick={() => router.push(`/studio?look=${item.studioParam}`)}
+                  onClick={() => router.push("/lookbook")}
                   className="group flex flex-col bg-transparent active:scale-[0.98] transition-transform cursor-pointer select-none"
                 >
                   {/* 1. Foto Rasio Mutlak 4:5 Bleed */}

@@ -291,7 +291,7 @@ export function resolveSmartItemVisual(
   heroImage?: string
 ): SmartVisualResult {
   // STRICT 1:1 RESOLUTION: If item has its own verified product packshot image, ALWAYS use it
-  if (item?.imageUrl && item.imageUrl.trim().length > 0) {
+  if (item?.imageUrl && item.imageUrl.trim().length > 0 && !item.imageUrl.includes("fallback-garment")) {
     return { imageUrl: item.imageUrl };
   }
 

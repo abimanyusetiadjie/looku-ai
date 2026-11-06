@@ -949,7 +949,7 @@ function outfitItemToStudioItem(
     colorHex: item.colorHex || fallback.colorHex,
     price: price,
     priceStr: dupePriceStr,
-    imageUrl: item.imageUrl || visual.imageUrl || fallback.imageUrl,
+    imageUrl: (item.imageUrl && !item.imageUrl.includes("fallback-garment")) ? item.imageUrl : (visual.imageUrl || fallback.imageUrl),
     shopeeQuery: item.shopeeQuery || `${resolvedDupeBrand} ${item.name}`,
     tokopediaQuery: item.tokopediaQuery || `${resolvedDupeBrand} ${item.name}`,
     note: `Kombinasi material ${item.material || "adem"} dengan sirkulasi udara optimal`,

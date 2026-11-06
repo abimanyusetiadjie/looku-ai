@@ -189,7 +189,7 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
           >
             {/* Foto Murni Borderless Tanpa Kotak Ganda ala Gambar 1 */}
             <div 
-              onClick={() => router.push(currentHero.studioHref || `/studio?look=${currentHero.studioParam || currentHero.id}`)}
+              onClick={() => router.push("/lookbook")}
               className="relative w-full max-w-[380px] sm:max-w-[400px] xl:max-w-[420px] aspect-[4/5] overflow-hidden cursor-pointer group bg-[#EFECE6] shadow-xs"
             >
               {/* Horizontal Living Lookbook Track (Auto-slide 4.5s) */}
@@ -310,7 +310,7 @@ export default function HeroSection({ onOpenQuiz }: HeroSectionProps) {
             }
           ].map((item) => (
             <Link
-              href="/studio"
+              href="/lookbook"
               key={item.id}
               className="group flex flex-col bg-transparent cursor-pointer select-none"
             >

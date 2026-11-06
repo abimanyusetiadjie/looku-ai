@@ -56,7 +56,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 99.000",
           "shopeeQuery": "Lozy Hijab Nala Voal Square",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Lozy%20Hijab%20Nala%20Voal%20Square",
-          "imageUrl": "/products/prod_real_16.jpg",
+          "imageUrl": "/parts/part_look_real_h01_outer.jpg",
           "brandUrl": "https://shopee.co.id/lozyhijabofficial",
           "isOfficialBrand": true
         },
@@ -70,7 +70,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 599.000",
           "shopeeQuery": "Uniqlo Kemeja Premium Linen Wanita",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Uniqlo%20Kemeja%20Premium%20Linen%20Wanita",
-          "imageUrl": "/products/prod_real_04.jpg",
+          "imageUrl": "/parts/part_look_real_h01_top.jpg",
           "brandUrl": "https://www.uniqlo.com/id/id/products/E475647-000/00",
           "isOfficialBrand": true
         },
@@ -84,7 +84,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 175.500",
           "shopeeQuery": "JINISO Kulot Highwaist Jeans 778 RELAX",
           "shopeeUrl": "https://shopee.co.id/search?keyword=JINISO%20Kulot%20Highwaist%20Jeans%20778%20RELAX",
-          "imageUrl": "/products/prod_real_34.jpg",
+          "imageUrl": "/parts/part_look_real_h01_bottom.jpg",
           "brandUrl": "https://shopee.co.id/jiniso.id",
           "isOfficialBrand": true
         },
@@ -98,7 +98,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 239.000",
           "shopeeQuery": "Patrobas Equip Low White Canvas",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Patrobas%20Equip%20Low%20White",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/shoe_white_sneakers.jpg",
           "brandUrl": "https://shopee.co.id/patrobasofficial",
           "isOfficialBrand": true
         }
@@ -160,7 +160,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 85.000",
           "shopeeQuery": "Lozy Hijab Theya Voal Square",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Lozy%20Hijab%20Theya%20Voal%20Square",
-          "imageUrl": "/products/prod_real_17.jpg",
+          "imageUrl": "/parts/part_look_real_h02_outer.jpg",
           "brandUrl": "https://shopee.co.id/lozyhijabofficial",
           "isOfficialBrand": true
         },
@@ -174,7 +174,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 349.000",
           "shopeeQuery": "Cottonink Kemeja Wanita Thami",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Cottonink%20Kemeja%20Thami",
-          "imageUrl": "/products/prod_real_11.jpg",
+          "imageUrl": "/parts/part_look_real_h02_top.jpg",
           "brandUrl": "https://shopee.co.id/cottonink",
           "isOfficialBrand": true
         },
@@ -188,7 +188,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 379.000",
           "shopeeQuery": "Thenblank Chino Pants Sand",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Thenblank%20Chino%20Pants%20Sand",
-          "imageUrl": "/products/prod_real_30.jpg",
+          "imageUrl": "/parts/part_look_real_h02_bottom.jpg",
           "brandUrl": "https://shopee.co.id/thenblank",
           "isOfficialBrand": true
         },
@@ -202,7 +202,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 259.000",
           "shopeeQuery": "Patrobas Cloud Slip On Mocca",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Patrobas%20Cloud%20Slip%20On",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/shoe_cream_sneakers.jpg",
           "brandUrl": "https://shopee.co.id/patrobasofficial",
           "isOfficialBrand": true
         }
@@ -264,7 +264,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 295.000",
           "shopeeQuery": "Buttonscarves Voal Square Ice Blue",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Buttonscarves%20Voal%20Square",
-          "imageUrl": "/products/prod_real_20.jpg",
+          "imageUrl": "/parts/part_look_real_h03_outer.jpg",
           "brandUrl": "https://shopee.co.id/buttonscarves",
           "isOfficialBrand": true
         },
@@ -278,7 +278,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 329.000",
           "shopeeQuery": "Thenblank Flowy Outer Powder Blue",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Thenblank%20Outer%20Wanita",
-          "imageUrl": "/products/prod_real_12.jpg",
+          "imageUrl": "/parts/part_look_real_h03_top.jpg",
           "brandUrl": "https://shopee.co.id/thenblank",
           "isOfficialBrand": true
         },
@@ -292,7 +292,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 289.000",
           "shopeeQuery": "Shopatvelvet PT-01 White Wide Pants",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Shopatvelvet%20PT-01%20White%20Wide%20Pants",
-          "imageUrl": "/products/prod_real_35.jpg",
+          "imageUrl": "/parts/part_look_real_h03_bottom.jpg",
           "brandUrl": "https://shopee.co.id/shopatvelvet",
           "isOfficialBrand": true
         },
@@ -306,7 +306,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 299.000",
           "shopeeQuery": "Pointed Mules Loafers Ivory Cream Wanita",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Pointed%20Mules%20Loafers%20Wanita",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/shoe_cream_mules.jpg",
           "brandUrl": "https://shopee.co.id",
           "isOfficialBrand": false
         }
@@ -368,7 +368,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 99.000",
           "shopeeQuery": "Lozy Hijab Haraa Voal Cream",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Lozy%20Hijab%20Haraa%20Voal",
-          "imageUrl": "/products/prod_real_19.jpg",
+          "imageUrl": "/parts/part_look_real_h04_outer.jpg",
           "brandUrl": "https://shopee.co.id/lozyhijabofficial",
           "isOfficialBrand": true
         },
@@ -382,7 +382,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 399.000",
           "shopeeQuery": "Cottonink Atasan Sage Green",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Cottonink%20Sage%20Green",
-          "imageUrl": "/products/prod_real_01.jpg",
+          "imageUrl": "/parts/part_look_real_h04_top.jpg",
           "brandUrl": "https://shopee.co.id/cottonink",
           "isOfficialBrand": true
         },
@@ -396,7 +396,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 289.000",
           "shopeeQuery": "Shopatvelvet PT-01 White Wide Pants",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Shopatvelvet%20PT-01%20White%20Wide%20Pants",
-          "imageUrl": "/products/prod_real_35.jpg",
+          "imageUrl": "/parts/part_look_real_h04_bottom.jpg",
           "brandUrl": "https://shopee.co.id/shopatvelvet",
           "isOfficialBrand": true
         },
@@ -410,7 +410,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 239.000",
           "shopeeQuery": "Patrobas Equip Low Off White",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Patrobas%20Equip%20Low",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/shoe_white_sneakers.jpg",
           "brandUrl": "https://shopee.co.id/patrobasofficial",
           "isOfficialBrand": true
         }
@@ -472,7 +472,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 129.000",
           "shopeeQuery": "Lozy Hijab Ten Shawl Milo Tencel",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Lozy%20Hijab%20Ten%20Shawl",
-          "imageUrl": "/products/prod_real_18.jpg",
+          "imageUrl": "/parts/part_look_real_h05_outer.jpg",
           "brandUrl": "https://shopee.co.id/lozyhijabofficial",
           "isOfficialBrand": true
         },
@@ -486,7 +486,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 349.000",
           "shopeeQuery": "Cottonink Blouse Navy Jemima",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Cottonink%20Blouse%20Jemima",
-          "imageUrl": "/products/prod_real_13.jpg",
+          "imageUrl": "/parts/part_look_real_h05_top.jpg",
           "brandUrl": "https://shopee.co.id/cottonink",
           "isOfficialBrand": true
         },
@@ -500,7 +500,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 379.000",
           "shopeeQuery": "Thenblank Chino Pants Sand",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Thenblank%20Chino%20Pants%20Sand",
-          "imageUrl": "/products/prod_real_30.jpg",
+          "imageUrl": "/parts/part_look_real_h05_bottom.jpg",
           "brandUrl": "https://shopee.co.id/thenblank",
           "isOfficialBrand": true
         },
@@ -514,7 +514,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 319.000",
           "shopeeQuery": "Patrobas Ivan Loafer Dark Brown",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Patrobas%20Ivan%20Loafer",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/shoe_brown_loafers.jpg",
           "brandUrl": "https://shopee.co.id/patrobasofficial",
           "isOfficialBrand": true
         }
@@ -576,7 +576,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 399.000",
           "shopeeQuery": "Uniqlo Kemeja Linen Kerah Terbuka",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Uniqlo%20Kemeja%20Linen%20Kerah%20Terbuka",
-          "imageUrl": "/products/prod_real_06.jpg",
+          "imageUrl": "/parts/part_look_real_w01_top.jpg",
           "brandUrl": "https://www.uniqlo.com/id/id/products/E483883-000/00",
           "isOfficialBrand": true
         },
@@ -590,7 +590,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 379.000",
           "shopeeQuery": "Thenblank Chino Pants Sand",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Thenblank%20Chino%20Pants%20Sand",
-          "imageUrl": "/products/prod_real_30.jpg",
+          "imageUrl": "/parts/part_look_real_w01_bottom.jpg",
           "brandUrl": "https://shopee.co.id/thenblank",
           "isOfficialBrand": true
         },
@@ -604,7 +604,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 219.000",
           "shopeeQuery": "Shopatvelvet Knit Cardigan Cream",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Shopatvelvet%20Cardigan",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/part_look_real_w01_outer.jpg",
           "brandUrl": "https://shopee.co.id/shopatvelvet",
           "isOfficialBrand": true
         },
@@ -618,7 +618,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 279.000",
           "shopeeQuery": "Penny Loafers Wanita Mocca Tan",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Penny%20Loafers%20Wanita",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/shoe_brown_loafers.jpg",
           "brandUrl": "https://shopee.co.id",
           "isOfficialBrand": false
         }
@@ -680,7 +680,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 329.000",
           "shopeeQuery": "Cottonink Nadra Embroidery Shirt",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Cottonink%20Nadra%20Shirt",
-          "imageUrl": "/products/prod_real_07.jpg",
+          "imageUrl": "/parts/part_look_real_w02_top.jpg",
           "brandUrl": "https://shopee.co.id/cottonink",
           "isOfficialBrand": true
         },
@@ -694,7 +694,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 175.500",
           "shopeeQuery": "JINISO Kulot Highwaist Jeans 778 RELAX",
           "shopeeUrl": "https://shopee.co.id/search?keyword=JINISO%20Kulot%20Highwaist%20Jeans%20778%20RELAX",
-          "imageUrl": "/products/prod_real_34.jpg",
+          "imageUrl": "/parts/part_look_real_w02_bottom.jpg",
           "brandUrl": "https://shopee.co.id/jiniso.id",
           "isOfficialBrand": true
         },
@@ -708,7 +708,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 119.000",
           "shopeeQuery": "Totebag Kanvas Estetik Wanita",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Totebag%20Kanvas%20Estetik",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/part_look_real_w02_outer.jpg",
           "brandUrl": "https://shopee.co.id",
           "isOfficialBrand": false
         },
@@ -722,7 +722,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 189.000",
           "shopeeQuery": "Sandal Tali Strappy Nude Slide Wanita",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Sandal%20Strappy%20Wanita",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/shoe_strappy_sandals.jpg",
           "brandUrl": "https://shopee.co.id",
           "isOfficialBrand": false
         }
@@ -784,7 +784,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 299.000",
           "shopeeQuery": "Thenblank Casual Shirt Honey Terracotta",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Thenblank%20Casual%20Shirt",
-          "imageUrl": "/products/prod_real_28.jpg",
+          "imageUrl": "/parts/part_look_real_w03_top.jpg",
           "brandUrl": "https://shopee.co.id/thenblank",
           "isOfficialBrand": true
         },
@@ -798,7 +798,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 289.000",
           "shopeeQuery": "Shopatvelvet PT-01 White Wide Pants",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Shopatvelvet%20PT-01%20White%20Wide%20Pants",
-          "imageUrl": "/products/prod_real_35.jpg",
+          "imageUrl": "/parts/part_look_real_w03_bottom.jpg",
           "brandUrl": "https://shopee.co.id/shopatvelvet",
           "isOfficialBrand": true
         },
@@ -812,7 +812,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 89.000",
           "shopeeQuery": "Topi Pantai Fedora Anyaman Jerami",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Topi%20Pantai%20Anyaman",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/part_look_real_w03_outer.jpg",
           "brandUrl": "https://shopee.co.id",
           "isOfficialBrand": false
         },
@@ -826,7 +826,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 249.000",
           "shopeeQuery": "Espadrilles Sandal Slide Wanita",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Espadrilles%20Sandal%20Wanita",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/shoe_cream_mules.jpg",
           "brandUrl": "https://shopee.co.id",
           "isOfficialBrand": false
         }
@@ -888,7 +888,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 299.000",
           "shopeeQuery": "Cottonink Black Fawnia Oversized Shirt",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Cottonink%20Black%20Fawnia",
-          "imageUrl": "/products/prod_real_14.jpg",
+          "imageUrl": "/parts/part_look_real_w04_top.jpg",
           "brandUrl": "https://shopee.co.id/cottonink",
           "isOfficialBrand": true
         },
@@ -902,7 +902,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 289.000",
           "shopeeQuery": "Shopatvelvet PT-01 White Wide Pants",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Shopatvelvet%20PT-01%20White%20Wide%20Pants",
-          "imageUrl": "/products/prod_real_35.jpg",
+          "imageUrl": "/parts/part_look_real_w04_bottom.jpg",
           "brandUrl": "https://shopee.co.id/shopatvelvet",
           "isOfficialBrand": true
         },
@@ -916,7 +916,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 179.000",
           "shopeeQuery": "Shoulder Bag Hitam Minimalis Wanita",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Shoulder%20Bag%20Hitam%20Wanita",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/part_look_real_w04_outer.jpg",
           "brandUrl": "https://shopee.co.id",
           "isOfficialBrand": false
         },
@@ -930,7 +930,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 349.000",
           "shopeeQuery": "Chelsea Ankle Boots Wanita Hitam",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Chelsea%20Boots%20Wanita",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/shoe_black_boots.jpg",
           "brandUrl": "https://shopee.co.id",
           "isOfficialBrand": false
         }
@@ -992,7 +992,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 279.000",
           "shopeeQuery": "Cottonink Weekend Blouse Off White",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Cottonink%20Weekend%20Blouse",
-          "imageUrl": "/products/prod_real_15.jpg",
+          "imageUrl": "/parts/part_look_real_w05_top.jpg",
           "brandUrl": "https://shopee.co.id/cottonink",
           "isOfficialBrand": true
         },
@@ -1006,7 +1006,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 175.500",
           "shopeeQuery": "JINISO Kulot Highwaist Jeans 778 RELAX",
           "shopeeUrl": "https://shopee.co.id/search?keyword=JINISO%20Kulot%20Highwaist%20Jeans%20778%20RELAX",
-          "imageUrl": "/products/prod_real_34.jpg",
+          "imageUrl": "/parts/part_look_real_w05_bottom.jpg",
           "brandUrl": "https://shopee.co.id/jiniso.id",
           "isOfficialBrand": true
         },
@@ -1020,7 +1020,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 65.000",
           "shopeeQuery": "Ikat Pinggang Vintage Kulit Wanita",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Ikat%20Pinggang%20Vintage%20Wanita",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/part_look_real_w05_outer.jpg",
           "brandUrl": "https://shopee.co.id",
           "isOfficialBrand": false
         },
@@ -1034,7 +1034,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 319.000",
           "shopeeQuery": "Patrobas Ivan Loafer Brown",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Patrobas%20Ivan%20Loafer",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/shoe_brown_loafers.jpg",
           "brandUrl": "https://shopee.co.id/patrobasofficial",
           "isOfficialBrand": true
         }
@@ -1096,7 +1096,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 140.000",
           "shopeeQuery": "Erigo Short Shirt Rayon Lavrenti White",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Erigo%20Short%20Shirt%20Rayon",
-          "imageUrl": "/products/prod_real_26.jpg",
+          "imageUrl": "/parts/part_look_real_p01_top.jpg",
           "brandUrl": "https://shopee.co.id/erigostore",
           "isOfficialBrand": true
         },
@@ -1110,7 +1110,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 379.000",
           "shopeeQuery": "Thenblank Chino Pants Sand",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Thenblank%20Chino%20Pants%20Sand",
-          "imageUrl": "/products/prod_real_30.jpg",
+          "imageUrl": "/parts/part_look_real_p01_bottom.jpg",
           "brandUrl": "https://shopee.co.id/thenblank",
           "isOfficialBrand": true
         },
@@ -1124,7 +1124,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 55.000",
           "shopeeQuery": "Kaos Polos Putih Cotton Combed 30s",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Kaos%20Polos%20Putih%20Cotton%20Combed",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/part_look_real_p01_outer.jpg",
           "brandUrl": "https://shopee.co.id",
           "isOfficialBrand": false
         },
@@ -1138,7 +1138,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 239.000",
           "shopeeQuery": "Patrobas Equip Low White Canvas",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Patrobas%20Equip%20Low%20White",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/shoe_white_sneakers.jpg",
           "brandUrl": "https://shopee.co.id/patrobasofficial",
           "isOfficialBrand": true
         }
@@ -1200,7 +1200,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 379.000",
           "shopeeQuery": "Thenblank Harrington Jacket Charcoal",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Thenblank%20Harrington%20Jacket",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/part_look_real_p02_outer.jpg",
           "brandUrl": "https://shopee.co.id/thenblank",
           "isOfficialBrand": true
         },
@@ -1214,7 +1214,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 75.000",
           "shopeeQuery": "Erigo T-Shirt Cotton Combed Charcoal",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Erigo%20T-Shirt%20Charcoal",
-          "imageUrl": "/products/prod_real_27.jpg",
+          "imageUrl": "/parts/part_look_real_p02_top.jpg",
           "brandUrl": "https://shopee.co.id/erigostore",
           "isOfficialBrand": true
         },
@@ -1228,7 +1228,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 379.000",
           "shopeeQuery": "Thenblank Chino Pants Caramel",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Thenblank%20Chino%20Pants%20Caramel",
-          "imageUrl": "/products/prod_real_30.jpg",
+          "imageUrl": "/parts/part_look_real_p02_bottom.jpg",
           "brandUrl": "https://shopee.co.id/thenblank",
           "isOfficialBrand": true
         },
@@ -1242,7 +1242,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 229.000",
           "shopeeQuery": "Ventela Public Low Black Natural",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Ventela%20Public%20Low%20Black%20Natural",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/shoe_black_sneakers.jpg",
           "brandUrl": "https://shopee.co.id",
           "isOfficialBrand": false
         }
@@ -1304,7 +1304,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 699.000",
           "shopeeQuery": "The Executive Knit Blazer Camel Pria",
           "shopeeUrl": "https://shopee.co.id/search?keyword=The%20Executive%20Knit%20Blazer%20Pria",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/part_look_real_p03_outer.jpg",
           "brandUrl": "https://shopee.co.id/theexecutiveofficial",
           "isOfficialBrand": true
         },
@@ -1318,7 +1318,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 199.000",
           "shopeeQuery": "Uniqlo Kaos Supima Putih Pria",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Uniqlo%20Kaos%20Supima%20Pria",
-          "imageUrl": "/products/prod_real_29.jpg",
+          "imageUrl": "/parts/part_look_real_p03_top.jpg",
           "brandUrl": "https://www.uniqlo.com/id/id",
           "isOfficialBrand": true
         },
@@ -1332,7 +1332,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 379.000",
           "shopeeQuery": "Thenblank Chino Pants Sand",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Thenblank%20Chino%20Pants%20Sand",
-          "imageUrl": "/products/prod_real_30.jpg",
+          "imageUrl": "/parts/part_look_real_p03_bottom.jpg",
           "brandUrl": "https://shopee.co.id/thenblank",
           "isOfficialBrand": true
         },
@@ -1346,7 +1346,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 319.000",
           "shopeeQuery": "Patrobas Ivan Loafer Brown",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Patrobas%20Ivan%20Loafer",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/shoe_brown_loafers.jpg",
           "brandUrl": "https://shopee.co.id/patrobasofficial",
           "isOfficialBrand": true
         }
@@ -1408,7 +1408,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 229.000",
           "shopeeQuery": "Thenblank Cotton Knit Vest Pria",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Thenblank%20Knit%20Vest",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/part_look_real_p04_outer.jpg",
           "brandUrl": "https://shopee.co.id/thenblank",
           "isOfficialBrand": true
         },
@@ -1422,7 +1422,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 399.000",
           "shopeeQuery": "Uniqlo Kemeja Katun Linen Pendek Putih",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Uniqlo%20Kemeja%20Katun%20Linen%20Pendek",
-          "imageUrl": "/products/prod_real_05.jpg",
+          "imageUrl": "/parts/part_look_real_p04_top.jpg",
           "brandUrl": "https://www.uniqlo.com/id/id",
           "isOfficialBrand": true
         },
@@ -1436,7 +1436,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 289.000",
           "shopeeQuery": "Shopatvelvet Black Tailored Trousers",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Shopatvelvet%20Celana%20Panjang%20Hitam",
-          "imageUrl": "/products/prod_real_35.jpg",
+          "imageUrl": "/parts/part_look_real_p04_bottom.jpg",
           "brandUrl": "https://shopee.co.id/shopatvelvet",
           "isOfficialBrand": true
         },
@@ -1450,7 +1450,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 375.000",
           "shopeeQuery": "Brodo Derby Shoes Pria Hitam",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Brodo%20Derby%20Shoes%20Pria",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/shoe_black_derby.jpg",
           "brandUrl": "https://shopee.co.id",
           "isOfficialBrand": false
         }
@@ -1512,7 +1512,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 899.000",
           "shopeeQuery": "The Executive Jas Blazer Pria Navy",
           "shopeeUrl": "https://shopee.co.id/search?keyword=The%20Executive%20Jas%20Pria%20Navy",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/part_look_real_p05_outer.jpg",
           "brandUrl": "https://shopee.co.id/theexecutiveofficial",
           "isOfficialBrand": true
         },
@@ -1526,7 +1526,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 329.000",
           "shopeeQuery": "The Executive Kemeja Putih Polos Pria",
           "shopeeUrl": "https://shopee.co.id/search?keyword=The%20Executive%20Kemeja%20Putih%20Pria",
-          "imageUrl": "/products/prod_real_31.jpg",
+          "imageUrl": "/parts/part_look_real_p05_top.jpg",
           "brandUrl": "https://shopee.co.id/theexecutiveofficial",
           "isOfficialBrand": true
         },
@@ -1540,7 +1540,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 429.000",
           "shopeeQuery": "The Executive Celana Bahan Navy Pria",
           "shopeeUrl": "https://shopee.co.id/search?keyword=The%20Executive%20Celana%20Bahan%20Navy",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/part_look_real_p05_bottom.jpg",
           "brandUrl": "https://shopee.co.id/theexecutiveofficial",
           "isOfficialBrand": true
         },
@@ -1554,7 +1554,7 @@ export const REAL_SIGNATURE_LOOKS_28: TrendingLook[] = [
           "estimatedPrice": "Rp 399.000",
           "shopeeQuery": "Brodo Oxford Formal Pria Hitam",
           "shopeeUrl": "https://shopee.co.id/search?keyword=Brodo%20Oxford%20Formal%20Pria",
-          "imageUrl": "/fallback-garment.svg",
+          "imageUrl": "/parts/shoe_black_derby.jpg",
           "brandUrl": "https://shopee.co.id",
           "isOfficialBrand": false
         }

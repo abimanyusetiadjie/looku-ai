@@ -459,29 +459,24 @@ export default function FloatingChatbot() {
                 <span className="absolute top-1 right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-[#181A18] animate-pulse" />
               </motion.button>
 
-              {/* Desktop Launcher (>= 640px) */}
+              {/* Desktop Launcher (>= 640px) - Minimalist Sleek Pill */}
               <motion.button
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0, opacity: 0 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: 1.04, y: -1 }}
+                whileTap={{ scale: 0.96 }}
                 onClick={() => setIsOpen(true)}
-                aria-label="Konsultasi Look.u Concierge"
-                className="hidden sm:flex h-12 px-5 bg-[#181A18] hover:bg-terracotta-600 text-[#FAF8F5] shadow-2xl items-center gap-3 transition-colors border border-white/20 rounded-none group"
+                aria-label="Konsultasi AI Stylist"
+                className="hidden sm:flex h-10 px-4 bg-[#181A18] hover:bg-neutral-800 text-[#FAF8F5] shadow-lg hover:shadow-xl items-center gap-2.5 transition-all border border-white/20 rounded-full group cursor-pointer backdrop-blur-sm"
               >
-                <div className="relative">
-                  <Sparkles className="w-4 h-4 text-cream-200" />
-                  <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse ring-1 ring-[#181A18]" />
+                <div className="relative flex items-center justify-center">
+                  <Sparkles className="w-3.5 h-3.5 text-cream-200 group-hover:rotate-12 transition-transform duration-300" />
+                  <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse ring-1 ring-[#181A18]" />
                 </div>
-                <div className="text-left">
-                  <span className="text-xs font-bold uppercase tracking-[0.15em] block leading-none">
-                    Look<span className="text-terracotta-400">.</span>u Concierge
-                  </span>
-                  <span className="text-[9px] font-mono text-white/60 uppercase tracking-widest mt-0.5 block">
-                    AI Stylist &amp; Vision Scanner
-                  </span>
-                </div>
+                <span className="text-xs font-semibold tracking-wide text-neutral-100">
+                  AI Stylist
+                </span>
               </motion.button>
             </>
           )}
