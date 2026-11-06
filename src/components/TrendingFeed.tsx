@@ -481,16 +481,236 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
   return (
     <section className="w-full bg-[#FAF8F5] min-h-screen pb-24">
       {/* ============================================================ */}
-      {/* STICKY SEARCH & FILTER HEADER (INSTAGRAM EXPLORE STYLE)      */}
+      {/* 1. DESKTOP EDITORIAL HERO & CONTROLS (>= 768px / md:block)   */}
       {/* ============================================================ */}
-      <div className="sticky top-0 md:top-20 z-30 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#181A18]/10 pt-[max(0.65rem,env(safe-area-inset-top))] pb-2.5 px-3.5 sm:px-8 shadow-2xs">
+      <div className="hidden md:block w-full border-b border-[#181A18]/10 bg-[#FAF8F5]">
+        <div className="max-w-[1400px] mx-auto px-8 pt-8 pb-6 flex flex-col gap-6">
+          
+          {/* Header Atas: Judul Editorial (Kiri) & Luxury Search Bar (Kanan) */}
+          <div className="flex items-start justify-between gap-8">
+            <div>
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
+                <span className="text-[10px] font-mono font-bold uppercase tracking-[0.22em] text-[#8C5A3C]">
+                  Curated Archive · {allFeedLooks.length} Formulas
+                </span>
+              </div>
+              <h1 className="font-serif text-3xl lg:text-4xl font-normal text-[#181A18] tracking-tight">
+                The Lookbook Archive
+              </h1>
+              <p className="font-sans text-xs lg:text-sm text-[#181A18]/65 mt-1.5 max-w-xl leading-relaxed">
+                Eksplorasi paduan busana adem di iklim tropis 33°C, ramah modest &amp; hijab, disesuaikan dengan proporsi tubuh dan rona kulit Nusantara.
+              </p>
+            </div>
+
+            {/* Kanan: Search Input + Visual Camera + Bookmark Lemari */}
+            <div className="flex items-center gap-3 shrink-0 pt-2">
+              <div className="relative flex items-center">
+                <Search className="absolute left-3.5 w-4 h-4 text-[#181A18]/45 pointer-events-none" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    setVisibleCount(PAGE_SIZE);
+                  }}
+                  placeholder="Cari gaya, linen, blazer, kafe..."
+                  className="w-72 lg:w-80 h-10 pl-10 pr-16 bg-[#EFECE6] hover:bg-[#EAE4DC] focus:bg-white text-xs text-[#181A18] placeholder:text-[#181A18]/40 rounded-full border border-black/10 focus:border-black/30 transition-all outline-none shadow-2xs"
+                />
+                <div className="absolute right-2 flex items-center gap-1">
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchQuery("")}
+                      className="w-5 h-5 flex items-center justify-center rounded-full bg-[#181A18]/10 text-[#181A18] hover:bg-[#181A18]/25 transition-colors"
+                      title="Bersihkan"
+                    >
+                      <X className="w-3 h-3" />
+                    </button>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => setIsVisualSearchOpen(true)}
+                    title="Visual Search AI: Cari OOTD dari foto kamera atau galeri"
+                    className="w-7 h-7 rounded-full bg-neutral-900 text-white hover:bg-neutral-800 flex items-center justify-center transition-all shadow-xs active:scale-95"
+                  >
+                    <Camera className="w-3.5 h-3.5 text-cream-200" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Bookmark Lemari */}
+              <Link
+                href="/profile?tab=wardrobe"
+                title="Buka Lemari Koleksi"
+                className="relative w-10 h-10 rounded-full bg-[#EFECE6] hover:bg-[#EAE4DC] flex items-center justify-center text-[#181A18] transition-colors border border-black/5 shrink-0 shadow-2xs"
+              >
+                <Bookmark className="w-4 h-4 stroke-[1.8]" />
+                {savedCount > 0 && (
+                  <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] bg-[#8C5A3C] text-white text-[10px] font-mono font-bold rounded-full flex items-center justify-center px-1 border-2 border-[#FAF8F5]">
+                    {savedCount}
+                  </span>
+                )}
+              </Link>
+            </div>
+          </div>
+
+          {/* Baris 2: Minimalist Underline Tabs (Gender & Modest Hierarchy) */}
+          <div className="flex items-center justify-between border-b border-[#181A18]/10 pt-2 pb-0">
+            <div className="flex items-center gap-8 -mb-px">
+              {dynamicCategoryTabs.map((tab) => {
+                const isActive = activeTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => handleTabClick(tab.id as TabType)}
+                    className={`pb-3 font-sans text-xs font-semibold uppercase tracking-widest transition-all relative flex items-center gap-2 cursor-pointer ${
+                      isActive
+                        ? "text-[#181A18]"
+                        : "text-[#181A18]/45 hover:text-[#181A18]/80"
+                    }`}
+                  >
+                    <span>{tab.label}</span>
+                    <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${
+                      isActive ? "bg-[#181A18] text-[#FAF8F5]" : "bg-[#EFECE6] text-[#181A18]/60"
+                    }`}>
+                      {tab.count}
+                    </span>
+                    {isActive && (
+                      <motion.div
+                        layoutId="desktopTabIndicator"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#181A18]"
+                      />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Info Counter Hasil */}
+            <div className="text-[11px] text-[#181A18]/50 font-sans pb-3">
+              Menampilkan <strong>{sortedLooks.length}</strong> hasil
+            </div>
+          </div>
+
+          {/* Baris 3: Dropdown Filter Terstruktur & Sorters Bar */}
+          <div className="flex items-center justify-between gap-4 pt-1">
+            <div className="flex flex-wrap items-center gap-2.5">
+              
+              {/* Dropdown 1: Iklim & Cuaca */}
+              <div className="relative">
+                <select
+                  value={climateFilter}
+                  onChange={(e) => handleClimateFilter(e.target.value as ClimateFilter)}
+                  className={`h-9 pl-3.5 pr-8 rounded-xl text-xs font-medium border appearance-none transition-all cursor-pointer outline-none ${
+                    climateFilter !== "all"
+                      ? "bg-[#181A18] text-white border-[#181A18] shadow-xs"
+                      : "bg-white text-[#181A18] border-[#181A18]/20 hover:border-[#181A18]"
+                  }`}
+                >
+                  <option value="all">🌡️ Semua Iklim</option>
+                  <option value="hot">🔥 Panas Tropis (&gt;30°C)</option>
+                  <option value="ac">❄️ Dingin Ruang AC (20–24°C)</option>
+                  <option value="rainy">🌧️ Musim Hujan (&lt;26°C)</option>
+                </select>
+                <ChevronDown className={`absolute right-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none ${
+                  climateFilter !== "all" ? "text-white" : "text-[#181A18]/50"
+                }`} />
+              </div>
+
+              {/* Dropdown 2: Acara & Aktivitas */}
+              <div className="relative">
+                <select
+                  value={occasionFilter}
+                  onChange={(e) => handleOccasionFilter(e.target.value as OccasionFilter)}
+                  className={`h-9 pl-3.5 pr-8 rounded-xl text-xs font-medium border appearance-none transition-all cursor-pointer outline-none ${
+                    occasionFilter !== "all"
+                      ? "bg-[#181A18] text-white border-[#181A18] shadow-xs"
+                      : "bg-white text-[#181A18] border-[#181A18]/20 hover:border-[#181A18]"
+                  }`}
+                >
+                  <option value="all">📍 Semua Suasana &amp; Acara</option>
+                  <option value="office">🏢 Smart SCBD / Kantor</option>
+                  <option value="campus">🎓 Kuliah Santai</option>
+                  <option value="weekend">☕ Kafe Weekend &amp; Brunch</option>
+                  <option value="party">✨ Kondangan Pesta</option>
+                  <option value="resort">🌴 Resort Linen &amp; Liburan</option>
+                  <option value="streetwear">🛹 Blok M Streetwear</option>
+                </select>
+                <ChevronDown className={`absolute right-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none ${
+                  occasionFilter !== "all" ? "text-white" : "text-[#181A18]/50"
+                }`} />
+              </div>
+
+              {/* Dropdown 3: Tinggi Model */}
+              <div className="relative">
+                <select
+                  value={heightFilter}
+                  onChange={(e) => {
+                    setHeightFilter(e.target.value as HeightFilterRange);
+                    setVisibleCount(PAGE_SIZE);
+                  }}
+                  className={`h-9 pl-3.5 pr-8 rounded-xl text-xs font-medium border appearance-none transition-all cursor-pointer outline-none ${
+                    heightFilter !== "all"
+                      ? "bg-[#181A18] text-white border-[#181A18] shadow-xs"
+                      : "bg-white text-[#181A18] border-[#181A18]/20 hover:border-[#181A18]"
+                  }`}
+                >
+                  <option value="all">📏 Semua Tinggi Model</option>
+                  <option value="petite">Petite (&lt; 158 cm)</option>
+                  <option value="standard">Standard (158–165 cm)</option>
+                  <option value="tall">Tall (&gt; 165 cm)</option>
+                </select>
+                <ChevronDown className={`absolute right-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none ${
+                  heightFilter !== "all" ? "text-white" : "text-[#181A18]/50"
+                }`} />
+              </div>
+
+              {/* Reset Filter Button */}
+              {isFilterActive && (
+                <button
+                  type="button"
+                  onClick={resetAllFilters}
+                  className="h-9 px-3 rounded-xl border border-rose-300 bg-rose-50/70 hover:bg-rose-100 text-rose-700 text-xs font-medium inline-flex items-center gap-1.5 transition-colors"
+                >
+                  <RotateCcw className="w-3.5 h-3.5" />
+                  <span>Reset Filter ({activeFilterCount})</span>
+                </button>
+              )}
+            </div>
+
+            {/* Kanan: Urutkan (Sorting) */}
+            <div className="flex items-center gap-2 shrink-0">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-[#181A18]/50">Urutkan:</span>
+              <div className="relative">
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value as SortOption)}
+                  className="h-9 pl-3.5 pr-8 rounded-xl text-xs font-medium bg-white border border-[#181A18]/20 hover:border-[#181A18] text-[#181A18] appearance-none cursor-pointer outline-none transition-colors"
+                >
+                  <option value="trending">🔥 Terpopuler (Likes)</option>
+                  <option value="price_asc">🏷️ Harga: Terendah</option>
+                  <option value="price_desc">💎 Harga: Tertinggi</option>
+                </select>
+                <ChevronDown className="absolute right-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#181A18]/50 pointer-events-none" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* ============================================================ */}
+      {/* 2. MOBILE STICKY SEARCH & FILTER HEADER (< 768px / md:hidden) */}
+      {/* ============================================================ */}
+      <div className="block md:hidden sticky top-0 z-30 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#181A18]/10 pt-[max(0.65rem,env(safe-area-inset-top))] pb-2.5 px-3.5 shadow-2xs">
         <div className="max-w-[1400px] mx-auto flex flex-col gap-2.5">
           
-          {/* Baris 1: Search Pill Input + Bookmark Icon (Persis Gambar Referensi) */}
-          <div className="flex items-center gap-2.5 sm:gap-3.5">
-            {/* Search Capsule Input with Camera Visual Search (StyleHint) */}
+          {/* Baris 1: Search Pill Input + Bookmark Icon */}
+          <div className="flex items-center gap-2.5">
             <div className="relative flex-1 flex items-center">
-              <Search className="absolute left-4 w-4 h-4 sm:w-5 sm:h-5 text-[#181A18]/45 pointer-events-none" />
+              <Search className="absolute left-4 w-4 h-4 text-[#181A18]/45 pointer-events-none" />
               <input
                 type="text"
                 value={searchQuery}
@@ -499,7 +719,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                   setVisibleCount(PAGE_SIZE);
                 }}
                 placeholder="Cari gaya, linen, blazer, kafe..."
-                className="w-full h-11 sm:h-12 pl-11 sm:pl-12 pr-20 bg-[#EFECE6] hover:bg-[#EAE4DC] focus:bg-white text-[#181A18] placeholder:text-[#181A18]/40 text-sm font-sans rounded-full border border-transparent focus:border-[#181A18]/30 transition-all outline-none"
+                className="w-full h-11 pl-11 pr-20 bg-[#EFECE6] hover:bg-[#EAE4DC] focus:bg-white text-[#181A18] placeholder:text-[#181A18]/40 text-sm font-sans rounded-full border border-transparent focus:border-[#181A18]/30 transition-all outline-none"
               />
               <div className="absolute right-2.5 flex items-center gap-1.5">
                 {searchQuery && (
@@ -517,18 +737,17 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                   onClick={() => setIsVisualSearchOpen(true)}
                   aria-label="Visual Search dari Foto"
                   title="Visual Search AI: Cari OOTD dari foto kamera atau screenshot galeri"
-                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-neutral-900 text-white hover:bg-neutral-800 flex items-center justify-center transition-all shadow-xs active:scale-95 shrink-0"
+                  className="w-7 h-7 rounded-full bg-neutral-900 text-white hover:bg-neutral-800 flex items-center justify-center transition-all shadow-xs active:scale-95 shrink-0"
                 >
-                  <Camera className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  <Camera className="w-3.5 h-3.5 text-cream-200" />
                 </button>
               </div>
             </div>
 
-            {/* Bookmark Icon Button on Right (Persis di foto) */}
             <Link
               href="/profile?tab=wardrobe"
               title="Buka Lemari Koleksi"
-              className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#EFECE6] hover:bg-[#EAE4DC] flex items-center justify-center text-[#181A18] transition-colors shrink-0"
+              className="relative w-11 h-11 rounded-full bg-[#EFECE6] hover:bg-[#EAE4DC] flex items-center justify-center text-[#181A18] transition-colors shrink-0"
             >
               <Bookmark className="w-5 h-5 stroke-[1.8]" />
               {savedCount > 0 && (
@@ -541,16 +760,15 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
 
           {/* Baris 2: Filter Sliders Button + Horizontal Scrolling Quick Chips */}
           <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5 select-none">
-            {/* 1. Filter Sliders Icon Button (Item pertama persis di foto) */}
             <button
               type="button"
               onClick={() => setIsFilterModalOpen(true)}
-              className={`relative shrink-0 h-9 sm:h-10 px-3.5 rounded-full border flex items-center justify-center gap-1.5 transition-all ${
+              className={`relative shrink-0 h-9 px-3.5 rounded-full border flex items-center justify-center gap-1.5 transition-all ${
                 activeFilterCount > 0
                   ? "bg-[#181A18] text-white border-[#181A18] shadow-xs"
                   : "bg-white text-[#181A18] border-[#181A18]/20 hover:border-[#181A18]"
               }`}
-              title="Filter Terpadu (Suhu, Gender, Acara, Tinggi, Urutan)"
+              title="Filter Terpadu"
             >
               <SlidersHorizontal className="w-4 h-4" />
               {activeFilterCount > 0 && (
@@ -560,7 +778,6 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
               )}
             </button>
 
-            {/* 2. Scrollable Rounded Pill Chips */}
             {QUICK_CHIPS.map((chip) => {
               const isSelected = activeQuickChip === chip.id && !searchQuery.trim();
               return (
@@ -568,7 +785,7 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
                   key={chip.id}
                   type="button"
                   onClick={() => handleSelectQuickChip(chip.id)}
-                  className={`shrink-0 h-9 sm:h-10 px-4 rounded-full text-xs font-semibold whitespace-nowrap transition-all border flex items-center gap-1.5 ${
+                  className={`shrink-0 h-9 px-3.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all border flex items-center gap-1.5 ${
                     isSelected
                       ? "bg-[#181A18] text-[#FAF8F5] border-[#181A18] shadow-xs"
                       : "bg-white text-[#181A18]/80 border-[#181A18]/15 hover:border-[#181A18] hover:text-[#181A18]"
@@ -584,13 +801,13 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
           <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 select-none text-[10px] font-mono border-t border-[#181A18]/5">
             <span className="text-[10px] uppercase font-bold tracking-wider text-neutral-400 shrink-0 mr-1 flex items-center gap-1">
               <Ruler className="w-3 h-3 text-neutral-400" />
-              <span>TINGGI MODEL:</span>
+              <span>TINGGI:</span>
             </span>
             {[
-              { id: "all", label: "SEMUA TINGGI" },
-              { id: "petite", label: "PETITE (< 158 CM)" },
-              { id: "standard", label: "STANDARD (158–165 CM)" },
-              { id: "tall", label: "TALL (> 165 CM)" },
+              { id: "all", label: "SEMUA" },
+              { id: "petite", label: "PETITE (<158)" },
+              { id: "standard", label: "STANDARD (158–165)" },
+              { id: "tall", label: "TALL (>165)" },
             ].map((h) => {
               const isSelected = heightFilter === h.id;
               return (
@@ -613,12 +830,11 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
             })}
           </div>
 
-          {/* Baris 3: Status Pencarian & Counter Ringkas */}
+          {/* Status Pencarian & Counter Ringkas Mobile */}
           {(isFilterActive || searchQuery.trim()) && (
             <div className="flex items-center justify-between text-[11px] text-[#181A18]/70 pt-0.5 px-1 border-t border-[#181A18]/5">
               <span>
-                Menampilkan <strong className="text-[#181A18]">{sortedLooks.length}</strong> dari {allFeedLooks.length} formula OOTD
-                {searchQuery.trim() && <span> untuk &ldquo;{searchQuery}&rdquo;</span>}
+                Menampilkan <strong className="text-[#181A18]">{sortedLooks.length}</strong> formula
               </span>
               <button
                 type="button"
@@ -634,23 +850,9 @@ export default function TrendingFeed({ isStandalone, onSelectLook }: TrendingFee
       </div>
 
       {/* ============================================================ */}
-      {/* 4:5 DISIPLIN GRID: 2-Col Mobile / 4-Col Desktop               */}
+      {/* 3. 4:5 DISIPLIN GRID: 2-Col Mobile / 4-Col Desktop            */}
       {/* ============================================================ */}
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 mt-5">
-        {/* Status Verifikasi Katalog & Harga Perkiraan */}
-        <div className="mb-5 px-3.5 py-2.5 rounded-xl bg-white border border-[#181A18]/10 flex flex-wrap items-center justify-between gap-2 shadow-2xs">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-mono font-bold uppercase tracking-wider">
-              <Check className="w-3 h-3" /> Verified Catalog ({allFeedLooks.length} Look Terbaik)
-            </span>
-            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200 text-[10px] font-mono font-semibold uppercase tracking-wider">
-              Data sedang diverifikasi berkala
-            </span>
-          </div>
-          <span className="text-[11px] text-[#181A18]/60 font-sans">
-            Hanya menampilkan produk terverifikasi (`verified = true`) · Harga bertanda <strong>Perkiraan</strong> mengikuti rentang pasar resmi
-          </span>
-        </div>
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 pt-5 sm:pt-6">
         <div className="grid grid-cols-2 gap-x-2.5 gap-y-6 sm:gap-x-4 lg:grid-cols-4 lg:gap-x-6 lg:gap-y-10">
           {isLoading ? (
             /* Skeleton Loading State */
