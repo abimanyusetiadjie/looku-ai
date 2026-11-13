@@ -16,8 +16,10 @@ import {
   ChevronRight,
   Check,
   Eye,
+  Camera,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import VirtualTryOnModal from "./VirtualTryOnModal";
 import { OOTDRecommendation, OutfitItem } from "@/lib/types";
 import { getStudioCatalogPool, StudioCatalogItem } from "@/lib/studio-catalog";
 import { PRESET_OOTD_COLLECTION, resolveLookForStudio } from "@/lib/presets";
@@ -1068,6 +1070,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
   });
 
   const [isDetailsDrawerOpen, setIsDetailsDrawerOpen] = useState(false);
+  const [isVirtualTryOnOpen, setIsVirtualTryOnOpen] = useState(false);
   const [feedbackToast, setFeedbackToast] = useState<string | null>(null);
   const [isShuffling, setIsShuffling] = useState(false);
   const [canvasMode, setCanvasMode] = useState<"editorial" | "modular">("editorial");
@@ -1846,18 +1849,28 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                   <span className="px-2.5 py-1 bg-white/90 backdrop-blur-md text-neutral-900 text-[10px] font-mono uppercase tracking-[0.14em] font-medium rounded-full shadow-2xs">
                     {customLookTag || currentVibeObj.badge}
                   </span>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setCustomHeroImage(null);
-                      setHeroImageIndex((prev) => prev + 1);
-                      triggerToast("Visual gaya diperbarui");
-                    }}
-                    className="pointer-events-auto px-2.5 py-1 bg-white/90 backdrop-blur-md text-neutral-900 hover:bg-neutral-900 hover:text-white text-[10px] font-medium rounded-full shadow-2xs flex items-center gap-1 transition-all"
-                  >
-                    <RotateCw className="w-2.5 h-2.5" />
-                    <span>Foto Lain</span>
-                  </button>
+                  <div className="flex items-center gap-1.5 pointer-events-auto">
+                    <button
+                      type="button"
+                      onClick={() => setIsVirtualTryOnOpen(true)}
+                      className="px-2.5 py-1 bg-neutral-900/95 hover:bg-terracotta-600 text-white text-[10px] font-semibold rounded-full shadow-md flex items-center gap-1 transition-all"
+                    >
+                      <Camera className="w-2.5 h-2.5" />
+                      <span>Virtual Try-On</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setCustomHeroImage(null);
+                        setHeroImageIndex((prev) => prev + 1);
+                        triggerToast("Visual gaya diperbarui");
+                      }}
+                      className="px-2.5 py-1 bg-white/90 backdrop-blur-md text-neutral-900 hover:bg-neutral-900 hover:text-white text-[10px] font-medium rounded-full shadow-2xs flex items-center gap-1 transition-all"
+                    >
+                      <RotateCw className="w-2.5 h-2.5" />
+                      <span>Foto Lain</span>
+                    </button>
+                  </div>
                 </div>
 
                 {/* SHOPPABLE HOTSPOT PINS (4 TITIK INTERAKTIF) */}
@@ -2311,18 +2324,28 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                   <span className="px-3 py-1 bg-white/95 backdrop-blur-md text-neutral-900 text-[10px] font-mono font-medium uppercase tracking-[0.16em] rounded-full shadow-2xs">
                     {customLookTag || currentVibeObj.badge}
                   </span>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setCustomHeroImage(null);
-                      setHeroImageIndex((prev) => prev + 1);
-                      triggerToast("Visual gaya diperbarui");
-                    }}
-                    className="px-3 py-1 bg-white/95 backdrop-blur-md hover:bg-neutral-900 hover:text-white text-neutral-800 text-[10px] font-medium rounded-full shadow-2xs flex items-center gap-1.5 transition-colors"
-                  >
-                    <RotateCw className="w-3 h-3" />
-                    <span>Ganti Foto</span>
-                  </button>
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => setIsVirtualTryOnOpen(true)}
+                      className="px-3 py-1 bg-neutral-900 hover:bg-terracotta-600 text-white text-[10px] font-semibold rounded-full shadow-md flex items-center gap-1.5 transition-colors"
+                    >
+                      <Camera className="w-3 h-3" />
+                      <span>Virtual Try-On</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setCustomHeroImage(null);
+                        setHeroImageIndex((prev) => prev + 1);
+                        triggerToast("Visual gaya diperbarui");
+                      }}
+                      className="px-3 py-1 bg-white/95 backdrop-blur-md hover:bg-neutral-900 hover:text-white text-neutral-800 text-[10px] font-medium rounded-full shadow-2xs flex items-center gap-1.5 transition-colors"
+                    >
+                      <RotateCw className="w-3 h-3" />
+                      <span>Ganti Foto</span>
+                    </button>
+                  </div>
                 </div>
 
                 {/* SHOPPABLE HOTSPOT PINS DI DESKTOP */}
@@ -2436,7 +2459,17 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
               </div>
 
               {/* Action Buttons Desktop */}
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setIsVirtualTryOnOpen(true)}
+                  className="h-11 px-4 bg-terracotta-600 hover:bg-terracotta-700 active:scale-[0.99] text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-xs"
+                  title="Coba setelan ini dengan kamera / foto Anda"
+                >
+                  <Camera className="w-3.5 h-3.5" />
+                  <span>Try-On</span>
+                </button>
+
                 <button
                   type="button"
                   onClick={handleShuffleUnlocked}
@@ -2450,7 +2483,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                 <button
                   type="button"
                   onClick={handleSaveToWardrobe}
-                  className="h-11 px-4 bg-white border border-neutral-200 hover:border-neutral-400 hover:bg-neutral-50 active:scale-[0.99] text-neutral-800 text-xs font-medium rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-2xs"
+                  className="h-11 px-3.5 bg-white border border-neutral-200 hover:border-neutral-400 hover:bg-neutral-50 active:scale-[0.99] text-neutral-800 text-xs font-medium rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-2xs"
                   title="Simpan ke Lemari"
                 >
                   <Bookmark className="w-3.5 h-3.5" />
@@ -2460,7 +2493,7 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                 <button
                   type="button"
                   onClick={() => setIsDetailsDrawerOpen(true)}
-                  className="h-11 px-4 bg-neutral-100 hover:bg-neutral-200 active:scale-[0.99] text-neutral-900 text-xs font-medium rounded-xl flex items-center justify-center gap-1.5 transition-all"
+                  className="h-11 px-3.5 bg-neutral-100 hover:bg-neutral-200 active:scale-[0.99] text-neutral-900 text-xs font-medium rounded-xl flex items-center justify-center gap-1.5 transition-all"
                 >
                   <ShoppingBag className="w-3.5 h-3.5" />
                   <span>Belanja ({slotEntries.length})</span>
@@ -2813,6 +2846,18 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
           </div>
         )}
       </AnimatePresence>
+
+      {/* ===================================================================== */}
+      {/* 4. MODAL VIRTUAL TRY-ON (HYBRID GEMINI API + FRAMING GUIDE + 3X/HARI) */}
+      {/* ===================================================================== */}
+      <VirtualTryOnModal
+        isOpen={isVirtualTryOnOpen}
+        onClose={() => setIsVirtualTryOnOpen(false)}
+        heroImage={activeHeroImage}
+        lookTitle={customLookTitle || currentVibeObj.label}
+        genderMode={genderMode}
+        items={slotEntries.map((s) => s.item)}
+      />
     </div>
   );
 }
