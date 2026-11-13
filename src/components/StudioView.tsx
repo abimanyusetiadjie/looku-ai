@@ -1166,11 +1166,14 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
       }
     }
 
-    // 1. Prioritas Utama: URL param look
+    // 1. Prioritas Utama: URL param look & tryon trigger
     let targetId = initialLookId;
-    if (!targetId && typeof window !== "undefined") {
+    if (typeof window !== "undefined") {
       const p = new URLSearchParams(window.location.search);
-      targetId = p.get("look");
+      if (!targetId) targetId = p.get("look");
+      if (p.get("tryon") === "true") {
+        setIsVirtualTryOnOpen(true);
+      }
     }
 
     if (targetId) {
@@ -1816,23 +1819,33 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                   </div>
 
                   {/* Modular Canvas Quick Bar */}
-                  <div className="pt-2 flex items-center justify-between text-xs">
+                  <div className="pt-2 flex flex-wrap items-center justify-between gap-2 text-xs">
                     <button
                       type="button"
-                      onClick={handleShuffleUnlocked}
-                      className="px-3 py-1.5 bg-white border border-sand-300 hover:border-charcoal-900 rounded-lg font-medium text-charcoal-800 flex items-center gap-1.5 shadow-2xs transition-all"
+                      onClick={() => setIsVirtualTryOnOpen(true)}
+                      className="px-3 py-2 bg-terracotta-600 hover:bg-terracotta-700 text-white rounded-lg font-semibold flex items-center gap-1.5 shadow-2xs transition-all"
                     >
-                      <RotateCw className="w-3 h-3" />
-                      <span>Acak Slot Terbuka</span>
+                      <Camera className="w-3.5 h-3.5" />
+                      <span>Try-On Hasil Padu-Padan</span>
                     </button>
-                    <button
-                      type="button"
-                      onClick={handleSaveToWardrobe}
-                      className="px-3.5 py-1.5 bg-charcoal-900 hover:bg-black text-white rounded-lg font-semibold flex items-center gap-1.5 shadow-2xs transition-all"
-                    >
-                      <Bookmark className="w-3 h-3" />
-                      <span>Simpan Setelan</span>
-                    </button>
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        type="button"
+                        onClick={handleShuffleUnlocked}
+                        className="px-2.5 py-2 bg-white border border-sand-300 hover:border-charcoal-900 rounded-lg font-medium text-charcoal-800 flex items-center gap-1 shadow-2xs transition-all"
+                      >
+                        <RotateCw className="w-3 h-3" />
+                        <span>Acak</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={handleSaveToWardrobe}
+                        className="px-3 py-2 bg-charcoal-900 hover:bg-black text-white rounded-lg font-semibold flex items-center gap-1 shadow-2xs transition-all"
+                      >
+                        <Bookmark className="w-3 h-3" />
+                        <span>Simpan</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               ) : (
@@ -1979,6 +1992,31 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
                     {currentVibeObj.tagline}
                   </p>
                 )}
+              </div>
+
+              {/* POINT 3.5: PROMINENT MOBILE VIRTUAL TRY-ON ACTION CARD */}
+              <div className="mt-2.5 p-3.5 bg-gradient-to-r from-[#FAF8F5] via-sand-50 to-[#F5EFE6] border border-sand-300 rounded-xl flex items-center justify-between gap-3 shadow-2xs">
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-10 h-10 rounded-xl bg-charcoal-900 text-white flex items-center justify-center shrink-0 shadow-xs">
+                    <Camera className="w-5 h-5 text-amber-200" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[9px] font-mono font-bold uppercase text-terracotta-600">FITUR KAMERA AI</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    </div>
+                    <h4 className="text-xs font-bold text-neutral-900 truncate">Coba Setelan Ini di Tubuhmu</h4>
+                    <p className="text-[10px] text-neutral-500 truncate">Kamera HP atau upload foto galeri</p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setIsVirtualTryOnOpen(true)}
+                  className="px-3.5 py-2.5 bg-terracotta-600 hover:bg-terracotta-700 active:scale-95 text-white text-xs font-semibold rounded-xl shadow-xs shrink-0 flex items-center gap-1.5 transition-all"
+                >
+                  <Camera className="w-3.5 h-3.5" />
+                  <span>Try-On ↗</span>
+                </button>
               </div>
             </div>
 
@@ -2165,36 +2203,46 @@ export default function StudioView({ initialLookId, onSaveOutfit }: StudioViewPr
           </div>
         )}
 
-        {/* DOCKED BOTTOM ACTION BAR (CLEAN STYLEHINT) */}
-        <div className="fixed bottom-[60px] left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-neutral-200/80 px-4 py-2.5 max-w-md mx-auto">
-          <div className="flex items-center gap-2">
+        {/* DOCKED BOTTOM ACTION BAR (CLEAN STYLEHINT MOBILE WITH PROMINENT TRY-ON) */}
+        <div className="fixed bottom-[60px] left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-neutral-200/80 px-3 py-2 max-w-md mx-auto">
+          <div className="flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => setIsVirtualTryOnOpen(true)}
+              className="h-11 px-3.5 bg-terracotta-600 hover:bg-terracotta-700 active:scale-[0.98] text-white text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 transition-all shadow-xs shrink-0"
+              title="Coba di Kamera (Virtual Try-On)"
+            >
+              <Camera className="w-3.5 h-3.5" />
+              <span>Try-On</span>
+            </button>
+
             <button
               type="button"
               onClick={handleShuffleUnlocked}
               disabled={isShuffling}
-              className="flex-1 h-11 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium rounded-lg flex items-center justify-center gap-2 active:scale-[0.99] transition-all shadow-xs"
+              className="flex-1 h-11 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium rounded-lg flex items-center justify-center gap-1.5 active:scale-[0.99] transition-all shadow-xs"
             >
               <RotateCw className={`w-3.5 h-3.5 ${isShuffling ? "animate-spin" : ""}`} />
-              <span>Acak Kombinasi</span>
+              <span className="truncate">Acak</span>
             </button>
 
             <button
               type="button"
               onClick={handleSaveToWardrobe}
-              className="h-11 px-4 bg-white border border-neutral-200 text-neutral-800 hover:border-neutral-400 text-xs font-medium rounded-lg flex items-center justify-center gap-1.5 transition-colors"
+              className="h-11 px-3 bg-white border border-neutral-200 text-neutral-800 hover:border-neutral-400 text-xs font-medium rounded-lg flex items-center justify-center gap-1 transition-colors shrink-0"
               title="Simpan ke Lemari"
             >
               <Bookmark className="w-3.5 h-3.5" />
-              <span>Simpan</span>
+              <span className="hidden xs:inline">Simpan</span>
             </button>
 
             <button
               type="button"
               onClick={() => setIsDetailsDrawerOpen(true)}
-              className="h-11 px-4 bg-neutral-100 hover:bg-neutral-200 text-neutral-900 text-xs font-medium rounded-lg flex items-center justify-center gap-1.5 transition-colors"
+              className="h-11 px-3 bg-neutral-100 hover:bg-neutral-200 text-neutral-900 text-xs font-medium rounded-lg flex items-center justify-center gap-1 transition-colors shrink-0"
             >
               <ShoppingBag className="w-3.5 h-3.5" />
-              <span>Belanja ({slotEntries.length})</span>
+              <span>Beli ({slotEntries.length})</span>
             </button>
           </div>
         </div>

@@ -4,10 +4,13 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Menu, Search, ShoppingBag, Sun, House, Sparkles, Palette, BookOpen, Shirt, Wind, ChevronRight, ChevronLeft, ArrowRight, Check, X, Heart, ThermometerSun, Layers, Bookmark, User, Bell, CloudSun } from "lucide-react";
+import { Menu, Search, ShoppingBag, Sun, House, Sparkles, Palette, BookOpen, Shirt, Wind, ChevronRight, ChevronLeft, ArrowRight, Check, X, Heart, ThermometerSun, Layers, Bookmark, User, Bell, CloudSun, Camera } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWeather } from "@/hooks/useWeather";
 import BrandMarquee from "@/components/BrandMarquee";
+import VirtualTryOnModal from "@/components/VirtualTryOnModal";
+import { StudioItem } from "@/components/StudioView";
+import { resolveLookForStudio } from "@/lib/presets";
 
 
 
@@ -372,6 +375,70 @@ export default function LookUMobileView({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [personalColor, setPersonalColor] = useState<{ label: string; hex: string; undertone: string } | null>(null);
 
+  // Virtual Try-On Modal State on Mobile
+  const [isTryOnModalOpen, setIsTryOnModalOpen] = useState(false);
+  const [tryOnTargetOutfit, setTryOnTargetOutfit] = useState<MobileOutfit>(OUTFIT_HERO_LIST[0]);
+
+  const getStudioItemsForTryOn = (outfit: MobileOutfit): StudioItem[] => {
+    const resolved = resolveLookForStudio(outfit.studioParam || outfit.id);
+    if (resolved && resolved.outfit?.items && resolved.outfit.items.length > 0) {
+      return resolved.outfit.items.map((it, idx) => {
+        const rawPrice = parseInt((it.estimatedPrice || "99000").replace(/\D/g, ""), 10) || 99000;
+        return {
+          id: `${outfit.id}_${idx}`,
+          category: (it.category === "atasan" ? "top" : it.category === "bawahan" ? "bottom" : it.category === "sepatu" ? "shoes" : "outer") as "top" | "bottom" | "outer" | "shoes",
+          categoryLabel: it.category,
+          categoryOrder: idx + 1,
+          pinNumber: idx + 1,
+          brand: (it.brand as string) || "Brand Lokal",
+          dupeBrand: it.dupeBrand || "Shopee",
+          officialUrl: it.shopeeUrl || `https://shopee.co.id/search?keyword=${encodeURIComponent(it.shopeeQuery || it.name)}`,
+          officialPriceStr: it.estimatedPrice || "Rp 150.000",
+          name: it.name,
+          material: it.material || "Katun Rayon Adem",
+          breathability: 96,
+          colorName: it.color || "Harmonis",
+          colorHex: it.colorHex || "#C78E5F",
+          price: rawPrice,
+          priceStr: it.estimatedPrice || `Rp ${rawPrice.toLocaleString("id-ID")}`,
+          imageUrl: it.imageUrl || outfit.gambar,
+          shopeeQuery: it.shopeeQuery || it.name,
+          tokopediaQuery: it.tokopediaQuery || it.name,
+          note: it.material || "Serat sejuk 33°C",
+          gender: "unisex",
+          modest: true,
+          suitableWeather: ["hot", "mild"],
+        };
+      });
+    }
+
+    return outfit.itemPakaian.map((item, idx) => ({
+      id: `${outfit.id}_item_${idx}`,
+      category: idx === 0 ? "outer" : idx === 1 ? "top" : idx === 2 ? "bottom" : "shoes",
+      categoryLabel: item.kategori,
+      categoryOrder: idx + 1,
+      pinNumber: idx + 1,
+      brand: "Look.u Curated",
+      dupeBrand: "Shopee",
+      officialUrl: `https://shopee.co.id/search?keyword=${encodeURIComponent(item.nama)}`,
+      officialPriceStr: item.estimasiHarga,
+      name: item.nama,
+      material: item.bahan,
+      breathability: 96,
+      colorName: item.warna,
+      colorHex: item.warnaHex,
+      price: 99000,
+      priceStr: item.estimasiHarga,
+      imageUrl: outfit.gambar,
+      shopeeQuery: item.nama,
+      tokopediaQuery: item.nama,
+      note: item.keunggulanAdem,
+      gender: "unisex",
+      modest: true,
+      suitableWeather: ["hot", "mild"],
+    }));
+  };
+
   useEffect(() => {
     const syncColor = () => {
       try {
@@ -584,7 +651,23 @@ export default function LookUMobileView({
                 </div>
                 <div className="w-9" />
               </div>
-              <div className="flex flex-col px-6 py-8 gap-6 text-[#181A18]">
+              <div className="flex flex-col px-6 py-8 gap-5 text-[#181A18]">
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setTryOnTargetOutfit(heroOutfit);
+                    setIsTryOnModalOpen(true);
+                  }}
+                  className="text-left font-sans font-semibold tracking-widest uppercase text-sm text-terracotta-600 hover:text-charcoal-900 transition-colors flex items-center justify-between"
+                >
+                  <span className="flex items-center gap-2">
+                    <Camera className="w-4 h-4" />
+                    <span>Virtual Try-On Kamera</span>
+                  </span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-terracotta-50 text-terracotta-700 font-mono">
+                    3x Gratis
+                  </span>
+                </button>
                 <button onClick={() => { setIsMobileMenuOpen(false); router.push('/studio') }} className="text-left font-sans font-semibold tracking-widest uppercase text-sm hover:text-terracotta-500 transition-colors">Studio AI</button>
                 <button onClick={() => { setIsMobileMenuOpen(false); router.push('/lookbook') }} className="text-left font-sans font-semibold tracking-widest uppercase text-sm hover:text-terracotta-500 transition-colors">Lookbook</button>
                 <button onClick={() => { setIsMobileMenuOpen(false); router.push('/profile?tab=wardrobe') }} className="text-left font-sans font-semibold tracking-widest uppercase text-sm hover:text-terracotta-500 transition-colors">Wardrobe / Lemari</button>
@@ -637,8 +720,21 @@ export default function LookUMobileView({
               AI stylist yang memahami iklim tropis, warna kulitmu, dan gaya pribadimu.
             </p>
 
-            {/* 2 Tombol Aksi Utama Sesuai Referensi Gambar */}
+            {/* 3 Tombol Aksi Utama: Try-On Kamera, Racik OOTD, Tes Warna */}
             <div className="flex flex-col gap-2.5 w-full">
+              <button
+                type="button"
+                onClick={() => {
+                  setTryOnTargetOutfit(heroOutfit);
+                  setIsTryOnModalOpen(true);
+                }}
+                className="w-full h-12 bg-gradient-to-r from-terracotta-600 via-terracotta-700 to-terracotta-800 hover:from-terracotta-700 hover:to-terracotta-900 active:scale-[0.99] text-white text-sm font-semibold rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
+              >
+                <Camera className="w-4 h-4 text-amber-200" />
+                <span>Coba di Kamera (Virtual Try-On)</span>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/20 font-mono">3x Gratis</span>
+              </button>
+
               <button
                 type="button"
                 onClick={() => handleLaunchStudio(heroOutfit)}
@@ -747,6 +843,21 @@ export default function LookUMobileView({
                 >
                   <Heart className={`w-3.5 h-3.5 ${isSavedLocally ? "fill-[#181A18] text-[#181A18]" : "text-stone-700"}`} />
                 </button>
+
+                {/* Floating Try-On Pill Button on Hero Carousel */}
+                <button
+                  type="button"
+                  aria-label="Coba Baju Ini"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setTryOnTargetOutfit(heroOutfit);
+                    setIsTryOnModalOpen(true);
+                  }}
+                  className="absolute bottom-2.5 left-2.5 bg-neutral-900/90 hover:bg-terracotta-600 backdrop-blur-sm text-white px-3 py-1.5 text-[11px] font-semibold rounded-full shadow-md z-10 flex items-center gap-1.5 active:scale-95 transition-all"
+                >
+                  <Camera className="w-3.5 h-3.5 text-amber-300" />
+                  <span>Coba di Kamera (Try-On)</span>
+                </button>
               </div>
 
               {/* 4-Segment Live Progress Bar (Tap-to-Slide) */}
@@ -808,15 +919,29 @@ export default function LookUMobileView({
               </div>
             </div>
 
-            {/* Tombol Lihat Rincian Komponen */}
-            <button
-              type="button"
-              onClick={() => handleOpenOutfitDetails(heroOutfit)}
-              className="w-full h-10 border border-[#181A18]/20 bg-white/80 hover:bg-[#181A18] hover:text-white text-[#181A18] text-xs font-medium rounded-xl flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
-            >
-              <span>Lihat 4 Komponen & Rincian Bahan</span>
-              <span>↗</span>
-            </button>
+            {/* Tombol Aksi: Try-On Kamera & Rincian Komponen */}
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setTryOnTargetOutfit(heroOutfit);
+                  setIsTryOnModalOpen(true);
+                }}
+                className="h-10 bg-terracotta-600 hover:bg-terracotta-700 active:scale-95 text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-xs"
+              >
+                <Camera className="w-3.5 h-3.5 text-amber-200" />
+                <span>Try-On Kamera</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => handleOpenOutfitDetails(heroOutfit)}
+                className="h-10 border border-[#181A18]/20 bg-white/80 hover:bg-[#181A18] hover:text-white text-[#181A18] text-xs font-medium rounded-xl flex items-center justify-center gap-1 transition-colors shadow-2xs"
+              >
+                <span>4 Komponen</span>
+                <span>↗</span>
+              </button>
+            </div>
           </section>
 
           {/* 3. QUICK ACTION WIDGET (Gamified Personal Color)             */}
@@ -1144,24 +1269,40 @@ export default function LookUMobileView({
                   </div>
 
                   {/* Tombol Aksi di Lembar Bawah */}
-                  <div className="pt-3 grid grid-cols-2 gap-2.5">
+                  <div className="pt-3 space-y-2">
                     <button
                       type="button"
-                      onClick={() => handleToggleSaveOutfit(activeSheetOutfit)}
-                      className="py-3 px-4 rounded-2xl border border-sand-300 font-bold text-xs text-[#181A18] hover:bg-stone-50 flex items-center justify-center gap-1.5 min-h-[44px]"
+                      onClick={() => {
+                        setIsBottomSheetOpen(false);
+                        setTryOnTargetOutfit(activeSheetOutfit);
+                        setIsTryOnModalOpen(true);
+                      }}
+                      className="w-full py-3.5 px-4 rounded-2xl bg-terracotta-600 hover:bg-terracotta-700 active:scale-[0.98] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm min-h-[46px] transition-all"
                     >
-                      <Bookmark className="w-4 h-4" />
-                      <span>{isSavedLocally ? "Tersimpan" : "Simpan ke Lemari"}</span>
+                      <Camera className="w-4 h-4 text-amber-200" />
+                      <span>Coba di Kamera (Virtual Try-On AI)</span>
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/20 font-mono">3x Gratis</span>
                     </button>
 
-                    <button
-                      type="button"
-                      onClick={() => handleLaunchStudio(activeSheetOutfit)}
-                      className="py-3 px-4 rounded-2xl bg-sage-600 hover:bg-sage-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm min-h-[44px]"
-                    >
-                      <Sparkles className="w-4 h-4 text-cream-200" />
-                      <span>Racik di Studio AI</span>
-                    </button>
+                    <div className="grid grid-cols-2 gap-2.5">
+                      <button
+                        type="button"
+                        onClick={() => handleToggleSaveOutfit(activeSheetOutfit)}
+                        className="py-3 px-4 rounded-2xl border border-sand-300 font-bold text-xs text-[#181A18] hover:bg-stone-50 flex items-center justify-center gap-1.5 min-h-[44px]"
+                      >
+                        <Bookmark className="w-4 h-4" />
+                        <span>{isSavedLocally ? "Tersimpan" : "Simpan ke Lemari"}</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => handleLaunchStudio(activeSheetOutfit)}
+                        className="py-3 px-4 rounded-2xl bg-charcoal-900 hover:bg-black text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm min-h-[44px]"
+                      >
+                        <Sparkles className="w-4 h-4 text-cream-200" />
+                        <span>Racik di Studio AI</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -1169,6 +1310,15 @@ export default function LookUMobileView({
           )}
         </AnimatePresence>
 
+        {/* Modal Virtual Try-On Mobile */}
+        <VirtualTryOnModal
+          isOpen={isTryOnModalOpen}
+          onClose={() => setIsTryOnModalOpen(false)}
+          heroImage={tryOnTargetOutfit.gambar}
+          lookTitle={tryOnTargetOutfit.judul}
+          genderMode={tryOnTargetOutfit.subjudul.toLowerCase().includes("modest") ? "hijab" : "nonhijab"}
+          items={getStudioItemsForTryOn(tryOnTargetOutfit)}
+        />
       </div>
     </div>
   );

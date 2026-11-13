@@ -163,7 +163,7 @@ export default function VirtualTryOnModal({
     setCameraActive(false);
   }, []);
 
-  // Start WebRTC Stream
+  // Start WebRTC Stream with Multi-Tier Fallback for Mobile Devices
   const startCameraStream = useCallback(async () => {
     setCameraError(null);
     stopCameraStream();
@@ -174,23 +174,48 @@ export default function VirtualTryOnModal({
         );
         return;
       }
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: {
-          facingMode,
-          width: { ideal: 1080 },
-          height: { ideal: 1350 },
-        },
-        audio: false,
-      });
-      streamRef.current = stream;
-      setCameraActive(true);
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        await videoRef.current.play().catch(() => {});
+      
+      let stream: MediaStream | null = null;
+
+      // Tier 1: Ideal 4:5 portrait resolution
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({
+          video: {
+            facingMode: { ideal: facingMode },
+            width: { ideal: 1080 },
+            height: { ideal: 1350 },
+          },
+          audio: false,
+        });
+      } catch {
+        // Tier 2: Flexible mobile resolution
+        try {
+          stream = await navigator.mediaDevices.getUserMedia({
+            video: {
+              facingMode: { ideal: facingMode },
+            },
+            audio: false,
+          });
+        } catch {
+          // Tier 3: Permissive basic video stream
+          stream = await navigator.mediaDevices.getUserMedia({
+            video: true,
+            audio: false,
+          });
+        }
+      }
+
+      if (stream) {
+        streamRef.current = stream;
+        setCameraActive(true);
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+          await videoRef.current.play().catch(() => {});
+        }
       }
     } catch {
       setCameraError(
-        "Izin kamera belum diberikan atau perangkat tidak memiliki webcam. Anda tetap bisa memilih foto dari Galeri HP/Laptop!"
+        "Izin kamera belum diberikan atau perangkat tidak memiliki webcam aktif. Anda tetap bisa memilih foto dari Galeri HP/Laptop!"
       );
       setCameraActive(false);
     }
@@ -666,41 +691,41 @@ export default function VirtualTryOnModal({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-[80] flex items-center justify-center p-0 sm:p-4 bg-black/70 backdrop-blur-sm overflow-y-auto">
+      <div className="fixed inset-0 z-[100] flex items-center justify-center p-0 sm:p-4 bg-black/80 backdrop-blur-md overflow-hidden">
         <motion.div
           initial={{ opacity: 0, scale: 0.96, y: 16 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 16 }}
-          className="relative w-full max-w-4xl bg-[#FAF8F5] border border-neutral-200 sm:rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[100dvh] sm:max-h-[92vh]"
+          className="relative w-full max-w-4xl bg-[#FAF8F5] border-0 sm:border border-neutral-200 sm:rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[100dvh] sm:h-auto sm:max-h-[92vh]"
         >
           {/* =============================================================== */}
           {/* HEADER MODAL + QUOTA 3X/HARI BADGE                              */}
           {/* =============================================================== */}
-          <div className="px-4 sm:px-6 py-3.5 bg-white border-b border-neutral-200 flex items-center justify-between gap-3 shrink-0">
+          <div className="px-4 sm:px-6 py-3 sm:py-3.5 bg-white border-b border-neutral-200 flex items-center justify-between gap-2.5 shrink-0 pt-[max(12px,env(safe-area-inset-top))]">
             <div className="flex items-center gap-2.5 min-w-0">
               <div className="w-8 h-8 rounded-lg bg-neutral-900 text-white flex items-center justify-center shrink-0">
                 <Camera className="w-4 h-4" />
               </div>
               <div className="min-w-0">
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-terracotta-600 font-bold">
-                    GEMINI HYBRID TRY-ON
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider sm:tracking-widest text-terracotta-600 font-bold">
+                    GEMINI TRY-ON
                   </span>
                   <button
                     type="button"
                     onDoubleClick={handleResetQuotaForDemo}
                     title="Kuota Gratis 3x/hari (Klik 2x untuk reset saat demo pitching)"
-                    className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold border transition-colors ${
+                    className={`px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-mono font-semibold border transition-colors ${
                       remainingQuota > 0
                         ? "bg-emerald-50 text-emerald-800 border-emerald-200"
                         : "bg-amber-50 text-amber-800 border-amber-200"
                     }`}
                   >
-                    Kuota Hari Ini: {remainingQuota}/{MAX_DAILY_QUOTA}
+                    Kuota: {remainingQuota}/{MAX_DAILY_QUOTA}
                   </button>
                 </div>
-                <h3 className="text-sm sm:text-base font-serif font-medium text-neutral-900 truncate">
-                  Virtual Try-On Studio — {lookTitle}
+                <h3 className="text-xs sm:text-base font-serif font-medium text-neutral-900 truncate">
+                  {lookTitle}
                 </h3>
               </div>
             </div>
@@ -709,6 +734,7 @@ export default function VirtualTryOnModal({
               type="button"
               onClick={onClose}
               className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-700 flex items-center justify-center transition-colors shrink-0"
+              aria-label="Tutup Try-On"
             >
               <X className="w-4 h-4" />
             </button>
@@ -717,7 +743,7 @@ export default function VirtualTryOnModal({
           {/* =============================================================== */}
           {/* BODY CONTENT                                                    */}
           {/* =============================================================== */}
-          <div className="flex-1 overflow-y-auto p-4 sm:p-6">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-6 pb-[max(20px,env(safe-area-inset-bottom))]">
             {errorMessage && (
               <div className="mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs flex items-center gap-2">
                 <AlertCircle className="w-4 h-4 shrink-0 text-red-600" />
@@ -1054,19 +1080,21 @@ export default function VirtualTryOnModal({
                 {/* LEFT 6 COL: TRY-ON VISUAL CANVAS + MODE SWITCHER */}
                 <div className="lg:col-span-6 space-y-3">
                   {/* Visual Mode Switcher Tabs */}
-                  <div className="flex flex-wrap items-center gap-1.5 bg-white p-1.5 rounded-xl border border-neutral-200">
+                  <div className={`grid gap-1 bg-white p-1 rounded-xl border border-neutral-200 ${
+                    aiGeneratedImage ? "grid-cols-4" : "grid-cols-3"
+                  }`}>
                     {aiGeneratedImage && (
                       <button
                         type="button"
                         onClick={() => setVisualMode("ai_native")}
-                        className={`flex-1 py-1.5 px-2.5 rounded-lg text-[11px] font-medium flex items-center justify-center gap-1 transition-all ${
+                        className={`py-1.5 px-1 rounded-lg text-[10px] sm:text-[11px] font-medium flex items-center justify-center gap-1 transition-all ${
                           visualMode === "ai_native"
                             ? "bg-neutral-900 text-white shadow-2xs"
                             : "text-neutral-600 hover:bg-neutral-100"
                         }`}
                       >
-                        <Sparkles className="w-3 h-3" />
-                        <span>AI Render</span>
+                        <Sparkles className="w-3 h-3 shrink-0" />
+                        <span className="truncate">AI Render</span>
                       </button>
                     )}
 
@@ -1078,14 +1106,14 @@ export default function VirtualTryOnModal({
                         setOffsetY(0);
                         setScaleAdjust(1.0);
                       }}
-                      className={`flex-1 py-1.5 px-2.5 rounded-lg text-[11px] font-medium flex items-center justify-center gap-1 transition-all ${
+                      className={`py-1.5 px-1 rounded-lg text-[10px] sm:text-[11px] font-medium flex items-center justify-center gap-1 transition-all ${
                         visualMode === "cosplay"
                           ? "bg-neutral-900 text-white shadow-2xs"
                           : "text-neutral-600 hover:bg-neutral-100"
                       }`}
                     >
-                      <UserCheck className="w-3 h-3" />
-                      <span>Cosplay Fit</span>
+                      <UserCheck className="w-3 h-3 shrink-0" />
+                      <span className="truncate">Cosplay</span>
                     </button>
 
                     <button
@@ -1096,27 +1124,27 @@ export default function VirtualTryOnModal({
                         setOffsetY(0);
                         setScaleAdjust(1.0);
                       }}
-                      className={`flex-1 py-1.5 px-2.5 rounded-lg text-[11px] font-medium flex items-center justify-center gap-1 transition-all ${
+                      className={`py-1.5 px-1 rounded-lg text-[10px] sm:text-[11px] font-medium flex items-center justify-center gap-1 transition-all ${
                         visualMode === "garment_overlay"
                           ? "bg-neutral-900 text-white shadow-2xs"
                           : "text-neutral-600 hover:bg-neutral-100"
                       }`}
                     >
-                      <Layers className="w-3 h-3" />
-                      <span>Overlay Baju</span>
+                      <Layers className="w-3 h-3 shrink-0" />
+                      <span className="truncate">Overlay Baju</span>
                     </button>
 
                     <button
                       type="button"
                       onClick={() => setVisualMode("side_by_side")}
-                      className={`flex-1 py-1.5 px-2.5 rounded-lg text-[11px] font-medium flex items-center justify-center gap-1 transition-all ${
+                      className={`py-1.5 px-1 rounded-lg text-[10px] sm:text-[11px] font-medium flex items-center justify-center gap-1 transition-all ${
                         visualMode === "side_by_side"
                           ? "bg-neutral-900 text-white shadow-2xs"
                           : "text-neutral-600 hover:bg-neutral-100"
                       }`}
                     >
-                      <Columns className="w-3 h-3" />
-                      <span>Bandingkan</span>
+                      <Columns className="w-3 h-3 shrink-0" />
+                      <span className="truncate">Bandingkan</span>
                     </button>
                   </div>
 
